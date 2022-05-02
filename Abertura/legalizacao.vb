@@ -1873,7 +1873,7 @@ CPF =
 
                     FrmMail.MdiParent = MDIPrincipal
                     FrmMail.Show()
-
+                    FrmMail.Focus()
 
 
                     'abrir a automação
@@ -1883,6 +1883,7 @@ CPF =
 
                     FrmMail.MdiParent = MDIPrincipal
                     FrmMail.Show()
+                    FrmMail.Focus()
                     ModeMail.Enviaremaillegalizao()
 
                 End If
@@ -1898,6 +1899,7 @@ CPF =
             FrmMail.MdiParent = MDIPrincipal
             ' WebAgenda.WindowState = FormWindowState.Maximized
             FrmMail.Show()
+            FrmMail.Focus()
 
 
         Else
@@ -1905,6 +1907,7 @@ CPF =
             FrmMail.MdiParent = MDIPrincipal
             ' WebAgenda.WindowState = FormWindowState.Maximized
             FrmMail.Show()
+            FrmMail.Focus()
 
         End If
     End Sub

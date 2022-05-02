@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net.Mail
 
-
 Public Class FrmMail
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -18,11 +17,7 @@ Public Class FrmMail
         ProgressBar1.BackColor = Color.Green
 
 
-
-
     End Sub
-
-
 
 
 
@@ -192,11 +187,14 @@ Public Class FrmMail
         If Application.OpenForms.OfType(Of FrmEmailCaixaDeSaida)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+            'amostrar como html o FrmEmailCaixaDeSaida.CaixaDeSaidaTextoRichTextBox
 
             FrmEmailCaixaDeSaida.Focus()
             'FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.SelectedCells.Item(0).Value.ToString
             FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.CurrentRow.Cells(0).Value.ToString()
             FrmEmailCaixaDeSaida.ComboBoxBusca.Focus()
+
+
         Else
 
             FrmEmailCaixaDeSaida.MdiParent = MDIPrincipal
@@ -395,9 +393,6 @@ Public Class FrmMail
             MsgBox(error_t.ToString)
         End Try
     End Sub
-
-
-
 
 
 End Class

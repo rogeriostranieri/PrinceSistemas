@@ -137,7 +137,6 @@ Partial Class FrmAnotacoes
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(698, 36)
         Me.ToolStrip1.TabIndex = 11
-        Me.ToolStrip1.Text = "ToolStrip1"
         '
         'cbofonte
         '
