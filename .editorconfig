@@ -1,0 +1,7 @@
+﻿[*.vb]
+
+# BC42104: A variável é usada antes de receber um valor
+dotnet_diagnostic.BC42104.severity = none
+
+# IDE0067: Descartar objetos antes de perder o escopo
+dotnet_diagnostic.IDE0067.severity = none

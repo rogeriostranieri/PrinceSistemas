@@ -1,0 +1,4 @@
+﻿
+Para fazer
+
+1 - criar updade de wallpaper alteravel do sistema, evitando registro de banco de dados, apenas localizar imagem de uma pasta

@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2420F372-6E1D-4218-92F7-39F91D50C1B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PrinceSistemas.My.MyApplication</StartupObject>
+    <RootNamespace>PrinceSistemas</RootNamespace>
+    <AssemblyName>PrinceSistemas</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PrinceSistemas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PrinceSistemas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Tribal_Phoenix__6.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
+      <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administração Controle\FrmControleEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\BoxConsultaCNPJEmpresa.Designer.vb">
+      <DependentUpon>BoxConsultaCNPJEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\BoxConsultaCNPJEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\ClassDataBox.vb" />
+    <Compile Include="Abertura\Administracao\FrmEmpresaAltStatus.Designer.vb">
+      <DependentUpon>FrmEmpresaAltStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Administracao\FrmEmpresaAltStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\FrmEmpresaEmAndamento.Designer.vb">
+      <DependentUpon>FrmEmpresaEmAndamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmEmpresaEmAndamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\FrmEventos.Designer.vb">
+      <DependentUpon>FrmEventos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmEventos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\FrmProtocolados.Designer.vb">
+      <DependentUpon>FrmProtocolados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmProtocolados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\FrmTeste.Designer.vb">
+      <DependentUpon>FrmTeste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmTeste.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\MudaCorTexto.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.vb">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adm\FrmAdmPrincipal.Designer.vb">
+      <DependentUpon>FrmAdmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\FrmAdmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adm\ModADMUser.vb" />
+    <Compile Include="adm\UserADM.Designer.vb">
+      <DependentUpon>UserADM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\UserADM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adm\UserAltDados.Designer.vb">
+      <DependentUpon>UserAltDados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\UserAltDados.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="adm\UserAltSenha.Designer.vb">
+      <DependentUpon>UserAltSenha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\UserAltSenha.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="adm\UserDel.Designer.vb">
+      <DependentUpon>UserDel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\UserDel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="adm\UserNovo.Designer.vb">
+      <DependentUpon>UserNovo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adm\UserNovo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Anotacoes\FrmAnotacoes.Designer.vb">
+      <DependentUpon>FrmAnotacoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Anotacoes\FrmAnotacoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anotacoes\FrmBuscaAnotacoes.Designer.vb">
+      <DependentUpon>FrmBuscaAnotacoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Anotacoes\FrmBuscaAnotacoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscadores\BuscaNomeSocio.Designer.vb">
+      <DependentUpon>BuscaNomeSocio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\BuscaNomeSocio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscadores\FrmAtalhoBuscadores.Designer.vb">
+      <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\FrmAtalhoBuscadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscadores\FrmBuscaEmpresas.Designer.vb">
+      <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
+      <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="eMail\FrmEmailCaixaDeSaida.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eMail\FrmMail.Designer.vb">
+      <DependentUpon>FrmMail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="eMail\FrmMail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Federal\FrmProcuracao.Designer.vb">
+      <DependentUpon>FrmProcuracao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Federal\FrmProcuracao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.Designer.vb">
+      <DependentUpon>FrmControleSituacaoAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\BoxConsultaCNPJLaudo.Designer.vb">
+      <DependentUpon>BoxConsultaCNPJLaudo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\BoxConsultaCNPJLaudo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\Cidades\Maringa-PR\FrmWebLaudoAntigo.Designer.vb">
+      <DependentUpon>FrmWebLaudoAntigo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Cidades\Maringa-PR\FrmWebLaudoAntigo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\FrmBombeiro.Designer.vb">
+      <DependentUpon>FrmBombeiro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\FrmBombeiro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\FrmLigacaoAlvara.Designer.vb">
+      <DependentUpon>FrmLigacaoAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\FrmLigacaoAlvara.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\ModCPFeCNPJ.vb" />
+    <Compile Include="Modulo\LoadingForm.Designer.vb">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo\LoadingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\ModBacRest.vb" />
+    <Compile Include="Modulo\ModCombobox.vb" />
+    <Compile Include="Modulo\ModeMail.vb" />
+    <Compile Include="Modulo\ModTexto.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Procedimento\FrmProcedimentos.Designer.vb">
+      <DependentUpon>FrmProcedimentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procedimento\FrmProcedimentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navegadores\Agenda\WebAgenda.Designer.vb">
+      <DependentUpon>WebAgenda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores\Agenda\WebAgenda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Avisos.Designer.vb">
+      <DependentUpon>Avisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Avisos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupERestore.Designer.vb">
+      <DependentUpon>BackupERestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackupERestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navegadores\ConsultaCNPJ.Designer.vb">
+      <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores\ConsultaCNPJ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connected Services\WSCorreios\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Contador\Contador.Designer.vb">
+      <DependentUpon>Contador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Contador\Contador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\LaudosCadastro.Designer.vb">
+      <DependentUpon>LaudosCadastro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\LaudosCadastro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\legalizacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\legalizacao.Designer.vb">
+      <DependentUpon>legalizacao.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\FrmAlvara.Designer.vb">
+      <DependentUpon>FrmAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\FrmAlvara.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\LaudosPendentes.Designer.vb">
+      <DependentUpon>LaudosPendentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\LaudosPendentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\VencimentoAlvara.Designer.vb">
+      <DependentUpon>VencimentoAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\VencimentoAlvara.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LembreteInicial.Designer.vb">
+      <DependentUpon>LembreteInicial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LembreteInicial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIPrincipal.Designer.vb">
+      <DependentUpon>MDIPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDIPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\FrmCarregando.Designer.vb">
+      <DependentUpon>FrmCarregando.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo\FrmCarregando.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\ModCon.vb" />
+    <Compile Include="Modulo\ModData.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Navegadores\BuscaCNAE.Designer.vb">
+      <DependentUpon>BuscaCNAE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores\BuscaCNAE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrinceDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinceDBDataSet.vb">
+      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrioridadeAviso.Designer.vb">
+      <DependentUpon>PrioridadeAviso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrioridadeAviso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\FrmRelSimples.Designer.vb">
+      <DependentUpon>FrmRelSimples.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\FrmRelSimples.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioEmpresas.Designer.vb">
+      <DependentUpon>RelatorioEmpresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioLaudos.Designer.vb">
+      <DependentUpon>RelatorioLaudos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioLaudos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelacaoAlvaraProtocolado.Designer.vb">
+      <DependentUpon>RelacaoAlvaraProtocolado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelacaoAlvaraProtocolado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelEmpresasDatas.Designer.vb">
+      <DependentUpon>RelEmpresasDatas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelEmpresasDatas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RlTipoEmpresa.Designer.vb">
+      <DependentUpon>RlTipoEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RlTipoEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telefones\FrmContatos.designer.vb">
+      <DependentUpon>FrmContatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Telefones\FrmContatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telefones\Telefones.designer.vb">
+      <DependentUpon>Telefones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Telefones\Telefones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VbAvisoPrincipal.Designer.vb">
+      <DependentUpon>VbAvisoPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VbAvisoPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
+      <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Administracao\FrmEmpresaAltStatus.resx">
+      <DependentUpon>FrmEmpresaAltStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\BoxConsultaCNPJEmpresa.resx">
+      <DependentUpon>BoxConsultaCNPJEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmEmpresaEmAndamento.resx">
+      <DependentUpon>FrmEmpresaEmAndamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmEventos.resx">
+      <DependentUpon>FrmEventos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmProtocolados.resx">
+      <DependentUpon>FrmProtocolados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmTeste.resx">
+      <DependentUpon>FrmTeste.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\FrmAdmPrincipal.resx">
+      <DependentUpon>FrmAdmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\UserADM.resx">
+      <DependentUpon>UserADM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\UserAltDados.resx">
+      <DependentUpon>UserAltDados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\UserAltSenha.resx">
+      <DependentUpon>UserAltSenha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\UserDel.resx">
+      <DependentUpon>UserDel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm\UserNovo.resx">
+      <DependentUpon>UserNovo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anotacoes\FrmAnotacoes.resx">
+      <DependentUpon>FrmAnotacoes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anotacoes\FrmBuscaAnotacoes.resx">
+      <DependentUpon>FrmBuscaAnotacoes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\BuscaNomeSocio.resx">
+      <DependentUpon>BuscaNomeSocio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\FrmAtalhoBuscadores.resx">
+      <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
+      <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
+      <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eMail\FrmMail.resx">
+      <DependentUpon>FrmMail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Federal\FrmProcuracao.resx">
+      <DependentUpon>FrmProcuracao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Administracao\FrmControleSituacaoAlvara.resx">
+      <DependentUpon>FrmControleSituacaoAlvara.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\BoxConsultaCNPJLaudo.resx">
+      <DependentUpon>BoxConsultaCNPJLaudo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Cidades\Maringa-PR\FrmWebLaudoAntigo.resx">
+      <DependentUpon>FrmWebLaudoAntigo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\FrmBombeiro.resx">
+      <DependentUpon>FrmBombeiro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\FrmLigacaoAlvara.resx">
+      <DependentUpon>FrmLigacaoAlvara.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo\LoadingForm.resx">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
+      <DependentUpon>FrmProcedimentos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores\Agenda\WebAgenda.resx">
+      <DependentUpon>WebAgenda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avisos.resx">
+      <DependentUpon>Avisos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupERestore.resx">
+      <DependentUpon>BackupERestore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores\ConsultaCNPJ.resx">
+      <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contador\Contador.resx">
+      <DependentUpon>Contador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\LaudosCadastro.resx">
+      <DependentUpon>LaudosCadastro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\legalizacao.resx">
+      <DependentUpon>legalizacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\FrmAlvara.resx">
+      <DependentUpon>FrmAlvara.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\LaudosPendentes.resx">
+      <DependentUpon>LaudosPendentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\VencimentoAlvara.resx">
+      <DependentUpon>VencimentoAlvara.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LembreteInicial.resx">
+      <DependentUpon>LembreteInicial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIPrincipal.resx">
+      <DependentUpon>MDIPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo\FrmCarregando.resx">
+      <DependentUpon>FrmCarregando.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores\BuscaCNAE.resx">
+      <DependentUpon>BuscaCNAE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrioridadeAviso.resx">
+      <DependentUpon>PrioridadeAviso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\FrmRelSimples.resx">
+      <DependentUpon>FrmRelSimples.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioEmpresas.resx">
+      <DependentUpon>RelatorioEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioLaudos.resx">
+      <DependentUpon>RelatorioLaudos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelacaoAlvaraProtocolado.resx">
+      <DependentUpon>RelacaoAlvaraProtocolado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelEmpresasDatas.resx">
+      <DependentUpon>RelEmpresasDatas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RlTipoEmpresa.resx">
+      <DependentUpon>RlTipoEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telefones\FrmContatos.resx">
+      <DependentUpon>FrmContatos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telefones\Telefones.resx">
+      <DependentUpon>Telefones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VbAvisoPrincipal.resx">
+      <DependentUpon>VbAvisoPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="Connected Services\WSCorreios\AtendeClienteService.wsdl" />
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.atualizaPagamentoNaEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.atualizaRemessaAgrupadaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.bloquearObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaContratoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaDataAtualResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaPagamentoEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosAdicionaisAtivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosValorDeclaradoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosXServicosAdicionaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaTarifaValeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.calculaTarifaServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.cancelarObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.cancelarPedidoScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.clienteERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaCEPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaSROResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaSRO_NEWResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.contratoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.embalagemLRSMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.enderecoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.fechaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.fechaPlpVariosServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.geraDigitoVerificadorEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.getStatusCartaoPostagemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.getStatusPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.integrarUsuarioScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.obterClienteAtualizacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.obterEmbalagemLRSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.retornoCancelamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.servicoAdicionalXML.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.servicoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitarPostagemScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaXmlPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.statusCartao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.statusPlp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.valePostal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validaEtiquetaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validarPostagemReversaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validarPostagemSimultaneaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.verificaDisponibilidadeServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.VerificaSeTodosObjetosCanceladosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="PrinceDBDataSet.xsc">
+      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrinceDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinceDBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinceDBDataSet.xss">
+      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WSCorreios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WSCorreios\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WSCorreios\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WSCorreios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1983-aviso importante.png" />
+    <None Include="Resources\bn-suporte.png" />
+    <None Include="Resources\letter x.ico" />
+    <None Include="Resources\logo_300 - Cópia.png" />
+    <None Include="Resources\logo_300.png" />
+    <None Include="Resources\sair.png" />
+    <None Include="Resources\seta_download.png" />
+    <None Include="Resources\suporte.png" />
+    <None Include="Resources\Xcode_icon.png" />
+    <None Include="Resources\Area_de_Membros.png" />
+    <None Include="Resources\backup-restore-icon.png" />
+    <None Include="Resources\V.png" />
+    <None Include="Resources\Cancel.png" />
+    <None Include="Resources\logo_receita.jpeg" />
+    <None Include="Resources\RF.png" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\site-receita-estadual-pr.jpg" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\empresa-facil.png" />
+    <None Include="Resources\logo-simples-nacional-810x455.jpg" />
+    <None Include="Resources\redeSim.Divulgação.png" />
+    <None Include="Resources\RedeSim.jpg" />
+    <None Include="Resources\governo2019_400x173px.png" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\emandamento.png" />
+    <None Include="Resources\pagamento.png" />
+    <None Include="Resources\alvara.jpg" />
+    <None Include="Resources\alvara.png" />
+    <None Include="Resources\alvara3.jpg" />
+    <None Include="Resources\alvara2.png" />
+    <None Include="Resources\laudos.png" />
+    <None Include="Resources\Fundo.png" />
+    <None Include="Resources\Button-PNG-Picture.png" />
+    <None Include="Resources\fundorobo.png" />
+    <None Include="Resources\bg.jpg" />
+    <None Include="Resources\fundo-azul.png" />
+    <None Include="Resources\menu-fundo.png" />
+    <None Include="Resources\Empresas.png" />
+    <None Include="Resources\avisoimportante.png" />
+    <None Include="Resources\fundo-preto-vermelho-metalico-abstrato-com-listras-de-contraste_71775-793.jpg" />
+    <None Include="Resources\fundo-preto-vermelho-metalico-abstrato_71775-741.jpg" />
+    <None Include="Resources\fundo1.jpg" />
+    <None Include="Resources\fundo4.jpg" />
+    <None Include="Resources\fundo5.jpg" />
+    <None Include="Resources\fechar2.png" />
+    <None Include="Resources\Fundopuro.png" />
+    <None Include="Resources\ABERTURA-DE-EMPRESA3.png" />
+    <None Include="Resources\laudos1.png" />
+    <None Include="Resources\dadoscadastrais.png" />
+    <None Include="Resources\dadoscadastrais1.png" />
+    <None Include="Resources\fenix.png" />
+    <None Include="Resources\FenixJap.jpg" />
+    <None Include="Resources\Prince Sistemas.png" />
+    <None Include="Resources\Prince Sistemas1.png" />
+    <None Include="Resources\Prince Sistemas2.png" />
+    <None Include="Resources\Prince Sistemas3.png" />
+    <None Include="Resources\fechadaempresa.jpg" />
+    <None Include="Resources\aguarde_carregando.gif" />
+    <None Include="Resources\carregando2.gif" />
+    <None Include="Resources\carregando.gif" />
+    <None Include="Resources\carregar.gif" />
+    <None Include="Resources\ring64.gif" />
+    <None Include="Resources\sky.png" />
+    <None Include="Resources\noite.jpg" />
+    <None Include="Resources\backupfundo.jpg" />
+    <None Include="Resources\Backup.png" />
+    <None Include="Resources\Contador.png" />
+    <None Include="Resources\Contador1.png" />
+    <None Include="Resources\aviso-importante-png-5.png" />
+    <None Include="Resources\protocolo.png" />
+    <None Include="Resources\FundoNovo.png" />
+    <None Include="Resources\AvisoFundo.jpg" />
+    <None Include="Resources\refresh-512.png" />
+    <None Include="Resources\madeira.jpg" />
+    <None Include="Resources\BotaoVerde.png" />
+    <None Include="Resources\BotaoVermelho.png" />
+    <None Include="Resources\lembrete.png" />
+    <None Include="Resources\prioridade.png" />
+    <None Include="Resources\prioridade1.png" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\login.jpg" />
+    <None Include="Resources\aviso.jpg" />
+    <None Include="Resources\email.png" />
+    <Content Include="Atualizacao.txt" />
+    <Content Include="Tribal_Phoenix__6.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Consulta CNPJ\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
