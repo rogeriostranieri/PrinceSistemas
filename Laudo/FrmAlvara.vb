@@ -1055,4 +1055,33 @@
             MsgBox("Can't load Web page" & vbCrLf & ex.Message)
         End Try
     End Sub
+
+    Private Sub BtnAnotacoesLEgalizacao_Click(sender As Object, e As EventArgs) Handles BtnAnotacoesLEgalizacao.Click
+        If Application.OpenForms.OfType(Of FrmAnotacoes)().Count() > 0 Then
+
+            FrmAnotacoes.Focus()
+            FrmAnotacoes.Close()
+            FrmAnotacoes.MdiParent = MDIPrincipal
+            FrmAnotacoes.Show()
+            FrmAnotacoes.Focus()
+
+        Else
+
+            FrmAnotacoes.MdiParent = MDIPrincipal
+            FrmAnotacoes.Show()
+            FrmAnotacoes.Focus()
+
+        End If
+
+        Try
+            FrmAnotacoes.RichTextBoxAnotacao.Visible = True
+            FrmAnotacoes.lblMudaTexto.Visible = True
+
+            FrmAnotacoes.lblMudaTexto.Text = "Legalização"
+            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Clear()
+            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", FrmAnotacoes.AnotacoesBindingSource, "Legalizacao"))
+        Catch ex As Exception
+            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+        End Try
+    End Sub
 End Class

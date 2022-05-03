@@ -1944,7 +1944,7 @@ CPF =
 
             FrmAnotacoes.MdiParent = MDIPrincipal
             FrmAnotacoes.Show()
-
+            FrmAnotacoes.Focus()
         End If
 
         Try
@@ -1972,7 +1972,7 @@ CPF =
 
             FrmAnotacoes.MdiParent = MDIPrincipal
             FrmAnotacoes.Show()
-
+            FrmAnotacoes.Focus()
         End If
 
         Try
@@ -2000,7 +2000,7 @@ CPF =
 
             FrmAnotacoes.MdiParent = MDIPrincipal
             FrmAnotacoes.Show()
-
+            FrmAnotacoes.Focus()
         End If
 
         Try
@@ -2028,7 +2028,7 @@ CPF =
 
             FrmAnotacoes.MdiParent = MDIPrincipal
             FrmAnotacoes.Show()
-
+            FrmAnotacoes.Focus()
         End If
 
         Try
@@ -2056,7 +2056,7 @@ CPF =
 
             FrmAnotacoes.MdiParent = MDIPrincipal
             FrmAnotacoes.Show()
-
+            FrmAnotacoes.Focus()
         End If
         Try
             FrmAnotacoes.RichTextBoxAnotacao.Visible = True
@@ -2085,73 +2085,75 @@ CPF =
 
 
     Private Sub BtnSalvarDoc_Click(sender As Object, e As EventArgs) Handles BtnSalvarDoc.Click
-
-        'procurar e salvar no banco de dados DocContratos varbinary aray    
-        Dim dialogo As New OpenFileDialog With {
+        If MsgBox("Deseja anexar o documento?", MsgBoxStyle.YesNo, "Salvar Anexo") = MsgBoxResult.Yes Then
+            'procurar e salvar no banco de dados DocContratos varbinary aray    
+            Dim dialogo As New OpenFileDialog With {
             .Filter = "Arquivos de Texto (*.doc, *.docx)|*.doc;*.docx",
             .Title = "Selecione o arquivo de texto",
             .InitialDirectory = "C:\"
         }
-        dialogo.ShowDialog()
-        'DocContratosLinkLabel.Text = dialogo.FileName
-        'salvar no banco de dados SQL SERVER Banco Empresas varbinary aray
-        Try
-            conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-            'tabela empresas e coluna DocContratos por razao social
-            comando = New SqlCommand("UPDATE Empresas SET DocContratos = @DocContratos WHERE RazaoSocial = @RazaoSocial", conexao)
-            comando.Parameters.Add("@DocContratos", SqlDbType.VarBinary).Value = File.ReadAllBytes(dialogo.FileName)
-            comando.Parameters.Add("@RazaoSocial", SqlDbType.VarChar).Value = RazaoSocialTextBox.Text
-            conexao.Open()
-            comando.ExecuteNonQuery()
-            conexao.Close()
-            MsgBox("Documento salvo com sucesso!")
-            DocContratosLinkLabel.Text = "Contrato Anexado"
-        Catch ex As Exception
-            MsgBox("Erro! " & vbCrLf & ex.Message)
-            DocContratosLinkLabel.Text = ""
-        End Try
-
+            dialogo.ShowDialog()
+            'DocContratosLinkLabel.Text = dialogo.FileName
+            'salvar no banco de dados SQL SERVER Banco Empresas varbinary aray
+            Try
+                conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                'tabela empresas e coluna DocContratos por razao social
+                comando = New SqlCommand("UPDATE Empresas SET DocContratos = @DocContratos WHERE RazaoSocial = @RazaoSocial", conexao)
+                comando.Parameters.Add("@DocContratos", SqlDbType.VarBinary).Value = File.ReadAllBytes(dialogo.FileName)
+                comando.Parameters.Add("@RazaoSocial", SqlDbType.VarChar).Value = RazaoSocialTextBox.Text
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                MsgBox("Documento salvo com sucesso!")
+                DocContratosLinkLabel.Text = "Contrato Anexado"
+            Catch ex As Exception
+                MsgBox("Erro! " & vbCrLf & ex.Message)
+                ' DocContratosLinkLabel.Text = ""
+            End Try
+        End If
     End Sub
 
 
     Private Sub AbrirAnexo()
         'save a file in .docx format, which was saved as VarBinary, in the database table companies and column DocContratos for corporate reasons
+        If MsgBox("Deseja abrir o documento anexado?", MsgBoxStyle.YesNo, "Abrir Anexo") = MsgBoxResult.Yes Then
+            Try
+                conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                comando = New SqlCommand("SELECT DocContratos FROM Empresas WHERE RazaoSocial = @RazaoSocial", conexao)
+                comando.Parameters.Add("@RazaoSocial", SqlDbType.VarChar).Value = RazaoSocialTextBox.Text
+                conexao.Open()
+                'SqlDataReader
 
-        Try
-            conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-            comando = New SqlCommand("SELECT DocContratos FROM Empresas WHERE RazaoSocial = @RazaoSocial", conexao)
-            comando.Parameters.Add("@RazaoSocial", SqlDbType.VarChar).Value = RazaoSocialTextBox.Text
-            conexao.Open()
-            'SqlDataReader
+                dr = comando.ExecuteReader
+                If dr.Read Then
 
-            dr = comando.ExecuteReader
-            If dr.Read Then
-
-                Dim doc As Byte() = DirectCast(dr("DocContratos"), Byte())
-                'opendialog  para salvar o arquivo FileStream do banco de dados
-                'mudar local de salvamento do doc
-                Dim saveFileDialog1 As New SaveFileDialog With {
-                    .Filter = "Arquivos de Texto (*.doc, *.docx)|*.doc;*.docx",
-                    .Title = "Salvar Arquivo de Texto"
-                }
-                saveFileDialog1.ShowDialog()
-                Dim fs As New FileStream(saveFileDialog1.FileName, FileMode.Create)
-                'escreve o arquivo no banco de dados
-                fs.Write(doc, 0, doc.Length)
-                'fecha o arquivo
-                fs.Close()
-                'perguntas antes de abrir o arquivo
-                Dim result As DialogResult = MessageBox.Show("Deseja abrir o arquivo?", "Abrir Arquivo", MessageBoxButtons.YesNo)
-                If result = DialogResult.Yes Then
-                    Process.Start(saveFileDialog1.FileName)
+                    Dim doc As Byte() = DirectCast(dr("DocContratos"), Byte())
+                    'opendialog  para salvar o arquivo FileStream do banco de dados
+                    'mudar local de salvamento do doc
+                    Dim saveFileDialog1 As New SaveFileDialog With {
+                        .Filter = "Arquivos de Texto (*.doc, *.docx)|*.doc;*.docx",
+                        .Title = "Salvar Arquivo de Texto"
+                    }
+                    saveFileDialog1.ShowDialog()
+                    Dim fs As New FileStream(saveFileDialog1.FileName, FileMode.Create)
+                    'escreve o arquivo no banco de dados
+                    fs.Write(doc, 0, doc.Length)
+                    'fecha o arquivo
+                    fs.Close()
+                    'perguntas antes de abrir o arquivo
+                    Dim result As DialogResult = MessageBox.Show("Deseja abrir o arquivo?", "Abrir Arquivo", MessageBoxButtons.YesNo)
+                    If result = DialogResult.Yes Then
+                        Process.Start(saveFileDialog1.FileName)
+                    End If
                 End If
-            End If
-            conexao.Close()
+                conexao.Close()
 
 
-        Catch ex As Exception
-            MsgBox("Erro! " & vbCrLf & ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox("Erro! " & vbCrLf & ex.Message)
+            End Try
+        End If
+
 
     End Sub
     Private Sub BtnAbrirDoc_Click(sender As Object, e As EventArgs) Handles BtnAbrirDoc.Click
@@ -2164,9 +2166,7 @@ CPF =
 
 
     Private Sub BtnApagaAnexo_Click(sender As Object, e As EventArgs) Handles BtnApagaAnexo.Click
-        'apagar DocContratos e
-        ''pergnuntar se deseja apagar
-        Dim result As DialogResult = MessageBox.Show("Deseja apagar o arquivo?", "Apagar Arquivo", MessageBoxButtons.YesNo)
+        Dim result As DialogResult = MessageBox.Show("Deseja apagar o anexo?", "Apagar Arquivo", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
             Try
                 conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
@@ -2176,7 +2176,7 @@ CPF =
                 comando.ExecuteNonQuery()
                 conexao.Close()
                 MsgBox("Documento apagado com sucesso!")
-                'DocContratosLinkLabel.Text = ""
+                DocContratosLinkLabel.Text = ""
             Catch ex As Exception
                 MsgBox("Erro! " & vbCrLf & ex.Message)
             End Try
@@ -2205,5 +2205,56 @@ CPF =
             'mostrar menssagem "A empresa atual não contém anexo?"
             MsgBox("A empresa atual não contém anexo!")
         End If
+    End Sub
+
+    Private Sub BtnArrumar_Click(sender As Object, e As EventArgs) Handles BtnArrumar.Click
+        'ArquivoContratoTextBox.Text = PastaDocumentosTextBox.Text
+
+        PastaDocumentosTextBox.Text = ArquivoContratoTextBox.Text
+
+        'PastaDocumentosTextBox apagar até o ultimo BARRA 
+        Dim i As Integer
+        For i = Len(PastaDocumentosTextBox.Text) To 1 Step -1
+            If Mid(PastaDocumentosTextBox.Text, i, 1) = "\" Then
+                PastaDocumentosTextBox.Text = Mid(PastaDocumentosTextBox.Text, 1, i)
+                Exit For
+            End If
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub BtnImportarAnexo_Click(sender As Object, e As EventArgs) Handles BtnImportarAnexo.Click
+        If MsgBox("Deseja importar o documento?", MsgBoxStyle.YesNo, "Importar Contrato") = MsgBoxResult.Yes Then
+
+            TabControl1.Focus()
+            TabControl1.SelectedIndex = 1
+
+            If ArquivoContratoTextBox.Text = "" Then
+                MsgBox("Erro! Campo do caminho do documento está vazio")
+            Else
+                Dim ArquivoContrato As String = ArquivoContratoTextBox.Text
+                'pega o ArquivoContrato e salva no banco de dados
+                Try
+                    conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                    comando = New SqlCommand("UPDATE Empresas SET DocContratos = @DocContratos WHERE RazaoSocial = @RazaoSocial", conexao)
+                    comando.Parameters.Add("@DocContratos", SqlDbType.VarBinary).Value = IO.File.ReadAllBytes(ArquivoContrato)
+                    comando.Parameters.Add("@RazaoSocial", SqlDbType.VarChar).Value = RazaoSocialTextBox.Text
+                    conexao.Open()
+                    comando.ExecuteNonQuery()
+                    conexao.Close()
+                    MsgBox("Documento importado com sucesso!")
+                    DocContratosLinkLabel.Text = "Contrato Anexado"
+                Catch ex As Exception
+                    MsgBox("Erro! " & vbCrLf & ex.Message)
+                    'DocContratosLinkLabel.Text = ""
+                End Try
+
+            End If
+
+        End If
+
     End Sub
 End Class

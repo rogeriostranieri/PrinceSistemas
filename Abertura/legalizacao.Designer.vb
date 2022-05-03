@@ -220,6 +220,7 @@ Partial Class Legalizacao
         Me.NRegistroAltTextBox = New System.Windows.Forms.TextBox()
         Me.DataRegistroAltMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.BtnArrumar = New System.Windows.Forms.Button()
         Me.Button41 = New System.Windows.Forms.Button()
         Me.Button40 = New System.Windows.Forms.Button()
         Me.Button31 = New System.Windows.Forms.Button()
@@ -229,6 +230,8 @@ Partial Class Legalizacao
         Me.ArquivoContratoTextBox = New System.Windows.Forms.TextBox()
         Me.Button38 = New System.Windows.Forms.Button()
         Me.TabPage20 = New System.Windows.Forms.TabPage()
+        Me.BtnImportarAnexo = New System.Windows.Forms.Button()
+        Me.AnexoBoxPicture = New System.Windows.Forms.PictureBox()
         Me.DocContratosLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.BtnApagaAnexo = New System.Windows.Forms.Button()
         Me.BtnAbrirDoc = New System.Windows.Forms.Button()
@@ -393,7 +396,6 @@ Partial Class Legalizacao
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
-        Me.AnexoBoxPicture = New System.Windows.Forms.PictureBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -502,6 +504,7 @@ Partial Class Legalizacao
         Me.GroupBox5.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         Me.TabPage20.SuspendLayout()
+        CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage11.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
@@ -528,7 +531,6 @@ Partial Class Legalizacao
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NomeFantasiaLabel
@@ -1622,7 +1624,7 @@ Partial Class Legalizacao
         Me.RespRgSiglaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespRgSigla", True))
         Me.RespRgSiglaTextBox.Location = New System.Drawing.Point(160, 100)
         Me.RespRgSiglaTextBox.Name = "RespRgSiglaTextBox"
-        Me.RespRgSiglaTextBox.Size = New System.Drawing.Size(43, 20)
+        Me.RespRgSiglaTextBox.Size = New System.Drawing.Size(64, 20)
         Me.RespRgSiglaTextBox.TabIndex = 64
         '
         'Button44
@@ -2441,6 +2443,7 @@ Partial Class Legalizacao
         '
         'TabPage8
         '
+        Me.TabPage8.Controls.Add(Me.BtnArrumar)
         Me.TabPage8.Controls.Add(Me.Button41)
         Me.TabPage8.Controls.Add(Me.Button40)
         Me.TabPage8.Controls.Add(ArquivoContratoLabel)
@@ -2458,6 +2461,16 @@ Partial Class Legalizacao
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Arquivos"
         Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'BtnArrumar
+        '
+        Me.BtnArrumar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnArrumar.Location = New System.Drawing.Point(213, 127)
+        Me.BtnArrumar.Name = "BtnArrumar"
+        Me.BtnArrumar.Size = New System.Drawing.Size(55, 23)
+        Me.BtnArrumar.TabIndex = 48
+        Me.BtnArrumar.Text = "Importar"
+        Me.BtnArrumar.UseVisualStyleBackColor = True
         '
         'Button41
         '
@@ -2538,6 +2551,7 @@ Partial Class Legalizacao
         'TabPage20
         '
         Me.TabPage20.AutoScroll = True
+        Me.TabPage20.Controls.Add(Me.BtnImportarAnexo)
         Me.TabPage20.Controls.Add(Me.AnexoBoxPicture)
         Me.TabPage20.Controls.Add(Me.DocContratosLinkLabel)
         Me.TabPage20.Controls.Add(Me.BtnApagaAnexo)
@@ -2550,6 +2564,24 @@ Partial Class Legalizacao
         Me.TabPage20.TabIndex = 3
         Me.TabPage20.Text = "Anexo"
         Me.TabPage20.UseVisualStyleBackColor = True
+        '
+        'BtnImportarAnexo
+        '
+        Me.BtnImportarAnexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportarAnexo.Location = New System.Drawing.Point(13, 124)
+        Me.BtnImportarAnexo.Name = "BtnImportarAnexo"
+        Me.BtnImportarAnexo.Size = New System.Drawing.Size(84, 23)
+        Me.BtnImportarAnexo.TabIndex = 60
+        Me.BtnImportarAnexo.Text = "Auto Importar"
+        Me.BtnImportarAnexo.UseVisualStyleBackColor = True
+        '
+        'AnexoBoxPicture
+        '
+        Me.AnexoBoxPicture.Location = New System.Drawing.Point(215, 3)
+        Me.AnexoBoxPicture.Name = "AnexoBoxPicture"
+        Me.AnexoBoxPicture.Size = New System.Drawing.Size(66, 40)
+        Me.AnexoBoxPicture.TabIndex = 59
+        Me.AnexoBoxPicture.TabStop = False
         '
         'DocContratosLinkLabel
         '
@@ -4305,14 +4337,6 @@ Partial Class Legalizacao
         '
         Me.CADstatusTableAdapter.ClearBeforeFill = True
         '
-        'AnexoBoxPicture
-        '
-        Me.AnexoBoxPicture.Location = New System.Drawing.Point(215, 3)
-        Me.AnexoBoxPicture.Name = "AnexoBoxPicture"
-        Me.AnexoBoxPicture.Size = New System.Drawing.Size(66, 40)
-        Me.AnexoBoxPicture.TabIndex = 59
-        Me.AnexoBoxPicture.TabStop = False
-        '
         'Legalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4377,6 +4401,7 @@ Partial Class Legalizacao
         Me.TabPage8.PerformLayout()
         Me.TabPage20.ResumeLayout(False)
         Me.TabPage20.PerformLayout()
+        CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage11.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -4417,7 +4442,6 @@ Partial Class Legalizacao
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4710,4 +4734,6 @@ Partial Class Legalizacao
     Friend WithEvents BtnApagaAnexo As Button
     Friend WithEvents DocContratosLinkLabel As LinkLabel
     Friend WithEvents AnexoBoxPicture As PictureBox
+    Friend WithEvents BtnArrumar As Button
+    Friend WithEvents BtnImportarAnexo As Button
 End Class

@@ -224,6 +224,7 @@ Partial Class FrmAlvara
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.BtnContLigacao = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnAnotacoesPref = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
@@ -264,7 +265,7 @@ Partial Class FrmAlvara
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.BtnAnotacoesPref = New System.Windows.Forms.Button()
+        Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
@@ -530,7 +531,7 @@ Partial Class FrmAlvara
         '
         ObservacaoLabel.AutoSize = True
         ObservacaoLabel.BackColor = System.Drawing.Color.Transparent
-        ObservacaoLabel.Location = New System.Drawing.Point(444, 9)
+        ObservacaoLabel.Location = New System.Drawing.Point(376, 9)
         ObservacaoLabel.Name = "ObservacaoLabel"
         ObservacaoLabel.Size = New System.Drawing.Size(68, 13)
         ObservacaoLabel.TabIndex = 73
@@ -1867,6 +1868,7 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
         Me.GroupBox4.Controls.Add(Me.BtnBombVer)
@@ -2431,6 +2433,19 @@ Partial Class FrmAlvara
         Me.TabPage14.Text = "Procedimento"
         Me.TabPage14.UseVisualStyleBackColor = True
         '
+        'BtnAnotacoesPref
+        '
+        Me.BtnAnotacoesPref.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.BtnAnotacoesPref.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPref.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAnotacoesPref.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesPref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAnotacoesPref.Location = New System.Drawing.Point(20, 99)
+        Me.BtnAnotacoesPref.Name = "BtnAnotacoesPref"
+        Me.BtnAnotacoesPref.Size = New System.Drawing.Size(155, 52)
+        Me.BtnAnotacoesPref.TabIndex = 42
+        Me.BtnAnotacoesPref.Text = "Anotações da Prefeitura em Geral"
+        Me.BtnAnotacoesPref.UseVisualStyleBackColor = False
+        '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -2558,7 +2573,7 @@ Partial Class FrmAlvara
         Me.TabPage16.Controls.Add(Me.HistoricoRichTextBox)
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Size = New System.Drawing.Size(813, 266)
+        Me.TabPage16.Size = New System.Drawing.Size(822, 266)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Histórico"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -2575,7 +2590,7 @@ Partial Class FrmAlvara
         'ObservacaoRichTextBox
         '
         Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
-        Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(447, 25)
+        Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
         Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
         Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(295, 94)
         Me.ObservacaoRichTextBox.TabIndex = 74
@@ -2887,18 +2902,16 @@ Partial Class FrmAlvara
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
-        'BtnAnotacoesPref
+        'BtnAnotacoesLEgalizacao
         '
-        Me.BtnAnotacoesPref.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.BtnAnotacoesPref.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPref.BackgroundImage"), System.Drawing.Image)
-        Me.BtnAnotacoesPref.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesPref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAnotacoesPref.Location = New System.Drawing.Point(20, 99)
-        Me.BtnAnotacoesPref.Name = "BtnAnotacoesPref"
-        Me.BtnAnotacoesPref.Size = New System.Drawing.Size(155, 52)
-        Me.BtnAnotacoesPref.TabIndex = 42
-        Me.BtnAnotacoesPref.Text = "Anotações da Prefeitura em Geral"
-        Me.BtnAnotacoesPref.UseVisualStyleBackColor = False
+        Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(680, 105)
+        Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
+        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesLEgalizacao.TabIndex = 80
+        Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
+        Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
@@ -3176,4 +3189,5 @@ Partial Class FrmAlvara
     Friend WithEvents CADSituacaoAlvaraBindingSource As BindingSource
     Friend WithEvents CADSituacaoAlvaraTableAdapter As PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter
     Friend WithEvents BtnAnotacoesPref As Button
+    Friend WithEvents BtnAnotacoesLEgalizacao As Button
 End Class
