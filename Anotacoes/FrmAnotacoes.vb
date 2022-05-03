@@ -311,7 +311,7 @@ Public Class FrmAnotacoes
 
 
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 
@@ -324,7 +324,7 @@ Public Class FrmAnotacoes
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Legalizacao"))
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 
@@ -337,7 +337,7 @@ Public Class FrmAnotacoes
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Federal"))
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 
@@ -350,7 +350,7 @@ Public Class FrmAnotacoes
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Estadual"))
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 
@@ -363,7 +363,7 @@ Public Class FrmAnotacoes
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Municipal"))
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 

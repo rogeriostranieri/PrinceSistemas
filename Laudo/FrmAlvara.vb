@@ -1077,11 +1077,11 @@
             FrmAnotacoes.RichTextBoxAnotacao.Visible = True
             FrmAnotacoes.lblMudaTexto.Visible = True
 
-            FrmAnotacoes.lblMudaTexto.Text = "Legalização"
+            FrmAnotacoes.lblMudaTexto.Text = "Prefeitura Municipal"
             FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Clear()
-            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", FrmAnotacoes.AnotacoesBindingSource, "Legalizacao"))
+            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", FrmAnotacoes.AnotacoesBindingSource, "Municipal"))
         Catch ex As Exception
-            MsgBox("Can't load Web page" & vbCrLf & ex.Message)
+            MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
 End Class

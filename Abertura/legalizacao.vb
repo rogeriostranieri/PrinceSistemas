@@ -2086,8 +2086,9 @@ CPF =
 
     Private Sub BtnSalvarDoc_Click(sender As Object, e As EventArgs) Handles BtnSalvarDoc.Click
         If MsgBox("Deseja anexar o documento?", MsgBoxStyle.YesNo, "Salvar Anexo") = MsgBoxResult.Yes Then
-            'procurar e salvar no banco de dados DocContratos varbinary aray    
-            Dim dialogo As New OpenFileDialog With {
+            Try
+                'procurar e salvar no banco de dados DocContratos varbinary aray    
+                Dim dialogo As New OpenFileDialog With {
             .Filter = "Arquivos de Texto (*.doc, *.docx)|*.doc;*.docx",
             .Title = "Selecione o arquivo de texto",
             .InitialDirectory = "C:\"
@@ -2095,8 +2096,8 @@ CPF =
             dialogo.ShowDialog()
             'DocContratosLinkLabel.Text = dialogo.FileName
             'salvar no banco de dados SQL SERVER Banco Empresas varbinary aray
-            Try
-                conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+
+            conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
                 'tabela empresas e coluna DocContratos por razao social
                 comando = New SqlCommand("UPDATE Empresas SET DocContratos = @DocContratos WHERE RazaoSocial = @RazaoSocial", conexao)
                 comando.Parameters.Add("@DocContratos", SqlDbType.VarBinary).Value = File.ReadAllBytes(dialogo.FileName)
@@ -2228,16 +2229,16 @@ CPF =
 
     Private Sub BtnImportarAnexo_Click(sender As Object, e As EventArgs) Handles BtnImportarAnexo.Click
         If MsgBox("Deseja importar o documento?", MsgBoxStyle.YesNo, "Importar Contrato") = MsgBoxResult.Yes Then
+            Try
+                TabControl1.Focus()
+                TabControl1.SelectedIndex = 1
 
-            TabControl1.Focus()
-            TabControl1.SelectedIndex = 1
+                If ArquivoContratoTextBox.Text = "" Then
+                    MsgBox("Erro! Campo do caminho do documento está vazio")
+                Else
+                    Dim ArquivoContrato As String = ArquivoContratoTextBox.Text
+                    'pega o ArquivoContrato e salva no banco de dados
 
-            If ArquivoContratoTextBox.Text = "" Then
-                MsgBox("Erro! Campo do caminho do documento está vazio")
-            Else
-                Dim ArquivoContrato As String = ArquivoContratoTextBox.Text
-                'pega o ArquivoContrato e salva no banco de dados
-                Try
                     conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
                     comando = New SqlCommand("UPDATE Empresas SET DocContratos = @DocContratos WHERE RazaoSocial = @RazaoSocial", conexao)
                     comando.Parameters.Add("@DocContratos", SqlDbType.VarBinary).Value = IO.File.ReadAllBytes(ArquivoContrato)
@@ -2247,13 +2248,12 @@ CPF =
                     conexao.Close()
                     MsgBox("Documento importado com sucesso!")
                     DocContratosLinkLabel.Text = "Contrato Anexado"
-                Catch ex As Exception
-                    MsgBox("Erro! " & vbCrLf & ex.Message)
-                    'DocContratosLinkLabel.Text = ""
-                End Try
 
-            End If
-
+                End If
+            Catch ex As Exception
+                MsgBox("Erro! " & vbCrLf & ex.Message)
+                'DocContratosLinkLabel.Text = ""
+            End Try
         End If
 
     End Sub
