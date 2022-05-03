@@ -70,6 +70,16 @@
         '////// fim calencario        
 
         Me.Refresh()
+
+
+        'nao permitir maximizar
+        MaximizeBox = False
+        MinimizeBox = False
+        'sem borda 
+        FormBorderStyle = FormBorderStyle.FixedSingle
+
+
+
     End Sub
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown

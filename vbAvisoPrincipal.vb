@@ -13,6 +13,14 @@
 
         Me.Refresh()
 
+        'nao permitir maximizar
+        MaximizeBox = False
+        MinimizeBox = False
+        MinimizeBox = False
+        'sem borda 
+        FormBorderStyle = FormBorderStyle.FixedSingle
+
+
     End Sub
 
 

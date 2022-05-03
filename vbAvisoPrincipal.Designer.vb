@@ -123,11 +123,14 @@ Partial Class VbAvisoPrincipal
         'VbAvisoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.ClientSize = New System.Drawing.Size(553, 593)
+        Me.ClientSize = New System.Drawing.Size(555, 594)
         Me.Controls.Add(Me.LaudosDataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.MaskedTextBox2)
         Me.Controls.Add(Me.Label3)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "VbAvisoPrincipal"
         Me.Controls.SetChildIndex(Me.Label3, 0)
         Me.Controls.SetChildIndex(Me.MaskedTextBox2, 0)
