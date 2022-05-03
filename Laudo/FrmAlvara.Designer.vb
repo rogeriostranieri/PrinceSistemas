@@ -173,6 +173,7 @@ Partial Class FrmAlvara
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
         Me.NlaudoLabel = New System.Windows.Forms.Label()
         Me.BtnBombVer = New System.Windows.Forms.Button()
@@ -265,7 +266,6 @@ Partial Class FrmAlvara
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
@@ -1673,7 +1673,7 @@ Partial Class FrmAlvara
         '
         Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
         Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button19.Location = New System.Drawing.Point(13, 134)
+        Me.Button19.Location = New System.Drawing.Point(13, 130)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(69, 23)
         Me.Button19.TabIndex = 49
@@ -1684,7 +1684,7 @@ Partial Class FrmAlvara
         '
         Me.Button18.BackgroundImage = CType(resources.GetObject("Button18.BackgroundImage"), System.Drawing.Image)
         Me.Button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button18.Location = New System.Drawing.Point(13, 47)
+        Me.Button18.Location = New System.Drawing.Point(13, 43)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(69, 23)
         Me.Button18.TabIndex = 48
@@ -1696,7 +1696,7 @@ Partial Class FrmAlvara
         Me.Button17.BackgroundImage = CType(resources.GetObject("Button17.BackgroundImage"), System.Drawing.Image)
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button17.Location = New System.Drawing.Point(13, 105)
+        Me.Button17.Location = New System.Drawing.Point(13, 101)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(69, 23)
         Me.Button17.TabIndex = 47
@@ -1708,7 +1708,7 @@ Partial Class FrmAlvara
         Me.Button16.BackgroundImage = CType(resources.GetObject("Button16.BackgroundImage"), System.Drawing.Image)
         Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button16.ForeColor = System.Drawing.Color.Green
-        Me.Button16.Location = New System.Drawing.Point(13, 19)
+        Me.Button16.Location = New System.Drawing.Point(13, 15)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(69, 22)
         Me.Button16.TabIndex = 46
@@ -1868,7 +1868,6 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox4.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
         Me.GroupBox4.Controls.Add(Me.BtnBombVer)
@@ -1888,6 +1887,17 @@ Partial Class FrmAlvara
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
+        '
+        'BtnAnotacoesLEgalizacao
+        '
+        Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(14, 284)
+        Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
+        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesLEgalizacao.TabIndex = 80
+        Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
+        Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
         '
         'BtnAnotacoes
         '
@@ -2621,7 +2631,7 @@ Partial Class FrmAlvara
         '
         Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Location = New System.Drawing.Point(13, 203)
+        Me.Button14.Location = New System.Drawing.Point(14, 188)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(69, 23)
         Me.Button14.TabIndex = 56
@@ -2632,7 +2642,7 @@ Partial Class FrmAlvara
         '
         Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button13.Location = New System.Drawing.Point(13, 232)
+        Me.Button13.Location = New System.Drawing.Point(14, 217)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(69, 23)
         Me.Button13.TabIndex = 55
@@ -2658,6 +2668,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox5.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.GroupBox5.Controls.Add(Me.BtnEditar)
         Me.GroupBox5.Controls.Add(Me.BtnNovaAlteracao)
         Me.GroupBox5.Controls.Add(Me.Btnempresa)
@@ -2667,9 +2678,9 @@ Partial Class FrmAlvara
         Me.GroupBox5.Controls.Add(Me.Button18)
         Me.GroupBox5.Controls.Add(Me.Button17)
         Me.GroupBox5.Controls.Add(Me.Button19)
-        Me.GroupBox5.Location = New System.Drawing.Point(751, 29)
+        Me.GroupBox5.Location = New System.Drawing.Point(755, 25)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(94, 301)
+        Me.GroupBox5.Size = New System.Drawing.Size(94, 307)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -2678,7 +2689,7 @@ Partial Class FrmAlvara
         '
         Me.BtnEditar.BackgroundImage = CType(resources.GetObject("BtnEditar.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditar.Location = New System.Drawing.Point(13, 76)
+        Me.BtnEditar.Location = New System.Drawing.Point(13, 72)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(69, 23)
         Me.BtnEditar.TabIndex = 77
@@ -2689,7 +2700,7 @@ Partial Class FrmAlvara
         '
         Me.BtnNovaAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnNovaAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 261)
+        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(14, 246)
         Me.BtnNovaAlteracao.Name = "BtnNovaAlteracao"
         Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 35)
         Me.BtnNovaAlteracao.TabIndex = 76
@@ -2700,7 +2711,7 @@ Partial Class FrmAlvara
         '
         Me.Btnempresa.BackgroundImage = CType(resources.GetObject("Btnempresa.BackgroundImage"), System.Drawing.Image)
         Me.Btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btnempresa.Location = New System.Drawing.Point(13, 174)
+        Me.Btnempresa.Location = New System.Drawing.Point(14, 159)
         Me.Btnempresa.Name = "Btnempresa"
         Me.Btnempresa.Size = New System.Drawing.Size(69, 23)
         Me.Btnempresa.TabIndex = 57
@@ -2901,17 +2912,6 @@ Partial Class FrmAlvara
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
-        '
-        'BtnAnotacoesLEgalizacao
-        '
-        Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
-        Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(680, 105)
-        Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
-        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
-        Me.BtnAnotacoesLEgalizacao.TabIndex = 80
-        Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
-        Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
