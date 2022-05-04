@@ -432,6 +432,8 @@
             Me.Validate()
             Me.LaudosBindingSource.AddNew()
 
+            SituacaoComboBox.SelectedIndex = 0
+
             'unchek lembrete
             LembreteCheckBox.CheckState = CheckState.Unchecked
 
@@ -820,6 +822,7 @@
 
         ElseIf System.Windows.Forms.DialogResult.No Then
             If MessageBox.Show("Tem certeza que deseja limpar os dados do andamento geral?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+                SituacaoComboBox.SelectedIndex = 0
                 'Limpando as BOX
                 NlaudoTextBox.Text = ""
                 ModeloSistemaComboBox.Text = ""

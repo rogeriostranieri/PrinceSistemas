@@ -147,6 +147,8 @@ Public Class Legalizacao
             'Ficar focado no campo busca
             Me.ComboBoxBuscaEmpresa.Focus()
 
+
+
         Finally
 
             'nao faz nada
@@ -1384,6 +1386,9 @@ Protocolo RedeSim= " & G & ".
 
 
                     MessageBox.Show("Dados Principais Salvo no Histórico", "Prince Avisa")
+
+                    SistemaExternoComboBox.SelectedIndex = 1
+
                     'Corpo
                     ProcessoComboBox.Text = ""
                     EmpCriadoMaskedTextBox.Text = ""
@@ -1427,7 +1432,11 @@ Protocolo RedeSim= " & G & ".
                     PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
 
+
+                    StatusComboBox.SelectedIndex = 0
+
                     SistemaExternoComboBox.SelectedIndex = 1
+
 
                 Catch ex As System.InvalidCastException
                     MessageBox.Show("ERRO", "Prince Avisa")
@@ -2376,5 +2385,25 @@ CPF =
             End Try
         End If
 
+    End Sub
+
+    Private Sub StatusComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles StatusComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
+
+    Private Sub ProcessoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ProcessoComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
+
+    Private Sub AltConsolidadaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles AltConsolidadaComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
+
+    Private Sub NovaRazaoSocialComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles NovaRazaoSocialComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
+
+    Private Sub SistemaExternoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SistemaExternoComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
     End Sub
 End Class

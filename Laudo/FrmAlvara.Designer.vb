@@ -173,7 +173,6 @@ Partial Class FrmAlvara
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
         Me.NlaudoLabel = New System.Windows.Forms.Label()
         Me.BtnBombVer = New System.Windows.Forms.Button()
@@ -241,6 +240,7 @@ Partial Class FrmAlvara
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Button24 = New System.Windows.Forms.Button()
+        Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.CMCTextBox = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
@@ -1851,10 +1851,14 @@ Partial Class FrmAlvara
         '
         Me.SituacaoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.SituacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.SituacaoComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
         Me.SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
         Me.SituacaoComboBox.DisplayMember = "Descricao"
+        Me.SituacaoComboBox.DropDownHeight = 150
+        Me.SituacaoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SituacaoComboBox.FormattingEnabled = True
+        Me.SituacaoComboBox.IntegralHeight = False
         Me.SituacaoComboBox.Location = New System.Drawing.Point(315, 85)
         Me.SituacaoComboBox.Name = "SituacaoComboBox"
         Me.SituacaoComboBox.Size = New System.Drawing.Size(169, 21)
@@ -1887,17 +1891,6 @@ Partial Class FrmAlvara
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
-        '
-        'BtnAnotacoesLEgalizacao
-        '
-        Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
-        Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(14, 284)
-        Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
-        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
-        Me.BtnAnotacoesLEgalizacao.TabIndex = 80
-        Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
-        Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
         '
         'BtnAnotacoes
         '
@@ -2618,6 +2611,17 @@ Partial Class FrmAlvara
         Me.Button24.TabIndex = 51
         Me.Button24.Text = "Solicitar"
         Me.Button24.UseVisualStyleBackColor = False
+        '
+        'BtnAnotacoesLEgalizacao
+        '
+        Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(14, 284)
+        Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
+        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesLEgalizacao.TabIndex = 80
+        Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
+        Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
         '
         'CMCTextBox
         '

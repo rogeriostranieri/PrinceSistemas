@@ -1409,11 +1409,14 @@ Partial Class Legalizacao
         '
         Me.StatusComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.StatusComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.StatusComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
         Me.StatusComboBox.DataSource = Me.CADstatusBindingSource
         Me.StatusComboBox.DisplayMember = "Descricao"
-        Me.StatusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.StatusComboBox.DropDownHeight = 150
+        Me.StatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StatusComboBox.FormattingEnabled = True
+        Me.StatusComboBox.IntegralHeight = False
         Me.StatusComboBox.Location = New System.Drawing.Point(378, 14)
         Me.StatusComboBox.Name = "StatusComboBox"
         Me.StatusComboBox.Size = New System.Drawing.Size(250, 21)
@@ -3938,7 +3941,7 @@ Partial Class Legalizacao
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(4, 16)
+        Me.Calendar1.Location = New System.Drawing.Point(334, 34)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 70
         '
