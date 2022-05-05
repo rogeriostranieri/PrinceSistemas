@@ -122,7 +122,6 @@ Partial Class Legalizacao
         Me.RazaoSocialTextBox = New System.Windows.Forms.TextBox()
         Me.NomeFantasiaTextBox = New System.Windows.Forms.TextBox()
         Me.CNPJMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         Me.CADstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControle = New System.Windows.Forms.TabControl()
@@ -396,6 +395,7 @@ Partial Class Legalizacao
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
+        Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1404,23 +1404,6 @@ Partial Class Legalizacao
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
         Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(107, 20)
         Me.CNPJMaskedTextBox.TabIndex = 6
-        '
-        'StatusComboBox
-        '
-        Me.StatusComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.StatusComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.StatusComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
-        Me.StatusComboBox.DataSource = Me.CADstatusBindingSource
-        Me.StatusComboBox.DisplayMember = "Descricao"
-        Me.StatusComboBox.DropDownHeight = 150
-        Me.StatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.StatusComboBox.FormattingEnabled = True
-        Me.StatusComboBox.IntegralHeight = False
-        Me.StatusComboBox.Location = New System.Drawing.Point(378, 14)
-        Me.StatusComboBox.Name = "StatusComboBox"
-        Me.StatusComboBox.Size = New System.Drawing.Size(250, 21)
-        Me.StatusComboBox.TabIndex = 10
         '
         'CADstatusBindingSource
         '
@@ -3941,7 +3924,7 @@ Partial Class Legalizacao
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(334, 34)
+        Me.Calendar1.Location = New System.Drawing.Point(44, 34)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 70
         '
@@ -4176,6 +4159,7 @@ Partial Class Legalizacao
         '
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.StatusComboBox)
         Me.GroupBox10.Controls.Add(Me.Calendar1)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialComboBox)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialLabel)
@@ -4192,7 +4176,6 @@ Partial Class Legalizacao
         Me.GroupBox10.Controls.Add(Me.LinkLabel9)
         Me.GroupBox10.Controls.Add(Me.PrioridadeCheckBox)
         Me.GroupBox10.Controls.Add(StatusLabel)
-        Me.GroupBox10.Controls.Add(Me.StatusComboBox)
         Me.GroupBox10.Controls.Add(Me.Button5)
         Me.GroupBox10.Controls.Add(Me.NAlteracaoLabel)
         Me.GroupBox10.Controls.Add(Me.EmpCriadoMaskedTextBox)
@@ -4204,7 +4187,7 @@ Partial Class Legalizacao
         Me.GroupBox10.Controls.Add(Me.SistemaExternoLabel)
         Me.GroupBox10.Location = New System.Drawing.Point(11, 231)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(637, 447)
+        Me.GroupBox10.Size = New System.Drawing.Size(651, 448)
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
@@ -4340,6 +4323,15 @@ Partial Class Legalizacao
         '
         Me.CADstatusTableAdapter.ClearBeforeFill = True
         '
+        'StatusComboBox
+        '
+        Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
+        Me.StatusComboBox.FormattingEnabled = True
+        Me.StatusComboBox.Location = New System.Drawing.Point(379, 13)
+        Me.StatusComboBox.Name = "StatusComboBox"
+        Me.StatusComboBox.Size = New System.Drawing.Size(248, 21)
+        Me.StatusComboBox.TabIndex = 71
+        '
         'Legalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4467,7 +4459,6 @@ Partial Class Legalizacao
     Friend WithEvents RazaoSocialTextBox As TextBox
     Friend WithEvents NomeFantasiaTextBox As TextBox
     Friend WithEvents CNPJMaskedTextBox As MaskedTextBox
-    Friend WithEvents StatusComboBox As ComboBox
     Friend WithEvents TabControle As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage3 As TabPage
@@ -4739,4 +4730,5 @@ Partial Class Legalizacao
     Friend WithEvents AnexoBoxPicture As PictureBox
     Friend WithEvents BtnArrumar As Button
     Friend WithEvents BtnImportarAnexo As Button
+    Friend WithEvents StatusComboBox As ComboBox
 End Class

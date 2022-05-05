@@ -170,7 +170,6 @@ Partial Class FrmAlvara
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
@@ -266,6 +265,7 @@ Partial Class FrmAlvara
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
+        Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
@@ -1847,23 +1847,6 @@ Partial Class FrmAlvara
         Me.Label5.TabIndex = 45
         Me.Label5.Text = "Bombeiro:"
         '
-        'SituacaoComboBox
-        '
-        Me.SituacaoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.SituacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.SituacaoComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
-        Me.SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
-        Me.SituacaoComboBox.DisplayMember = "Descricao"
-        Me.SituacaoComboBox.DropDownHeight = 150
-        Me.SituacaoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SituacaoComboBox.FormattingEnabled = True
-        Me.SituacaoComboBox.IntegralHeight = False
-        Me.SituacaoComboBox.Location = New System.Drawing.Point(315, 85)
-        Me.SituacaoComboBox.Name = "SituacaoComboBox"
-        Me.SituacaoComboBox.Size = New System.Drawing.Size(169, 21)
-        Me.SituacaoComboBox.TabIndex = 52
-        '
         'CADSituacaoAlvaraBindingSource
         '
         Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
@@ -1872,6 +1855,7 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.Calendar1)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
         Me.GroupBox4.Controls.Add(Me.BtnBombVer)
@@ -2850,6 +2834,7 @@ Partial Class FrmAlvara
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
         Me.GroupBox9.Controls.Add(EndEstadoLabel1)
         Me.GroupBox9.Controls.Add(Me.EndEstadoLabel2)
         Me.GroupBox9.Controls.Add(Me.EndCidadeLabel2)
@@ -2865,14 +2850,13 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.Button15)
         Me.GroupBox9.Controls.Add(Me.Button12)
         Me.GroupBox9.Controls.Add(SituacaoLabel)
-        Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
         Me.GroupBox9.Controls.Add(CNPJLabel)
         Me.GroupBox9.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox9.Controls.Add(RazaoSocialLabel)
         Me.GroupBox9.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox9.Location = New System.Drawing.Point(3, 32)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(494, 153)
+        Me.GroupBox9.Size = New System.Drawing.Size(484, 153)
         Me.GroupBox9.TabIndex = 78
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "GroupBox9"
@@ -2909,13 +2893,22 @@ Partial Class FrmAlvara
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(87, 165)
+        Me.Calendar1.Location = New System.Drawing.Point(320, -31)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 79
         '
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
+        '
+        'SituacaoComboBox
+        '
+        Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
+        Me.SituacaoComboBox.FormattingEnabled = True
+        Me.SituacaoComboBox.Location = New System.Drawing.Point(317, 85)
+        Me.SituacaoComboBox.Name = "SituacaoComboBox"
+        Me.SituacaoComboBox.Size = New System.Drawing.Size(167, 21)
+        Me.SituacaoComboBox.TabIndex = 78
         '
         'FrmAlvara
         '
@@ -2924,7 +2917,6 @@ Partial Class FrmAlvara
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.ClientSize = New System.Drawing.Size(850, 628)
-        Me.Controls.Add(Me.Calendar1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox9)
@@ -3075,7 +3067,6 @@ Partial Class FrmAlvara
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents SituacaoComboBox As ComboBox
     Friend WithEvents SetranDataProvisorioMaskedTextBox1 As MaskedTextBox
     Friend WithEvents SanitarioDataProvisorioMaskedTextBox1 As MaskedTextBox
     Friend WithEvents ViabilidadeDataProvisorioMaskedTextBox1 As MaskedTextBox
@@ -3194,4 +3185,5 @@ Partial Class FrmAlvara
     Friend WithEvents CADSituacaoAlvaraTableAdapter As PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter
     Friend WithEvents BtnAnotacoesPref As Button
     Friend WithEvents BtnAnotacoesLEgalizacao As Button
+    Friend WithEvents SituacaoComboBox As ComboBox
 End Class

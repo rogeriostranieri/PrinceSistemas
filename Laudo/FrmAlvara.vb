@@ -1087,4 +1087,12 @@
             MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try
     End Sub
+
+    Private Sub SituacaoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SituacaoComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
+
+    Private Sub ModeloSistemaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ModeloSistemaComboBox.KeyPress
+        e.Handled = True 'nao permitir escrita
+    End Sub
 End Class
