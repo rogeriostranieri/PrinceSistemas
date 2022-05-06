@@ -125,6 +125,12 @@ Public Class Legalizacao
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADstatus'. Você pode movê-la ou removê-la conforme necessário.
         Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
+        'carregar statuscombobox com bando de dados CADstatus
+        StatusComboBox.DataSource = Me.CADstatusBindingSource
+        StatusComboBox.DisplayMember = "Descricao"
+        StatusComboBox.ValueMember = "Descricao"
+
+
         '//// calendario 
         'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
         Calendar1.Visible = False
@@ -143,6 +149,7 @@ Public Class Legalizacao
             'chama combobox status
             '   ModCombobox.ComboboxLegalizacao()
             ModCombobox.ComboboxLegalizacaoProcesso()
+            ' ModCombobox.ComboboxLegalizacao()
 
             'Ficar focado no campo busca
             Me.ComboBoxBuscaEmpresa.Focus()
@@ -1365,17 +1372,17 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
 
 
-                Try
-                    Dim A = NAlteracaoComboBox.Text.ToString()
-                    Dim B = ProcessoComboBox.Text.ToString()
-                    Dim C = EmpCriadoMaskedTextBox.Text.ToString()
-                    Dim D = MotivoRichTextBox.Text.ToString()
-                    Dim F = ProtocoloJuntaComercialTextBox.Text.ToString()
-                    Dim G = ProtocoloREDESIMTextBox.Text.ToString()
+
+                Dim A = NAlteracaoComboBox.Text.ToString()
+                Dim B = ProcessoComboBox.Text.ToString()
+                Dim C = EmpCriadoMaskedTextBox.Text.ToString()
+                Dim D = MotivoRichTextBox.Text.ToString()
+                Dim F = ProtocoloJuntaComercialTextBox.Text.ToString()
+                Dim G = ProtocoloREDESIMTextBox.Text.ToString()
 
 
-                    HistoricoRichTextBox.SelectedText &=
-    "Histórico anterior, Salvo Dia: " & Format(Now, "dd/MM/yyyy") & " as " & Format(Now, "HH:mm") & ", com as seguintes informações:
+                HistoricoRichTextBox.SelectedText &=
+"Histórico anterior, Salvo Dia: " & Format(Now, "dd/MM/yyyy") & " as " & Format(Now, "HH:mm") & ", com as seguintes informações:
 Processo :  " & A & " " & B & ". 
 Iniciado o processo em: " & C & ". 
 Motivo: " & D & ".
@@ -1387,72 +1394,70 @@ Protocolo RedeSim= " & G & ".
 
 
 
-                    MessageBox.Show("Dados Principais Salvo no Histórico", "Prince Avisa")
-
-                    SistemaExternoComboBox.SelectedIndex = 1
-
-                    'Corpo
-                    ProcessoComboBox.Text = ""
-                    EmpCriadoMaskedTextBox.Text = ""
-                    MotivoRichTextBox.Text = ""
-                    NAlteracaoComboBox.Text = ""
-                    StatusComboBox.Text = ""
-
-                    'Geral
-                    GeralRichTextBox.Text = ""
-                    ProcedimentoRichTextBox.Text = ""
-                    AvisarDiaMaskedTextBox.Text = ""
-
-                    'Junta Comercial
-                    DataProtJuntaComercialMaskedTextBox.Text = ""
-                    ProtocoloJuntaComercialTextBox.Text = ""
-                    ProtJuntaFinalMaskedTextBox.Text = ""
-                    JuntaObsRichTextBox.Text = ""
-
-                    'RedeSim
-                    DataProtREDESIMMaskedTextBox.Text = ""
-                    ProtocoloREDESIMTextBox.Text = ""
-                    RedeSimObsRichTextBox.Text = ""
-
-                    'Estadual
-                    IEjuntaComboBox.Text = ""
-                    DataPedidoIEMaskedTextBox.Text = ""
-                    IEInicioAtividadeMaskedTextBox.Text = ""
-                    IEComprovanteTextBox.Text = ""
-                    IEVencPedidoMaskedTextBox.Text = ""
-                    EstadualObsRichTextBox.Text = ""
-
-                    'procedimentos
-                    StatusComboBox.SelectedIndex = -1
-                    ProcessoComboBox.SelectedIndex = -1
-
-                    'Preencher data
-                    EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
-                    AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-
-                    LembreteCheckBox.CheckState = CheckState.Unchecked
-                    PrioridadeCheckBox.CheckState = CheckState.Unchecked
+                MessageBox.Show("Dados Principais Salvo no Histórico", "Prince Avisa")
 
 
+                'Corpo
+                ProcessoComboBox.Text = ""
+                EmpCriadoMaskedTextBox.Text = ""
+                MotivoRichTextBox.Text = ""
+                NAlteracaoComboBox.Text = ""
+                ' StatusComboBox.Text = ""
 
-                    StatusComboBox.SelectedIndex = 0
+                'Geral
+                GeralRichTextBox.Text = ""
+                ProcedimentoRichTextBox.Text = ""
+                AvisarDiaMaskedTextBox.Text = ""
 
-                    SistemaExternoComboBox.SelectedIndex = 1
+                'Junta Comercial
+                DataProtJuntaComercialMaskedTextBox.Text = ""
+                ProtocoloJuntaComercialTextBox.Text = ""
+                ProtJuntaFinalMaskedTextBox.Text = ""
+                JuntaObsRichTextBox.Text = ""
+
+                'RedeSim
+                DataProtREDESIMMaskedTextBox.Text = ""
+                ProtocoloREDESIMTextBox.Text = ""
+                RedeSimObsRichTextBox.Text = ""
+
+                'Estadual
+                IEjuntaComboBox.Text = ""
+                DataPedidoIEMaskedTextBox.Text = ""
+                IEInicioAtividadeMaskedTextBox.Text = ""
+                IEComprovanteTextBox.Text = ""
+                IEVencPedidoMaskedTextBox.Text = ""
+                EstadualObsRichTextBox.Text = ""
+
+                'procedimentos
+                StatusComboBox.SelectedIndex = -1
+                ProcessoComboBox.SelectedIndex = -1
+
+                'Preencher data
+                EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
+                AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
+
+                LembreteCheckBox.CheckState = CheckState.Unchecked
+                PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
 
-                Catch ex As System.InvalidCastException
-                    MessageBox.Show("ERRO", "Prince Avisa")
+                'Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
 
-                End Try
+
+                'StatusComboBox selecionar 1 item
+                StatusComboBox.SelectedIndex = 0
+                SistemaExternoComboBox.SelectedIndex = 1
+
+
 
             Else
 
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Erro ao Salvar no Histórico" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Erro ao salvar no Histórico" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         End Try
+
 
     End Sub
 

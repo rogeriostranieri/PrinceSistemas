@@ -11,6 +11,11 @@
     Private Sub LaudosConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADSituacaoAlvara'. Você pode movê-la ou removê-la conforme necessário.
         Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
+        'carregar statuscombobox com bando de dados CADstatus
+        SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
+        SituacaoComboBox.DisplayMember = "Descricao"
+        SituacaoComboBox.ValueMember = "Descricao"
+
         Try
             '//// calendario 
             'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
