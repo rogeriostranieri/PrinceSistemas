@@ -381,6 +381,7 @@ Partial Class Legalizacao
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaProtocolo = New System.Windows.Forms.ComboBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         Me.NovaRazaoSocialLabel = New System.Windows.Forms.Label()
         Me.PictureBoxSistemaExterno = New System.Windows.Forms.PictureBox()
         Me.BtnData1 = New System.Windows.Forms.Button()
@@ -395,7 +396,6 @@ Partial Class Legalizacao
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
-        Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -4192,6 +4192,17 @@ Partial Class Legalizacao
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
         '
+        'StatusComboBox
+        '
+        Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
+        Me.StatusComboBox.DropDownHeight = 200
+        Me.StatusComboBox.FormattingEnabled = True
+        Me.StatusComboBox.IntegralHeight = False
+        Me.StatusComboBox.Location = New System.Drawing.Point(379, 13)
+        Me.StatusComboBox.Name = "StatusComboBox"
+        Me.StatusComboBox.Size = New System.Drawing.Size(248, 21)
+        Me.StatusComboBox.TabIndex = 71
+        '
         'NovaRazaoSocialLabel
         '
         Me.NovaRazaoSocialLabel.AutoSize = True
@@ -4322,15 +4333,6 @@ Partial Class Legalizacao
         'CADstatusTableAdapter
         '
         Me.CADstatusTableAdapter.ClearBeforeFill = True
-        '
-        'StatusComboBox
-        '
-        Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
-        Me.StatusComboBox.FormattingEnabled = True
-        Me.StatusComboBox.Location = New System.Drawing.Point(379, 13)
-        Me.StatusComboBox.Name = "StatusComboBox"
-        Me.StatusComboBox.Size = New System.Drawing.Size(248, 21)
-        Me.StatusComboBox.TabIndex = 71
         '
         'Legalizacao
         '
