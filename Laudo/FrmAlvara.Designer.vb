@@ -1251,7 +1251,7 @@ Partial Class FrmAlvara
         '
         'BombeiroProvisorioDATAMaskedTextBox1
         '
-        Me.BombeiroProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
+        Me.BombeiroProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroProvisorioDATA", True))
         Me.BombeiroProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
         Me.BombeiroProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
         Me.BombeiroProvisorioDATAMaskedTextBox1.Name = "BombeiroProvisorioDATAMaskedTextBox1"
@@ -1397,7 +1397,7 @@ Partial Class FrmAlvara
         '
         'AmbientalProvisorioDATAMaskedTextBox1
         '
-        Me.AmbientalProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
+        Me.AmbientalProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalProvisorioDATA", True))
         Me.AmbientalProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
         Me.AmbientalProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
         Me.AmbientalProvisorioDATAMaskedTextBox1.Name = "AmbientalProvisorioDATAMaskedTextBox1"
@@ -1430,7 +1430,7 @@ Partial Class FrmAlvara
         '
         'ViabilidadeProvisorioDATAMaskedTextBox1
         '
-        Me.ViabilidadeProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeProvisorioDATA", True))
         Me.ViabilidadeProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
         Me.ViabilidadeProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
         Me.ViabilidadeProvisorioDATAMaskedTextBox1.Name = "ViabilidadeProvisorioDATAMaskedTextBox1"
@@ -1464,7 +1464,7 @@ Partial Class FrmAlvara
         '
         'SanitarioProvisorioDATAMaskedTextBox1
         '
-        Me.SanitarioProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
+        Me.SanitarioProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioProvisorioDATA", True))
         Me.SanitarioProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
         Me.SanitarioProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
         Me.SanitarioProvisorioDATAMaskedTextBox1.Name = "SanitarioProvisorioDATAMaskedTextBox1"
@@ -1584,7 +1584,7 @@ Partial Class FrmAlvara
         '
         'SetranProvisorioDATAMaskedTextBox1
         '
-        Me.SetranProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
+        Me.SetranProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranProvisorioDATA", True))
         Me.SetranProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
         Me.SetranProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
         Me.SetranProvisorioDATAMaskedTextBox1.Name = "SetranProvisorioDATAMaskedTextBox1"
@@ -1750,7 +1750,7 @@ Partial Class FrmAlvara
         '
         'ViabilidadeProvisorioDATAMaskedTextBox
         '
-        Me.ViabilidadeProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeProvisorioDATA", True))
         Me.ViabilidadeProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ViabilidadeProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 58)
         Me.ViabilidadeProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
@@ -1781,7 +1781,7 @@ Partial Class FrmAlvara
         '
         'SetranProvisorioDATAMaskedTextBox
         '
-        Me.SetranProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
+        Me.SetranProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranProvisorioDATA", True))
         Me.SetranProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SetranProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 100)
         Me.SetranProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
@@ -1812,7 +1812,7 @@ Partial Class FrmAlvara
         '
         'SanitarioProvisorioDATAMaskedTextBox
         '
-        Me.SanitarioProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
+        Me.SanitarioProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioProvisorioDATA", True))
         Me.SanitarioProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SanitarioProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 79)
         Me.SanitarioProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
@@ -1823,7 +1823,7 @@ Partial Class FrmAlvara
         '
         'BombeiroProvisorioDATAMaskedTextBox
         '
-        Me.BombeiroProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
+        Me.BombeiroProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroProvisorioDATA", True))
         Me.BombeiroProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BombeiroProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 16)
         Me.BombeiroProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
@@ -1834,7 +1834,7 @@ Partial Class FrmAlvara
         '
         'AmbientalProvisorioDATAMaskedTextBox
         '
-        Me.AmbientalProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
+        Me.AmbientalProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalProvisorioDATA", True))
         Me.AmbientalProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AmbientalProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 37)
         Me.AmbientalProvisorioDATAMaskedTextBox.Mask = "00/00/0000"

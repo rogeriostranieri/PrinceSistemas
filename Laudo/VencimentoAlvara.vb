@@ -17,35 +17,35 @@ Class VencimentoAlvara
 
 
         ' antigo e funciona
-        'LaudosBindingSource.Filter = "BombeiroDataProvisorio <> '0' OR ViabilidadeDataProvisorio <> '0' OR AmbientalDataProvisorio <> '0' OR SanitarioDataProvisorio <> '0' OR SetranDataProvisorio <> '0' "
+        'LaudosBindingSource.Filter = "BombeiroProvisorioDATA <> '0' OR ViabilidadeProvisorioDATA <> '0' OR AmbientalProvisorioDATA <> '0' OR SanitarioProvisorioDATA <> '0' OR SetranProvisorioDATA <> '0' "
 
-        'LaudosBindingSource.Filter = "BombeiroDataProvisorio <> '' OR ViabilidadeDataProvisorio <> '' OR AmbientalDataProvisorio <> '' OR SanitarioDataProvisorio <> '' OR SetranDataProvisorio <> '' "
+        'LaudosBindingSource.Filter = "BombeiroProvisorioDATA <> '' OR ViabilidadeProvisorioDATA <> '' OR AmbientalProvisorioDATA <> '' OR SanitarioProvisorioDATA <> '' OR SetranProvisorioDATA <> '' "
 
         ' esteja em andamento e finalizado 
 
         LaudosBindingSource.Filter = "
-BombeiroDataProvisorio <> '0' 
-OR ViabilidadeDataProvisorio <> '0' 
-OR AmbientalDataProvisorio <> '0' 
-OR SanitarioDataProvisorio <> '0' 
-OR SetranDataProvisorio <> '0' 
+BombeiroProvisorioDATA <> '0' 
+OR ViabilidadeProvisorioDATA <> '0' 
+OR AmbientalProvisorioDATA <> '0' 
+OR SanitarioProvisorioDATA <> '0' 
+OR SetranProvisorioDATA <> '0' 
 
-OR BombeiroDataProvisorio <> '' 
-OR ViabilidadeDataProvisorio <> '' 
-OR AmbientalDataProvisorio <> '' 
-OR SanitarioDataProvisorio <> '' 
-OR SetranDataProvisorio <> '' 
+OR BombeiroProvisorioDATA <> '' 
+OR ViabilidadeProvisorioDATA <> '' 
+OR AmbientalProvisorioDATA <> '' 
+OR SanitarioProvisorioDATA <> '' 
+OR SetranProvisorioDATA <> '' 
 
-OR BombeiroDataProvisorio = 'Finalizado Definitivo' 
-OR BombeiroDataProvisorio = 'Finalizado Provisório'
-OR ViabilidadeDataProvisorio = 'Finalizado Definitivo' 
-OR ViabilidadeDataProvisorio = 'Finalizado Provisório'
-OR AmbientalDataProvisorio = 'Finalizado Definitivo'  
-OR AmbientalDataProvisorio = 'Finalizado Provisório' 
-OR SanitarioDataProvisorio = 'Finalizado Definitivo'  
-OR SanitarioDataProvisorio = 'Finalizado Provisório' 
-OR SetranDataProvisorio = 'Finalizado Definitivo'  
-OR SetranDataProvisorio = 'Finalizado Provisório' 
+OR BombeiroProvisorioDATA = 'Finalizado Definitivo' 
+OR BombeiroProvisorioDATA = 'Finalizado Provisório'
+OR ViabilidadeProvisorioDATA = 'Finalizado Definitivo' 
+OR ViabilidadeProvisorioDATA = 'Finalizado Provisório'
+OR AmbientalProvisorioDATA = 'Finalizado Definitivo'  
+OR AmbientalProvisorioDATA = 'Finalizado Provisório' 
+OR SanitarioProvisorioDATA = 'Finalizado Definitivo'  
+OR SanitarioProvisorioDATA = 'Finalizado Provisório' 
+OR SetranProvisorioDATA = 'Finalizado Definitivo'  
+OR SetranProvisorioDATA = 'Finalizado Provisório' 
 "
 
     End Sub
@@ -61,7 +61,7 @@ OR SetranDataProvisorio = 'Finalizado Provisório'
         'FILTRO LAUDO
         Dim FilterA As String
         FilterA = MaskedTextBox1.Text
-        LaudosBindingSource.Filter = "BombeiroDataProvisorio = '" & FilterA & "' OR ViabilidadeDataProvisorio = '" & FilterA & "' OR AmbientalDataProvisorio = '" & FilterA & "' OR SanitarioDataProvisorio = '" & FilterA & "' OR SetranDataProvisorio = '" & FilterA & "' "
+        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterA & "' OR ViabilidadeProvisorioDATA = '" & FilterA & "' OR AmbientalProvisorioDATA = '" & FilterA & "' OR SanitarioProvisorioDATA = '" & FilterA & "' OR SetranProvisorioDATA = '" & FilterA & "' "
 
     End Sub
 
@@ -70,7 +70,7 @@ OR SetranDataProvisorio = 'Finalizado Provisório'
         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
         Me.Refresh()
-        LaudosBindingSource.Filter = "BombeiroDataProvisorio <> '0' OR ViabilidadeDataProvisorio <> '0' OR AmbientalDataProvisorio <> '0' OR SanitarioDataProvisorio <> '0' OR SetranDataProvisorio <> '0' "
+        LaudosBindingSource.Filter = "BombeiroProvisorioDATA <> '0' OR ViabilidadeProvisorioDATA <> '0' OR AmbientalProvisorioDATA <> '0' OR SanitarioProvisorioDATA <> '0' OR SetranProvisorioDATA <> '0' "
 
 
     End Sub

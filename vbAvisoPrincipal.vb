@@ -5,12 +5,12 @@
         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
 
-        'LaudosBindingSource.Filter = "BombeiroDataProvisorio <> '0' OR ViabilidadeDataProvisorio <> '0' OR AmbientalDataProvisorio <> '0' OR SanitarioDataProvisorio <> '0' OR SetranDataProvisorio <> '0' "
+        'LaudosBindingSource.Filter = "BombeiroProvisorioDATA <> '0' OR ViabilidadeProvisorioDATA <> '0' OR AmbientalProvisorioDATA <> '0' OR SanitarioProvisorioDATA <> '0' OR SetranProvisorioDATA <> '0' "
         MaskedTextBox1.Text = Now.ToString("dd/MM/yyyy")
 
         'FILTRO LAUDO
         Dim FilterB As String = MaskedTextBox1.Text
-        LaudosBindingSource.Filter = "BombeiroDataProvisorio = '" & FilterB & "' OR ViabilidadeDataProvisorio = '" & FilterB & "' OR AmbientalDataProvisorio = '" & FilterB & "' OR SanitarioDataProvisorio = '" & FilterB & "' OR SetranDataProvisorio = '" & FilterB & "' "
+        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
 
         Me.Refresh()
 
@@ -28,7 +28,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'FILTRO LAUDO
         Dim FilterB As String = MaskedTextBox1.Text
-        LaudosBindingSource.Filter = "BombeiroDataProvisorio = '" & FilterB & "' OR ViabilidadeDataProvisorio = '" & FilterB & "' OR AmbientalDataProvisorio = '" & FilterB & "' OR SanitarioDataProvisorio = '" & FilterB & "' OR SetranDataProvisorio = '" & FilterB & "' "
+        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
         Me.Refresh()
 
     End Sub

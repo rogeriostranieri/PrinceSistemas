@@ -282,6 +282,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PrinceDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Procedimento\FrmProcedimentos.Designer.vb">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>
     </Compile>
@@ -403,11 +408,6 @@
     </Compile>
     <Compile Include="Navegadores\BuscaCNAE.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrinceDBDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="PrinceDBDataSet.vb">
       <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
@@ -812,8 +812,8 @@
     </None>
     <None Include="PrinceDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PrinceDBDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>PrinceDBDataSet.Designer.vb</LastGenOutput>
     </None>
     <None Include="PrinceDBDataSet.xss">
       <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>

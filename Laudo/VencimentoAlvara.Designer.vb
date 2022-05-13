@@ -144,7 +144,7 @@ Partial Class VencimentoAlvara
         '
         'DataGridViewTextBoxColumn52
         '
-        Me.DataGridViewTextBoxColumn52.DataPropertyName = "AmbientalDataProvisorio"
+        Me.DataGridViewTextBoxColumn52.DataPropertyName = "AmbientalProvisorioDATA"
         Me.DataGridViewTextBoxColumn52.HeaderText = "Ambiental"
         Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
         Me.DataGridViewTextBoxColumn52.ReadOnly = True
@@ -152,7 +152,7 @@ Partial Class VencimentoAlvara
         '
         'DataGridViewTextBoxColumn53
         '
-        Me.DataGridViewTextBoxColumn53.DataPropertyName = "ViabilidadeDataProvisorio"
+        Me.DataGridViewTextBoxColumn53.DataPropertyName = "ViabilidadeProvisorioDATA"
         Me.DataGridViewTextBoxColumn53.HeaderText = "Viabilidade"
         Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
         Me.DataGridViewTextBoxColumn53.ReadOnly = True
@@ -160,7 +160,7 @@ Partial Class VencimentoAlvara
         '
         'DataGridViewTextBoxColumn54
         '
-        Me.DataGridViewTextBoxColumn54.DataPropertyName = "SanitarioDataProvisorio"
+        Me.DataGridViewTextBoxColumn54.DataPropertyName = "SanitarioProvisorioDATA"
         Me.DataGridViewTextBoxColumn54.HeaderText = "Sanitario"
         Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
         Me.DataGridViewTextBoxColumn54.ReadOnly = True
@@ -168,7 +168,7 @@ Partial Class VencimentoAlvara
         '
         'DataGridViewTextBoxColumn55
         '
-        Me.DataGridViewTextBoxColumn55.DataPropertyName = "SetranDataProvisorio"
+        Me.DataGridViewTextBoxColumn55.DataPropertyName = "SetranProvisorioDATA"
         Me.DataGridViewTextBoxColumn55.HeaderText = "Setran"
         Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
         Me.DataGridViewTextBoxColumn55.ReadOnly = True
@@ -184,7 +184,7 @@ Partial Class VencimentoAlvara
         '
         'DataGridViewTextBoxColumn51
         '
-        Me.DataGridViewTextBoxColumn51.DataPropertyName = "BombeiroDataProvisorio"
+        Me.DataGridViewTextBoxColumn51.DataPropertyName = "BombeiroProvisorioDATA"
         Me.DataGridViewTextBoxColumn51.HeaderText = "Bombeiro"
         Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
         Me.DataGridViewTextBoxColumn51.ReadOnly = True
