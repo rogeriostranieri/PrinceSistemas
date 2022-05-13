@@ -236,7 +236,6 @@ Partial Class FrmAlvara
         Me.DataEntradaLabel = New System.Windows.Forms.Label()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Button24 = New System.Windows.Forms.Button()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
@@ -260,12 +259,13 @@ Partial Class FrmAlvara
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.CNPJLabel = New System.Windows.Forms.Label()
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.EndEstadoLabel2 = New System.Windows.Forms.Label()
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.CNPJLabel = New System.Windows.Forms.Label()
+        Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroDataProvisorioLabel = New System.Windows.Forms.Label()
@@ -891,7 +891,7 @@ Partial Class FrmAlvara
         Me.LaudosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.LaudosBindingNavigator.Name = "LaudosBindingNavigator"
         Me.LaudosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(850, 25)
+        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(853, 25)
         Me.LaudosBindingNavigator.TabIndex = 0
         Me.LaudosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -1839,13 +1839,13 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.ObservacaoRichTextBox)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
         Me.GroupBox4.Controls.Add(Me.BtnBombVer)
         Me.GroupBox4.Controls.Add(BombeiroSituacaoLabel)
         Me.GroupBox4.Controls.Add(Me.BombeiroSituacaoComboBox)
         Me.GroupBox4.Controls.Add(Me.TabAlvara)
-        Me.GroupBox4.Controls.Add(Me.ObservacaoRichTextBox)
         Me.GroupBox4.Controls.Add(ObservacaoLabel)
         Me.GroupBox4.Controls.Add(Me.Button7)
         Me.GroupBox4.Controls.Add(Me.Button24)
@@ -1854,7 +1854,7 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
         Me.GroupBox4.Location = New System.Drawing.Point(3, 191)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(841, 437)
+        Me.GroupBox4.Size = New System.Drawing.Size(850, 437)
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
@@ -2558,14 +2558,6 @@ Partial Class FrmAlvara
         Me.HistoricoRichTextBox.TabIndex = 1
         Me.HistoricoRichTextBox.Text = ""
         '
-        'ObservacaoRichTextBox
-        '
-        Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
-        Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
-        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(295, 94)
-        Me.ObservacaoRichTextBox.TabIndex = 74
-        Me.ObservacaoRichTextBox.Text = ""
-        '
         'Button24
         '
         Me.Button24.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -2850,6 +2842,15 @@ Partial Class FrmAlvara
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "GroupBox9"
         '
+        'CNPJLabel
+        '
+        Me.CNPJLabel.AutoSize = True
+        Me.CNPJLabel.Location = New System.Drawing.Point(46, 63)
+        Me.CNPJLabel.Name = "CNPJLabel"
+        Me.CNPJLabel.Size = New System.Drawing.Size(37, 13)
+        Me.CNPJLabel.TabIndex = 79
+        Me.CNPJLabel.Text = "CNPJ:"
+        '
         'SituacaoComboBox
         '
         Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
@@ -2893,14 +2894,14 @@ Partial Class FrmAlvara
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
-        'CNPJLabel
+        'ObservacaoRichTextBox
         '
-        Me.CNPJLabel.AutoSize = True
-        Me.CNPJLabel.Location = New System.Drawing.Point(46, 63)
-        Me.CNPJLabel.Name = "CNPJLabel"
-        Me.CNPJLabel.Size = New System.Drawing.Size(37, 13)
-        Me.CNPJLabel.TabIndex = 79
-        Me.CNPJLabel.Text = "CNPJ:"
+        Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
+        Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
+        Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
+        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(295, 94)
+        Me.ObservacaoRichTextBox.TabIndex = 80
+        Me.ObservacaoRichTextBox.Text = ""
         '
         'FrmAlvara
         '
@@ -2908,7 +2909,7 @@ Partial Class FrmAlvara
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.ClientSize = New System.Drawing.Size(850, 628)
+        Me.ClientSize = New System.Drawing.Size(853, 628)
         Me.Controls.Add(Me.Calendar1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
@@ -3082,7 +3083,6 @@ Partial Class FrmAlvara
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents ObservacaoRichTextBox As RichTextBox
     Friend WithEvents TabAlvara As TabControl
     Friend WithEvents TabPage12 As TabPage
     Friend WithEvents TabPage13 As TabPage
@@ -3180,4 +3180,5 @@ Partial Class FrmAlvara
     Friend WithEvents SanitarioProvisorioDATAMaskedTextBox1 As MaskedTextBox
     Friend WithEvents SetranProvisorioDATAMaskedTextBox1 As MaskedTextBox
     Friend WithEvents CNPJLabel As Label
+    Friend WithEvents ObservacaoRichTextBox As RichTextBox
 End Class
