@@ -116,6 +116,7 @@ Partial Class FrmAlvara
         Me.AmbientalCheckBox = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BombeiroProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button27 = New System.Windows.Forms.Button()
         Me.Button26 = New System.Windows.Forms.Button()
@@ -126,15 +127,15 @@ Partial Class FrmAlvara
         Me.Button9 = New System.Windows.Forms.Button()
         Me.BombeiroNProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroDataPedProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.BombeiroDataProvisorioMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.AmbientalDataProvisorioMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.AmbientalProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.AmbientalExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.ViabilidadeDataProvisorioMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.ViabilidadeExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.SanitarioProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Sanitariocontrole3TextBox = New System.Windows.Forms.TextBox()
@@ -144,10 +145,9 @@ Partial Class FrmAlvara
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.SanitarioDataProvisorioMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.SanitarioExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.SetranDataProvisorioMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.SetranProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.SetranExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.NlaudoTextBox = New System.Windows.Forms.TextBox()
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
@@ -160,16 +160,16 @@ Partial Class FrmAlvara
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.SetranDataProvisorioMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.SanitarioDataProvisorioMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.ViabilidadeDataProvisorioMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.AmbientalDataProvisorioMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.BombeiroDataProvisorioMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.ViabilidadeProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.SetranProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.SanitarioProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.BombeiroProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.AmbientalProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
@@ -239,6 +239,7 @@ Partial Class FrmAlvara
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Button24 = New System.Windows.Forms.Button()
+        Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.CMCTextBox = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
@@ -260,12 +261,11 @@ Partial Class FrmAlvara
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.EndEstadoLabel2 = New System.Windows.Forms.Label()
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.BtnData1 = New System.Windows.Forms.Button()
-        Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
@@ -455,7 +455,7 @@ Partial Class FrmAlvara
         'AmbientalDataProvisorioLabel1
         '
         AmbientalDataProvisorioLabel1.AutoSize = True
-        AmbientalDataProvisorioLabel1.Location = New System.Drawing.Point(90, 150)
+        AmbientalDataProvisorioLabel1.Location = New System.Drawing.Point(42, 149)
         AmbientalDataProvisorioLabel1.Name = "AmbientalDataProvisorioLabel1"
         AmbientalDataProvisorioLabel1.Size = New System.Drawing.Size(115, 13)
         AmbientalDataProvisorioLabel1.TabIndex = 2
@@ -464,7 +464,7 @@ Partial Class FrmAlvara
         'ViabilidadeDataProvisorioLabel
         '
         ViabilidadeDataProvisorioLabel.AutoSize = True
-        ViabilidadeDataProvisorioLabel.Location = New System.Drawing.Point(90, 150)
+        ViabilidadeDataProvisorioLabel.Location = New System.Drawing.Point(42, 149)
         ViabilidadeDataProvisorioLabel.Name = "ViabilidadeDataProvisorioLabel"
         ViabilidadeDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
         ViabilidadeDataProvisorioLabel.TabIndex = 2
@@ -473,7 +473,7 @@ Partial Class FrmAlvara
         'SanitarioDataProvisorioLabel
         '
         SanitarioDataProvisorioLabel.AutoSize = True
-        SanitarioDataProvisorioLabel.Location = New System.Drawing.Point(90, 150)
+        SanitarioDataProvisorioLabel.Location = New System.Drawing.Point(42, 149)
         SanitarioDataProvisorioLabel.Name = "SanitarioDataProvisorioLabel"
         SanitarioDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
         SanitarioDataProvisorioLabel.TabIndex = 2
@@ -482,7 +482,7 @@ Partial Class FrmAlvara
         'SetranDataProvisorioLabel
         '
         SetranDataProvisorioLabel.AutoSize = True
-        SetranDataProvisorioLabel.Location = New System.Drawing.Point(90, 150)
+        SetranDataProvisorioLabel.Location = New System.Drawing.Point(42, 149)
         SetranDataProvisorioLabel.Name = "SetranDataProvisorioLabel"
         SetranDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
         SetranDataProvisorioLabel.TabIndex = 2
@@ -1236,10 +1236,10 @@ Partial Class FrmAlvara
         'TabPage1
         '
         Me.TabPage1.AutoScroll = True
+        Me.TabPage1.Controls.Add(Me.BombeiroProvisorioDATAMaskedTextBox1)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Label1)
         Me.TabPage1.Controls.Add(BombeiroDataProvisorioLabel)
-        Me.TabPage1.Controls.Add(Me.BombeiroDataProvisorioMaskedTextBox)
         Me.TabPage1.Controls.Add(Me.BombeiroExigenciaRichTextBox)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
@@ -1248,6 +1248,16 @@ Partial Class FrmAlvara
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Bombeiros"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'BombeiroProvisorioDATAMaskedTextBox1
+        '
+        Me.BombeiroProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
+        Me.BombeiroProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
+        Me.BombeiroProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
+        Me.BombeiroProvisorioDATAMaskedTextBox1.Name = "BombeiroProvisorioDATAMaskedTextBox1"
+        Me.BombeiroProvisorioDATAMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
+        Me.BombeiroProvisorioDATAMaskedTextBox1.TabIndex = 14
+        Me.BombeiroProvisorioDATAMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'GroupBox2
         '
@@ -1361,16 +1371,6 @@ Partial Class FrmAlvara
         Me.BombeiroDataPedProcessoMaskedTextBox.TabIndex = 6
         Me.BombeiroDataPedProcessoMaskedTextBox.ValidatingType = GetType(Date)
         '
-        'BombeiroDataProvisorioMaskedTextBox
-        '
-        Me.BombeiroDataProvisorioMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
-        Me.BombeiroDataProvisorioMaskedTextBox.Location = New System.Drawing.Point(163, 146)
-        Me.BombeiroDataProvisorioMaskedTextBox.Mask = "00/00/0000"
-        Me.BombeiroDataProvisorioMaskedTextBox.Name = "BombeiroDataProvisorioMaskedTextBox"
-        Me.BombeiroDataProvisorioMaskedTextBox.Size = New System.Drawing.Size(70, 20)
-        Me.BombeiroDataProvisorioMaskedTextBox.TabIndex = 2
-        Me.BombeiroDataProvisorioMaskedTextBox.ValidatingType = GetType(Date)
-        '
         'BombeiroExigenciaRichTextBox
         '
         Me.BombeiroExigenciaRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroExigencia", True))
@@ -1383,8 +1383,8 @@ Partial Class FrmAlvara
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
+        Me.TabPage2.Controls.Add(Me.AmbientalProvisorioDATAMaskedTextBox1)
         Me.TabPage2.Controls.Add(AmbientalDataProvisorioLabel1)
-        Me.TabPage2.Controls.Add(Me.AmbientalDataProvisorioMaskedTextBox)
         Me.TabPage2.Controls.Add(Me.AmbientalExigenciaRichTextBox)
         Me.TabPage2.Controls.Add(AmbientalDataProvisorioLabel)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
@@ -1395,15 +1395,15 @@ Partial Class FrmAlvara
         Me.TabPage2.Text = "Ambiental"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'AmbientalDataProvisorioMaskedTextBox
+        'AmbientalProvisorioDATAMaskedTextBox1
         '
-        Me.AmbientalDataProvisorioMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
-        Me.AmbientalDataProvisorioMaskedTextBox.Location = New System.Drawing.Point(211, 147)
-        Me.AmbientalDataProvisorioMaskedTextBox.Mask = "00/00/0000"
-        Me.AmbientalDataProvisorioMaskedTextBox.Name = "AmbientalDataProvisorioMaskedTextBox"
-        Me.AmbientalDataProvisorioMaskedTextBox.Size = New System.Drawing.Size(70, 20)
-        Me.AmbientalDataProvisorioMaskedTextBox.TabIndex = 3
-        Me.AmbientalDataProvisorioMaskedTextBox.ValidatingType = GetType(Date)
+        Me.AmbientalProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
+        Me.AmbientalProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
+        Me.AmbientalProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
+        Me.AmbientalProvisorioDATAMaskedTextBox1.Name = "AmbientalProvisorioDATAMaskedTextBox1"
+        Me.AmbientalProvisorioDATAMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
+        Me.AmbientalProvisorioDATAMaskedTextBox1.TabIndex = 4
+        Me.AmbientalProvisorioDATAMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'AmbientalExigenciaRichTextBox
         '
@@ -1417,8 +1417,8 @@ Partial Class FrmAlvara
         'TabPage3
         '
         Me.TabPage3.AutoScroll = True
+        Me.TabPage3.Controls.Add(Me.ViabilidadeProvisorioDATAMaskedTextBox1)
         Me.TabPage3.Controls.Add(ViabilidadeDataProvisorioLabel)
-        Me.TabPage3.Controls.Add(Me.ViabilidadeDataProvisorioMaskedTextBox)
         Me.TabPage3.Controls.Add(ViabilidadeExigenciaLabel)
         Me.TabPage3.Controls.Add(Me.ViabilidadeExigenciaRichTextBox)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
@@ -1428,15 +1428,15 @@ Partial Class FrmAlvara
         Me.TabPage3.Text = "Viabilidade"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'ViabilidadeDataProvisorioMaskedTextBox
+        'ViabilidadeProvisorioDATAMaskedTextBox1
         '
-        Me.ViabilidadeDataProvisorioMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
-        Me.ViabilidadeDataProvisorioMaskedTextBox.Location = New System.Drawing.Point(211, 147)
-        Me.ViabilidadeDataProvisorioMaskedTextBox.Mask = "00/00/0000"
-        Me.ViabilidadeDataProvisorioMaskedTextBox.Name = "ViabilidadeDataProvisorioMaskedTextBox"
-        Me.ViabilidadeDataProvisorioMaskedTextBox.Size = New System.Drawing.Size(70, 20)
-        Me.ViabilidadeDataProvisorioMaskedTextBox.TabIndex = 3
-        Me.ViabilidadeDataProvisorioMaskedTextBox.ValidatingType = GetType(Date)
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.Name = "ViabilidadeProvisorioDATAMaskedTextBox1"
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.TabIndex = 4
+        Me.ViabilidadeProvisorioDATAMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'ViabilidadeExigenciaRichTextBox
         '
@@ -1450,9 +1450,9 @@ Partial Class FrmAlvara
         'TabPage4
         '
         Me.TabPage4.AutoScroll = True
+        Me.TabPage4.Controls.Add(Me.SanitarioProvisorioDATAMaskedTextBox1)
         Me.TabPage4.Controls.Add(Me.GroupBox6)
         Me.TabPage4.Controls.Add(SanitarioDataProvisorioLabel)
-        Me.TabPage4.Controls.Add(Me.SanitarioDataProvisorioMaskedTextBox)
         Me.TabPage4.Controls.Add(SanitarioExigenciaLabel)
         Me.TabPage4.Controls.Add(Me.SanitarioExigenciaRichTextBox)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
@@ -1461,6 +1461,16 @@ Partial Class FrmAlvara
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Sanitário"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'SanitarioProvisorioDATAMaskedTextBox1
+        '
+        Me.SanitarioProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
+        Me.SanitarioProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
+        Me.SanitarioProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
+        Me.SanitarioProvisorioDATAMaskedTextBox1.Name = "SanitarioProvisorioDATAMaskedTextBox1"
+        Me.SanitarioProvisorioDATAMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
+        Me.SanitarioProvisorioDATAMaskedTextBox1.TabIndex = 4
+        Me.SanitarioProvisorioDATAMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'GroupBox6
         '
@@ -1549,16 +1559,6 @@ Partial Class FrmAlvara
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Autenticidade de Certidão"
         '
-        'SanitarioDataProvisorioMaskedTextBox
-        '
-        Me.SanitarioDataProvisorioMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
-        Me.SanitarioDataProvisorioMaskedTextBox.Location = New System.Drawing.Point(211, 147)
-        Me.SanitarioDataProvisorioMaskedTextBox.Mask = "00/00/0000"
-        Me.SanitarioDataProvisorioMaskedTextBox.Name = "SanitarioDataProvisorioMaskedTextBox"
-        Me.SanitarioDataProvisorioMaskedTextBox.Size = New System.Drawing.Size(70, 20)
-        Me.SanitarioDataProvisorioMaskedTextBox.TabIndex = 3
-        Me.SanitarioDataProvisorioMaskedTextBox.ValidatingType = GetType(Date)
-        '
         'SanitarioExigenciaRichTextBox
         '
         Me.SanitarioExigenciaRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioExigencia", True))
@@ -1570,8 +1570,9 @@ Partial Class FrmAlvara
         '
         'TabPage5
         '
+        Me.TabPage5.AutoScroll = True
+        Me.TabPage5.Controls.Add(Me.SetranProvisorioDATAMaskedTextBox1)
         Me.TabPage5.Controls.Add(SetranDataProvisorioLabel)
-        Me.TabPage5.Controls.Add(Me.SetranDataProvisorioMaskedTextBox)
         Me.TabPage5.Controls.Add(SetranExigenciaLabel)
         Me.TabPage5.Controls.Add(Me.SetranExigenciaRichTextBox)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
@@ -1581,15 +1582,15 @@ Partial Class FrmAlvara
         Me.TabPage5.Text = "Setran"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
-        'SetranDataProvisorioMaskedTextBox
+        'SetranProvisorioDATAMaskedTextBox1
         '
-        Me.SetranDataProvisorioMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
-        Me.SetranDataProvisorioMaskedTextBox.Location = New System.Drawing.Point(211, 147)
-        Me.SetranDataProvisorioMaskedTextBox.Mask = "00/00/0000"
-        Me.SetranDataProvisorioMaskedTextBox.Name = "SetranDataProvisorioMaskedTextBox"
-        Me.SetranDataProvisorioMaskedTextBox.Size = New System.Drawing.Size(70, 20)
-        Me.SetranDataProvisorioMaskedTextBox.TabIndex = 3
-        Me.SetranDataProvisorioMaskedTextBox.ValidatingType = GetType(Date)
+        Me.SetranProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
+        Me.SetranProvisorioDATAMaskedTextBox1.Location = New System.Drawing.Point(156, 146)
+        Me.SetranProvisorioDATAMaskedTextBox1.Mask = "00/00/0000"
+        Me.SetranProvisorioDATAMaskedTextBox1.Name = "SetranProvisorioDATAMaskedTextBox1"
+        Me.SetranProvisorioDATAMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
+        Me.SetranProvisorioDATAMaskedTextBox1.TabIndex = 4
+        Me.SetranProvisorioDATAMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'SetranExigenciaRichTextBox
         '
@@ -1718,17 +1719,17 @@ Partial Class FrmAlvara
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox3.Controls.Add(Me.SetranDataProvisorioMaskedTextBox1)
-        Me.GroupBox3.Controls.Add(Me.SanitarioDataProvisorioMaskedTextBox1)
-        Me.GroupBox3.Controls.Add(Me.ViabilidadeDataProvisorioMaskedTextBox1)
-        Me.GroupBox3.Controls.Add(Me.AmbientalDataProvisorioMaskedTextBox1)
-        Me.GroupBox3.Controls.Add(Me.BombeiroDataProvisorioMaskedTextBox1)
         Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Controls.Add(Me.ViabilidadeProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Controls.Add(Me.SetranProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.SanitarioProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Controls.Add(Me.Button8)
+        Me.GroupBox3.Controls.Add(Me.BombeiroProvisorioDATAMaskedTextBox)
+        Me.GroupBox3.Controls.Add(Me.AmbientalProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(518, 32)
         Me.GroupBox3.Name = "GroupBox3"
@@ -1736,66 +1737,6 @@ Partial Class FrmAlvara
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Vencimento Alvará Provisório "
-        '
-        'SetranDataProvisorioMaskedTextBox1
-        '
-        Me.SetranDataProvisorioMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
-        Me.SetranDataProvisorioMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SetranDataProvisorioMaskedTextBox1.Location = New System.Drawing.Point(67, 103)
-        Me.SetranDataProvisorioMaskedTextBox1.Mask = "00/00/0000"
-        Me.SetranDataProvisorioMaskedTextBox1.Name = "SetranDataProvisorioMaskedTextBox1"
-        Me.SetranDataProvisorioMaskedTextBox1.ReadOnly = True
-        Me.SetranDataProvisorioMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
-        Me.SetranDataProvisorioMaskedTextBox1.TabIndex = 53
-        Me.SetranDataProvisorioMaskedTextBox1.ValidatingType = GetType(Date)
-        '
-        'SanitarioDataProvisorioMaskedTextBox1
-        '
-        Me.SanitarioDataProvisorioMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
-        Me.SanitarioDataProvisorioMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SanitarioDataProvisorioMaskedTextBox1.Location = New System.Drawing.Point(67, 82)
-        Me.SanitarioDataProvisorioMaskedTextBox1.Mask = "00/00/0000"
-        Me.SanitarioDataProvisorioMaskedTextBox1.Name = "SanitarioDataProvisorioMaskedTextBox1"
-        Me.SanitarioDataProvisorioMaskedTextBox1.ReadOnly = True
-        Me.SanitarioDataProvisorioMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
-        Me.SanitarioDataProvisorioMaskedTextBox1.TabIndex = 53
-        Me.SanitarioDataProvisorioMaskedTextBox1.ValidatingType = GetType(Date)
-        '
-        'ViabilidadeDataProvisorioMaskedTextBox1
-        '
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.Location = New System.Drawing.Point(67, 61)
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.Mask = "00/00/0000"
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.Name = "ViabilidadeDataProvisorioMaskedTextBox1"
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.ReadOnly = True
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.TabIndex = 53
-        Me.ViabilidadeDataProvisorioMaskedTextBox1.ValidatingType = GetType(Date)
-        '
-        'AmbientalDataProvisorioMaskedTextBox1
-        '
-        Me.AmbientalDataProvisorioMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
-        Me.AmbientalDataProvisorioMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AmbientalDataProvisorioMaskedTextBox1.Location = New System.Drawing.Point(67, 39)
-        Me.AmbientalDataProvisorioMaskedTextBox1.Mask = "00/00/0000"
-        Me.AmbientalDataProvisorioMaskedTextBox1.Name = "AmbientalDataProvisorioMaskedTextBox1"
-        Me.AmbientalDataProvisorioMaskedTextBox1.ReadOnly = True
-        Me.AmbientalDataProvisorioMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
-        Me.AmbientalDataProvisorioMaskedTextBox1.TabIndex = 53
-        Me.AmbientalDataProvisorioMaskedTextBox1.ValidatingType = GetType(Date)
-        '
-        'BombeiroDataProvisorioMaskedTextBox1
-        '
-        Me.BombeiroDataProvisorioMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
-        Me.BombeiroDataProvisorioMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BombeiroDataProvisorioMaskedTextBox1.Location = New System.Drawing.Point(67, 18)
-        Me.BombeiroDataProvisorioMaskedTextBox1.Mask = "00/00/0000"
-        Me.BombeiroDataProvisorioMaskedTextBox1.Name = "BombeiroDataProvisorioMaskedTextBox1"
-        Me.BombeiroDataProvisorioMaskedTextBox1.ReadOnly = True
-        Me.BombeiroDataProvisorioMaskedTextBox1.Size = New System.Drawing.Size(66, 20)
-        Me.BombeiroDataProvisorioMaskedTextBox1.TabIndex = 53
-        Me.BombeiroDataProvisorioMaskedTextBox1.ValidatingType = GetType(Date)
         '
         'Label9
         '
@@ -1806,6 +1747,17 @@ Partial Class FrmAlvara
         Me.Label9.Size = New System.Drawing.Size(41, 13)
         Me.Label9.TabIndex = 49
         Me.Label9.Text = "Setran:"
+        '
+        'ViabilidadeProvisorioDATAMaskedTextBox
+        '
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeDataProvisorio", True))
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 58)
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.Name = "ViabilidadeProvisorioDATAMaskedTextBox"
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.Size = New System.Drawing.Size(70, 22)
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.TabIndex = 63
+        Me.ViabilidadeProvisorioDATAMaskedTextBox.ValidatingType = GetType(Date)
         '
         'Label8
         '
@@ -1827,6 +1779,17 @@ Partial Class FrmAlvara
         Me.Label7.TabIndex = 47
         Me.Label7.Text = "Viabilidade:"
         '
+        'SetranProvisorioDATAMaskedTextBox
+        '
+        Me.SetranProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranDataProvisorio", True))
+        Me.SetranProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SetranProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 100)
+        Me.SetranProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
+        Me.SetranProvisorioDATAMaskedTextBox.Name = "SetranProvisorioDATAMaskedTextBox"
+        Me.SetranProvisorioDATAMaskedTextBox.Size = New System.Drawing.Size(70, 22)
+        Me.SetranProvisorioDATAMaskedTextBox.TabIndex = 62
+        Me.SetranProvisorioDATAMaskedTextBox.ValidatingType = GetType(Date)
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -1847,6 +1810,39 @@ Partial Class FrmAlvara
         Me.Label5.TabIndex = 45
         Me.Label5.Text = "Bombeiro:"
         '
+        'SanitarioProvisorioDATAMaskedTextBox
+        '
+        Me.SanitarioProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioDataProvisorio", True))
+        Me.SanitarioProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SanitarioProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 79)
+        Me.SanitarioProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
+        Me.SanitarioProvisorioDATAMaskedTextBox.Name = "SanitarioProvisorioDATAMaskedTextBox"
+        Me.SanitarioProvisorioDATAMaskedTextBox.Size = New System.Drawing.Size(70, 22)
+        Me.SanitarioProvisorioDATAMaskedTextBox.TabIndex = 61
+        Me.SanitarioProvisorioDATAMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'BombeiroProvisorioDATAMaskedTextBox
+        '
+        Me.BombeiroProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataProvisorio", True))
+        Me.BombeiroProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BombeiroProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 16)
+        Me.BombeiroProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
+        Me.BombeiroProvisorioDATAMaskedTextBox.Name = "BombeiroProvisorioDATAMaskedTextBox"
+        Me.BombeiroProvisorioDATAMaskedTextBox.Size = New System.Drawing.Size(70, 22)
+        Me.BombeiroProvisorioDATAMaskedTextBox.TabIndex = 58
+        Me.BombeiroProvisorioDATAMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'AmbientalProvisorioDATAMaskedTextBox
+        '
+        Me.AmbientalProvisorioDATAMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalDataProvisorio", True))
+        Me.AmbientalProvisorioDATAMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AmbientalProvisorioDATAMaskedTextBox.Location = New System.Drawing.Point(65, 37)
+        Me.AmbientalProvisorioDATAMaskedTextBox.Mask = "00/00/0000"
+        Me.AmbientalProvisorioDATAMaskedTextBox.Name = "AmbientalProvisorioDATAMaskedTextBox"
+        Me.AmbientalProvisorioDATAMaskedTextBox.Size = New System.Drawing.Size(70, 22)
+        Me.AmbientalProvisorioDATAMaskedTextBox.TabIndex = 59
+        Me.AmbientalProvisorioDATAMaskedTextBox.ValidatingType = GetType(Date)
+        '
         'CADSituacaoAlvaraBindingSource
         '
         Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
@@ -1855,7 +1851,6 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox4.Controls.Add(Me.Calendar1)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
         Me.GroupBox4.Controls.Add(Me.BtnBombVer)
@@ -1936,6 +1931,7 @@ Partial Class FrmAlvara
         '
         'TabPage12
         '
+        Me.TabPage12.AutoScroll = True
         Me.TabPage12.Controls.Add(Me.BtnAtualizarDados)
         Me.TabPage12.Controls.Add(Me.TabControl2)
         Me.TabPage12.Location = New System.Drawing.Point(4, 22)
@@ -2576,7 +2572,6 @@ Partial Class FrmAlvara
         '
         'ObservacaoRichTextBox
         '
-        Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
         Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
         Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
         Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(295, 94)
@@ -2595,6 +2590,12 @@ Partial Class FrmAlvara
         Me.Button24.TabIndex = 51
         Me.Button24.Text = "Solicitar"
         Me.Button24.UseVisualStyleBackColor = False
+        '
+        'Calendar1
+        '
+        Me.Calendar1.Location = New System.Drawing.Point(87, 164)
+        Me.Calendar1.Name = "Calendar1"
+        Me.Calendar1.TabIndex = 79
         '
         'BtnAnotacoesLEgalizacao
         '
@@ -2861,6 +2862,15 @@ Partial Class FrmAlvara
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "GroupBox9"
         '
+        'SituacaoComboBox
+        '
+        Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
+        Me.SituacaoComboBox.FormattingEnabled = True
+        Me.SituacaoComboBox.Location = New System.Drawing.Point(317, 85)
+        Me.SituacaoComboBox.Name = "SituacaoComboBox"
+        Me.SituacaoComboBox.Size = New System.Drawing.Size(167, 21)
+        Me.SituacaoComboBox.TabIndex = 78
+        '
         'EndEstadoLabel2
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndEstado", True))
@@ -2891,24 +2901,9 @@ Partial Class FrmAlvara
         Me.BtnData1.Text = "Agora"
         Me.BtnData1.UseVisualStyleBackColor = True
         '
-        'Calendar1
-        '
-        Me.Calendar1.Location = New System.Drawing.Point(320, -31)
-        Me.Calendar1.Name = "Calendar1"
-        Me.Calendar1.TabIndex = 79
-        '
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
-        '
-        'SituacaoComboBox
-        '
-        Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
-        Me.SituacaoComboBox.FormattingEnabled = True
-        Me.SituacaoComboBox.Location = New System.Drawing.Point(317, 85)
-        Me.SituacaoComboBox.Name = "SituacaoComboBox"
-        Me.SituacaoComboBox.Size = New System.Drawing.Size(167, 21)
-        Me.SituacaoComboBox.TabIndex = 78
         '
         'FrmAlvara
         '
@@ -2917,6 +2912,7 @@ Partial Class FrmAlvara
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.ClientSize = New System.Drawing.Size(850, 628)
+        Me.Controls.Add(Me.Calendar1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox9)
@@ -3032,16 +3028,11 @@ Partial Class FrmAlvara
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents BombeiroDataPedProcessoMaskedTextBox As MaskedTextBox
     Friend WithEvents BombeiroNProcessoMaskedTextBox As MaskedTextBox
-    Friend WithEvents BombeiroDataProvisorioMaskedTextBox As MaskedTextBox
     Friend WithEvents BombeiroExigenciaRichTextBox As RichTextBox
     Friend WithEvents AmbientalExigenciaRichTextBox As RichTextBox
     Friend WithEvents ViabilidadeExigenciaRichTextBox As RichTextBox
     Friend WithEvents SanitarioExigenciaRichTextBox As RichTextBox
     Friend WithEvents SetranExigenciaRichTextBox As RichTextBox
-    Friend WithEvents AmbientalDataProvisorioMaskedTextBox As MaskedTextBox
-    Friend WithEvents ViabilidadeDataProvisorioMaskedTextBox As MaskedTextBox
-    Friend WithEvents SanitarioDataProvisorioMaskedTextBox As MaskedTextBox
-    Friend WithEvents SetranDataProvisorioMaskedTextBox As MaskedTextBox
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
@@ -3067,11 +3058,6 @@ Partial Class FrmAlvara
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents SetranDataProvisorioMaskedTextBox1 As MaskedTextBox
-    Friend WithEvents SanitarioDataProvisorioMaskedTextBox1 As MaskedTextBox
-    Friend WithEvents ViabilidadeDataProvisorioMaskedTextBox1 As MaskedTextBox
-    Friend WithEvents AmbientalDataProvisorioMaskedTextBox1 As MaskedTextBox
-    Friend WithEvents BombeiroDataProvisorioMaskedTextBox1 As MaskedTextBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents GroupBox5 As GroupBox
@@ -3186,4 +3172,14 @@ Partial Class FrmAlvara
     Friend WithEvents BtnAnotacoesPref As Button
     Friend WithEvents BtnAnotacoesLEgalizacao As Button
     Friend WithEvents SituacaoComboBox As ComboBox
+    Friend WithEvents SetranProvisorioDATAMaskedTextBox As MaskedTextBox
+    Friend WithEvents SanitarioProvisorioDATAMaskedTextBox As MaskedTextBox
+    Friend WithEvents AmbientalProvisorioDATAMaskedTextBox As MaskedTextBox
+    Friend WithEvents BombeiroProvisorioDATAMaskedTextBox As MaskedTextBox
+    Friend WithEvents ViabilidadeProvisorioDATAMaskedTextBox As MaskedTextBox
+    Friend WithEvents BombeiroProvisorioDATAMaskedTextBox1 As MaskedTextBox
+    Friend WithEvents AmbientalProvisorioDATAMaskedTextBox1 As MaskedTextBox
+    Friend WithEvents ViabilidadeProvisorioDATAMaskedTextBox1 As MaskedTextBox
+    Friend WithEvents SanitarioProvisorioDATAMaskedTextBox1 As MaskedTextBox
+    Friend WithEvents SetranProvisorioDATAMaskedTextBox1 As MaskedTextBox
 End Class

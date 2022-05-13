@@ -31,8 +31,6 @@ Partial Public Class PrinceDBDataSet
     
     Private tableContador As ContadorDataTable
     
-    Private tableLaudos As LaudosDataTable
-    
     Private tableLogin As LoginDataTable
     
     Private tableTelefones As TelefonesDataTable
@@ -52,6 +50,8 @@ Partial Public Class PrinceDBDataSet
     Private tableeMailCaixaDeSaida As eMailCaixaDeSaidaDataTable
     
     Private tableAnotacoes As AnotacoesDataTable
+    
+    Private tableLaudos As LaudosDataTable
     
     Private relationeMail_eMailCaixaDeSaida As Global.System.Data.DataRelation
     
@@ -95,9 +95,6 @@ Partial Public Class PrinceDBDataSet
             If (Not (ds.Tables("Contador")) Is Nothing) Then
                 MyBase.Tables.Add(New ContadorDataTable(ds.Tables("Contador")))
             End If
-            If (Not (ds.Tables("Laudos")) Is Nothing) Then
-                MyBase.Tables.Add(New LaudosDataTable(ds.Tables("Laudos")))
-            End If
             If (Not (ds.Tables("Login")) Is Nothing) Then
                 MyBase.Tables.Add(New LoginDataTable(ds.Tables("Login")))
             End If
@@ -127,6 +124,9 @@ Partial Public Class PrinceDBDataSet
             End If
             If (Not (ds.Tables("Anotacoes")) Is Nothing) Then
                 MyBase.Tables.Add(New AnotacoesDataTable(ds.Tables("Anotacoes")))
+            End If
+            If (Not (ds.Tables("Laudos")) Is Nothing) Then
+                MyBase.Tables.Add(New LaudosDataTable(ds.Tables("Laudos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -172,16 +172,6 @@ Partial Public Class PrinceDBDataSet
     Public ReadOnly Property Contador() As ContadorDataTable
         Get
             Return Me.tableContador
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Laudos() As LaudosDataTable
-        Get
-            Return Me.tableLaudos
         End Get
     End Property
     
@@ -287,6 +277,16 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Laudos() As LaudosDataTable
+        Get
+            Return Me.tableLaudos
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -361,9 +361,6 @@ Partial Public Class PrinceDBDataSet
             If (Not (ds.Tables("Contador")) Is Nothing) Then
                 MyBase.Tables.Add(New ContadorDataTable(ds.Tables("Contador")))
             End If
-            If (Not (ds.Tables("Laudos")) Is Nothing) Then
-                MyBase.Tables.Add(New LaudosDataTable(ds.Tables("Laudos")))
-            End If
             If (Not (ds.Tables("Login")) Is Nothing) Then
                 MyBase.Tables.Add(New LoginDataTable(ds.Tables("Login")))
             End If
@@ -393,6 +390,9 @@ Partial Public Class PrinceDBDataSet
             End If
             If (Not (ds.Tables("Anotacoes")) Is Nothing) Then
                 MyBase.Tables.Add(New AnotacoesDataTable(ds.Tables("Anotacoes")))
+            End If
+            If (Not (ds.Tables("Laudos")) Is Nothing) Then
+                MyBase.Tables.Add(New LaudosDataTable(ds.Tables("Laudos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -442,12 +442,6 @@ Partial Public Class PrinceDBDataSet
         If (initTable = true) Then
             If (Not (Me.tableContador) Is Nothing) Then
                 Me.tableContador.InitVars
-            End If
-        End If
-        Me.tableLaudos = CType(MyBase.Tables("Laudos"),LaudosDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableLaudos) Is Nothing) Then
-                Me.tableLaudos.InitVars
             End If
         End If
         Me.tableLogin = CType(MyBase.Tables("Login"),LoginDataTable)
@@ -510,6 +504,12 @@ Partial Public Class PrinceDBDataSet
                 Me.tableAnotacoes.InitVars
             End If
         End If
+        Me.tableLaudos = CType(MyBase.Tables("Laudos"),LaudosDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableLaudos) Is Nothing) Then
+                Me.tableLaudos.InitVars
+            End If
+        End If
         Me.relationeMail_eMailCaixaDeSaida = Me.Relations("eMail_eMailCaixaDeSaida")
         Me.relationLogin_Anotacoes = Me.Relations("Login_Anotacoes")
     End Sub
@@ -528,8 +528,6 @@ Partial Public Class PrinceDBDataSet
         MyBase.Tables.Add(Me.tableNaturezajuridica)
         Me.tableContador = New ContadorDataTable()
         MyBase.Tables.Add(Me.tableContador)
-        Me.tableLaudos = New LaudosDataTable()
-        MyBase.Tables.Add(Me.tableLaudos)
         Me.tableLogin = New LoginDataTable()
         MyBase.Tables.Add(Me.tableLogin)
         Me.tableTelefones = New TelefonesDataTable()
@@ -550,6 +548,8 @@ Partial Public Class PrinceDBDataSet
         MyBase.Tables.Add(Me.tableeMailCaixaDeSaida)
         Me.tableAnotacoes = New AnotacoesDataTable()
         MyBase.Tables.Add(Me.tableAnotacoes)
+        Me.tableLaudos = New LaudosDataTable()
+        MyBase.Tables.Add(Me.tableLaudos)
         Me.relationeMail_eMailCaixaDeSaida = New Global.System.Data.DataRelation("eMail_eMailCaixaDeSaida", New Global.System.Data.DataColumn() {Me.tableeMail.eMailColumn}, New Global.System.Data.DataColumn() {Me.tableeMailCaixaDeSaida.eMailPrincipalColumn}, false)
         Me.Relations.Add(Me.relationeMail_eMailCaixaDeSaida)
         Me.relationLogin_Anotacoes = New Global.System.Data.DataRelation("Login_Anotacoes", New Global.System.Data.DataColumn() {Me.tableLogin.UsuarioColumn}, New Global.System.Data.DataColumn() {Me.tableAnotacoes.UsuarioColumn}, false)
@@ -571,12 +571,6 @@ Partial Public Class PrinceDBDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Function ShouldSerializeContador() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializeLaudos() As Boolean
         Return false
     End Function
     
@@ -637,6 +631,12 @@ Partial Public Class PrinceDBDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Function ShouldSerializeAnotacoes() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Private Function ShouldSerializeLaudos() As Boolean
         Return false
     End Function
     
@@ -708,9 +708,6 @@ Partial Public Class PrinceDBDataSet
     Public Delegate Sub ContadorRowChangeEventHandler(ByVal sender As Object, ByVal e As ContadorRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub LaudosRowChangeEventHandler(ByVal sender As Object, ByVal e As LaudosRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub LoginRowChangeEventHandler(ByVal sender As Object, ByVal e As LoginRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -739,6 +736,9 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub AnotacoesRowChangeEventHandler(ByVal sender As Object, ByVal e As AnotacoesRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Delegate Sub LaudosRowChangeEventHandler(ByVal sender As Object, ByVal e As LaudosRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1790,1426 +1790,6 @@ Partial Public Class PrinceDBDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "ContadorDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class LaudosDataTable
-        Inherits Global.System.Data.TypedTableBase(Of LaudosRow)
-        
-        Private columnID_Laudos As Global.System.Data.DataColumn
-        
-        Private columnRazaoSocial As Global.System.Data.DataColumn
-        
-        Private columnCNPJ As Global.System.Data.DataColumn
-        
-        Private columnEndereco As Global.System.Data.DataColumn
-        
-        Private columnEndNum As Global.System.Data.DataColumn
-        
-        Private columnEndComp As Global.System.Data.DataColumn
-        
-        Private columnEndData As Global.System.Data.DataColumn
-        
-        Private columnEndQuadra As Global.System.Data.DataColumn
-        
-        Private columnEndZona As Global.System.Data.DataColumn
-        
-        Private columnEndCEP As Global.System.Data.DataColumn
-        
-        Private columnTelefone As Global.System.Data.DataColumn
-        
-        Private columnCNAE As Global.System.Data.DataColumn
-        
-        Private columnNaturezaDoPedido As Global.System.Data.DataColumn
-        
-        Private columnNaturezaDoPedidoOBS As Global.System.Data.DataColumn
-        
-        Private columnRequerente As Global.System.Data.DataColumn
-        
-        Private columnCPFRequerente As Global.System.Data.DataColumn
-        
-        Private columnEndRequerente As Global.System.Data.DataColumn
-        
-        Private columnFoneRequerente As Global.System.Data.DataColumn
-        
-        Private columnEmailRequerente As Global.System.Data.DataColumn
-        
-        Private columnCNPJRequerente As Global.System.Data.DataColumn
-        
-        Private columnRGRequerente As Global.System.Data.DataColumn
-        
-        Private columnRamodeatividade As Global.System.Data.DataColumn
-        
-        Private columnObs As Global.System.Data.DataColumn
-        
-        Private columnarea As Global.System.Data.DataColumn
-        
-        Private columnResptecnico As Global.System.Data.DataColumn
-        
-        Private columnResptecnicoNumero As Global.System.Data.DataColumn
-        
-        Private columnLembrete As Global.System.Data.DataColumn
-        
-        Private columnEndBairro As Global.System.Data.DataColumn
-        
-        Private columnEndCidade As Global.System.Data.DataColumn
-        
-        Private columnEndEstado As Global.System.Data.DataColumn
-        
-        Private columnBombeiros As Global.System.Data.DataColumn
-        
-        Private columnBombeirosSituacao As Global.System.Data.DataColumn
-        
-        Private columnBombeirosVenc As Global.System.Data.DataColumn
-        
-        Private columnAmbiental As Global.System.Data.DataColumn
-        
-        Private columnAmbientalSituacao As Global.System.Data.DataColumn
-        
-        Private columnAmbientalVenc As Global.System.Data.DataColumn
-        
-        Private columnViabilidade As Global.System.Data.DataColumn
-        
-        Private columnViabilidadeSituacao As Global.System.Data.DataColumn
-        
-        Private columnViabilidadeVec As Global.System.Data.DataColumn
-        
-        Private columnSanitario As Global.System.Data.DataColumn
-        
-        Private columnSanitarioSituacao As Global.System.Data.DataColumn
-        
-        Private columnSanitarioVenc As Global.System.Data.DataColumn
-        
-        Private columnSetran As Global.System.Data.DataColumn
-        
-        Private columnSetranSituacao As Global.System.Data.DataColumn
-        
-        Private columnSetranVenc As Global.System.Data.DataColumn
-        
-        Private columnBombeiroExigencia As Global.System.Data.DataColumn
-        
-        Private columnAmbientalExigencia As Global.System.Data.DataColumn
-        
-        Private columnViabilidadeExigencia As Global.System.Data.DataColumn
-        
-        Private columnSanitarioExigencia As Global.System.Data.DataColumn
-        
-        Private columnSetranExigencia As Global.System.Data.DataColumn
-        
-        Private columnBombeiroDataProvisorio As Global.System.Data.DataColumn
-        
-        Private columnAmbientalDataProvisorio As Global.System.Data.DataColumn
-        
-        Private columnViabilidadeDataProvisorio As Global.System.Data.DataColumn
-        
-        Private columnSanitarioDataProvisorio As Global.System.Data.DataColumn
-        
-        Private columnSetranDataProvisorio As Global.System.Data.DataColumn
-        
-        Private columnBombeiroNProcesso As Global.System.Data.DataColumn
-        
-        Private columnBombeiroDataPedProcesso As Global.System.Data.DataColumn
-        
-        Private columnNlaudo As Global.System.Data.DataColumn
-        
-        Private columnSituacao As Global.System.Data.DataColumn
-        
-        Private columnDataCriado As Global.System.Data.DataColumn
-        
-        Private columnDataEntrada As Global.System.Data.DataColumn
-        
-        Private columnPendencia As Global.System.Data.DataColumn
-        
-        Private columnModeloSistema As Global.System.Data.DataColumn
-        
-        Private columnAvisarDia As Global.System.Data.DataColumn
-        
-        Private columnCadImob As Global.System.Data.DataColumn
-        
-        Private columnCMC As Global.System.Data.DataColumn
-        
-        Private columnarea2 As Global.System.Data.DataColumn
-        
-        Private columnPontoRef As Global.System.Data.DataColumn
-        
-        Private columnSanitariocontrole2 As Global.System.Data.DataColumn
-        
-        Private columnSanitariocontrole1 As Global.System.Data.DataColumn
-        
-        Private columnSanitariocontrole3 As Global.System.Data.DataColumn
-        
-        Private columnObservacao As Global.System.Data.DataColumn
-        
-        Private columnProtocoloTipo As Global.System.Data.DataColumn
-        
-        Private columnProtocoloN As Global.System.Data.DataColumn
-        
-        Private columnProtocoloAno As Global.System.Data.DataColumn
-        
-        Private columnProtocoloSenha As Global.System.Data.DataColumn
-        
-        Private columnHistorico As Global.System.Data.DataColumn
-        
-        Private columnBombeiroSituacao As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "Laudos"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ID_LaudosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID_Laudos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property RazaoSocialColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRazaoSocial
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CNPJColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCNPJ
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EnderecoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndereco
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndNumColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndNum
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndCompColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndComp
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndDataColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndData
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndQuadraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndQuadra
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndZonaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndZona
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndCEPColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndCEP
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property TelefoneColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTelefone
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CNAEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCNAE
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property NaturezaDoPedidoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNaturezaDoPedido
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property NaturezaDoPedidoOBSColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNaturezaDoPedidoOBS
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property RequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CPFRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCPFRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property FoneRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFoneRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EmailRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmailRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CNPJRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCNPJRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property RGRequerenteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRGRequerente
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property RamodeatividadeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRamodeatividade
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ObsColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnObs
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property areaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnarea
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ResptecnicoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnResptecnico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ResptecnicoNumeroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnResptecnicoNumero
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property LembreteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLembrete
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndBairroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndBairro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndCidadeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndCidade
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EndEstadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndEstado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeirosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiros
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeirosSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeirosSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeirosVencColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeirosVenc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AmbientalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAmbiental
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AmbientalSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAmbientalSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AmbientalVencColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAmbientalVenc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ViabilidadeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnViabilidade
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ViabilidadeSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnViabilidadeSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ViabilidadeVecColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnViabilidadeVec
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SanitarioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitario
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SanitarioSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitarioSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SanitarioVencColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitarioVenc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SetranColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSetran
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SetranSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSetranSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SetranVencColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSetranVenc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeiroExigenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiroExigencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AmbientalExigenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAmbientalExigencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ViabilidadeExigenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnViabilidadeExigencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SanitarioExigenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitarioExigencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SetranExigenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSetranExigencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeiroDataProvisorioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiroDataProvisorio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AmbientalDataProvisorioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAmbientalDataProvisorio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ViabilidadeDataProvisorioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnViabilidadeDataProvisorio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SanitarioDataProvisorioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitarioDataProvisorio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SetranDataProvisorioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSetranDataProvisorio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeiroNProcessoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiroNProcesso
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeiroDataPedProcessoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiroDataPedProcesso
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property NlaudoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNlaudo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property DataCriadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDataCriado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property DataEntradaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDataEntrada
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property PendenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPendencia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ModeloSistemaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnModeloSistema
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AvisarDiaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAvisarDia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CadImobColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCadImob
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CMCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCMC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property area2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnarea2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property PontoRefColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPontoRef
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Sanitariocontrole2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitariocontrole2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Sanitariocontrole1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitariocontrole1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Sanitariocontrole3Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSanitariocontrole3
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ObservacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnObservacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ProtocoloTipoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProtocoloTipo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ProtocoloNColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProtocoloN
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ProtocoloAnoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProtocoloAno
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property ProtocoloSenhaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProtocoloSenha
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property HistoricoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnHistorico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property BombeiroSituacaoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBombeiroSituacao
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As LaudosRow
-            Get
-                Return CType(Me.Rows(index),LaudosRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event LaudosRowChanging As LaudosRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event LaudosRowChanged As LaudosRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event LaudosRowDeleting As LaudosRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event LaudosRowDeleted As LaudosRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AddLaudosRow(ByVal row As LaudosRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddLaudosRow( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal Endereco As String,  _
-                    ByVal EndNum As String,  _
-                    ByVal EndComp As String,  _
-                    ByVal EndData As String,  _
-                    ByVal EndQuadra As String,  _
-                    ByVal EndZona As String,  _
-                    ByVal EndCEP As String,  _
-                    ByVal Telefone As String,  _
-                    ByVal CNAE As String,  _
-                    ByVal NaturezaDoPedido As String,  _
-                    ByVal NaturezaDoPedidoOBS As String,  _
-                    ByVal Requerente As String,  _
-                    ByVal CPFRequerente As String,  _
-                    ByVal EndRequerente As String,  _
-                    ByVal FoneRequerente As String,  _
-                    ByVal EmailRequerente As String,  _
-                    ByVal CNPJRequerente As String,  _
-                    ByVal RGRequerente As String,  _
-                    ByVal Ramodeatividade As String,  _
-                    ByVal Obs As String,  _
-                    ByVal area As String,  _
-                    ByVal Resptecnico As String,  _
-                    ByVal ResptecnicoNumero As String,  _
-                    ByVal Lembrete As String,  _
-                    ByVal EndBairro As String,  _
-                    ByVal EndCidade As String,  _
-                    ByVal EndEstado As String,  _
-                    ByVal Bombeiros As String,  _
-                    ByVal BombeirosSituacao As String,  _
-                    ByVal BombeirosVenc As String,  _
-                    ByVal Ambiental As String,  _
-                    ByVal AmbientalSituacao As String,  _
-                    ByVal AmbientalVenc As String,  _
-                    ByVal Viabilidade As String,  _
-                    ByVal ViabilidadeSituacao As String,  _
-                    ByVal ViabilidadeVec As String,  _
-                    ByVal Sanitario As String,  _
-                    ByVal SanitarioSituacao As String,  _
-                    ByVal SanitarioVenc As String,  _
-                    ByVal Setran As String,  _
-                    ByVal SetranSituacao As String,  _
-                    ByVal SetranVenc As String,  _
-                    ByVal BombeiroExigencia As String,  _
-                    ByVal AmbientalExigencia As String,  _
-                    ByVal ViabilidadeExigencia As String,  _
-                    ByVal SanitarioExigencia As String,  _
-                    ByVal SetranExigencia As String,  _
-                    ByVal BombeiroDataProvisorio As String,  _
-                    ByVal AmbientalDataProvisorio As String,  _
-                    ByVal ViabilidadeDataProvisorio As String,  _
-                    ByVal SanitarioDataProvisorio As String,  _
-                    ByVal SetranDataProvisorio As String,  _
-                    ByVal BombeiroNProcesso As String,  _
-                    ByVal BombeiroDataPedProcesso As String,  _
-                    ByVal Nlaudo As String,  _
-                    ByVal Situacao As String,  _
-                    ByVal DataCriado As String,  _
-                    ByVal DataEntrada As String,  _
-                    ByVal Pendencia As String,  _
-                    ByVal ModeloSistema As String,  _
-                    ByVal AvisarDia As String,  _
-                    ByVal CadImob As String,  _
-                    ByVal CMC As String,  _
-                    ByVal area2 As String,  _
-                    ByVal PontoRef As String,  _
-                    ByVal Sanitariocontrole2 As String,  _
-                    ByVal Sanitariocontrole1 As String,  _
-                    ByVal Sanitariocontrole3 As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal ProtocoloTipo As String,  _
-                    ByVal ProtocoloN As String,  _
-                    ByVal ProtocoloAno As String,  _
-                    ByVal ProtocoloSenha As String,  _
-                    ByVal Historico As String,  _
-                    ByVal BombeiroSituacao As String) As LaudosRow
-            Dim rowLaudosRow As LaudosRow = CType(Me.NewRow,LaudosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFRequerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Ambiental, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, ViabilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, SetranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, BombeiroNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitariocontrole2, Sanitariocontrole1, Sanitariocontrole3, Observacao, ProtocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao}
-            rowLaudosRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowLaudosRow)
-            Return rowLaudosRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByID_Laudos(ByVal ID_Laudos As Short) As LaudosRow
-            Return CType(Me.Rows.Find(New Object() {ID_Laudos}),LaudosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As LaudosDataTable = CType(MyBase.Clone,LaudosDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New LaudosDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnID_Laudos = MyBase.Columns("ID_Laudos")
-            Me.columnRazaoSocial = MyBase.Columns("RazaoSocial")
-            Me.columnCNPJ = MyBase.Columns("CNPJ")
-            Me.columnEndereco = MyBase.Columns("Endereco")
-            Me.columnEndNum = MyBase.Columns("EndNum")
-            Me.columnEndComp = MyBase.Columns("EndComp")
-            Me.columnEndData = MyBase.Columns("EndData")
-            Me.columnEndQuadra = MyBase.Columns("EndQuadra")
-            Me.columnEndZona = MyBase.Columns("EndZona")
-            Me.columnEndCEP = MyBase.Columns("EndCEP")
-            Me.columnTelefone = MyBase.Columns("Telefone")
-            Me.columnCNAE = MyBase.Columns("CNAE")
-            Me.columnNaturezaDoPedido = MyBase.Columns("NaturezaDoPedido")
-            Me.columnNaturezaDoPedidoOBS = MyBase.Columns("NaturezaDoPedidoOBS")
-            Me.columnRequerente = MyBase.Columns("Requerente")
-            Me.columnCPFRequerente = MyBase.Columns("CPFRequerente")
-            Me.columnEndRequerente = MyBase.Columns("EndRequerente")
-            Me.columnFoneRequerente = MyBase.Columns("FoneRequerente")
-            Me.columnEmailRequerente = MyBase.Columns("EmailRequerente")
-            Me.columnCNPJRequerente = MyBase.Columns("CNPJRequerente")
-            Me.columnRGRequerente = MyBase.Columns("RGRequerente")
-            Me.columnRamodeatividade = MyBase.Columns("Ramodeatividade")
-            Me.columnObs = MyBase.Columns("Obs")
-            Me.columnarea = MyBase.Columns("area")
-            Me.columnResptecnico = MyBase.Columns("Resptecnico")
-            Me.columnResptecnicoNumero = MyBase.Columns("ResptecnicoNumero")
-            Me.columnLembrete = MyBase.Columns("Lembrete")
-            Me.columnEndBairro = MyBase.Columns("EndBairro")
-            Me.columnEndCidade = MyBase.Columns("EndCidade")
-            Me.columnEndEstado = MyBase.Columns("EndEstado")
-            Me.columnBombeiros = MyBase.Columns("Bombeiros")
-            Me.columnBombeirosSituacao = MyBase.Columns("BombeirosSituacao")
-            Me.columnBombeirosVenc = MyBase.Columns("BombeirosVenc")
-            Me.columnAmbiental = MyBase.Columns("Ambiental")
-            Me.columnAmbientalSituacao = MyBase.Columns("AmbientalSituacao")
-            Me.columnAmbientalVenc = MyBase.Columns("AmbientalVenc")
-            Me.columnViabilidade = MyBase.Columns("Viabilidade")
-            Me.columnViabilidadeSituacao = MyBase.Columns("ViabilidadeSituacao")
-            Me.columnViabilidadeVec = MyBase.Columns("ViabilidadeVec")
-            Me.columnSanitario = MyBase.Columns("Sanitario")
-            Me.columnSanitarioSituacao = MyBase.Columns("SanitarioSituacao")
-            Me.columnSanitarioVenc = MyBase.Columns("SanitarioVenc")
-            Me.columnSetran = MyBase.Columns("Setran")
-            Me.columnSetranSituacao = MyBase.Columns("SetranSituacao")
-            Me.columnSetranVenc = MyBase.Columns("SetranVenc")
-            Me.columnBombeiroExigencia = MyBase.Columns("BombeiroExigencia")
-            Me.columnAmbientalExigencia = MyBase.Columns("AmbientalExigencia")
-            Me.columnViabilidadeExigencia = MyBase.Columns("ViabilidadeExigencia")
-            Me.columnSanitarioExigencia = MyBase.Columns("SanitarioExigencia")
-            Me.columnSetranExigencia = MyBase.Columns("SetranExigencia")
-            Me.columnBombeiroDataProvisorio = MyBase.Columns("BombeiroDataProvisorio")
-            Me.columnAmbientalDataProvisorio = MyBase.Columns("AmbientalDataProvisorio")
-            Me.columnViabilidadeDataProvisorio = MyBase.Columns("ViabilidadeDataProvisorio")
-            Me.columnSanitarioDataProvisorio = MyBase.Columns("SanitarioDataProvisorio")
-            Me.columnSetranDataProvisorio = MyBase.Columns("SetranDataProvisorio")
-            Me.columnBombeiroNProcesso = MyBase.Columns("BombeiroNProcesso")
-            Me.columnBombeiroDataPedProcesso = MyBase.Columns("BombeiroDataPedProcesso")
-            Me.columnNlaudo = MyBase.Columns("Nlaudo")
-            Me.columnSituacao = MyBase.Columns("Situacao")
-            Me.columnDataCriado = MyBase.Columns("DataCriado")
-            Me.columnDataEntrada = MyBase.Columns("DataEntrada")
-            Me.columnPendencia = MyBase.Columns("Pendencia")
-            Me.columnModeloSistema = MyBase.Columns("ModeloSistema")
-            Me.columnAvisarDia = MyBase.Columns("AvisarDia")
-            Me.columnCadImob = MyBase.Columns("CadImob")
-            Me.columnCMC = MyBase.Columns("CMC")
-            Me.columnarea2 = MyBase.Columns("area2")
-            Me.columnPontoRef = MyBase.Columns("PontoRef")
-            Me.columnSanitariocontrole2 = MyBase.Columns("Sanitariocontrole2")
-            Me.columnSanitariocontrole1 = MyBase.Columns("Sanitariocontrole1")
-            Me.columnSanitariocontrole3 = MyBase.Columns("Sanitariocontrole3")
-            Me.columnObservacao = MyBase.Columns("Observacao")
-            Me.columnProtocoloTipo = MyBase.Columns("ProtocoloTipo")
-            Me.columnProtocoloN = MyBase.Columns("ProtocoloN")
-            Me.columnProtocoloAno = MyBase.Columns("ProtocoloAno")
-            Me.columnProtocoloSenha = MyBase.Columns("ProtocoloSenha")
-            Me.columnHistorico = MyBase.Columns("Historico")
-            Me.columnBombeiroSituacao = MyBase.Columns("BombeiroSituacao")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnID_Laudos = New Global.System.Data.DataColumn("ID_Laudos", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_Laudos)
-            Me.columnRazaoSocial = New Global.System.Data.DataColumn("RazaoSocial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRazaoSocial)
-            Me.columnCNPJ = New Global.System.Data.DataColumn("CNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCNPJ)
-            Me.columnEndereco = New Global.System.Data.DataColumn("Endereco", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndereco)
-            Me.columnEndNum = New Global.System.Data.DataColumn("EndNum", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndNum)
-            Me.columnEndComp = New Global.System.Data.DataColumn("EndComp", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndComp)
-            Me.columnEndData = New Global.System.Data.DataColumn("EndData", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndData)
-            Me.columnEndQuadra = New Global.System.Data.DataColumn("EndQuadra", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndQuadra)
-            Me.columnEndZona = New Global.System.Data.DataColumn("EndZona", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndZona)
-            Me.columnEndCEP = New Global.System.Data.DataColumn("EndCEP", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndCEP)
-            Me.columnTelefone = New Global.System.Data.DataColumn("Telefone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTelefone)
-            Me.columnCNAE = New Global.System.Data.DataColumn("CNAE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCNAE)
-            Me.columnNaturezaDoPedido = New Global.System.Data.DataColumn("NaturezaDoPedido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNaturezaDoPedido)
-            Me.columnNaturezaDoPedidoOBS = New Global.System.Data.DataColumn("NaturezaDoPedidoOBS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNaturezaDoPedidoOBS)
-            Me.columnRequerente = New Global.System.Data.DataColumn("Requerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRequerente)
-            Me.columnCPFRequerente = New Global.System.Data.DataColumn("CPFRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCPFRequerente)
-            Me.columnEndRequerente = New Global.System.Data.DataColumn("EndRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndRequerente)
-            Me.columnFoneRequerente = New Global.System.Data.DataColumn("FoneRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFoneRequerente)
-            Me.columnEmailRequerente = New Global.System.Data.DataColumn("EmailRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmailRequerente)
-            Me.columnCNPJRequerente = New Global.System.Data.DataColumn("CNPJRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCNPJRequerente)
-            Me.columnRGRequerente = New Global.System.Data.DataColumn("RGRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRGRequerente)
-            Me.columnRamodeatividade = New Global.System.Data.DataColumn("Ramodeatividade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRamodeatividade)
-            Me.columnObs = New Global.System.Data.DataColumn("Obs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnObs)
-            Me.columnarea = New Global.System.Data.DataColumn("area", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnarea)
-            Me.columnResptecnico = New Global.System.Data.DataColumn("Resptecnico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnResptecnico)
-            Me.columnResptecnicoNumero = New Global.System.Data.DataColumn("ResptecnicoNumero", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnResptecnicoNumero)
-            Me.columnLembrete = New Global.System.Data.DataColumn("Lembrete", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLembrete)
-            Me.columnEndBairro = New Global.System.Data.DataColumn("EndBairro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndBairro)
-            Me.columnEndCidade = New Global.System.Data.DataColumn("EndCidade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndCidade)
-            Me.columnEndEstado = New Global.System.Data.DataColumn("EndEstado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndEstado)
-            Me.columnBombeiros = New Global.System.Data.DataColumn("Bombeiros", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiros)
-            Me.columnBombeirosSituacao = New Global.System.Data.DataColumn("BombeirosSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeirosSituacao)
-            Me.columnBombeirosVenc = New Global.System.Data.DataColumn("BombeirosVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeirosVenc)
-            Me.columnAmbiental = New Global.System.Data.DataColumn("Ambiental", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAmbiental)
-            Me.columnAmbientalSituacao = New Global.System.Data.DataColumn("AmbientalSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAmbientalSituacao)
-            Me.columnAmbientalVenc = New Global.System.Data.DataColumn("AmbientalVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAmbientalVenc)
-            Me.columnViabilidade = New Global.System.Data.DataColumn("Viabilidade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnViabilidade)
-            Me.columnViabilidadeSituacao = New Global.System.Data.DataColumn("ViabilidadeSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnViabilidadeSituacao)
-            Me.columnViabilidadeVec = New Global.System.Data.DataColumn("ViabilidadeVec", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnViabilidadeVec)
-            Me.columnSanitario = New Global.System.Data.DataColumn("Sanitario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitario)
-            Me.columnSanitarioSituacao = New Global.System.Data.DataColumn("SanitarioSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitarioSituacao)
-            Me.columnSanitarioVenc = New Global.System.Data.DataColumn("SanitarioVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitarioVenc)
-            Me.columnSetran = New Global.System.Data.DataColumn("Setran", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSetran)
-            Me.columnSetranSituacao = New Global.System.Data.DataColumn("SetranSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSetranSituacao)
-            Me.columnSetranVenc = New Global.System.Data.DataColumn("SetranVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSetranVenc)
-            Me.columnBombeiroExigencia = New Global.System.Data.DataColumn("BombeiroExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiroExigencia)
-            Me.columnAmbientalExigencia = New Global.System.Data.DataColumn("AmbientalExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAmbientalExigencia)
-            Me.columnViabilidadeExigencia = New Global.System.Data.DataColumn("ViabilidadeExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnViabilidadeExigencia)
-            Me.columnSanitarioExigencia = New Global.System.Data.DataColumn("SanitarioExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitarioExigencia)
-            Me.columnSetranExigencia = New Global.System.Data.DataColumn("SetranExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSetranExigencia)
-            Me.columnBombeiroDataProvisorio = New Global.System.Data.DataColumn("BombeiroDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiroDataProvisorio)
-            Me.columnAmbientalDataProvisorio = New Global.System.Data.DataColumn("AmbientalDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAmbientalDataProvisorio)
-            Me.columnViabilidadeDataProvisorio = New Global.System.Data.DataColumn("ViabilidadeDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnViabilidadeDataProvisorio)
-            Me.columnSanitarioDataProvisorio = New Global.System.Data.DataColumn("SanitarioDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitarioDataProvisorio)
-            Me.columnSetranDataProvisorio = New Global.System.Data.DataColumn("SetranDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSetranDataProvisorio)
-            Me.columnBombeiroNProcesso = New Global.System.Data.DataColumn("BombeiroNProcesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiroNProcesso)
-            Me.columnBombeiroDataPedProcesso = New Global.System.Data.DataColumn("BombeiroDataPedProcesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiroDataPedProcesso)
-            Me.columnNlaudo = New Global.System.Data.DataColumn("Nlaudo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNlaudo)
-            Me.columnSituacao = New Global.System.Data.DataColumn("Situacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSituacao)
-            Me.columnDataCriado = New Global.System.Data.DataColumn("DataCriado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDataCriado)
-            Me.columnDataEntrada = New Global.System.Data.DataColumn("DataEntrada", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDataEntrada)
-            Me.columnPendencia = New Global.System.Data.DataColumn("Pendencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPendencia)
-            Me.columnModeloSistema = New Global.System.Data.DataColumn("ModeloSistema", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnModeloSistema)
-            Me.columnAvisarDia = New Global.System.Data.DataColumn("AvisarDia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAvisarDia)
-            Me.columnCadImob = New Global.System.Data.DataColumn("CadImob", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCadImob)
-            Me.columnCMC = New Global.System.Data.DataColumn("CMC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCMC)
-            Me.columnarea2 = New Global.System.Data.DataColumn("area2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnarea2)
-            Me.columnPontoRef = New Global.System.Data.DataColumn("PontoRef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPontoRef)
-            Me.columnSanitariocontrole2 = New Global.System.Data.DataColumn("Sanitariocontrole2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitariocontrole2)
-            Me.columnSanitariocontrole1 = New Global.System.Data.DataColumn("Sanitariocontrole1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitariocontrole1)
-            Me.columnSanitariocontrole3 = New Global.System.Data.DataColumn("Sanitariocontrole3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSanitariocontrole3)
-            Me.columnObservacao = New Global.System.Data.DataColumn("Observacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnObservacao)
-            Me.columnProtocoloTipo = New Global.System.Data.DataColumn("ProtocoloTipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProtocoloTipo)
-            Me.columnProtocoloN = New Global.System.Data.DataColumn("ProtocoloN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProtocoloN)
-            Me.columnProtocoloAno = New Global.System.Data.DataColumn("ProtocoloAno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProtocoloAno)
-            Me.columnProtocoloSenha = New Global.System.Data.DataColumn("ProtocoloSenha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProtocoloSenha)
-            Me.columnHistorico = New Global.System.Data.DataColumn("Historico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnHistorico)
-            Me.columnBombeiroSituacao = New Global.System.Data.DataColumn("BombeiroSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBombeiroSituacao)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Laudos}, true))
-            Me.columnID_Laudos.AutoIncrement = true
-            Me.columnID_Laudos.AutoIncrementSeed = -1
-            Me.columnID_Laudos.AutoIncrementStep = -1
-            Me.columnID_Laudos.AllowDBNull = false
-            Me.columnID_Laudos.ReadOnly = true
-            Me.columnID_Laudos.Unique = true
-            Me.columnRazaoSocial.MaxLength = 2147483647
-            Me.columnCNPJ.MaxLength = 50
-            Me.columnEndereco.MaxLength = 2147483647
-            Me.columnEndNum.MaxLength = 50
-            Me.columnEndComp.MaxLength = 2147483647
-            Me.columnEndData.MaxLength = 50
-            Me.columnEndQuadra.MaxLength = 50
-            Me.columnEndZona.MaxLength = 50
-            Me.columnEndCEP.MaxLength = 50
-            Me.columnTelefone.MaxLength = 50
-            Me.columnCNAE.MaxLength = 2147483647
-            Me.columnNaturezaDoPedido.MaxLength = 2147483647
-            Me.columnNaturezaDoPedidoOBS.MaxLength = 2147483647
-            Me.columnRequerente.MaxLength = 2147483647
-            Me.columnCPFRequerente.MaxLength = 50
-            Me.columnEndRequerente.MaxLength = 2147483647
-            Me.columnFoneRequerente.MaxLength = 50
-            Me.columnEmailRequerente.MaxLength = 2147483647
-            Me.columnCNPJRequerente.MaxLength = 50
-            Me.columnRGRequerente.MaxLength = 50
-            Me.columnRamodeatividade.MaxLength = 2147483647
-            Me.columnObs.MaxLength = 2147483647
-            Me.columnarea.MaxLength = 50
-            Me.columnResptecnico.MaxLength = 2147483647
-            Me.columnResptecnicoNumero.MaxLength = 50
-            Me.columnLembrete.MaxLength = 50
-            Me.columnEndBairro.MaxLength = 2147483647
-            Me.columnEndCidade.MaxLength = 50
-            Me.columnEndEstado.MaxLength = 50
-            Me.columnBombeiros.MaxLength = 50
-            Me.columnBombeirosSituacao.MaxLength = 50
-            Me.columnBombeirosVenc.MaxLength = 50
-            Me.columnAmbiental.MaxLength = 50
-            Me.columnAmbientalSituacao.MaxLength = 50
-            Me.columnAmbientalVenc.MaxLength = 50
-            Me.columnViabilidade.MaxLength = 50
-            Me.columnViabilidadeSituacao.MaxLength = 50
-            Me.columnViabilidadeVec.MaxLength = 50
-            Me.columnSanitario.MaxLength = 50
-            Me.columnSanitarioSituacao.MaxLength = 50
-            Me.columnSanitarioVenc.MaxLength = 50
-            Me.columnSetran.MaxLength = 50
-            Me.columnSetranSituacao.MaxLength = 50
-            Me.columnSetranVenc.MaxLength = 50
-            Me.columnBombeiroExigencia.MaxLength = 2147483647
-            Me.columnAmbientalExigencia.MaxLength = 2147483647
-            Me.columnViabilidadeExigencia.MaxLength = 2147483647
-            Me.columnSanitarioExigencia.MaxLength = 2147483647
-            Me.columnSetranExigencia.MaxLength = 2147483647
-            Me.columnBombeiroDataProvisorio.MaxLength = 50
-            Me.columnAmbientalDataProvisorio.MaxLength = 50
-            Me.columnViabilidadeDataProvisorio.MaxLength = 50
-            Me.columnSanitarioDataProvisorio.MaxLength = 50
-            Me.columnSetranDataProvisorio.MaxLength = 50
-            Me.columnBombeiroNProcesso.MaxLength = 50
-            Me.columnBombeiroDataPedProcesso.MaxLength = 50
-            Me.columnNlaudo.MaxLength = 50
-            Me.columnSituacao.MaxLength = 50
-            Me.columnDataCriado.MaxLength = 50
-            Me.columnDataEntrada.MaxLength = 50
-            Me.columnPendencia.MaxLength = 50
-            Me.columnModeloSistema.MaxLength = 50
-            Me.columnAvisarDia.MaxLength = 50
-            Me.columnCadImob.MaxLength = 50
-            Me.columnCMC.MaxLength = 50
-            Me.columnarea2.MaxLength = 2147483647
-            Me.columnPontoRef.MaxLength = 2147483647
-            Me.columnSanitariocontrole2.MaxLength = 50
-            Me.columnSanitariocontrole1.MaxLength = 50
-            Me.columnSanitariocontrole3.MaxLength = 50
-            Me.columnObservacao.MaxLength = 2147483647
-            Me.columnProtocoloTipo.MaxLength = 2147483647
-            Me.columnProtocoloN.MaxLength = 2147483647
-            Me.columnProtocoloAno.MaxLength = 2147483647
-            Me.columnProtocoloSenha.MaxLength = 2147483647
-            Me.columnHistorico.MaxLength = 2147483647
-            Me.columnBombeiroSituacao.MaxLength = 2147483647
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewLaudosRow() As LaudosRow
-            Return CType(Me.NewRow,LaudosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New LaudosRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(LaudosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.LaudosRowChangedEvent) Is Nothing) Then
-                RaiseEvent LaudosRowChanged(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.LaudosRowChangingEvent) Is Nothing) Then
-                RaiseEvent LaudosRowChanging(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.LaudosRowDeletedEvent) Is Nothing) Then
-                RaiseEvent LaudosRowDeleted(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.LaudosRowDeletingEvent) Is Nothing) Then
-                RaiseEvent LaudosRowDeleting(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemoveLaudosRow(ByVal row As LaudosRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "LaudosDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -8550,6 +7130,1496 @@ Partial Public Class PrinceDBDataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class LaudosDataTable
+        Inherits Global.System.Data.TypedTableBase(Of LaudosRow)
+        
+        Private columnID_Laudos As Global.System.Data.DataColumn
+        
+        Private columnRazaoSocial As Global.System.Data.DataColumn
+        
+        Private columnCNPJ As Global.System.Data.DataColumn
+        
+        Private columnEndereco As Global.System.Data.DataColumn
+        
+        Private columnEndNum As Global.System.Data.DataColumn
+        
+        Private columnEndComp As Global.System.Data.DataColumn
+        
+        Private columnEndData As Global.System.Data.DataColumn
+        
+        Private columnEndQuadra As Global.System.Data.DataColumn
+        
+        Private columnEndZona As Global.System.Data.DataColumn
+        
+        Private columnEndCEP As Global.System.Data.DataColumn
+        
+        Private columnTelefone As Global.System.Data.DataColumn
+        
+        Private columnCNAE As Global.System.Data.DataColumn
+        
+        Private columnNaturezaDoPedido As Global.System.Data.DataColumn
+        
+        Private columnNaturezaDoPedidoOBS As Global.System.Data.DataColumn
+        
+        Private columnRequerente As Global.System.Data.DataColumn
+        
+        Private columnCPFRequerente As Global.System.Data.DataColumn
+        
+        Private columnEndRequerente As Global.System.Data.DataColumn
+        
+        Private columnFoneRequerente As Global.System.Data.DataColumn
+        
+        Private columnEmailRequerente As Global.System.Data.DataColumn
+        
+        Private columnCNPJRequerente As Global.System.Data.DataColumn
+        
+        Private columnRGRequerente As Global.System.Data.DataColumn
+        
+        Private columnRamodeatividade As Global.System.Data.DataColumn
+        
+        Private columnObs As Global.System.Data.DataColumn
+        
+        Private columnarea As Global.System.Data.DataColumn
+        
+        Private columnResptecnico As Global.System.Data.DataColumn
+        
+        Private columnResptecnicoNumero As Global.System.Data.DataColumn
+        
+        Private columnLembrete As Global.System.Data.DataColumn
+        
+        Private columnEndBairro As Global.System.Data.DataColumn
+        
+        Private columnEndCidade As Global.System.Data.DataColumn
+        
+        Private columnEndEstado As Global.System.Data.DataColumn
+        
+        Private columnBombeiros As Global.System.Data.DataColumn
+        
+        Private columnBombeirosSituacao As Global.System.Data.DataColumn
+        
+        Private columnBombeirosVenc As Global.System.Data.DataColumn
+        
+        Private columnAmbiental As Global.System.Data.DataColumn
+        
+        Private columnAmbientalSituacao As Global.System.Data.DataColumn
+        
+        Private columnAmbientalVenc As Global.System.Data.DataColumn
+        
+        Private columnViabilidade As Global.System.Data.DataColumn
+        
+        Private columnViabilidadeSituacao As Global.System.Data.DataColumn
+        
+        Private columnViabilidadeVec As Global.System.Data.DataColumn
+        
+        Private columnSanitario As Global.System.Data.DataColumn
+        
+        Private columnSanitarioSituacao As Global.System.Data.DataColumn
+        
+        Private columnSanitarioVenc As Global.System.Data.DataColumn
+        
+        Private columnSetran As Global.System.Data.DataColumn
+        
+        Private columnSetranSituacao As Global.System.Data.DataColumn
+        
+        Private columnSetranVenc As Global.System.Data.DataColumn
+        
+        Private columnBombeiroExigencia As Global.System.Data.DataColumn
+        
+        Private columnAmbientalExigencia As Global.System.Data.DataColumn
+        
+        Private columnViabilidadeExigencia As Global.System.Data.DataColumn
+        
+        Private columnSanitarioExigencia As Global.System.Data.DataColumn
+        
+        Private columnSetranExigencia As Global.System.Data.DataColumn
+        
+        Private columnBombeiroDataProvisorio As Global.System.Data.DataColumn
+        
+        Private columnAmbientalDataProvisorio As Global.System.Data.DataColumn
+        
+        Private columnViabilidadeDataProvisorio As Global.System.Data.DataColumn
+        
+        Private columnSanitarioDataProvisorio As Global.System.Data.DataColumn
+        
+        Private columnSetranDataProvisorio As Global.System.Data.DataColumn
+        
+        Private columnBombeiroNProcesso As Global.System.Data.DataColumn
+        
+        Private columnBombeiroDataPedProcesso As Global.System.Data.DataColumn
+        
+        Private columnNlaudo As Global.System.Data.DataColumn
+        
+        Private columnSituacao As Global.System.Data.DataColumn
+        
+        Private columnDataCriado As Global.System.Data.DataColumn
+        
+        Private columnDataEntrada As Global.System.Data.DataColumn
+        
+        Private columnPendencia As Global.System.Data.DataColumn
+        
+        Private columnModeloSistema As Global.System.Data.DataColumn
+        
+        Private columnAvisarDia As Global.System.Data.DataColumn
+        
+        Private columnCadImob As Global.System.Data.DataColumn
+        
+        Private columnCMC As Global.System.Data.DataColumn
+        
+        Private columnarea2 As Global.System.Data.DataColumn
+        
+        Private columnPontoRef As Global.System.Data.DataColumn
+        
+        Private columnSanitariocontrole1 As Global.System.Data.DataColumn
+        
+        Private columnSanitariocontrole2 As Global.System.Data.DataColumn
+        
+        Private columnSanitariocontrole3 As Global.System.Data.DataColumn
+        
+        Private columnObservacao As Global.System.Data.DataColumn
+        
+        Private columnProtocoloTipo As Global.System.Data.DataColumn
+        
+        Private columnProtocoloN As Global.System.Data.DataColumn
+        
+        Private columnProtocoloAno As Global.System.Data.DataColumn
+        
+        Private columnProtocoloSenha As Global.System.Data.DataColumn
+        
+        Private columnHistorico As Global.System.Data.DataColumn
+        
+        Private columnBombeiroSituacao As Global.System.Data.DataColumn
+        
+        Private columnBombeiroProvisorioDATA As Global.System.Data.DataColumn
+        
+        Private columnAmbientalProvisorioDATA As Global.System.Data.DataColumn
+        
+        Private columnViabilidadeProvisorioDATA As Global.System.Data.DataColumn
+        
+        Private columnSanitarioProvisorioDATA As Global.System.Data.DataColumn
+        
+        Private columnSetranProvisorioDATA As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Laudos"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ID_LaudosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID_Laudos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RazaoSocialColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRazaoSocial
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNPJColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNPJ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EnderecoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndereco
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndNumColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndNum
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndCompColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndComp
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndDataColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndData
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndQuadraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndQuadra
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndZonaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndZona
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndCEPColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndCEP
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TelefoneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTelefone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNAEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNAE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NaturezaDoPedidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNaturezaDoPedido
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NaturezaDoPedidoOBSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNaturezaDoPedidoOBS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CPFRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCPFRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FoneRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFoneRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EmailRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEmailRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNPJRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNPJRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RGRequerenteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRGRequerente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RamodeatividadeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRamodeatividade
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property areaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnarea
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ResptecnicoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnResptecnico
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ResptecnicoNumeroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnResptecnicoNumero
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property LembreteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLembrete
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndBairroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndBairro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndCidadeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndCidade
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EndEstadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEndEstado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeirosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiros
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeirosSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeirosSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeirosVencColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeirosVenc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbiental
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbientalSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalVencColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbientalVenc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidade
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidadeSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeVecColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidadeVec
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitarioSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioVencColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitarioVenc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetran
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetranSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranVencColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetranVenc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroExigenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroExigencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalExigenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbientalExigencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeExigenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidadeExigencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioExigenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitarioExigencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranExigenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetranExigencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroDataProvisorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroDataProvisorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalDataProvisorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbientalDataProvisorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeDataProvisorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidadeDataProvisorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioDataProvisorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitarioDataProvisorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranDataProvisorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetranDataProvisorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroNProcessoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroNProcesso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroDataPedProcessoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroDataPedProcesso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NlaudoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNlaudo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataCriadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataCriado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataEntradaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataEntrada
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property PendenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPendencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ModeloSistemaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnModeloSistema
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AvisarDiaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAvisarDia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CadImobColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCadImob
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CMCColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCMC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property area2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnarea2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property PontoRefColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPontoRef
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Sanitariocontrole1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitariocontrole1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Sanitariocontrole2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitariocontrole2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Sanitariocontrole3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitariocontrole3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ObservacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObservacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ProtocoloTipoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocoloTipo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ProtocoloNColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocoloN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ProtocoloAnoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocoloAno
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ProtocoloSenhaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocoloSenha
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property HistoricoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHistorico
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroSituacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroSituacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroProvisorioDATAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroProvisorioDATA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AmbientalProvisorioDATAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAmbientalProvisorioDATA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ViabilidadeProvisorioDATAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnViabilidadeProvisorioDATA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SanitarioProvisorioDATAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSanitarioProvisorioDATA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SetranProvisorioDATAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSetranProvisorioDATA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As LaudosRow
+            Get
+                Return CType(Me.Rows(index),LaudosRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event LaudosRowChanging As LaudosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event LaudosRowChanged As LaudosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event LaudosRowDeleting As LaudosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event LaudosRowDeleted As LaudosRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Sub AddLaudosRow(ByVal row As LaudosRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Function AddLaudosRow( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal Endereco As String,  _
+                    ByVal EndNum As String,  _
+                    ByVal EndComp As String,  _
+                    ByVal EndData As String,  _
+                    ByVal EndQuadra As String,  _
+                    ByVal EndZona As String,  _
+                    ByVal EndCEP As String,  _
+                    ByVal Telefone As String,  _
+                    ByVal CNAE As String,  _
+                    ByVal NaturezaDoPedido As String,  _
+                    ByVal NaturezaDoPedidoOBS As String,  _
+                    ByVal Requerente As String,  _
+                    ByVal CPFRequerente As String,  _
+                    ByVal EndRequerente As String,  _
+                    ByVal FoneRequerente As String,  _
+                    ByVal EmailRequerente As String,  _
+                    ByVal CNPJRequerente As String,  _
+                    ByVal RGRequerente As String,  _
+                    ByVal Ramodeatividade As String,  _
+                    ByVal Obs As String,  _
+                    ByVal area As String,  _
+                    ByVal Resptecnico As String,  _
+                    ByVal ResptecnicoNumero As String,  _
+                    ByVal Lembrete As String,  _
+                    ByVal EndBairro As String,  _
+                    ByVal EndCidade As String,  _
+                    ByVal EndEstado As String,  _
+                    ByVal Bombeiros As String,  _
+                    ByVal BombeirosSituacao As String,  _
+                    ByVal BombeirosVenc As String,  _
+                    ByVal Ambiental As String,  _
+                    ByVal AmbientalSituacao As String,  _
+                    ByVal AmbientalVenc As String,  _
+                    ByVal Viabilidade As String,  _
+                    ByVal ViabilidadeSituacao As String,  _
+                    ByVal ViabilidadeVec As String,  _
+                    ByVal Sanitario As String,  _
+                    ByVal SanitarioSituacao As String,  _
+                    ByVal SanitarioVenc As String,  _
+                    ByVal Setran As String,  _
+                    ByVal SetranSituacao As String,  _
+                    ByVal SetranVenc As String,  _
+                    ByVal BombeiroExigencia As String,  _
+                    ByVal AmbientalExigencia As String,  _
+                    ByVal ViabilidadeExigencia As String,  _
+                    ByVal SanitarioExigencia As String,  _
+                    ByVal SetranExigencia As String,  _
+                    ByVal BombeiroDataProvisorio As String,  _
+                    ByVal AmbientalDataProvisorio As String,  _
+                    ByVal ViabilidadeDataProvisorio As String,  _
+                    ByVal SanitarioDataProvisorio As String,  _
+                    ByVal SetranDataProvisorio As String,  _
+                    ByVal BombeiroNProcesso As String,  _
+                    ByVal BombeiroDataPedProcesso As String,  _
+                    ByVal Nlaudo As String,  _
+                    ByVal Situacao As String,  _
+                    ByVal DataCriado As String,  _
+                    ByVal DataEntrada As String,  _
+                    ByVal Pendencia As String,  _
+                    ByVal ModeloSistema As String,  _
+                    ByVal AvisarDia As String,  _
+                    ByVal CadImob As String,  _
+                    ByVal CMC As String,  _
+                    ByVal area2 As String,  _
+                    ByVal PontoRef As String,  _
+                    ByVal Sanitariocontrole1 As String,  _
+                    ByVal Sanitariocontrole2 As String,  _
+                    ByVal Sanitariocontrole3 As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal ProtocoloTipo As String,  _
+                    ByVal ProtocoloN As String,  _
+                    ByVal ProtocoloAno As String,  _
+                    ByVal ProtocoloSenha As String,  _
+                    ByVal Historico As String,  _
+                    ByVal BombeiroSituacao As String,  _
+                    ByVal BombeiroProvisorioDATA As Date,  _
+                    ByVal AmbientalProvisorioDATA As Date,  _
+                    ByVal ViabilidadeProvisorioDATA As Date,  _
+                    ByVal SanitarioProvisorioDATA As Date,  _
+                    ByVal SetranProvisorioDATA As Date) As LaudosRow
+            Dim rowLaudosRow As LaudosRow = CType(Me.NewRow,LaudosRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFRequerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Ambiental, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, ViabilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, SetranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, BombeiroNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitariocontrole1, Sanitariocontrole2, Sanitariocontrole3, Observacao, ProtocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao, BombeiroProvisorioDATA, AmbientalProvisorioDATA, ViabilidadeProvisorioDATA, SanitarioProvisorioDATA, SetranProvisorioDATA}
+            rowLaudosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowLaudosRow)
+            Return rowLaudosRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function FindByID_Laudos(ByVal ID_Laudos As Short) As LaudosRow
+            Return CType(Me.Rows.Find(New Object() {ID_Laudos}),LaudosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As LaudosDataTable = CType(MyBase.Clone,LaudosDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New LaudosDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnID_Laudos = MyBase.Columns("ID_Laudos")
+            Me.columnRazaoSocial = MyBase.Columns("RazaoSocial")
+            Me.columnCNPJ = MyBase.Columns("CNPJ")
+            Me.columnEndereco = MyBase.Columns("Endereco")
+            Me.columnEndNum = MyBase.Columns("EndNum")
+            Me.columnEndComp = MyBase.Columns("EndComp")
+            Me.columnEndData = MyBase.Columns("EndData")
+            Me.columnEndQuadra = MyBase.Columns("EndQuadra")
+            Me.columnEndZona = MyBase.Columns("EndZona")
+            Me.columnEndCEP = MyBase.Columns("EndCEP")
+            Me.columnTelefone = MyBase.Columns("Telefone")
+            Me.columnCNAE = MyBase.Columns("CNAE")
+            Me.columnNaturezaDoPedido = MyBase.Columns("NaturezaDoPedido")
+            Me.columnNaturezaDoPedidoOBS = MyBase.Columns("NaturezaDoPedidoOBS")
+            Me.columnRequerente = MyBase.Columns("Requerente")
+            Me.columnCPFRequerente = MyBase.Columns("CPFRequerente")
+            Me.columnEndRequerente = MyBase.Columns("EndRequerente")
+            Me.columnFoneRequerente = MyBase.Columns("FoneRequerente")
+            Me.columnEmailRequerente = MyBase.Columns("EmailRequerente")
+            Me.columnCNPJRequerente = MyBase.Columns("CNPJRequerente")
+            Me.columnRGRequerente = MyBase.Columns("RGRequerente")
+            Me.columnRamodeatividade = MyBase.Columns("Ramodeatividade")
+            Me.columnObs = MyBase.Columns("Obs")
+            Me.columnarea = MyBase.Columns("area")
+            Me.columnResptecnico = MyBase.Columns("Resptecnico")
+            Me.columnResptecnicoNumero = MyBase.Columns("ResptecnicoNumero")
+            Me.columnLembrete = MyBase.Columns("Lembrete")
+            Me.columnEndBairro = MyBase.Columns("EndBairro")
+            Me.columnEndCidade = MyBase.Columns("EndCidade")
+            Me.columnEndEstado = MyBase.Columns("EndEstado")
+            Me.columnBombeiros = MyBase.Columns("Bombeiros")
+            Me.columnBombeirosSituacao = MyBase.Columns("BombeirosSituacao")
+            Me.columnBombeirosVenc = MyBase.Columns("BombeirosVenc")
+            Me.columnAmbiental = MyBase.Columns("Ambiental")
+            Me.columnAmbientalSituacao = MyBase.Columns("AmbientalSituacao")
+            Me.columnAmbientalVenc = MyBase.Columns("AmbientalVenc")
+            Me.columnViabilidade = MyBase.Columns("Viabilidade")
+            Me.columnViabilidadeSituacao = MyBase.Columns("ViabilidadeSituacao")
+            Me.columnViabilidadeVec = MyBase.Columns("ViabilidadeVec")
+            Me.columnSanitario = MyBase.Columns("Sanitario")
+            Me.columnSanitarioSituacao = MyBase.Columns("SanitarioSituacao")
+            Me.columnSanitarioVenc = MyBase.Columns("SanitarioVenc")
+            Me.columnSetran = MyBase.Columns("Setran")
+            Me.columnSetranSituacao = MyBase.Columns("SetranSituacao")
+            Me.columnSetranVenc = MyBase.Columns("SetranVenc")
+            Me.columnBombeiroExigencia = MyBase.Columns("BombeiroExigencia")
+            Me.columnAmbientalExigencia = MyBase.Columns("AmbientalExigencia")
+            Me.columnViabilidadeExigencia = MyBase.Columns("ViabilidadeExigencia")
+            Me.columnSanitarioExigencia = MyBase.Columns("SanitarioExigencia")
+            Me.columnSetranExigencia = MyBase.Columns("SetranExigencia")
+            Me.columnBombeiroDataProvisorio = MyBase.Columns("BombeiroDataProvisorio")
+            Me.columnAmbientalDataProvisorio = MyBase.Columns("AmbientalDataProvisorio")
+            Me.columnViabilidadeDataProvisorio = MyBase.Columns("ViabilidadeDataProvisorio")
+            Me.columnSanitarioDataProvisorio = MyBase.Columns("SanitarioDataProvisorio")
+            Me.columnSetranDataProvisorio = MyBase.Columns("SetranDataProvisorio")
+            Me.columnBombeiroNProcesso = MyBase.Columns("BombeiroNProcesso")
+            Me.columnBombeiroDataPedProcesso = MyBase.Columns("BombeiroDataPedProcesso")
+            Me.columnNlaudo = MyBase.Columns("Nlaudo")
+            Me.columnSituacao = MyBase.Columns("Situacao")
+            Me.columnDataCriado = MyBase.Columns("DataCriado")
+            Me.columnDataEntrada = MyBase.Columns("DataEntrada")
+            Me.columnPendencia = MyBase.Columns("Pendencia")
+            Me.columnModeloSistema = MyBase.Columns("ModeloSistema")
+            Me.columnAvisarDia = MyBase.Columns("AvisarDia")
+            Me.columnCadImob = MyBase.Columns("CadImob")
+            Me.columnCMC = MyBase.Columns("CMC")
+            Me.columnarea2 = MyBase.Columns("area2")
+            Me.columnPontoRef = MyBase.Columns("PontoRef")
+            Me.columnSanitariocontrole1 = MyBase.Columns("Sanitariocontrole1")
+            Me.columnSanitariocontrole2 = MyBase.Columns("Sanitariocontrole2")
+            Me.columnSanitariocontrole3 = MyBase.Columns("Sanitariocontrole3")
+            Me.columnObservacao = MyBase.Columns("Observacao")
+            Me.columnProtocoloTipo = MyBase.Columns("ProtocoloTipo")
+            Me.columnProtocoloN = MyBase.Columns("ProtocoloN")
+            Me.columnProtocoloAno = MyBase.Columns("ProtocoloAno")
+            Me.columnProtocoloSenha = MyBase.Columns("ProtocoloSenha")
+            Me.columnHistorico = MyBase.Columns("Historico")
+            Me.columnBombeiroSituacao = MyBase.Columns("BombeiroSituacao")
+            Me.columnBombeiroProvisorioDATA = MyBase.Columns("BombeiroProvisorioDATA")
+            Me.columnAmbientalProvisorioDATA = MyBase.Columns("AmbientalProvisorioDATA")
+            Me.columnViabilidadeProvisorioDATA = MyBase.Columns("ViabilidadeProvisorioDATA")
+            Me.columnSanitarioProvisorioDATA = MyBase.Columns("SanitarioProvisorioDATA")
+            Me.columnSetranProvisorioDATA = MyBase.Columns("SetranProvisorioDATA")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnID_Laudos = New Global.System.Data.DataColumn("ID_Laudos", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_Laudos)
+            Me.columnRazaoSocial = New Global.System.Data.DataColumn("RazaoSocial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRazaoSocial)
+            Me.columnCNPJ = New Global.System.Data.DataColumn("CNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNPJ)
+            Me.columnEndereco = New Global.System.Data.DataColumn("Endereco", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndereco)
+            Me.columnEndNum = New Global.System.Data.DataColumn("EndNum", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndNum)
+            Me.columnEndComp = New Global.System.Data.DataColumn("EndComp", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndComp)
+            Me.columnEndData = New Global.System.Data.DataColumn("EndData", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndData)
+            Me.columnEndQuadra = New Global.System.Data.DataColumn("EndQuadra", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndQuadra)
+            Me.columnEndZona = New Global.System.Data.DataColumn("EndZona", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndZona)
+            Me.columnEndCEP = New Global.System.Data.DataColumn("EndCEP", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndCEP)
+            Me.columnTelefone = New Global.System.Data.DataColumn("Telefone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTelefone)
+            Me.columnCNAE = New Global.System.Data.DataColumn("CNAE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNAE)
+            Me.columnNaturezaDoPedido = New Global.System.Data.DataColumn("NaturezaDoPedido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNaturezaDoPedido)
+            Me.columnNaturezaDoPedidoOBS = New Global.System.Data.DataColumn("NaturezaDoPedidoOBS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNaturezaDoPedidoOBS)
+            Me.columnRequerente = New Global.System.Data.DataColumn("Requerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRequerente)
+            Me.columnCPFRequerente = New Global.System.Data.DataColumn("CPFRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCPFRequerente)
+            Me.columnEndRequerente = New Global.System.Data.DataColumn("EndRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndRequerente)
+            Me.columnFoneRequerente = New Global.System.Data.DataColumn("FoneRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFoneRequerente)
+            Me.columnEmailRequerente = New Global.System.Data.DataColumn("EmailRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmailRequerente)
+            Me.columnCNPJRequerente = New Global.System.Data.DataColumn("CNPJRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNPJRequerente)
+            Me.columnRGRequerente = New Global.System.Data.DataColumn("RGRequerente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRGRequerente)
+            Me.columnRamodeatividade = New Global.System.Data.DataColumn("Ramodeatividade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRamodeatividade)
+            Me.columnObs = New Global.System.Data.DataColumn("Obs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObs)
+            Me.columnarea = New Global.System.Data.DataColumn("area", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnarea)
+            Me.columnResptecnico = New Global.System.Data.DataColumn("Resptecnico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnResptecnico)
+            Me.columnResptecnicoNumero = New Global.System.Data.DataColumn("ResptecnicoNumero", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnResptecnicoNumero)
+            Me.columnLembrete = New Global.System.Data.DataColumn("Lembrete", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLembrete)
+            Me.columnEndBairro = New Global.System.Data.DataColumn("EndBairro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndBairro)
+            Me.columnEndCidade = New Global.System.Data.DataColumn("EndCidade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndCidade)
+            Me.columnEndEstado = New Global.System.Data.DataColumn("EndEstado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndEstado)
+            Me.columnBombeiros = New Global.System.Data.DataColumn("Bombeiros", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiros)
+            Me.columnBombeirosSituacao = New Global.System.Data.DataColumn("BombeirosSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeirosSituacao)
+            Me.columnBombeirosVenc = New Global.System.Data.DataColumn("BombeirosVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeirosVenc)
+            Me.columnAmbiental = New Global.System.Data.DataColumn("Ambiental", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbiental)
+            Me.columnAmbientalSituacao = New Global.System.Data.DataColumn("AmbientalSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbientalSituacao)
+            Me.columnAmbientalVenc = New Global.System.Data.DataColumn("AmbientalVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbientalVenc)
+            Me.columnViabilidade = New Global.System.Data.DataColumn("Viabilidade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidade)
+            Me.columnViabilidadeSituacao = New Global.System.Data.DataColumn("ViabilidadeSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidadeSituacao)
+            Me.columnViabilidadeVec = New Global.System.Data.DataColumn("ViabilidadeVec", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidadeVec)
+            Me.columnSanitario = New Global.System.Data.DataColumn("Sanitario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitario)
+            Me.columnSanitarioSituacao = New Global.System.Data.DataColumn("SanitarioSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitarioSituacao)
+            Me.columnSanitarioVenc = New Global.System.Data.DataColumn("SanitarioVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitarioVenc)
+            Me.columnSetran = New Global.System.Data.DataColumn("Setran", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetran)
+            Me.columnSetranSituacao = New Global.System.Data.DataColumn("SetranSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetranSituacao)
+            Me.columnSetranVenc = New Global.System.Data.DataColumn("SetranVenc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetranVenc)
+            Me.columnBombeiroExigencia = New Global.System.Data.DataColumn("BombeiroExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroExigencia)
+            Me.columnAmbientalExigencia = New Global.System.Data.DataColumn("AmbientalExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbientalExigencia)
+            Me.columnViabilidadeExigencia = New Global.System.Data.DataColumn("ViabilidadeExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidadeExigencia)
+            Me.columnSanitarioExigencia = New Global.System.Data.DataColumn("SanitarioExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitarioExigencia)
+            Me.columnSetranExigencia = New Global.System.Data.DataColumn("SetranExigencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetranExigencia)
+            Me.columnBombeiroDataProvisorio = New Global.System.Data.DataColumn("BombeiroDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroDataProvisorio)
+            Me.columnAmbientalDataProvisorio = New Global.System.Data.DataColumn("AmbientalDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbientalDataProvisorio)
+            Me.columnViabilidadeDataProvisorio = New Global.System.Data.DataColumn("ViabilidadeDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidadeDataProvisorio)
+            Me.columnSanitarioDataProvisorio = New Global.System.Data.DataColumn("SanitarioDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitarioDataProvisorio)
+            Me.columnSetranDataProvisorio = New Global.System.Data.DataColumn("SetranDataProvisorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetranDataProvisorio)
+            Me.columnBombeiroNProcesso = New Global.System.Data.DataColumn("BombeiroNProcesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroNProcesso)
+            Me.columnBombeiroDataPedProcesso = New Global.System.Data.DataColumn("BombeiroDataPedProcesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroDataPedProcesso)
+            Me.columnNlaudo = New Global.System.Data.DataColumn("Nlaudo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNlaudo)
+            Me.columnSituacao = New Global.System.Data.DataColumn("Situacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSituacao)
+            Me.columnDataCriado = New Global.System.Data.DataColumn("DataCriado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataCriado)
+            Me.columnDataEntrada = New Global.System.Data.DataColumn("DataEntrada", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataEntrada)
+            Me.columnPendencia = New Global.System.Data.DataColumn("Pendencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPendencia)
+            Me.columnModeloSistema = New Global.System.Data.DataColumn("ModeloSistema", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnModeloSistema)
+            Me.columnAvisarDia = New Global.System.Data.DataColumn("AvisarDia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAvisarDia)
+            Me.columnCadImob = New Global.System.Data.DataColumn("CadImob", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCadImob)
+            Me.columnCMC = New Global.System.Data.DataColumn("CMC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCMC)
+            Me.columnarea2 = New Global.System.Data.DataColumn("area2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnarea2)
+            Me.columnPontoRef = New Global.System.Data.DataColumn("PontoRef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPontoRef)
+            Me.columnSanitariocontrole1 = New Global.System.Data.DataColumn("Sanitariocontrole1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitariocontrole1)
+            Me.columnSanitariocontrole2 = New Global.System.Data.DataColumn("Sanitariocontrole2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitariocontrole2)
+            Me.columnSanitariocontrole3 = New Global.System.Data.DataColumn("Sanitariocontrole3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitariocontrole3)
+            Me.columnObservacao = New Global.System.Data.DataColumn("Observacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObservacao)
+            Me.columnProtocoloTipo = New Global.System.Data.DataColumn("ProtocoloTipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocoloTipo)
+            Me.columnProtocoloN = New Global.System.Data.DataColumn("ProtocoloN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocoloN)
+            Me.columnProtocoloAno = New Global.System.Data.DataColumn("ProtocoloAno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocoloAno)
+            Me.columnProtocoloSenha = New Global.System.Data.DataColumn("ProtocoloSenha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocoloSenha)
+            Me.columnHistorico = New Global.System.Data.DataColumn("Historico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHistorico)
+            Me.columnBombeiroSituacao = New Global.System.Data.DataColumn("BombeiroSituacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroSituacao)
+            Me.columnBombeiroProvisorioDATA = New Global.System.Data.DataColumn("BombeiroProvisorioDATA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroProvisorioDATA)
+            Me.columnAmbientalProvisorioDATA = New Global.System.Data.DataColumn("AmbientalProvisorioDATA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAmbientalProvisorioDATA)
+            Me.columnViabilidadeProvisorioDATA = New Global.System.Data.DataColumn("ViabilidadeProvisorioDATA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnViabilidadeProvisorioDATA)
+            Me.columnSanitarioProvisorioDATA = New Global.System.Data.DataColumn("SanitarioProvisorioDATA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSanitarioProvisorioDATA)
+            Me.columnSetranProvisorioDATA = New Global.System.Data.DataColumn("SetranProvisorioDATA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSetranProvisorioDATA)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Laudos}, true))
+            Me.columnID_Laudos.AutoIncrement = true
+            Me.columnID_Laudos.AutoIncrementSeed = -1
+            Me.columnID_Laudos.AutoIncrementStep = -1
+            Me.columnID_Laudos.AllowDBNull = false
+            Me.columnID_Laudos.ReadOnly = true
+            Me.columnID_Laudos.Unique = true
+            Me.columnRazaoSocial.MaxLength = 2147483647
+            Me.columnCNPJ.MaxLength = 50
+            Me.columnEndereco.MaxLength = 2147483647
+            Me.columnEndNum.MaxLength = 50
+            Me.columnEndComp.MaxLength = 2147483647
+            Me.columnEndData.MaxLength = 50
+            Me.columnEndQuadra.MaxLength = 50
+            Me.columnEndZona.MaxLength = 50
+            Me.columnEndCEP.MaxLength = 50
+            Me.columnTelefone.MaxLength = 50
+            Me.columnCNAE.MaxLength = 2147483647
+            Me.columnNaturezaDoPedido.MaxLength = 2147483647
+            Me.columnNaturezaDoPedidoOBS.MaxLength = 2147483647
+            Me.columnRequerente.MaxLength = 2147483647
+            Me.columnCPFRequerente.MaxLength = 50
+            Me.columnEndRequerente.MaxLength = 2147483647
+            Me.columnFoneRequerente.MaxLength = 50
+            Me.columnEmailRequerente.MaxLength = 2147483647
+            Me.columnCNPJRequerente.MaxLength = 50
+            Me.columnRGRequerente.MaxLength = 50
+            Me.columnRamodeatividade.MaxLength = 2147483647
+            Me.columnObs.MaxLength = 2147483647
+            Me.columnarea.MaxLength = 50
+            Me.columnResptecnico.MaxLength = 2147483647
+            Me.columnResptecnicoNumero.MaxLength = 50
+            Me.columnLembrete.MaxLength = 50
+            Me.columnEndBairro.MaxLength = 2147483647
+            Me.columnEndCidade.MaxLength = 50
+            Me.columnEndEstado.MaxLength = 50
+            Me.columnBombeiros.MaxLength = 50
+            Me.columnBombeirosSituacao.MaxLength = 50
+            Me.columnBombeirosVenc.MaxLength = 50
+            Me.columnAmbiental.MaxLength = 50
+            Me.columnAmbientalSituacao.MaxLength = 50
+            Me.columnAmbientalVenc.MaxLength = 50
+            Me.columnViabilidade.MaxLength = 50
+            Me.columnViabilidadeSituacao.MaxLength = 50
+            Me.columnViabilidadeVec.MaxLength = 50
+            Me.columnSanitario.MaxLength = 50
+            Me.columnSanitarioSituacao.MaxLength = 50
+            Me.columnSanitarioVenc.MaxLength = 50
+            Me.columnSetran.MaxLength = 50
+            Me.columnSetranSituacao.MaxLength = 50
+            Me.columnSetranVenc.MaxLength = 50
+            Me.columnBombeiroExigencia.MaxLength = 2147483647
+            Me.columnAmbientalExigencia.MaxLength = 2147483647
+            Me.columnViabilidadeExigencia.MaxLength = 2147483647
+            Me.columnSanitarioExigencia.MaxLength = 2147483647
+            Me.columnSetranExigencia.MaxLength = 2147483647
+            Me.columnBombeiroDataProvisorio.MaxLength = 50
+            Me.columnAmbientalDataProvisorio.MaxLength = 50
+            Me.columnViabilidadeDataProvisorio.MaxLength = 50
+            Me.columnSanitarioDataProvisorio.MaxLength = 50
+            Me.columnSetranDataProvisorio.MaxLength = 50
+            Me.columnBombeiroNProcesso.MaxLength = 50
+            Me.columnBombeiroDataPedProcesso.MaxLength = 50
+            Me.columnNlaudo.MaxLength = 50
+            Me.columnSituacao.MaxLength = 50
+            Me.columnDataCriado.MaxLength = 50
+            Me.columnDataEntrada.MaxLength = 50
+            Me.columnPendencia.MaxLength = 50
+            Me.columnModeloSistema.MaxLength = 50
+            Me.columnAvisarDia.MaxLength = 50
+            Me.columnCadImob.MaxLength = 50
+            Me.columnCMC.MaxLength = 50
+            Me.columnarea2.MaxLength = 2147483647
+            Me.columnPontoRef.MaxLength = 2147483647
+            Me.columnSanitariocontrole1.MaxLength = 50
+            Me.columnSanitariocontrole2.MaxLength = 50
+            Me.columnSanitariocontrole3.MaxLength = 50
+            Me.columnObservacao.MaxLength = 2147483647
+            Me.columnProtocoloTipo.MaxLength = 2147483647
+            Me.columnProtocoloN.MaxLength = 2147483647
+            Me.columnProtocoloAno.MaxLength = 2147483647
+            Me.columnProtocoloSenha.MaxLength = 2147483647
+            Me.columnHistorico.MaxLength = 2147483647
+            Me.columnBombeiroSituacao.MaxLength = 2147483647
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function NewLaudosRow() As LaudosRow
+            Return CType(Me.NewRow,LaudosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New LaudosRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(LaudosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.LaudosRowChangedEvent) Is Nothing) Then
+                RaiseEvent LaudosRowChanged(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.LaudosRowChangingEvent) Is Nothing) Then
+                RaiseEvent LaudosRowChanging(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.LaudosRowDeletedEvent) Is Nothing) Then
+                RaiseEvent LaudosRowDeleted(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.LaudosRowDeletingEvent) Is Nothing) Then
+                RaiseEvent LaudosRowDeleting(Me, New LaudosRowChangeEvent(CType(e.Row,LaudosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub RemoveLaudosRow(ByVal row As LaudosRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "LaudosDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class CNAERow
@@ -9167,2112 +9237,6 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetRGSiglaNull()
             Me(Me.tableContador.RGSiglaColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class LaudosRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableLaudos As LaudosDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableLaudos = CType(Me.Table,LaudosDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ID_Laudos() As Short
-            Get
-                Return CType(Me(Me.tableLaudos.ID_LaudosColumn),Short)
-            End Get
-            Set
-                Me(Me.tableLaudos.ID_LaudosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property RazaoSocial() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.RazaoSocialColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'RazaoSocial' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.RazaoSocialColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CNPJ() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CNPJColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNPJ' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CNPJColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Endereco() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EnderecoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Endereco' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EnderecoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndNum() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndNumColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndNum' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndNumColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndComp() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndCompColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndComp' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndCompColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndData() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndDataColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndData' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndDataColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndQuadra() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndQuadraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndQuadra' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndQuadraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndZona() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndZonaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndZona' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndZonaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndCEP() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndCEPColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndCEP' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndCEPColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Telefone() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.TelefoneColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Telefone' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.TelefoneColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CNAE() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CNAEColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAE' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CNAEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property NaturezaDoPedido() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.NaturezaDoPedidoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'NaturezaDoPedido' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.NaturezaDoPedidoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property NaturezaDoPedidoOBS() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'NaturezaDoPedidoOBS' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Requerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.RequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Requerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.RequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CPFRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CPFRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CPFRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CPFRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property FoneRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.FoneRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FoneRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.FoneRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EmailRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EmailRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EmailRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EmailRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CNPJRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CNPJRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNPJRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CNPJRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property RGRequerente() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.RGRequerenteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'RGRequerente' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.RGRequerenteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Ramodeatividade() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.RamodeatividadeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ramodeatividade' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.RamodeatividadeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Obs() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ObsColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Obs' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ObsColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property area() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.areaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'area' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.areaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Resptecnico() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ResptecnicoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Resptecnico' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ResptecnicoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ResptecnicoNumero() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ResptecnicoNumeroColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ResptecnicoNumero' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ResptecnicoNumeroColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Lembrete() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.LembreteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Lembrete' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.LembreteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndBairro() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndBairroColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndBairro' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndBairroColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndCidade() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndCidadeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndCidade' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndCidadeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property EndEstado() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.EndEstadoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndEstado' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.EndEstadoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Bombeiros() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeirosColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Bombeiros' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeirosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeirosSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeirosSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeirosSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeirosSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeirosVenc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeirosVencColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeirosVenc' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeirosVencColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Ambiental() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AmbientalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ambiental' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AmbientalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property AmbientalSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AmbientalSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AmbientalSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property AmbientalVenc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AmbientalVencColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalVenc' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AmbientalVencColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Viabilidade() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ViabilidadeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Viabilidade' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ViabilidadeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ViabilidadeSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ViabilidadeSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ViabilidadeSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ViabilidadeVec() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ViabilidadeVecColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeVec' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ViabilidadeVecColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Sanitario() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SanitarioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitario' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SanitarioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SanitarioSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SanitarioSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SanitarioSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SanitarioVenc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SanitarioVencColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioVenc' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SanitarioVencColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Setran() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SetranColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Setran' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SetranColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SetranSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SetranSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SetranSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SetranVenc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SetranVencColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranVenc' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SetranVencColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeiroExigencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeiroExigenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroExigencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeiroExigenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property AmbientalExigencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AmbientalExigenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalExigencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AmbientalExigenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ViabilidadeExigencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ViabilidadeExigenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeExigencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ViabilidadeExigenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SanitarioExigencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SanitarioExigenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioExigencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SanitarioExigenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SetranExigencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SetranExigenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranExigencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SetranExigenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeiroDataProvisorio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeiroDataProvisorioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroDataProvisorio' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeiroDataProvisorioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property AmbientalDataProvisorio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AmbientalDataProvisorioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalDataProvisorio' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AmbientalDataProvisorioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ViabilidadeDataProvisorio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeDataProvisorio' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SanitarioDataProvisorio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SanitarioDataProvisorioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioDataProvisorio' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SanitarioDataProvisorioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property SetranDataProvisorio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SetranDataProvisorioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranDataProvisorio' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SetranDataProvisorioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeiroNProcesso() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeiroNProcessoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroNProcesso' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeiroNProcessoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeiroDataPedProcesso() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeiroDataPedProcessoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroDataPedProcesso' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeiroDataPedProcessoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Nlaudo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.NlaudoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Nlaudo' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.NlaudoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Situacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.SituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Situacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.SituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property DataCriado() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.DataCriadoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataCriado' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.DataCriadoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property DataEntrada() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.DataEntradaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataEntrada' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.DataEntradaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Pendencia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.PendenciaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Pendencia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.PendenciaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ModeloSistema() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ModeloSistemaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ModeloSistema' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ModeloSistemaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property AvisarDia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.AvisarDiaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AvisarDia' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.AvisarDiaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CadImob() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CadImobColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CadImob' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CadImobColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CMC() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.CMCColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CMC' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.CMCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property area2() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.area2Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'area2' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.area2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property PontoRef() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.PontoRefColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'PontoRef' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.PontoRefColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Sanitariocontrole2() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.Sanitariocontrole2Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole2' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.Sanitariocontrole2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Sanitariocontrole1() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.Sanitariocontrole1Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole1' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.Sanitariocontrole1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Sanitariocontrole3() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.Sanitariocontrole3Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole3' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.Sanitariocontrole3Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Observacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ObservacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Observacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ObservacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ProtocoloTipo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ProtocoloTipoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloTipo' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ProtocoloTipoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ProtocoloN() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ProtocoloNColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloN' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ProtocoloNColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ProtocoloAno() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ProtocoloAnoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloAno' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ProtocoloAnoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ProtocoloSenha() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.ProtocoloSenhaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloSenha' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.ProtocoloSenhaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Historico() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.HistoricoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Historico' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.HistoricoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property BombeiroSituacao() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableLaudos.BombeiroSituacaoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroSituacao' na tabela 'Laudos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableLaudos.BombeiroSituacaoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsRazaoSocialNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.RazaoSocialColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetRazaoSocialNull()
-            Me(Me.tableLaudos.RazaoSocialColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCNPJNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CNPJColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCNPJNull()
-            Me(Me.tableLaudos.CNPJColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEnderecoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EnderecoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEnderecoNull()
-            Me(Me.tableLaudos.EnderecoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndNumNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndNumColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndNumNull()
-            Me(Me.tableLaudos.EndNumColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndCompNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndCompColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndCompNull()
-            Me(Me.tableLaudos.EndCompColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndDataNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndDataColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndDataNull()
-            Me(Me.tableLaudos.EndDataColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndQuadraNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndQuadraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndQuadraNull()
-            Me(Me.tableLaudos.EndQuadraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndZonaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndZonaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndZonaNull()
-            Me(Me.tableLaudos.EndZonaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndCEPNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndCEPColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndCEPNull()
-            Me(Me.tableLaudos.EndCEPColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsTelefoneNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.TelefoneColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetTelefoneNull()
-            Me(Me.tableLaudos.TelefoneColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCNAENull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CNAEColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCNAENull()
-            Me(Me.tableLaudos.CNAEColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsNaturezaDoPedidoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.NaturezaDoPedidoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetNaturezaDoPedidoNull()
-            Me(Me.tableLaudos.NaturezaDoPedidoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsNaturezaDoPedidoOBSNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.NaturezaDoPedidoOBSColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetNaturezaDoPedidoOBSNull()
-            Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.RequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetRequerenteNull()
-            Me(Me.tableLaudos.RequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCPFRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CPFRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCPFRequerenteNull()
-            Me(Me.tableLaudos.CPFRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndRequerenteNull()
-            Me(Me.tableLaudos.EndRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsFoneRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.FoneRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetFoneRequerenteNull()
-            Me(Me.tableLaudos.FoneRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEmailRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EmailRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEmailRequerenteNull()
-            Me(Me.tableLaudos.EmailRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCNPJRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CNPJRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCNPJRequerenteNull()
-            Me(Me.tableLaudos.CNPJRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsRGRequerenteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.RGRequerenteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetRGRequerenteNull()
-            Me(Me.tableLaudos.RGRequerenteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsRamodeatividadeNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.RamodeatividadeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetRamodeatividadeNull()
-            Me(Me.tableLaudos.RamodeatividadeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsObsNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ObsColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetObsNull()
-            Me(Me.tableLaudos.ObsColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsareaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.areaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetareaNull()
-            Me(Me.tableLaudos.areaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsResptecnicoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ResptecnicoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetResptecnicoNull()
-            Me(Me.tableLaudos.ResptecnicoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsResptecnicoNumeroNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ResptecnicoNumeroColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetResptecnicoNumeroNull()
-            Me(Me.tableLaudos.ResptecnicoNumeroColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsLembreteNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.LembreteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetLembreteNull()
-            Me(Me.tableLaudos.LembreteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndBairroNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndBairroColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndBairroNull()
-            Me(Me.tableLaudos.EndBairroColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndCidadeNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndCidadeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndCidadeNull()
-            Me(Me.tableLaudos.EndCidadeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEndEstadoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.EndEstadoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEndEstadoNull()
-            Me(Me.tableLaudos.EndEstadoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeirosNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeirosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeirosNull()
-            Me(Me.tableLaudos.BombeirosColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeirosSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeirosSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeirosSituacaoNull()
-            Me(Me.tableLaudos.BombeirosSituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeirosVencNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeirosVencColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeirosVencNull()
-            Me(Me.tableLaudos.BombeirosVencColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAmbientalNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AmbientalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAmbientalNull()
-            Me(Me.tableLaudos.AmbientalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAmbientalSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AmbientalSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAmbientalSituacaoNull()
-            Me(Me.tableLaudos.AmbientalSituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAmbientalVencNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AmbientalVencColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAmbientalVencNull()
-            Me(Me.tableLaudos.AmbientalVencColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsViabilidadeNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ViabilidadeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetViabilidadeNull()
-            Me(Me.tableLaudos.ViabilidadeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsViabilidadeSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ViabilidadeSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetViabilidadeSituacaoNull()
-            Me(Me.tableLaudos.ViabilidadeSituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsViabilidadeVecNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ViabilidadeVecColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetViabilidadeVecNull()
-            Me(Me.tableLaudos.ViabilidadeVecColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitarioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SanitarioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitarioNull()
-            Me(Me.tableLaudos.SanitarioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitarioSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SanitarioSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitarioSituacaoNull()
-            Me(Me.tableLaudos.SanitarioSituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitarioVencNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SanitarioVencColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitarioVencNull()
-            Me(Me.tableLaudos.SanitarioVencColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSetranNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SetranColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSetranNull()
-            Me(Me.tableLaudos.SetranColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSetranSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SetranSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSetranSituacaoNull()
-            Me(Me.tableLaudos.SetranSituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSetranVencNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SetranVencColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSetranVencNull()
-            Me(Me.tableLaudos.SetranVencColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeiroExigenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeiroExigenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeiroExigenciaNull()
-            Me(Me.tableLaudos.BombeiroExigenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAmbientalExigenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AmbientalExigenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAmbientalExigenciaNull()
-            Me(Me.tableLaudos.AmbientalExigenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsViabilidadeExigenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ViabilidadeExigenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetViabilidadeExigenciaNull()
-            Me(Me.tableLaudos.ViabilidadeExigenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitarioExigenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SanitarioExigenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitarioExigenciaNull()
-            Me(Me.tableLaudos.SanitarioExigenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSetranExigenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SetranExigenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSetranExigenciaNull()
-            Me(Me.tableLaudos.SetranExigenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeiroDataProvisorioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeiroDataProvisorioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeiroDataProvisorioNull()
-            Me(Me.tableLaudos.BombeiroDataProvisorioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAmbientalDataProvisorioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AmbientalDataProvisorioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAmbientalDataProvisorioNull()
-            Me(Me.tableLaudos.AmbientalDataProvisorioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsViabilidadeDataProvisorioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ViabilidadeDataProvisorioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetViabilidadeDataProvisorioNull()
-            Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitarioDataProvisorioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SanitarioDataProvisorioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitarioDataProvisorioNull()
-            Me(Me.tableLaudos.SanitarioDataProvisorioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSetranDataProvisorioNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SetranDataProvisorioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSetranDataProvisorioNull()
-            Me(Me.tableLaudos.SetranDataProvisorioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeiroNProcessoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeiroNProcessoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeiroNProcessoNull()
-            Me(Me.tableLaudos.BombeiroNProcessoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeiroDataPedProcessoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeiroDataPedProcessoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeiroDataPedProcessoNull()
-            Me(Me.tableLaudos.BombeiroDataPedProcessoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsNlaudoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.NlaudoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetNlaudoNull()
-            Me(Me.tableLaudos.NlaudoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.SituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSituacaoNull()
-            Me(Me.tableLaudos.SituacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsDataCriadoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.DataCriadoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetDataCriadoNull()
-            Me(Me.tableLaudos.DataCriadoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsDataEntradaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.DataEntradaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetDataEntradaNull()
-            Me(Me.tableLaudos.DataEntradaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsPendenciaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.PendenciaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetPendenciaNull()
-            Me(Me.tableLaudos.PendenciaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsModeloSistemaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ModeloSistemaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetModeloSistemaNull()
-            Me(Me.tableLaudos.ModeloSistemaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAvisarDiaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.AvisarDiaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAvisarDiaNull()
-            Me(Me.tableLaudos.AvisarDiaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCadImobNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CadImobColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCadImobNull()
-            Me(Me.tableLaudos.CadImobColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCMCNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.CMCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCMCNull()
-            Me(Me.tableLaudos.CMCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Isarea2Null() As Boolean
-            Return Me.IsNull(Me.tableLaudos.area2Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setarea2Null()
-            Me(Me.tableLaudos.area2Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsPontoRefNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.PontoRefColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetPontoRefNull()
-            Me(Me.tableLaudos.PontoRefColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitariocontrole2Null() As Boolean
-            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole2Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitariocontrole2Null()
-            Me(Me.tableLaudos.Sanitariocontrole2Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitariocontrole1Null() As Boolean
-            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole1Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitariocontrole1Null()
-            Me(Me.tableLaudos.Sanitariocontrole1Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSanitariocontrole3Null() As Boolean
-            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole3Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSanitariocontrole3Null()
-            Me(Me.tableLaudos.Sanitariocontrole3Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsObservacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ObservacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetObservacaoNull()
-            Me(Me.tableLaudos.ObservacaoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsProtocoloTipoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ProtocoloTipoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetProtocoloTipoNull()
-            Me(Me.tableLaudos.ProtocoloTipoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsProtocoloNNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ProtocoloNColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetProtocoloNNull()
-            Me(Me.tableLaudos.ProtocoloNColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsProtocoloAnoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ProtocoloAnoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetProtocoloAnoNull()
-            Me(Me.tableLaudos.ProtocoloAnoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsProtocoloSenhaNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.ProtocoloSenhaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetProtocoloSenhaNull()
-            Me(Me.tableLaudos.ProtocoloSenhaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsHistoricoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.HistoricoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetHistoricoNull()
-            Me(Me.tableLaudos.HistoricoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBombeiroSituacaoNull() As Boolean
-            Return Me.IsNull(Me.tableLaudos.BombeiroSituacaoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBombeiroSituacaoNull()
-            Me(Me.tableLaudos.BombeiroSituacaoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -16401,6 +14365,2247 @@ Partial Public Class PrinceDBDataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class LaudosRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableLaudos As LaudosDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableLaudos = CType(Me.Table,LaudosDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ID_Laudos() As Short
+            Get
+                Return CType(Me(Me.tableLaudos.ID_LaudosColumn),Short)
+            End Get
+            Set
+                Me(Me.tableLaudos.ID_LaudosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RazaoSocial() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.RazaoSocialColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'RazaoSocial' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.RazaoSocialColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNPJ() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CNPJColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNPJ' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CNPJColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Endereco() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EnderecoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Endereco' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EnderecoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndNum() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndNumColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndNum' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndNumColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndComp() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndCompColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndComp' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndCompColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndData() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndDataColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndData' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndDataColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndQuadra() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndQuadraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndQuadra' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndQuadraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndZona() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndZonaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndZona' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndZonaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndCEP() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndCEPColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndCEP' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndCEPColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Telefone() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.TelefoneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Telefone' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.TelefoneColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNAE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CNAEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAE' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CNAEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property NaturezaDoPedido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.NaturezaDoPedidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'NaturezaDoPedido' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.NaturezaDoPedidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property NaturezaDoPedidoOBS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'NaturezaDoPedidoOBS' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Requerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.RequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Requerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.RequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CPFRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CPFRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CPFRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CPFRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FoneRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.FoneRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FoneRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.FoneRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EmailRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EmailRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EmailRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EmailRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNPJRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CNPJRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNPJRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CNPJRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RGRequerente() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.RGRequerenteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'RGRequerente' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.RGRequerenteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Ramodeatividade() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.RamodeatividadeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ramodeatividade' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.RamodeatividadeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Obs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Obs' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property area() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.areaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'area' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.areaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Resptecnico() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ResptecnicoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Resptecnico' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ResptecnicoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ResptecnicoNumero() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ResptecnicoNumeroColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ResptecnicoNumero' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ResptecnicoNumeroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Lembrete() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.LembreteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Lembrete' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.LembreteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndBairro() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndBairroColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndBairro' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndBairroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndCidade() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndCidadeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndCidade' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndCidadeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EndEstado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.EndEstadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EndEstado' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.EndEstadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Bombeiros() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeirosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Bombeiros' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeirosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeirosSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeirosSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeirosSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeirosSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeirosVenc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeirosVencColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeirosVenc' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeirosVencColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Ambiental() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ambiental' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AmbientalSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AmbientalVenc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalVencColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalVenc' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalVencColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Viabilidade() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Viabilidade' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ViabilidadeSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ViabilidadeVec() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeVecColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeVec' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeVecColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Sanitario() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitario' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SanitarioSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SanitarioVenc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioVencColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioVenc' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioVencColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Setran() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Setran' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SetranSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SetranVenc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranVencColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranVenc' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranVencColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroExigencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroExigenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroExigencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroExigenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AmbientalExigencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalExigenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalExigencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalExigenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ViabilidadeExigencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeExigenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeExigencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeExigenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SanitarioExigencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioExigenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioExigencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioExigenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SetranExigencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranExigenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranExigencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranExigenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroDataProvisorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroDataProvisorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroDataProvisorio' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroDataProvisorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AmbientalDataProvisorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalDataProvisorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalDataProvisorio' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalDataProvisorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ViabilidadeDataProvisorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeDataProvisorio' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SanitarioDataProvisorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioDataProvisorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioDataProvisorio' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioDataProvisorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SetranDataProvisorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranDataProvisorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranDataProvisorio' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranDataProvisorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroNProcesso() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroNProcessoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroNProcesso' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroNProcessoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroDataPedProcesso() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroDataPedProcessoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroDataPedProcesso' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroDataPedProcessoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Nlaudo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.NlaudoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Nlaudo' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.NlaudoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Situacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Situacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataCriado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.DataCriadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataCriado' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.DataCriadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataEntrada() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.DataEntradaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataEntrada' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.DataEntradaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Pendencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.PendenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Pendencia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.PendenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ModeloSistema() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ModeloSistemaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ModeloSistema' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ModeloSistemaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AvisarDia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AvisarDiaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AvisarDia' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AvisarDiaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CadImob() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CadImobColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CadImob' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CadImobColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CMC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.CMCColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CMC' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.CMCColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property area2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.area2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'area2' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.area2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property PontoRef() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.PontoRefColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'PontoRef' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.PontoRefColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Sanitariocontrole1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.Sanitariocontrole1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole1' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.Sanitariocontrole1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Sanitariocontrole2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.Sanitariocontrole2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole2' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.Sanitariocontrole2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Sanitariocontrole3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.Sanitariocontrole3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Sanitariocontrole3' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.Sanitariocontrole3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Observacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ObservacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Observacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ObservacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ProtocoloTipo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ProtocoloTipoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloTipo' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ProtocoloTipoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ProtocoloN() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ProtocoloNColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloN' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ProtocoloNColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ProtocoloAno() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ProtocoloAnoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloAno' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ProtocoloAnoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ProtocoloSenha() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ProtocoloSenhaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ProtocoloSenha' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ProtocoloSenhaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Historico() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.HistoricoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Historico' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.HistoricoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroSituacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroSituacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroSituacao' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroSituacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroProvisorioDATA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.BombeiroProvisorioDATAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroProvisorioDATA' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.BombeiroProvisorioDATAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AmbientalProvisorioDATA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.AmbientalProvisorioDATAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AmbientalProvisorioDATA' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.AmbientalProvisorioDATAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ViabilidadeProvisorioDATA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.ViabilidadeProvisorioDATAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ViabilidadeProvisorioDATA' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.ViabilidadeProvisorioDATAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SanitarioProvisorioDATA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SanitarioProvisorioDATAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SanitarioProvisorioDATA' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SanitarioProvisorioDATAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SetranProvisorioDATA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableLaudos.SetranProvisorioDATAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SetranProvisorioDATA' na tabela 'Laudos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableLaudos.SetranProvisorioDATAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRazaoSocialNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.RazaoSocialColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRazaoSocialNull()
+            Me(Me.tableLaudos.RazaoSocialColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNPJNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CNPJColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNPJNull()
+            Me(Me.tableLaudos.CNPJColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEnderecoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EnderecoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEnderecoNull()
+            Me(Me.tableLaudos.EnderecoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndNumNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndNumColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndNumNull()
+            Me(Me.tableLaudos.EndNumColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndCompNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndCompColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndCompNull()
+            Me(Me.tableLaudos.EndCompColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndDataNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndDataColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndDataNull()
+            Me(Me.tableLaudos.EndDataColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndQuadraNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndQuadraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndQuadraNull()
+            Me(Me.tableLaudos.EndQuadraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndZonaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndZonaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndZonaNull()
+            Me(Me.tableLaudos.EndZonaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndCEPNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndCEPColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndCEPNull()
+            Me(Me.tableLaudos.EndCEPColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTelefoneNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.TelefoneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTelefoneNull()
+            Me(Me.tableLaudos.TelefoneColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNAENull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CNAEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNAENull()
+            Me(Me.tableLaudos.CNAEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNaturezaDoPedidoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.NaturezaDoPedidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNaturezaDoPedidoNull()
+            Me(Me.tableLaudos.NaturezaDoPedidoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNaturezaDoPedidoOBSNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.NaturezaDoPedidoOBSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNaturezaDoPedidoOBSNull()
+            Me(Me.tableLaudos.NaturezaDoPedidoOBSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.RequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRequerenteNull()
+            Me(Me.tableLaudos.RequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCPFRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CPFRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCPFRequerenteNull()
+            Me(Me.tableLaudos.CPFRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndRequerenteNull()
+            Me(Me.tableLaudos.EndRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFoneRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.FoneRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFoneRequerenteNull()
+            Me(Me.tableLaudos.FoneRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEmailRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EmailRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEmailRequerenteNull()
+            Me(Me.tableLaudos.EmailRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNPJRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CNPJRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNPJRequerenteNull()
+            Me(Me.tableLaudos.CNPJRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRGRequerenteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.RGRequerenteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRGRequerenteNull()
+            Me(Me.tableLaudos.RGRequerenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRamodeatividadeNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.RamodeatividadeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRamodeatividadeNull()
+            Me(Me.tableLaudos.RamodeatividadeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsObsNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetObsNull()
+            Me(Me.tableLaudos.ObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsareaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.areaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetareaNull()
+            Me(Me.tableLaudos.areaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsResptecnicoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ResptecnicoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetResptecnicoNull()
+            Me(Me.tableLaudos.ResptecnicoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsResptecnicoNumeroNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ResptecnicoNumeroColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetResptecnicoNumeroNull()
+            Me(Me.tableLaudos.ResptecnicoNumeroColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsLembreteNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.LembreteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetLembreteNull()
+            Me(Me.tableLaudos.LembreteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndBairroNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndBairroColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndBairroNull()
+            Me(Me.tableLaudos.EndBairroColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndCidadeNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndCidadeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndCidadeNull()
+            Me(Me.tableLaudos.EndCidadeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEndEstadoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.EndEstadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEndEstadoNull()
+            Me(Me.tableLaudos.EndEstadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeirosNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeirosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeirosNull()
+            Me(Me.tableLaudos.BombeirosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeirosSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeirosSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeirosSituacaoNull()
+            Me(Me.tableLaudos.BombeirosSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeirosVencNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeirosVencColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeirosVencNull()
+            Me(Me.tableLaudos.BombeirosVencColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalNull()
+            Me(Me.tableLaudos.AmbientalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalSituacaoNull()
+            Me(Me.tableLaudos.AmbientalSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalVencNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalVencColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalVencNull()
+            Me(Me.tableLaudos.AmbientalVencColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeNull()
+            Me(Me.tableLaudos.ViabilidadeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeSituacaoNull()
+            Me(Me.tableLaudos.ViabilidadeSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeVecNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeVecColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeVecNull()
+            Me(Me.tableLaudos.ViabilidadeVecColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioNull()
+            Me(Me.tableLaudos.SanitarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioSituacaoNull()
+            Me(Me.tableLaudos.SanitarioSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioVencNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioVencColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioVencNull()
+            Me(Me.tableLaudos.SanitarioVencColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranNull()
+            Me(Me.tableLaudos.SetranColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranSituacaoNull()
+            Me(Me.tableLaudos.SetranSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranVencNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranVencColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranVencNull()
+            Me(Me.tableLaudos.SetranVencColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroExigenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroExigenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroExigenciaNull()
+            Me(Me.tableLaudos.BombeiroExigenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalExigenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalExigenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalExigenciaNull()
+            Me(Me.tableLaudos.AmbientalExigenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeExigenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeExigenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeExigenciaNull()
+            Me(Me.tableLaudos.ViabilidadeExigenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioExigenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioExigenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioExigenciaNull()
+            Me(Me.tableLaudos.SanitarioExigenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranExigenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranExigenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranExigenciaNull()
+            Me(Me.tableLaudos.SetranExigenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroDataProvisorioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroDataProvisorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroDataProvisorioNull()
+            Me(Me.tableLaudos.BombeiroDataProvisorioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalDataProvisorioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalDataProvisorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalDataProvisorioNull()
+            Me(Me.tableLaudos.AmbientalDataProvisorioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeDataProvisorioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeDataProvisorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeDataProvisorioNull()
+            Me(Me.tableLaudos.ViabilidadeDataProvisorioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioDataProvisorioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioDataProvisorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioDataProvisorioNull()
+            Me(Me.tableLaudos.SanitarioDataProvisorioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranDataProvisorioNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranDataProvisorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranDataProvisorioNull()
+            Me(Me.tableLaudos.SetranDataProvisorioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroNProcessoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroNProcessoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroNProcessoNull()
+            Me(Me.tableLaudos.BombeiroNProcessoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroDataPedProcessoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroDataPedProcessoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroDataPedProcessoNull()
+            Me(Me.tableLaudos.BombeiroDataPedProcessoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNlaudoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.NlaudoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNlaudoNull()
+            Me(Me.tableLaudos.NlaudoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSituacaoNull()
+            Me(Me.tableLaudos.SituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataCriadoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.DataCriadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataCriadoNull()
+            Me(Me.tableLaudos.DataCriadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataEntradaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.DataEntradaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataEntradaNull()
+            Me(Me.tableLaudos.DataEntradaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsPendenciaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.PendenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetPendenciaNull()
+            Me(Me.tableLaudos.PendenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsModeloSistemaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ModeloSistemaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetModeloSistemaNull()
+            Me(Me.tableLaudos.ModeloSistemaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAvisarDiaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AvisarDiaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAvisarDiaNull()
+            Me(Me.tableLaudos.AvisarDiaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCadImobNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CadImobColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCadImobNull()
+            Me(Me.tableLaudos.CadImobColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCMCNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.CMCColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCMCNull()
+            Me(Me.tableLaudos.CMCColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isarea2Null() As Boolean
+            Return Me.IsNull(Me.tableLaudos.area2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setarea2Null()
+            Me(Me.tableLaudos.area2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsPontoRefNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.PontoRefColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetPontoRefNull()
+            Me(Me.tableLaudos.PontoRefColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitariocontrole1Null() As Boolean
+            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitariocontrole1Null()
+            Me(Me.tableLaudos.Sanitariocontrole1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitariocontrole2Null() As Boolean
+            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitariocontrole2Null()
+            Me(Me.tableLaudos.Sanitariocontrole2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitariocontrole3Null() As Boolean
+            Return Me.IsNull(Me.tableLaudos.Sanitariocontrole3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitariocontrole3Null()
+            Me(Me.tableLaudos.Sanitariocontrole3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsObservacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ObservacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetObservacaoNull()
+            Me(Me.tableLaudos.ObservacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsProtocoloTipoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ProtocoloTipoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetProtocoloTipoNull()
+            Me(Me.tableLaudos.ProtocoloTipoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsProtocoloNNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ProtocoloNColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetProtocoloNNull()
+            Me(Me.tableLaudos.ProtocoloNColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsProtocoloAnoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ProtocoloAnoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetProtocoloAnoNull()
+            Me(Me.tableLaudos.ProtocoloAnoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsProtocoloSenhaNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ProtocoloSenhaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetProtocoloSenhaNull()
+            Me(Me.tableLaudos.ProtocoloSenhaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsHistoricoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.HistoricoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetHistoricoNull()
+            Me(Me.tableLaudos.HistoricoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroSituacaoNull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroSituacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroSituacaoNull()
+            Me(Me.tableLaudos.BombeiroSituacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroProvisorioDATANull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.BombeiroProvisorioDATAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroProvisorioDATANull()
+            Me(Me.tableLaudos.BombeiroProvisorioDATAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAmbientalProvisorioDATANull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.AmbientalProvisorioDATAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAmbientalProvisorioDATANull()
+            Me(Me.tableLaudos.AmbientalProvisorioDATAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsViabilidadeProvisorioDATANull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.ViabilidadeProvisorioDATAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetViabilidadeProvisorioDATANull()
+            Me(Me.tableLaudos.ViabilidadeProvisorioDATAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSanitarioProvisorioDATANull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SanitarioProvisorioDATAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSanitarioProvisorioDATANull()
+            Me(Me.tableLaudos.SanitarioProvisorioDATAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSetranProvisorioDATANull() As Boolean
+            Return Me.IsNull(Me.tableLaudos.SetranProvisorioDATAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSetranProvisorioDATANull()
+            Me(Me.tableLaudos.SetranProvisorioDATAColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -16494,42 +16699,6 @@ Partial Public Class PrinceDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As ContadorRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class LaudosRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As LaudosRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As LaudosRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As LaudosRow
             Get
                 Return Me.eventRow
             End Get
@@ -16890,6 +17059,42 @@ Partial Public Class PrinceDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As AnotacoesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class LaudosRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As LaudosRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As LaudosRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As LaudosRow
             Get
                 Return Me.eventRow
             End Get
@@ -18392,2820 +18597,6 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal Original_EndCEP As String,  _
                     ByVal Original_RGSigla As String) As Integer
             Return Me.Update(Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, Original_ID_Contador, Original_Nome, Original_CPF, Original_CRC, Original_ExpedicaoCRC, Original_RG, Original_CNPJ, Original_Telefone, Original_CMC, Original_EndNum, Original_EndCidade, Original_EndEstado, Original_EndCEP, Original_RGSigla, Original_ID_Contador)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class LaudosTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Laudos"
-            tableMapping.ColumnMappings.Add("ID_Laudos", "ID_Laudos")
-            tableMapping.ColumnMappings.Add("RazaoSocial", "RazaoSocial")
-            tableMapping.ColumnMappings.Add("CNPJ", "CNPJ")
-            tableMapping.ColumnMappings.Add("Endereco", "Endereco")
-            tableMapping.ColumnMappings.Add("EndNum", "EndNum")
-            tableMapping.ColumnMappings.Add("EndComp", "EndComp")
-            tableMapping.ColumnMappings.Add("EndData", "EndData")
-            tableMapping.ColumnMappings.Add("EndQuadra", "EndQuadra")
-            tableMapping.ColumnMappings.Add("EndZona", "EndZona")
-            tableMapping.ColumnMappings.Add("EndCEP", "EndCEP")
-            tableMapping.ColumnMappings.Add("Telefone", "Telefone")
-            tableMapping.ColumnMappings.Add("CNAE", "CNAE")
-            tableMapping.ColumnMappings.Add("NaturezaDoPedido", "NaturezaDoPedido")
-            tableMapping.ColumnMappings.Add("NaturezaDoPedidoOBS", "NaturezaDoPedidoOBS")
-            tableMapping.ColumnMappings.Add("Requerente", "Requerente")
-            tableMapping.ColumnMappings.Add("CPFRequerente", "CPFRequerente")
-            tableMapping.ColumnMappings.Add("EndRequerente", "EndRequerente")
-            tableMapping.ColumnMappings.Add("FoneRequerente", "FoneRequerente")
-            tableMapping.ColumnMappings.Add("EmailRequerente", "EmailRequerente")
-            tableMapping.ColumnMappings.Add("CNPJRequerente", "CNPJRequerente")
-            tableMapping.ColumnMappings.Add("RGRequerente", "RGRequerente")
-            tableMapping.ColumnMappings.Add("Ramodeatividade", "Ramodeatividade")
-            tableMapping.ColumnMappings.Add("Obs", "Obs")
-            tableMapping.ColumnMappings.Add("area", "area")
-            tableMapping.ColumnMappings.Add("Resptecnico", "Resptecnico")
-            tableMapping.ColumnMappings.Add("ResptecnicoNumero", "ResptecnicoNumero")
-            tableMapping.ColumnMappings.Add("Lembrete", "Lembrete")
-            tableMapping.ColumnMappings.Add("EndBairro", "EndBairro")
-            tableMapping.ColumnMappings.Add("EndCidade", "EndCidade")
-            tableMapping.ColumnMappings.Add("EndEstado", "EndEstado")
-            tableMapping.ColumnMappings.Add("Bombeiros", "Bombeiros")
-            tableMapping.ColumnMappings.Add("BombeirosSituacao", "BombeirosSituacao")
-            tableMapping.ColumnMappings.Add("BombeirosVenc", "BombeirosVenc")
-            tableMapping.ColumnMappings.Add("Ambiental", "Ambiental")
-            tableMapping.ColumnMappings.Add("AmbientalSituacao", "AmbientalSituacao")
-            tableMapping.ColumnMappings.Add("AmbientalVenc", "AmbientalVenc")
-            tableMapping.ColumnMappings.Add("Viabilidade", "Viabilidade")
-            tableMapping.ColumnMappings.Add("ViabilidadeSituacao", "ViabilidadeSituacao")
-            tableMapping.ColumnMappings.Add("ViabilidadeVec", "ViabilidadeVec")
-            tableMapping.ColumnMappings.Add("Sanitario", "Sanitario")
-            tableMapping.ColumnMappings.Add("SanitarioSituacao", "SanitarioSituacao")
-            tableMapping.ColumnMappings.Add("SanitarioVenc", "SanitarioVenc")
-            tableMapping.ColumnMappings.Add("Setran", "Setran")
-            tableMapping.ColumnMappings.Add("SetranSituacao", "SetranSituacao")
-            tableMapping.ColumnMappings.Add("SetranVenc", "SetranVenc")
-            tableMapping.ColumnMappings.Add("BombeiroExigencia", "BombeiroExigencia")
-            tableMapping.ColumnMappings.Add("AmbientalExigencia", "AmbientalExigencia")
-            tableMapping.ColumnMappings.Add("ViabilidadeExigencia", "ViabilidadeExigencia")
-            tableMapping.ColumnMappings.Add("SanitarioExigencia", "SanitarioExigencia")
-            tableMapping.ColumnMappings.Add("SetranExigencia", "SetranExigencia")
-            tableMapping.ColumnMappings.Add("BombeiroDataProvisorio", "BombeiroDataProvisorio")
-            tableMapping.ColumnMappings.Add("AmbientalDataProvisorio", "AmbientalDataProvisorio")
-            tableMapping.ColumnMappings.Add("ViabilidadeDataProvisorio", "ViabilidadeDataProvisorio")
-            tableMapping.ColumnMappings.Add("SanitarioDataProvisorio", "SanitarioDataProvisorio")
-            tableMapping.ColumnMappings.Add("SetranDataProvisorio", "SetranDataProvisorio")
-            tableMapping.ColumnMappings.Add("BombeiroNProcesso", "BombeiroNProcesso")
-            tableMapping.ColumnMappings.Add("BombeiroDataPedProcesso", "BombeiroDataPedProcesso")
-            tableMapping.ColumnMappings.Add("Nlaudo", "Nlaudo")
-            tableMapping.ColumnMappings.Add("Situacao", "Situacao")
-            tableMapping.ColumnMappings.Add("DataCriado", "DataCriado")
-            tableMapping.ColumnMappings.Add("DataEntrada", "DataEntrada")
-            tableMapping.ColumnMappings.Add("Pendencia", "Pendencia")
-            tableMapping.ColumnMappings.Add("ModeloSistema", "ModeloSistema")
-            tableMapping.ColumnMappings.Add("AvisarDia", "AvisarDia")
-            tableMapping.ColumnMappings.Add("CadImob", "CadImob")
-            tableMapping.ColumnMappings.Add("CMC", "CMC")
-            tableMapping.ColumnMappings.Add("area2", "area2")
-            tableMapping.ColumnMappings.Add("PontoRef", "PontoRef")
-            tableMapping.ColumnMappings.Add("Sanitariocontrole2", "Sanitariocontrole2")
-            tableMapping.ColumnMappings.Add("Sanitariocontrole1", "Sanitariocontrole1")
-            tableMapping.ColumnMappings.Add("Sanitariocontrole3", "Sanitariocontrole3")
-            tableMapping.ColumnMappings.Add("Observacao", "Observacao")
-            tableMapping.ColumnMappings.Add("ProtocoloTipo", "ProtocoloTipo")
-            tableMapping.ColumnMappings.Add("ProtocoloN", "ProtocoloN")
-            tableMapping.ColumnMappings.Add("ProtocoloAno", "ProtocoloAno")
-            tableMapping.ColumnMappings.Add("ProtocoloSenha", "ProtocoloSenha")
-            tableMapping.ColumnMappings.Add("Historico", "Historico")
-            tableMapping.ColumnMappings.Add("BombeiroSituacao", "BombeiroSituacao")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Laudos] WHERE (([ID_Laudos] = @Original_ID_Laudos) AND ((@IsNull_CNP"& _ 
-                "J = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_EndNum = 1"& _ 
-                " AND [EndNum] IS NULL) OR ([EndNum] = @Original_EndNum)) AND ((@IsNull_EndData ="& _ 
-                " 1 AND [EndData] IS NULL) OR ([EndData] = @Original_EndData)) AND ((@IsNull_EndQ"& _ 
-                "uadra = 1 AND [EndQuadra] IS NULL) OR ([EndQuadra] = @Original_EndQuadra)) AND ("& _ 
-                "(@IsNull_EndZona = 1 AND [EndZona] IS NULL) OR ([EndZona] = @Original_EndZona)) "& _ 
-                "AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP))"& _ 
-                " AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_T"& _ 
-                "elefone)) AND ((@IsNull_CPFRequerente = 1 AND [CPFRequerente] IS NULL) OR ([CPFR"& _ 
-                "equerente] = @Original_CPFRequerente)) AND ((@IsNull_FoneRequerente = 1 AND [Fon"& _ 
-                "eRequerente] IS NULL) OR ([FoneRequerente] = @Original_FoneRequerente)) AND ((@I"& _ 
-                "sNull_CNPJRequerente = 1 AND [CNPJRequerente] IS NULL) OR ([CNPJRequerente] = @O"& _ 
-                "riginal_CNPJRequerente)) AND ((@IsNull_RGRequerente = 1 AND [RGRequerente] IS NU"& _ 
-                "LL) OR ([RGRequerente] = @Original_RGRequerente)) AND ((@IsNull_area = 1 AND [ar"& _ 
-                "ea] IS NULL) OR ([area] = @Original_area)) AND ((@IsNull_ResptecnicoNumero = 1 A"& _ 
-                "ND [ResptecnicoNumero] IS NULL) OR ([ResptecnicoNumero] = @Original_ResptecnicoN"& _ 
-                "umero)) AND ((@IsNull_Lembrete = 1 AND [Lembrete] IS NULL) OR ([Lembrete] = @Ori"& _ 
-                "ginal_Lembrete)) AND ((@IsNull_EndCidade = 1 AND [EndCidade] IS NULL) OR ([EndCi"& _ 
-                "dade] = @Original_EndCidade)) AND ((@IsNull_EndEstado = 1 AND [EndEstado] IS NUL"& _ 
-                "L) OR ([EndEstado] = @Original_EndEstado)) AND ((@IsNull_Bombeiros = 1 AND [Bomb"& _ 
-                "eiros] IS NULL) OR ([Bombeiros] = @Original_Bombeiros)) AND ((@IsNull_BombeirosS"& _ 
-                "ituacao = 1 AND [BombeirosSituacao] IS NULL) OR ([BombeirosSituacao] = @Original"& _ 
-                "_BombeirosSituacao)) AND ((@IsNull_BombeirosVenc = 1 AND [BombeirosVenc] IS NULL"& _ 
-                ") OR ([BombeirosVenc] = @Original_BombeirosVenc)) AND ((@IsNull_Ambiental = 1 AN"& _ 
-                "D [Ambiental] IS NULL) OR ([Ambiental] = @Original_Ambiental)) AND ((@IsNull_Amb"& _ 
-                "ientalSituacao = 1 AND [AmbientalSituacao] IS NULL) OR ([AmbientalSituacao] = @O"& _ 
-                "riginal_AmbientalSituacao)) AND ((@IsNull_AmbientalVenc = 1 AND [AmbientalVenc] "& _ 
-                "IS NULL) OR ([AmbientalVenc] = @Original_AmbientalVenc)) AND ((@IsNull_Viabilida"& _ 
-                "de = 1 AND [Viabilidade] IS NULL) OR ([Viabilidade] = @Original_Viabilidade)) AN"& _ 
-                "D ((@IsNull_ViabilidadeSituacao = 1 AND [ViabilidadeSituacao] IS NULL) OR ([Viab"& _ 
-                "ilidadeSituacao] = @Original_ViabilidadeSituacao)) AND ((@IsNull_ViabilidadeVec "& _ 
-                "= 1 AND [ViabilidadeVec] IS NULL) OR ([ViabilidadeVec] = @Original_ViabilidadeVe"& _ 
-                "c)) AND ((@IsNull_Sanitario = 1 AND [Sanitario] IS NULL) OR ([Sanitario] = @Orig"& _ 
-                "inal_Sanitario)) AND ((@IsNull_SanitarioSituacao = 1 AND [SanitarioSituacao] IS "& _ 
-                "NULL) OR ([SanitarioSituacao] = @Original_SanitarioSituacao)) AND ((@IsNull_Sani"& _ 
-                "tarioVenc = 1 AND [SanitarioVenc] IS NULL) OR ([SanitarioVenc] = @Original_Sanit"& _ 
-                "arioVenc)) AND ((@IsNull_Setran = 1 AND [Setran] IS NULL) OR ([Setran] = @Origin"& _ 
-                "al_Setran)) AND ((@IsNull_SetranSituacao = 1 AND [SetranSituacao] IS NULL) OR (["& _ 
-                "SetranSituacao] = @Original_SetranSituacao)) AND ((@IsNull_SetranVenc = 1 AND [S"& _ 
-                "etranVenc] IS NULL) OR ([SetranVenc] = @Original_SetranVenc)) AND ((@IsNull_Bomb"& _ 
-                "eiroDataProvisorio = 1 AND [BombeiroDataProvisorio] IS NULL) OR ([BombeiroDataPr"& _ 
-                "ovisorio] = @Original_BombeiroDataProvisorio)) AND ((@IsNull_AmbientalDataProvis"& _ 
-                "orio = 1 AND [AmbientalDataProvisorio] IS NULL) OR ([AmbientalDataProvisorio] = "& _ 
-                "@Original_AmbientalDataProvisorio)) AND ((@IsNull_ViabilidadeDataProvisorio = 1 "& _ 
-                "AND [ViabilidadeDataProvisorio] IS NULL) OR ([ViabilidadeDataProvisorio] = @Orig"& _ 
-                "inal_ViabilidadeDataProvisorio)) AND ((@IsNull_SanitarioDataProvisorio = 1 AND ["& _ 
-                "SanitarioDataProvisorio] IS NULL) OR ([SanitarioDataProvisorio] = @Original_Sani"& _ 
-                "tarioDataProvisorio)) AND ((@IsNull_SetranDataProvisorio = 1 AND [SetranDataProv"& _ 
-                "isorio] IS NULL) OR ([SetranDataProvisorio] = @Original_SetranDataProvisorio)) A"& _ 
-                "ND ((@IsNull_BombeiroNProcesso = 1 AND [BombeiroNProcesso] IS NULL) OR ([Bombeir"& _ 
-                "oNProcesso] = @Original_BombeiroNProcesso)) AND ((@IsNull_BombeiroDataPedProcess"& _ 
-                "o = 1 AND [BombeiroDataPedProcesso] IS NULL) OR ([BombeiroDataPedProcesso] = @Or"& _ 
-                "iginal_BombeiroDataPedProcesso)) AND ((@IsNull_Nlaudo = 1 AND [Nlaudo] IS NULL) "& _ 
-                "OR ([Nlaudo] = @Original_Nlaudo)) AND ((@IsNull_Situacao = 1 AND [Situacao] IS N"& _ 
-                "ULL) OR ([Situacao] = @Original_Situacao)) AND ((@IsNull_DataCriado = 1 AND [Dat"& _ 
-                "aCriado] IS NULL) OR ([DataCriado] = @Original_DataCriado)) AND ((@IsNull_DataEn"& _ 
-                "trada = 1 AND [DataEntrada] IS NULL) OR ([DataEntrada] = @Original_DataEntrada))"& _ 
-                " AND ((@IsNull_Pendencia = 1 AND [Pendencia] IS NULL) OR ([Pendencia] = @Origina"& _ 
-                "l_Pendencia)) AND ((@IsNull_ModeloSistema = 1 AND [ModeloSistema] IS NULL) OR (["& _ 
-                "ModeloSistema] = @Original_ModeloSistema)) AND ((@IsNull_AvisarDia = 1 AND [Avis"& _ 
-                "arDia] IS NULL) OR ([AvisarDia] = @Original_AvisarDia)) AND ((@IsNull_CadImob = "& _ 
-                "1 AND [CadImob] IS NULL) OR ([CadImob] = @Original_CadImob)) AND ((@IsNull_CMC ="& _ 
-                " 1 AND [CMC] IS NULL) OR ([CMC] = @Original_CMC)) AND ((@IsNull_Sanitariocontrol"& _ 
-                "e2 = 1 AND [Sanitariocontrole2] IS NULL) OR ([Sanitariocontrole2] = @Original_Sa"& _ 
-                "nitariocontrole2)) AND ((@IsNull_Sanitariocontrole1 = 1 AND [Sanitariocontrole1]"& _ 
-                " IS NULL) OR ([Sanitariocontrole1] = @Original_Sanitariocontrole1)) AND ((@IsNul"& _ 
-                "l_Sanitariocontrole3 = 1 AND [Sanitariocontrole3] IS NULL) OR ([Sanitariocontrol"& _ 
-                "e3] = @Original_Sanitariocontrole3)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndNum", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndData", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndQuadra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndZona", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCEP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Telefone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CPFRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FoneRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RGRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_area", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ResptecnicoNumero", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Lembrete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndEstado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Bombeiros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ambiental", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Viabilidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeVec", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitario", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Setran", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroNProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nlaudo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Situacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCriado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataEntrada", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pendencia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ModeloSistema", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AvisarDia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CadImob", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CMC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Laudos] ([RazaoSocial], [CNPJ], [Endereco], [EndNum], [EndComp], [En"& _ 
-                "dData], [EndQuadra], [EndZona], [EndCEP], [Telefone], [CNAE], [NaturezaDoPedido]"& _ 
-                ", [NaturezaDoPedidoOBS], [Requerente], [CPFRequerente], [EndRequerente], [FoneRe"& _ 
-                "querente], [EmailRequerente], [CNPJRequerente], [RGRequerente], [Ramodeatividade"& _ 
-                "], [Obs], [area], [Resptecnico], [ResptecnicoNumero], [Lembrete], [EndBairro], ["& _ 
-                "EndCidade], [EndEstado], [Bombeiros], [BombeirosSituacao], [BombeirosVenc], [Amb"& _ 
-                "iental], [AmbientalSituacao], [AmbientalVenc], [Viabilidade], [ViabilidadeSituac"& _ 
-                "ao], [ViabilidadeVec], [Sanitario], [SanitarioSituacao], [SanitarioVenc], [Setra"& _ 
-                "n], [SetranSituacao], [SetranVenc], [BombeiroExigencia], [AmbientalExigencia], ["& _ 
-                "ViabilidadeExigencia], [SanitarioExigencia], [SetranExigencia], [BombeiroDataPro"& _ 
-                "visorio], [AmbientalDataProvisorio], [ViabilidadeDataProvisorio], [SanitarioData"& _ 
-                "Provisorio], [SetranDataProvisorio], [BombeiroNProcesso], [BombeiroDataPedProces"& _ 
-                "so], [Nlaudo], [Situacao], [DataCriado], [DataEntrada], [Pendencia], [ModeloSist"& _ 
-                "ema], [AvisarDia], [CadImob], [CMC], [area2], [PontoRef], [Sanitariocontrole2], "& _ 
-                "[Sanitariocontrole1], [Sanitariocontrole3], [Observacao], [ProtocoloTipo], [Prot"& _ 
-                "ocoloN], [ProtocoloAno], [ProtocoloSenha], [Historico], [BombeiroSituacao]) VALU"& _ 
-                "ES (@RazaoSocial, @CNPJ, @Endereco, @EndNum, @EndComp, @EndData, @EndQuadra, @En"& _ 
-                "dZona, @EndCEP, @Telefone, @CNAE, @NaturezaDoPedido, @NaturezaDoPedidoOBS, @Requ"& _ 
-                "erente, @CPFRequerente, @EndRequerente, @FoneRequerente, @EmailRequerente, @CNPJ"& _ 
-                "Requerente, @RGRequerente, @Ramodeatividade, @Obs, @area, @Resptecnico, @Resptec"& _ 
-                "nicoNumero, @Lembrete, @EndBairro, @EndCidade, @EndEstado, @Bombeiros, @Bombeiro"& _ 
-                "sSituacao, @BombeirosVenc, @Ambiental, @AmbientalSituacao, @AmbientalVenc, @Viab"& _ 
-                "ilidade, @ViabilidadeSituacao, @ViabilidadeVec, @Sanitario, @SanitarioSituacao, "& _ 
-                "@SanitarioVenc, @Setran, @SetranSituacao, @SetranVenc, @BombeiroExigencia, @Ambi"& _ 
-                "entalExigencia, @ViabilidadeExigencia, @SanitarioExigencia, @SetranExigencia, @B"& _ 
-                "ombeiroDataProvisorio, @AmbientalDataProvisorio, @ViabilidadeDataProvisorio, @Sa"& _ 
-                "nitarioDataProvisorio, @SetranDataProvisorio, @BombeiroNProcesso, @BombeiroDataP"& _ 
-                "edProcesso, @Nlaudo, @Situacao, @DataCriado, @DataEntrada, @Pendencia, @ModeloSi"& _ 
-                "stema, @AvisarDia, @CadImob, @CMC, @area2, @PontoRef, @Sanitariocontrole2, @Sani"& _ 
-                "tariocontrole1, @Sanitariocontrole3, @Observacao, @ProtocoloTipo, @ProtocoloN, @"& _ 
-                "ProtocoloAno, @ProtocoloSenha, @Historico, @BombeiroSituacao);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Laudos"& _ 
-                ", RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona, End"& _ 
-                "CEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFReque"& _ 
-                "rente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGRequere"& _ 
-                "nte, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, EndBa"& _ 
-                "irro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Ambient"& _ 
-                "al, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, Viabilid"& _ 
-                "adeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, Set"& _ 
-                "ranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, SanitarioE"& _ 
-                "xigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, Viab"& _ 
-                "ilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, BombeiroNP"& _ 
-                "rocesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada, Pen"& _ 
-                "dencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitariocontro"& _ 
-                "le2, Sanitariocontrole1, Sanitariocontrole3, Observacao, ProtocoloTipo, Protocol"& _ 
-                "oN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao FROM Laudos WHERE "& _ 
-                "(ID_Laudos = SCOPE_IDENTITY())"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Endereco", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Endereco", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndComp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndComp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedido", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedido", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedidoOBS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedidoOBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Requerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Requerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmailRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ramodeatividade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ramodeatividade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Obs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Obs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Resptecnico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Resptecnico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndBairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndBairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PontoRef", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PontoRef", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloTipo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloTipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloN", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloAno", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloAno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Historico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Historico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Laudos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [Endereco] = @E"& _ 
-                "ndereco, [EndNum] = @EndNum, [EndComp] = @EndComp, [EndData] = @EndData, [EndQua"& _ 
-                "dra] = @EndQuadra, [EndZona] = @EndZona, [EndCEP] = @EndCEP, [Telefone] = @Telef"& _ 
-                "one, [CNAE] = @CNAE, [NaturezaDoPedido] = @NaturezaDoPedido, [NaturezaDoPedidoOB"& _ 
-                "S] = @NaturezaDoPedidoOBS, [Requerente] = @Requerente, [CPFRequerente] = @CPFReq"& _ 
-                "uerente, [EndRequerente] = @EndRequerente, [FoneRequerente] = @FoneRequerente, ["& _ 
-                "EmailRequerente] = @EmailRequerente, [CNPJRequerente] = @CNPJRequerente, [RGRequ"& _ 
-                "erente] = @RGRequerente, [Ramodeatividade] = @Ramodeatividade, [Obs] = @Obs, [ar"& _ 
-                "ea] = @area, [Resptecnico] = @Resptecnico, [ResptecnicoNumero] = @ResptecnicoNum"& _ 
-                "ero, [Lembrete] = @Lembrete, [EndBairro] = @EndBairro, [EndCidade] = @EndCidade,"& _ 
-                " [EndEstado] = @EndEstado, [Bombeiros] = @Bombeiros, [BombeirosSituacao] = @Bomb"& _ 
-                "eirosSituacao, [BombeirosVenc] = @BombeirosVenc, [Ambiental] = @Ambiental, [Ambi"& _ 
-                "entalSituacao] = @AmbientalSituacao, [AmbientalVenc] = @AmbientalVenc, [Viabilid"& _ 
-                "ade] = @Viabilidade, [ViabilidadeSituacao] = @ViabilidadeSituacao, [ViabilidadeV"& _ 
-                "ec] = @ViabilidadeVec, [Sanitario] = @Sanitario, [SanitarioSituacao] = @Sanitari"& _ 
-                "oSituacao, [SanitarioVenc] = @SanitarioVenc, [Setran] = @Setran, [SetranSituacao"& _ 
-                "] = @SetranSituacao, [SetranVenc] = @SetranVenc, [BombeiroExigencia] = @Bombeiro"& _ 
-                "Exigencia, [AmbientalExigencia] = @AmbientalExigencia, [ViabilidadeExigencia] = "& _ 
-                "@ViabilidadeExigencia, [SanitarioExigencia] = @SanitarioExigencia, [SetranExigen"& _ 
-                "cia] = @SetranExigencia, [BombeiroDataProvisorio] = @BombeiroDataProvisorio, [Am"& _ 
-                "bientalDataProvisorio] = @AmbientalDataProvisorio, [ViabilidadeDataProvisorio] ="& _ 
-                " @ViabilidadeDataProvisorio, [SanitarioDataProvisorio] = @SanitarioDataProvisori"& _ 
-                "o, [SetranDataProvisorio] = @SetranDataProvisorio, [BombeiroNProcesso] = @Bombei"& _ 
-                "roNProcesso, [BombeiroDataPedProcesso] = @BombeiroDataPedProcesso, [Nlaudo] = @N"& _ 
-                "laudo, [Situacao] = @Situacao, [DataCriado] = @DataCriado, [DataEntrada] = @Data"& _ 
-                "Entrada, [Pendencia] = @Pendencia, [ModeloSistema] = @ModeloSistema, [AvisarDia]"& _ 
-                " = @AvisarDia, [CadImob] = @CadImob, [CMC] = @CMC, [area2] = @area2, [PontoRef] "& _ 
-                "= @PontoRef, [Sanitariocontrole2] = @Sanitariocontrole2, [Sanitariocontrole1] = "& _ 
-                "@Sanitariocontrole1, [Sanitariocontrole3] = @Sanitariocontrole3, [Observacao] = "& _ 
-                "@Observacao, [ProtocoloTipo] = @ProtocoloTipo, [ProtocoloN] = @ProtocoloN, [Prot"& _ 
-                "ocoloAno] = @ProtocoloAno, [ProtocoloSenha] = @ProtocoloSenha, [Historico] = @Hi"& _ 
-                "storico, [BombeiroSituacao] = @BombeiroSituacao WHERE (([ID_Laudos] = @Original_"& _ 
-                "ID_Laudos) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNP"& _ 
-                "J)) AND ((@IsNull_EndNum = 1 AND [EndNum] IS NULL) OR ([EndNum] = @Original_EndN"& _ 
-                "um)) AND ((@IsNull_EndData = 1 AND [EndData] IS NULL) OR ([EndData] = @Original_"& _ 
-                "EndData)) AND ((@IsNull_EndQuadra = 1 AND [EndQuadra] IS NULL) OR ([EndQuadra] ="& _ 
-                " @Original_EndQuadra)) AND ((@IsNull_EndZona = 1 AND [EndZona] IS NULL) OR ([End"& _ 
-                "Zona] = @Original_EndZona)) AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) OR (["& _ 
-                "EndCEP] = @Original_EndCEP)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) "& _ 
-                "OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_CPFRequerente = 1 AND [CPFRe"& _ 
-                "querente] IS NULL) OR ([CPFRequerente] = @Original_CPFRequerente)) AND ((@IsNull"& _ 
-                "_FoneRequerente = 1 AND [FoneRequerente] IS NULL) OR ([FoneRequerente] = @Origin"& _ 
-                "al_FoneRequerente)) AND ((@IsNull_CNPJRequerente = 1 AND [CNPJRequerente] IS NUL"& _ 
-                "L) OR ([CNPJRequerente] = @Original_CNPJRequerente)) AND ((@IsNull_RGRequerente "& _ 
-                "= 1 AND [RGRequerente] IS NULL) OR ([RGRequerente] = @Original_RGRequerente)) AN"& _ 
-                "D ((@IsNull_area = 1 AND [area] IS NULL) OR ([area] = @Original_area)) AND ((@Is"& _ 
-                "Null_ResptecnicoNumero = 1 AND [ResptecnicoNumero] IS NULL) OR ([ResptecnicoNume"& _ 
-                "ro] = @Original_ResptecnicoNumero)) AND ((@IsNull_Lembrete = 1 AND [Lembrete] IS"& _ 
-                " NULL) OR ([Lembrete] = @Original_Lembrete)) AND ((@IsNull_EndCidade = 1 AND [En"& _ 
-                "dCidade] IS NULL) OR ([EndCidade] = @Original_EndCidade)) AND ((@IsNull_EndEstad"& _ 
-                "o = 1 AND [EndEstado] IS NULL) OR ([EndEstado] = @Original_EndEstado)) AND ((@Is"& _ 
-                "Null_Bombeiros = 1 AND [Bombeiros] IS NULL) OR ([Bombeiros] = @Original_Bombeiro"& _ 
-                "s)) AND ((@IsNull_BombeirosSituacao = 1 AND [BombeirosSituacao] IS NULL) OR ([Bo"& _ 
-                "mbeirosSituacao] = @Original_BombeirosSituacao)) AND ((@IsNull_BombeirosVenc = 1"& _ 
-                " AND [BombeirosVenc] IS NULL) OR ([BombeirosVenc] = @Original_BombeirosVenc)) AN"& _ 
-                "D ((@IsNull_Ambiental = 1 AND [Ambiental] IS NULL) OR ([Ambiental] = @Original_A"& _ 
-                "mbiental)) AND ((@IsNull_AmbientalSituacao = 1 AND [AmbientalSituacao] IS NULL) "& _ 
-                "OR ([AmbientalSituacao] = @Original_AmbientalSituacao)) AND ((@IsNull_AmbientalV"& _ 
-                "enc = 1 AND [AmbientalVenc] IS NULL) OR ([AmbientalVenc] = @Original_AmbientalVe"& _ 
-                "nc)) AND ((@IsNull_Viabilidade = 1 AND [Viabilidade] IS NULL) OR ([Viabilidade] "& _ 
-                "= @Original_Viabilidade)) AND ((@IsNull_ViabilidadeSituacao = 1 AND [Viabilidade"& _ 
-                "Situacao] IS NULL) OR ([ViabilidadeSituacao] = @Original_ViabilidadeSituacao)) A"& _ 
-                "ND ((@IsNull_ViabilidadeVec = 1 AND [ViabilidadeVec] IS NULL) OR ([ViabilidadeVe"& _ 
-                "c] = @Original_ViabilidadeVec)) AND ((@IsNull_Sanitario = 1 AND [Sanitario] IS N"& _ 
-                "ULL) OR ([Sanitario] = @Original_Sanitario)) AND ((@IsNull_SanitarioSituacao = 1"& _ 
-                " AND [SanitarioSituacao] IS NULL) OR ([SanitarioSituacao] = @Original_SanitarioS"& _ 
-                "ituacao)) AND ((@IsNull_SanitarioVenc = 1 AND [SanitarioVenc] IS NULL) OR ([Sani"& _ 
-                "tarioVenc] = @Original_SanitarioVenc)) AND ((@IsNull_Setran = 1 AND [Setran] IS "& _ 
-                "NULL) OR ([Setran] = @Original_Setran)) AND ((@IsNull_SetranSituacao = 1 AND [Se"& _ 
-                "tranSituacao] IS NULL) OR ([SetranSituacao] = @Original_SetranSituacao)) AND ((@"& _ 
-                "IsNull_SetranVenc = 1 AND [SetranVenc] IS NULL) OR ([SetranVenc] = @Original_Set"& _ 
-                "ranVenc)) AND ((@IsNull_BombeiroDataProvisorio = 1 AND [BombeiroDataProvisorio] "& _ 
-                "IS NULL) OR ([BombeiroDataProvisorio] = @Original_BombeiroDataProvisorio)) AND ("& _ 
-                "(@IsNull_AmbientalDataProvisorio = 1 AND [AmbientalDataProvisorio] IS NULL) OR ("& _ 
-                "[AmbientalDataProvisorio] = @Original_AmbientalDataProvisorio)) AND ((@IsNull_Vi"& _ 
-                "abilidadeDataProvisorio = 1 AND [ViabilidadeDataProvisorio] IS NULL) OR ([Viabil"& _ 
-                "idadeDataProvisorio] = @Original_ViabilidadeDataProvisorio)) AND ((@IsNull_Sanit"& _ 
-                "arioDataProvisorio = 1 AND [SanitarioDataProvisorio] IS NULL) OR ([SanitarioData"& _ 
-                "Provisorio] = @Original_SanitarioDataProvisorio)) AND ((@IsNull_SetranDataProvis"& _ 
-                "orio = 1 AND [SetranDataProvisorio] IS NULL) OR ([SetranDataProvisorio] = @Origi"& _ 
-                "nal_SetranDataProvisorio)) AND ((@IsNull_BombeiroNProcesso = 1 AND [BombeiroNPro"& _ 
-                "cesso] IS NULL) OR ([BombeiroNProcesso] = @Original_BombeiroNProcesso)) AND ((@I"& _ 
-                "sNull_BombeiroDataPedProcesso = 1 AND [BombeiroDataPedProcesso] IS NULL) OR ([Bo"& _ 
-                "mbeiroDataPedProcesso] = @Original_BombeiroDataPedProcesso)) AND ((@IsNull_Nlaud"& _ 
-                "o = 1 AND [Nlaudo] IS NULL) OR ([Nlaudo] = @Original_Nlaudo)) AND ((@IsNull_Situ"& _ 
-                "acao = 1 AND [Situacao] IS NULL) OR ([Situacao] = @Original_Situacao)) AND ((@Is"& _ 
-                "Null_DataCriado = 1 AND [DataCriado] IS NULL) OR ([DataCriado] = @Original_DataC"& _ 
-                "riado)) AND ((@IsNull_DataEntrada = 1 AND [DataEntrada] IS NULL) OR ([DataEntrad"& _ 
-                "a] = @Original_DataEntrada)) AND ((@IsNull_Pendencia = 1 AND [Pendencia] IS NULL"& _ 
-                ") OR ([Pendencia] = @Original_Pendencia)) AND ((@IsNull_ModeloSistema = 1 AND [M"& _ 
-                "odeloSistema] IS NULL) OR ([ModeloSistema] = @Original_ModeloSistema)) AND ((@Is"& _ 
-                "Null_AvisarDia = 1 AND [AvisarDia] IS NULL) OR ([AvisarDia] = @Original_AvisarDi"& _ 
-                "a)) AND ((@IsNull_CadImob = 1 AND [CadImob] IS NULL) OR ([CadImob] = @Original_C"& _ 
-                "adImob)) AND ((@IsNull_CMC = 1 AND [CMC] IS NULL) OR ([CMC] = @Original_CMC)) AN"& _ 
-                "D ((@IsNull_Sanitariocontrole2 = 1 AND [Sanitariocontrole2] IS NULL) OR ([Sanita"& _ 
-                "riocontrole2] = @Original_Sanitariocontrole2)) AND ((@IsNull_Sanitariocontrole1 "& _ 
-                "= 1 AND [Sanitariocontrole1] IS NULL) OR ([Sanitariocontrole1] = @Original_Sanit"& _ 
-                "ariocontrole1)) AND ((@IsNull_Sanitariocontrole3 = 1 AND [Sanitariocontrole3] IS"& _ 
-                " NULL) OR ([Sanitariocontrole3] = @Original_Sanitariocontrole3)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_La"& _ 
-                "udos, RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona,"& _ 
-                " EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFR"& _ 
-                "equerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGReq"& _ 
-                "uerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, E"& _ 
-                "ndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Amb"& _ 
-                "iental, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, Viab"& _ 
-                "ilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao,"& _ 
-                " SetranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, Sanita"& _ 
-                "rioExigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, "& _ 
-                "ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, Bombei"& _ 
-                "roNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada,"& _ 
-                " Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitarioco"& _ 
-                "ntrole2, Sanitariocontrole1, Sanitariocontrole3, Observacao, ProtocoloTipo, Prot"& _ 
-                "ocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao FROM Laudos WH"& _ 
-                "ERE (ID_Laudos = @ID_Laudos)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Endereco", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Endereco", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndComp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndComp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedido", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedido", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedidoOBS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedidoOBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Requerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Requerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmailRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ramodeatividade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ramodeatividade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Obs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Obs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Resptecnico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Resptecnico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndBairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndBairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PontoRef", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PontoRef", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloTipo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloTipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloN", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloAno", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloAno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Historico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Historico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndNum", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndData", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndQuadra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndZona", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCEP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Telefone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CPFRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FoneRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RGRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_area", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ResptecnicoNumero", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Lembrete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndEstado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Bombeiros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ambiental", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Viabilidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeVec", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitario", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Setran", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroNProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nlaudo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Situacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCriado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataEntrada", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pendencia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ModeloSistema", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AvisarDia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CadImob", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CMC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        ID_Laudos, RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, E"& _ 
-                "ndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS"& _ 
-                ", Requerente, CPFRequerente, EndRequerente, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FoneReque"& _ 
-                "rente, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area"& _ 
-                ", Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bom"& _ 
-                "beiros, BombeirosSituacao, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         BombeirosVenc, Ambiental, "& _ 
-                "AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, ViabilidadeV"& _ 
-                "ec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, SetranV"& _ 
-                "enc, BombeiroExigencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AmbientalExigencia, Viabilida"& _ 
-                "deExigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, Ambien"& _ 
-                "talDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDat"& _ 
-                "aProvisorio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         BombeiroNProcesso, BombeiroDataPedProces"& _ 
-                "so, Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarD"& _ 
-                "ia, CadImob, CMC, area2, PontoRef, Sanitariocontrole2, Sanitariocontrole1, Sanit"& _ 
-                "ariocontrole3, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Observacao, ProtocoloTipo, ProtocoloN,"& _ 
-                " ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Laud"& _ 
-                "os"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.LaudosDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As PrinceDBDataSet.LaudosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As PrinceDBDataSet.LaudosDataTable = New PrinceDBDataSet.LaudosDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.LaudosDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Laudos")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_ID_Laudos As Short,  _
-                    ByVal Original_CNPJ As String,  _
-                    ByVal Original_EndNum As String,  _
-                    ByVal Original_EndData As String,  _
-                    ByVal Original_EndQuadra As String,  _
-                    ByVal Original_EndZona As String,  _
-                    ByVal Original_EndCEP As String,  _
-                    ByVal Original_Telefone As String,  _
-                    ByVal Original_CPFRequerente As String,  _
-                    ByVal Original_FoneRequerente As String,  _
-                    ByVal Original_CNPJRequerente As String,  _
-                    ByVal Original_RGRequerente As String,  _
-                    ByVal Original_area As String,  _
-                    ByVal Original_ResptecnicoNumero As String,  _
-                    ByVal Original_Lembrete As String,  _
-                    ByVal Original_EndCidade As String,  _
-                    ByVal Original_EndEstado As String,  _
-                    ByVal Original_Bombeiros As String,  _
-                    ByVal Original_BombeirosSituacao As String,  _
-                    ByVal Original_BombeirosVenc As String,  _
-                    ByVal Original_Ambiental As String,  _
-                    ByVal Original_AmbientalSituacao As String,  _
-                    ByVal Original_AmbientalVenc As String,  _
-                    ByVal Original_Viabilidade As String,  _
-                    ByVal Original_ViabilidadeSituacao As String,  _
-                    ByVal Original_ViabilidadeVec As String,  _
-                    ByVal Original_Sanitario As String,  _
-                    ByVal Original_SanitarioSituacao As String,  _
-                    ByVal Original_SanitarioVenc As String,  _
-                    ByVal Original_Setran As String,  _
-                    ByVal Original_SetranSituacao As String,  _
-                    ByVal Original_SetranVenc As String,  _
-                    ByVal Original_BombeiroDataProvisorio As String,  _
-                    ByVal Original_AmbientalDataProvisorio As String,  _
-                    ByVal Original_ViabilidadeDataProvisorio As String,  _
-                    ByVal Original_SanitarioDataProvisorio As String,  _
-                    ByVal Original_SetranDataProvisorio As String,  _
-                    ByVal Original_BombeiroNProcesso As String,  _
-                    ByVal Original_BombeiroDataPedProcesso As String,  _
-                    ByVal Original_Nlaudo As String,  _
-                    ByVal Original_Situacao As String,  _
-                    ByVal Original_DataCriado As String,  _
-                    ByVal Original_DataEntrada As String,  _
-                    ByVal Original_Pendencia As String,  _
-                    ByVal Original_ModeloSistema As String,  _
-                    ByVal Original_AvisarDia As String,  _
-                    ByVal Original_CadImob As String,  _
-                    ByVal Original_CMC As String,  _
-                    ByVal Original_Sanitariocontrole2 As String,  _
-                    ByVal Original_Sanitariocontrole1 As String,  _
-                    ByVal Original_Sanitariocontrole3 As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_Laudos,Short)
-            If (Original_CNPJ Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CNPJ,String)
-            End If
-            If (Original_EndNum Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_EndNum,String)
-            End If
-            If (Original_EndData Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_EndData,String)
-            End If
-            If (Original_EndQuadra Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_EndQuadra,String)
-            End If
-            If (Original_EndZona Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_EndZona,String)
-            End If
-            If (Original_EndCEP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EndCEP,String)
-            End If
-            If (Original_Telefone Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Telefone,String)
-            End If
-            If (Original_CPFRequerente Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_CPFRequerente,String)
-            End If
-            If (Original_FoneRequerente Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_FoneRequerente,String)
-            End If
-            If (Original_CNPJRequerente Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_CNPJRequerente,String)
-            End If
-            If (Original_RGRequerente Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_RGRequerente,String)
-            End If
-            If (Original_area Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_area,String)
-            End If
-            If (Original_ResptecnicoNumero Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_ResptecnicoNumero,String)
-            End If
-            If (Original_Lembrete Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Lembrete,String)
-            End If
-            If (Original_EndCidade Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_EndCidade,String)
-            End If
-            If (Original_EndEstado Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_EndEstado,String)
-            End If
-            If (Original_Bombeiros Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Bombeiros,String)
-            End If
-            If (Original_BombeirosSituacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_BombeirosSituacao,String)
-            End If
-            If (Original_BombeirosVenc Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_BombeirosVenc,String)
-            End If
-            If (Original_Ambiental Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Ambiental,String)
-            End If
-            If (Original_AmbientalSituacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_AmbientalSituacao,String)
-            End If
-            If (Original_AmbientalVenc Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_AmbientalVenc,String)
-            End If
-            If (Original_Viabilidade Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_Viabilidade,String)
-            End If
-            If (Original_ViabilidadeSituacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_ViabilidadeSituacao,String)
-            End If
-            If (Original_ViabilidadeVec Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(Original_ViabilidadeVec,String)
-            End If
-            If (Original_Sanitario Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_Sanitario,String)
-            End If
-            If (Original_SanitarioSituacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_SanitarioSituacao,String)
-            End If
-            If (Original_SanitarioVenc Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_SanitarioVenc,String)
-            End If
-            If (Original_Setran Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_Setran,String)
-            End If
-            If (Original_SetranSituacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_SetranSituacao,String)
-            End If
-            If (Original_SetranVenc Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_SetranVenc,String)
-            End If
-            If (Original_BombeiroDataProvisorio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_BombeiroDataProvisorio,String)
-            End If
-            If (Original_AmbientalDataProvisorio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_AmbientalDataProvisorio,String)
-            End If
-            If (Original_ViabilidadeDataProvisorio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_ViabilidadeDataProvisorio,String)
-            End If
-            If (Original_SanitarioDataProvisorio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_SanitarioDataProvisorio,String)
-            End If
-            If (Original_SetranDataProvisorio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_SetranDataProvisorio,String)
-            End If
-            If (Original_BombeiroNProcesso Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_BombeiroNProcesso,String)
-            End If
-            If (Original_BombeiroDataPedProcesso Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_BombeiroDataPedProcesso,String)
-            End If
-            If (Original_Nlaudo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(Original_Nlaudo,String)
-            End If
-            If (Original_Situacao Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(80).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(Original_Situacao,String)
-            End If
-            If (Original_DataCriado Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(Original_DataCriado,String)
-            End If
-            If (Original_DataEntrada Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(84).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_DataEntrada,String)
-            End If
-            If (Original_Pendencia Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(86).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_Pendencia,String)
-            End If
-            If (Original_ModeloSistema Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(88).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(Original_ModeloSistema,String)
-            End If
-            If (Original_AvisarDia Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(90).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(Original_AvisarDia,String)
-            End If
-            If (Original_CadImob Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(92).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(Original_CadImob,String)
-            End If
-            If (Original_CMC Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(94).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(Original_CMC,String)
-            End If
-            If (Original_Sanitariocontrole2 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(96).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(Original_Sanitariocontrole2,String)
-            End If
-            If (Original_Sanitariocontrole1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(98).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(Original_Sanitariocontrole1,String)
-            End If
-            If (Original_Sanitariocontrole3 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(100).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(Original_Sanitariocontrole3,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal Endereco As String,  _
-                    ByVal EndNum As String,  _
-                    ByVal EndComp As String,  _
-                    ByVal EndData As String,  _
-                    ByVal EndQuadra As String,  _
-                    ByVal EndZona As String,  _
-                    ByVal EndCEP As String,  _
-                    ByVal Telefone As String,  _
-                    ByVal CNAE As String,  _
-                    ByVal NaturezaDoPedido As String,  _
-                    ByVal NaturezaDoPedidoOBS As String,  _
-                    ByVal Requerente As String,  _
-                    ByVal CPFRequerente As String,  _
-                    ByVal EndRequerente As String,  _
-                    ByVal FoneRequerente As String,  _
-                    ByVal EmailRequerente As String,  _
-                    ByVal CNPJRequerente As String,  _
-                    ByVal RGRequerente As String,  _
-                    ByVal Ramodeatividade As String,  _
-                    ByVal Obs As String,  _
-                    ByVal area As String,  _
-                    ByVal Resptecnico As String,  _
-                    ByVal ResptecnicoNumero As String,  _
-                    ByVal Lembrete As String,  _
-                    ByVal EndBairro As String,  _
-                    ByVal EndCidade As String,  _
-                    ByVal EndEstado As String,  _
-                    ByVal Bombeiros As String,  _
-                    ByVal BombeirosSituacao As String,  _
-                    ByVal BombeirosVenc As String,  _
-                    ByVal Ambiental As String,  _
-                    ByVal AmbientalSituacao As String,  _
-                    ByVal AmbientalVenc As String,  _
-                    ByVal Viabilidade As String,  _
-                    ByVal ViabilidadeSituacao As String,  _
-                    ByVal ViabilidadeVec As String,  _
-                    ByVal Sanitario As String,  _
-                    ByVal SanitarioSituacao As String,  _
-                    ByVal SanitarioVenc As String,  _
-                    ByVal Setran As String,  _
-                    ByVal SetranSituacao As String,  _
-                    ByVal SetranVenc As String,  _
-                    ByVal BombeiroExigencia As String,  _
-                    ByVal AmbientalExigencia As String,  _
-                    ByVal ViabilidadeExigencia As String,  _
-                    ByVal SanitarioExigencia As String,  _
-                    ByVal SetranExigencia As String,  _
-                    ByVal BombeiroDataProvisorio As String,  _
-                    ByVal AmbientalDataProvisorio As String,  _
-                    ByVal ViabilidadeDataProvisorio As String,  _
-                    ByVal SanitarioDataProvisorio As String,  _
-                    ByVal SetranDataProvisorio As String,  _
-                    ByVal BombeiroNProcesso As String,  _
-                    ByVal BombeiroDataPedProcesso As String,  _
-                    ByVal Nlaudo As String,  _
-                    ByVal Situacao As String,  _
-                    ByVal DataCriado As String,  _
-                    ByVal DataEntrada As String,  _
-                    ByVal Pendencia As String,  _
-                    ByVal ModeloSistema As String,  _
-                    ByVal AvisarDia As String,  _
-                    ByVal CadImob As String,  _
-                    ByVal CMC As String,  _
-                    ByVal area2 As String,  _
-                    ByVal PontoRef As String,  _
-                    ByVal Sanitariocontrole2 As String,  _
-                    ByVal Sanitariocontrole1 As String,  _
-                    ByVal Sanitariocontrole3 As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal ProtocoloTipo As String,  _
-                    ByVal ProtocoloN As String,  _
-                    ByVal ProtocoloAno As String,  _
-                    ByVal ProtocoloSenha As String,  _
-                    ByVal Historico As String,  _
-                    ByVal BombeiroSituacao As String) As Integer
-            If (RazaoSocial Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(RazaoSocial,String)
-            End If
-            If (CNPJ Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CNPJ,String)
-            End If
-            If (Endereco Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Endereco,String)
-            End If
-            If (EndNum Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(EndNum,String)
-            End If
-            If (EndComp Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(EndComp,String)
-            End If
-            If (EndData Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EndData,String)
-            End If
-            If (EndQuadra Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(EndQuadra,String)
-            End If
-            If (EndZona Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(EndZona,String)
-            End If
-            If (EndCEP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(EndCEP,String)
-            End If
-            If (Telefone Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Telefone,String)
-            End If
-            If (CNAE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(CNAE,String)
-            End If
-            If (NaturezaDoPedido Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(NaturezaDoPedido,String)
-            End If
-            If (NaturezaDoPedidoOBS Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(NaturezaDoPedidoOBS,String)
-            End If
-            If (Requerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Requerente,String)
-            End If
-            If (CPFRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CPFRequerente,String)
-            End If
-            If (EndRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(EndRequerente,String)
-            End If
-            If (FoneRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FoneRequerente,String)
-            End If
-            If (EmailRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(EmailRequerente,String)
-            End If
-            If (CNPJRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(CNPJRequerente,String)
-            End If
-            If (RGRequerente Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(RGRequerente,String)
-            End If
-            If (Ramodeatividade Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(Ramodeatividade,String)
-            End If
-            If (Obs Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Obs,String)
-            End If
-            If (area Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(area,String)
-            End If
-            If (Resptecnico Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(Resptecnico,String)
-            End If
-            If (ResptecnicoNumero Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(ResptecnicoNumero,String)
-            End If
-            If (Lembrete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Lembrete,String)
-            End If
-            If (EndBairro Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(EndBairro,String)
-            End If
-            If (EndCidade Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(EndCidade,String)
-            End If
-            If (EndEstado Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(EndEstado,String)
-            End If
-            If (Bombeiros Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Bombeiros,String)
-            End If
-            If (BombeirosSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(BombeirosSituacao,String)
-            End If
-            If (BombeirosVenc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(BombeirosVenc,String)
-            End If
-            If (Ambiental Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(Ambiental,String)
-            End If
-            If (AmbientalSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(33).Value = CType(AmbientalSituacao,String)
-            End If
-            If (AmbientalVenc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(34).Value = CType(AmbientalVenc,String)
-            End If
-            If (Viabilidade Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(35).Value = CType(Viabilidade,String)
-            End If
-            If (ViabilidadeSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(36).Value = CType(ViabilidadeSituacao,String)
-            End If
-            If (ViabilidadeVec Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(37).Value = CType(ViabilidadeVec,String)
-            End If
-            If (Sanitario Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(38).Value = CType(Sanitario,String)
-            End If
-            If (SanitarioSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(39).Value = CType(SanitarioSituacao,String)
-            End If
-            If (SanitarioVenc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(40).Value = CType(SanitarioVenc,String)
-            End If
-            If (Setran Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(41).Value = CType(Setran,String)
-            End If
-            If (SetranSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(42).Value = CType(SetranSituacao,String)
-            End If
-            If (SetranVenc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(43).Value = CType(SetranVenc,String)
-            End If
-            If (BombeiroExigencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(44).Value = CType(BombeiroExigencia,String)
-            End If
-            If (AmbientalExigencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(45).Value = CType(AmbientalExigencia,String)
-            End If
-            If (ViabilidadeExigencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(46).Value = CType(ViabilidadeExigencia,String)
-            End If
-            If (SanitarioExigencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(47).Value = CType(SanitarioExigencia,String)
-            End If
-            If (SetranExigencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(48).Value = CType(SetranExigencia,String)
-            End If
-            If (BombeiroDataProvisorio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(49).Value = CType(BombeiroDataProvisorio,String)
-            End If
-            If (AmbientalDataProvisorio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(50).Value = CType(AmbientalDataProvisorio,String)
-            End If
-            If (ViabilidadeDataProvisorio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(51).Value = CType(ViabilidadeDataProvisorio,String)
-            End If
-            If (SanitarioDataProvisorio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(52).Value = CType(SanitarioDataProvisorio,String)
-            End If
-            If (SetranDataProvisorio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(53).Value = CType(SetranDataProvisorio,String)
-            End If
-            If (BombeiroNProcesso Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(54).Value = CType(BombeiroNProcesso,String)
-            End If
-            If (BombeiroDataPedProcesso Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(55).Value = CType(BombeiroDataPedProcesso,String)
-            End If
-            If (Nlaudo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(56).Value = CType(Nlaudo,String)
-            End If
-            If (Situacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(57).Value = CType(Situacao,String)
-            End If
-            If (DataCriado Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(58).Value = CType(DataCriado,String)
-            End If
-            If (DataEntrada Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(59).Value = CType(DataEntrada,String)
-            End If
-            If (Pendencia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(60).Value = CType(Pendencia,String)
-            End If
-            If (ModeloSistema Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(61).Value = CType(ModeloSistema,String)
-            End If
-            If (AvisarDia Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(62).Value = CType(AvisarDia,String)
-            End If
-            If (CadImob Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(63).Value = CType(CadImob,String)
-            End If
-            If (CMC Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(64).Value = CType(CMC,String)
-            End If
-            If (area2 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(65).Value = CType(area2,String)
-            End If
-            If (PontoRef Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(66).Value = CType(PontoRef,String)
-            End If
-            If (Sanitariocontrole2 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(67).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(67).Value = CType(Sanitariocontrole2,String)
-            End If
-            If (Sanitariocontrole1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(68).Value = CType(Sanitariocontrole1,String)
-            End If
-            If (Sanitariocontrole3 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(69).Value = CType(Sanitariocontrole3,String)
-            End If
-            If (Observacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(70).Value = CType(Observacao,String)
-            End If
-            If (ProtocoloTipo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(71).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(71).Value = CType(ProtocoloTipo,String)
-            End If
-            If (ProtocoloN Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(72).Value = CType(ProtocoloN,String)
-            End If
-            If (ProtocoloAno Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(73).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(73).Value = CType(ProtocoloAno,String)
-            End If
-            If (ProtocoloSenha Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(74).Value = CType(ProtocoloSenha,String)
-            End If
-            If (Historico Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(75).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(75).Value = CType(Historico,String)
-            End If
-            If (BombeiroSituacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(76).Value = CType(BombeiroSituacao,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal Endereco As String,  _
-                    ByVal EndNum As String,  _
-                    ByVal EndComp As String,  _
-                    ByVal EndData As String,  _
-                    ByVal EndQuadra As String,  _
-                    ByVal EndZona As String,  _
-                    ByVal EndCEP As String,  _
-                    ByVal Telefone As String,  _
-                    ByVal CNAE As String,  _
-                    ByVal NaturezaDoPedido As String,  _
-                    ByVal NaturezaDoPedidoOBS As String,  _
-                    ByVal Requerente As String,  _
-                    ByVal CPFRequerente As String,  _
-                    ByVal EndRequerente As String,  _
-                    ByVal FoneRequerente As String,  _
-                    ByVal EmailRequerente As String,  _
-                    ByVal CNPJRequerente As String,  _
-                    ByVal RGRequerente As String,  _
-                    ByVal Ramodeatividade As String,  _
-                    ByVal Obs As String,  _
-                    ByVal area As String,  _
-                    ByVal Resptecnico As String,  _
-                    ByVal ResptecnicoNumero As String,  _
-                    ByVal Lembrete As String,  _
-                    ByVal EndBairro As String,  _
-                    ByVal EndCidade As String,  _
-                    ByVal EndEstado As String,  _
-                    ByVal Bombeiros As String,  _
-                    ByVal BombeirosSituacao As String,  _
-                    ByVal BombeirosVenc As String,  _
-                    ByVal Ambiental As String,  _
-                    ByVal AmbientalSituacao As String,  _
-                    ByVal AmbientalVenc As String,  _
-                    ByVal Viabilidade As String,  _
-                    ByVal ViabilidadeSituacao As String,  _
-                    ByVal ViabilidadeVec As String,  _
-                    ByVal Sanitario As String,  _
-                    ByVal SanitarioSituacao As String,  _
-                    ByVal SanitarioVenc As String,  _
-                    ByVal Setran As String,  _
-                    ByVal SetranSituacao As String,  _
-                    ByVal SetranVenc As String,  _
-                    ByVal BombeiroExigencia As String,  _
-                    ByVal AmbientalExigencia As String,  _
-                    ByVal ViabilidadeExigencia As String,  _
-                    ByVal SanitarioExigencia As String,  _
-                    ByVal SetranExigencia As String,  _
-                    ByVal BombeiroDataProvisorio As String,  _
-                    ByVal AmbientalDataProvisorio As String,  _
-                    ByVal ViabilidadeDataProvisorio As String,  _
-                    ByVal SanitarioDataProvisorio As String,  _
-                    ByVal SetranDataProvisorio As String,  _
-                    ByVal BombeiroNProcesso As String,  _
-                    ByVal BombeiroDataPedProcesso As String,  _
-                    ByVal Nlaudo As String,  _
-                    ByVal Situacao As String,  _
-                    ByVal DataCriado As String,  _
-                    ByVal DataEntrada As String,  _
-                    ByVal Pendencia As String,  _
-                    ByVal ModeloSistema As String,  _
-                    ByVal AvisarDia As String,  _
-                    ByVal CadImob As String,  _
-                    ByVal CMC As String,  _
-                    ByVal area2 As String,  _
-                    ByVal PontoRef As String,  _
-                    ByVal Sanitariocontrole2 As String,  _
-                    ByVal Sanitariocontrole1 As String,  _
-                    ByVal Sanitariocontrole3 As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal ProtocoloTipo As String,  _
-                    ByVal ProtocoloN As String,  _
-                    ByVal ProtocoloAno As String,  _
-                    ByVal ProtocoloSenha As String,  _
-                    ByVal Historico As String,  _
-                    ByVal BombeiroSituacao As String,  _
-                    ByVal Original_ID_Laudos As Short,  _
-                    ByVal Original_CNPJ As String,  _
-                    ByVal Original_EndNum As String,  _
-                    ByVal Original_EndData As String,  _
-                    ByVal Original_EndQuadra As String,  _
-                    ByVal Original_EndZona As String,  _
-                    ByVal Original_EndCEP As String,  _
-                    ByVal Original_Telefone As String,  _
-                    ByVal Original_CPFRequerente As String,  _
-                    ByVal Original_FoneRequerente As String,  _
-                    ByVal Original_CNPJRequerente As String,  _
-                    ByVal Original_RGRequerente As String,  _
-                    ByVal Original_area As String,  _
-                    ByVal Original_ResptecnicoNumero As String,  _
-                    ByVal Original_Lembrete As String,  _
-                    ByVal Original_EndCidade As String,  _
-                    ByVal Original_EndEstado As String,  _
-                    ByVal Original_Bombeiros As String,  _
-                    ByVal Original_BombeirosSituacao As String,  _
-                    ByVal Original_BombeirosVenc As String,  _
-                    ByVal Original_Ambiental As String,  _
-                    ByVal Original_AmbientalSituacao As String,  _
-                    ByVal Original_AmbientalVenc As String,  _
-                    ByVal Original_Viabilidade As String,  _
-                    ByVal Original_ViabilidadeSituacao As String,  _
-                    ByVal Original_ViabilidadeVec As String,  _
-                    ByVal Original_Sanitario As String,  _
-                    ByVal Original_SanitarioSituacao As String,  _
-                    ByVal Original_SanitarioVenc As String,  _
-                    ByVal Original_Setran As String,  _
-                    ByVal Original_SetranSituacao As String,  _
-                    ByVal Original_SetranVenc As String,  _
-                    ByVal Original_BombeiroDataProvisorio As String,  _
-                    ByVal Original_AmbientalDataProvisorio As String,  _
-                    ByVal Original_ViabilidadeDataProvisorio As String,  _
-                    ByVal Original_SanitarioDataProvisorio As String,  _
-                    ByVal Original_SetranDataProvisorio As String,  _
-                    ByVal Original_BombeiroNProcesso As String,  _
-                    ByVal Original_BombeiroDataPedProcesso As String,  _
-                    ByVal Original_Nlaudo As String,  _
-                    ByVal Original_Situacao As String,  _
-                    ByVal Original_DataCriado As String,  _
-                    ByVal Original_DataEntrada As String,  _
-                    ByVal Original_Pendencia As String,  _
-                    ByVal Original_ModeloSistema As String,  _
-                    ByVal Original_AvisarDia As String,  _
-                    ByVal Original_CadImob As String,  _
-                    ByVal Original_CMC As String,  _
-                    ByVal Original_Sanitariocontrole2 As String,  _
-                    ByVal Original_Sanitariocontrole1 As String,  _
-                    ByVal Original_Sanitariocontrole3 As String,  _
-                    ByVal ID_Laudos As Short) As Integer
-            If (RazaoSocial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RazaoSocial,String)
-            End If
-            If (CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CNPJ,String)
-            End If
-            If (Endereco Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Endereco,String)
-            End If
-            If (EndNum Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(EndNum,String)
-            End If
-            If (EndComp Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(EndComp,String)
-            End If
-            If (EndData Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EndData,String)
-            End If
-            If (EndQuadra Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(EndQuadra,String)
-            End If
-            If (EndZona Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(EndZona,String)
-            End If
-            If (EndCEP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(EndCEP,String)
-            End If
-            If (Telefone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Telefone,String)
-            End If
-            If (CNAE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CNAE,String)
-            End If
-            If (NaturezaDoPedido Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(NaturezaDoPedido,String)
-            End If
-            If (NaturezaDoPedidoOBS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(NaturezaDoPedidoOBS,String)
-            End If
-            If (Requerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Requerente,String)
-            End If
-            If (CPFRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CPFRequerente,String)
-            End If
-            If (EndRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(EndRequerente,String)
-            End If
-            If (FoneRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FoneRequerente,String)
-            End If
-            If (EmailRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(EmailRequerente,String)
-            End If
-            If (CNPJRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(CNPJRequerente,String)
-            End If
-            If (RGRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(RGRequerente,String)
-            End If
-            If (Ramodeatividade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Ramodeatividade,String)
-            End If
-            If (Obs Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Obs,String)
-            End If
-            If (area Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(area,String)
-            End If
-            If (Resptecnico Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Resptecnico,String)
-            End If
-            If (ResptecnicoNumero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(ResptecnicoNumero,String)
-            End If
-            If (Lembrete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Lembrete,String)
-            End If
-            If (EndBairro Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(EndBairro,String)
-            End If
-            If (EndCidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(EndCidade,String)
-            End If
-            If (EndEstado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(EndEstado,String)
-            End If
-            If (Bombeiros Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Bombeiros,String)
-            End If
-            If (BombeirosSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(BombeirosSituacao,String)
-            End If
-            If (BombeirosVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(BombeirosVenc,String)
-            End If
-            If (Ambiental Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Ambiental,String)
-            End If
-            If (AmbientalSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(AmbientalSituacao,String)
-            End If
-            If (AmbientalVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(AmbientalVenc,String)
-            End If
-            If (Viabilidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Viabilidade,String)
-            End If
-            If (ViabilidadeSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(ViabilidadeSituacao,String)
-            End If
-            If (ViabilidadeVec Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(ViabilidadeVec,String)
-            End If
-            If (Sanitario Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Sanitario,String)
-            End If
-            If (SanitarioSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(SanitarioSituacao,String)
-            End If
-            If (SanitarioVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(SanitarioVenc,String)
-            End If
-            If (Setran Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Setran,String)
-            End If
-            If (SetranSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(SetranSituacao,String)
-            End If
-            If (SetranVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(SetranVenc,String)
-            End If
-            If (BombeiroExigencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(BombeiroExigencia,String)
-            End If
-            If (AmbientalExigencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(AmbientalExigencia,String)
-            End If
-            If (ViabilidadeExigencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(ViabilidadeExigencia,String)
-            End If
-            If (SanitarioExigencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(SanitarioExigencia,String)
-            End If
-            If (SetranExigencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(SetranExigencia,String)
-            End If
-            If (BombeiroDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(BombeiroDataProvisorio,String)
-            End If
-            If (AmbientalDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(AmbientalDataProvisorio,String)
-            End If
-            If (ViabilidadeDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(ViabilidadeDataProvisorio,String)
-            End If
-            If (SanitarioDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(SanitarioDataProvisorio,String)
-            End If
-            If (SetranDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(SetranDataProvisorio,String)
-            End If
-            If (BombeiroNProcesso Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(BombeiroNProcesso,String)
-            End If
-            If (BombeiroDataPedProcesso Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(BombeiroDataPedProcesso,String)
-            End If
-            If (Nlaudo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Nlaudo,String)
-            End If
-            If (Situacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Situacao,String)
-            End If
-            If (DataCriado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(DataCriado,String)
-            End If
-            If (DataEntrada Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(DataEntrada,String)
-            End If
-            If (Pendencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Pendencia,String)
-            End If
-            If (ModeloSistema Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(ModeloSistema,String)
-            End If
-            If (AvisarDia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(AvisarDia,String)
-            End If
-            If (CadImob Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(CadImob,String)
-            End If
-            If (CMC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(CMC,String)
-            End If
-            If (area2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(area2,String)
-            End If
-            If (PontoRef Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(PontoRef,String)
-            End If
-            If (Sanitariocontrole2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Sanitariocontrole2,String)
-            End If
-            If (Sanitariocontrole1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Sanitariocontrole1,String)
-            End If
-            If (Sanitariocontrole3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Sanitariocontrole3,String)
-            End If
-            If (Observacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Observacao,String)
-            End If
-            If (ProtocoloTipo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(ProtocoloTipo,String)
-            End If
-            If (ProtocoloN Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(ProtocoloN,String)
-            End If
-            If (ProtocoloAno Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(ProtocoloAno,String)
-            End If
-            If (ProtocoloSenha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(ProtocoloSenha,String)
-            End If
-            If (Historico Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Historico,String)
-            End If
-            If (BombeiroSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(BombeiroSituacao,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_ID_Laudos,Short)
-            If (Original_CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_CNPJ,String)
-            End If
-            If (Original_EndNum Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_EndNum,String)
-            End If
-            If (Original_EndData Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_EndData,String)
-            End If
-            If (Original_EndQuadra Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_EndQuadra,String)
-            End If
-            If (Original_EndZona Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_EndZona,String)
-            End If
-            If (Original_EndCEP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_EndCEP,String)
-            End If
-            If (Original_Telefone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_Telefone,String)
-            End If
-            If (Original_CPFRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_CPFRequerente,String)
-            End If
-            If (Original_FoneRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_FoneRequerente,String)
-            End If
-            If (Original_CNPJRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_CNPJRequerente,String)
-            End If
-            If (Original_RGRequerente Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_RGRequerente,String)
-            End If
-            If (Original_area Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_area,String)
-            End If
-            If (Original_ResptecnicoNumero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_ResptecnicoNumero,String)
-            End If
-            If (Original_Lembrete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_Lembrete,String)
-            End If
-            If (Original_EndCidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_EndCidade,String)
-            End If
-            If (Original_EndEstado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_EndEstado,String)
-            End If
-            If (Original_Bombeiros Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_Bombeiros,String)
-            End If
-            If (Original_BombeirosSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_BombeirosSituacao,String)
-            End If
-            If (Original_BombeirosVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_BombeirosVenc,String)
-            End If
-            If (Original_Ambiental Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(117).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_Ambiental,String)
-            End If
-            If (Original_AmbientalSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(119).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_AmbientalSituacao,String)
-            End If
-            If (Original_AmbientalVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(121).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_AmbientalVenc,String)
-            End If
-            If (Original_Viabilidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(123).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_Viabilidade,String)
-            End If
-            If (Original_ViabilidadeSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(125).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_ViabilidadeSituacao,String)
-            End If
-            If (Original_ViabilidadeVec Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(127).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_ViabilidadeVec,String)
-            End If
-            If (Original_Sanitario Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(129).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_Sanitario,String)
-            End If
-            If (Original_SanitarioSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(131).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(Original_SanitarioSituacao,String)
-            End If
-            If (Original_SanitarioVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(133).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(Original_SanitarioVenc,String)
-            End If
-            If (Original_Setran Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(135).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(Original_Setran,String)
-            End If
-            If (Original_SetranSituacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(137).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_SetranSituacao,String)
-            End If
-            If (Original_SetranVenc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(139).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_SetranVenc,String)
-            End If
-            If (Original_BombeiroDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(141).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_BombeiroDataProvisorio,String)
-            End If
-            If (Original_AmbientalDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(143).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_AmbientalDataProvisorio,String)
-            End If
-            If (Original_ViabilidadeDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(145).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_ViabilidadeDataProvisorio,String)
-            End If
-            If (Original_SanitarioDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(147).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_SanitarioDataProvisorio,String)
-            End If
-            If (Original_SetranDataProvisorio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(149).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_SetranDataProvisorio,String)
-            End If
-            If (Original_BombeiroNProcesso Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(151).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_BombeiroNProcesso,String)
-            End If
-            If (Original_BombeiroDataPedProcesso Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(153).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_BombeiroDataPedProcesso,String)
-            End If
-            If (Original_Nlaudo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(155).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_Nlaudo,String)
-            End If
-            If (Original_Situacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(157).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_Situacao,String)
-            End If
-            If (Original_DataCriado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(159).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_DataCriado,String)
-            End If
-            If (Original_DataEntrada Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(161).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_DataEntrada,String)
-            End If
-            If (Original_Pendencia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_Pendencia,String)
-            End If
-            If (Original_ModeloSistema Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_ModeloSistema,String)
-            End If
-            If (Original_AvisarDia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(Original_AvisarDia,String)
-            End If
-            If (Original_CadImob Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(Original_CadImob,String)
-            End If
-            If (Original_CMC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(171).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(Original_CMC,String)
-            End If
-            If (Original_Sanitariocontrole2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(173).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(Original_Sanitariocontrole2,String)
-            End If
-            If (Original_Sanitariocontrole1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(175).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(Original_Sanitariocontrole1,String)
-            End If
-            If (Original_Sanitariocontrole3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(177).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(Original_Sanitariocontrole3,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(178).Value = CType(ID_Laudos,Short)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal Endereco As String,  _
-                    ByVal EndNum As String,  _
-                    ByVal EndComp As String,  _
-                    ByVal EndData As String,  _
-                    ByVal EndQuadra As String,  _
-                    ByVal EndZona As String,  _
-                    ByVal EndCEP As String,  _
-                    ByVal Telefone As String,  _
-                    ByVal CNAE As String,  _
-                    ByVal NaturezaDoPedido As String,  _
-                    ByVal NaturezaDoPedidoOBS As String,  _
-                    ByVal Requerente As String,  _
-                    ByVal CPFRequerente As String,  _
-                    ByVal EndRequerente As String,  _
-                    ByVal FoneRequerente As String,  _
-                    ByVal EmailRequerente As String,  _
-                    ByVal CNPJRequerente As String,  _
-                    ByVal RGRequerente As String,  _
-                    ByVal Ramodeatividade As String,  _
-                    ByVal Obs As String,  _
-                    ByVal area As String,  _
-                    ByVal Resptecnico As String,  _
-                    ByVal ResptecnicoNumero As String,  _
-                    ByVal Lembrete As String,  _
-                    ByVal EndBairro As String,  _
-                    ByVal EndCidade As String,  _
-                    ByVal EndEstado As String,  _
-                    ByVal Bombeiros As String,  _
-                    ByVal BombeirosSituacao As String,  _
-                    ByVal BombeirosVenc As String,  _
-                    ByVal Ambiental As String,  _
-                    ByVal AmbientalSituacao As String,  _
-                    ByVal AmbientalVenc As String,  _
-                    ByVal Viabilidade As String,  _
-                    ByVal ViabilidadeSituacao As String,  _
-                    ByVal ViabilidadeVec As String,  _
-                    ByVal Sanitario As String,  _
-                    ByVal SanitarioSituacao As String,  _
-                    ByVal SanitarioVenc As String,  _
-                    ByVal Setran As String,  _
-                    ByVal SetranSituacao As String,  _
-                    ByVal SetranVenc As String,  _
-                    ByVal BombeiroExigencia As String,  _
-                    ByVal AmbientalExigencia As String,  _
-                    ByVal ViabilidadeExigencia As String,  _
-                    ByVal SanitarioExigencia As String,  _
-                    ByVal SetranExigencia As String,  _
-                    ByVal BombeiroDataProvisorio As String,  _
-                    ByVal AmbientalDataProvisorio As String,  _
-                    ByVal ViabilidadeDataProvisorio As String,  _
-                    ByVal SanitarioDataProvisorio As String,  _
-                    ByVal SetranDataProvisorio As String,  _
-                    ByVal BombeiroNProcesso As String,  _
-                    ByVal BombeiroDataPedProcesso As String,  _
-                    ByVal Nlaudo As String,  _
-                    ByVal Situacao As String,  _
-                    ByVal DataCriado As String,  _
-                    ByVal DataEntrada As String,  _
-                    ByVal Pendencia As String,  _
-                    ByVal ModeloSistema As String,  _
-                    ByVal AvisarDia As String,  _
-                    ByVal CadImob As String,  _
-                    ByVal CMC As String,  _
-                    ByVal area2 As String,  _
-                    ByVal PontoRef As String,  _
-                    ByVal Sanitariocontrole2 As String,  _
-                    ByVal Sanitariocontrole1 As String,  _
-                    ByVal Sanitariocontrole3 As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal ProtocoloTipo As String,  _
-                    ByVal ProtocoloN As String,  _
-                    ByVal ProtocoloAno As String,  _
-                    ByVal ProtocoloSenha As String,  _
-                    ByVal Historico As String,  _
-                    ByVal BombeiroSituacao As String,  _
-                    ByVal Original_ID_Laudos As Short,  _
-                    ByVal Original_CNPJ As String,  _
-                    ByVal Original_EndNum As String,  _
-                    ByVal Original_EndData As String,  _
-                    ByVal Original_EndQuadra As String,  _
-                    ByVal Original_EndZona As String,  _
-                    ByVal Original_EndCEP As String,  _
-                    ByVal Original_Telefone As String,  _
-                    ByVal Original_CPFRequerente As String,  _
-                    ByVal Original_FoneRequerente As String,  _
-                    ByVal Original_CNPJRequerente As String,  _
-                    ByVal Original_RGRequerente As String,  _
-                    ByVal Original_area As String,  _
-                    ByVal Original_ResptecnicoNumero As String,  _
-                    ByVal Original_Lembrete As String,  _
-                    ByVal Original_EndCidade As String,  _
-                    ByVal Original_EndEstado As String,  _
-                    ByVal Original_Bombeiros As String,  _
-                    ByVal Original_BombeirosSituacao As String,  _
-                    ByVal Original_BombeirosVenc As String,  _
-                    ByVal Original_Ambiental As String,  _
-                    ByVal Original_AmbientalSituacao As String,  _
-                    ByVal Original_AmbientalVenc As String,  _
-                    ByVal Original_Viabilidade As String,  _
-                    ByVal Original_ViabilidadeSituacao As String,  _
-                    ByVal Original_ViabilidadeVec As String,  _
-                    ByVal Original_Sanitario As String,  _
-                    ByVal Original_SanitarioSituacao As String,  _
-                    ByVal Original_SanitarioVenc As String,  _
-                    ByVal Original_Setran As String,  _
-                    ByVal Original_SetranSituacao As String,  _
-                    ByVal Original_SetranVenc As String,  _
-                    ByVal Original_BombeiroDataProvisorio As String,  _
-                    ByVal Original_AmbientalDataProvisorio As String,  _
-                    ByVal Original_ViabilidadeDataProvisorio As String,  _
-                    ByVal Original_SanitarioDataProvisorio As String,  _
-                    ByVal Original_SetranDataProvisorio As String,  _
-                    ByVal Original_BombeiroNProcesso As String,  _
-                    ByVal Original_BombeiroDataPedProcesso As String,  _
-                    ByVal Original_Nlaudo As String,  _
-                    ByVal Original_Situacao As String,  _
-                    ByVal Original_DataCriado As String,  _
-                    ByVal Original_DataEntrada As String,  _
-                    ByVal Original_Pendencia As String,  _
-                    ByVal Original_ModeloSistema As String,  _
-                    ByVal Original_AvisarDia As String,  _
-                    ByVal Original_CadImob As String,  _
-                    ByVal Original_CMC As String,  _
-                    ByVal Original_Sanitariocontrole2 As String,  _
-                    ByVal Original_Sanitariocontrole1 As String,  _
-                    ByVal Original_Sanitariocontrole3 As String) As Integer
-            Return Me.Update(RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFRequerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Ambiental, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, ViabilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, SetranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, BombeiroNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitariocontrole2, Sanitariocontrole1, Sanitariocontrole3, Observacao, ProtocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao, Original_ID_Laudos, Original_CNPJ, Original_EndNum, Original_EndData, Original_EndQuadra, Original_EndZona, Original_EndCEP, Original_Telefone, Original_CPFRequerente, Original_FoneRequerente, Original_CNPJRequerente, Original_RGRequerente, Original_area, Original_ResptecnicoNumero, Original_Lembrete, Original_EndCidade, Original_EndEstado, Original_Bombeiros, Original_BombeirosSituacao, Original_BombeirosVenc, Original_Ambiental, Original_AmbientalSituacao, Original_AmbientalVenc, Original_Viabilidade, Original_ViabilidadeSituacao, Original_ViabilidadeVec, Original_Sanitario, Original_SanitarioSituacao, Original_SanitarioVenc, Original_Setran, Original_SetranSituacao, Original_SetranVenc, Original_BombeiroDataProvisorio, Original_AmbientalDataProvisorio, Original_ViabilidadeDataProvisorio, Original_SanitarioDataProvisorio, Original_SetranDataProvisorio, Original_BombeiroNProcesso, Original_BombeiroDataPedProcesso, Original_Nlaudo, Original_Situacao, Original_DataCriado, Original_DataEntrada, Original_Pendencia, Original_ModeloSistema, Original_AvisarDia, Original_CadImob, Original_CMC, Original_Sanitariocontrole2, Original_Sanitariocontrole1, Original_Sanitariocontrole3, Original_ID_Laudos)
         End Function
     End Class
     
@@ -28235,6 +25626,3017 @@ Namespace PrinceDBDataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class LaudosTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Laudos"
+            tableMapping.ColumnMappings.Add("ID_Laudos", "ID_Laudos")
+            tableMapping.ColumnMappings.Add("RazaoSocial", "RazaoSocial")
+            tableMapping.ColumnMappings.Add("CNPJ", "CNPJ")
+            tableMapping.ColumnMappings.Add("Endereco", "Endereco")
+            tableMapping.ColumnMappings.Add("EndNum", "EndNum")
+            tableMapping.ColumnMappings.Add("EndComp", "EndComp")
+            tableMapping.ColumnMappings.Add("EndData", "EndData")
+            tableMapping.ColumnMappings.Add("EndQuadra", "EndQuadra")
+            tableMapping.ColumnMappings.Add("EndZona", "EndZona")
+            tableMapping.ColumnMappings.Add("EndCEP", "EndCEP")
+            tableMapping.ColumnMappings.Add("Telefone", "Telefone")
+            tableMapping.ColumnMappings.Add("CNAE", "CNAE")
+            tableMapping.ColumnMappings.Add("NaturezaDoPedido", "NaturezaDoPedido")
+            tableMapping.ColumnMappings.Add("NaturezaDoPedidoOBS", "NaturezaDoPedidoOBS")
+            tableMapping.ColumnMappings.Add("Requerente", "Requerente")
+            tableMapping.ColumnMappings.Add("CPFRequerente", "CPFRequerente")
+            tableMapping.ColumnMappings.Add("EndRequerente", "EndRequerente")
+            tableMapping.ColumnMappings.Add("FoneRequerente", "FoneRequerente")
+            tableMapping.ColumnMappings.Add("EmailRequerente", "EmailRequerente")
+            tableMapping.ColumnMappings.Add("CNPJRequerente", "CNPJRequerente")
+            tableMapping.ColumnMappings.Add("RGRequerente", "RGRequerente")
+            tableMapping.ColumnMappings.Add("Ramodeatividade", "Ramodeatividade")
+            tableMapping.ColumnMappings.Add("Obs", "Obs")
+            tableMapping.ColumnMappings.Add("area", "area")
+            tableMapping.ColumnMappings.Add("Resptecnico", "Resptecnico")
+            tableMapping.ColumnMappings.Add("ResptecnicoNumero", "ResptecnicoNumero")
+            tableMapping.ColumnMappings.Add("Lembrete", "Lembrete")
+            tableMapping.ColumnMappings.Add("EndBairro", "EndBairro")
+            tableMapping.ColumnMappings.Add("EndCidade", "EndCidade")
+            tableMapping.ColumnMappings.Add("EndEstado", "EndEstado")
+            tableMapping.ColumnMappings.Add("Bombeiros", "Bombeiros")
+            tableMapping.ColumnMappings.Add("BombeirosSituacao", "BombeirosSituacao")
+            tableMapping.ColumnMappings.Add("BombeirosVenc", "BombeirosVenc")
+            tableMapping.ColumnMappings.Add("Ambiental", "Ambiental")
+            tableMapping.ColumnMappings.Add("AmbientalSituacao", "AmbientalSituacao")
+            tableMapping.ColumnMappings.Add("AmbientalVenc", "AmbientalVenc")
+            tableMapping.ColumnMappings.Add("Viabilidade", "Viabilidade")
+            tableMapping.ColumnMappings.Add("ViabilidadeSituacao", "ViabilidadeSituacao")
+            tableMapping.ColumnMappings.Add("ViabilidadeVec", "ViabilidadeVec")
+            tableMapping.ColumnMappings.Add("Sanitario", "Sanitario")
+            tableMapping.ColumnMappings.Add("SanitarioSituacao", "SanitarioSituacao")
+            tableMapping.ColumnMappings.Add("SanitarioVenc", "SanitarioVenc")
+            tableMapping.ColumnMappings.Add("Setran", "Setran")
+            tableMapping.ColumnMappings.Add("SetranSituacao", "SetranSituacao")
+            tableMapping.ColumnMappings.Add("SetranVenc", "SetranVenc")
+            tableMapping.ColumnMappings.Add("BombeiroExigencia", "BombeiroExigencia")
+            tableMapping.ColumnMappings.Add("AmbientalExigencia", "AmbientalExigencia")
+            tableMapping.ColumnMappings.Add("ViabilidadeExigencia", "ViabilidadeExigencia")
+            tableMapping.ColumnMappings.Add("SanitarioExigencia", "SanitarioExigencia")
+            tableMapping.ColumnMappings.Add("SetranExigencia", "SetranExigencia")
+            tableMapping.ColumnMappings.Add("BombeiroDataProvisorio", "BombeiroDataProvisorio")
+            tableMapping.ColumnMappings.Add("AmbientalDataProvisorio", "AmbientalDataProvisorio")
+            tableMapping.ColumnMappings.Add("ViabilidadeDataProvisorio", "ViabilidadeDataProvisorio")
+            tableMapping.ColumnMappings.Add("SanitarioDataProvisorio", "SanitarioDataProvisorio")
+            tableMapping.ColumnMappings.Add("SetranDataProvisorio", "SetranDataProvisorio")
+            tableMapping.ColumnMappings.Add("BombeiroNProcesso", "BombeiroNProcesso")
+            tableMapping.ColumnMappings.Add("BombeiroDataPedProcesso", "BombeiroDataPedProcesso")
+            tableMapping.ColumnMappings.Add("Nlaudo", "Nlaudo")
+            tableMapping.ColumnMappings.Add("Situacao", "Situacao")
+            tableMapping.ColumnMappings.Add("DataCriado", "DataCriado")
+            tableMapping.ColumnMappings.Add("DataEntrada", "DataEntrada")
+            tableMapping.ColumnMappings.Add("Pendencia", "Pendencia")
+            tableMapping.ColumnMappings.Add("ModeloSistema", "ModeloSistema")
+            tableMapping.ColumnMappings.Add("AvisarDia", "AvisarDia")
+            tableMapping.ColumnMappings.Add("CadImob", "CadImob")
+            tableMapping.ColumnMappings.Add("CMC", "CMC")
+            tableMapping.ColumnMappings.Add("area2", "area2")
+            tableMapping.ColumnMappings.Add("PontoRef", "PontoRef")
+            tableMapping.ColumnMappings.Add("Sanitariocontrole1", "Sanitariocontrole1")
+            tableMapping.ColumnMappings.Add("Sanitariocontrole2", "Sanitariocontrole2")
+            tableMapping.ColumnMappings.Add("Sanitariocontrole3", "Sanitariocontrole3")
+            tableMapping.ColumnMappings.Add("Observacao", "Observacao")
+            tableMapping.ColumnMappings.Add("ProtocoloTipo", "ProtocoloTipo")
+            tableMapping.ColumnMappings.Add("ProtocoloN", "ProtocoloN")
+            tableMapping.ColumnMappings.Add("ProtocoloAno", "ProtocoloAno")
+            tableMapping.ColumnMappings.Add("ProtocoloSenha", "ProtocoloSenha")
+            tableMapping.ColumnMappings.Add("Historico", "Historico")
+            tableMapping.ColumnMappings.Add("BombeiroSituacao", "BombeiroSituacao")
+            tableMapping.ColumnMappings.Add("BombeiroProvisorioDATA", "BombeiroProvisorioDATA")
+            tableMapping.ColumnMappings.Add("AmbientalProvisorioDATA", "AmbientalProvisorioDATA")
+            tableMapping.ColumnMappings.Add("ViabilidadeProvisorioDATA", "ViabilidadeProvisorioDATA")
+            tableMapping.ColumnMappings.Add("SanitarioProvisorioDATA", "SanitarioProvisorioDATA")
+            tableMapping.ColumnMappings.Add("SetranProvisorioDATA", "SetranProvisorioDATA")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Laudos] WHERE (([ID_Laudos] = @Original_ID_Laudos) AND ((@IsNull_CNP"& _ 
+                "J = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_EndNum = 1"& _ 
+                " AND [EndNum] IS NULL) OR ([EndNum] = @Original_EndNum)) AND ((@IsNull_EndData ="& _ 
+                " 1 AND [EndData] IS NULL) OR ([EndData] = @Original_EndData)) AND ((@IsNull_EndQ"& _ 
+                "uadra = 1 AND [EndQuadra] IS NULL) OR ([EndQuadra] = @Original_EndQuadra)) AND ("& _ 
+                "(@IsNull_EndZona = 1 AND [EndZona] IS NULL) OR ([EndZona] = @Original_EndZona)) "& _ 
+                "AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP))"& _ 
+                " AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_T"& _ 
+                "elefone)) AND ((@IsNull_CPFRequerente = 1 AND [CPFRequerente] IS NULL) OR ([CPFR"& _ 
+                "equerente] = @Original_CPFRequerente)) AND ((@IsNull_FoneRequerente = 1 AND [Fon"& _ 
+                "eRequerente] IS NULL) OR ([FoneRequerente] = @Original_FoneRequerente)) AND ((@I"& _ 
+                "sNull_CNPJRequerente = 1 AND [CNPJRequerente] IS NULL) OR ([CNPJRequerente] = @O"& _ 
+                "riginal_CNPJRequerente)) AND ((@IsNull_RGRequerente = 1 AND [RGRequerente] IS NU"& _ 
+                "LL) OR ([RGRequerente] = @Original_RGRequerente)) AND ((@IsNull_area = 1 AND [ar"& _ 
+                "ea] IS NULL) OR ([area] = @Original_area)) AND ((@IsNull_ResptecnicoNumero = 1 A"& _ 
+                "ND [ResptecnicoNumero] IS NULL) OR ([ResptecnicoNumero] = @Original_ResptecnicoN"& _ 
+                "umero)) AND ((@IsNull_Lembrete = 1 AND [Lembrete] IS NULL) OR ([Lembrete] = @Ori"& _ 
+                "ginal_Lembrete)) AND ((@IsNull_EndCidade = 1 AND [EndCidade] IS NULL) OR ([EndCi"& _ 
+                "dade] = @Original_EndCidade)) AND ((@IsNull_EndEstado = 1 AND [EndEstado] IS NUL"& _ 
+                "L) OR ([EndEstado] = @Original_EndEstado)) AND ((@IsNull_Bombeiros = 1 AND [Bomb"& _ 
+                "eiros] IS NULL) OR ([Bombeiros] = @Original_Bombeiros)) AND ((@IsNull_BombeirosS"& _ 
+                "ituacao = 1 AND [BombeirosSituacao] IS NULL) OR ([BombeirosSituacao] = @Original"& _ 
+                "_BombeirosSituacao)) AND ((@IsNull_BombeirosVenc = 1 AND [BombeirosVenc] IS NULL"& _ 
+                ") OR ([BombeirosVenc] = @Original_BombeirosVenc)) AND ((@IsNull_Ambiental = 1 AN"& _ 
+                "D [Ambiental] IS NULL) OR ([Ambiental] = @Original_Ambiental)) AND ((@IsNull_Amb"& _ 
+                "ientalSituacao = 1 AND [AmbientalSituacao] IS NULL) OR ([AmbientalSituacao] = @O"& _ 
+                "riginal_AmbientalSituacao)) AND ((@IsNull_AmbientalVenc = 1 AND [AmbientalVenc] "& _ 
+                "IS NULL) OR ([AmbientalVenc] = @Original_AmbientalVenc)) AND ((@IsNull_Viabilida"& _ 
+                "de = 1 AND [Viabilidade] IS NULL) OR ([Viabilidade] = @Original_Viabilidade)) AN"& _ 
+                "D ((@IsNull_ViabilidadeSituacao = 1 AND [ViabilidadeSituacao] IS NULL) OR ([Viab"& _ 
+                "ilidadeSituacao] = @Original_ViabilidadeSituacao)) AND ((@IsNull_ViabilidadeVec "& _ 
+                "= 1 AND [ViabilidadeVec] IS NULL) OR ([ViabilidadeVec] = @Original_ViabilidadeVe"& _ 
+                "c)) AND ((@IsNull_Sanitario = 1 AND [Sanitario] IS NULL) OR ([Sanitario] = @Orig"& _ 
+                "inal_Sanitario)) AND ((@IsNull_SanitarioSituacao = 1 AND [SanitarioSituacao] IS "& _ 
+                "NULL) OR ([SanitarioSituacao] = @Original_SanitarioSituacao)) AND ((@IsNull_Sani"& _ 
+                "tarioVenc = 1 AND [SanitarioVenc] IS NULL) OR ([SanitarioVenc] = @Original_Sanit"& _ 
+                "arioVenc)) AND ((@IsNull_Setran = 1 AND [Setran] IS NULL) OR ([Setran] = @Origin"& _ 
+                "al_Setran)) AND ((@IsNull_SetranSituacao = 1 AND [SetranSituacao] IS NULL) OR (["& _ 
+                "SetranSituacao] = @Original_SetranSituacao)) AND ((@IsNull_SetranVenc = 1 AND [S"& _ 
+                "etranVenc] IS NULL) OR ([SetranVenc] = @Original_SetranVenc)) AND ((@IsNull_Bomb"& _ 
+                "eiroDataProvisorio = 1 AND [BombeiroDataProvisorio] IS NULL) OR ([BombeiroDataPr"& _ 
+                "ovisorio] = @Original_BombeiroDataProvisorio)) AND ((@IsNull_AmbientalDataProvis"& _ 
+                "orio = 1 AND [AmbientalDataProvisorio] IS NULL) OR ([AmbientalDataProvisorio] = "& _ 
+                "@Original_AmbientalDataProvisorio)) AND ((@IsNull_ViabilidadeDataProvisorio = 1 "& _ 
+                "AND [ViabilidadeDataProvisorio] IS NULL) OR ([ViabilidadeDataProvisorio] = @Orig"& _ 
+                "inal_ViabilidadeDataProvisorio)) AND ((@IsNull_SanitarioDataProvisorio = 1 AND ["& _ 
+                "SanitarioDataProvisorio] IS NULL) OR ([SanitarioDataProvisorio] = @Original_Sani"& _ 
+                "tarioDataProvisorio)) AND ((@IsNull_SetranDataProvisorio = 1 AND [SetranDataProv"& _ 
+                "isorio] IS NULL) OR ([SetranDataProvisorio] = @Original_SetranDataProvisorio)) A"& _ 
+                "ND ((@IsNull_BombeiroNProcesso = 1 AND [BombeiroNProcesso] IS NULL) OR ([Bombeir"& _ 
+                "oNProcesso] = @Original_BombeiroNProcesso)) AND ((@IsNull_BombeiroDataPedProcess"& _ 
+                "o = 1 AND [BombeiroDataPedProcesso] IS NULL) OR ([BombeiroDataPedProcesso] = @Or"& _ 
+                "iginal_BombeiroDataPedProcesso)) AND ((@IsNull_Nlaudo = 1 AND [Nlaudo] IS NULL) "& _ 
+                "OR ([Nlaudo] = @Original_Nlaudo)) AND ((@IsNull_Situacao = 1 AND [Situacao] IS N"& _ 
+                "ULL) OR ([Situacao] = @Original_Situacao)) AND ((@IsNull_DataCriado = 1 AND [Dat"& _ 
+                "aCriado] IS NULL) OR ([DataCriado] = @Original_DataCriado)) AND ((@IsNull_DataEn"& _ 
+                "trada = 1 AND [DataEntrada] IS NULL) OR ([DataEntrada] = @Original_DataEntrada))"& _ 
+                " AND ((@IsNull_Pendencia = 1 AND [Pendencia] IS NULL) OR ([Pendencia] = @Origina"& _ 
+                "l_Pendencia)) AND ((@IsNull_ModeloSistema = 1 AND [ModeloSistema] IS NULL) OR (["& _ 
+                "ModeloSistema] = @Original_ModeloSistema)) AND ((@IsNull_AvisarDia = 1 AND [Avis"& _ 
+                "arDia] IS NULL) OR ([AvisarDia] = @Original_AvisarDia)) AND ((@IsNull_CadImob = "& _ 
+                "1 AND [CadImob] IS NULL) OR ([CadImob] = @Original_CadImob)) AND ((@IsNull_CMC ="& _ 
+                " 1 AND [CMC] IS NULL) OR ([CMC] = @Original_CMC)) AND ((@IsNull_Sanitariocontrol"& _ 
+                "e1 = 1 AND [Sanitariocontrole1] IS NULL) OR ([Sanitariocontrole1] = @Original_Sa"& _ 
+                "nitariocontrole1)) AND ((@IsNull_Sanitariocontrole2 = 1 AND [Sanitariocontrole2]"& _ 
+                " IS NULL) OR ([Sanitariocontrole2] = @Original_Sanitariocontrole2)) AND ((@IsNul"& _ 
+                "l_Sanitariocontrole3 = 1 AND [Sanitariocontrole3] IS NULL) OR ([Sanitariocontrol"& _ 
+                "e3] = @Original_Sanitariocontrole3)) AND ((@IsNull_BombeiroProvisorioDATA = 1 AN"& _ 
+                "D [BombeiroProvisorioDATA] IS NULL) OR ([BombeiroProvisorioDATA] = @Original_Bom"& _ 
+                "beiroProvisorioDATA)) AND ((@IsNull_AmbientalProvisorioDATA = 1 AND [AmbientalPr"& _ 
+                "ovisorioDATA] IS NULL) OR ([AmbientalProvisorioDATA] = @Original_AmbientalProvis"& _ 
+                "orioDATA)) AND ((@IsNull_ViabilidadeProvisorioDATA = 1 AND [ViabilidadeProvisori"& _ 
+                "oDATA] IS NULL) OR ([ViabilidadeProvisorioDATA] = @Original_ViabilidadeProvisori"& _ 
+                "oDATA)) AND ((@IsNull_SanitarioProvisorioDATA = 1 AND [SanitarioProvisorioDATA] "& _ 
+                "IS NULL) OR ([SanitarioProvisorioDATA] = @Original_SanitarioProvisorioDATA)) AND"& _ 
+                " ((@IsNull_SetranProvisorioDATA = 1 AND [SetranProvisorioDATA] IS NULL) OR ([Set"& _ 
+                "ranProvisorioDATA] = @Original_SetranProvisorioDATA)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndNum", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndData", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndQuadra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndZona", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCEP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Telefone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CPFRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FoneRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RGRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_area", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ResptecnicoNumero", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Lembrete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndEstado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Bombeiros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ambiental", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Viabilidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeVec", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitario", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Setran", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroNProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nlaudo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Situacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCriado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataEntrada", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pendencia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ModeloSistema", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AvisarDia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CadImob", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CMC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Laudos] ([RazaoSocial], [CNPJ], [Endereco], [EndNum], [EndComp], [En"& _ 
+                "dData], [EndQuadra], [EndZona], [EndCEP], [Telefone], [CNAE], [NaturezaDoPedido]"& _ 
+                ", [NaturezaDoPedidoOBS], [Requerente], [CPFRequerente], [EndRequerente], [FoneRe"& _ 
+                "querente], [EmailRequerente], [CNPJRequerente], [RGRequerente], [Ramodeatividade"& _ 
+                "], [Obs], [area], [Resptecnico], [ResptecnicoNumero], [Lembrete], [EndBairro], ["& _ 
+                "EndCidade], [EndEstado], [Bombeiros], [BombeirosSituacao], [BombeirosVenc], [Amb"& _ 
+                "iental], [AmbientalSituacao], [AmbientalVenc], [Viabilidade], [ViabilidadeSituac"& _ 
+                "ao], [ViabilidadeVec], [Sanitario], [SanitarioSituacao], [SanitarioVenc], [Setra"& _ 
+                "n], [SetranSituacao], [SetranVenc], [BombeiroExigencia], [AmbientalExigencia], ["& _ 
+                "ViabilidadeExigencia], [SanitarioExigencia], [SetranExigencia], [BombeiroDataPro"& _ 
+                "visorio], [AmbientalDataProvisorio], [ViabilidadeDataProvisorio], [SanitarioData"& _ 
+                "Provisorio], [SetranDataProvisorio], [BombeiroNProcesso], [BombeiroDataPedProces"& _ 
+                "so], [Nlaudo], [Situacao], [DataCriado], [DataEntrada], [Pendencia], [ModeloSist"& _ 
+                "ema], [AvisarDia], [CadImob], [CMC], [area2], [PontoRef], [Sanitariocontrole1], "& _ 
+                "[Sanitariocontrole2], [Sanitariocontrole3], [Observacao], [ProtocoloTipo], [Prot"& _ 
+                "ocoloN], [ProtocoloAno], [ProtocoloSenha], [Historico], [BombeiroSituacao], [Bom"& _ 
+                "beiroProvisorioDATA], [AmbientalProvisorioDATA], [ViabilidadeProvisorioDATA], [S"& _ 
+                "anitarioProvisorioDATA], [SetranProvisorioDATA]) VALUES (@RazaoSocial, @CNPJ, @E"& _ 
+                "ndereco, @EndNum, @EndComp, @EndData, @EndQuadra, @EndZona, @EndCEP, @Telefone, "& _ 
+                "@CNAE, @NaturezaDoPedido, @NaturezaDoPedidoOBS, @Requerente, @CPFRequerente, @En"& _ 
+                "dRequerente, @FoneRequerente, @EmailRequerente, @CNPJRequerente, @RGRequerente, "& _ 
+                "@Ramodeatividade, @Obs, @area, @Resptecnico, @ResptecnicoNumero, @Lembrete, @End"& _ 
+                "Bairro, @EndCidade, @EndEstado, @Bombeiros, @BombeirosSituacao, @BombeirosVenc, "& _ 
+                "@Ambiental, @AmbientalSituacao, @AmbientalVenc, @Viabilidade, @ViabilidadeSituac"& _ 
+                "ao, @ViabilidadeVec, @Sanitario, @SanitarioSituacao, @SanitarioVenc, @Setran, @S"& _ 
+                "etranSituacao, @SetranVenc, @BombeiroExigencia, @AmbientalExigencia, @Viabilidad"& _ 
+                "eExigencia, @SanitarioExigencia, @SetranExigencia, @BombeiroDataProvisorio, @Amb"& _ 
+                "ientalDataProvisorio, @ViabilidadeDataProvisorio, @SanitarioDataProvisorio, @Set"& _ 
+                "ranDataProvisorio, @BombeiroNProcesso, @BombeiroDataPedProcesso, @Nlaudo, @Situa"& _ 
+                "cao, @DataCriado, @DataEntrada, @Pendencia, @ModeloSistema, @AvisarDia, @CadImob"& _ 
+                ", @CMC, @area2, @PontoRef, @Sanitariocontrole1, @Sanitariocontrole2, @Sanitarioc"& _ 
+                "ontrole3, @Observacao, @ProtocoloTipo, @ProtocoloN, @ProtocoloAno, @ProtocoloSen"& _ 
+                "ha, @Historico, @BombeiroSituacao, @BombeiroProvisorioDATA, @AmbientalProvisorio"& _ 
+                "DATA, @ViabilidadeProvisorioDATA, @SanitarioProvisorioDATA, @SetranProvisorioDAT"& _ 
+                "A);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Laudos, RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, En"& _ 
+                "dQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS,"& _ 
+                " Requerente, CPFRequerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJ"& _ 
+                "Requerente, RGRequerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNu"& _ 
+                "mero, Lembrete, EndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, B"& _ 
+                "ombeirosVenc, Ambiental, AmbientalSituacao, AmbientalVenc, Viabilidade, Viabilid"& _ 
+                "adeSituacao, ViabilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran"& _ 
+                ", SetranSituacao, SetranVenc, BombeiroExigencia, AmbientalExigencia, Viabilidade"& _ 
+                "Exigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, Ambienta"& _ 
+                "lDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataP"& _ 
+                "rovisorio, BombeiroNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCri"& _ 
+                "ado, DataEntrada, Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, Pont"& _ 
+                "oRef, Sanitariocontrole1, Sanitariocontrole2, Sanitariocontrole3, Observacao, Pr"& _ 
+                "otocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituac"& _ 
+                "ao, BombeiroProvisorioDATA, AmbientalProvisorioDATA, ViabilidadeProvisorioDATA, "& _ 
+                "SanitarioProvisorioDATA, SetranProvisorioDATA FROM Laudos WHERE (ID_Laudos = SCO"& _ 
+                "PE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Endereco", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Endereco", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndComp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndComp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedido", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedido", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedidoOBS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedidoOBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Requerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Requerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmailRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ramodeatividade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ramodeatividade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Obs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Obs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Resptecnico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Resptecnico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndBairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndBairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PontoRef", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PontoRef", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloTipo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloTipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloN", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloAno", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloAno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Historico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Historico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Laudos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [Endereco] = @E"& _ 
+                "ndereco, [EndNum] = @EndNum, [EndComp] = @EndComp, [EndData] = @EndData, [EndQua"& _ 
+                "dra] = @EndQuadra, [EndZona] = @EndZona, [EndCEP] = @EndCEP, [Telefone] = @Telef"& _ 
+                "one, [CNAE] = @CNAE, [NaturezaDoPedido] = @NaturezaDoPedido, [NaturezaDoPedidoOB"& _ 
+                "S] = @NaturezaDoPedidoOBS, [Requerente] = @Requerente, [CPFRequerente] = @CPFReq"& _ 
+                "uerente, [EndRequerente] = @EndRequerente, [FoneRequerente] = @FoneRequerente, ["& _ 
+                "EmailRequerente] = @EmailRequerente, [CNPJRequerente] = @CNPJRequerente, [RGRequ"& _ 
+                "erente] = @RGRequerente, [Ramodeatividade] = @Ramodeatividade, [Obs] = @Obs, [ar"& _ 
+                "ea] = @area, [Resptecnico] = @Resptecnico, [ResptecnicoNumero] = @ResptecnicoNum"& _ 
+                "ero, [Lembrete] = @Lembrete, [EndBairro] = @EndBairro, [EndCidade] = @EndCidade,"& _ 
+                " [EndEstado] = @EndEstado, [Bombeiros] = @Bombeiros, [BombeirosSituacao] = @Bomb"& _ 
+                "eirosSituacao, [BombeirosVenc] = @BombeirosVenc, [Ambiental] = @Ambiental, [Ambi"& _ 
+                "entalSituacao] = @AmbientalSituacao, [AmbientalVenc] = @AmbientalVenc, [Viabilid"& _ 
+                "ade] = @Viabilidade, [ViabilidadeSituacao] = @ViabilidadeSituacao, [ViabilidadeV"& _ 
+                "ec] = @ViabilidadeVec, [Sanitario] = @Sanitario, [SanitarioSituacao] = @Sanitari"& _ 
+                "oSituacao, [SanitarioVenc] = @SanitarioVenc, [Setran] = @Setran, [SetranSituacao"& _ 
+                "] = @SetranSituacao, [SetranVenc] = @SetranVenc, [BombeiroExigencia] = @Bombeiro"& _ 
+                "Exigencia, [AmbientalExigencia] = @AmbientalExigencia, [ViabilidadeExigencia] = "& _ 
+                "@ViabilidadeExigencia, [SanitarioExigencia] = @SanitarioExigencia, [SetranExigen"& _ 
+                "cia] = @SetranExigencia, [BombeiroDataProvisorio] = @BombeiroDataProvisorio, [Am"& _ 
+                "bientalDataProvisorio] = @AmbientalDataProvisorio, [ViabilidadeDataProvisorio] ="& _ 
+                " @ViabilidadeDataProvisorio, [SanitarioDataProvisorio] = @SanitarioDataProvisori"& _ 
+                "o, [SetranDataProvisorio] = @SetranDataProvisorio, [BombeiroNProcesso] = @Bombei"& _ 
+                "roNProcesso, [BombeiroDataPedProcesso] = @BombeiroDataPedProcesso, [Nlaudo] = @N"& _ 
+                "laudo, [Situacao] = @Situacao, [DataCriado] = @DataCriado, [DataEntrada] = @Data"& _ 
+                "Entrada, [Pendencia] = @Pendencia, [ModeloSistema] = @ModeloSistema, [AvisarDia]"& _ 
+                " = @AvisarDia, [CadImob] = @CadImob, [CMC] = @CMC, [area2] = @area2, [PontoRef] "& _ 
+                "= @PontoRef, [Sanitariocontrole1] = @Sanitariocontrole1, [Sanitariocontrole2] = "& _ 
+                "@Sanitariocontrole2, [Sanitariocontrole3] = @Sanitariocontrole3, [Observacao] = "& _ 
+                "@Observacao, [ProtocoloTipo] = @ProtocoloTipo, [ProtocoloN] = @ProtocoloN, [Prot"& _ 
+                "ocoloAno] = @ProtocoloAno, [ProtocoloSenha] = @ProtocoloSenha, [Historico] = @Hi"& _ 
+                "storico, [BombeiroSituacao] = @BombeiroSituacao, [BombeiroProvisorioDATA] = @Bom"& _ 
+                "beiroProvisorioDATA, [AmbientalProvisorioDATA] = @AmbientalProvisorioDATA, [Viab"& _ 
+                "ilidadeProvisorioDATA] = @ViabilidadeProvisorioDATA, [SanitarioProvisorioDATA] ="& _ 
+                " @SanitarioProvisorioDATA, [SetranProvisorioDATA] = @SetranProvisorioDATA WHERE "& _ 
+                "(([ID_Laudos] = @Original_ID_Laudos) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) "& _ 
+                "OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_EndNum = 1 AND [EndNum] IS NULL) OR "& _ 
+                "([EndNum] = @Original_EndNum)) AND ((@IsNull_EndData = 1 AND [EndData] IS NULL) "& _ 
+                "OR ([EndData] = @Original_EndData)) AND ((@IsNull_EndQuadra = 1 AND [EndQuadra] "& _ 
+                "IS NULL) OR ([EndQuadra] = @Original_EndQuadra)) AND ((@IsNull_EndZona = 1 AND ["& _ 
+                "EndZona] IS NULL) OR ([EndZona] = @Original_EndZona)) AND ((@IsNull_EndCEP = 1 A"& _ 
+                "ND [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP)) AND ((@IsNull_Telefone = "& _ 
+                "1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_CP"& _ 
+                "FRequerente = 1 AND [CPFRequerente] IS NULL) OR ([CPFRequerente] = @Original_CPF"& _ 
+                "Requerente)) AND ((@IsNull_FoneRequerente = 1 AND [FoneRequerente] IS NULL) OR ("& _ 
+                "[FoneRequerente] = @Original_FoneRequerente)) AND ((@IsNull_CNPJRequerente = 1 A"& _ 
+                "ND [CNPJRequerente] IS NULL) OR ([CNPJRequerente] = @Original_CNPJRequerente)) A"& _ 
+                "ND ((@IsNull_RGRequerente = 1 AND [RGRequerente] IS NULL) OR ([RGRequerente] = @"& _ 
+                "Original_RGRequerente)) AND ((@IsNull_area = 1 AND [area] IS NULL) OR ([area] = "& _ 
+                "@Original_area)) AND ((@IsNull_ResptecnicoNumero = 1 AND [ResptecnicoNumero] IS "& _ 
+                "NULL) OR ([ResptecnicoNumero] = @Original_ResptecnicoNumero)) AND ((@IsNull_Lemb"& _ 
+                "rete = 1 AND [Lembrete] IS NULL) OR ([Lembrete] = @Original_Lembrete)) AND ((@Is"& _ 
+                "Null_EndCidade = 1 AND [EndCidade] IS NULL) OR ([EndCidade] = @Original_EndCidad"& _ 
+                "e)) AND ((@IsNull_EndEstado = 1 AND [EndEstado] IS NULL) OR ([EndEstado] = @Orig"& _ 
+                "inal_EndEstado)) AND ((@IsNull_Bombeiros = 1 AND [Bombeiros] IS NULL) OR ([Bombe"& _ 
+                "iros] = @Original_Bombeiros)) AND ((@IsNull_BombeirosSituacao = 1 AND [Bombeiros"& _ 
+                "Situacao] IS NULL) OR ([BombeirosSituacao] = @Original_BombeirosSituacao)) AND ("& _ 
+                "(@IsNull_BombeirosVenc = 1 AND [BombeirosVenc] IS NULL) OR ([BombeirosVenc] = @O"& _ 
+                "riginal_BombeirosVenc)) AND ((@IsNull_Ambiental = 1 AND [Ambiental] IS NULL) OR "& _ 
+                "([Ambiental] = @Original_Ambiental)) AND ((@IsNull_AmbientalSituacao = 1 AND [Am"& _ 
+                "bientalSituacao] IS NULL) OR ([AmbientalSituacao] = @Original_AmbientalSituacao)"& _ 
+                ") AND ((@IsNull_AmbientalVenc = 1 AND [AmbientalVenc] IS NULL) OR ([AmbientalVen"& _ 
+                "c] = @Original_AmbientalVenc)) AND ((@IsNull_Viabilidade = 1 AND [Viabilidade] I"& _ 
+                "S NULL) OR ([Viabilidade] = @Original_Viabilidade)) AND ((@IsNull_ViabilidadeSit"& _ 
+                "uacao = 1 AND [ViabilidadeSituacao] IS NULL) OR ([ViabilidadeSituacao] = @Origin"& _ 
+                "al_ViabilidadeSituacao)) AND ((@IsNull_ViabilidadeVec = 1 AND [ViabilidadeVec] I"& _ 
+                "S NULL) OR ([ViabilidadeVec] = @Original_ViabilidadeVec)) AND ((@IsNull_Sanitari"& _ 
+                "o = 1 AND [Sanitario] IS NULL) OR ([Sanitario] = @Original_Sanitario)) AND ((@Is"& _ 
+                "Null_SanitarioSituacao = 1 AND [SanitarioSituacao] IS NULL) OR ([SanitarioSituac"& _ 
+                "ao] = @Original_SanitarioSituacao)) AND ((@IsNull_SanitarioVenc = 1 AND [Sanitar"& _ 
+                "ioVenc] IS NULL) OR ([SanitarioVenc] = @Original_SanitarioVenc)) AND ((@IsNull_S"& _ 
+                "etran = 1 AND [Setran] IS NULL) OR ([Setran] = @Original_Setran)) AND ((@IsNull_"& _ 
+                "SetranSituacao = 1 AND [SetranSituacao] IS NULL) OR ([SetranSituacao] = @Origina"& _ 
+                "l_SetranSituacao)) AND ((@IsNull_SetranVenc = 1 AND [SetranVenc] IS NULL) OR ([S"& _ 
+                "etranVenc] = @Original_SetranVenc)) AND ((@IsNull_BombeiroDataProvisorio = 1 AND"& _ 
+                " [BombeiroDataProvisorio] IS NULL) OR ([BombeiroDataProvisorio] = @Original_Bomb"& _ 
+                "eiroDataProvisorio)) AND ((@IsNull_AmbientalDataProvisorio = 1 AND [AmbientalDat"& _ 
+                "aProvisorio] IS NULL) OR ([AmbientalDataProvisorio] = @Original_AmbientalDataPro"& _ 
+                "visorio)) AND ((@IsNull_ViabilidadeDataProvisorio = 1 AND [ViabilidadeDataProvis"& _ 
+                "orio] IS NULL) OR ([ViabilidadeDataProvisorio] = @Original_ViabilidadeDataProvis"& _ 
+                "orio)) AND ((@IsNull_SanitarioDataProvisorio = 1 AND [SanitarioDataProvisorio] I"& _ 
+                "S NULL) OR ([SanitarioDataProvisorio] = @Original_SanitarioDataProvisorio)) AND "& _ 
+                "((@IsNull_SetranDataProvisorio = 1 AND [SetranDataProvisorio] IS NULL) OR ([Setr"& _ 
+                "anDataProvisorio] = @Original_SetranDataProvisorio)) AND ((@IsNull_BombeiroNProc"& _ 
+                "esso = 1 AND [BombeiroNProcesso] IS NULL) OR ([BombeiroNProcesso] = @Original_Bo"& _ 
+                "mbeiroNProcesso)) AND ((@IsNull_BombeiroDataPedProcesso = 1 AND [BombeiroDataPed"& _ 
+                "Processo] IS NULL) OR ([BombeiroDataPedProcesso] = @Original_BombeiroDataPedProc"& _ 
+                "esso)) AND ((@IsNull_Nlaudo = 1 AND [Nlaudo] IS NULL) OR ([Nlaudo] = @Original_N"& _ 
+                "laudo)) AND ((@IsNull_Situacao = 1 AND [Situacao] IS NULL) OR ([Situacao] = @Ori"& _ 
+                "ginal_Situacao)) AND ((@IsNull_DataCriado = 1 AND [DataCriado] IS NULL) OR ([Dat"& _ 
+                "aCriado] = @Original_DataCriado)) AND ((@IsNull_DataEntrada = 1 AND [DataEntrada"& _ 
+                "] IS NULL) OR ([DataEntrada] = @Original_DataEntrada)) AND ((@IsNull_Pendencia ="& _ 
+                " 1 AND [Pendencia] IS NULL) OR ([Pendencia] = @Original_Pendencia)) AND ((@IsNul"& _ 
+                "l_ModeloSistema = 1 AND [ModeloSistema] IS NULL) OR ([ModeloSistema] = @Original"& _ 
+                "_ModeloSistema)) AND ((@IsNull_AvisarDia = 1 AND [AvisarDia] IS NULL) OR ([Avisa"& _ 
+                "rDia] = @Original_AvisarDia)) AND ((@IsNull_CadImob = 1 AND [CadImob] IS NULL) O"& _ 
+                "R ([CadImob] = @Original_CadImob)) AND ((@IsNull_CMC = 1 AND [CMC] IS NULL) OR ("& _ 
+                "[CMC] = @Original_CMC)) AND ((@IsNull_Sanitariocontrole1 = 1 AND [Sanitariocontr"& _ 
+                "ole1] IS NULL) OR ([Sanitariocontrole1] = @Original_Sanitariocontrole1)) AND ((@"& _ 
+                "IsNull_Sanitariocontrole2 = 1 AND [Sanitariocontrole2] IS NULL) OR ([Sanitarioco"& _ 
+                "ntrole2] = @Original_Sanitariocontrole2)) AND ((@IsNull_Sanitariocontrole3 = 1 A"& _ 
+                "ND [Sanitariocontrole3] IS NULL) OR ([Sanitariocontrole3] = @Original_Sanitarioc"& _ 
+                "ontrole3)) AND ((@IsNull_BombeiroProvisorioDATA = 1 AND [BombeiroProvisorioDATA]"& _ 
+                " IS NULL) OR ([BombeiroProvisorioDATA] = @Original_BombeiroProvisorioDATA)) AND "& _ 
+                "((@IsNull_AmbientalProvisorioDATA = 1 AND [AmbientalProvisorioDATA] IS NULL) OR "& _ 
+                "([AmbientalProvisorioDATA] = @Original_AmbientalProvisorioDATA)) AND ((@IsNull_V"& _ 
+                "iabilidadeProvisorioDATA = 1 AND [ViabilidadeProvisorioDATA] IS NULL) OR ([Viabi"& _ 
+                "lidadeProvisorioDATA] = @Original_ViabilidadeProvisorioDATA)) AND ((@IsNull_Sani"& _ 
+                "tarioProvisorioDATA = 1 AND [SanitarioProvisorioDATA] IS NULL) OR ([SanitarioPro"& _ 
+                "visorioDATA] = @Original_SanitarioProvisorioDATA)) AND ((@IsNull_SetranProvisori"& _ 
+                "oDATA = 1 AND [SetranProvisorioDATA] IS NULL) OR ([SetranProvisorioDATA] = @Orig"& _ 
+                "inal_SetranProvisorioDATA)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Laudos, RazaoSocial, CNPJ, Endereco, En"& _ 
+                "dNum, EndComp, EndData, EndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPe"& _ 
+                "dido, NaturezaDoPedidoOBS, Requerente, CPFRequerente, EndRequerente, FoneRequere"& _ 
+                "nte, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area, "& _ 
+                "Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bombe"& _ 
+                "iros, BombeirosSituacao, BombeirosVenc, Ambiental, AmbientalSituacao, AmbientalV"& _ 
+                "enc, Viabilidade, ViabilidadeSituacao, ViabilidadeVec, Sanitario, SanitarioSitua"& _ 
+                "cao, SanitarioVenc, Setran, SetranSituacao, SetranVenc, BombeiroExigencia, Ambie"& _ 
+                "ntalExigencia, ViabilidadeExigencia, SanitarioExigencia, SetranExigencia, Bombei"& _ 
+                "roDataProvisorio, AmbientalDataProvisorio, ViabilidadeDataProvisorio, SanitarioD"& _ 
+                "ataProvisorio, SetranDataProvisorio, BombeiroNProcesso, BombeiroDataPedProcesso,"& _ 
+                " Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarDia,"& _ 
+                " CadImob, CMC, area2, PontoRef, Sanitariocontrole1, Sanitariocontrole2, Sanitari"& _ 
+                "ocontrole3, Observacao, ProtocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha,"& _ 
+                " Historico, BombeiroSituacao, BombeiroProvisorioDATA, AmbientalProvisorioDATA, V"& _ 
+                "iabilidadeProvisorioDATA, SanitarioProvisorioDATA, SetranProvisorioDATA FROM Lau"& _ 
+                "dos WHERE (ID_Laudos = @ID_Laudos)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Endereco", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Endereco", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndComp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndComp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedido", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedido", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NaturezaDoPedidoOBS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NaturezaDoPedidoOBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Requerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Requerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmailRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ramodeatividade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ramodeatividade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Obs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Obs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Resptecnico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Resptecnico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndBairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndBairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranExigencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranExigencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@area2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PontoRef", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PontoRef", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloTipo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloTipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloN", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloAno", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloAno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocoloSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocoloSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Historico", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Historico", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSituacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AmbientalProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SanitarioProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SetranProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndNum", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndNum", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndNum", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndData", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndData", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndQuadra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndQuadra", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndQuadra", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndZona", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndZona", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndZona", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCEP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCEP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCEP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Telefone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CPFRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CPFRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FoneRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FoneRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FoneRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RGRequerente", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RGRequerente", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGRequerente", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_area", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_area", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "area", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ResptecnicoNumero", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResptecnicoNumero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResptecnicoNumero", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Lembrete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Lembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Lembrete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndCidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndCidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndCidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndEstado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndEstado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndEstado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Bombeiros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Bombeiros", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bombeiros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeirosVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeirosVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeirosVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ambiental", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ambiental", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ambiental", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Viabilidade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Viabilidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Viabilidade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeVec", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeVec", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeVec", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitario", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Setran", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Setran", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Setran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranSituacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranSituacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranSituacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranVenc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranVenc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranVenc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranDataProvisorio", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranDataProvisorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranDataProvisorio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroNProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroNProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroNProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroDataPedProcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroDataPedProcesso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nlaudo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nlaudo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nlaudo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Situacao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Situacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Situacao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCriado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCriado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataEntrada", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataEntrada", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEntrada", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pendencia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pendencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pendencia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ModeloSistema", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloSistema", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloSistema", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AvisarDia", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AvisarDia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AvisarDia", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CadImob", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CadImob", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CadImob", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CMC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CMC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CMC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sanitariocontrole3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sanitariocontrole3", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sanitariocontrole3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BombeiroProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BombeiroProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AmbientalProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AmbientalProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AmbientalProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ViabilidadeProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ViabilidadeProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SanitarioProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SanitarioProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SanitarioProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SetranProvisorioDATA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SetranProvisorioDATA", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SetranProvisorioDATA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Laudos", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Laudos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        Laudos.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Laudos"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.LaudosDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As PrinceDBDataSet.LaudosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As PrinceDBDataSet.LaudosDataTable = New PrinceDBDataSet.LaudosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.LaudosDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Laudos")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete( _
+                    ByVal Original_ID_Laudos As Short,  _
+                    ByVal Original_CNPJ As String,  _
+                    ByVal Original_EndNum As String,  _
+                    ByVal Original_EndData As String,  _
+                    ByVal Original_EndQuadra As String,  _
+                    ByVal Original_EndZona As String,  _
+                    ByVal Original_EndCEP As String,  _
+                    ByVal Original_Telefone As String,  _
+                    ByVal Original_CPFRequerente As String,  _
+                    ByVal Original_FoneRequerente As String,  _
+                    ByVal Original_CNPJRequerente As String,  _
+                    ByVal Original_RGRequerente As String,  _
+                    ByVal Original_area As String,  _
+                    ByVal Original_ResptecnicoNumero As String,  _
+                    ByVal Original_Lembrete As String,  _
+                    ByVal Original_EndCidade As String,  _
+                    ByVal Original_EndEstado As String,  _
+                    ByVal Original_Bombeiros As String,  _
+                    ByVal Original_BombeirosSituacao As String,  _
+                    ByVal Original_BombeirosVenc As String,  _
+                    ByVal Original_Ambiental As String,  _
+                    ByVal Original_AmbientalSituacao As String,  _
+                    ByVal Original_AmbientalVenc As String,  _
+                    ByVal Original_Viabilidade As String,  _
+                    ByVal Original_ViabilidadeSituacao As String,  _
+                    ByVal Original_ViabilidadeVec As String,  _
+                    ByVal Original_Sanitario As String,  _
+                    ByVal Original_SanitarioSituacao As String,  _
+                    ByVal Original_SanitarioVenc As String,  _
+                    ByVal Original_Setran As String,  _
+                    ByVal Original_SetranSituacao As String,  _
+                    ByVal Original_SetranVenc As String,  _
+                    ByVal Original_BombeiroDataProvisorio As String,  _
+                    ByVal Original_AmbientalDataProvisorio As String,  _
+                    ByVal Original_ViabilidadeDataProvisorio As String,  _
+                    ByVal Original_SanitarioDataProvisorio As String,  _
+                    ByVal Original_SetranDataProvisorio As String,  _
+                    ByVal Original_BombeiroNProcesso As String,  _
+                    ByVal Original_BombeiroDataPedProcesso As String,  _
+                    ByVal Original_Nlaudo As String,  _
+                    ByVal Original_Situacao As String,  _
+                    ByVal Original_DataCriado As String,  _
+                    ByVal Original_DataEntrada As String,  _
+                    ByVal Original_Pendencia As String,  _
+                    ByVal Original_ModeloSistema As String,  _
+                    ByVal Original_AvisarDia As String,  _
+                    ByVal Original_CadImob As String,  _
+                    ByVal Original_CMC As String,  _
+                    ByVal Original_Sanitariocontrole1 As String,  _
+                    ByVal Original_Sanitariocontrole2 As String,  _
+                    ByVal Original_Sanitariocontrole3 As String,  _
+                    ByVal Original_BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SetranProvisorioDATA As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_Laudos,Short)
+            If (Original_CNPJ Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CNPJ,String)
+            End If
+            If (Original_EndNum Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_EndNum,String)
+            End If
+            If (Original_EndData Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_EndData,String)
+            End If
+            If (Original_EndQuadra Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_EndQuadra,String)
+            End If
+            If (Original_EndZona Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_EndZona,String)
+            End If
+            If (Original_EndCEP Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EndCEP,String)
+            End If
+            If (Original_Telefone Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Telefone,String)
+            End If
+            If (Original_CPFRequerente Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_CPFRequerente,String)
+            End If
+            If (Original_FoneRequerente Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_FoneRequerente,String)
+            End If
+            If (Original_CNPJRequerente Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_CNPJRequerente,String)
+            End If
+            If (Original_RGRequerente Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_RGRequerente,String)
+            End If
+            If (Original_area Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_area,String)
+            End If
+            If (Original_ResptecnicoNumero Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_ResptecnicoNumero,String)
+            End If
+            If (Original_Lembrete Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Lembrete,String)
+            End If
+            If (Original_EndCidade Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_EndCidade,String)
+            End If
+            If (Original_EndEstado Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_EndEstado,String)
+            End If
+            If (Original_Bombeiros Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Bombeiros,String)
+            End If
+            If (Original_BombeirosSituacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_BombeirosSituacao,String)
+            End If
+            If (Original_BombeirosVenc Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_BombeirosVenc,String)
+            End If
+            If (Original_Ambiental Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Ambiental,String)
+            End If
+            If (Original_AmbientalSituacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_AmbientalSituacao,String)
+            End If
+            If (Original_AmbientalVenc Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_AmbientalVenc,String)
+            End If
+            If (Original_Viabilidade Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_Viabilidade,String)
+            End If
+            If (Original_ViabilidadeSituacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_ViabilidadeSituacao,String)
+            End If
+            If (Original_ViabilidadeVec Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(Original_ViabilidadeVec,String)
+            End If
+            If (Original_Sanitario Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_Sanitario,String)
+            End If
+            If (Original_SanitarioSituacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_SanitarioSituacao,String)
+            End If
+            If (Original_SanitarioVenc Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_SanitarioVenc,String)
+            End If
+            If (Original_Setran Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_Setran,String)
+            End If
+            If (Original_SetranSituacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_SetranSituacao,String)
+            End If
+            If (Original_SetranVenc Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_SetranVenc,String)
+            End If
+            If (Original_BombeiroDataProvisorio Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_BombeiroDataProvisorio,String)
+            End If
+            If (Original_AmbientalDataProvisorio Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_AmbientalDataProvisorio,String)
+            End If
+            If (Original_ViabilidadeDataProvisorio Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_ViabilidadeDataProvisorio,String)
+            End If
+            If (Original_SanitarioDataProvisorio Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_SanitarioDataProvisorio,String)
+            End If
+            If (Original_SetranDataProvisorio Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_SetranDataProvisorio,String)
+            End If
+            If (Original_BombeiroNProcesso Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_BombeiroNProcesso,String)
+            End If
+            If (Original_BombeiroDataPedProcesso Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(76).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_BombeiroDataPedProcesso,String)
+            End If
+            If (Original_Nlaudo Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(78).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(Original_Nlaudo,String)
+            End If
+            If (Original_Situacao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(80).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(Original_Situacao,String)
+            End If
+            If (Original_DataCriado Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(Original_DataCriado,String)
+            End If
+            If (Original_DataEntrada Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(84).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_DataEntrada,String)
+            End If
+            If (Original_Pendencia Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_Pendencia,String)
+            End If
+            If (Original_ModeloSistema Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(88).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(Original_ModeloSistema,String)
+            End If
+            If (Original_AvisarDia Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(90).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(Original_AvisarDia,String)
+            End If
+            If (Original_CadImob Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(92).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(Original_CadImob,String)
+            End If
+            If (Original_CMC Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(94).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(Original_CMC,String)
+            End If
+            If (Original_Sanitariocontrole1 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(96).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(Original_Sanitariocontrole1,String)
+            End If
+            If (Original_Sanitariocontrole2 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(Original_Sanitariocontrole2,String)
+            End If
+            If (Original_Sanitariocontrole3 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(Original_Sanitariocontrole3,String)
+            End If
+            If (Original_BombeiroProvisorioDATA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(Original_BombeiroProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = Global.System.DBNull.Value
+            End If
+            If (Original_AmbientalProvisorioDATA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(Original_AmbientalProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ViabilidadeProvisorioDATA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(Original_ViabilidadeProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SanitarioProvisorioDATA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(108).Value = CType(Original_SanitarioProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(108).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SetranProvisorioDATA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(Original_SetranProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(110).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal Endereco As String,  _
+                    ByVal EndNum As String,  _
+                    ByVal EndComp As String,  _
+                    ByVal EndData As String,  _
+                    ByVal EndQuadra As String,  _
+                    ByVal EndZona As String,  _
+                    ByVal EndCEP As String,  _
+                    ByVal Telefone As String,  _
+                    ByVal CNAE As String,  _
+                    ByVal NaturezaDoPedido As String,  _
+                    ByVal NaturezaDoPedidoOBS As String,  _
+                    ByVal Requerente As String,  _
+                    ByVal CPFRequerente As String,  _
+                    ByVal EndRequerente As String,  _
+                    ByVal FoneRequerente As String,  _
+                    ByVal EmailRequerente As String,  _
+                    ByVal CNPJRequerente As String,  _
+                    ByVal RGRequerente As String,  _
+                    ByVal Ramodeatividade As String,  _
+                    ByVal Obs As String,  _
+                    ByVal area As String,  _
+                    ByVal Resptecnico As String,  _
+                    ByVal ResptecnicoNumero As String,  _
+                    ByVal Lembrete As String,  _
+                    ByVal EndBairro As String,  _
+                    ByVal EndCidade As String,  _
+                    ByVal EndEstado As String,  _
+                    ByVal Bombeiros As String,  _
+                    ByVal BombeirosSituacao As String,  _
+                    ByVal BombeirosVenc As String,  _
+                    ByVal Ambiental As String,  _
+                    ByVal AmbientalSituacao As String,  _
+                    ByVal AmbientalVenc As String,  _
+                    ByVal Viabilidade As String,  _
+                    ByVal ViabilidadeSituacao As String,  _
+                    ByVal ViabilidadeVec As String,  _
+                    ByVal Sanitario As String,  _
+                    ByVal SanitarioSituacao As String,  _
+                    ByVal SanitarioVenc As String,  _
+                    ByVal Setran As String,  _
+                    ByVal SetranSituacao As String,  _
+                    ByVal SetranVenc As String,  _
+                    ByVal BombeiroExigencia As String,  _
+                    ByVal AmbientalExigencia As String,  _
+                    ByVal ViabilidadeExigencia As String,  _
+                    ByVal SanitarioExigencia As String,  _
+                    ByVal SetranExigencia As String,  _
+                    ByVal BombeiroDataProvisorio As String,  _
+                    ByVal AmbientalDataProvisorio As String,  _
+                    ByVal ViabilidadeDataProvisorio As String,  _
+                    ByVal SanitarioDataProvisorio As String,  _
+                    ByVal SetranDataProvisorio As String,  _
+                    ByVal BombeiroNProcesso As String,  _
+                    ByVal BombeiroDataPedProcesso As String,  _
+                    ByVal Nlaudo As String,  _
+                    ByVal Situacao As String,  _
+                    ByVal DataCriado As String,  _
+                    ByVal DataEntrada As String,  _
+                    ByVal Pendencia As String,  _
+                    ByVal ModeloSistema As String,  _
+                    ByVal AvisarDia As String,  _
+                    ByVal CadImob As String,  _
+                    ByVal CMC As String,  _
+                    ByVal area2 As String,  _
+                    ByVal PontoRef As String,  _
+                    ByVal Sanitariocontrole1 As String,  _
+                    ByVal Sanitariocontrole2 As String,  _
+                    ByVal Sanitariocontrole3 As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal ProtocoloTipo As String,  _
+                    ByVal ProtocoloN As String,  _
+                    ByVal ProtocoloAno As String,  _
+                    ByVal ProtocoloSenha As String,  _
+                    ByVal Historico As String,  _
+                    ByVal BombeiroSituacao As String,  _
+                    ByVal BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SetranProvisorioDATA As Global.System.Nullable(Of Date)) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (Endereco Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Endereco,String)
+            End If
+            If (EndNum Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(EndNum,String)
+            End If
+            If (EndComp Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(EndComp,String)
+            End If
+            If (EndData Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EndData,String)
+            End If
+            If (EndQuadra Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(EndQuadra,String)
+            End If
+            If (EndZona Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(EndZona,String)
+            End If
+            If (EndCEP Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(EndCEP,String)
+            End If
+            If (Telefone Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Telefone,String)
+            End If
+            If (CNAE Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(CNAE,String)
+            End If
+            If (NaturezaDoPedido Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(NaturezaDoPedido,String)
+            End If
+            If (NaturezaDoPedidoOBS Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(NaturezaDoPedidoOBS,String)
+            End If
+            If (Requerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Requerente,String)
+            End If
+            If (CPFRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CPFRequerente,String)
+            End If
+            If (EndRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(EndRequerente,String)
+            End If
+            If (FoneRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FoneRequerente,String)
+            End If
+            If (EmailRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(EmailRequerente,String)
+            End If
+            If (CNPJRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(CNPJRequerente,String)
+            End If
+            If (RGRequerente Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(RGRequerente,String)
+            End If
+            If (Ramodeatividade Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(Ramodeatividade,String)
+            End If
+            If (Obs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Obs,String)
+            End If
+            If (area Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(area,String)
+            End If
+            If (Resptecnico Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(Resptecnico,String)
+            End If
+            If (ResptecnicoNumero Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(ResptecnicoNumero,String)
+            End If
+            If (Lembrete Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Lembrete,String)
+            End If
+            If (EndBairro Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(EndBairro,String)
+            End If
+            If (EndCidade Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(EndCidade,String)
+            End If
+            If (EndEstado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(EndEstado,String)
+            End If
+            If (Bombeiros Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Bombeiros,String)
+            End If
+            If (BombeirosSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(BombeirosSituacao,String)
+            End If
+            If (BombeirosVenc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(BombeirosVenc,String)
+            End If
+            If (Ambiental Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(Ambiental,String)
+            End If
+            If (AmbientalSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(33).Value = CType(AmbientalSituacao,String)
+            End If
+            If (AmbientalVenc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(AmbientalVenc,String)
+            End If
+            If (Viabilidade Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(Viabilidade,String)
+            End If
+            If (ViabilidadeSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(ViabilidadeSituacao,String)
+            End If
+            If (ViabilidadeVec Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(ViabilidadeVec,String)
+            End If
+            If (Sanitario Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(Sanitario,String)
+            End If
+            If (SanitarioSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(39).Value = CType(SanitarioSituacao,String)
+            End If
+            If (SanitarioVenc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(40).Value = CType(SanitarioVenc,String)
+            End If
+            If (Setran Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(41).Value = CType(Setran,String)
+            End If
+            If (SetranSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(SetranSituacao,String)
+            End If
+            If (SetranVenc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(43).Value = CType(SetranVenc,String)
+            End If
+            If (BombeiroExigencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(44).Value = CType(BombeiroExigencia,String)
+            End If
+            If (AmbientalExigencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(45).Value = CType(AmbientalExigencia,String)
+            End If
+            If (ViabilidadeExigencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(46).Value = CType(ViabilidadeExigencia,String)
+            End If
+            If (SanitarioExigencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(47).Value = CType(SanitarioExigencia,String)
+            End If
+            If (SetranExigencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(48).Value = CType(SetranExigencia,String)
+            End If
+            If (BombeiroDataProvisorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(49).Value = CType(BombeiroDataProvisorio,String)
+            End If
+            If (AmbientalDataProvisorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(50).Value = CType(AmbientalDataProvisorio,String)
+            End If
+            If (ViabilidadeDataProvisorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(51).Value = CType(ViabilidadeDataProvisorio,String)
+            End If
+            If (SanitarioDataProvisorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(52).Value = CType(SanitarioDataProvisorio,String)
+            End If
+            If (SetranDataProvisorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(53).Value = CType(SetranDataProvisorio,String)
+            End If
+            If (BombeiroNProcesso Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(54).Value = CType(BombeiroNProcesso,String)
+            End If
+            If (BombeiroDataPedProcesso Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(55).Value = CType(BombeiroDataPedProcesso,String)
+            End If
+            If (Nlaudo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(Nlaudo,String)
+            End If
+            If (Situacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(57).Value = CType(Situacao,String)
+            End If
+            If (DataCriado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(58).Value = CType(DataCriado,String)
+            End If
+            If (DataEntrada Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(DataEntrada,String)
+            End If
+            If (Pendencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(60).Value = CType(Pendencia,String)
+            End If
+            If (ModeloSistema Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(61).Value = CType(ModeloSistema,String)
+            End If
+            If (AvisarDia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(62).Value = CType(AvisarDia,String)
+            End If
+            If (CadImob Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(63).Value = CType(CadImob,String)
+            End If
+            If (CMC Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(64).Value = CType(CMC,String)
+            End If
+            If (area2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(65).Value = CType(area2,String)
+            End If
+            If (PontoRef Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(66).Value = CType(PontoRef,String)
+            End If
+            If (Sanitariocontrole1 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(67).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(67).Value = CType(Sanitariocontrole1,String)
+            End If
+            If (Sanitariocontrole2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(68).Value = CType(Sanitariocontrole2,String)
+            End If
+            If (Sanitariocontrole3 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(69).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(69).Value = CType(Sanitariocontrole3,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(70).Value = CType(Observacao,String)
+            End If
+            If (ProtocoloTipo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(71).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(71).Value = CType(ProtocoloTipo,String)
+            End If
+            If (ProtocoloN Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(72).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(72).Value = CType(ProtocoloN,String)
+            End If
+            If (ProtocoloAno Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(73).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(73).Value = CType(ProtocoloAno,String)
+            End If
+            If (ProtocoloSenha Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(74).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(74).Value = CType(ProtocoloSenha,String)
+            End If
+            If (Historico Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(75).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(75).Value = CType(Historico,String)
+            End If
+            If (BombeiroSituacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(76).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(76).Value = CType(BombeiroSituacao,String)
+            End If
+            If (BombeiroProvisorioDATA.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(77).Value = CType(BombeiroProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(77).Value = Global.System.DBNull.Value
+            End If
+            If (AmbientalProvisorioDATA.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(78).Value = CType(AmbientalProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(78).Value = Global.System.DBNull.Value
+            End If
+            If (ViabilidadeProvisorioDATA.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(79).Value = CType(ViabilidadeProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(79).Value = Global.System.DBNull.Value
+            End If
+            If (SanitarioProvisorioDATA.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(80).Value = CType(SanitarioProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(80).Value = Global.System.DBNull.Value
+            End If
+            If (SetranProvisorioDATA.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(81).Value = CType(SetranProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(81).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal Endereco As String,  _
+                    ByVal EndNum As String,  _
+                    ByVal EndComp As String,  _
+                    ByVal EndData As String,  _
+                    ByVal EndQuadra As String,  _
+                    ByVal EndZona As String,  _
+                    ByVal EndCEP As String,  _
+                    ByVal Telefone As String,  _
+                    ByVal CNAE As String,  _
+                    ByVal NaturezaDoPedido As String,  _
+                    ByVal NaturezaDoPedidoOBS As String,  _
+                    ByVal Requerente As String,  _
+                    ByVal CPFRequerente As String,  _
+                    ByVal EndRequerente As String,  _
+                    ByVal FoneRequerente As String,  _
+                    ByVal EmailRequerente As String,  _
+                    ByVal CNPJRequerente As String,  _
+                    ByVal RGRequerente As String,  _
+                    ByVal Ramodeatividade As String,  _
+                    ByVal Obs As String,  _
+                    ByVal area As String,  _
+                    ByVal Resptecnico As String,  _
+                    ByVal ResptecnicoNumero As String,  _
+                    ByVal Lembrete As String,  _
+                    ByVal EndBairro As String,  _
+                    ByVal EndCidade As String,  _
+                    ByVal EndEstado As String,  _
+                    ByVal Bombeiros As String,  _
+                    ByVal BombeirosSituacao As String,  _
+                    ByVal BombeirosVenc As String,  _
+                    ByVal Ambiental As String,  _
+                    ByVal AmbientalSituacao As String,  _
+                    ByVal AmbientalVenc As String,  _
+                    ByVal Viabilidade As String,  _
+                    ByVal ViabilidadeSituacao As String,  _
+                    ByVal ViabilidadeVec As String,  _
+                    ByVal Sanitario As String,  _
+                    ByVal SanitarioSituacao As String,  _
+                    ByVal SanitarioVenc As String,  _
+                    ByVal Setran As String,  _
+                    ByVal SetranSituacao As String,  _
+                    ByVal SetranVenc As String,  _
+                    ByVal BombeiroExigencia As String,  _
+                    ByVal AmbientalExigencia As String,  _
+                    ByVal ViabilidadeExigencia As String,  _
+                    ByVal SanitarioExigencia As String,  _
+                    ByVal SetranExigencia As String,  _
+                    ByVal BombeiroDataProvisorio As String,  _
+                    ByVal AmbientalDataProvisorio As String,  _
+                    ByVal ViabilidadeDataProvisorio As String,  _
+                    ByVal SanitarioDataProvisorio As String,  _
+                    ByVal SetranDataProvisorio As String,  _
+                    ByVal BombeiroNProcesso As String,  _
+                    ByVal BombeiroDataPedProcesso As String,  _
+                    ByVal Nlaudo As String,  _
+                    ByVal Situacao As String,  _
+                    ByVal DataCriado As String,  _
+                    ByVal DataEntrada As String,  _
+                    ByVal Pendencia As String,  _
+                    ByVal ModeloSistema As String,  _
+                    ByVal AvisarDia As String,  _
+                    ByVal CadImob As String,  _
+                    ByVal CMC As String,  _
+                    ByVal area2 As String,  _
+                    ByVal PontoRef As String,  _
+                    ByVal Sanitariocontrole1 As String,  _
+                    ByVal Sanitariocontrole2 As String,  _
+                    ByVal Sanitariocontrole3 As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal ProtocoloTipo As String,  _
+                    ByVal ProtocoloN As String,  _
+                    ByVal ProtocoloAno As String,  _
+                    ByVal ProtocoloSenha As String,  _
+                    ByVal Historico As String,  _
+                    ByVal BombeiroSituacao As String,  _
+                    ByVal BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SetranProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ID_Laudos As Short,  _
+                    ByVal Original_CNPJ As String,  _
+                    ByVal Original_EndNum As String,  _
+                    ByVal Original_EndData As String,  _
+                    ByVal Original_EndQuadra As String,  _
+                    ByVal Original_EndZona As String,  _
+                    ByVal Original_EndCEP As String,  _
+                    ByVal Original_Telefone As String,  _
+                    ByVal Original_CPFRequerente As String,  _
+                    ByVal Original_FoneRequerente As String,  _
+                    ByVal Original_CNPJRequerente As String,  _
+                    ByVal Original_RGRequerente As String,  _
+                    ByVal Original_area As String,  _
+                    ByVal Original_ResptecnicoNumero As String,  _
+                    ByVal Original_Lembrete As String,  _
+                    ByVal Original_EndCidade As String,  _
+                    ByVal Original_EndEstado As String,  _
+                    ByVal Original_Bombeiros As String,  _
+                    ByVal Original_BombeirosSituacao As String,  _
+                    ByVal Original_BombeirosVenc As String,  _
+                    ByVal Original_Ambiental As String,  _
+                    ByVal Original_AmbientalSituacao As String,  _
+                    ByVal Original_AmbientalVenc As String,  _
+                    ByVal Original_Viabilidade As String,  _
+                    ByVal Original_ViabilidadeSituacao As String,  _
+                    ByVal Original_ViabilidadeVec As String,  _
+                    ByVal Original_Sanitario As String,  _
+                    ByVal Original_SanitarioSituacao As String,  _
+                    ByVal Original_SanitarioVenc As String,  _
+                    ByVal Original_Setran As String,  _
+                    ByVal Original_SetranSituacao As String,  _
+                    ByVal Original_SetranVenc As String,  _
+                    ByVal Original_BombeiroDataProvisorio As String,  _
+                    ByVal Original_AmbientalDataProvisorio As String,  _
+                    ByVal Original_ViabilidadeDataProvisorio As String,  _
+                    ByVal Original_SanitarioDataProvisorio As String,  _
+                    ByVal Original_SetranDataProvisorio As String,  _
+                    ByVal Original_BombeiroNProcesso As String,  _
+                    ByVal Original_BombeiroDataPedProcesso As String,  _
+                    ByVal Original_Nlaudo As String,  _
+                    ByVal Original_Situacao As String,  _
+                    ByVal Original_DataCriado As String,  _
+                    ByVal Original_DataEntrada As String,  _
+                    ByVal Original_Pendencia As String,  _
+                    ByVal Original_ModeloSistema As String,  _
+                    ByVal Original_AvisarDia As String,  _
+                    ByVal Original_CadImob As String,  _
+                    ByVal Original_CMC As String,  _
+                    ByVal Original_Sanitariocontrole1 As String,  _
+                    ByVal Original_Sanitariocontrole2 As String,  _
+                    ByVal Original_Sanitariocontrole3 As String,  _
+                    ByVal Original_BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SetranProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal ID_Laudos As Short) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (Endereco Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Endereco,String)
+            End If
+            If (EndNum Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(EndNum,String)
+            End If
+            If (EndComp Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(EndComp,String)
+            End If
+            If (EndData Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EndData,String)
+            End If
+            If (EndQuadra Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(EndQuadra,String)
+            End If
+            If (EndZona Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(EndZona,String)
+            End If
+            If (EndCEP Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(EndCEP,String)
+            End If
+            If (Telefone Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Telefone,String)
+            End If
+            If (CNAE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CNAE,String)
+            End If
+            If (NaturezaDoPedido Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(NaturezaDoPedido,String)
+            End If
+            If (NaturezaDoPedidoOBS Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(NaturezaDoPedidoOBS,String)
+            End If
+            If (Requerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Requerente,String)
+            End If
+            If (CPFRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CPFRequerente,String)
+            End If
+            If (EndRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(EndRequerente,String)
+            End If
+            If (FoneRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FoneRequerente,String)
+            End If
+            If (EmailRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(EmailRequerente,String)
+            End If
+            If (CNPJRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(CNPJRequerente,String)
+            End If
+            If (RGRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(RGRequerente,String)
+            End If
+            If (Ramodeatividade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Ramodeatividade,String)
+            End If
+            If (Obs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Obs,String)
+            End If
+            If (area Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(area,String)
+            End If
+            If (Resptecnico Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Resptecnico,String)
+            End If
+            If (ResptecnicoNumero Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(ResptecnicoNumero,String)
+            End If
+            If (Lembrete Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Lembrete,String)
+            End If
+            If (EndBairro Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(EndBairro,String)
+            End If
+            If (EndCidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(EndCidade,String)
+            End If
+            If (EndEstado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(EndEstado,String)
+            End If
+            If (Bombeiros Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Bombeiros,String)
+            End If
+            If (BombeirosSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(BombeirosSituacao,String)
+            End If
+            If (BombeirosVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(BombeirosVenc,String)
+            End If
+            If (Ambiental Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Ambiental,String)
+            End If
+            If (AmbientalSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(AmbientalSituacao,String)
+            End If
+            If (AmbientalVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(AmbientalVenc,String)
+            End If
+            If (Viabilidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Viabilidade,String)
+            End If
+            If (ViabilidadeSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(ViabilidadeSituacao,String)
+            End If
+            If (ViabilidadeVec Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(ViabilidadeVec,String)
+            End If
+            If (Sanitario Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Sanitario,String)
+            End If
+            If (SanitarioSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(SanitarioSituacao,String)
+            End If
+            If (SanitarioVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(SanitarioVenc,String)
+            End If
+            If (Setran Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Setran,String)
+            End If
+            If (SetranSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(SetranSituacao,String)
+            End If
+            If (SetranVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(SetranVenc,String)
+            End If
+            If (BombeiroExigencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(BombeiroExigencia,String)
+            End If
+            If (AmbientalExigencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(AmbientalExigencia,String)
+            End If
+            If (ViabilidadeExigencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(ViabilidadeExigencia,String)
+            End If
+            If (SanitarioExigencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(SanitarioExigencia,String)
+            End If
+            If (SetranExigencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(SetranExigencia,String)
+            End If
+            If (BombeiroDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(BombeiroDataProvisorio,String)
+            End If
+            If (AmbientalDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(AmbientalDataProvisorio,String)
+            End If
+            If (ViabilidadeDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(ViabilidadeDataProvisorio,String)
+            End If
+            If (SanitarioDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(SanitarioDataProvisorio,String)
+            End If
+            If (SetranDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(SetranDataProvisorio,String)
+            End If
+            If (BombeiroNProcesso Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(BombeiroNProcesso,String)
+            End If
+            If (BombeiroDataPedProcesso Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(BombeiroDataPedProcesso,String)
+            End If
+            If (Nlaudo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Nlaudo,String)
+            End If
+            If (Situacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Situacao,String)
+            End If
+            If (DataCriado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(DataCriado,String)
+            End If
+            If (DataEntrada Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(DataEntrada,String)
+            End If
+            If (Pendencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Pendencia,String)
+            End If
+            If (ModeloSistema Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(ModeloSistema,String)
+            End If
+            If (AvisarDia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(AvisarDia,String)
+            End If
+            If (CadImob Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(CadImob,String)
+            End If
+            If (CMC Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(CMC,String)
+            End If
+            If (area2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(area2,String)
+            End If
+            If (PontoRef Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(PontoRef,String)
+            End If
+            If (Sanitariocontrole1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Sanitariocontrole1,String)
+            End If
+            If (Sanitariocontrole2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Sanitariocontrole2,String)
+            End If
+            If (Sanitariocontrole3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Sanitariocontrole3,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Observacao,String)
+            End If
+            If (ProtocoloTipo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(ProtocoloTipo,String)
+            End If
+            If (ProtocoloN Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(ProtocoloN,String)
+            End If
+            If (ProtocoloAno Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(ProtocoloAno,String)
+            End If
+            If (ProtocoloSenha Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(ProtocoloSenha,String)
+            End If
+            If (Historico Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Historico,String)
+            End If
+            If (BombeiroSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(BombeiroSituacao,String)
+            End If
+            If (BombeiroProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(BombeiroProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
+            End If
+            If (AmbientalProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(AmbientalProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+            End If
+            If (ViabilidadeProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(ViabilidadeProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
+            End If
+            If (SanitarioProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(SanitarioProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+            End If
+            If (SetranProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(SetranProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_ID_Laudos,Short)
+            If (Original_CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_CNPJ,String)
+            End If
+            If (Original_EndNum Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_EndNum,String)
+            End If
+            If (Original_EndData Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_EndData,String)
+            End If
+            If (Original_EndQuadra Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_EndQuadra,String)
+            End If
+            If (Original_EndZona Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_EndZona,String)
+            End If
+            If (Original_EndCEP Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_EndCEP,String)
+            End If
+            If (Original_Telefone Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Telefone,String)
+            End If
+            If (Original_CPFRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_CPFRequerente,String)
+            End If
+            If (Original_FoneRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_FoneRequerente,String)
+            End If
+            If (Original_CNPJRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_CNPJRequerente,String)
+            End If
+            If (Original_RGRequerente Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_RGRequerente,String)
+            End If
+            If (Original_area Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_area,String)
+            End If
+            If (Original_ResptecnicoNumero Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_ResptecnicoNumero,String)
+            End If
+            If (Original_Lembrete Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_Lembrete,String)
+            End If
+            If (Original_EndCidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_EndCidade,String)
+            End If
+            If (Original_EndEstado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_EndEstado,String)
+            End If
+            If (Original_Bombeiros Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_Bombeiros,String)
+            End If
+            If (Original_BombeirosSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_BombeirosSituacao,String)
+            End If
+            If (Original_BombeirosVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_BombeirosVenc,String)
+            End If
+            If (Original_Ambiental Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_Ambiental,String)
+            End If
+            If (Original_AmbientalSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_AmbientalSituacao,String)
+            End If
+            If (Original_AmbientalVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_AmbientalVenc,String)
+            End If
+            If (Original_Viabilidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_Viabilidade,String)
+            End If
+            If (Original_ViabilidadeSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_ViabilidadeSituacao,String)
+            End If
+            If (Original_ViabilidadeVec Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_ViabilidadeVec,String)
+            End If
+            If (Original_Sanitario Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_Sanitario,String)
+            End If
+            If (Original_SanitarioSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_SanitarioSituacao,String)
+            End If
+            If (Original_SanitarioVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_SanitarioVenc,String)
+            End If
+            If (Original_Setran Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_Setran,String)
+            End If
+            If (Original_SetranSituacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_SetranSituacao,String)
+            End If
+            If (Original_SetranVenc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_SetranVenc,String)
+            End If
+            If (Original_BombeiroDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_BombeiroDataProvisorio,String)
+            End If
+            If (Original_AmbientalDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_AmbientalDataProvisorio,String)
+            End If
+            If (Original_ViabilidadeDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_ViabilidadeDataProvisorio,String)
+            End If
+            If (Original_SanitarioDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_SanitarioDataProvisorio,String)
+            End If
+            If (Original_SetranDataProvisorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_SetranDataProvisorio,String)
+            End If
+            If (Original_BombeiroNProcesso Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_BombeiroNProcesso,String)
+            End If
+            If (Original_BombeiroDataPedProcesso Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_BombeiroDataPedProcesso,String)
+            End If
+            If (Original_Nlaudo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_Nlaudo,String)
+            End If
+            If (Original_Situacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_Situacao,String)
+            End If
+            If (Original_DataCriado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_DataCriado,String)
+            End If
+            If (Original_DataEntrada Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_DataEntrada,String)
+            End If
+            If (Original_Pendencia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_Pendencia,String)
+            End If
+            If (Original_ModeloSistema Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_ModeloSistema,String)
+            End If
+            If (Original_AvisarDia Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_AvisarDia,String)
+            End If
+            If (Original_CadImob Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_CadImob,String)
+            End If
+            If (Original_CMC Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_CMC,String)
+            End If
+            If (Original_Sanitariocontrole1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_Sanitariocontrole1,String)
+            End If
+            If (Original_Sanitariocontrole2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(Original_Sanitariocontrole2,String)
+            End If
+            If (Original_Sanitariocontrole3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_Sanitariocontrole3,String)
+            End If
+            If (Original_BombeiroProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_BombeiroProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
+            End If
+            If (Original_AmbientalProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_AmbientalProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ViabilidadeProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(Original_ViabilidadeProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SanitarioProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(Original_SanitarioProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SetranProvisorioDATA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_SetranProvisorioDATA.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(193).Value = CType(ID_Laudos,Short)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal Endereco As String,  _
+                    ByVal EndNum As String,  _
+                    ByVal EndComp As String,  _
+                    ByVal EndData As String,  _
+                    ByVal EndQuadra As String,  _
+                    ByVal EndZona As String,  _
+                    ByVal EndCEP As String,  _
+                    ByVal Telefone As String,  _
+                    ByVal CNAE As String,  _
+                    ByVal NaturezaDoPedido As String,  _
+                    ByVal NaturezaDoPedidoOBS As String,  _
+                    ByVal Requerente As String,  _
+                    ByVal CPFRequerente As String,  _
+                    ByVal EndRequerente As String,  _
+                    ByVal FoneRequerente As String,  _
+                    ByVal EmailRequerente As String,  _
+                    ByVal CNPJRequerente As String,  _
+                    ByVal RGRequerente As String,  _
+                    ByVal Ramodeatividade As String,  _
+                    ByVal Obs As String,  _
+                    ByVal area As String,  _
+                    ByVal Resptecnico As String,  _
+                    ByVal ResptecnicoNumero As String,  _
+                    ByVal Lembrete As String,  _
+                    ByVal EndBairro As String,  _
+                    ByVal EndCidade As String,  _
+                    ByVal EndEstado As String,  _
+                    ByVal Bombeiros As String,  _
+                    ByVal BombeirosSituacao As String,  _
+                    ByVal BombeirosVenc As String,  _
+                    ByVal Ambiental As String,  _
+                    ByVal AmbientalSituacao As String,  _
+                    ByVal AmbientalVenc As String,  _
+                    ByVal Viabilidade As String,  _
+                    ByVal ViabilidadeSituacao As String,  _
+                    ByVal ViabilidadeVec As String,  _
+                    ByVal Sanitario As String,  _
+                    ByVal SanitarioSituacao As String,  _
+                    ByVal SanitarioVenc As String,  _
+                    ByVal Setran As String,  _
+                    ByVal SetranSituacao As String,  _
+                    ByVal SetranVenc As String,  _
+                    ByVal BombeiroExigencia As String,  _
+                    ByVal AmbientalExigencia As String,  _
+                    ByVal ViabilidadeExigencia As String,  _
+                    ByVal SanitarioExigencia As String,  _
+                    ByVal SetranExigencia As String,  _
+                    ByVal BombeiroDataProvisorio As String,  _
+                    ByVal AmbientalDataProvisorio As String,  _
+                    ByVal ViabilidadeDataProvisorio As String,  _
+                    ByVal SanitarioDataProvisorio As String,  _
+                    ByVal SetranDataProvisorio As String,  _
+                    ByVal BombeiroNProcesso As String,  _
+                    ByVal BombeiroDataPedProcesso As String,  _
+                    ByVal Nlaudo As String,  _
+                    ByVal Situacao As String,  _
+                    ByVal DataCriado As String,  _
+                    ByVal DataEntrada As String,  _
+                    ByVal Pendencia As String,  _
+                    ByVal ModeloSistema As String,  _
+                    ByVal AvisarDia As String,  _
+                    ByVal CadImob As String,  _
+                    ByVal CMC As String,  _
+                    ByVal area2 As String,  _
+                    ByVal PontoRef As String,  _
+                    ByVal Sanitariocontrole1 As String,  _
+                    ByVal Sanitariocontrole2 As String,  _
+                    ByVal Sanitariocontrole3 As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal ProtocoloTipo As String,  _
+                    ByVal ProtocoloN As String,  _
+                    ByVal ProtocoloAno As String,  _
+                    ByVal ProtocoloSenha As String,  _
+                    ByVal Historico As String,  _
+                    ByVal BombeiroSituacao As String,  _
+                    ByVal BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal SetranProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ID_Laudos As Short,  _
+                    ByVal Original_CNPJ As String,  _
+                    ByVal Original_EndNum As String,  _
+                    ByVal Original_EndData As String,  _
+                    ByVal Original_EndQuadra As String,  _
+                    ByVal Original_EndZona As String,  _
+                    ByVal Original_EndCEP As String,  _
+                    ByVal Original_Telefone As String,  _
+                    ByVal Original_CPFRequerente As String,  _
+                    ByVal Original_FoneRequerente As String,  _
+                    ByVal Original_CNPJRequerente As String,  _
+                    ByVal Original_RGRequerente As String,  _
+                    ByVal Original_area As String,  _
+                    ByVal Original_ResptecnicoNumero As String,  _
+                    ByVal Original_Lembrete As String,  _
+                    ByVal Original_EndCidade As String,  _
+                    ByVal Original_EndEstado As String,  _
+                    ByVal Original_Bombeiros As String,  _
+                    ByVal Original_BombeirosSituacao As String,  _
+                    ByVal Original_BombeirosVenc As String,  _
+                    ByVal Original_Ambiental As String,  _
+                    ByVal Original_AmbientalSituacao As String,  _
+                    ByVal Original_AmbientalVenc As String,  _
+                    ByVal Original_Viabilidade As String,  _
+                    ByVal Original_ViabilidadeSituacao As String,  _
+                    ByVal Original_ViabilidadeVec As String,  _
+                    ByVal Original_Sanitario As String,  _
+                    ByVal Original_SanitarioSituacao As String,  _
+                    ByVal Original_SanitarioVenc As String,  _
+                    ByVal Original_Setran As String,  _
+                    ByVal Original_SetranSituacao As String,  _
+                    ByVal Original_SetranVenc As String,  _
+                    ByVal Original_BombeiroDataProvisorio As String,  _
+                    ByVal Original_AmbientalDataProvisorio As String,  _
+                    ByVal Original_ViabilidadeDataProvisorio As String,  _
+                    ByVal Original_SanitarioDataProvisorio As String,  _
+                    ByVal Original_SetranDataProvisorio As String,  _
+                    ByVal Original_BombeiroNProcesso As String,  _
+                    ByVal Original_BombeiroDataPedProcesso As String,  _
+                    ByVal Original_Nlaudo As String,  _
+                    ByVal Original_Situacao As String,  _
+                    ByVal Original_DataCriado As String,  _
+                    ByVal Original_DataEntrada As String,  _
+                    ByVal Original_Pendencia As String,  _
+                    ByVal Original_ModeloSistema As String,  _
+                    ByVal Original_AvisarDia As String,  _
+                    ByVal Original_CadImob As String,  _
+                    ByVal Original_CMC As String,  _
+                    ByVal Original_Sanitariocontrole1 As String,  _
+                    ByVal Original_Sanitariocontrole2 As String,  _
+                    ByVal Original_Sanitariocontrole3 As String,  _
+                    ByVal Original_BombeiroProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_AmbientalProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ViabilidadeProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SanitarioProvisorioDATA As Global.System.Nullable(Of Date),  _
+                    ByVal Original_SetranProvisorioDATA As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(RazaoSocial, CNPJ, Endereco, EndNum, EndComp, EndData, EndQuadra, EndZona, EndCEP, Telefone, CNAE, NaturezaDoPedido, NaturezaDoPedidoOBS, Requerente, CPFRequerente, EndRequerente, FoneRequerente, EmailRequerente, CNPJRequerente, RGRequerente, Ramodeatividade, Obs, area, Resptecnico, ResptecnicoNumero, Lembrete, EndBairro, EndCidade, EndEstado, Bombeiros, BombeirosSituacao, BombeirosVenc, Ambiental, AmbientalSituacao, AmbientalVenc, Viabilidade, ViabilidadeSituacao, ViabilidadeVec, Sanitario, SanitarioSituacao, SanitarioVenc, Setran, SetranSituacao, SetranVenc, BombeiroExigencia, AmbientalExigencia, ViabilidadeExigencia, SanitarioExigencia, SetranExigencia, BombeiroDataProvisorio, AmbientalDataProvisorio, ViabilidadeDataProvisorio, SanitarioDataProvisorio, SetranDataProvisorio, BombeiroNProcesso, BombeiroDataPedProcesso, Nlaudo, Situacao, DataCriado, DataEntrada, Pendencia, ModeloSistema, AvisarDia, CadImob, CMC, area2, PontoRef, Sanitariocontrole1, Sanitariocontrole2, Sanitariocontrole3, Observacao, ProtocoloTipo, ProtocoloN, ProtocoloAno, ProtocoloSenha, Historico, BombeiroSituacao, BombeiroProvisorioDATA, AmbientalProvisorioDATA, ViabilidadeProvisorioDATA, SanitarioProvisorioDATA, SetranProvisorioDATA, Original_ID_Laudos, Original_CNPJ, Original_EndNum, Original_EndData, Original_EndQuadra, Original_EndZona, Original_EndCEP, Original_Telefone, Original_CPFRequerente, Original_FoneRequerente, Original_CNPJRequerente, Original_RGRequerente, Original_area, Original_ResptecnicoNumero, Original_Lembrete, Original_EndCidade, Original_EndEstado, Original_Bombeiros, Original_BombeirosSituacao, Original_BombeirosVenc, Original_Ambiental, Original_AmbientalSituacao, Original_AmbientalVenc, Original_Viabilidade, Original_ViabilidadeSituacao, Original_ViabilidadeVec, Original_Sanitario, Original_SanitarioSituacao, Original_SanitarioVenc, Original_Setran, Original_SetranSituacao, Original_SetranVenc, Original_BombeiroDataProvisorio, Original_AmbientalDataProvisorio, Original_ViabilidadeDataProvisorio, Original_SanitarioDataProvisorio, Original_SetranDataProvisorio, Original_BombeiroNProcesso, Original_BombeiroDataPedProcesso, Original_Nlaudo, Original_Situacao, Original_DataCriado, Original_DataEntrada, Original_Pendencia, Original_ModeloSistema, Original_AvisarDia, Original_CadImob, Original_CMC, Original_Sanitariocontrole1, Original_Sanitariocontrole2, Original_Sanitariocontrole3, Original_BombeiroProvisorioDATA, Original_AmbientalProvisorioDATA, Original_ViabilidadeProvisorioDATA, Original_SanitarioProvisorioDATA, Original_SetranProvisorioDATA, Original_ID_Laudos)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -28252,8 +28654,6 @@ Namespace PrinceDBDataSetTableAdapters
         Private _naturezajuridicaTableAdapter As NaturezajuridicaTableAdapter
         
         Private _contadorTableAdapter As ContadorTableAdapter
-        
-        Private _laudosTableAdapter As LaudosTableAdapter
         
         Private _loginTableAdapter As LoginTableAdapter
         
@@ -28274,6 +28674,8 @@ Namespace PrinceDBDataSetTableAdapters
         Private _eMailCaixaDeSaidaTableAdapter As eMailCaixaDeSaidaTableAdapter
         
         Private _anotacoesTableAdapter As AnotacoesTableAdapter
+        
+        Private _laudosTableAdapter As LaudosTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -28329,20 +28731,6 @@ Namespace PrinceDBDataSetTableAdapters
             End Get
             Set
                 Me._contadorTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property LaudosTableAdapter() As LaudosTableAdapter
-            Get
-                Return Me._laudosTableAdapter
-            End Get
-            Set
-                Me._laudosTableAdapter = value
             End Set
         End Property
         
@@ -28487,6 +28875,20 @@ Namespace PrinceDBDataSetTableAdapters
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property LaudosTableAdapter() As LaudosTableAdapter
+            Get
+                Return Me._laudosTableAdapter
+            End Get
+            Set
+                Me._laudosTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -28516,10 +28918,6 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (Me._contadorTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._contadorTableAdapter.Connection) Is Nothing)) Then
                     Return Me._contadorTableAdapter.Connection
-                End If
-                If ((Not (Me._laudosTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._laudosTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._laudosTableAdapter.Connection
                 End If
                 If ((Not (Me._loginTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._loginTableAdapter.Connection) Is Nothing)) Then
@@ -28561,6 +28959,10 @@ Namespace PrinceDBDataSetTableAdapters
                             AndAlso (Not (Me._anotacoesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._anotacoesTableAdapter.Connection
                 End If
+                If ((Not (Me._laudosTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._laudosTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._laudosTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -28581,9 +28983,6 @@ Namespace PrinceDBDataSetTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._contadorTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._laudosTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._loginTableAdapter) Is Nothing) Then
@@ -28614,6 +29013,9 @@ Namespace PrinceDBDataSetTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._anotacoesTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._laudosTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -28669,15 +29071,6 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._contadorTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._laudosTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._laudosTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -28753,6 +29146,15 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._laudosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._laudosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -28800,14 +29202,6 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._contadorTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._laudosTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._laudosTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -28875,6 +29269,14 @@ Namespace PrinceDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._laudosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._laudosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -28885,6 +29287,14 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As PrinceDBDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._laudosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._laudosTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._anotacoesTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Anotacoes.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -28946,14 +29356,6 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._telefonesTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._laudosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Laudos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._laudosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -29053,11 +29455,6 @@ Namespace PrinceDBDataSetTableAdapters
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
-            If ((Not (Me._laudosTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._laudosTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
-                        "cadeia de conexão.")
-            End If
             If ((Not (Me._loginTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._loginTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
@@ -29105,6 +29502,11 @@ Namespace PrinceDBDataSetTableAdapters
             End If
             If ((Not (Me._anotacoesTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._anotacoesTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
+                        "cadeia de conexão.")
+            End If
+            If ((Not (Me._laudosTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._laudosTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
@@ -29165,15 +29567,6 @@ Namespace PrinceDBDataSetTableAdapters
                     If Me._contadorTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._contadorTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._contadorTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._laudosTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._laudosTableAdapter, Me._laudosTableAdapter.Connection)
-                    Me._laudosTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._laudosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._laudosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._laudosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._laudosTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._loginTableAdapter) Is Nothing) Then
@@ -29266,6 +29659,15 @@ Namespace PrinceDBDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._anotacoesTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._laudosTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._laudosTableAdapter, Me._laudosTableAdapter.Connection)
+                    Me._laudosTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._laudosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._laudosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._laudosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._laudosTableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -29338,10 +29740,6 @@ Namespace PrinceDBDataSetTableAdapters
                     Me._contadorTableAdapter.Connection = CType(revertConnections(Me._contadorTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._contadorTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._laudosTableAdapter) Is Nothing) Then
-                    Me._laudosTableAdapter.Connection = CType(revertConnections(Me._laudosTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._laudosTableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._loginTableAdapter) Is Nothing) Then
                     Me._loginTableAdapter.Connection = CType(revertConnections(Me._loginTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._loginTableAdapter.Transaction = Nothing
@@ -29381,6 +29779,10 @@ Namespace PrinceDBDataSetTableAdapters
                 If (Not (Me._anotacoesTableAdapter) Is Nothing) Then
                     Me._anotacoesTableAdapter.Connection = CType(revertConnections(Me._anotacoesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._anotacoesTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._laudosTableAdapter) Is Nothing) Then
+                    Me._laudosTableAdapter.Connection = CType(revertConnections(Me._laudosTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._laudosTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

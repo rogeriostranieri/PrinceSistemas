@@ -826,4 +826,6 @@ Public Class MDIPrincipal
 
         End If
     End Sub
+
+
 End Class

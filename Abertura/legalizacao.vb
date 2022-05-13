@@ -125,20 +125,23 @@ Public Class Legalizacao
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADstatus'. Você pode movê-la ou removê-la conforme necessário.
-        Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
-        'carregar statuscombobox com bando de dados CADstatus
-        StatusComboBox.DataSource = Me.CADstatusBindingSource
-        StatusComboBox.DisplayMember = "Descricao"
-        StatusComboBox.ValueMember = "Descricao"
-
-
-        '//// calendario 
-        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
-        Calendar1.Visible = False
-        Calendar1.Location = New Point(65, 59)
-        '////// fim calencario
         Try
+            'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADstatus'. Você pode movê-la ou removê-la conforme necessário.
+            Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
+            'carregar statuscombobox com bando de dados CADstatus
+            StatusComboBox.DataSource = Me.CADstatusBindingSource
+            StatusComboBox.DisplayMember = "Descricao"
+            StatusComboBox.ValueMember = "Descricao"
+
+
+            '//// calendario 
+            'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
+            Calendar1.Visible = False
+            Calendar1.Location = New Point(65, 59)
+            'Calendar1 trazer para frente
+            Calendar1.BringToFront()
+            '////// fim calencario
+
 
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
@@ -156,12 +159,8 @@ Public Class Legalizacao
             'Ficar focado no campo busca
             Me.ComboBoxBuscaEmpresa.Focus()
 
-
-
-        Finally
-
-            'nao faz nada
-
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um Erro ao carregar o formulário" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
 

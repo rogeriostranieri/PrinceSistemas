@@ -5,10 +5,7 @@
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
         Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
-
-        EmpresasBindingSource.Filter = "Status = 'Junta Comercial - Protocolado' OR Status = 'Receita Federal - DBE' OR Status = 'Receita Estadual - Protocolado' OR Status = 'Simples Nacional - Protocolado' OR Status = 'Receita Federal - e-Processo' OR Status = 'Pêndencia Sistema Externo' "
-
-
+        Filtro()
     End Sub
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -36,4 +33,14 @@
         Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
         Me.Refresh()
     End Sub
+
+
+    Private Sub Filtro()
+        Dim filtro As String = "protocolado"
+        ''filtrar Status da EmpresasBindingSource que contenha "protocolado"
+        Me.EmpresasBindingSource.Filter = "Status like '%" & filtro & "%'"
+    End Sub
+
+
+    ' EmpresasBindingSource.Filter = "Status = 'Junta Comercial - Protocolado' OR Status = 'Receita Federal - DBE' OR Status = 'Receita Estadual - Protocolado' OR Status = 'Simples Nacional - Protocolado' OR Status = 'Receita Federal - e-Processo' OR Status = 'Pêndencia Sistema Externo' "
 End Class

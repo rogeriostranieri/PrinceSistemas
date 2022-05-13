@@ -21,18 +21,21 @@
             'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
 
             Calendar1.Visible = False
-            Calendar1.Location = New Point(87, 163)
+            '87; 164
+            Calendar1.Location = New Point(87, 164)
+            'Calendar1 trazer para frente
+            Calendar1.BringToFront()
             '////// fim calencario
-
-
-            ' My.Application.DoEvents()
-            'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
-            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-        Finally
-
-
-
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
         End Try
+
+
+
+        ' My.Application.DoEvents()
+        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
+        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
 
         BtnEditar.Text = "Editar"
         GroupBox9.Enabled = False
@@ -545,45 +548,50 @@
 
     End Sub
 
-    Private Sub BombeiroDataProvisorioMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles BombeiroDataProvisorioMaskedTextBox.TextChanged
+    Private Sub BombeiroProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles BombeiroProvisorioDATAMaskedTextBox1.Validated
         Try
-            BombeiroDataProvisorioMaskedTextBox1.Text = BombeiroDataProvisorioMaskedTextBox.Text
+            'AmbientalDataProvisorioMaskedTextBox1.Text = AmbientalDataProvisorioMaskedTextBox.Text
+            BombeiroProvisorioDATAMaskedTextBox.Text = BombeiroProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub AmbientalDataProvisorioMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles AmbientalDataProvisorioMaskedTextBox.TextChanged
+    Private Sub AmbientalProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles AmbientalProvisorioDATAMaskedTextBox1.Validated
         Try
-            AmbientalDataProvisorioMaskedTextBox1.Text = AmbientalDataProvisorioMaskedTextBox.Text
+            'AmbientalDataProvisorioMaskedTextBox1.Text = AmbientalDataProvisorioMaskedTextBox.Text
+            AmbientalProvisorioDATAMaskedTextBox.Text = AmbientalProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub ViabilidadeDataProvisorioMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles ViabilidadeDataProvisorioMaskedTextBox.TextChanged
+    Private Sub ViabilidadeProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles ViabilidadeProvisorioDATAMaskedTextBox1.Validated
         Try
-            ViabilidadeDataProvisorioMaskedTextBox1.Text = ViabilidadeDataProvisorioMaskedTextBox.Text
+            'ViabilidadeDataProvisorioMaskedTextBox1.Text = ViabilidadeDataProvisorioMaskedTextBox.Text
+            ViabilidadeProvisorioDATAMaskedTextBox.Text = ViabilidadeProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub SanitarioDataProvisorioMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles SanitarioDataProvisorioMaskedTextBox.TextChanged
+    Private Sub SanitarioProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles SanitarioProvisorioDATAMaskedTextBox1.Validated
         Try
-            SanitarioDataProvisorioMaskedTextBox1.Text = SanitarioDataProvisorioMaskedTextBox.Text
+            'SanitarioDataProvisorioMaskedTextBox1.Text = SanitarioDataProvisorioMaskedTextBox.Text
+            SanitarioProvisorioDATAMaskedTextBox.Text = SanitarioProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub SetranDataProvisorioMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles SetranDataProvisorioMaskedTextBox.TextChanged
+    Private Sub SetranProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles SetranProvisorioDATAMaskedTextBox1.Validated
         Try
-            SetranDataProvisorioMaskedTextBox1.Text = SetranDataProvisorioMaskedTextBox.Text
+            'SetranDataProvisorioMaskedTextBox1.Text = SetranDataProvisorioMaskedTextBox.Text
+            SetranProvisorioDATAMaskedTextBox.Text = SetranProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
 
@@ -756,7 +764,7 @@
         End If
     End Sub
 
-    Private Sub SituacaoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SituacaoComboBox.SelectedIndexChanged, SituacaoComboBox.TextChanged
+    Private Sub SituacaoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SituacaoComboBox.TextChanged, SituacaoComboBox.SelectedIndexChanged
 
 
         SituacaoCombo()
@@ -1100,4 +1108,6 @@
     Private Sub ModeloSistemaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ModeloSistemaComboBox.KeyPress
         e.Handled = True 'nao permitir escrita
     End Sub
+
+
 End Class
