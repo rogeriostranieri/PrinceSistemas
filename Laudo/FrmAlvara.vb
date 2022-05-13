@@ -229,6 +229,9 @@
         End Select
     End Sub
     Private Sub Salvar()
+        'arrumar o CNPJ ou CPF
+        CNPJouCPF()
+
 
         Dim changedRecords As System.Data.DataTable
         ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
@@ -606,19 +609,10 @@
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-
-        ' Dim CNPJ As String = CNPJMaskedTextBox.Text
-
-        ' Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-
-        ' If MsgBox("Abrir site externo?", MsgBoxStyle.YesNo, "Consulta CNPJ") = MsgBoxResult.Yes Then
-
-        '   System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/cnpjreva/Cnpjreva_Solicitacao2.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        'Else
-        '  ConsultaCNPJ.Show()
-        '  ConsultaCNPJ.WebBrowser1.Navigate("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/cnpjreva/Cnpjreva_Solicitacao3.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        ' End If
-        BoxConsultaCNPJLaudo.Show()
+        'verificar CNPJLabel contem a palavra "CNPJ"
+        If CNPJLabel.Text = "CNPJ:" Then
+            BoxConsultaCNPJLaudo.Show()
+        End If
 
     End Sub
 
@@ -1107,6 +1101,70 @@
 
     Private Sub ModeloSistemaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ModeloSistemaComboBox.KeyPress
         e.Handled = True 'nao permitir escrita
+    End Sub
+
+
+    Private Sub LimparCNPJ()
+        CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "").Replace(Environment.NewLine, "")
+        '        permitir apenas numeros
+        CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Replace("a", "").Replace("b", "").Replace("c", "").Replace("d", "").Replace("e", "").Replace("f", "").Replace("g", "").Replace("h", "").Replace("i", "").Replace("j", "").Replace("k", "").Replace("l", "").Replace("m", "").Replace("n", "").Replace("o", "").Replace("p", "").Replace("q", "").Replace("r", "").Replace("s", "").Replace("t", "").Replace("u", "").Replace("v", "").Replace("w", "").Replace("x", "").Replace("y", "").Replace("z", "")
+
+    End Sub
+
+    Private Sub CNPJouCPF()
+        LimparCNPJ()
+
+        If CNPJMaskedTextBox.Text.Length = 14 Then
+            LimparCNPJ()
+            'CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Insert(2, "/").Insert(6, "/").Insert(10, "-")
+            CNPJMaskedTextBox.Mask = "00,000,000/0000-00"
+            CNPJLabel.Text = "CNPJ:"
+            'label localização  55; 63
+            CNPJLabel.Location = New Point(46, 63)
+        ElseIf CNPJMaskedTextBox.Text.Length = 11 Then
+            LimparCNPJ()
+            'CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Insert(3, "-").Insert(7, "-")
+            CNPJMaskedTextBox.Mask = "000,000,000-00"
+            CNPJLabel.Text = "CPF:"
+            'label localizacao 48; 63
+            CNPJLabel.Location = New Point(48, 63)
+        Else
+            LimparCNPJ()
+            CNPJMaskedTextBox.Mask = ""
+            CNPJLabel.Text = "Outro Doc:"
+            'label localizacao 26; 63
+            CNPJLabel.Location = New Point(26, 63)
+        End If
+    End Sub
+    Private Sub CNPJMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles CNPJMaskedTextBox.Leave
+        'verifica se os numeros e muda cnpj ou cpf, e não contar caracteres
+        CNPJouCPF()
+
+    End Sub
+
+    Private Sub CNPJMaskedTextBox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles CNPJMaskedTextBox.MaskInputRejected
+        CNPJouCPF()
+    End Sub
+    'CNPJMaskedTextBox ao  apertar delete
+    Private Sub CNPJMaskedTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles CNPJMaskedTextBox.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            'LimparCNPJ()
+            CNPJMaskedTextBox.Text = ""
+            CNPJLabel.Text = "CNPJ:"
+            CNPJLabel.Location = New Point(46, 63)
+        End If
+
+        If e.KeyCode = Keys.Back Then
+            CNPJMaskedTextBox.Text = ""
+            CNPJLabel.Text = "CNPJ:"
+            CNPJLabel.Location = New Point(46, 63)
+        End If
+
+        'ao colar
+        If e.KeyCode = Keys.V And e.Control Then
+            CNPJMaskedTextBox.Text = ""
+            CNPJouCPF()
+        End If
     End Sub
 
 

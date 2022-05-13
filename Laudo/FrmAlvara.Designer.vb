@@ -24,7 +24,6 @@ Partial Class FrmAlvara
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim RazaoSocialLabel As System.Windows.Forms.Label
-        Dim CNPJLabel As System.Windows.Forms.Label
         Dim BombeirosSituacaoLabel As System.Windows.Forms.Label
         Dim BombeiroDataProvisorioLabel As System.Windows.Forms.Label
         Dim BombeiroNProcessoLabel As System.Windows.Forms.Label
@@ -266,8 +265,8 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
+        Me.CNPJLabel = New System.Windows.Forms.Label()
         RazaoSocialLabel = New System.Windows.Forms.Label()
-        CNPJLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroDataProvisorioLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -368,16 +367,6 @@ Partial Class FrmAlvara
         RazaoSocialLabel.Size = New System.Drawing.Size(73, 13)
         RazaoSocialLabel.TabIndex = 1
         RazaoSocialLabel.Text = "Razão Social:"
-        '
-        'CNPJLabel
-        '
-        CNPJLabel.AutoSize = True
-        CNPJLabel.BackColor = System.Drawing.Color.Transparent
-        CNPJLabel.Location = New System.Drawing.Point(48, 63)
-        CNPJLabel.Name = "CNPJLabel"
-        CNPJLabel.Size = New System.Drawing.Size(37, 13)
-        CNPJLabel.TabIndex = 3
-        CNPJLabel.Text = "CNPJ:"
         '
         'BombeirosSituacaoLabel
         '
@@ -986,7 +975,6 @@ Partial Class FrmAlvara
         '
         Me.CNPJMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNPJ", True))
         Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(85, 60)
-        Me.CNPJMaskedTextBox.Mask = "99,999,999/9999-99"
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
         Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(111, 20)
         Me.CNPJMaskedTextBox.TabIndex = 4
@@ -2835,6 +2823,7 @@ Partial Class FrmAlvara
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.CNPJLabel)
         Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
         Me.GroupBox9.Controls.Add(EndEstadoLabel1)
         Me.GroupBox9.Controls.Add(Me.EndEstadoLabel2)
@@ -2851,7 +2840,6 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.Button15)
         Me.GroupBox9.Controls.Add(Me.Button12)
         Me.GroupBox9.Controls.Add(SituacaoLabel)
-        Me.GroupBox9.Controls.Add(CNPJLabel)
         Me.GroupBox9.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox9.Controls.Add(RazaoSocialLabel)
         Me.GroupBox9.Controls.Add(Me.RazaoSocialTextBox)
@@ -2904,6 +2892,15 @@ Partial Class FrmAlvara
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
+        '
+        'CNPJLabel
+        '
+        Me.CNPJLabel.AutoSize = True
+        Me.CNPJLabel.Location = New System.Drawing.Point(46, 63)
+        Me.CNPJLabel.Name = "CNPJLabel"
+        Me.CNPJLabel.Size = New System.Drawing.Size(37, 13)
+        Me.CNPJLabel.TabIndex = 79
+        Me.CNPJLabel.Text = "CNPJ:"
         '
         'FrmAlvara
         '
@@ -3182,4 +3179,5 @@ Partial Class FrmAlvara
     Friend WithEvents ViabilidadeProvisorioDATAMaskedTextBox1 As MaskedTextBox
     Friend WithEvents SanitarioProvisorioDATAMaskedTextBox1 As MaskedTextBox
     Friend WithEvents SetranProvisorioDATAMaskedTextBox1 As MaskedTextBox
+    Friend WithEvents CNPJLabel As Label
 End Class
