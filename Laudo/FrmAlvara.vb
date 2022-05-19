@@ -1,4 +1,5 @@
-﻿Public Class FrmAlvara
+﻿Imports System.Data.SqlClient
+Public Class FrmAlvara
 
 
 
@@ -9,6 +10,18 @@
 
 
     Private Sub LaudosConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        '//// calendario 
+        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
+
+        Calendar1.Visible = False
+            '87; 164
+            Calendar1.Location = New Point(87, 164)
+            'Calendar1 trazer para frente
+            Calendar1.BringToFront()
+        '////// fim calencario
+
+
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADSituacaoAlvara'. Você pode movê-la ou removê-la conforme necessário.
         Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
         'carregar statuscombobox com bando de dados CADstatus
@@ -16,19 +29,6 @@
         SituacaoComboBox.DisplayMember = "Descricao"
         SituacaoComboBox.ValueMember = "Descricao"
 
-        Try
-            '//// calendario 
-            'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
-
-            Calendar1.Visible = False
-            '87; 164
-            Calendar1.Location = New Point(87, 164)
-            'Calendar1 trazer para frente
-            Calendar1.BringToFront()
-            '////// fim calencario
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
 
 
 
@@ -45,6 +45,94 @@
         'Dim n As New ComboBox
 
         ' ModCombobox.ComboboxAlvara()
+
+        '
+
+        '///////////////////////INICIO DATA PROVISORIO ////////////////////////////////////////
+        'Padrão
+        'Location 22; 149
+        'Size 115; 13
+
+        'Location 137; 146
+        'Size 66; 20
+
+        'Location 205; 144
+        'Size 28; 23
+        '///////////////BOMBEIRO/////////////////
+        'BombeiroDataProvisorioLabel Location
+        BombeiroDataProvisorioLabel.Location = New Point(22, 149)
+        'BombeiroDataProvisorioLabel tamanho
+        BombeiroDataProvisorioLabel.Size = New Size(115, 13)
+        'BombeiroProvisorioDATAMaskedTextBox1 Location
+        BombeiroProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        'BombeiroProvisorioDATAMaskedTextBox1 tamanho
+        BombeiroProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        'ButtonApagaDataBombeiro Label Location
+        ButtonApagaDataBombeiro.Location = New Point(205, 144)
+        'ButtonApagaDataBombeiro Label tamanho
+        ButtonApagaDataBombeiro.Size = New Size(28, 23)
+
+        '///////////////Ambiental/////////////////
+        'AmbientalDataProvisorioLabel Location
+        AmbientalDataProvisorioLabel1.Location = New Point(22, 149)
+        'AmbientalDataProvisorioLabel tamanho
+        AmbientalDataProvisorioLabel1.Size = New Size(115, 13)
+        'AmbientalProvisorioDATAMaskedTextBox1 Location
+        AmbientalProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        'AmbientalProvisorioDATAMaskedTextBox1 tamanho
+        AmbientalProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        'ButtonApagaDataAmbiental Label Location
+        ButtonApagaDataAmbiental.Location = New Point(205, 144)
+        'ButtonApagaDataAmbiental Label tamanho
+        ButtonApagaDataAmbiental.Size = New Size(28, 23)
+
+
+        '///////////////Viabilidade/////////////////
+        'ViabilidadeDataProvisorioLabel Location
+        ViabilidadeDataProvisorioLabel.Location = New Point(22, 149)
+        'ViabilidadeDataProvisorioLabel tamanho
+        ViabilidadeDataProvisorioLabel.Size = New Size(115, 13)
+        'ViabilidadeProvisorioDATAMaskedTextBox1 Location
+        ViabilidadeProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        'ViabilidadeProvisorioDATAMaskedTextBox1 tamanho
+        ViabilidadeProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        'ButtonApagaDataViabilidade Label Location
+        ButtonApagaDataViabilidade.Location = New Point(205, 144)
+        'ButtonApagaDataViabilidade Label tamanho
+        ButtonApagaDataViabilidade.Size = New Size(28, 23)
+
+        '///////////////Sanitario/////////////////
+        'SanitarioDataProvisorioLabel Location
+        SanitarioDataProvisorioLabel.Location = New Point(22, 149)
+        'SanitarioDataProvisorioLabel tamanho
+        SanitarioDataProvisorioLabel.Size = New Size(115, 13)
+        'SanitarioProvisorioDATAMaskedTextBox1 Location
+        SanitarioProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        'SanitarioProvisorioDATAMaskedTextBox1 tamanho
+        SanitarioProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        'ButtonApagaDataSanitario Label Location
+        ButtonApagaDataSanitario.Location = New Point(205, 144)
+        'ButtonApagaDataSanitario Label tamanho
+        ButtonApagaDataSanitario.Size = New Size(28, 23)
+
+
+        '///////////////Setran/////////////////
+        'SetranDataProvisorioLabel Location
+        SetranDataProvisorioLabel.Location = New Point(22, 149)
+        'SetranDataProvisorioLabel tamanho
+        SetranDataProvisorioLabel.Size = New Size(115, 13)
+        'SetranProvisorioDATAMaskedTextBox1 Location
+        SetranProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        'SetranProvisorioDATAMaskedTextBox1 tamanho
+        SetranProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        'ButtonApagaDataSetran Label Location
+        ButtonApagaDataSetran.Location = New Point(205, 144)
+        'ButtonApagaDataSetran Label tamanho
+        ButtonApagaDataSetran.Size = New Size(28, 23)
+
+
+        '/////////////////////// FIM ////////////////////////////////////////
+
 
 
     End Sub
@@ -553,11 +641,11 @@
 
     Private Sub BombeiroProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles BombeiroProvisorioDATAMaskedTextBox1.Validated
         Try
-            'AmbientalDataProvisorioMaskedTextBox1.Text = AmbientalDataProvisorioMaskedTextBox.Text
             BombeiroProvisorioDATAMaskedTextBox.Text = BombeiroProvisorioDATAMaskedTextBox1.Text
 
         Catch ex As Exception
-
+            '      'mmenssagme "Ocorreu um erro ao preencher a data"
+            MessageBox.Show("Ocorreu um erro ao preencher a data", "Informa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
@@ -1135,6 +1223,13 @@
             'label localizacao 26; 63
             CNPJLabel.Location = New Point(26, 63)
         End If
+
+        'apagar a máscara de um Textbox ao deletar os caracteres
+        'CNPJMaskedTextBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
+
+
+
+
     End Sub
     Private Sub CNPJMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles CNPJMaskedTextBox.Leave
         'verifica se os numeros e muda cnpj ou cpf, e não contar caracteres
@@ -1168,4 +1263,119 @@
     End Sub
 
 
+    Private Sub ButtonApagaDataBombeiro_Click_1(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
+        'apagar valor do BombeiroDATA do banco de dado Laudos where RazaoSocial
+        'perguntar se deseja apagar
+        If MsgBox("Deseja apagar a data do Bombeiro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+            Try
+                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                Dim comando As New SqlCommand("UPDATE Laudos SET BombeiroProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                'atualizar form
+                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'mgsbox apagar
+                MsgBox("Data do Bombeiro apagada com sucesso!")
+                'LIMPAR AmbientalDATAMaskedTextBox1
+                BombeiroProvisorioDATAMaskedTextBox.Text = ""
+                BombeiroProvisorioDATAMaskedTextBox1.Text = ""
+            Catch ex As Exception
+                MsgBox("Erro!" & vbCrLf & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
+        'apagar valor do AmbientalDATA do banco de dado Laudos where RazaoSocial
+        'perguntar se deseja apagar
+        If MsgBox("Deseja apagar a data do Ambiental?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+            Try
+                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                Dim comando As New SqlCommand("UPDATE Laudos SET AmbientalProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                'atualizar form
+                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'mgsbox apagar
+                MsgBox("Data do Ambiental apagada com sucesso!")
+                'LIMPAR AmbientalDATAMaskedTextBox1
+                AmbientalProvisorioDATAMaskedTextBox.Text = ""
+                AmbientalProvisorioDATAMaskedTextBox1.Text = ""
+            Catch ex As Exception
+                MsgBox("Erro!" & vbCrLf & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
+        'apagar valor do ViabilidadeDATA do banco de dado Laudos where RazaoSocial
+        'perguntar se deseja apagar
+        If MsgBox("Deseja apagar a data de Viabilidade?", MsgBoxStyle.YesNo, "Apagar Data Viabilidade") = MsgBoxResult.Yes Then
+            Try
+                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                Dim comando As New SqlCommand("UPDATE Laudos SET ViabilidadeProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                'atualizar form
+                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'mgsbox apagar
+                MsgBox("Data do Viabilidade apagada com sucesso!")
+                'LIMPAR ViabilidadeDATAMaskedTextBox1
+                ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
+                ViabilidadeProvisorioDATAMaskedTextBox1.Text = ""
+            Catch ex As Exception
+                MsgBox("Erro!" & vbCrLf & ex.Message)
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
+        'apanhar valor do SanitarioDATA do banco de dado Laudos where RazaoSocial
+        'perguntar se quer apagar
+        If MsgBox("Deseja apagar a data de Sanitário?", vbYesNo, "Apagar") = vbYes Then
+            Try
+                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                Dim comando As New SqlCommand("UPDATE Laudos SET SanitarioProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                'atualizar form
+                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'mgsbox apagar
+                MsgBox("Data do Sanitário apagada com sucesso!")
+                'LIMPAR SanitarioDATAMaskedTextBox1
+                SanitarioProvisorioDATAMaskedTextBox.Text = ""
+                SanitarioProvisorioDATAMaskedTextBox1.Text = ""
+            Catch ex As Exception
+                MsgBox("Erro!" & vbCrLf & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
+        'apagar valor do SetranDATA do banco de dado Laudos where RazaoSocial
+        'perguntar antes de apagar
+        If MessageBox.Show("Deseja apagar a data do Setran?", "Apagar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Try
+                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+                Dim comando As New SqlCommand("UPDATE Laudos SET SetranProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
+                conexao.Open()
+                comando.ExecuteNonQuery()
+                conexao.Close()
+                'atualizar form
+                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'mgsbox apagar
+                MsgBox("Data do Setran apagada com sucesso!")
+                'LIMPAR SetranDATAMaskedTextBox1
+                SetranProvisorioDATAMaskedTextBox.Text = ""
+                SetranProvisorioDATAMaskedTextBox1.Text = ""
+            Catch ex As Exception
+                MsgBox("Erro!" & vbCrLf & ex.Message)
+            End Try
+        End If
+    End Sub
 End Class

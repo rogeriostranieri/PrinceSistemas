@@ -2,6 +2,14 @@
 
 
     Private Sub Avisos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        '//// calendario 
+        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
+        Calendar1.Visible = False
+        Calendar1.Location = New Point(258, 107)
+        '////// fim calencario   
+
+
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
         Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
@@ -47,11 +55,7 @@
         'FIM DO CODIGO .........................
 
 
-        '//// calendario 
-        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
-        Calendar1.Visible = False
-        Calendar1.Location = New Point(258, 107)
-        '////// fim calencario        
+
 
 
         Filtro()
@@ -149,11 +153,11 @@
             Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
             '  Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
 
-            ' Me.Avisos_Load(sender, e)
-            ' Me.Show()
+
+            'reload TableAdapter do vbAvisoPrincipal
+            VbAvisoPrincipal.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
 
-            ' Me.Refresh()
         Finally
 
 

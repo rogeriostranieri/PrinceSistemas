@@ -443,6 +443,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property escudo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("escudo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property fechadaempresa() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("fechadaempresa", resourceCulture)
@@ -687,6 +697,16 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("letter_x", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property lixeira() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("lixeira", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

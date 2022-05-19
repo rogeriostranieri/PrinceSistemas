@@ -103,6 +103,7 @@ Partial Class VbAvisoPrincipal
         '
         Me.LaudosDataGridView1.AllowUserToAddRows = False
         Me.LaudosDataGridView1.AllowUserToDeleteRows = False
+        Me.LaudosDataGridView1.AllowUserToOrderColumns = True
         Me.LaudosDataGridView1.AutoGenerateColumns = False
         Me.LaudosDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
@@ -119,7 +120,7 @@ Partial Class VbAvisoPrincipal
         Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 250
+        Me.DataGridViewTextBoxColumn2.Width = 350
         '
         'MonthCalendar2
         '
@@ -161,6 +162,10 @@ Partial Class VbAvisoPrincipal
     Friend WithEvents Button2 As Button
     Friend WithEvents MaskedTextBox2 As MaskedTextBox
     Friend WithEvents LaudosDataGridView1 As DataGridView
-    Friend Shadows WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents MonthCalendar2 As MonthCalendar
+#Disable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+#Enable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
+
+
 End Class

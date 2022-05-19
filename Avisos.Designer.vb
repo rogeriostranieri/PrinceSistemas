@@ -29,9 +29,6 @@ Partial Class Avisos
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmpresasTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EmpresasTableAdapter()
         Me.EmpresasDataGridView = New System.Windows.Forms.DataGridView()
@@ -49,6 +46,9 @@ Partial Class Avisos
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,30 +107,6 @@ Partial Class Avisos
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.LaudosDataGridView.TabIndex = 3
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 230
-        '
-        'DataGridViewTextBoxColumn59
-        '
-        Me.DataGridViewTextBoxColumn59.DataPropertyName = "Situacao"
-        Me.DataGridViewTextBoxColumn59.HeaderText = "Situação"
-        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
-        Me.DataGridViewTextBoxColumn59.ReadOnly = True
-        Me.DataGridViewTextBoxColumn59.Width = 130
-        '
-        'BombeiroSituacao
-        '
-        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
-        Me.BombeiroSituacao.HeaderText = "Bombeiro"
-        Me.BombeiroSituacao.Name = "BombeiroSituacao"
-        Me.BombeiroSituacao.ReadOnly = True
-        Me.BombeiroSituacao.Width = 130
         '
         'EmpresasBindingSource
         '
@@ -288,6 +264,30 @@ Partial Class Avisos
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 18
         '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 230
+        '
+        'DataGridViewTextBoxColumn59
+        '
+        Me.DataGridViewTextBoxColumn59.DataPropertyName = "Situacao"
+        Me.DataGridViewTextBoxColumn59.HeaderText = "Situação Prefeitura"
+        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
+        Me.DataGridViewTextBoxColumn59.ReadOnly = True
+        Me.DataGridViewTextBoxColumn59.Width = 130
+        '
+        'BombeiroSituacao
+        '
+        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
+        Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
+        Me.BombeiroSituacao.Name = "BombeiroSituacao"
+        Me.BombeiroSituacao.ReadOnly = True
+        Me.BombeiroSituacao.Width = 130
+        '
         'Avisos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -348,8 +348,8 @@ Partial Class Avisos
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Calendar1 As MonthCalendar
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
     Friend WithEvents BombeiroSituacao As DataGridViewTextBoxColumn
-    Friend WithEvents Calendar1 As MonthCalendar
 End Class
