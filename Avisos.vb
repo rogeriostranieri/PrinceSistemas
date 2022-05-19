@@ -7,28 +7,12 @@
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
         LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-        'FILTRO  EMPRESA
-        Dim FilterA As String = MaskedTextBox1.Text
-        EmpresasBindingSource.Filter = "AvisarDia like '" & FilterA & "%'"
 
-        'FILTRO LAUDO
-        Dim FilterB As String = MaskedTextBox1.Text
-        LaudosBindingSource.Filter = "AvisarDia like '" & FilterB & "%'"
 
         'Data de Hoje convertendo   
         MaskedTextBox1.Text = Now.ToString("dd/MM/yyyy")
 
         '--------------------------------------
-
-        ' Dim TestDateTime As Date = Label2.Text
-        '  Dim TestStr As String
-        '  TestStr = Format(TestDateTime, "dd/MM/yyyy")
-
-        ' MaskedTextBox1.Text = Now
-        'AvisarDia
-
-
-        Me.Button1.PerformClick()
 
 
         'Mensagem de texto ao passar o mouse em cima....................
@@ -69,13 +53,14 @@
         Calendar1.Location = New Point(258, 107)
         '////// fim calencario        
 
-        Me.Refresh()
 
+        Filtro()
 
         'nao permitir maximizar
         MaximizeBox = False
         MinimizeBox = False
         'sem borda 
+
         FormBorderStyle = FormBorderStyle.FixedSingle
 
 
@@ -215,11 +200,7 @@
     '///// TEM MAIS NO LOAD 
     Private Sub MaskedTextBox1_Click(sender As Object, e As EventArgs) Handles MaskedTextBox1.Click
         Calendar1.Visible = True
-
-        'AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart.ToShortDateString()
-        'Calendar1.Visible = False
     End Sub
-
 
 
     Private Sub MaskedTextBox1_Leave(sender As Object, e As EventArgs) Handles MaskedTextBox1.Leave
@@ -243,7 +224,6 @@
         Filtro()
 
     End Sub
-
 
     '/////////// fim do codigo de mostrar calendario        
 End Class

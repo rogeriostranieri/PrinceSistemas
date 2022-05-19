@@ -29,6 +29,7 @@ Partial Class VbAvisoPrincipal
         Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
         Me.LaudosDataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,10 +121,17 @@ Partial Class VbAvisoPrincipal
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Width = 250
         '
+        'MonthCalendar2
+        '
+        Me.MonthCalendar2.Location = New System.Drawing.Point(188, 424)
+        Me.MonthCalendar2.Name = "MonthCalendar2"
+        Me.MonthCalendar2.TabIndex = 21
+        '
         'VbAvisoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(555, 594)
+        Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.LaudosDataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.MaskedTextBox2)
@@ -136,6 +144,7 @@ Partial Class VbAvisoPrincipal
         Me.Controls.SetChildIndex(Me.MaskedTextBox2, 0)
         Me.Controls.SetChildIndex(Me.Button2, 0)
         Me.Controls.SetChildIndex(Me.LaudosDataGridView1, 0)
+        Me.Controls.SetChildIndex(Me.MonthCalendar2, 0)
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -153,4 +162,5 @@ Partial Class VbAvisoPrincipal
     Friend WithEvents MaskedTextBox2 As MaskedTextBox
     Friend WithEvents LaudosDataGridView1 As DataGridView
     Friend Shadows WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents MonthCalendar2 As MonthCalendar
 End Class

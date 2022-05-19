@@ -31,7 +31,7 @@
     Private Sub FrmAdmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = "Escolha o Menu lateral"
         'muda picturebox para recursos System.Drawing.Bitmap
-        PictureBox1.Image = My.Resources.Pessoais
+        'PictureBox1.Image = My.Resources.Pessoais
         'mudar icone do formulario
         Me.Icon = My.Resources.Tribal_Phoenix__6
 

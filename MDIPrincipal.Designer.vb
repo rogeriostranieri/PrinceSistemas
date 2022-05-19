@@ -81,7 +81,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -197,7 +197,7 @@ Partial Class MDIPrincipal
         Me.OrToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.OrToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.OrToolStripMenuItem.Name = "OrToolStripMenuItem"
-        Me.OrToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.OrToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OrToolStripMenuItem.Text = "Órgão público"
         '
         'ContatosToolStripMenuItem
@@ -206,7 +206,7 @@ Partial Class MDIPrincipal
         Me.ContatosToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ContatosToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.ContatosToolStripMenuItem.Name = "ContatosToolStripMenuItem"
-        Me.ContatosToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ContatosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ContatosToolStripMenuItem.Text = "Contatos"
         '
         'RelatóriosToolStripMenuItem
@@ -253,7 +253,7 @@ Partial Class MDIPrincipal
         '
         'ConsultaToolStripMenuItem
         '
-        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProtocoladosToolStripMenuItem, Me.ToolStripSeparator6, Me.AlvarásProtocoladosToolStripMenuItem, Me.VencimentoAlvaráToolStripMenuItem, Me.ControleLigaçãoLaudosToolStripMenuItem, Me.PrevFogoBombeiroToolStripMenuItem, Me.TESTEToolStripMenuItem})
+        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProtocoladosToolStripMenuItem, Me.ToolStripSeparator6, Me.AlvarásProtocoladosToolStripMenuItem, Me.ToolStripSeparator10, Me.VencimentoAlvaráToolStripMenuItem, Me.PrevFogoBombeiroToolStripMenuItem, Me.ControleLigaçãoLaudosToolStripMenuItem})
         Me.ConsultaToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ConsultaToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
         Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
@@ -500,11 +500,10 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
         '
-        'TESTEToolStripMenuItem
+        'ToolStripSeparator10
         '
-        Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
-        Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
-        Me.TESTEToolStripMenuItem.Text = "TESTE"
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(218, 6)
         '
         'MDIPrincipal
         '
@@ -588,5 +587,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ContadorToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents TESTEToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
 End Class

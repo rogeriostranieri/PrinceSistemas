@@ -6,10 +6,12 @@
 
 
         'LaudosBindingSource.Filter = "BombeiroProvisorioDATA <> '0' OR ViabilidadeProvisorioDATA <> '0' OR AmbientalProvisorioDATA <> '0' OR SanitarioProvisorioDATA <> '0' OR SetranProvisorioDATA <> '0' "
-        MaskedTextBox1.Text = Now.ToString("dd/MM/yyyy")
+        MaskedTextBox2.Text = Now.ToString("dd/MM/yyyy")
 
         'FILTRO LAUDO
-        Dim FilterB As String = MaskedTextBox1.Text
+        'FiltroAlvara()
+        'FILTRO LAUDO
+        Dim FilterB As String = MaskedTextBox2.Text
         LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
 
         Me.Refresh()
@@ -21,15 +23,26 @@
         'sem borda 
         FormBorderStyle = FormBorderStyle.FixedSingle
 
+        '//// calendario 
+        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
+        MonthCalendar2.Visible = False
+        MonthCalendar2.Location = New Point(188, 424)
+        '////// fim calencario    
+
+
 
     End Sub
 
+    Private Sub FiltroAlvara()
+        'FILTRO LAUDO
+        Dim FilterB As String = MaskedTextBox2.Text
+        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
+
+        Me.Refresh()
+    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'FILTRO LAUDO
-        Dim FilterB As String = MaskedTextBox1.Text
-        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
-        Me.Refresh()
+        FiltroAlvara
 
     End Sub
 
@@ -48,6 +61,33 @@
         End If
     End Sub
 
+    '/////////// Inicio do codigo de mostrar calendario
+    '///// TEM MAIS NO LOAD 
 
+    Private Sub MaskedTextBox2_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles MaskedTextBox2.MaskInputRejected
+        MonthCalendar2.Visible = True
+    End Sub
+
+    Private Sub MaskedTextBox2_Leave(sender As Object, e As EventArgs) Handles MaskedTextBox2.Leave
+        MonthCalendar2.Visible = False
+    End Sub
+
+    Private Sub MonthCalendar2_Leave(sender As Object, e As EventArgs) Handles MonthCalendar2.Leave
+        MonthCalendar2.Visible = False
+
+    End Sub
+
+    Private Sub MonthCalendar2_MouseLeave(sender As Object, e As EventArgs) Handles MonthCalendar2.MouseLeave
+        MonthCalendar2.Visible = False
+
+    End Sub
+
+    Private Sub MonthCalendar2_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar2.DateSelected
+        MaskedTextBox2.Text = MonthCalendar2.SelectionStart
+        Calendar1.Visible = False
+        FiltroAlvara()
+    End Sub
+
+    '/////////// fim do codigo de mostrar calendario 
 
 End Class

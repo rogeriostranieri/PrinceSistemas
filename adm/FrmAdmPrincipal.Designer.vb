@@ -129,7 +129,7 @@ Partial Class FrmAdmPrincipal
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Pessoais
+        'Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Pessoais
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(42, 36)
