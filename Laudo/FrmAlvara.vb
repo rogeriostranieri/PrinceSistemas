@@ -140,181 +140,189 @@ Public Class FrmAlvara
 
 
     Private Sub SituacaoCombo()
+        Try
+            Select Case True
+                Case SituacaoComboBox.Text.Contains("Andamento")
 
-        Select Case SituacaoComboBox.Text.Trim()
-            Case "Em Andamento"
-                TabAlvara.SelectTab(1)
-                AvisarDiaMaskedTextBox.Select()
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
+                    TabAlvara.SelectTab(1)
+                    AvisarDiaMaskedTextBox.Select()
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
 
-                Button24.Visible = False
-                Button7.Visible = True
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
 
+                Case SituacaoComboBox.Text.Contains("Pagamento")
+                    TabAlvara.SelectTab(1)
+                    AvisarDiaMaskedTextBox.Select()
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
 
-            Case "Aguardando Pagamento"
-                TabAlvara.SelectTab(1)
-                AvisarDiaMaskedTextBox.Select()
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
 
-                Button24.Visible = False
-                Button7.Visible = True
-
-            Case "Paralisado"
-                TabAlvara.SelectTab(0)
-                AvisarDiaMaskedTextBox.Text = ""
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
-
-
-                Button24.Visible = False
-                Button7.Visible = True
-
-            Case "Baixado"
-                TabAlvara.SelectTab(0)
-                AvisarDiaMaskedTextBox.Text = ""
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
-
-                Button24.Visible = False
-                Button7.Visible = True
-
-            Case "Não Fazer"
-                TabAlvara.SelectTab(0)
-                AvisarDiaMaskedTextBox.Text = ""
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
-
-                Button24.Visible = False
-                Button7.Visible = True
-
-            Case "Cancelado"
-                TabAlvara.SelectTab(0)
-                AvisarDiaMaskedTextBox.Text = ""
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
-
-                Button24.Visible = True
-                Button7.Visible = True
+                Case SituacaoComboBox.Text.Contains("Paralisado")
+                    TabAlvara.SelectTab(0)
+                    AvisarDiaMaskedTextBox.Text = ""
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
 
 
-            Case "Finalizado Definitivo"
-                TabAlvara.SelectTab(0)
-                DataEntradaLabel.Visible = True
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = True
-                ProtocoloTipoTextBox.Visible = True
-                ProtocoloNTextBox.Visible = True
-                ProtocoloAnoTextBox.Visible = True
-                ProtocoloSenhaTextBox.Visible = True
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
 
-                AvisarDiaMaskedTextBox.Text = ""
-                Button24.Visible = False
-                Button7.Visible = True
+                Case SituacaoComboBox.Text.Contains("Baixado")
+                    TabAlvara.SelectTab(0)
+                    AvisarDiaMaskedTextBox.Text = ""
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
+
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Não Fazer")
+                    TabAlvara.SelectTab(0)
+                    AvisarDiaMaskedTextBox.Text = ""
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
+
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Cancelado")
+                    TabAlvara.SelectTab(0)
+                    AvisarDiaMaskedTextBox.Text = ""
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
+
+                    ButtonSolicitar.Visible = True
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Finalizado")
+                    TabAlvara.SelectTab(0)
+                    DataEntradaLabel.Visible = True
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = True
+                    ProtocoloTipoTextBox.Visible = True
+                    ProtocoloNTextBox.Visible = True
+                    ProtocoloAnoTextBox.Visible = True
+                    ProtocoloSenhaTextBox.Visible = True
+
+                    AvisarDiaMaskedTextBox.Text = ""
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+
+                Case SituacaoComboBox.Text.Contains("Provisório")
+                    TabAlvara.SelectTab(0)
+                    DataEntradaLabel.Visible = True
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = True
+                    ProtocoloTipoTextBox.Visible = True
+                    ProtocoloNTextBox.Visible = True
+                    ProtocoloAnoTextBox.Visible = True
+                    ProtocoloSenhaTextBox.Visible = True
+
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Protocolado")
+                    TabAlvara.SelectTab(3)
+                    DataEntradaLabel.Visible = True
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = True
+                    ProtocoloTipoTextBox.Visible = True
+                    ProtocoloNTextBox.Visible = True
+                    ProtocoloAnoTextBox.Visible = True
+                    ProtocoloSenhaTextBox.Visible = True
+
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Pendência")
+                    TabAlvara.SelectTab(1)
+                    AvisarDiaMaskedTextBox.Select()
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
+
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+
+                Case SituacaoComboBox.Text.Contains("Não Iniciado")
+                    TabAlvara.SelectTab(0)
+                    DataEntradaLabel.Visible = False
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = False
+                    ProtocoloTipoTextBox.Visible = False
+                    ProtocoloNTextBox.Visible = False
+                    ProtocoloAnoTextBox.Visible = False
+                    ProtocoloSenhaTextBox.Visible = False
+
+                    AvisarDiaMaskedTextBox.Select()
+                    ButtonSolicitar.Visible = True
+                    ButtonConsultar.Visible = False
 
 
 
 
-            Case "Finalizado Provisório"
-                TabAlvara.SelectTab(0)
-                DataEntradaLabel.Visible = True
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = True
-                ProtocoloTipoTextBox.Visible = True
-                ProtocoloNTextBox.Visible = True
-                ProtocoloAnoTextBox.Visible = True
-                ProtocoloSenhaTextBox.Visible = True
+                Case Else
+                    DataEntradaLabel.Visible = True
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = True
+                    ProtocoloTipoTextBox.Visible = True
+                    ProtocoloNTextBox.Visible = True
+                    ProtocoloAnoTextBox.Visible = True
+                    ProtocoloSenhaTextBox.Visible = True
 
-                Button24.Visible = False
-                Button7.Visible = True
-
-
-            Case "Protocolado"
-                TabAlvara.SelectTab(3)
-                DataEntradaLabel.Visible = True
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = True
-                ProtocoloTipoTextBox.Visible = True
-                ProtocoloNTextBox.Visible = True
-                ProtocoloAnoTextBox.Visible = True
-                ProtocoloSenhaTextBox.Visible = True
-
-                Button24.Visible = False
-                Button7.Visible = True
-
-            Case "Pendência"
-                TabAlvara.SelectTab(1)
-                AvisarDiaMaskedTextBox.Select()
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
-
-                Button24.Visible = False
-                Button7.Visible = True
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
 
 
-            Case "Não Iniciado"
-                TabAlvara.SelectTab(0)
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
+                    ' Case False
 
-                AvisarDiaMaskedTextBox.Select()
-                Button24.Visible = True
-                Button7.Visible = False
+            End Select
 
-            Case Else
-                DataEntradaLabel.Visible = False
-                'protocolo
-                DataEntradaMaskedTextBox.Visible = False
-                ProtocoloTipoTextBox.Visible = False
-                ProtocoloNTextBox.Visible = False
-                ProtocoloAnoTextBox.Visible = False
-                ProtocoloSenhaTextBox.Visible = False
 
-                Button24.Visible = True
-                Button7.Visible = True
+        Catch ex As Exception
+            MessageBox.Show("Erro ao carregar Situação")
+        End Try
 
-        End Select
+
     End Sub
     Private Sub Salvar()
         'arrumar o CNPJ ou CPF
@@ -430,7 +438,7 @@ Public Class FrmAlvara
 
 
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles ButtonConsultar.Click
 
         'Abrir anotações direto
         TabAlvara.SelectTab(1)
@@ -806,7 +814,7 @@ Public Class FrmAlvara
         End If
     End Sub
 
-    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles ButtonSolicitar.Click
         GroupBox4.Text = "Dados Cadastrais"
 
         If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
@@ -981,27 +989,27 @@ Public Class FrmAlvara
         If ModeloSistemaComboBox.Text = "Consulta Prévia" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
-            Button7.Visible = True
+            ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
-            Button7.Visible = True
+            ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Antigo" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
-            Button7.Visible = True
+            ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
-            Button7.Visible = True
+            ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
-            Button7.Visible = False
+            ButtonConsultar.Visible = False
         Else
             NlaudoLabel.Visible = False
             NlaudoTextBox.Visible = False
-            Button7.Visible = False
+            ButtonConsultar.Visible = False
 
         End If
 

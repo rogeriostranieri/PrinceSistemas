@@ -93,6 +93,19 @@
 
 
 
+
     '/////////// fim do codigo de mostrar calendario 
 
+    Private Sub ButtonMais7_Click(sender As Object, e As EventArgs) Handles ButtonMais7.Click
+        'Abrir vencimentoalvaravb dentro do mdiprincipal e verificar se está aberto
+        If Application.OpenForms.OfType(Of VencimentoAlvara)().Count() > 0 Then
+            Dim Sair As String
+            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+            VencimentoAlvara.Focus()
+        Else
+            VencimentoAlvara.MdiParent = MDIPrincipal
+            VencimentoAlvara.Show()
+            VencimentoAlvara.Focus()
+        End If
+    End Sub
 End Class

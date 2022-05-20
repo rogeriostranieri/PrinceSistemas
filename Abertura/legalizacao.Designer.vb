@@ -169,6 +169,8 @@ Partial Class Legalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
+        Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EndDataTextBox = New System.Windows.Forms.TextBox()
         Me.EndQuadraTextBox = New System.Windows.Forms.TextBox()
         Me.EndZonaTextBox = New System.Windows.Forms.TextBox()
@@ -184,7 +186,6 @@ Partial Class Legalizacao
         Me.EndNumeroTextBox = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
-        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.EmpTel1TextBox = New System.Windows.Forms.TextBox()
         Me.EmpEmailTextBox = New System.Windows.Forms.TextBox()
@@ -396,6 +397,7 @@ Partial Class Legalizacao
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
+        Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -494,6 +496,7 @@ Partial Class Legalizacao
         Me.TabPage13.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage14.SuspendLayout()
+        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
         Me.TabPage18.SuspendLayout()
@@ -1898,6 +1901,7 @@ Partial Class Legalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(Me.EnderecoTextBox)
         Me.TabPage14.Controls.Add(EndDataLabel)
         Me.TabPage14.Controls.Add(Me.EndDataTextBox)
         Me.TabPage14.Controls.Add(EndQuadraLabel)
@@ -1925,7 +1929,6 @@ Partial Class Legalizacao
         Me.TabPage14.Controls.Add(Me.EndCidadeTextBox)
         Me.TabPage14.Controls.Add(EnderecoLabel)
         Me.TabPage14.Controls.Add(EndEstadoLabel)
-        Me.TabPage14.Controls.Add(Me.EnderecoTextBox)
         Me.TabPage14.Controls.Add(EndCidadeLabel)
         Me.TabPage14.Controls.Add(CadImobLabel)
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
@@ -1934,6 +1937,19 @@ Partial Class Legalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'EnderecoTextBox
+        '
+        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
+        Me.EnderecoTextBox.Name = "EnderecoTextBox"
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(378, 20)
+        Me.EnderecoTextBox.TabIndex = 34
+        '
+        'LaudosBindingSource
+        '
+        Me.LaudosBindingSource.DataMember = "Laudos"
+        Me.LaudosBindingSource.DataSource = Me.PrinceDBDataSet
         '
         'EndDataTextBox
         '
@@ -2059,14 +2075,6 @@ Partial Class Legalizacao
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
         Me.EndCidadeTextBox.Size = New System.Drawing.Size(170, 20)
         Me.EndCidadeTextBox.TabIndex = 11
-        '
-        'EnderecoTextBox
-        '
-        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
-        Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(378, 20)
-        Me.EnderecoTextBox.TabIndex = 1
         '
         'TabPage15
         '
@@ -3924,7 +3932,7 @@ Partial Class Legalizacao
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(44, 34)
+        Me.Calendar1.Location = New System.Drawing.Point(14, 19)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 70
         '
@@ -4334,6 +4342,10 @@ Partial Class Legalizacao
         '
         Me.CADstatusTableAdapter.ClearBeforeFill = True
         '
+        'LaudosTableAdapter
+        '
+        Me.LaudosTableAdapter.ClearBeforeFill = True
+        '
         'Legalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4380,6 +4392,7 @@ Partial Class Legalizacao
         Me.GroupBox1.PerformLayout()
         Me.TabPage14.ResumeLayout(False)
         Me.TabPage14.PerformLayout()
+        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage15.PerformLayout()
         Me.TabPage16.ResumeLayout(False)
@@ -4479,7 +4492,6 @@ Partial Class Legalizacao
     Friend WithEvents EndComplementoTextBox As TextBox
     Friend WithEvents EndBairroTextBox As TextBox
     Friend WithEvents EndNumeroTextBox As TextBox
-    Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents PaginaWebTextBox As TextBox
     Friend WithEvents EmpEmailTextBox As TextBox
@@ -4733,4 +4745,7 @@ Partial Class Legalizacao
     Friend WithEvents BtnArrumar As Button
     Friend WithEvents BtnImportarAnexo As Button
     Friend WithEvents StatusComboBox As ComboBox
+    Friend WithEvents LaudosBindingSource As BindingSource
+    Friend WithEvents LaudosTableAdapter As PrinceDBDataSetTableAdapters.LaudosTableAdapter
+    Friend WithEvents EnderecoTextBox As TextBox
 End Class

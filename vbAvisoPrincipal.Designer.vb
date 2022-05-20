@@ -30,6 +30,7 @@ Partial Class VbAvisoPrincipal
         Me.LaudosDataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
+        Me.ButtonMais7 = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,14 +125,27 @@ Partial Class VbAvisoPrincipal
         '
         'MonthCalendar2
         '
-        Me.MonthCalendar2.Location = New System.Drawing.Point(188, 424)
+        Me.MonthCalendar2.Location = New System.Drawing.Point(40, 216)
         Me.MonthCalendar2.Name = "MonthCalendar2"
         Me.MonthCalendar2.TabIndex = 21
+        '
+        'ButtonMais7
+        '
+        Me.ButtonMais7.BackColor = System.Drawing.Color.White
+        Me.ButtonMais7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonMais7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonMais7.Location = New System.Drawing.Point(360, 592)
+        Me.ButtonMais7.Name = "ButtonMais7"
+        Me.ButtonMais7.Size = New System.Drawing.Size(189, 21)
+        Me.ButtonMais7.TabIndex = 22
+        Me.ButtonMais7.Text = "Consulta de Vencimento de Alvarás"
+        Me.ButtonMais7.UseVisualStyleBackColor = False
         '
         'VbAvisoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.ClientSize = New System.Drawing.Size(555, 594)
+        Me.ClientSize = New System.Drawing.Size(555, 619)
+        Me.Controls.Add(Me.ButtonMais7)
         Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.LaudosDataGridView1)
         Me.Controls.Add(Me.Button2)
@@ -146,6 +160,7 @@ Partial Class VbAvisoPrincipal
         Me.Controls.SetChildIndex(Me.Button2, 0)
         Me.Controls.SetChildIndex(Me.LaudosDataGridView1, 0)
         Me.Controls.SetChildIndex(Me.MonthCalendar2, 0)
+        Me.Controls.SetChildIndex(Me.ButtonMais7, 0)
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -165,6 +180,7 @@ Partial Class VbAvisoPrincipal
     Friend WithEvents MonthCalendar2 As MonthCalendar
 #Disable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonMais7 As Button
 #Enable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
 
 

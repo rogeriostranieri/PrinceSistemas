@@ -125,6 +125,8 @@ Public Class Legalizacao
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
+        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
         Try
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADstatus'. Você pode movê-la ou removê-la conforme necessário.
             Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)

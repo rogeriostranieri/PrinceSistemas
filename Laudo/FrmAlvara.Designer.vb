@@ -110,6 +110,7 @@ Partial Class FrmAlvara
         Me.AmbientalCheckBox = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BombeiroDataProvisorioLabel = New System.Windows.Forms.Label()
         Me.ButtonApagaDataBombeiro = New System.Windows.Forms.PictureBox()
         Me.BombeiroProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -124,12 +125,18 @@ Partial Class FrmAlvara
         Me.BombeiroDataPedProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.AmbientalDataProvisorioLabel1 = New System.Windows.Forms.Label()
+        Me.ButtonApagaDataAmbiental = New System.Windows.Forms.PictureBox()
         Me.AmbientalProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.AmbientalExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.ViabilidadeDataProvisorioLabel = New System.Windows.Forms.Label()
+        Me.ButtonApagaDataViabilidade = New System.Windows.Forms.PictureBox()
         Me.ViabilidadeProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.ViabilidadeExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.SanitarioDataProvisorioLabel = New System.Windows.Forms.Label()
+        Me.ButtonApagaDataSanitario = New System.Windows.Forms.PictureBox()
         Me.SanitarioProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Button20 = New System.Windows.Forms.Button()
@@ -142,12 +149,14 @@ Partial Class FrmAlvara
         Me.Label10 = New System.Windows.Forms.Label()
         Me.SanitarioExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.SetranDataProvisorioLabel = New System.Windows.Forms.Label()
+        Me.ButtonApagaDataSetran = New System.Windows.Forms.PictureBox()
         Me.SetranProvisorioDATAMaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.SetranExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.NlaudoTextBox = New System.Windows.Forms.TextBox()
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.ModeloSistemaComboBox = New System.Windows.Forms.ComboBox()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.ButtonConsultar = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
@@ -179,6 +188,7 @@ Partial Class FrmAlvara
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.NaturezaDoPedidoOBSRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
         Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
         Me.Area2TextBox = New System.Windows.Forms.TextBox()
@@ -187,7 +197,6 @@ Partial Class FrmAlvara
         Me.EndDataTextBox = New System.Windows.Forms.TextBox()
         Me.EndQuadraTextBox = New System.Windows.Forms.TextBox()
         Me.EndZonaTextBox = New System.Windows.Forms.TextBox()
-        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.EndNumTextBox = New System.Windows.Forms.TextBox()
         Me.EndCompTextBox = New System.Windows.Forms.TextBox()
         Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
@@ -233,7 +242,7 @@ Partial Class FrmAlvara
         Me.DataEntradaLabel = New System.Windows.Forms.Label()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.Button24 = New System.Windows.Forms.Button()
+        Me.ButtonSolicitar = New System.Windows.Forms.Button()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.CMCTextBox = New System.Windows.Forms.TextBox()
@@ -262,15 +271,6 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.BombeiroDataProvisorioLabel = New System.Windows.Forms.Label()
-        Me.ButtonApagaDataAmbiental = New System.Windows.Forms.PictureBox()
-        Me.ButtonApagaDataViabilidade = New System.Windows.Forms.PictureBox()
-        Me.ButtonApagaDataSanitario = New System.Windows.Forms.PictureBox()
-        Me.ButtonApagaDataSetran = New System.Windows.Forms.PictureBox()
-        Me.ViabilidadeDataProvisorioLabel = New System.Windows.Forms.Label()
-        Me.SanitarioDataProvisorioLabel = New System.Windows.Forms.Label()
-        Me.SetranDataProvisorioLabel = New System.Windows.Forms.Label()
-        Me.AmbientalDataProvisorioLabel1 = New System.Windows.Forms.Label()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -329,10 +329,14 @@ Partial Class FrmAlvara
         CType(Me.ButtonApagaDataBombeiro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        CType(Me.ButtonApagaDataAmbiental, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
+        CType(Me.ButtonApagaDataViabilidade, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
+        CType(Me.ButtonApagaDataSanitario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         Me.TabPage5.SuspendLayout()
+        CType(Me.ButtonApagaDataSetran, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -357,10 +361,6 @@ Partial Class FrmAlvara
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
-        CType(Me.ButtonApagaDataAmbiental, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonApagaDataViabilidade, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonApagaDataSanitario, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonApagaDataSetran, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RazaoSocialLabel
@@ -1198,6 +1198,15 @@ Partial Class FrmAlvara
         Me.TabPage1.Text = "Bombeiros"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'BombeiroDataProvisorioLabel
+        '
+        Me.BombeiroDataProvisorioLabel.AutoSize = True
+        Me.BombeiroDataProvisorioLabel.Location = New System.Drawing.Point(22, 149)
+        Me.BombeiroDataProvisorioLabel.Name = "BombeiroDataProvisorioLabel"
+        Me.BombeiroDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
+        Me.BombeiroDataProvisorioLabel.TabIndex = 16
+        Me.BombeiroDataProvisorioLabel.Text = "Vencimento Provisório:"
+        '
         'ButtonApagaDataBombeiro
         '
         Me.ButtonApagaDataBombeiro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -1357,6 +1366,27 @@ Partial Class FrmAlvara
         Me.TabPage2.Text = "Ambiental"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'AmbientalDataProvisorioLabel1
+        '
+        Me.AmbientalDataProvisorioLabel1.AutoSize = True
+        Me.AmbientalDataProvisorioLabel1.Location = New System.Drawing.Point(41, 149)
+        Me.AmbientalDataProvisorioLabel1.Name = "AmbientalDataProvisorioLabel1"
+        Me.AmbientalDataProvisorioLabel1.Size = New System.Drawing.Size(115, 13)
+        Me.AmbientalDataProvisorioLabel1.TabIndex = 18
+        Me.AmbientalDataProvisorioLabel1.Text = "Vencimento Provisório:"
+        '
+        'ButtonApagaDataAmbiental
+        '
+        Me.ButtonApagaDataAmbiental.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonApagaDataAmbiental.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonApagaDataAmbiental.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
+        Me.ButtonApagaDataAmbiental.Location = New System.Drawing.Point(225, 144)
+        Me.ButtonApagaDataAmbiental.Name = "ButtonApagaDataAmbiental"
+        Me.ButtonApagaDataAmbiental.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonApagaDataAmbiental.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ButtonApagaDataAmbiental.TabIndex = 16
+        Me.ButtonApagaDataAmbiental.TabStop = False
+        '
         'AmbientalProvisorioDATAMaskedTextBox1
         '
         Me.AmbientalProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalProvisorioDATA", True))
@@ -1390,6 +1420,27 @@ Partial Class FrmAlvara
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Viabilidade"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ViabilidadeDataProvisorioLabel
+        '
+        Me.ViabilidadeDataProvisorioLabel.AutoSize = True
+        Me.ViabilidadeDataProvisorioLabel.Location = New System.Drawing.Point(35, 151)
+        Me.ViabilidadeDataProvisorioLabel.Name = "ViabilidadeDataProvisorioLabel"
+        Me.ViabilidadeDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
+        Me.ViabilidadeDataProvisorioLabel.TabIndex = 17
+        Me.ViabilidadeDataProvisorioLabel.Text = "Vencimento Provisório:"
+        '
+        'ButtonApagaDataViabilidade
+        '
+        Me.ButtonApagaDataViabilidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonApagaDataViabilidade.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonApagaDataViabilidade.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
+        Me.ButtonApagaDataViabilidade.Location = New System.Drawing.Point(225, 144)
+        Me.ButtonApagaDataViabilidade.Name = "ButtonApagaDataViabilidade"
+        Me.ButtonApagaDataViabilidade.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonApagaDataViabilidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ButtonApagaDataViabilidade.TabIndex = 16
+        Me.ButtonApagaDataViabilidade.TabStop = False
         '
         'ViabilidadeProvisorioDATAMaskedTextBox1
         '
@@ -1425,6 +1476,27 @@ Partial Class FrmAlvara
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Sanitário"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'SanitarioDataProvisorioLabel
+        '
+        Me.SanitarioDataProvisorioLabel.AutoSize = True
+        Me.SanitarioDataProvisorioLabel.Location = New System.Drawing.Point(35, 149)
+        Me.SanitarioDataProvisorioLabel.Name = "SanitarioDataProvisorioLabel"
+        Me.SanitarioDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
+        Me.SanitarioDataProvisorioLabel.TabIndex = 17
+        Me.SanitarioDataProvisorioLabel.Text = "Vencimento Provisório:"
+        '
+        'ButtonApagaDataSanitario
+        '
+        Me.ButtonApagaDataSanitario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonApagaDataSanitario.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonApagaDataSanitario.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
+        Me.ButtonApagaDataSanitario.Location = New System.Drawing.Point(225, 144)
+        Me.ButtonApagaDataSanitario.Name = "ButtonApagaDataSanitario"
+        Me.ButtonApagaDataSanitario.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonApagaDataSanitario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ButtonApagaDataSanitario.TabIndex = 16
+        Me.ButtonApagaDataSanitario.TabStop = False
         '
         'SanitarioProvisorioDATAMaskedTextBox1
         '
@@ -1547,6 +1619,27 @@ Partial Class FrmAlvara
         Me.TabPage5.Text = "Setran"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
+        'SetranDataProvisorioLabel
+        '
+        Me.SetranDataProvisorioLabel.AutoSize = True
+        Me.SetranDataProvisorioLabel.Location = New System.Drawing.Point(35, 149)
+        Me.SetranDataProvisorioLabel.Name = "SetranDataProvisorioLabel"
+        Me.SetranDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
+        Me.SetranDataProvisorioLabel.TabIndex = 17
+        Me.SetranDataProvisorioLabel.Text = "Vencimento Provisório:"
+        '
+        'ButtonApagaDataSetran
+        '
+        Me.ButtonApagaDataSetran.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonApagaDataSetran.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonApagaDataSetran.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
+        Me.ButtonApagaDataSetran.Location = New System.Drawing.Point(225, 143)
+        Me.ButtonApagaDataSetran.Name = "ButtonApagaDataSetran"
+        Me.ButtonApagaDataSetran.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonApagaDataSetran.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ButtonApagaDataSetran.TabIndex = 16
+        Me.ButtonApagaDataSetran.TabStop = False
+        '
         'SetranProvisorioDATAMaskedTextBox1
         '
         Me.SetranProvisorioDATAMaskedTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranProvisorioDATA", True))
@@ -1595,18 +1688,18 @@ Partial Class FrmAlvara
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)
         Me.ModeloSistemaComboBox.TabIndex = 39
         '
-        'Button7
+        'ButtonConsultar
         '
-        Me.Button7.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), System.Drawing.Image)
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Location = New System.Drawing.Point(188, 19)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(71, 24)
-        Me.Button7.TabIndex = 40
-        Me.Button7.Text = "Consultar"
-        Me.Button7.UseVisualStyleBackColor = False
+        Me.ButtonConsultar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonConsultar.BackgroundImage = CType(resources.GetObject("ButtonConsultar.BackgroundImage"), System.Drawing.Image)
+        Me.ButtonConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonConsultar.Location = New System.Drawing.Point(188, 19)
+        Me.ButtonConsultar.Name = "ButtonConsultar"
+        Me.ButtonConsultar.Size = New System.Drawing.Size(71, 24)
+        Me.ButtonConsultar.TabIndex = 40
+        Me.ButtonConsultar.Text = "Consultar"
+        Me.ButtonConsultar.UseVisualStyleBackColor = False
         '
         'ComboBox1
         '
@@ -1829,8 +1922,8 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(Me.BombeiroSituacaoComboBox)
         Me.GroupBox4.Controls.Add(Me.TabAlvara)
         Me.GroupBox4.Controls.Add(ObservacaoLabel)
-        Me.GroupBox4.Controls.Add(Me.Button7)
-        Me.GroupBox4.Controls.Add(Me.Button24)
+        Me.GroupBox4.Controls.Add(Me.ButtonConsultar)
+        Me.GroupBox4.Controls.Add(Me.ButtonSolicitar)
         Me.GroupBox4.Controls.Add(ModeloSistemaLabel)
         Me.GroupBox4.Controls.Add(Me.NlaudoTextBox)
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
@@ -1970,6 +2063,7 @@ Partial Class FrmAlvara
         '
         Me.TabPage7.AutoScroll = True
         Me.TabPage7.Controls.Add(PontoRefLabel)
+        Me.TabPage7.Controls.Add(Me.EnderecoTextBox)
         Me.TabPage7.Controls.Add(Me.Button21)
         Me.TabPage7.Controls.Add(Me.PontoRefTextBox)
         Me.TabPage7.Controls.Add(Me.Area2TextBox)
@@ -1978,7 +2072,6 @@ Partial Class FrmAlvara
         Me.TabPage7.Controls.Add(Me.EndDataTextBox)
         Me.TabPage7.Controls.Add(Me.EndQuadraTextBox)
         Me.TabPage7.Controls.Add(Me.EndZonaTextBox)
-        Me.TabPage7.Controls.Add(Me.EnderecoTextBox)
         Me.TabPage7.Controls.Add(Me.EndNumTextBox)
         Me.TabPage7.Controls.Add(Me.EndCompTextBox)
         Me.TabPage7.Controls.Add(Me.EndBairroTextBox)
@@ -2006,6 +2099,14 @@ Partial Class FrmAlvara
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'EnderecoTextBox
+        '
+        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
+        Me.EnderecoTextBox.Name = "EnderecoTextBox"
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
+        Me.EnderecoTextBox.TabIndex = 58
         '
         'Button21
         '
@@ -2071,14 +2172,6 @@ Partial Class FrmAlvara
         Me.EndZonaTextBox.Name = "EndZonaTextBox"
         Me.EndZonaTextBox.Size = New System.Drawing.Size(35, 20)
         Me.EndZonaTextBox.TabIndex = 27
-        '
-        'EnderecoTextBox
-        '
-        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
-        Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
-        Me.EnderecoTextBox.TabIndex = 6
         '
         'EndNumTextBox
         '
@@ -2549,22 +2642,22 @@ Partial Class FrmAlvara
         Me.HistoricoRichTextBox.TabIndex = 1
         Me.HistoricoRichTextBox.Text = ""
         '
-        'Button24
+        'ButtonSolicitar
         '
-        Me.Button24.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button24.BackgroundImage = CType(resources.GetObject("Button24.BackgroundImage"), System.Drawing.Image)
-        Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button24.Location = New System.Drawing.Point(265, 44)
-        Me.Button24.Name = "Button24"
-        Me.Button24.Size = New System.Drawing.Size(78, 24)
-        Me.Button24.TabIndex = 51
-        Me.Button24.Text = "Solicitar"
-        Me.Button24.UseVisualStyleBackColor = False
+        Me.ButtonSolicitar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonSolicitar.BackgroundImage = CType(resources.GetObject("ButtonSolicitar.BackgroundImage"), System.Drawing.Image)
+        Me.ButtonSolicitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonSolicitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonSolicitar.Location = New System.Drawing.Point(265, 44)
+        Me.ButtonSolicitar.Name = "ButtonSolicitar"
+        Me.ButtonSolicitar.Size = New System.Drawing.Size(78, 24)
+        Me.ButtonSolicitar.TabIndex = 51
+        Me.ButtonSolicitar.Text = "Solicitar"
+        Me.ButtonSolicitar.UseVisualStyleBackColor = False
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(87, 164)
+        Me.Calendar1.Location = New System.Drawing.Point(339, 155)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 79
         '
@@ -2885,99 +2978,6 @@ Partial Class FrmAlvara
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
-        'BombeiroDataProvisorioLabel
-        '
-        Me.BombeiroDataProvisorioLabel.AutoSize = True
-        Me.BombeiroDataProvisorioLabel.Location = New System.Drawing.Point(22, 149)
-        Me.BombeiroDataProvisorioLabel.Name = "BombeiroDataProvisorioLabel"
-        Me.BombeiroDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
-        Me.BombeiroDataProvisorioLabel.TabIndex = 16
-        Me.BombeiroDataProvisorioLabel.Text = "Vencimento Provisório:"
-        '
-        'ButtonApagaDataAmbiental
-        '
-        Me.ButtonApagaDataAmbiental.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonApagaDataAmbiental.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonApagaDataAmbiental.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
-        Me.ButtonApagaDataAmbiental.Location = New System.Drawing.Point(225, 144)
-        Me.ButtonApagaDataAmbiental.Name = "ButtonApagaDataAmbiental"
-        Me.ButtonApagaDataAmbiental.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonApagaDataAmbiental.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ButtonApagaDataAmbiental.TabIndex = 16
-        Me.ButtonApagaDataAmbiental.TabStop = False
-        '
-        'ButtonApagaDataViabilidade
-        '
-        Me.ButtonApagaDataViabilidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonApagaDataViabilidade.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonApagaDataViabilidade.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
-        Me.ButtonApagaDataViabilidade.Location = New System.Drawing.Point(225, 144)
-        Me.ButtonApagaDataViabilidade.Name = "ButtonApagaDataViabilidade"
-        Me.ButtonApagaDataViabilidade.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonApagaDataViabilidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ButtonApagaDataViabilidade.TabIndex = 16
-        Me.ButtonApagaDataViabilidade.TabStop = False
-        '
-        'ButtonApagaDataSanitario
-        '
-        Me.ButtonApagaDataSanitario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonApagaDataSanitario.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonApagaDataSanitario.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
-        Me.ButtonApagaDataSanitario.Location = New System.Drawing.Point(225, 144)
-        Me.ButtonApagaDataSanitario.Name = "ButtonApagaDataSanitario"
-        Me.ButtonApagaDataSanitario.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonApagaDataSanitario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ButtonApagaDataSanitario.TabIndex = 16
-        Me.ButtonApagaDataSanitario.TabStop = False
-        '
-        'ButtonApagaDataSetran
-        '
-        Me.ButtonApagaDataSetran.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonApagaDataSetran.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonApagaDataSetran.Image = Global.PrinceSistemas.My.Resources.Resources.lixeira
-        Me.ButtonApagaDataSetran.Location = New System.Drawing.Point(225, 143)
-        Me.ButtonApagaDataSetran.Name = "ButtonApagaDataSetran"
-        Me.ButtonApagaDataSetran.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonApagaDataSetran.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ButtonApagaDataSetran.TabIndex = 16
-        Me.ButtonApagaDataSetran.TabStop = False
-        '
-        'ViabilidadeDataProvisorioLabel
-        '
-        Me.ViabilidadeDataProvisorioLabel.AutoSize = True
-        Me.ViabilidadeDataProvisorioLabel.Location = New System.Drawing.Point(35, 151)
-        Me.ViabilidadeDataProvisorioLabel.Name = "ViabilidadeDataProvisorioLabel"
-        Me.ViabilidadeDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
-        Me.ViabilidadeDataProvisorioLabel.TabIndex = 17
-        Me.ViabilidadeDataProvisorioLabel.Text = "Vencimento Provisório:"
-        '
-        'SanitarioDataProvisorioLabel
-        '
-        Me.SanitarioDataProvisorioLabel.AutoSize = True
-        Me.SanitarioDataProvisorioLabel.Location = New System.Drawing.Point(35, 149)
-        Me.SanitarioDataProvisorioLabel.Name = "SanitarioDataProvisorioLabel"
-        Me.SanitarioDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
-        Me.SanitarioDataProvisorioLabel.TabIndex = 17
-        Me.SanitarioDataProvisorioLabel.Text = "Vencimento Provisório:"
-        '
-        'SetranDataProvisorioLabel
-        '
-        Me.SetranDataProvisorioLabel.AutoSize = True
-        Me.SetranDataProvisorioLabel.Location = New System.Drawing.Point(35, 149)
-        Me.SetranDataProvisorioLabel.Name = "SetranDataProvisorioLabel"
-        Me.SetranDataProvisorioLabel.Size = New System.Drawing.Size(115, 13)
-        Me.SetranDataProvisorioLabel.TabIndex = 17
-        Me.SetranDataProvisorioLabel.Text = "Vencimento Provisório:"
-        '
-        'AmbientalDataProvisorioLabel1
-        '
-        Me.AmbientalDataProvisorioLabel1.AutoSize = True
-        Me.AmbientalDataProvisorioLabel1.Location = New System.Drawing.Point(41, 149)
-        Me.AmbientalDataProvisorioLabel1.Name = "AmbientalDataProvisorioLabel1"
-        Me.AmbientalDataProvisorioLabel1.Size = New System.Drawing.Size(115, 13)
-        Me.AmbientalDataProvisorioLabel1.TabIndex = 18
-        Me.AmbientalDataProvisorioLabel1.Text = "Vencimento Provisório:"
-        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3019,14 +3019,18 @@ Partial Class FrmAlvara
         Me.GroupBox2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.ButtonApagaDataAmbiental, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        CType(Me.ButtonApagaDataViabilidade, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
+        CType(Me.ButtonApagaDataSanitario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
+        CType(Me.ButtonApagaDataSetran, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3063,10 +3067,6 @@ Partial Class FrmAlvara
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
-        CType(Me.ButtonApagaDataAmbiental, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonApagaDataViabilidade, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonApagaDataSanitario, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonApagaDataSetran, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3118,7 +3118,7 @@ Partial Class FrmAlvara
     Friend WithEvents NlaudoTextBox As TextBox
     Friend WithEvents LembreteCheckBox As CheckBox
     Friend WithEvents ModeloSistemaComboBox As ComboBox
-    Friend WithEvents Button7 As Button
+    Friend WithEvents ButtonConsultar As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button8 As Button
     Friend WithEvents Button19 As Button
@@ -3154,7 +3154,7 @@ Partial Class FrmAlvara
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Button24 As Button
+    Friend WithEvents ButtonSolicitar As Button
     Friend WithEvents DataEntradaLabel As Label
     Friend WithEvents AvisarDiaMaskedTextBox As MaskedTextBox
     Friend WithEvents DataEntradaMaskedTextBox As MaskedTextBox
@@ -3187,7 +3187,6 @@ Partial Class FrmAlvara
     Friend WithEvents EndDataTextBox As TextBox
     Friend WithEvents EndQuadraTextBox As TextBox
     Friend WithEvents EndZonaTextBox As TextBox
-    Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents EndNumTextBox As TextBox
     Friend WithEvents EndCompTextBox As TextBox
     Friend WithEvents EndBairroTextBox As TextBox
@@ -3271,4 +3270,5 @@ Partial Class FrmAlvara
     Friend WithEvents SanitarioDataProvisorioLabel As Label
     Friend WithEvents SetranDataProvisorioLabel As Label
     Public WithEvents AmbientalDataProvisorioLabel1 As Label
+    Friend WithEvents EnderecoTextBox As TextBox
 End Class
