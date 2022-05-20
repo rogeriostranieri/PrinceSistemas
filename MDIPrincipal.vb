@@ -827,5 +827,19 @@ Public Class MDIPrincipal
         End If
     End Sub
 
+    Private Sub TESTEToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTEToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmCalculadoraCapital)().Count() > 0 Then
 
+            FrmCalculadoraCapital.Focus()
+            FrmCalculadoraCapital.MdiParent = Me
+
+
+        Else
+
+            FrmCalculadoraCapital.MdiParent = Me
+            FrmCalculadoraCapital.Show()
+
+
+        End If
+    End Sub
 End Class

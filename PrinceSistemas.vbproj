@@ -99,6 +99,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abertura\Calculadora\FrmCalculadoraCapital.Designer.vb">
+      <DependentUpon>FrmCalculadoraCapital.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Calculadora\FrmCalculadoraCapital.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </Compile>
@@ -480,6 +486,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Abertura\Calculadora\FrmCalculadoraCapital.resx">
+      <DependentUpon>FrmCalculadoraCapital.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </EmbeddedResource>

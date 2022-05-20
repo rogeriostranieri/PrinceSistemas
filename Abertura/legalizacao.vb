@@ -243,24 +243,24 @@ Public Class Legalizacao
 
                     '  If MsgBox("Foi alterado no seu Sistema Particular?", MsgBoxStyle.YesNo, "Notificação") = MsgBoxResult.Yes Then
                     If ProcessoComboBox.Text = "Baixa" Then
-                            StatusComboBox.BackColor = System.Drawing.Color.Green
-                            StatusComboBox.ForeColor = System.Drawing.Color.White
-                            AvisarDiaMaskedTextBox.Text = ""
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
+                        AvisarDiaMaskedTextBox.Text = ""
                             PictureBox1.Image = My.Resources.check
                             PictureBox2.Image = My.Resources.fechadaempresa
 
                         ElseIf ProcessoComboBox.Text = "Finalizado" Then
-                            StatusComboBox.BackColor = System.Drawing.Color.Green
-                            StatusComboBox.ForeColor = System.Drawing.Color.White
-                            AvisarDiaMaskedTextBox.Text = ""
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
+                        AvisarDiaMaskedTextBox.Text = ""
                             PictureBox1.Image = My.Resources.check
                             PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
 
                         Else
 
-                            StatusComboBox.BackColor = System.Drawing.Color.Green
-                            StatusComboBox.ForeColor = System.Drawing.Color.White
-                            AvisarDiaMaskedTextBox.Text = ""
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
+                        AvisarDiaMaskedTextBox.Text = ""
                             PictureBox1.Image = My.Resources.check
                             PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
 
@@ -268,36 +268,43 @@ Public Class Legalizacao
 
 
                 Case StatusComboBox.Text.Contains("Pêndencia Sistema Externo")
-                    StatusComboBox.BackColor = System.Drawing.Color.Red
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.Red
+                    StatusComboBox.ForeColor = Color.Black
                     ' AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = Nothing
                ' SistemaExternoComboBox.SelectedText = "Não"
 
                 Case StatusComboBox.Text.Contains("Paralisado")
-                    StatusComboBox.BackColor = System.Drawing.Color.Red
-                    StatusComboBox.ForeColor = System.Drawing.Color.White
+                    StatusComboBox.BackColor = Color.Red
+                    StatusComboBox.ForeColor = Color.White
                     AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources._Stop
                     PictureBox2.Image = Nothing
 
                 Case StatusComboBox.Text.Contains("Cancelado")
-                    StatusComboBox.BackColor = System.Drawing.Color.Red
-                    StatusComboBox.ForeColor = System.Drawing.Color.White
+                    StatusComboBox.BackColor = Color.Red
+                    StatusComboBox.ForeColor = Color.White
                     AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.Cancel
                     PictureBox2.Image = Nothing
 
                 Case StatusComboBox.Text.Contains("Em Andamento")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
 
                 Case StatusComboBox.Text.Contains("Aguardando Pagamento das Taxas")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox1.Image = My.Resources.emandamento
+                    PictureBox2.Image = My.Resources.pagamento
+
+
+                Case StatusComboBox.Text.Contains("Taxas")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.pagamento
 
@@ -305,82 +312,98 @@ Public Class Legalizacao
                 ' JUNTA COMERCIAL
                 '//////////////////////////////////////////////
                 Case StatusComboBox.Text.Contains("Junta Comercial - Prefeitura: EM ANÁLISE")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
                 Case StatusComboBox.Text.Contains("Junta Comercial - Busca de Nome")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
                 Case StatusComboBox.Text.Contains("Junta Comercial - Aguardando Atualização")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
+
                 Case StatusComboBox.Text.Contains("Junta Comercial - Protocolado")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
 
+                Case StatusComboBox.Text.Contains("Junta Comercial")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.empresa_facil
+                    PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Receita Federal - DBE")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                Case StatusComboBox.Text.Contains("Receita Federal")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.redeSim_Divulgação
                     PictureBox1.Image = My.Resources.emandamento
 
                 Case StatusComboBox.Text.Contains("Receita Estadual - Protocolado")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.governo2019_400x173px
+                    PictureBox1.Image = My.Resources.emandamento
+
+                Case StatusComboBox.Text.Contains("Receita Estadual")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.governo2019_400x173px
                     PictureBox1.Image = My.Resources.emandamento
 
 
-
                 Case StatusComboBox.Text.Contains("Receita Estadual - Em Andamento")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.governo2019_400x173px
                     PictureBox1.Image = My.Resources.emandamento
                 '
 
                 Case StatusComboBox.Text.Contains("Simples Nacional - Protocolado")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
+                    PictureBox1.Image = My.Resources.emandamento
+
+                Case StatusComboBox.Text.Contains("Simples Nacional")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
                     PictureBox1.Image = My.Resources.emandamento
 
                 Case StatusComboBox.Text.Contains("Prefeitura/Alvará - Em Andamento")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.alvara
 
+                Case StatusComboBox.Text.Contains("Prefeitura")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox1.Image = My.Resources.emandamento
+                    PictureBox2.Image = My.Resources.alvara
                 '
                 Case StatusComboBox.Text.Contains("Aguardando Cliente")
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = Nothing
 
-                Case StatusComboBox.Text.Contains("Receita Federal - e-Processo")
-
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
-                    PictureBox2.Image = Nothing
+                Case StatusComboBox.Text.Contains("Aguardando")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
-
-                    'case que contenha palavra receita federal
-
-                    'Case "Receita Federal" contenha palavra
-
+                    PictureBox2.Image = Nothing
 
                 Case Else
-                    StatusComboBox.BackColor = System.Drawing.Color.White
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = Nothing
                     PictureBox2.Image = Nothing
                     'Protocolado Receita Estadual
@@ -2355,8 +2378,8 @@ CPF =
             If SistemaExternoComboBox.SelectedIndex = 1 Then
                 If MsgBox("Foi alterado no seu Sistema Particular?", MsgBoxStyle.YesNo, "Notificação") = MsgBoxResult.Yes Then
                     If ProcessoComboBox.Text = "Baixa" Then
-                        StatusComboBox.BackColor = System.Drawing.Color.Green
-                        StatusComboBox.ForeColor = System.Drawing.Color.White
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.fechadaempresa
@@ -2364,8 +2387,8 @@ CPF =
                         EMAIL()
 
                     ElseIf ProcessoComboBox.Text = "Abertura" Then
-                        StatusComboBox.BackColor = System.Drawing.Color.Green
-                        StatusComboBox.ForeColor = System.Drawing.Color.White
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
@@ -2373,8 +2396,8 @@ CPF =
                         EMAIL()
                     Else
 
-                        StatusComboBox.BackColor = System.Drawing.Color.Green
-                        StatusComboBox.ForeColor = System.Drawing.Color.White
+                        StatusComboBox.BackColor = Color.Green
+                        StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
@@ -2383,8 +2406,8 @@ CPF =
                     End If
                 Else
                     StatusComboBox.Text = "Pêndencia Sistema Externo"
-                    StatusComboBox.BackColor = System.Drawing.Color.Red
-                    StatusComboBox.ForeColor = System.Drawing.Color.Black
+                    StatusComboBox.BackColor = Color.Red
+                    StatusComboBox.ForeColor = Color.Black
                     ' AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = Nothing
@@ -2394,24 +2417,24 @@ CPF =
             ElseIf SistemaExternoComboBox.SelectedIndex = 0 Then
 
                 If ProcessoComboBox.Text = "Baixa" Then
-                    StatusComboBox.BackColor = System.Drawing.Color.Green
-                    StatusComboBox.ForeColor = System.Drawing.Color.White
+                    StatusComboBox.BackColor = Color.Green
+                    StatusComboBox.ForeColor = Color.White
 
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = My.Resources.fechadaempresa
 
 
                 ElseIf ProcessoComboBox.Text = "Abertura" Then
-                    StatusComboBox.BackColor = System.Drawing.Color.Green
-                    StatusComboBox.ForeColor = System.Drawing.Color.White
+                    StatusComboBox.BackColor = Color.Green
+                    StatusComboBox.ForeColor = Color.White
                     AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
 
 
                 Else
-                    StatusComboBox.BackColor = System.Drawing.Color.Green
-                    StatusComboBox.ForeColor = System.Drawing.Color.White
+                    StatusComboBox.BackColor = Color.Green
+                    StatusComboBox.ForeColor = Color.White
                     AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
@@ -2420,8 +2443,8 @@ CPF =
 
             Else
                 'Antigo codigo
-                StatusComboBox.BackColor = System.Drawing.Color.Green
-                StatusComboBox.ForeColor = System.Drawing.Color.White
+                StatusComboBox.BackColor = Color.Green
+                StatusComboBox.ForeColor = Color.White
                 AvisarDiaMaskedTextBox.Text = ""
                 PictureBox1.Image = My.Resources.check
             End If
