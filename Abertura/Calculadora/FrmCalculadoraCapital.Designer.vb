@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmCalculadoraCapital
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmCalculadoraCapital
     'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
     'Pode ser modificado usando o Windows Form Designer.  
     'Não o modifique usando o editor de códigos.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
         Me.ButtonPorcentagem = New System.Windows.Forms.Button()
@@ -31,14 +31,13 @@ Partial Class FrmCalculadoraCapital
         Me.ColumnAntigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnNovo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GanhaEPerca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ButtonDistribuir = New System.Windows.Forms.Button()
         Me.ButtonLimpar = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBoxCapitalSocial
         '
-        Me.TextBoxCapitalSocial.Location = New System.Drawing.Point(128, 36)
+        Me.TextBoxCapitalSocial.Location = New System.Drawing.Point(119, 58)
         Me.TextBoxCapitalSocial.Name = "TextBoxCapitalSocial"
         Me.TextBoxCapitalSocial.Size = New System.Drawing.Size(140, 20)
         Me.TextBoxCapitalSocial.TabIndex = 0
@@ -46,17 +45,17 @@ Partial Class FrmCalculadoraCapital
         '
         'ButtonPorcentagem
         '
-        Me.ButtonPorcentagem.Location = New System.Drawing.Point(592, 81)
+        Me.ButtonPorcentagem.Location = New System.Drawing.Point(579, 81)
         Me.ButtonPorcentagem.Name = "ButtonPorcentagem"
         Me.ButtonPorcentagem.Size = New System.Drawing.Size(89, 20)
         Me.ButtonPorcentagem.TabIndex = 2
-        Me.ButtonPorcentagem.Text = "% Porcentgem"
+        Me.ButtonPorcentagem.Text = "Calcular"
         Me.ButtonPorcentagem.UseVisualStyleBackColor = True
         '
         'LblCapTotal
         '
         Me.LblCapTotal.AutoSize = True
-        Me.LblCapTotal.Location = New System.Drawing.Point(21, 39)
+        Me.LblCapTotal.Location = New System.Drawing.Point(12, 61)
         Me.LblCapTotal.Name = "LblCapTotal"
         Me.LblCapTotal.Size = New System.Drawing.Size(101, 13)
         Me.LblCapTotal.TabIndex = 4
@@ -97,31 +96,21 @@ Partial Class FrmCalculadoraCapital
         Me.GanhaEPerca.HeaderText = "Ganhou/Perdeu"
         Me.GanhaEPerca.Name = "GanhaEPerca"
         '
-        'ButtonDistribuir
-        '
-        Me.ButtonDistribuir.Location = New System.Drawing.Point(592, 107)
-        Me.ButtonDistribuir.Name = "ButtonDistribuir"
-        Me.ButtonDistribuir.Size = New System.Drawing.Size(89, 20)
-        Me.ButtonDistribuir.TabIndex = 6
-        Me.ButtonDistribuir.Text = "Distribuição"
-        Me.ButtonDistribuir.UseVisualStyleBackColor = True
-        '
         'ButtonLimpar
         '
         Me.ButtonLimpar.Location = New System.Drawing.Point(484, 237)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(89, 20)
         Me.ButtonLimpar.TabIndex = 7
-        Me.ButtonLimpar.Text = "Limpar"
+        Me.ButtonLimpar.Text = "Limpar Tudo"
         Me.ButtonLimpar.UseVisualStyleBackColor = True
         '
         'FrmCalculadoraCapital
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(702, 269)
+        Me.ClientSize = New System.Drawing.Size(680, 269)
         Me.Controls.Add(Me.ButtonLimpar)
-        Me.Controls.Add(Me.ButtonDistribuir)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.LblCapTotal)
         Me.Controls.Add(Me.ButtonPorcentagem)
@@ -139,7 +128,6 @@ Partial Class FrmCalculadoraCapital
     Friend WithEvents ButtonPorcentagem As Button
     Friend WithEvents LblCapTotal As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ButtonDistribuir As Button
     Friend WithEvents ColumnSocio As DataGridViewTextBoxColumn
     Friend WithEvents ColumnPorcentagem As DataGridViewTextBoxColumn
     Friend WithEvents ColumnAntigo As DataGridViewTextBoxColumn
