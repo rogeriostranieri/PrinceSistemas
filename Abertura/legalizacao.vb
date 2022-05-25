@@ -2455,4 +2455,7 @@ CPF =
 
     End Sub
 
+    Private Sub ButtonCalcCapSocial_Click(sender As Object, e As EventArgs) Handles ButtonCalcCapSocial.Click
+        FrmCalculadoraCapital.Show()
+    End Sub
 End Class

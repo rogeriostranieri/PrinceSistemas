@@ -827,7 +827,7 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub TESTEToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTEToolStripMenuItem.Click
+    Private Sub CalculadoraDeCapitalSocialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalculadoraDeCapitalSocialToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmCalculadoraCapital)().Count() > 0 Then
 
             FrmCalculadoraCapital.Focus()

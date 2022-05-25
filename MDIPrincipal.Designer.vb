@@ -82,7 +82,8 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DiversosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CalculadoraDeCapitalSocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -92,7 +93,7 @@ Partial Class MDIPrincipal
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.White
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.TESTEToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(925, 25)
@@ -506,11 +507,18 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
         '
-        'TESTEToolStripMenuItem
+        'DiversosToolStripMenuItem
         '
-        Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
-        Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(55, 21)
-        Me.TESTEToolStripMenuItem.Text = "TESTE"
+        Me.DiversosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculadoraDeCapitalSocialToolStripMenuItem})
+        Me.DiversosToolStripMenuItem.Name = "DiversosToolStripMenuItem"
+        Me.DiversosToolStripMenuItem.Size = New System.Drawing.Size(71, 21)
+        Me.DiversosToolStripMenuItem.Text = "Diversos"
+        '
+        'CalculadoraDeCapitalSocialToolStripMenuItem
+        '
+        Me.CalculadoraDeCapitalSocialToolStripMenuItem.Name = "CalculadoraDeCapitalSocialToolStripMenuItem"
+        Me.CalculadoraDeCapitalSocialToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.CalculadoraDeCapitalSocialToolStripMenuItem.Text = "Calculadora de Capital Social"
         '
         'MDIPrincipal
         '
@@ -595,5 +603,6 @@ Partial Class MDIPrincipal
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ContadorToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
-    Friend WithEvents TESTEToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DiversosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CalculadoraDeCapitalSocialToolStripMenuItem As ToolStripMenuItem
 End Class

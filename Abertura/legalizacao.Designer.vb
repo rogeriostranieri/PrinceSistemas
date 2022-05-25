@@ -398,6 +398,7 @@ Partial Class Legalizacao
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
+        Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2127,6 +2128,7 @@ Partial Class Legalizacao
         '
         'TabPage16
         '
+        Me.TabPage16.Controls.Add(Me.ButtonCalcCapSocial)
         Me.TabPage16.Controls.Add(Me.CapitalITextBox)
         Me.TabPage16.Controls.Add(Me.CapitalSTextBox)
         Me.TabPage16.Controls.Add(DataExcSocialLabel)
@@ -4346,6 +4348,18 @@ Partial Class Legalizacao
         '
         Me.LaudosTableAdapter.ClearBeforeFill = True
         '
+        'ButtonCalcCapSocial
+        '
+        Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
+        Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(117, 83)
+        Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
+        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(117, 56)
+        Me.ButtonCalcCapSocial.TabIndex = 58
+        Me.ButtonCalcCapSocial.Text = "Calculadora de Capital Social"
+        Me.ButtonCalcCapSocial.UseVisualStyleBackColor = True
+        '
         'Legalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4748,4 +4762,5 @@ Partial Class Legalizacao
     Friend WithEvents LaudosBindingSource As BindingSource
     Friend WithEvents LaudosTableAdapter As PrinceDBDataSetTableAdapters.LaudosTableAdapter
     Friend WithEvents EnderecoTextBox As TextBox
+    Friend WithEvents ButtonCalcCapSocial As Button
 End Class
