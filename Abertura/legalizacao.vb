@@ -1928,16 +1928,15 @@ CPF =
             'selecioanr Index 0
             If SistemaExternoComboBox.SelectedIndex = 0 Then
 
-
-                'selecionar o index 0 que seria o SIM
-
-
+                'SistemaExternoComboBox muda para Sim
+                SistemaExternoComboBox.SelectedIndex = 1
 
                 If MsgBox(" Deseja enviar por e-mail toda alteração feita?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
 
                     If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
                         Dim Sair As String
                         Sair = MsgBox("O e-Mail ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
 
                         FrmMail.MdiParent = MDIPrincipal
                         FrmMail.Show()
@@ -1948,6 +1947,7 @@ CPF =
                         ModeMail.Enviaremaillegalizao()
 
                     Else
+
 
                         FrmMail.MdiParent = MDIPrincipal
                         FrmMail.Show()
