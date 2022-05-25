@@ -44,10 +44,11 @@ Partial Class BuscaNomeSocio
         'RazaoSocialLabel
         '
         RazaoSocialLabel.AutoSize = True
+        RazaoSocialLabel.BackColor = System.Drawing.Color.Transparent
         RazaoSocialLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         RazaoSocialLabel.Location = New System.Drawing.Point(149, 260)
         RazaoSocialLabel.Name = "RazaoSocialLabel"
-        RazaoSocialLabel.Size = New System.Drawing.Size(92, 16)
+        RazaoSocialLabel.Size = New System.Drawing.Size(91, 16)
         RazaoSocialLabel.TabIndex = 2
         RazaoSocialLabel.Text = "Razao Social:"
         '
@@ -67,10 +68,15 @@ Partial Class BuscaNomeSocio
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Me.EmpresasTableAdapter
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
@@ -116,16 +122,18 @@ Partial Class BuscaNomeSocio
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(16, 131)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(225, 16)
+        Me.Label1.Size = New System.Drawing.Size(224, 16)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Nome do Responsável da Empresa"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(63, 15)
         Me.Label2.Name = "Label2"
@@ -136,6 +144,7 @@ Partial Class BuscaNomeSocio
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(142, 187)
         Me.Label3.Name = "Label3"
@@ -160,6 +169,8 @@ Partial Class BuscaNomeSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(810, 337)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label3)

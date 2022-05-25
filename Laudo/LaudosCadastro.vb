@@ -51,15 +51,15 @@
             Salvar()
             FrmAlvara.Focus()
             ' FrmContatos.MdiParent = MDIMenu
-            FrmAlvara.ComboBox1.Text = ComboBox1.Text
-            FrmAlvara.ComboBox1.Focus()
+            FrmAlvara.ComboBoxBuscaAlvara.Text = ComboBox1.Text
+            FrmAlvara.ComboBoxBuscaAlvara.Focus()
             Me.Close()
         Else
             Salvar()
             'FrmContatos.MdiParent = MDIMenu
             FrmAlvara.Show()
-            FrmAlvara.ComboBox1.Text = ComboBox1.Text
-            FrmAlvara.ComboBox1.Focus()
+            FrmAlvara.ComboBoxBuscaAlvara.Text = ComboBox1.Text
+            FrmAlvara.ComboBoxBuscaAlvara.Focus()
             Me.Close()
         End If
 

@@ -22,7 +22,7 @@ Module ModCon
 
 
                             FrmAlvara.Focus()
-                            FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
+                            'FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
                             'FrmAlvara.ComboBox1.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
 
@@ -38,7 +38,7 @@ Module ModCon
                         Else
 
                             FrmAlvara.Show()
-                            FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
+                            'FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
                             ' FrmAlvara.ComboBox1.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
 
@@ -206,7 +206,7 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
                                     FrmAlvara.LaudosBindingSource.AddNew()
                                     FrmAlvara.TabControl1.SelectTab(0)
 
-                                    FrmAlvara.ComboBox1.Focus()
+                                    FrmAlvara.ComboBoxBuscaAlvara.Focus()
                                     FrmAlvara.RazaoSocialTextBox.Focus()
 
 

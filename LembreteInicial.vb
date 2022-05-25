@@ -82,14 +82,14 @@
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             '  Dim NovoLaudo As New LaudosCadastro
             FrmAlvara.Focus()
-            FrmAlvara.ComboBox1.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmAlvara.ComboBox1.Focus()
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Focus()
         Else
             ' Dim NovoLaudo As New LaudosCadastro
             ' novoEmpresa.MdiParent = MDIPrincipal
             FrmAlvara.Show()
-            FrmAlvara.ComboBox1.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmAlvara.ComboBox1.Focus()
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Focus()
         End If
     End Sub
 End Class

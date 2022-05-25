@@ -370,9 +370,6 @@ Public Class FrmAlvara
                     GroupBox4.Enabled = False
 
                     Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-                    ComboBox3.Text = CNPJdaEmpresa
-                    ComboBox3.Focus()
                     RazaoSocialTextBox.Focus()
 
                     'Verifica se foi alterado para finalizado e alterar Form Empresas
@@ -403,8 +400,8 @@ Public Class FrmAlvara
 
             Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
             ' Salvar() não precisa salvar pq nao teve alteração
-            ComboBox3.Text = CNPJdaEmpresa
-            ComboBox3.Focus()
+            'ComboBox3.Text = CNPJdaEmpresa
+            ' ComboBox3.Focus()
             RazaoSocialTextBox.Focus()
 
             Button17.Enabled = True
@@ -972,8 +969,6 @@ Public Class FrmAlvara
 
             Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
             Salvar()
-            ComboBox3.Text = CNPJdaEmpresa
-            ComboBox3.Focus()
             RazaoSocialTextBox.Focus()
 
             Button17.Enabled = True
@@ -1384,6 +1379,25 @@ Public Class FrmAlvara
             Catch ex As Exception
                 MsgBox("Erro!" & vbCrLf & ex.Message)
             End Try
+        End If
+    End Sub
+
+    Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click
+        If Application.OpenForms.OfType(Of FrmAtalhoBuscadores)().Count() > 0 Then
+
+            FrmAtalhoBuscadores.Focus()
+            FrmAtalhoBuscadores.Close()
+            ' FrmAtalhoBuscadores.MdiParent = Me
+            ' WebAgenda.WindowState = FormWindowState.Maximized
+            FrmAtalhoBuscadores.Show()
+            'Me.Close()
+
+        Else
+
+            'FrmAtalhoBuscadores.MdiParent = Me
+            ' WebAgenda.WindowState = FormWindowState.Maximized
+            FrmAtalhoBuscadores.Show()
+            ' Me.Close()
         End If
     End Sub
 End Class

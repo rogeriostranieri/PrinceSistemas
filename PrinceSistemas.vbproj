@@ -218,10 +218,22 @@
     <Compile Include="Buscadores\FrmAtalhoBuscadores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Buscadores\FrmBuscaAlvara.Designer.vb">
+      <DependentUpon>FrmBuscaAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\FrmBuscaAlvara.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Buscadores\FrmBuscaEmpresas.Designer.vb">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
     </Compile>
     <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscadores\FrmBuscaResponsavelLaudo.Designer.vb">
+      <DependentUpon>FrmBuscaResponsavelLaudo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\FrmBuscaResponsavelLaudo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
@@ -543,8 +555,14 @@
     <EmbeddedResource Include="Buscadores\FrmAtalhoBuscadores.resx">
       <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\FrmBuscaAlvara.resx">
+      <DependentUpon>FrmBuscaAlvara.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\FrmBuscaResponsavelLaudo.resx">
+      <DependentUpon>FrmBuscaResponsavelLaudo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>

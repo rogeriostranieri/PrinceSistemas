@@ -842,4 +842,36 @@ Public Class MDIPrincipal
 
         End If
     End Sub
+
+    Private Sub AlvaráToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AlvaráToolStripMenuItem1.Click
+        If Application.OpenForms.OfType(Of FrmBuscaAlvara)().Count() > 0 Then
+
+            FrmBuscaAlvara.Focus()
+            FrmBuscaAlvara.MdiParent = Me
+
+
+        Else
+
+            FrmBuscaAlvara.MdiParent = Me
+            FrmBuscaAlvara.Show()
+
+
+        End If
+    End Sub
+
+    Private Sub AlvaráBuscaEmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlvaráBuscaEmpresaToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmBuscaResponsavelLaudo)().Count() > 0 Then
+
+            FrmBuscaResponsavelLaudo.Focus()
+            FrmBuscaResponsavelLaudo.MdiParent = Me
+
+
+        Else
+
+            FrmBuscaResponsavelLaudo.MdiParent = Me
+            FrmBuscaResponsavelLaudo.Show()
+
+
+        End If
+    End Sub
 End Class

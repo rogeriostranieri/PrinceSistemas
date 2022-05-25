@@ -157,7 +157,7 @@ Partial Class FrmAlvara
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.ModeloSistemaComboBox = New System.Windows.Forms.ComboBox()
         Me.ButtonConsultar = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxBuscaAlvara = New System.Windows.Forms.ComboBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
@@ -262,8 +262,6 @@ Partial Class FrmAlvara
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.CNPJLabel = New System.Windows.Forms.Label()
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
@@ -271,6 +269,7 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
+        Me.BtnLocalizar = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -1701,20 +1700,20 @@ Partial Class FrmAlvara
         Me.ButtonConsultar.Text = "Consultar"
         Me.ButtonConsultar.UseVisualStyleBackColor = False
         '
-        'ComboBox1
+        'ComboBoxBuscaAlvara
         '
-        Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox1.BackColor = System.Drawing.SystemColors.Window
-        Me.ComboBox1.DataSource = Me.LaudosBindingSource
-        Me.ComboBox1.DisplayMember = "RazaoSocial"
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(242, 1)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(232, 21)
-        Me.ComboBox1.TabIndex = 42
-        Me.ComboBox1.ValueMember = "RazaoSocial"
+        Me.ComboBoxBuscaAlvara.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.ComboBoxBuscaAlvara.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxBuscaAlvara.BackColor = System.Drawing.SystemColors.Window
+        Me.ComboBoxBuscaAlvara.DataSource = Me.LaudosBindingSource
+        Me.ComboBoxBuscaAlvara.DisplayMember = "RazaoSocial"
+        Me.ComboBoxBuscaAlvara.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBoxBuscaAlvara.FormattingEnabled = True
+        Me.ComboBoxBuscaAlvara.Location = New System.Drawing.Point(242, 1)
+        Me.ComboBoxBuscaAlvara.Name = "ComboBoxBuscaAlvara"
+        Me.ComboBoxBuscaAlvara.Size = New System.Drawing.Size(308, 21)
+        Me.ComboBoxBuscaAlvara.TabIndex = 42
+        Me.ComboBoxBuscaAlvara.ValueMember = "RazaoSocial"
         '
         'Button8
         '
@@ -2710,7 +2709,7 @@ Partial Class FrmAlvara
         Me.ComboBox2.DisplayMember = "Nlaudo"
         Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(541, 1)
+        Me.ComboBox2.Location = New System.Drawing.Point(628, 1)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(110, 21)
         Me.ComboBox2.TabIndex = 56
@@ -2787,7 +2786,7 @@ Partial Class FrmAlvara
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Silver
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.Label4.Location = New System.Drawing.Point(477, 5)
+        Me.Label4.Location = New System.Drawing.Point(564, 5)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(61, 15)
         Me.Label4.TabIndex = 59
@@ -2871,31 +2870,6 @@ Partial Class FrmAlvara
         Me.CMCLabel.TabStop = True
         Me.CMCLabel.Text = "CMC:"
         '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.BackColor = System.Drawing.Color.Silver
-        Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.Label19.Location = New System.Drawing.Point(655, 6)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(58, 15)
-        Me.Label19.TabIndex = 77
-        Me.Label19.Text = "Nº CNPJ:"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.ComboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox3.DataSource = Me.LaudosBindingSource
-        Me.ComboBox3.DisplayMember = "CNPJ"
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(719, 2)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(119, 21)
-        Me.ComboBox3.TabIndex = 76
-        Me.ComboBox3.ValueMember = "CNPJ"
-        '
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
@@ -2978,6 +2952,17 @@ Partial Class FrmAlvara
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
+        'BtnLocalizar
+        '
+        Me.BtnLocalizar.BackgroundImage = CType(resources.GetObject("BtnLocalizar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnLocalizar.Location = New System.Drawing.Point(769, -1)
+        Me.BtnLocalizar.Name = "BtnLocalizar"
+        Me.BtnLocalizar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnLocalizar.TabIndex = 80
+        Me.BtnLocalizar.Text = "Localizar"
+        Me.BtnLocalizar.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2985,18 +2970,17 @@ Partial Class FrmAlvara
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.ClientSize = New System.Drawing.Size(853, 628)
+        Me.Controls.Add(Me.BtnLocalizar)
         Me.Controls.Add(Me.Calendar1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox9)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.ComboBoxBuscaAlvara)
         Me.Controls.Add(Me.LaudosBindingNavigator)
         Me.Controls.Add(Me.GroupBox4)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -3119,7 +3103,7 @@ Partial Class FrmAlvara
     Friend WithEvents LembreteCheckBox As CheckBox
     Friend WithEvents ModeloSistemaComboBox As ComboBox
     Friend WithEvents ButtonConsultar As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBoxBuscaAlvara As ComboBox
     Friend WithEvents Button8 As Button
     Friend WithEvents Button19 As Button
     Friend WithEvents Button18 As Button
@@ -3224,8 +3208,6 @@ Partial Class FrmAlvara
     Friend WithEvents TabPage16 As TabPage
     Friend WithEvents HistoricoRichTextBox As RichTextBox
     Friend WithEvents BtnNovaAlteracao As Button
-    Friend WithEvents Label19 As Label
-    Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents BombeiroSituacaoComboBox As ComboBox
     Friend WithEvents BtnBombVer As Button
     Friend WithEvents BtnEditar As Button
@@ -3271,4 +3253,5 @@ Partial Class FrmAlvara
     Friend WithEvents SetranDataProvisorioLabel As Label
     Public WithEvents AmbientalDataProvisorioLabel1 As Label
     Friend WithEvents EnderecoTextBox As TextBox
+    Friend WithEvents BtnLocalizar As Button
 End Class
