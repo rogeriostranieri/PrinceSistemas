@@ -78,11 +78,12 @@ Partial Class FrmMail
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.EMailCaixaDeSaidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EMailCaixaDeSaidaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.eMailCaixaDeSaidaTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         EMailLabel = New System.Windows.Forms.Label()
@@ -103,6 +104,9 @@ Partial Class FrmMail
         Me.TabPage3.SuspendLayout()
         CType(Me.EMailCaixaDeSaidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EMailLabel
@@ -231,10 +235,10 @@ Partial Class FrmMail
         Me.TabControle.Controls.Add(Me.TabPage2)
         Me.TabControle.Controls.Add(Me.TabPage3)
         Me.TabControle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControle.Location = New System.Drawing.Point(3, 33)
+        Me.TabControle.Location = New System.Drawing.Point(3, 73)
         Me.TabControle.Name = "TabControle"
         Me.TabControle.SelectedIndex = 0
-        Me.TabControle.Size = New System.Drawing.Size(560, 401)
+        Me.TabControle.Size = New System.Drawing.Size(561, 373)
         Me.TabControle.TabIndex = 7
         '
         'TabPage1
@@ -254,7 +258,7 @@ Partial Class FrmMail
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(552, 375)
+        Me.TabPage1.Size = New System.Drawing.Size(553, 347)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Enviar"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -357,7 +361,7 @@ Partial Class FrmMail
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(552, 395)
+        Me.TabPage2.Size = New System.Drawing.Size(553, 347)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Caixa de Saída"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -465,7 +469,7 @@ Partial Class FrmMail
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(552, 395)
+        Me.TabPage3.Size = New System.Drawing.Size(553, 347)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Configurações"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -610,9 +614,10 @@ Partial Class FrmMail
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(3, 440)
+        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProgressBar1.Location = New System.Drawing.Point(3, 452)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(560, 15)
+        Me.ProgressBar1.Size = New System.Drawing.Size(561, 15)
         Me.ProgressBar1.TabIndex = 53
         '
         'EMailTableAdapter
@@ -647,32 +652,6 @@ Partial Class FrmMail
         '
         Me.EMailCaixaDeSaidaTableAdapter.ClearBeforeFill = True
         '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(569, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(60, 24)
-        Me.Button1.TabIndex = 49
-        Me.Button1.Text = "Fechar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label1.Font = New System.Drawing.Font("Lucida Fax", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.GreenYellow
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 30)
-        Me.Label1.TabIndex = 50
-        Me.Label1.Text = "e-Mail"
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -680,30 +659,71 @@ Partial Class FrmMail
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.57219!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.42781!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ProgressBar1, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TabControle, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.986899!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.0131!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.56064!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.43936!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(632, 458)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(567, 470)
         Me.TableLayoutPanel1.TabIndex = 55
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.BtnFechar, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(561, 64)
+        Me.TableLayoutPanel2.TabIndex = 54
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 58)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFechar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.Location = New System.Drawing.Point(429, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(129, 58)
+        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BtnFechar.TabIndex = 17
+        Me.BtnFechar.TabStop = False
         '
         'FrmMail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.backupfundo
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(632, 458)
+        Me.ClientSize = New System.Drawing.Size(567, 470)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
@@ -724,7 +744,9 @@ Partial Class FrmMail
         Me.TabPage3.PerformLayout()
         CType(Me.EMailCaixaDeSaidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -761,8 +783,6 @@ Partial Class FrmMail
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonExcluirConfig As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents ButtonLimpar As Button
     Friend WithEvents ButtonContatos As Button
     Friend WithEvents ParaGeralRichTextBox As RichTextBox
@@ -781,4 +801,7 @@ Partial Class FrmMail
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents FontDialog1 As FontDialog
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents BtnFechar As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

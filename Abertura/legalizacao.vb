@@ -136,13 +136,6 @@ Public Class Legalizacao
             StatusComboBox.ValueMember = "Descricao"
 
 
-            '//// calendario 
-            'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
-            Calendar1.Visible = False
-            Calendar1.Location = New Point(65, 59)
-            'Calendar1 trazer para frente
-            Calendar1.BringToFront()
-            '////// fim calencario
 
 
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
@@ -1847,35 +1840,26 @@ CPF =
 
 
     '/////////// Inicio do codigo de mostrar calendario
-    '///// TEM MAIS NO LOAD 
+    '//
     Private Sub AvisarDiaMaskedTextBox_Click(sender As Object, e As EventArgs) Handles AvisarDiaMaskedTextBox.Click
-        Calendar1.Visible = True
 
-        'AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart.ToShortDateString()
-        'Calendar1.Visible = False
+        'DialogCalendarioEmpresas abrir proximo ao AvisarDiaMaskedTextBox
+        'DialogCalendarioEmpresas.Location = New Point(AvisarDiaMaskedTextBox.Location.X, AvisarDiaMaskedTextBox.Location.Y)
+        DialogCalendarioEmpresas.Show()
+        DialogCalendarioEmpresas.Focus()
+        'abrir no local do mouse
+        DialogCalendarioEmpresas.Location = New Point(MousePosition.X, MousePosition.Y)
+
     End Sub
 
 
 
     Private Sub AvisarDiaMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles AvisarDiaMaskedTextBox.Leave
-        Calendar1.Visible = False
+        DialogCalendarioEmpresas.Close()
 
     End Sub
 
-    Private Sub Calendar1_Leave(sender As Object, e As EventArgs) Handles Calendar1.Leave
-        Calendar1.Visible = False
 
-    End Sub
-
-    Private Sub Calendar1_MouseLeave(sender As Object, e As EventArgs) Handles Calendar1.MouseLeave
-        Calendar1.Visible = False
-
-    End Sub
-
-    Private Sub Calendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles Calendar1.DateSelected
-        AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart
-        Calendar1.Visible = False
-    End Sub
 
 
     '/////////// fim do codigo de mostrar calendario
@@ -1929,11 +1913,12 @@ CPF =
             If SistemaExternoComboBox.SelectedIndex = 0 Then
 
                 'SistemaExternoComboBox muda para Sim
-                SistemaExternoComboBox.SelectedIndex = 1
+                ' SistemaExternoComboBox.SelectedIndex = 1
 
                 If MsgBox(" Deseja enviar por e-mail toda alteração feita?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
 
                     If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
+                        SistemaExternoComboBox.SelectedIndex = 0
                         Dim Sair As String
                         Sair = MsgBox("O e-Mail ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
@@ -1947,7 +1932,8 @@ CPF =
                         ModeMail.Enviaremaillegalizao()
 
                     Else
-
+                        'SistemaExternoComboBox muda para Sim
+                        SistemaExternoComboBox.SelectedIndex = 0
 
                         FrmMail.MdiParent = MDIPrincipal
                         FrmMail.Show()

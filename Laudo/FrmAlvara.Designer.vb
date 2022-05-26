@@ -243,7 +243,6 @@ Partial Class FrmAlvara
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ButtonSolicitar = New System.Windows.Forms.Button()
-        Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.CMCTextBox = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
@@ -270,6 +269,11 @@ Partial Class FrmAlvara
         Me.BtnData1 = New System.Windows.Forms.Button()
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
+        Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -360,6 +364,9 @@ Partial Class FrmAlvara
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBoxCima.SuspendLayout()
         Me.SuspendLayout()
         '
         'RazaoSocialLabel
@@ -850,7 +857,7 @@ Partial Class FrmAlvara
         Me.LaudosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.LaudosBindingNavigator.Name = "LaudosBindingNavigator"
         Me.LaudosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(853, 25)
+        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(943, 25)
         Me.LaudosBindingNavigator.TabIndex = 0
         Me.LaudosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -1709,9 +1716,9 @@ Partial Class FrmAlvara
         Me.ComboBoxBuscaAlvara.DisplayMember = "RazaoSocial"
         Me.ComboBoxBuscaAlvara.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBoxBuscaAlvara.FormattingEnabled = True
-        Me.ComboBoxBuscaAlvara.Location = New System.Drawing.Point(242, 1)
+        Me.ComboBoxBuscaAlvara.Location = New System.Drawing.Point(244, 1)
         Me.ComboBoxBuscaAlvara.Name = "ComboBoxBuscaAlvara"
-        Me.ComboBoxBuscaAlvara.Size = New System.Drawing.Size(308, 21)
+        Me.ComboBoxBuscaAlvara.Size = New System.Drawing.Size(245, 21)
         Me.ComboBoxBuscaAlvara.TabIndex = 42
         Me.ComboBoxBuscaAlvara.ValueMember = "RazaoSocial"
         '
@@ -1788,7 +1795,7 @@ Partial Class FrmAlvara
         Me.GroupBox3.Controls.Add(Me.BombeiroProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Controls.Add(Me.AmbientalProvisorioDATAMaskedTextBox)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(518, 32)
+        Me.GroupBox3.Location = New System.Drawing.Point(521, 10)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(220, 132)
         Me.GroupBox3.TabIndex = 50
@@ -1926,9 +1933,10 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(ModeloSistemaLabel)
         Me.GroupBox4.Controls.Add(Me.NlaudoTextBox)
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 191)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 179)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(850, 437)
+        Me.GroupBox4.Size = New System.Drawing.Size(840, 426)
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
@@ -2654,17 +2662,11 @@ Partial Class FrmAlvara
         Me.ButtonSolicitar.Text = "Solicitar"
         Me.ButtonSolicitar.UseVisualStyleBackColor = False
         '
-        'Calendar1
-        '
-        Me.Calendar1.Location = New System.Drawing.Point(339, 155)
-        Me.Calendar1.Name = "Calendar1"
-        Me.Calendar1.TabIndex = 79
-        '
         'BtnAnotacoesLEgalizacao
         '
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(14, 284)
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 147)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
         Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 80
@@ -2683,7 +2685,7 @@ Partial Class FrmAlvara
         '
         Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Location = New System.Drawing.Point(14, 188)
+        Me.Button14.Location = New System.Drawing.Point(13, 51)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(69, 23)
         Me.Button14.TabIndex = 56
@@ -2694,7 +2696,7 @@ Partial Class FrmAlvara
         '
         Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button13.Location = New System.Drawing.Point(14, 217)
+        Me.Button13.Location = New System.Drawing.Point(13, 80)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(69, 23)
         Me.Button13.TabIndex = 55
@@ -2709,7 +2711,7 @@ Partial Class FrmAlvara
         Me.ComboBox2.DisplayMember = "Nlaudo"
         Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(628, 1)
+        Me.ComboBox2.Location = New System.Drawing.Point(733, 1)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(110, 21)
         Me.ComboBox2.TabIndex = 56
@@ -2720,19 +2722,15 @@ Partial Class FrmAlvara
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.GroupBox5.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.GroupBox5.Controls.Add(Me.BtnEditar)
-        Me.GroupBox5.Controls.Add(Me.BtnNovaAlteracao)
-        Me.GroupBox5.Controls.Add(Me.Btnempresa)
-        Me.GroupBox5.Controls.Add(Me.Button13)
-        Me.GroupBox5.Controls.Add(Me.Button14)
         Me.GroupBox5.Controls.Add(Me.Button16)
         Me.GroupBox5.Controls.Add(Me.Button18)
         Me.GroupBox5.Controls.Add(Me.Button17)
         Me.GroupBox5.Controls.Add(Me.Button19)
-        Me.GroupBox5.Location = New System.Drawing.Point(755, 25)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox5.Location = New System.Drawing.Point(849, 3)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(94, 307)
+        Me.GroupBox5.Size = New System.Drawing.Size(91, 170)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -2752,7 +2750,7 @@ Partial Class FrmAlvara
         '
         Me.BtnNovaAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnNovaAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(14, 246)
+        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 109)
         Me.BtnNovaAlteracao.Name = "BtnNovaAlteracao"
         Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 35)
         Me.BtnNovaAlteracao.TabIndex = 76
@@ -2763,7 +2761,7 @@ Partial Class FrmAlvara
         '
         Me.Btnempresa.BackgroundImage = CType(resources.GetObject("Btnempresa.BackgroundImage"), System.Drawing.Image)
         Me.Btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btnempresa.Location = New System.Drawing.Point(14, 159)
+        Me.Btnempresa.Location = New System.Drawing.Point(13, 22)
         Me.Btnempresa.Name = "Btnempresa"
         Me.Btnempresa.Size = New System.Drawing.Size(69, 23)
         Me.Btnempresa.TabIndex = 57
@@ -2786,7 +2784,7 @@ Partial Class FrmAlvara
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Silver
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.Label4.Location = New System.Drawing.Point(564, 5)
+        Me.Label4.Location = New System.Drawing.Point(673, 5)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(61, 15)
         Me.Label4.TabIndex = 59
@@ -2842,9 +2840,9 @@ Partial Class FrmAlvara
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.alvara1
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 25)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, -3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 40)
+        Me.PictureBox1.Size = New System.Drawing.Size(79, 37)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 72
         Me.PictureBox1.TabStop = False
@@ -2852,9 +2850,9 @@ Partial Class FrmAlvara
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox2.Location = New System.Drawing.Point(87, 25)
+        Me.PictureBox2.Location = New System.Drawing.Point(81, -3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(400, 40)
+        Me.PictureBox2.Size = New System.Drawing.Size(403, 37)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 73
         Me.PictureBox2.TabStop = False
@@ -2877,6 +2875,8 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
         Me.GroupBox9.Controls.Add(EndEstadoLabel1)
         Me.GroupBox9.Controls.Add(Me.EndEstadoLabel2)
+        Me.GroupBox9.Controls.Add(Me.PictureBox1)
+        Me.GroupBox9.Controls.Add(Me.PictureBox2)
         Me.GroupBox9.Controls.Add(Me.EndCidadeLabel2)
         Me.GroupBox9.Controls.Add(EndCidadeLabel1)
         Me.GroupBox9.Controls.Add(Me.BtnData1)
@@ -2893,12 +2893,11 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox9.Controls.Add(RazaoSocialLabel)
         Me.GroupBox9.Controls.Add(Me.RazaoSocialTextBox)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 32)
+        Me.GroupBox9.Location = New System.Drawing.Point(6, 10)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(484, 153)
         Me.GroupBox9.TabIndex = 78
         Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "GroupBox9"
         '
         'CNPJLabel
         '
@@ -2956,12 +2955,85 @@ Partial Class FrmAlvara
         '
         Me.BtnLocalizar.BackgroundImage = CType(resources.GetObject("BtnLocalizar.BackgroundImage"), System.Drawing.Image)
         Me.BtnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnLocalizar.Location = New System.Drawing.Point(769, -1)
+        Me.BtnLocalizar.Location = New System.Drawing.Point(862, -1)
         Me.BtnLocalizar.Name = "BtnLocalizar"
         Me.BtnLocalizar.Size = New System.Drawing.Size(69, 23)
         Me.BtnLocalizar.TabIndex = 80
         Me.BtnLocalizar.Text = "Localizar"
         Me.BtnLocalizar.UseVisualStyleBackColor = True
+        '
+        'ComboBoxBuscaCNPJ
+        '
+        Me.ComboBoxBuscaCNPJ.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.ComboBoxBuscaCNPJ.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxBuscaCNPJ.DataSource = Me.LaudosBindingSource
+        Me.ComboBoxBuscaCNPJ.DisplayMember = "CNPJ"
+        Me.ComboBoxBuscaCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBoxBuscaCNPJ.FormattingEnabled = True
+        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(559, 1)
+        Me.ComboBoxBuscaCNPJ.Name = "ComboBoxBuscaCNPJ"
+        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(111, 21)
+        Me.ComboBoxBuscaCNPJ.TabIndex = 81
+        Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.71368!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.28632!))
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox10, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxCima, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox4, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox5, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.11184!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.88816!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(943, 608)
+        Me.TableLayoutPanel1.TabIndex = 82
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.GroupBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox10.Controls.Add(Me.BtnAnotacoesLEgalizacao)
+        Me.GroupBox10.Controls.Add(Me.Btnempresa)
+        Me.GroupBox10.Controls.Add(Me.BtnNovaAlteracao)
+        Me.GroupBox10.Controls.Add(Me.Button14)
+        Me.GroupBox10.Controls.Add(Me.Button13)
+        Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox10.Location = New System.Drawing.Point(849, 179)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(91, 426)
+        Me.GroupBox10.TabIndex = 58
+        Me.GroupBox10.TabStop = False
+        '
+        'GroupBoxCima
+        '
+        Me.GroupBoxCima.Controls.Add(Me.GroupBox9)
+        Me.GroupBoxCima.Controls.Add(Me.GroupBox3)
+        Me.GroupBoxCima.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxCima.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBoxCima.Name = "GroupBoxCima"
+        Me.GroupBoxCima.Size = New System.Drawing.Size(840, 170)
+        Me.GroupBoxCima.TabIndex = 0
+        Me.GroupBoxCima.TabStop = False
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.Silver
+        Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.Label19.Location = New System.Drawing.Point(491, 5)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(69, 15)
+        Me.Label19.TabIndex = 83
+        Me.Label19.Text = "CPF/CNPJ:"
         '
         'FrmAlvara
         '
@@ -2969,20 +3041,16 @@ Partial Class FrmAlvara
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.ClientSize = New System.Drawing.Size(853, 628)
+        Me.ClientSize = New System.Drawing.Size(943, 633)
+        Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)
-        Me.Controls.Add(Me.Calendar1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.GroupBox9)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ComboBoxBuscaAlvara)
         Me.Controls.Add(Me.LaudosBindingNavigator)
-        Me.Controls.Add(Me.GroupBox4)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "FrmAlvara"
@@ -3051,6 +3119,9 @@ Partial Class FrmAlvara
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBoxCima.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3222,7 +3293,6 @@ Partial Class FrmAlvara
     Friend WithEvents EndEstadoLabel2 As Label
     Friend WithEvents Button26 As Button
     Friend WithEvents Button27 As Button
-    Friend WithEvents Calendar1 As MonthCalendar
     Friend WithEvents BtnAnotacoes As Button
     Friend WithEvents BtnContLigacao As Button
     Friend WithEvents CADSituacaoAlvaraBindingSource As BindingSource
@@ -3254,4 +3324,9 @@ Partial Class FrmAlvara
     Public WithEvents AmbientalDataProvisorioLabel1 As Label
     Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents BtnLocalizar As Button
+    Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents GroupBoxCima As GroupBox
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents Label19 As Label
 End Class

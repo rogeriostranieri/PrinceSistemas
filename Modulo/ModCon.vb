@@ -20,11 +20,12 @@ Module ModCon
                         ' MessageBox.Show("Ja existe um Laudo/Alvará cadastrado com o mesmo CNPJ! Abrindo...")
                         If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
 
-
+                            'Abre o alvara ja cadastrado com a busca CNPJ
                             FrmAlvara.Focus()
-                            'FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
-                            'FrmAlvara.ComboBox1.Focus()
+                            FrmAlvara.ComboBoxBuscaCNPJ.Text = Legalizacao.CNPJMaskedTextBox.Text
+                            FrmAlvara.ComboBoxBuscaCNPJ.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
+                            'FIM  abre o alvara ja cadastrado com a busca CNPJ
 
                             'Verifica Razao Social
                             If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
@@ -266,6 +267,14 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
                     Dim value = cmd.ExecuteScalar()
 
                     If value > 0 Then
+
+                        'Abre o alvara ja cadastrado com a busca CNPJ
+                        ' FrmAlvara.Focus()
+                        ' FrmAlvara.ComboBoxBuscaCNPJ.Text = Legalizacao.CNPJMaskedTextBox.Text
+                        ' FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+                        ' FrmAlvara.RazaoSocialTextBox.Focus()
+                        'FIM  abre o alvara ja cadastrado com a busca CN
+
 
 
                         ' MessageBox.Show("Ja existe uma Empresa cadastrada! Abrindo...")

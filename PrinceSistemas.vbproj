@@ -105,6 +105,12 @@
     <Compile Include="Abertura\Calculadora\FrmCalculadoraCapital.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\DialogCalendarioEmpresas.Designer.vb">
+      <DependentUpon>DialogCalendarioEmpresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\DialogCalendarioEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </Compile>
@@ -270,6 +276,12 @@
       <DependentUpon>FrmWebLaudoAntigo.vb</DependentUpon>
     </Compile>
     <Compile Include="Laudo\Cidades\Maringa-PR\FrmWebLaudoAntigo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\DialogCalendarioAlvara.Designer.vb">
+      <DependentUpon>DialogCalendarioAlvara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\DialogCalendarioAlvara.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\FrmBombeiro.Designer.vb">
@@ -501,6 +513,9 @@
     <EmbeddedResource Include="Abertura\Calculadora\FrmCalculadoraCapital.resx">
       <DependentUpon>FrmCalculadoraCapital.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\DialogCalendarioEmpresas.resx">
+      <DependentUpon>DialogCalendarioEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </EmbeddedResource>
@@ -581,6 +596,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Cidades\Maringa-PR\FrmWebLaudoAntigo.resx">
       <DependentUpon>FrmWebLaudoAntigo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\DialogCalendarioAlvara.resx">
+      <DependentUpon>DialogCalendarioAlvara.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\FrmBombeiro.resx">
       <DependentUpon>FrmBombeiro.vb</DependentUpon>

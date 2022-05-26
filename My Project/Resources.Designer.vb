@@ -423,6 +423,26 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property email1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("email1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property email2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("email2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property emandamento() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("emandamento", resourceCulture)

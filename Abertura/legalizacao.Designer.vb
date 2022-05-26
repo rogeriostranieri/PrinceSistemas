@@ -192,6 +192,7 @@ Partial Class Legalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
         Me.CapitalITextBox = New System.Windows.Forms.TextBox()
         Me.CapitalSTextBox = New System.Windows.Forms.TextBox()
         Me.DataExcSocialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -359,7 +360,6 @@ Partial Class Legalizacao
         Me.TipoDeEmpresaComboBox = New System.Windows.Forms.ComboBox()
         Me.PorteDaEmpresaComboBox = New System.Windows.Forms.ComboBox()
         Me.RegimeFederalComboBox = New System.Windows.Forms.ComboBox()
-        Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
         Me.SistemaExternoComboBox = New System.Windows.Forms.ComboBox()
         Me.ButtoneMail = New System.Windows.Forms.Button()
         Me.LinkLabel9 = New System.Windows.Forms.LinkLabel()
@@ -371,7 +371,6 @@ Partial Class Legalizacao
         Me.BtnExcluir = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
         Me.BtnFechar = New System.Windows.Forms.Button()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.BtnContador = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.Button28 = New System.Windows.Forms.Button()
@@ -391,14 +390,20 @@ Partial Class Legalizacao
         Me.BtnVerEventos = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.SistemaExternoLabel = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
-        Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.GroupBoxMenuCima = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxMenuBaixo = New System.Windows.Forms.GroupBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -528,13 +533,19 @@ Partial Class Legalizacao
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         CType(Me.PictureBoxSistemaExterno, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxMenuCima.SuspendLayout()
+        Me.GroupBoxMenuBaixo.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NomeFantasiaLabel
@@ -1300,7 +1311,7 @@ Partial Class Legalizacao
         Me.EmpresasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.EmpresasBindingNavigator.Name = "EmpresasBindingNavigator"
         Me.EmpresasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(742, 23)
+        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(757, 23)
         Me.EmpresasBindingNavigator.Stretch = True
         Me.EmpresasBindingNavigator.TabIndex = 0
         Me.EmpresasBindingNavigator.Text = "BindingNavigator1"
@@ -2143,6 +2154,18 @@ Partial Class Legalizacao
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Social"
         Me.TabPage16.UseVisualStyleBackColor = True
+        '
+        'ButtonCalcCapSocial
+        '
+        Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
+        Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(117, 83)
+        Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
+        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(117, 56)
+        Me.ButtonCalcCapSocial.TabIndex = 58
+        Me.ButtonCalcCapSocial.Text = "Calculadora de Capital Social"
+        Me.ButtonCalcCapSocial.UseVisualStyleBackColor = True
         '
         'CapitalITextBox
         '
@@ -3657,7 +3680,7 @@ Partial Class Legalizacao
         'Button24
         '
         Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button24.Location = New System.Drawing.Point(10, 372)
+        Me.Button24.Location = New System.Drawing.Point(7, 172)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(69, 50)
         Me.Button24.TabIndex = 45
@@ -3667,7 +3690,7 @@ Partial Class Legalizacao
         'Button21
         '
         Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button21.Location = New System.Drawing.Point(10, 475)
+        Me.Button21.Location = New System.Drawing.Point(7, 275)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(69, 23)
         Me.Button21.TabIndex = 44
@@ -3677,7 +3700,7 @@ Partial Class Legalizacao
         'Button20
         '
         Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button20.Location = New System.Drawing.Point(10, 428)
+        Me.Button20.Location = New System.Drawing.Point(7, 228)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(69, 41)
         Me.Button20.TabIndex = 43
@@ -3823,9 +3846,10 @@ Partial Class Legalizacao
         Me.GroupBox2.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox2.Controls.Add(Me.NomeFantasiaTextBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialTextBox)
-        Me.GroupBox2.Location = New System.Drawing.Point(11, 57)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 55)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(678, 165)
+        Me.GroupBox2.Size = New System.Drawing.Size(663, 174)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
@@ -3932,12 +3956,6 @@ Partial Class Legalizacao
         Me.RegimeFederalComboBox.Size = New System.Drawing.Size(121, 21)
         Me.RegimeFederalComboBox.TabIndex = 28
         '
-        'Calendar1
-        '
-        Me.Calendar1.Location = New System.Drawing.Point(14, 19)
-        Me.Calendar1.Name = "Calendar1"
-        Me.Calendar1.TabIndex = 70
-        '
         'SistemaExternoComboBox
         '
         Me.SistemaExternoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SistemaExterno", True))
@@ -3952,7 +3970,7 @@ Partial Class Legalizacao
         '
         Me.ButtoneMail.BackgroundImage = CType(resources.GetObject("ButtoneMail.BackgroundImage"), System.Drawing.Image)
         Me.ButtoneMail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtoneMail.Location = New System.Drawing.Point(10, 297)
+        Me.ButtoneMail.Location = New System.Drawing.Point(7, 97)
         Me.ButtoneMail.Name = "ButtoneMail"
         Me.ButtoneMail.Size = New System.Drawing.Size(69, 23)
         Me.ButtoneMail.TabIndex = 44
@@ -3997,7 +4015,7 @@ Partial Class Legalizacao
         Me.BtnNovo.BackgroundImage = CType(resources.GetObject("BtnNovo.BackgroundImage"), System.Drawing.Image)
         Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNovo.ForeColor = System.Drawing.Color.Green
-        Me.BtnNovo.Location = New System.Drawing.Point(12, 18)
+        Me.BtnNovo.Location = New System.Drawing.Point(6, 19)
         Me.BtnNovo.Name = "BtnNovo"
         Me.BtnNovo.Size = New System.Drawing.Size(69, 22)
         Me.BtnNovo.TabIndex = 22
@@ -4009,7 +4027,7 @@ Partial Class Legalizacao
         Me.BtnExcluir.BackgroundImage = CType(resources.GetObject("BtnExcluir.BackgroundImage"), System.Drawing.Image)
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(12, 116)
+        Me.BtnExcluir.Location = New System.Drawing.Point(6, 117)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
         Me.BtnExcluir.TabIndex = 23
@@ -4020,7 +4038,7 @@ Partial Class Legalizacao
         '
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSalvar.Location = New System.Drawing.Point(12, 46)
+        Me.BtnSalvar.Location = New System.Drawing.Point(6, 47)
         Me.BtnSalvar.Name = "BtnSalvar"
         Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
         Me.BtnSalvar.TabIndex = 24
@@ -4031,43 +4049,18 @@ Partial Class Legalizacao
         '
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFechar.Location = New System.Drawing.Point(12, 145)
+        Me.BtnFechar.Location = New System.Drawing.Point(6, 146)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
         Me.BtnFechar.TabIndex = 25
         Me.BtnFechar.Text = "Fechar"
         Me.BtnFechar.UseVisualStyleBackColor = True
         '
-        'GroupBox9
-        '
-        Me.GroupBox9.AutoSize = True
-        Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox9.Controls.Add(Me.BtnContador)
-        Me.GroupBox9.Controls.Add(Me.BtnEditar)
-        Me.GroupBox9.Controls.Add(Me.Button24)
-        Me.GroupBox9.Controls.Add(Me.Button28)
-        Me.GroupBox9.Controls.Add(Me.ButtoneMail)
-        Me.GroupBox9.Controls.Add(Me.Button20)
-        Me.GroupBox9.Controls.Add(Me.BtnAlteracao)
-        Me.GroupBox9.Controls.Add(Me.Button27)
-        Me.GroupBox9.Controls.Add(Me.BtnFechar)
-        Me.GroupBox9.Controls.Add(Me.Button21)
-        Me.GroupBox9.Controls.Add(Me.BtnSalvar)
-        Me.GroupBox9.Controls.Add(Me.Button26)
-        Me.GroupBox9.Controls.Add(Me.BtnNovo)
-        Me.GroupBox9.Controls.Add(Me.BtnExcluir)
-        Me.GroupBox9.Location = New System.Drawing.Point(654, 26)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(88, 640)
-        Me.GroupBox9.TabIndex = 29
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "MENU"
-        '
         'BtnContador
         '
         Me.BtnContador.BackgroundImage = CType(resources.GetObject("BtnContador.BackgroundImage"), System.Drawing.Image)
         Me.BtnContador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnContador.Location = New System.Drawing.Point(10, 326)
+        Me.BtnContador.Location = New System.Drawing.Point(7, 126)
         Me.BtnContador.Name = "BtnContador"
         Me.BtnContador.Size = New System.Drawing.Size(69, 23)
         Me.BtnContador.TabIndex = 57
@@ -4078,7 +4071,7 @@ Partial Class Legalizacao
         '
         Me.BtnEditar.BackgroundImage = CType(resources.GetObject("BtnEditar.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditar.Location = New System.Drawing.Point(13, 75)
+        Me.BtnEditar.Location = New System.Drawing.Point(7, 76)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(69, 23)
         Me.BtnEditar.TabIndex = 50
@@ -4088,7 +4081,7 @@ Partial Class Legalizacao
         'Button28
         '
         Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button28.Location = New System.Drawing.Point(10, 598)
+        Me.Button28.Location = New System.Drawing.Point(7, 398)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(69, 23)
         Me.Button28.TabIndex = 48
@@ -4099,7 +4092,7 @@ Partial Class Legalizacao
         '
         Me.BtnAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAlteracao.Location = New System.Drawing.Point(10, 219)
+        Me.BtnAlteracao.Location = New System.Drawing.Point(7, 19)
         Me.BtnAlteracao.Name = "BtnAlteracao"
         Me.BtnAlteracao.Size = New System.Drawing.Size(69, 39)
         Me.BtnAlteracao.TabIndex = 49
@@ -4109,7 +4102,7 @@ Partial Class Legalizacao
         'Button27
         '
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button27.Location = New System.Drawing.Point(10, 504)
+        Me.Button27.Location = New System.Drawing.Point(7, 304)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(69, 41)
         Me.Button27.TabIndex = 47
@@ -4119,7 +4112,7 @@ Partial Class Legalizacao
         'Button26
         '
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button26.Location = New System.Drawing.Point(10, 551)
+        Me.Button26.Location = New System.Drawing.Point(7, 351)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(69, 41)
         Me.Button26.TabIndex = 46
@@ -4170,7 +4163,6 @@ Partial Class Legalizacao
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.Controls.Add(Me.StatusComboBox)
-        Me.GroupBox10.Controls.Add(Me.Calendar1)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialComboBox)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialLabel)
         Me.GroupBox10.Controls.Add(Me.PictureBoxSistemaExterno)
@@ -4195,9 +4187,10 @@ Partial Class Legalizacao
         Me.GroupBox10.Controls.Add(Me.ProcessoComboBox)
         Me.GroupBox10.Controls.Add(Me.TabControle)
         Me.GroupBox10.Controls.Add(Me.SistemaExternoLabel)
-        Me.GroupBox10.Location = New System.Drawing.Point(11, 231)
+        Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 259)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(651, 448)
+        Me.GroupBox10.Size = New System.Drawing.Size(663, 433)
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
@@ -4288,26 +4281,6 @@ Partial Class Legalizacao
         Me.SistemaExternoLabel.TabIndex = 68
         Me.SistemaExternoLabel.Text = "Atualização no Sistema Externo:"
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.Empresas
-        Me.PictureBox3.Location = New System.Drawing.Point(11, 23)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(74, 41)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 41
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 23)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(648, 41)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 42
-        Me.PictureBox4.TabStop = False
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -4321,10 +4294,11 @@ Partial Class Legalizacao
         '
         'PictureBox5
         '
+        Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox5.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox5.Location = New System.Drawing.Point(0, 207)
+        Me.PictureBox5.Location = New System.Drawing.Point(3, 235)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(742, 18)
+        Me.PictureBox5.Size = New System.Drawing.Size(663, 18)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 44
         Me.PictureBox5.TabStop = False
@@ -4348,17 +4322,142 @@ Partial Class Legalizacao
         '
         Me.LaudosTableAdapter.ClearBeforeFill = True
         '
-        'ButtonCalcCapSocial
+        'TableLayoutPanel1
         '
-        Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
-        Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(117, 83)
-        Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
-        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(117, 56)
-        Me.ButtonCalcCapSocial.TabIndex = 58
-        Me.ButtonCalcCapSocial.Text = "Calculadora de Capital Social"
-        Me.ButtonCalcCapSocial.UseVisualStyleBackColor = True
+        Me.TableLayoutPanel1.AutoScroll = True
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.38476!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.61524!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox4, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenuCima, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox5, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenuBaixo, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox10, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 23)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.5641!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.4359!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 438.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(757, 695)
+        Me.TableLayoutPanel1.TabIndex = 46
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox8.Image = Global.PrinceSistemas.My.Resources.Resources.Empresas
+        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(87, 40)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 44
+        Me.PictureBox8.TabStop = False
+        '
+        'GroupBoxMenuCima
+        '
+        Me.GroupBoxMenuCima.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.GroupBoxMenuCima.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnNovo)
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnEditar)
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnExcluir)
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnSalvar)
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnFechar)
+        Me.GroupBoxMenuCima.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(672, 55)
+        Me.GroupBoxMenuCima.Name = "GroupBoxMenuCima"
+        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(82, 174)
+        Me.GroupBoxMenuCima.TabIndex = 24
+        Me.GroupBoxMenuCima.TabStop = False
+        Me.GroupBoxMenuCima.Text = "MENU"
+        '
+        'GroupBoxMenuBaixo
+        '
+        Me.GroupBoxMenuBaixo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.GroupBoxMenuBaixo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnContador)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnAlteracao)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button24)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button26)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button28)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button21)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.ButtoneMail)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button27)
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.Button20)
+        Me.GroupBoxMenuBaixo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxMenuBaixo.Location = New System.Drawing.Point(672, 259)
+        Me.GroupBoxMenuBaixo.Name = "GroupBoxMenuBaixo"
+        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(82, 433)
+        Me.GroupBoxMenuBaixo.TabIndex = 25
+        Me.GroupBoxMenuBaixo.TabStop = False
+        Me.GroupBoxMenuBaixo.Text = "Atalhos"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox4.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
+        Me.PictureBox4.Location = New System.Drawing.Point(672, 235)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(82, 18)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 46
+        Me.PictureBox4.TabStop = False
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02715!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.97285!))
+        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox8, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox3, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(663, 46)
+        Me.TableLayoutPanel2.TabIndex = 47
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
+        Me.PictureBox3.Location = New System.Drawing.Point(96, 3)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(564, 40)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 45
+        Me.PictureBox3.TabStop = False
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.PictureBox7, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(672, 3)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(82, 46)
+        Me.TableLayoutPanel3.TabIndex = 48
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox7.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
+        Me.PictureBox7.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(76, 40)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 45
+        Me.PictureBox7.TabStop = False
         '
         'Legalizacao
         '
@@ -4367,19 +4466,14 @@ Partial Class Legalizacao
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(742, 693)
+        Me.ClientSize = New System.Drawing.Size(757, 718)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)
-        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.ComboBoxBuscaProtocolo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBoxBuscaEmpresa)
-        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.EmpresasBindingNavigator)
-        Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "Legalizacao"
@@ -4458,14 +4552,21 @@ Partial Class Legalizacao
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
         CType(Me.PictureBoxSistemaExterno, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxMenuCima.ResumeLayout(False)
+        Me.GroupBoxMenuBaixo.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4584,7 +4685,6 @@ Partial Class Legalizacao
     Friend WithEvents PorteDaEmpresaComboBox As ComboBox
     Friend WithEvents TipoDeEmpresaComboBox As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents ComboBoxBuscaEmpresa As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBoxBuscaProtocolo As ComboBox
@@ -4653,8 +4753,6 @@ Partial Class Legalizacao
     Friend WithEvents AltProtComboBox As ComboBox
     Friend WithEvents Button41 As Button
     Friend WithEvents Button40 As Button
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents ButtoneMail As Button
     Friend WithEvents TabPage16 As TabPage
@@ -4737,7 +4835,6 @@ Partial Class Legalizacao
     Friend WithEvents BtnLimparSocios As Button
     Friend WithEvents BtnCopiaDataDeNasc As Button
     Friend WithEvents SistemaExternoLabel As Label
-    Friend WithEvents Calendar1 As MonthCalendar
     Friend WithEvents LinkLabel18 As LinkLabel
     Friend WithEvents BtnLocalizar As Button
     Friend WithEvents BtnContador As Button
@@ -4763,4 +4860,13 @@ Partial Class Legalizacao
     Friend WithEvents LaudosTableAdapter As PrinceDBDataSetTableAdapters.LaudosTableAdapter
     Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents ButtonCalcCapSocial As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents GroupBoxMenuCima As GroupBox
+    Friend WithEvents GroupBoxMenuBaixo As GroupBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

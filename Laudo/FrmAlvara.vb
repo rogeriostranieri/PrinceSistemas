@@ -11,17 +11,6 @@ Public Class FrmAlvara
 
     Private Sub LaudosConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        '//// calendario 
-        'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
-
-        Calendar1.Visible = False
-            '87; 164
-            Calendar1.Location = New Point(87, 164)
-            'Calendar1 trazer para frente
-            Calendar1.BringToFront()
-        '////// fim calencario
-
-
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADSituacaoAlvara'. Você pode movê-la ou removê-la conforme necessário.
         Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
         'carregar statuscombobox com bando de dados CADstatus
@@ -326,6 +315,7 @@ Public Class FrmAlvara
     End Sub
     Private Sub Salvar()
         'arrumar o CNPJ ou CPF
+
         CNPJouCPF()
 
 
@@ -335,78 +325,79 @@ Public Class FrmAlvara
         changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
 
-        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
 
-            Dim message As String
+                Dim message As String
 
-            'MOSTRA MENSAGM BOX
-            'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+                'MOSTRA MENSAGM BOX
+                'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+                message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
 
-            'mostra mensagem box SIM OU NAO OU CANCELA
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-                ' e.Cancel = True
-            ElseIf result = DialogResult.No Then
-                BtnEditar.Text = "Editar"
-                Button17.Enabled = True
-                GroupBox9.Enabled = False
-                GroupBox4.Enabled = False
-                'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
-                '  Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-                'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-            ElseIf result = DialogResult.Yes Then
-                Try
-                    'Salva alterações
-                    Me.Validate()
-                    Me.LaudosBindingSource.EndEdit()
-                    Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-
-                    'Modifica bloqueando td novamente
+                'mostra mensagem box SIM OU NAO OU CANCELA
+                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+                If result = DialogResult.Cancel Then
+                    ' e.Cancel = True
+                ElseIf result = DialogResult.No Then
                     BtnEditar.Text = "Editar"
+                    Button17.Enabled = True
                     GroupBox9.Enabled = False
                     GroupBox4.Enabled = False
+                    'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
+                    '  Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
+                    'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
+                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-                    Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-                    RazaoSocialTextBox.Focus()
+                ElseIf result = DialogResult.Yes Then
+                    Try
+                        'Salva alterações
+                        Me.Validate()
+                        Me.LaudosBindingSource.EndEdit()
+                        Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
 
-                    'Verifica se foi alterado para finalizado e alterar Form Empresas
-                    Select Case SituacaoComboBox.Text.Trim()
-                        Case "Finalizado Definitivo"
-                            If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
-                                Call ConexaoEmpresa()
-                            End If
-                        Case "Finalizado Provisório"
-                            If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
-                                Call ConexaoEmpresa()
-                            End If
-                        Case Else
-                    End Select
-                    'Fim do codigo
+                        'Modifica bloqueando td novamente
+                        BtnEditar.Text = "Editar"
+                        GroupBox9.Enabled = False
+                        GroupBox4.Enabled = False
 
-                Catch exc As Exception
+                        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+                        RazaoSocialTextBox.Focus()
 
-                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        'Verifica se foi alterado para finalizado e alterar Form Empresas
+                        Select Case SituacaoComboBox.Text.Trim()
+                            Case "Finalizado Definitivo"
+                                If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
+                                    Call ConexaoEmpresa()
+                                End If
+                            Case "Finalizado Provisório"
+                                If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
+                                    Call ConexaoEmpresa()
+                                End If
+                            Case Else
+                        End Select
+                        'Fim do codigo
 
-                End Try
+                    Catch exc As Exception
+
+                        MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                    End Try
+
+                End If
+            Else
+                BtnEditar.Text = "Editar"
+                GroupBox9.Enabled = False
+                GroupBox4.Enabled = False
+
+                Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+                ' Salvar() não precisa salvar pq nao teve alteração
+                'ComboBox3.Text = CNPJdaEmpresa
+                ' ComboBox3.Focus()
+                RazaoSocialTextBox.Focus()
+
+                Button17.Enabled = True
 
             End If
-        Else
-            BtnEditar.Text = "Editar"
-            GroupBox9.Enabled = False
-            GroupBox4.Enabled = False
 
-            Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-            ' Salvar() não precisa salvar pq nao teve alteração
-            'ComboBox3.Text = CNPJdaEmpresa
-            ' ComboBox3.Focus()
-            RazaoSocialTextBox.Focus()
-
-            Button17.Enabled = True
-
-        End If
 
     End Sub
 
@@ -1071,31 +1062,19 @@ Public Class FrmAlvara
     '/////////// Inicio do codigo de mostrar calendario
     '///// TEM MAIS NO LOAD 
     Private Sub AvisarDiaMaskedTextBox_Click(sender As Object, e As EventArgs) Handles AvisarDiaMaskedTextBox.Click
-        Calendar1.Visible = True
-        'AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart.ToShortDateString()
+        DialogCalendarioAlvara.Show()
+        DialogCalendarioAlvara.Focus()
+        'abrir no local onde está o mouse
+        DialogCalendarioAlvara.Location = New Point(MousePosition.X, MousePosition.Y)
 
-        'Calendar1.Visible = False
     End Sub
+
 
     Private Sub AvisarDiaMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles AvisarDiaMaskedTextBox.Leave
-        Calendar1.Visible = False
+        DialogCalendarioAlvara.Close()
 
     End Sub
 
-    Private Sub Calendar1_Leave(sender As Object, e As EventArgs) Handles Calendar1.Leave
-        Calendar1.Visible = False
-
-    End Sub
-
-    Private Sub Calendar1_MouseLeave(sender As Object, e As EventArgs) Handles Calendar1.MouseLeave
-        Calendar1.Visible = False
-
-    End Sub
-
-    Private Sub Calendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles Calendar1.DateSelected
-        AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart
-        Calendar1.Visible = False
-    End Sub
 
 
     '/////////// fim do codigo de mostrar calendario

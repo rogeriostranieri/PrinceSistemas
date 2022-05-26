@@ -287,10 +287,6 @@ Public Class FrmMail
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
-
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonLimpar.Click
         If MsgBox(" Deseja limpar tudo que foi escrito sem enviar?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
@@ -394,5 +390,7 @@ Public Class FrmMail
         End Try
     End Sub
 
-
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        Me.Close()
+    End Sub
 End Class
