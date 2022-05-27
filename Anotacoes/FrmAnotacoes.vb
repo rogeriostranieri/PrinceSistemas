@@ -322,7 +322,7 @@ Public Class FrmAnotacoes
 
             lblMudaTexto.Text = "Legalização"
             RichTextBoxAnotacao.DataBindings.Clear()
-            RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Legalizacao"))
+            RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "FrmLegalizacao"))
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try

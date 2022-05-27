@@ -84,21 +84,21 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
         'salvar()
-        If Application.OpenForms.OfType(Of Legalizacao)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             '  Dim Sair As String
             '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             ' Salvar()
-            Legalizacao.Focus()
+            FrmLegalizacao.Focus()
             ' FrmContatos.MdiParent = MDIMenu
-            Legalizacao.ComboBoxBuscaEmpresa.Text = ComboBox1.Text
-            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = ComboBox1.Text
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
             '  Me.Close()
         Else
             ' Salvar()
             'FrmContatos.MdiParent = MDIMenu
-            Legalizacao.Show()
-            Legalizacao.ComboBoxBuscaEmpresa.Text = ComboBox1.Text
-            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+            FrmLegalizacao.Show()
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = ComboBox1.Text
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
             '   Me.Close()
         End If
 

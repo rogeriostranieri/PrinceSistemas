@@ -10,7 +10,7 @@ Module ModCon
             Using Conn As New SqlConnection(Str)
                 Using cmd As New SqlCommand(Sql, Conn)
                     Conn.Open()
-                    cmd.Parameters.AddWithValue("@CNPJ", Legalizacao.CNPJMaskedTextBox.Text)
+                    cmd.Parameters.AddWithValue("@CNPJ", FrmLegalizacao.CNPJMaskedTextBox.Text)
 
                     Dim value = cmd.ExecuteScalar()
 
@@ -22,16 +22,16 @@ Module ModCon
 
                             'Abre o alvara ja cadastrado com a busca CNPJ
                             FrmAlvara.Focus()
-                            FrmAlvara.ComboBoxBuscaCNPJ.Text = Legalizacao.CNPJMaskedTextBox.Text
+                            FrmAlvara.ComboBoxBuscaCNPJ.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
                             FrmAlvara.ComboBoxBuscaCNPJ.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
                             'FIM  abre o alvara ja cadastrado com a busca CNPJ
 
                             'Verifica Razao Social
-                            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+                            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
                                 If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
 
-                                    FrmAlvara.RazaoSocialTextBox.Text = Legalizacao.RazaoSocialTextBox.Text
+                                    FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
 
                                 End If
 
@@ -39,14 +39,14 @@ Module ModCon
                         Else
 
                             FrmAlvara.Show()
-                            'FrmAlvara.ComboBox3.Text = Legalizacao.CNPJMaskedTextBox.Text
+                            'FrmAlvara.ComboBox3.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
                             ' FrmAlvara.ComboBox1.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
 
                             'Verifica Razao Social
-                            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+                            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
                                 If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
-                                    FrmAlvara.RazaoSocialTextBox.Text = Legalizacao.RazaoSocialTextBox.Text
+                                    FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
 
                                 End If
 
@@ -73,16 +73,16 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                                     FrmAlvara.TabAlvara.SelectTab(0)
 
                                     ' abrir aba dados para pegar informações
-                                    Legalizacao.TabControle.SelectTab(1) 'dados
+                                    FrmLegalizacao.TabControle.SelectTab(1) 'dados
 
                                     'tabcontrole dos aba dados
-                                    Legalizacao.TabControl2.SelectTab(0)
-                                    Legalizacao.TabControl2.SelectTab(1)
-                                    Legalizacao.TabControl2.SelectTab(2)
-                                    Legalizacao.TabControl2.SelectTab(3)
-                                    Legalizacao.TabControl2.SelectTab(4)
-                                    Legalizacao.TabControl2.SelectTab(5)
-                                    Legalizacao.TabControl2.SelectTab(6)
+                                    FrmLegalizacao.TabControl2.SelectTab(0)
+                                    FrmLegalizacao.TabControl2.SelectTab(1)
+                                    FrmLegalizacao.TabControl2.SelectTab(2)
+                                    FrmLegalizacao.TabControl2.SelectTab(3)
+                                    FrmLegalizacao.TabControl2.SelectTab(4)
+                                    FrmLegalizacao.TabControl2.SelectTab(5)
+                                    FrmLegalizacao.TabControl2.SelectTab(6)
 
 
 
@@ -99,8 +99,8 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                                     'codigo de copiar entre os form
 
                                     'COPIA OS DADOS
-                                    FrmAlvara.RazaoSocialTextBox.Text = Legalizacao.RazaoSocialTextBox.Text
-                                    FrmAlvara.CNPJMaskedTextBox.Text = Legalizacao.CNPJMaskedTextBox.Text
+                                    FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
+                                    FrmAlvara.CNPJMaskedTextBox.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
 
                                     'Não Iniciado
                                     FrmAlvara.SituacaoComboBox.Text = "Não Iniciado"
@@ -108,54 +108,54 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
 
                                     FrmAlvara.TabControl2.SelectTab(1)
                                     'copia
-                                    FrmAlvara.EndCEPMaskedTextBox.Text = Legalizacao.EndCEPMaskedTextBox.Text
-                                    FrmAlvara.EnderecoTextBox.Text = Legalizacao.EnderecoTextBox.Text
-                                    FrmAlvara.EndNumTextBox.Text = Legalizacao.EndNumeroTextBox.Text
-                                    FrmAlvara.EndCompTextBox.Text = Legalizacao.EndComplementoTextBox.Text
-                                    FrmAlvara.EndBairroTextBox.Text = Legalizacao.EndBairroTextBox.Text
-                                    FrmAlvara.EndCidadeTextBox.Text = Legalizacao.EndCidadeTextBox.Text
-                                    FrmAlvara.EndEstadoTextBox.Text = Legalizacao.EndEstadoTextBox.Text
+                                    FrmAlvara.EndCEPMaskedTextBox.Text = FrmLegalizacao.EndCEPMaskedTextBox.Text
+                                    FrmAlvara.EnderecoTextBox.Text = FrmLegalizacao.EnderecoTextBox.Text
+                                    FrmAlvara.EndNumTextBox.Text = FrmLegalizacao.EndNumeroTextBox.Text
+                                    FrmAlvara.EndCompTextBox.Text = FrmLegalizacao.EndComplementoTextBox.Text
+                                    FrmAlvara.EndBairroTextBox.Text = FrmLegalizacao.EndBairroTextBox.Text
+                                    FrmAlvara.EndCidadeTextBox.Text = FrmLegalizacao.EndCidadeTextBox.Text
+                                    FrmAlvara.EndEstadoTextBox.Text = FrmLegalizacao.EndEstadoTextBox.Text
 
-                                    FrmAlvara.AreaTextBox.Text = Legalizacao.AreaTextBox.Text
-                                    FrmAlvara.Area2TextBox.Text = Legalizacao.Area2TextBox.Text
-                                    FrmAlvara.CadImobTextBox.Text = Legalizacao.CadImobTextBox.Text
-                                    FrmAlvara.EndZonaTextBox.Text = Legalizacao.EndZonaTextBox.Text
-                                    FrmAlvara.EndQuadraTextBox.Text = Legalizacao.EndQuadraTextBox.Text
-                                    FrmAlvara.EndDataTextBox.Text = Legalizacao.EndDataTextBox.Text
+                                    FrmAlvara.AreaTextBox.Text = FrmLegalizacao.AreaTextBox.Text
+                                    FrmAlvara.Area2TextBox.Text = FrmLegalizacao.Area2TextBox.Text
+                                    FrmAlvara.CadImobTextBox.Text = FrmLegalizacao.CadImobTextBox.Text
+                                    FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
+                                    FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
+                                    FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
 
 
 
                                     FrmAlvara.TabControl2.SelectTab(4)
                                     'copia
-                                    FrmAlvara.RequerenteTextBox.Text = Legalizacao.NomeResponsavelTextBox.Text
-                                    FrmAlvara.CPFRequerenteMaskedTextBox.Text = Legalizacao.CPFResponsavelMaskedTextBox.Text
-                                    FrmAlvara.RGRequerenteTextBox.Text = Legalizacao.RespRGTextBox.Text
-                                    FrmAlvara.FoneRequerenteTextBox.Text = Legalizacao.EmpTel1TextBox.Text
-                                    FrmAlvara.EmailRequerenteTextBox.Text = Legalizacao.EmpEmailTextBox.Text
+                                    FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
+                                    FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+                                    FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+                                    FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
+                                    FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
 
 
 
                                     FrmAlvara.TabControl2.SelectTab(3)
                                     'copia
-                                    FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & Legalizacao.CNAEPrincipalTextBox.Text & "
-CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
-                                    FrmAlvara.RamodeatividadeRichTextBox.Text = Legalizacao.RamoDeAtividadeRichTextBox.Text
+                                    FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
+CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+                                    FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
 
 
                                     FrmAlvara.TabControl2.SelectTab(5)
 
-                                    If Legalizacao.ProcessoComboBox.Text = "Abertura" Then
+                                    If FrmLegalizacao.ProcessoComboBox.Text = "Abertura" Then
                                         'copia
                                         FrmAlvara.NaturezaDoPedidoRichTextBox.Text = "Nova Empresa;
 "
 
                                     Else
                                         'copia
-                                        FrmAlvara.NaturezaDoPedidoRichTextBox.Text = Legalizacao.MotivoRichTextBox.Text
+                                        FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text
 
                                     End If
                                     'copia
-                                    ' FrmAlvara.NaturezaDoPedidoRichTextBox.Text = Legalizacao.MotivoTextBox.Text
+                                    ' FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoTextBox.Text
 
                                     'data de criação e aviso
                                     FrmAlvara.DataCriadoMaskedTextBox.Text = System.DateTime.Now
@@ -232,8 +232,8 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
                             End If
                         End If
                     End If
-                    Legalizacao.Focus()
-                    Legalizacao.TabControle.SelectTab(0)
+                    FrmLegalizacao.Focus()
+                    FrmLegalizacao.TabControle.SelectTab(0)
 
                     FrmAlvara.Focus()
                     FrmAlvara.TabAlvara.SelectTab(0)
@@ -269,26 +269,26 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
                     If value > 0 Then
 
                         'Abre o alvara ja cadastrado com a busca CNPJ
-                        ' FrmAlvara.Focus()
-                        ' FrmAlvara.ComboBoxBuscaCNPJ.Text = Legalizacao.CNPJMaskedTextBox.Text
-                        ' FrmAlvara.ComboBoxBuscaCNPJ.Focus()
-                        ' FrmAlvara.RazaoSocialTextBox.Focus()
+                        FrmLegalizacao.Focus()
+                        FrmLegalizacao.ComboBoxBuscaCNPJ.Text = FrmAlvara.CNPJMaskedTextBox.Text
+                        FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+                        FrmLegalizacao.RazaoSocialTextBox.Focus()
                         'FIM  abre o alvara ja cadastrado com a busca CN
 
 
 
                         ' MessageBox.Show("Ja existe uma Empresa cadastrada! Abrindo...")
 
-                        If Application.OpenForms.OfType(Of Legalizacao)().Count() > 0 Then
+                        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
                             Dim Sair As String
                             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
-                            Legalizacao.Focus()
-                            Legalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
-                            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+                            FrmLegalizacao.Focus()
+                            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
+                            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
 
                             'Verifica Razao Social
-                            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+                            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
 
                                 Dim Msg As String
                                 Msg = MsgBox("Razão Social Diferente, favor deixar os dois formulários com a mesma Razão Social", MsgBoxStyle.Question, "Prince Sistemas Informa!")
@@ -298,11 +298,11 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
 
                         Else
 
-                            Legalizacao.Show()
-                            Legalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
-                            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+                            FrmLegalizacao.Show()
+                            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
+                            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
 
-                            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+                            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
 
                                 Dim Msg As String
                                 Msg = MsgBox("Razão Social Diferente, favor deixar os dois formulários com a mesma Razão Social", MsgBoxStyle.Question, "Prince Sistemas Informa!")
@@ -327,7 +327,7 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
 
         Finally
             'Whether there is error or not. Close the connection.
-            'Legalizacao.Close()
+            'FrmLegalizacao.Close()
         End Try
     End Sub
 
@@ -335,11 +335,11 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
     Sub Atualizadadadoslaudo()
 
 
-        If Application.OpenForms.OfType(Of Legalizacao)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             '  Dim Sair As String
             ' Sair = MsgBox("O formulário ja está aberto, Importando dados ...", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
-            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
 
                 If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
                     Importacaodadoslaudo()
@@ -357,7 +357,7 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             ' Dim Sair As String
             ' Sair = MsgBox("O formulário ja está aberto, Importando dados ...", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
-            If FrmAlvara.RazaoSocialTextBox.Text <> Legalizacao.RazaoSocialTextBox.Text Then
+            If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
 
                 If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
                     Importacaodadoslaudo()
@@ -380,16 +380,16 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             FrmAlvara.TabAlvara.SelectTab(0)
 
             ' abrir aba dados para pegar informações
-            Legalizacao.TabControle.SelectTab(1) 'dados
+            FrmLegalizacao.TabControle.SelectTab(1) 'dados
 
             'tabcontrole dos aba dados
-            Legalizacao.TabControl2.SelectTab(0)
-            Legalizacao.TabControl2.SelectTab(1)
-            Legalizacao.TabControl2.SelectTab(2)
-            Legalizacao.TabControl2.SelectTab(3)
-            Legalizacao.TabControl2.SelectTab(4)
-            Legalizacao.TabControl2.SelectTab(5)
-            Legalizacao.TabControl2.SelectTab(6)
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            FrmLegalizacao.TabControl2.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(2)
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
+            FrmLegalizacao.TabControl2.SelectTab(5)
+            FrmLegalizacao.TabControl2.SelectTab(6)
 
 
             '//
@@ -398,63 +398,63 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             'codigo de copiar entre os form
 
             'COPIA OS DADOS
-            FrmAlvara.RazaoSocialTextBox.Text = Legalizacao.RazaoSocialTextBox.Text
-            FrmAlvara.CNPJMaskedTextBox.Text = Legalizacao.CNPJMaskedTextBox.Text
+            FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
+            FrmAlvara.CNPJMaskedTextBox.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
 
 
 
 
             FrmAlvara.TabControl2.SelectTab(1)
             'copia
-            FrmAlvara.EndCEPMaskedTextBox.Text = Legalizacao.EndCEPMaskedTextBox.Text
-            FrmAlvara.EnderecoTextBox.Text = Legalizacao.EnderecoTextBox.Text
-            FrmAlvara.EndNumTextBox.Text = Legalizacao.EndNumeroTextBox.Text
-            FrmAlvara.EndCompTextBox.Text = Legalizacao.EndComplementoTextBox.Text
-            FrmAlvara.EndBairroTextBox.Text = Legalizacao.EndBairroTextBox.Text
-            FrmAlvara.EndCidadeTextBox.Text = Legalizacao.EndCidadeTextBox.Text
-            FrmAlvara.EndEstadoTextBox.Text = Legalizacao.EndEstadoTextBox.Text
+            FrmAlvara.EndCEPMaskedTextBox.Text = FrmLegalizacao.EndCEPMaskedTextBox.Text
+            FrmAlvara.EnderecoTextBox.Text = FrmLegalizacao.EnderecoTextBox.Text
+            FrmAlvara.EndNumTextBox.Text = FrmLegalizacao.EndNumeroTextBox.Text
+            FrmAlvara.EndCompTextBox.Text = FrmLegalizacao.EndComplementoTextBox.Text
+            FrmAlvara.EndBairroTextBox.Text = FrmLegalizacao.EndBairroTextBox.Text
+            FrmAlvara.EndCidadeTextBox.Text = FrmLegalizacao.EndCidadeTextBox.Text
+            FrmAlvara.EndEstadoTextBox.Text = FrmLegalizacao.EndEstadoTextBox.Text
 
-            FrmAlvara.AreaTextBox.Text = Legalizacao.AreaTextBox.Text
-            FrmAlvara.Area2TextBox.Text = Legalizacao.Area2TextBox.Text
-            FrmAlvara.CadImobTextBox.Text = Legalizacao.CadImobTextBox.Text
-            FrmAlvara.EndZonaTextBox.Text = Legalizacao.EndZonaTextBox.Text
-            FrmAlvara.EndQuadraTextBox.Text = Legalizacao.EndQuadraTextBox.Text
-            FrmAlvara.EndDataTextBox.Text = Legalizacao.EndDataTextBox.Text
+            FrmAlvara.AreaTextBox.Text = FrmLegalizacao.AreaTextBox.Text
+            FrmAlvara.Area2TextBox.Text = FrmLegalizacao.Area2TextBox.Text
+            FrmAlvara.CadImobTextBox.Text = FrmLegalizacao.CadImobTextBox.Text
+            FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
+            FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
+            FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
 
 
 
             FrmAlvara.TabControl2.SelectTab(4)
             'copia
-            FrmAlvara.RequerenteTextBox.Text = Legalizacao.NomeResponsavelTextBox.Text
-            FrmAlvara.CPFRequerenteMaskedTextBox.Text = Legalizacao.CPFResponsavelMaskedTextBox.Text
-            FrmAlvara.RGRequerenteTextBox.Text = Legalizacao.RespRGTextBox.Text
-            FrmAlvara.FoneRequerenteTextBox.Text = Legalizacao.EmpTel1TextBox.Text
-            FrmAlvara.EmailRequerenteTextBox.Text = Legalizacao.EmpEmailTextBox.Text
+            FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
+            FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+            FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+            FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
+            FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
 
 
 
 
             FrmAlvara.TabControl2.SelectTab(3)
             'copia
-            FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & Legalizacao.CNAEPrincipalTextBox.Text & "
-CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
-            FrmAlvara.RamodeatividadeRichTextBox.Text = Legalizacao.RamoDeAtividadeRichTextBox.Text
+            FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
+CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+            FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
 
 
             FrmAlvara.TabControl2.SelectTab(5)
 
-            If Legalizacao.ProcessoComboBox.Text = "Abertura" Then
+            If FrmLegalizacao.ProcessoComboBox.Text = "Abertura" Then
                 'copia
                 FrmAlvara.NaturezaDoPedidoRichTextBox.Text = "Nova Empresa;
 "
 
             Else
                 'copia
-                FrmAlvara.NaturezaDoPedidoRichTextBox.Text = Legalizacao.MotivoRichTextBox.Text
+                FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text
 
             End If
             'copia
-            ' FrmAlvara.NaturezaDoPedidoRichTextBox.Text = Legalizacao.MotivoTextBox.Text
+            ' FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoTextBox.Text
 
             'data de criação e aviso
             FrmAlvara.DataCriadoMaskedTextBox.Text = System.DateTime.Now
@@ -490,7 +490,7 @@ CNAE Secundários:  " & Legalizacao.CNAESecundarioRichTextBox.Text
             MessageBox.Show("Importação realizada com sucesso",
     "Prince Sistemas Informa")
 
-            ' Legalizacao.Close()
+            ' FrmLegalizacao.Close()
 
         Catch ex As System.InvalidCastException
             MessageBox.Show("Erro ao copiar novos dados, verificar", "Prince Avisa")

@@ -92,7 +92,7 @@ Module ModeMail
     End Sub
 
     Sub Enviaremaillegalizao()
-        Legalizacao.TabControle.SelectTab(0)
+        FrmLegalizacao.TabControle.SelectTab(0)
 
         'abrir histórico
         FrmMail.TabControle.SelectTab(0)
@@ -100,16 +100,16 @@ Module ModeMail
         FrmMail.TextBoxAssunto.Text = ""
         FrmMail.RichTextBoxMensagem.Text = ""
 
-        'igual esta no comando no formulario legalizacao
-        Legalizacao.SistemaExternoComboBox.SelectedIndex = 0
+        'igual esta no comando no formulario FrmLegalizacao
+        FrmLegalizacao.SistemaExternoComboBox.SelectedIndex = 0
 
         Try
-            Dim A = Legalizacao.RazaoSocialTextBox.Text.ToString()
-            Dim B = Legalizacao.CNPJMaskedTextBox.Text.ToString()
-            Dim C = Legalizacao.ProcessoComboBox.Text.ToString()
-            Dim D = Legalizacao.MotivoRichTextBox.Text.ToString()
-            Dim E = Legalizacao.SistemaExternoComboBox.Text.ToString()
-            Dim F = Legalizacao.IETextBox.Text.ToString()
+            Dim A = FrmLegalizacao.RazaoSocialTextBox.Text.ToString()
+            Dim B = FrmLegalizacao.CNPJMaskedTextBox.Text.ToString()
+            Dim C = FrmLegalizacao.ProcessoComboBox.Text.ToString()
+            Dim D = FrmLegalizacao.MotivoRichTextBox.Text.ToString()
+            Dim E = FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
+            Dim F = FrmLegalizacao.IETextBox.Text.ToString()
             If E = "" Then
                 F = "Não tem Inscrição Estadual"
             End If

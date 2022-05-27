@@ -60,19 +60,19 @@ Public Class MDIPrincipal
 
 
     Private Sub ControleLegalizaçãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControleLegalizaçãoToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of Legalizacao)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             '  Dim Sair As String
             '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
-            Legalizacao.Focus()
-            ' Legalizacao.MdiParent = Me
+            FrmLegalizacao.Focus()
+            ' FrmLegalizacao.MdiParent = Me
 
 
 
         Else
 
-            ' Legalizacao.MdiParent = Me
-            Legalizacao.Show()
+            ' FrmLegalizacao.MdiParent = Me
+            FrmLegalizacao.Show()
 
 
         End If
@@ -676,24 +676,7 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub BuscaPorResponsavelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscaPorResponsavelToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of BuscaNomeSocio)().Count() > 0 Then
 
-            BuscaNomeSocio.Focus()
-            BuscaNomeSocio.Close()
-            BuscaNomeSocio.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            BuscaNomeSocio.Show()
-
-
-        Else
-
-            BuscaNomeSocio.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            BuscaNomeSocio.Show()
-
-        End If
-    End Sub
 
     Private Sub BuscaEmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscaEmpresaToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmBuscaEmpresas)().Count() > 0 Then
@@ -859,19 +842,5 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub AlvaráBuscaEmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlvaráBuscaEmpresaToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmBuscaResponsavelLaudo)().Count() > 0 Then
 
-            FrmBuscaResponsavelLaudo.Focus()
-            FrmBuscaResponsavelLaudo.MdiParent = Me
-
-
-        Else
-
-            FrmBuscaResponsavelLaudo.MdiParent = Me
-            FrmBuscaResponsavelLaudo.Show()
-
-
-        End If
-    End Sub
 End Class

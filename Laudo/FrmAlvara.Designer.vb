@@ -247,13 +247,11 @@ Partial Class FrmAlvara
         Me.CMCTextBox = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnNovaAlteracao = New System.Windows.Forms.Button()
         Me.Btnempresa = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.AvisarDiaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -2703,20 +2701,6 @@ Partial Class FrmAlvara
         Me.Button13.Text = "Telefones"
         Me.Button13.UseVisualStyleBackColor = True
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox2.DataSource = Me.LaudosBindingSource
-        Me.ComboBox2.DisplayMember = "Nlaudo"
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(733, 1)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(110, 21)
-        Me.ComboBox2.TabIndex = 56
-        Me.ComboBox2.ValueMember = "Nlaudo"
-        '
         'GroupBox5
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
@@ -2778,17 +2762,6 @@ Partial Class FrmAlvara
         Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 58
         Me.Label2.Text = "Empresa:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Silver
-        Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.Label4.Location = New System.Drawing.Point(673, 5)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(61, 15)
-        Me.Label4.TabIndex = 59
-        Me.Label4.Text = "Nº Laudo:"
         '
         'Button12
         '
@@ -2972,7 +2945,7 @@ Partial Class FrmAlvara
         Me.ComboBoxBuscaCNPJ.FormattingEnabled = True
         Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(559, 1)
         Me.ComboBoxBuscaCNPJ.Name = "ComboBoxBuscaCNPJ"
-        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(111, 21)
+        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(127, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 81
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
@@ -3043,11 +3016,9 @@ Partial Class FrmAlvara
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.ClientSize = New System.Drawing.Size(943, 633)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
-        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBoxBuscaAlvara)
         Me.Controls.Add(Me.LaudosBindingNavigator)
@@ -3192,10 +3163,8 @@ Partial Class FrmAlvara
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
     Friend WithEvents Button14 As Button

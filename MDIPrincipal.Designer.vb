@@ -57,10 +57,8 @@ Partial Class MDIPrincipal
         Me.ControleLigaçãoLaudosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscaEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BuscaPorResponsavelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.AlvaráToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AlvaráBuscaEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AgendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TributáriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,6 +85,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -314,7 +313,7 @@ Partial Class MDIPrincipal
         '
         'BuscaToolStripMenuItem
         '
-        Me.BuscaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscaEmpresaToolStripMenuItem, Me.BuscaPorResponsavelToolStripMenuItem, Me.ToolStripSeparator11, Me.AlvaráToolStripMenuItem1, Me.AlvaráBuscaEmpresaToolStripMenuItem})
+        Me.BuscaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscaEmpresaToolStripMenuItem, Me.ToolStripSeparator11, Me.AlvaráToolStripMenuItem1, Me.ToolStripSeparator12})
         Me.BuscaToolStripMenuItem.Name = "BuscaToolStripMenuItem"
         Me.BuscaToolStripMenuItem.Size = New System.Drawing.Size(55, 21)
         Me.BuscaToolStripMenuItem.Text = "Busca"
@@ -322,31 +321,19 @@ Partial Class MDIPrincipal
         'BuscaEmpresaToolStripMenuItem
         '
         Me.BuscaEmpresaToolStripMenuItem.Name = "BuscaEmpresaToolStripMenuItem"
-        Me.BuscaEmpresaToolStripMenuItem.Size = New System.Drawing.Size(275, 22)
-        Me.BuscaEmpresaToolStripMenuItem.Text = "Empresas por Nome da Empresa"
-        '
-        'BuscaPorResponsavelToolStripMenuItem
-        '
-        Me.BuscaPorResponsavelToolStripMenuItem.Name = "BuscaPorResponsavelToolStripMenuItem"
-        Me.BuscaPorResponsavelToolStripMenuItem.Size = New System.Drawing.Size(275, 22)
-        Me.BuscaPorResponsavelToolStripMenuItem.Text = "Empresas por Responsavel"
+        Me.BuscaEmpresaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BuscaEmpresaToolStripMenuItem.Text = "Empresas"
         '
         'ToolStripSeparator11
         '
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(272, 6)
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(177, 6)
         '
         'AlvaráToolStripMenuItem1
         '
         Me.AlvaráToolStripMenuItem1.Name = "AlvaráToolStripMenuItem1"
-        Me.AlvaráToolStripMenuItem1.Size = New System.Drawing.Size(275, 22)
-        Me.AlvaráToolStripMenuItem1.Text = "Alvará por Nome da Empresa"
-        '
-        'AlvaráBuscaEmpresaToolStripMenuItem
-        '
-        Me.AlvaráBuscaEmpresaToolStripMenuItem.Name = "AlvaráBuscaEmpresaToolStripMenuItem"
-        Me.AlvaráBuscaEmpresaToolStripMenuItem.Size = New System.Drawing.Size(275, 22)
-        Me.AlvaráBuscaEmpresaToolStripMenuItem.Text = "Alvará por Responsavel"
+        Me.AlvaráToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AlvaráToolStripMenuItem1.Text = "Alvará"
         '
         'AgendaToolStripMenuItem
         '
@@ -540,6 +527,11 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
         '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(177, 6)
+        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -608,7 +600,6 @@ Partial Class MDIPrincipal
     Friend WithEvents NovasEmpresasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegimeFederalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BuscaPorResponsavelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscaEmpresaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ControleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton5 As ToolStripButton
@@ -626,6 +617,6 @@ Partial Class MDIPrincipal
     Friend WithEvents DiversosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CalculadoraDeCapitalSocialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlvaráToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents AlvaráBuscaEmpresaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
 End Class

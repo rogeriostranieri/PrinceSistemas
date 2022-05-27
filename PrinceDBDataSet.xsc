@@ -209,7 +209,7 @@
     </TableUISetting>
     <TableUISetting Name="Anotacoes">
       <ColumnUISettings>
-        <ColumnUISetting Name="Legalizacao">
+        <ColumnUISetting Name="FrmLegalizacao">
           <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8" />
             </ControlSetting></ControlSettings>

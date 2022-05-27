@@ -11,7 +11,7 @@
 
 
 
-                Legalizacao.MotivoRichTextBox.Text += i.ToString() + Environment.NewLine
+                FrmLegalizacao.MotivoRichTextBox.Text += i.ToString() + Environment.NewLine
 
 
 
@@ -34,7 +34,7 @@
             For Each i As Object In CheckedListBoxEventosJunta.CheckedItems
                 'limpar
 
-                Legalizacao.MotivoRichTextBox.Clear()
+                FrmLegalizacao.MotivoRichTextBox.Clear()
                 Me.Close()
             Next
 

@@ -15,36 +15,36 @@
             'WebBrowser1.Document.GetElementById("tipoDelegante").SetAttribute("checked", True)
 
 
-            Dim CNPJ As String = Legalizacao.CNPJMaskedTextBox.Text
+            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
             CNPJ = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             WebBrowser1.Document.GetElementById("delegID").SetAttribute("value", CNPJ)
 
 
             'Carrega dados do formulario empresas
-            Legalizacao.TabControle.SelectTab(1)
-            Legalizacao.TabControl2.SelectTab(2)
-            WebBrowser1.Document.GetElementById("delegEnderecoLogradouro").SetAttribute("value", Legalizacao.EnderecoTextBox.Text + ", " + Legalizacao.EndNumeroTextBox.Text + ", " + Legalizacao.EndBairroTextBox.Text)
-            WebBrowser1.Document.GetElementById("delegEnderecoCidade").SetAttribute("value", Legalizacao.EndCidadeTextBox.Text)
+            FrmLegalizacao.TabControle.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(2)
+            WebBrowser1.Document.GetElementById("delegEnderecoLogradouro").SetAttribute("value", FrmLegalizacao.EnderecoTextBox.Text + ", " + FrmLegalizacao.EndNumeroTextBox.Text + ", " + FrmLegalizacao.EndBairroTextBox.Text)
+            WebBrowser1.Document.GetElementById("delegEnderecoCidade").SetAttribute("value", FrmLegalizacao.EndCidadeTextBox.Text)
             WebBrowser1.Document.GetElementById("delegEnderecoEstado").SetAttribute("value", "PR")
 
             'Carrega dados do formulario empresas
-            Legalizacao.TabControle.SelectTab(1)
-            Legalizacao.TabControl2.SelectTab(3)
-            Dim TEL As String = Legalizacao.EmpTel1TextBox.Text
+            FrmLegalizacao.TabControle.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            Dim TEL As String = FrmLegalizacao.EmpTel1TextBox.Text
             TEL = TEL.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(" ", "").Replace("(", "").Replace(")", "")
             WebBrowser1.Document.GetElementById("delegTelefone").SetAttribute("value", TEL)
 
             'Carrega dados do formulario empresas
-            Legalizacao.TabControle.SelectTab(1)
-            Legalizacao.TabControl2.SelectTab(0)
-            Dim CPF As String = Legalizacao.CPFResponsavelMaskedTextBox.Text
+            FrmLegalizacao.TabControle.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
             CPF = CPF.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             WebBrowser1.Document.GetElementById("cpfRespLegalDelegante").SetAttribute("value", CPF)
 
-            Dim RG As String = Legalizacao.RespRGTextBox.Text
+            Dim RG As String = FrmLegalizacao.RespRGTextBox.Text
             RG = RG.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             WebBrowser1.Document.GetElementById("delegRg").SetAttribute("value", RG)
-            WebBrowser1.Document.GetElementById("delegOrgaoExpedidor").SetAttribute("value", Legalizacao.RespRgSiglaTextBox.Text)
+            WebBrowser1.Document.GetElementById("delegOrgaoExpedidor").SetAttribute("value", FrmLegalizacao.RespRgSiglaTextBox.Text)
 
             'WebBrowser1.Document.GetElementById("nacionalidadeDelegante").SetAttribute("value", "Brasileiro")
 

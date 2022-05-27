@@ -30,19 +30,19 @@
     End Sub
 
     Private Sub EmpresasDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpresasDataGridView.CellContentDoubleClick
-        If Application.OpenForms.OfType(Of Legalizacao)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-            '  Dim novoEmpresa As New Legalizacao
-            Legalizacao.Focus()
-            Legalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
-            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+            '  Dim novoEmpresa As New FrmLegalizacao
+            FrmLegalizacao.Focus()
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         Else
-            ' Dim novoEmpresa As New Legalizacao
+            ' Dim novoEmpresa As New FrmLegalizacao
             ' novoEmpresa.MdiParent = MDIPrincipal
-            Legalizacao.Show()
-            Legalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
-            Legalizacao.ComboBoxBuscaEmpresa.Focus()
+            FrmLegalizacao.Show()
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         End If
     End Sub
 End Class

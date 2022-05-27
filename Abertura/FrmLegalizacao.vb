@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 
-Public Class Legalizacao
+Public Class FrmLegalizacao
     'ESPAÇO para os DIM GERAL
 
     'Bloqueando para edição
@@ -239,25 +239,25 @@ Public Class Legalizacao
                         StatusComboBox.BackColor = Color.Green
                         StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
-                            PictureBox1.Image = My.Resources.check
-                            PictureBox2.Image = My.Resources.fechadaempresa
+                        PictureBox1.Image = My.Resources.check
+                        PictureBox2.Image = My.Resources.fechadaempresa
 
-                        ElseIf ProcessoComboBox.Text = "Finalizado" Then
+                    ElseIf ProcessoComboBox.Text = "Finalizado" Then
                         StatusComboBox.BackColor = Color.Green
                         StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
-                            PictureBox1.Image = My.Resources.check
-                            PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
+                        PictureBox1.Image = My.Resources.check
+                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
 
-                        Else
+                    Else
 
                         StatusComboBox.BackColor = Color.Green
                         StatusComboBox.ForeColor = Color.White
                         AvisarDiaMaskedTextBox.Text = ""
-                            PictureBox1.Image = My.Resources.check
-                            PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
+                        PictureBox1.Image = My.Resources.check
+                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
 
-                        End If
+                    End If
 
 
                 Case StatusComboBox.Text.Contains("Pêndencia Sistema Externo")
@@ -2014,7 +2014,7 @@ CPF =
 
             FrmAnotacoes.lblMudaTexto.Text = "Legalização"
             FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Clear()
-            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", FrmAnotacoes.AnotacoesBindingSource, "Legalizacao"))
+            FrmAnotacoes.RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", FrmAnotacoes.AnotacoesBindingSource, "FrmLegalizacao"))
         Catch ex As Exception
             MsgBox("Can't load Web page" & vbCrLf & ex.Message)
         End Try

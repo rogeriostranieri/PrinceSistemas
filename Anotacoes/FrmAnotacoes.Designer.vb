@@ -451,7 +451,7 @@ Partial Class FrmAnotacoes
         Me.ButtonLegalizacao.Name = "ButtonLegalizacao"
         Me.ButtonLegalizacao.Size = New System.Drawing.Size(120, 29)
         Me.ButtonLegalizacao.TabIndex = 52
-        Me.ButtonLegalizacao.Text = "Legalizacao"
+        Me.ButtonLegalizacao.Text = "FrmLegalizacao"
         Me.ButtonLegalizacao.UseVisualStyleBackColor = True
         '
         'ButtonFederal

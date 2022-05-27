@@ -55,16 +55,16 @@
 
         'StatusComboBox
         '
-        Legalizacao.StatusComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Legalizacao.StatusComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        'Legalizacao.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
-        Legalizacao.StatusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Legalizacao.StatusComboBox.FormattingEnabled = True
-        Legalizacao.StatusComboBox.Items.AddRange(New Object() {"Não Iniciado", "Em Andamento", "Aguardando Cliente", "Aguardando Pagamento das Taxas", "Junta Comercial - Prefeitura: EM ANÁLISE", "Junta Comercial - Busca de Nome", "Junta Comercial - Aguardando Atualização", "Junta Comercial - Protocolado", "Receita Federal - DBE", "Receita Federal - e-Processo", "Receita Estadual - Em Andamento", "Receita Estadual - Protocolado", "Simples Nacional - Em Andamento", "Simples Nacional - Protocolado", "Prefeitura/Alvará - Em Andamento", "Finalizado", "Paralisado", "Cancelado", "Saiu do Escritório", "Pêndencia Sistema Externo"})
-        'Legalizacao.StatusComboBox.Location = New System.Drawing.Point(421, 14)
-        'Legalizacao.StatusComboBox.Name = "StatusComboBox"
-        'Legalizacao.StatusComboBox.Size = New System.Drawing.Size(207, 21)
-        'Legalizacao.StatusComboBox.TabIndex = 10
+        FrmLegalizacao.StatusComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        FrmLegalizacao.StatusComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        'FrmLegalizacao.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
+        FrmLegalizacao.StatusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System
+        FrmLegalizacao.StatusComboBox.FormattingEnabled = True
+        FrmLegalizacao.StatusComboBox.Items.AddRange(New Object() {"Não Iniciado", "Em Andamento", "Aguardando Cliente", "Aguardando Pagamento das Taxas", "Junta Comercial - Prefeitura: EM ANÁLISE", "Junta Comercial - Busca de Nome", "Junta Comercial - Aguardando Atualização", "Junta Comercial - Protocolado", "Receita Federal - DBE", "Receita Federal - e-Processo", "Receita Estadual - Em Andamento", "Receita Estadual - Protocolado", "Simples Nacional - Em Andamento", "Simples Nacional - Protocolado", "Prefeitura/Alvará - Em Andamento", "Finalizado", "Paralisado", "Cancelado", "Saiu do Escritório", "Pêndencia Sistema Externo"})
+        'FrmLegalizacao.StatusComboBox.Location = New System.Drawing.Point(421, 14)
+        'FrmLegalizacao.StatusComboBox.Name = "StatusComboBox"
+        'FrmLegalizacao.StatusComboBox.Size = New System.Drawing.Size(207, 21)
+        'FrmLegalizacao.StatusComboBox.TabIndex = 10
         '
     End Sub
 
@@ -73,15 +73,15 @@
 
         'ProcessoComboBox
         '
-        Legalizacao.ProcessoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Legalizacao.ProcessoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        'Legalizacao.ProcessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
-        Legalizacao.ProcessoComboBox.FormattingEnabled = True
-        Legalizacao.ProcessoComboBox.Items.AddRange(New Object() {"Abertura", "Alteração", "Baixa", "Reativação", "Cancelado", "Outros", "Receita Estadual", "Receita Federal", "Prefeitura", "Transformação", "Incorporação", "Fusão", "Anulação de Atos"})
-        'Legalizacao.ProcessoComboBox.Location = New System.Drawing.Point(75, 87)
-        Legalizacao.ProcessoComboBox.Name = "ProcessoComboBox"
-        'Legalizacao.ProcessoComboBox.Size = New System.Drawing.Size(107, 21)
-        'Legalizacao.ProcessoComboBox.TabIndex = 12
+        FrmLegalizacao.ProcessoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        FrmLegalizacao.ProcessoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        'FrmLegalizacao.ProcessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
+        FrmLegalizacao.ProcessoComboBox.FormattingEnabled = True
+        FrmLegalizacao.ProcessoComboBox.Items.AddRange(New Object() {"Abertura", "Alteração", "Baixa", "Reativação", "Cancelado", "Outros", "Receita Estadual", "Receita Federal", "Prefeitura", "Transformação", "Incorporação", "Fusão", "Anulação de Atos"})
+        'FrmLegalizacao.ProcessoComboBox.Location = New System.Drawing.Point(75, 87)
+        FrmLegalizacao.ProcessoComboBox.Name = "ProcessoComboBox"
+        'FrmLegalizacao.ProcessoComboBox.Size = New System.Drawing.Size(107, 21)
+        'FrmLegalizacao.ProcessoComboBox.TabIndex = 12
         '
     End Sub
 

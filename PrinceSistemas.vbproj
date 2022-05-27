@@ -212,12 +212,6 @@
     <Compile Include="Anotacoes\FrmBuscaAnotacoes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buscadores\BuscaNomeSocio.Designer.vb">
-      <DependentUpon>BuscaNomeSocio.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Buscadores\BuscaNomeSocio.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Buscadores\FrmAtalhoBuscadores.Designer.vb">
       <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
     </Compile>
@@ -234,12 +228,6 @@
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
     </Compile>
     <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Buscadores\FrmBuscaResponsavelLaudo.Designer.vb">
-      <DependentUpon>FrmBuscaResponsavelLaudo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Buscadores\FrmBuscaResponsavelLaudo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
@@ -365,11 +353,11 @@
     <Compile Include="Laudo\LaudosCadastro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abertura\legalizacao.vb">
+    <Compile Include="Abertura\FrmLegalizacao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abertura\legalizacao.Designer.vb">
-      <DependentUpon>legalizacao.vb</DependentUpon>
+    <Compile Include="Abertura\FrmLegalizacao.Designer.vb">
+      <DependentUpon>FrmLegalizacao.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\FrmAlvara.Designer.vb">
@@ -564,9 +552,6 @@
     <EmbeddedResource Include="Anotacoes\FrmBuscaAnotacoes.resx">
       <DependentUpon>FrmBuscaAnotacoes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buscadores\BuscaNomeSocio.resx">
-      <DependentUpon>BuscaNomeSocio.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FrmAtalhoBuscadores.resx">
       <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
     </EmbeddedResource>
@@ -575,9 +560,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Buscadores\FrmBuscaResponsavelLaudo.resx">
-      <DependentUpon>FrmBuscaResponsavelLaudo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
@@ -630,8 +612,8 @@
     <EmbeddedResource Include="Laudo\LaudosCadastro.resx">
       <DependentUpon>LaudosCadastro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abertura\legalizacao.resx">
-      <DependentUpon>legalizacao.vb</DependentUpon>
+    <EmbeddedResource Include="Abertura\FrmLegalizacao.resx">
+      <DependentUpon>FrmLegalizacao.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\FrmAlvara.resx">
       <DependentUpon>FrmAlvara.vb</DependentUpon>

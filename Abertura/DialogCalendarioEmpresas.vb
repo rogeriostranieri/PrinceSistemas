@@ -13,7 +13,7 @@ Public Class DialogCalendarioEmpresas
     End Sub
 
     Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles Calendar1.DateSelected
-        Legalizacao.AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart
+        FrmLegalizacao.AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart
         Me.Close()
     End Sub
 
