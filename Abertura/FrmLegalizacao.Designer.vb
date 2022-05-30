@@ -4452,7 +4452,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.DataSource = Me.EmpresasBindingSource
         Me.ComboBoxBuscaCNPJ.DisplayMember = "CNPJ"
         Me.ComboBoxBuscaCNPJ.FormattingEnabled = True
-        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(532, 2)
+        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(532, 1)
         Me.ComboBoxBuscaCNPJ.Name = "ComboBoxBuscaCNPJ"
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47

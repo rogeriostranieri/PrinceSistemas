@@ -53,9 +53,9 @@ Public Class FrmAlvara
         'BombeiroDataProvisorioLabel tamanho
         BombeiroDataProvisorioLabel.Size = New Size(115, 13)
         'BombeiroProvisorioDATAMaskedTextBox1 Location
-        BombeiroProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        BombeiroProvisorioDATAMaskedTextBox.Location = New Point(137, 146)
         'BombeiroProvisorioDATAMaskedTextBox1 tamanho
-        BombeiroProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        BombeiroProvisorioDATAMaskedTextBox.Size = New Size(66, 20)
         'ButtonApagaDataBombeiro Label Location
         ButtonApagaDataBombeiro.Location = New Point(205, 144)
         'ButtonApagaDataBombeiro Label tamanho
@@ -67,9 +67,9 @@ Public Class FrmAlvara
         'AmbientalDataProvisorioLabel tamanho
         AmbientalDataProvisorioLabel1.Size = New Size(115, 13)
         'AmbientalProvisorioDATAMaskedTextBox1 Location
-        AmbientalProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        AmbientalProvisorioDATAMaskedTextBox.Location = New Point(137, 146)
         'AmbientalProvisorioDATAMaskedTextBox1 tamanho
-        AmbientalProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        AmbientalProvisorioDATAMaskedTextBox.Size = New Size(66, 20)
         'ButtonApagaDataAmbiental Label Location
         ButtonApagaDataAmbiental.Location = New Point(205, 144)
         'ButtonApagaDataAmbiental Label tamanho
@@ -82,9 +82,9 @@ Public Class FrmAlvara
         'ViabilidadeDataProvisorioLabel tamanho
         ViabilidadeDataProvisorioLabel.Size = New Size(115, 13)
         'ViabilidadeProvisorioDATAMaskedTextBox1 Location
-        ViabilidadeProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        ViabilidadeProvisorioDATAMaskedTextBox.Location = New Point(137, 146)
         'ViabilidadeProvisorioDATAMaskedTextBox1 tamanho
-        ViabilidadeProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        ViabilidadeProvisorioDATAMaskedTextBox.Size = New Size(66, 20)
         'ButtonApagaDataViabilidade Label Location
         ButtonApagaDataViabilidade.Location = New Point(205, 144)
         'ButtonApagaDataViabilidade Label tamanho
@@ -96,9 +96,9 @@ Public Class FrmAlvara
         'SanitarioDataProvisorioLabel tamanho
         SanitarioDataProvisorioLabel.Size = New Size(115, 13)
         'SanitarioProvisorioDATAMaskedTextBox1 Location
-        SanitarioProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        SanitarioProvisorioDATAMaskedTextBox.Location = New Point(137, 146)
         'SanitarioProvisorioDATAMaskedTextBox1 tamanho
-        SanitarioProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        SanitarioProvisorioDATAMaskedTextBox.Size = New Size(66, 20)
         'ButtonApagaDataSanitario Label Location
         ButtonApagaDataSanitario.Location = New Point(205, 144)
         'ButtonApagaDataSanitario Label tamanho
@@ -111,9 +111,9 @@ Public Class FrmAlvara
         'SetranDataProvisorioLabel tamanho
         SetranDataProvisorioLabel.Size = New Size(115, 13)
         'SetranProvisorioDATAMaskedTextBox1 Location
-        SetranProvisorioDATAMaskedTextBox1.Location = New Point(137, 146)
+        SetranProvisorioDATAMaskedTextBox.Location = New Point(137, 146)
         'SetranProvisorioDATAMaskedTextBox1 tamanho
-        SetranProvisorioDATAMaskedTextBox1.Size = New Size(66, 20)
+        SetranProvisorioDATAMaskedTextBox.Size = New Size(66, 20)
         'ButtonApagaDataSetran Label Location
         ButtonApagaDataSetran.Location = New Point(205, 144)
         'ButtonApagaDataSetran Label tamanho
@@ -313,26 +313,82 @@ Public Class FrmAlvara
 
 
     End Sub
-    Private Sub Salvar()
-        'arrumar o CNPJ ou CPF
 
+    Private Sub PreSalvar()
+        'ver BOmbeiroProvisoriodata está com valor
+        If BombeiroProvisorioDATAMaskedTextBox.Text <> "" Or AmbientalProvisorioDATAMaskedTextBox.Text <> "" Or ViabilidadeProvisorioDATAMaskedTextBox.Text <> "" Or SanitarioProvisorioDATAMaskedTextBox.Text <> "" Or SetranProvisorioDATAMaskedTextBox.Text <> "" Then
+            SalvarFinal()
+        Else
+            Salvar()
+        End If
+    End Sub
+    Private Sub SalvarFinal()
+        'arrumar o CNPJ ou CPF
         CNPJouCPF()
 
+        Try
+            'pergunta salvar yesnocancel
+            If MessageBox.Show("Deseja Salvar estas alterações?", "Salvar", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = DialogResult.Yes Then
+                Try
+                    'Salva alterações
+                    Me.Validate()
+                    Me.LaudosBindingSource.EndEdit()
+                    Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-        Dim changedRecords As System.Data.DataTable
-        ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
-        Me.LaudosBindingSource.EndEdit()
-        changedRecords = PrinceDBDataSet.Laudos.GetChanges()
+                    'Modifica bloqueando td novamente
+                    BtnEditar.Text = "Editar"
+                    GroupBox9.Enabled = False
+                    GroupBox4.Enabled = False
+
+                    Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+                    RazaoSocialTextBox.Focus()
+                    'retorna para mesma empresa que estava
+
+                Catch exc As Exception
+
+                    MessageBox.Show("2 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                End Try
+            Else
+
+                BtnEditar.Text = "Editar"
+                    Button17.Enabled = True
+                    GroupBox9.Enabled = False
+                    GroupBox4.Enabled = False
+                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+
+                Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+                RazaoSocialTextBox.Focus()
+
+                Button17.Enabled = True
+
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("2 - Ocorreu um Erro ao Salvar" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
+
+    End Sub
+    Private Sub Salvar()
+        'arrumar o CNPJ ou CPF
+        CNPJouCPF()
+
+        Try
+            Dim changedRecords As DataTable
+            ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
+            Me.LaudosBindingSource.EndEdit()
+            changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
 
             If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
 
+
                 Dim message As String
-
-                'MOSTRA MENSAGM BOX
-                'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
                 message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-
                 'mostra mensagem box SIM OU NAO OU CANCELA
                 Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
                 If result = DialogResult.Cancel Then
@@ -353,6 +409,7 @@ Public Class FrmAlvara
                         Me.Validate()
                         Me.LaudosBindingSource.EndEdit()
                         Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
                         'Modifica bloqueando td novamente
                         BtnEditar.Text = "Editar"
@@ -361,28 +418,16 @@ Public Class FrmAlvara
 
                         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
                         RazaoSocialTextBox.Focus()
-
-                        'Verifica se foi alterado para finalizado e alterar Form Empresas
-                        Select Case SituacaoComboBox.Text.Trim()
-                            Case "Finalizado Definitivo"
-                                If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
-                                    Call ConexaoEmpresa()
-                                End If
-                            Case "Finalizado Provisório"
-                                If MsgBox("Deseja atualizar o status no cadastro da empresa?", MsgBoxStyle.YesNoCancel, "Atualização...") = MsgBoxResult.Yes Then
-                                    Call ConexaoEmpresa()
-                                End If
-                            Case Else
-                        End Select
-                        'Fim do codigo
+                        'retorna para mesma empresa que estava
 
                     Catch exc As Exception
 
-                        MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("1 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
                     End Try
 
                 End If
+
             Else
                 BtnEditar.Text = "Editar"
                 GroupBox9.Enabled = False
@@ -397,6 +442,12 @@ Public Class FrmAlvara
                 Button17.Enabled = True
 
             End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("1 - Ocorreu um Erro ao Salvar" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
 
 
     End Sub
@@ -561,12 +612,9 @@ Public Class FrmAlvara
         End If
     End Sub
 
-    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-        'If MsgBox(" Deseja salvar as alterações?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
-        Salvar()
-        '  Else
-
-        ' End If
+    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
+        'Salvar()
+        PreSalvar()
 
     End Sub
 
@@ -635,55 +683,7 @@ Public Class FrmAlvara
 
     End Sub
 
-    Private Sub BombeiroProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles BombeiroProvisorioDATAMaskedTextBox1.Validated
-        Try
-            BombeiroProvisorioDATAMaskedTextBox.Text = BombeiroProvisorioDATAMaskedTextBox1.Text
 
-        Catch ex As Exception
-            '      'mmenssagme "Ocorreu um erro ao preencher a data"
-            MessageBox.Show("Ocorreu um erro ao preencher a data", "Informa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
-    End Sub
-
-    Private Sub AmbientalProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles AmbientalProvisorioDATAMaskedTextBox1.Validated
-        Try
-            'AmbientalDataProvisorioMaskedTextBox1.Text = AmbientalDataProvisorioMaskedTextBox.Text
-            AmbientalProvisorioDATAMaskedTextBox.Text = AmbientalProvisorioDATAMaskedTextBox1.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub ViabilidadeProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles ViabilidadeProvisorioDATAMaskedTextBox1.Validated
-        Try
-            'ViabilidadeDataProvisorioMaskedTextBox1.Text = ViabilidadeDataProvisorioMaskedTextBox.Text
-            ViabilidadeProvisorioDATAMaskedTextBox.Text = ViabilidadeProvisorioDATAMaskedTextBox1.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub SanitarioProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles SanitarioProvisorioDATAMaskedTextBox1.Validated
-        Try
-            'SanitarioDataProvisorioMaskedTextBox1.Text = SanitarioDataProvisorioMaskedTextBox.Text
-            SanitarioProvisorioDATAMaskedTextBox.Text = SanitarioProvisorioDATAMaskedTextBox1.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub SetranProvisorioDATAMaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles SetranProvisorioDATAMaskedTextBox1.Validated
-        Try
-            'SetranDataProvisorioMaskedTextBox1.Text = SetranDataProvisorioMaskedTextBox.Text
-            SetranProvisorioDATAMaskedTextBox.Text = SetranProvisorioDATAMaskedTextBox1.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Private Sub NlaudoTextBox_TextChanged(sender As Object, e As EventArgs) Handles NlaudoTextBox.TextChanged
 
@@ -1245,122 +1245,6 @@ Public Class FrmAlvara
     End Sub
 
 
-    Private Sub ButtonApagaDataBombeiro_Click_1(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
-        'apagar valor do BombeiroDATA do banco de dado Laudos where RazaoSocial
-        'perguntar se deseja apagar
-        If MsgBox("Deseja apagar a data do Bombeiro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-            Try
-                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-                Dim comando As New SqlCommand("UPDATE Laudos SET BombeiroProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
-                conexao.Open()
-                comando.ExecuteNonQuery()
-                conexao.Close()
-                'atualizar form
-                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'mgsbox apagar
-                MsgBox("Data do Bombeiro apagada com sucesso!")
-                'LIMPAR AmbientalDATAMaskedTextBox1
-                BombeiroProvisorioDATAMaskedTextBox.Text = ""
-                BombeiroProvisorioDATAMaskedTextBox1.Text = ""
-            Catch ex As Exception
-                MsgBox("Erro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
-        'apagar valor do AmbientalDATA do banco de dado Laudos where RazaoSocial
-        'perguntar se deseja apagar
-        If MsgBox("Deseja apagar a data do Ambiental?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-            Try
-                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-                Dim comando As New SqlCommand("UPDATE Laudos SET AmbientalProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
-                conexao.Open()
-                comando.ExecuteNonQuery()
-                conexao.Close()
-                'atualizar form
-                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'mgsbox apagar
-                MsgBox("Data do Ambiental apagada com sucesso!")
-                'LIMPAR AmbientalDATAMaskedTextBox1
-                AmbientalProvisorioDATAMaskedTextBox.Text = ""
-                AmbientalProvisorioDATAMaskedTextBox1.Text = ""
-            Catch ex As Exception
-                MsgBox("Erro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
-        'apagar valor do ViabilidadeDATA do banco de dado Laudos where RazaoSocial
-        'perguntar se deseja apagar
-        If MsgBox("Deseja apagar a data de Viabilidade?", MsgBoxStyle.YesNo, "Apagar Data Viabilidade") = MsgBoxResult.Yes Then
-            Try
-                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-                Dim comando As New SqlCommand("UPDATE Laudos SET ViabilidadeProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
-                conexao.Open()
-                comando.ExecuteNonQuery()
-                conexao.Close()
-                'atualizar form
-                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'mgsbox apagar
-                MsgBox("Data do Viabilidade apagada com sucesso!")
-                'LIMPAR ViabilidadeDATAMaskedTextBox1
-                ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
-                ViabilidadeProvisorioDATAMaskedTextBox1.Text = ""
-            Catch ex As Exception
-                MsgBox("Erro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-
-    End Sub
-
-    Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
-        'apanhar valor do SanitarioDATA do banco de dado Laudos where RazaoSocial
-        'perguntar se quer apagar
-        If MsgBox("Deseja apagar a data de Sanitário?", vbYesNo, "Apagar") = vbYes Then
-            Try
-                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-                Dim comando As New SqlCommand("UPDATE Laudos SET SanitarioProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
-                conexao.Open()
-                comando.ExecuteNonQuery()
-                conexao.Close()
-                'atualizar form
-                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'mgsbox apagar
-                MsgBox("Data do Sanitário apagada com sucesso!")
-                'LIMPAR SanitarioDATAMaskedTextBox1
-                SanitarioProvisorioDATAMaskedTextBox.Text = ""
-                SanitarioProvisorioDATAMaskedTextBox1.Text = ""
-            Catch ex As Exception
-                MsgBox("Erro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
-        'apagar valor do SetranDATA do banco de dado Laudos where RazaoSocial
-        'perguntar antes de apagar
-        If MessageBox.Show("Deseja apagar a data do Setran?", "Apagar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            Try
-                Dim conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-                Dim comando As New SqlCommand("UPDATE Laudos SET SetranProvisorioDATA = NULL WHERE RazaoSocial = '" & RazaoSocialTextBox.Text & "'", conexao)
-                conexao.Open()
-                comando.ExecuteNonQuery()
-                conexao.Close()
-                'atualizar form
-                ' Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'mgsbox apagar
-                MsgBox("Data do Setran apagada com sucesso!")
-                'LIMPAR SetranDATAMaskedTextBox1
-                SetranProvisorioDATAMaskedTextBox.Text = ""
-                SetranProvisorioDATAMaskedTextBox1.Text = ""
-            Catch ex As Exception
-                MsgBox("Erro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
     Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click
         If Application.OpenForms.OfType(Of FrmAtalhoBuscadores)().Count() > 0 Then
 
@@ -1379,4 +1263,149 @@ Public Class FrmAlvara
             ' Me.Close()
         End If
     End Sub
+
+
+    'Apagar Data Provisório Bombeiro
+    Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
+        'perguntar antes 
+        If MsgBox("Deseja apagar a data de bombeiro provisório?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
+            'Deixa dateTime NULL
+            Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
+            BombeiroProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+            'salvar
+            Dim con As SqlConnection
+            con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            con.Open()
+            Dim cmd As New SqlCommand With {
+                .Connection = con,
+                .CommandText = "UPDATE Laudos SET BombeiroProvisorioData = @BombeiroProvisorioData WHERE RazaoSocial = @RazaoSocial"
+            }
+            cmd.Parameters.AddWithValue("@BombeiroProvisorioData", OrderDate)
+            cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+            BombeiroProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+
+            'BtnSalvar.PerformClick()
+
+
+
+
+        End If
+
+    End Sub
+
+    'Apagar Data Provisório Ambiental
+    Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
+        'perguntar antes 
+        If MsgBox("Deseja apagar a data de ambiental provisório?", MsgBoxStyle.YesNo, "Apagar Ambiental Provisório") = MsgBoxResult.Yes Then
+            'Deixa dateTime NULL
+            Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
+            AmbientalProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+            'salvar
+            Dim con As SqlConnection
+            con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            con.Open()
+            Dim cmd As New SqlCommand With {
+                .Connection = con,
+                .CommandText = "UPDATE Laudos SET AmbientalProvisorioData = @AmbientalProvisorioData WHERE RazaoSocial = @RazaoSocial"
+            }
+            cmd.Parameters.AddWithValue("@AmbientalProvisorioData", OrderDate)
+            cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+            AmbientalProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+
+            ' BtnSalvar.PerformClick()
+
+        End If
+
+    End Sub
+
+    'Apagar Data Provisório Viabilidade
+    Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
+        'perguntar antes 
+        If MsgBox("Deseja apagar a data de viabilidade provisório?", MsgBoxStyle.YesNo, "Apagar Viabilidade Provisório") = MsgBoxResult.Yes Then
+            'Deixa dateTime NULL
+            Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
+            ViabilidadeProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+            'salvar
+            Dim con As SqlConnection
+            con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            con.Open()
+            Dim cmd As New SqlCommand With {
+                .Connection = con,
+                .CommandText = "UPDATE Laudos SET ViabilidadeProvisorioData = @ViabilidadeProvisorioData WHERE RazaoSocial = @RazaoSocial"
+            }
+            cmd.Parameters.AddWithValue("@ViabilidadeProvisorioData", OrderDate)
+            cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+            ViabilidadeProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+
+            'BtnSalvar.PerformClick()
+
+        End If
+
+    End Sub
+
+    'Apagar Data Provisório Sanitario
+    Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
+        'perguntar antes 
+        If MsgBox("Deseja apagar a data de sanitário provisório?", MsgBoxStyle.YesNo, "Apagar Sanitário Provisório") = MsgBoxResult.Yes Then
+            'Deixa dateTime NULL
+            Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
+            SanitarioProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+            'salvar
+            Dim con As SqlConnection
+            con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            con.Open()
+            Dim cmd As New SqlCommand With {
+                .Connection = con,
+                .CommandText = "UPDATE Laudos SET SanitarioProvisorioData = @SanitarioProvisorioData WHERE RazaoSocial = @RazaoSocial"
+            }
+            cmd.Parameters.AddWithValue("@SanitarioProvisorioData", OrderDate)
+            cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+            SanitarioProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+
+            'BtnSalvar.PerformClick()
+
+        End If
+
+    End Sub
+
+    'Apagar Data Provisório Setran
+    Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
+        'perguntar antes 
+        If MsgBox("Deseja apagar a data de setran provisório?", MsgBoxStyle.YesNo, "Apagar Setran Provisório") = MsgBoxResult.Yes Then
+            'Deixa dateTime NULL
+            Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
+            SetranProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+            'salvar
+            Dim con As SqlConnection
+            con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            con.Open()
+            Dim cmd As New SqlCommand With {
+                .Connection = con,
+                .CommandText = "UPDATE Laudos SET SetranProvisorioData = @SetranProvisorioData WHERE RazaoSocial = @RazaoSocial"
+            }
+            cmd.Parameters.AddWithValue("@SetranProvisorioData", OrderDate)
+            cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+            SetranProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
+
+            'BtnSalvar.PerformClick()
+
+        End If
+
+    End Sub
+
 End Class

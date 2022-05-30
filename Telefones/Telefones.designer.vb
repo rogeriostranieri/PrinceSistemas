@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Telefones
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Telefones
     'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
     'Pode ser modificado usando o Windows Form Designer.  
     'Não o modifique usando o editor de códigos.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim NomeLabel As System.Windows.Forms.Label
@@ -65,7 +65,6 @@ Partial Class Telefones
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.CboCidadeOrgao = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.TelefonesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.TelefonesTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         NomeLabel = New System.Windows.Forms.Label()
@@ -430,7 +429,7 @@ Partial Class Telefones
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ComboBoxBusca, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.CboCidadeOrgao, Me.ToolStripLabel3})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ComboBoxBusca, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.CboCidadeOrgao})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(598, 25)
@@ -440,8 +439,8 @@ Partial Class Telefones
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(64, 22)
-        Me.ToolStripLabel1.Text = "Selecionar:"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(56, 22)
+        Me.ToolStripLabel1.Text = "Localizar:"
         '
         'ComboBoxBusca
         '
@@ -464,16 +463,10 @@ Partial Class Telefones
         '
         'CboCidadeOrgao
         '
+        Me.CboCidadeOrgao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CboCidadeOrgao.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CboCidadeOrgao.Name = "CboCidadeOrgao"
         Me.CboCidadeOrgao.Size = New System.Drawing.Size(100, 25)
-        '
-        'ToolStripLabel3
-        '
-        Me.ToolStripLabel3.Font = New System.Drawing.Font("Segoe UI", 9.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel3.Name = "ToolStripLabel3"
-        Me.ToolStripLabel3.Size = New System.Drawing.Size(67, 22)
-        Me.ToolStripLabel3.Text = "Digite Aqui"
         '
         'TelefonesTableAdapter
         '
@@ -567,5 +560,4 @@ Partial Class Telefones
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripLabel2 As ToolStripLabel
     Friend WithEvents CboCidadeOrgao As ToolStripTextBox
-    Friend WithEvents ToolStripLabel3 As ToolStripLabel
 End Class

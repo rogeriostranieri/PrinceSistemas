@@ -70,7 +70,8 @@ Public Class Login
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If MessageBox.Show("Está com erro de conexão no banco de dados?") = DialogResult.Yes Then
+        'perguntar antes "Está com erro de conexão no banco de dados?"
+        If MessageBox.Show("Está com erro de conexão no banco de dados?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             Dim psi As New ProcessStartInfo With {
                 .Verb = "runas", ' aka run as administrator
                 .FileName = "cmd.exe",
@@ -84,9 +85,8 @@ cmd /k" ' <- pass arguments for the command you want to run
             Catch error_t As Exception
                 MsgBox(error_t.ToString)
             End Try
-        Else
-            'nao faz nada   
         End If
+
 
     End Sub
 End Class
