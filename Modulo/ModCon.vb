@@ -164,7 +164,7 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                                     'termina as copia e foca
                                     'Focus
                                     FrmAlvara.RazaoSocialTextBox.Focus()
-                                    FrmAlvara.TabControl1.SelectTab(0)
+                                    FrmAlvara.TabControlAcompanhamento.SelectTab(0)
 
                                     'unchek lembrete
                                     FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
@@ -205,7 +205,7 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                                     'Valida e Abre um novo registro
                                     FrmAlvara.Validate()
                                     FrmAlvara.LaudosBindingSource.AddNew()
-                                    FrmAlvara.TabControl1.SelectTab(0)
+                                    FrmAlvara.TabControlAcompanhamento.SelectTab(0)
 
                                     FrmAlvara.ComboBoxBuscaAlvara.Focus()
                                     FrmAlvara.RazaoSocialTextBox.Focus()
@@ -463,7 +463,7 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
             'termina as copia e foca
             'Focus
             FrmAlvara.RazaoSocialTextBox.Focus()
-            FrmAlvara.TabControl1.SelectTab(0)
+            FrmAlvara.TabControlAcompanhamento.SelectTab(0)
 
             'unchek lembrete
             FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
