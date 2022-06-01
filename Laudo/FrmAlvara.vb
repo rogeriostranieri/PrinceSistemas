@@ -207,6 +207,35 @@ Public Class FrmAlvara
 
 
 
+                Case SituacaoComboBox.Text.Contains("Finalizado Definitivo")
+                    TabAlvara.SelectTab(0)
+                    DataEntradaLabel.Visible = True
+                    'protocolo
+                    DataEntradaMaskedTextBox.Visible = True
+                    ProtocoloTipoTextBox.Visible = True
+                    ProtocoloNTextBox.Visible = True
+                    ProtocoloAnoTextBox.Visible = True
+                    ProtocoloSenhaTextBox.Visible = True
+
+                    AvisarDiaMaskedTextBox.Text = ""
+                    ButtonSolicitar.Visible = False
+                    ButtonConsultar.Visible = True
+                    'ambiental
+                    If LabelAmbientalDataProvisorio.Text = "" Then
+                        LabelAmbientalDataProvisorio.Text = "Liberado - Alvará Definitivo"
+                    End If
+                    'viabilidade
+                    If LabelViabilidadeDataProvisorio.Text = "" Then
+                        LabelViabilidadeDataProvisorio.Text = "Liberado - Alvará Definitivo"
+                    End If
+                    'sanitario
+                    If LabelSanitarioDataProvisorio.Text = "" Then
+                        LabelSanitarioDataProvisorio.Text = "Liberado - Alvará Definitivo"
+                    End If
+                    'setran
+                    If LabelSetranDataProvisorio.Text = "" Then
+                        LabelSetranDataProvisorio.Text = "Liberado - Alvará Definitivo"
+                    End If
 
                 Case Else
                     DataEntradaLabel.Visible = True
@@ -1427,51 +1456,107 @@ Public Class FrmAlvara
         End If
     End Sub
 
-    'pega a datetime do LabelBombeiroDataProvisorio, e muda para data extenso
-    Private Sub LabelBombeiroDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.Click
 
-        Dim BombeiroDataProvisorio As DateTime = LabelBombeiroDataProvisorio.Text
-        Dim BombeiroDataProvisorioExtenso As String = BombeiroDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelBombeiroDataProvisorio.Text = BombeiroDataProvisorioExtenso
-    End Sub
-
-
-    'LabelBombeiroDataProvisorio após mostrar dados mostrar como  "dddd, dd 'de' MMMM 'de' yyyy"
-    Private Sub LabelBombeiroDataProvisorio_VisibleChanged(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.VisibleChanged
-        'tipo DateTime
-        'ver se vem algum valor reader
-        If LabelBombeiroDataProvisorio.Text <> "" Then
-            'pega a datetime do LabelBombeiroDataProvisorio, e muda para data extenso
-            Dim BombeiroDataProvisorio As DateTime = LabelBombeiroDataProvisorio.Text
-            Dim BombeiroDataProvisorioExtenso As String = BombeiroDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-            LabelBombeiroDataProvisorio.Text = BombeiroDataProvisorioExtenso
+    '////////////////////////////// INICIO LABEL DATA PROVISORIO ////////////////////////////////////////////////
+    'Bombeiro
+    Private Sub LabelBombeiroDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.TextChanged
+        'verificar se tem letras
+        If LabelBombeiroDataProvisorio.Text.Any(Function(c) Char.IsLetter(c)) Then
+            'nao faz nada
+        Else
+            If LabelBombeiroDataProvisorio.Text <> "" Then
+                Dim OrderDate As DateTime = Convert.ToDateTime(LabelBombeiroDataProvisorio.Text)
+                Dim OrderDateExtenso As String = OrderDate.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+                LabelBombeiroDataProvisorio.Text = OrderDateExtenso
+            Else
+                'verifica se o campo está vazio
+                If LabelBombeiroDataProvisorio.Text = "" Then
+                    'verifica se o BombeiroSituacaoComboBox está como "Finalizado Definitivo"
+                    If BombeiroSituacaoComboBox.Text = "Finalizado Definitivo" Then
+                        LabelBombeiroDataProvisorio.Text = "Liberado - Alvará Definitivo"
+                    End If
+                End If
+            End If
         End If
+
     End Sub
-    'ambiental
-    Private Sub LabelAmbientalDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelAmbientalDataProvisorio.Click
-        Dim AmbientalDataProvisorio As DateTime = LabelAmbientalDataProvisorio.Text
-        Dim AmbientalDataProvisorioExtenso As String = AmbientalDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelAmbientalDataProvisorio.Text = AmbientalDataProvisorioExtenso
+
+    'Ambiental
+    Private Sub LabelAmbientalDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelAmbientalDataProvisorio.TextChanged
+        'verificar se tem letras
+        If LabelAmbientalDataProvisorio.Text.Any(Function(c) Char.IsLetter(c)) Then
+            'nao faz nada
+        Else
+            If LabelAmbientalDataProvisorio.Text <> "" Then
+                Dim OrderDate As DateTime = Convert.ToDateTime(LabelAmbientalDataProvisorio.Text)
+                Dim OrderDateExtenso As String = OrderDate.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+                LabelAmbientalDataProvisorio.Text = OrderDateExtenso
+            Else
+
+            End If
+        End If
+
     End Sub
-    'viabilidade
-    Private Sub LabelViabilidadeDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelViabilidadeDataProvisorio.Click
-        Dim ViabilidadeDataProvisorio As DateTime = LabelViabilidadeDataProvisorio.Text
-        Dim ViabilidadeDataProvisorioExtenso As String = ViabilidadeDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelViabilidadeDataProvisorio.Text = ViabilidadeDataProvisorioExtenso
+
+
+    'Viabilidade
+    Private Sub LabelViabilidadeDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelViabilidadeDataProvisorio.TextChanged
+        'verificar se tem letras
+        If LabelViabilidadeDataProvisorio.Text.Any(Function(c) Char.IsLetter(c)) Then
+            'nao faz nada
+        Else
+            If LabelViabilidadeDataProvisorio.Text <> "" Then
+                Dim OrderDate As DateTime = Convert.ToDateTime(LabelViabilidadeDataProvisorio.Text)
+                Dim OrderDateExtenso As String = OrderDate.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+                LabelViabilidadeDataProvisorio.Text = OrderDateExtenso
+            Else
+
+            End If
+        End If
+
     End Sub
+
     'Sanitario
-    Private Sub LabelSanitarioDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelSanitarioDataProvisorio.Click
-        Dim SanitarioDataProvisorio As DateTime = LabelSanitarioDataProvisorio.Text
-        Dim SanitarioDataProvisorioExtenso As String = SanitarioDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelSanitarioDataProvisorio.Text = SanitarioDataProvisorioExtenso
+    Private Sub LabelSanitarioDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelSanitarioDataProvisorio.TextChanged
+        'verificar se tem letras
+        If LabelSanitarioDataProvisorio.Text.Any(Function(c) Char.IsLetter(c)) Then
+            'nao faz nada
+        Else
+            If LabelSanitarioDataProvisorio.Text <> "" Then
+                Dim OrderDate As DateTime = Convert.ToDateTime(LabelSanitarioDataProvisorio.Text)
+                Dim OrderDateExtenso As String = OrderDate.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+                LabelSanitarioDataProvisorio.Text = OrderDateExtenso
+            Else
+
+            End If
+        End If
+
     End Sub
+
     'Setran
-    Private Sub LabelSetranDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelSetranDataProvisorio.Click
-        Dim SetranDataProvisorio As DateTime = LabelSetranDataProvisorio.Text
-        Dim SetranDataProvisorioExtenso As String = SetranDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelSetranDataProvisorio.Text = SetranDataProvisorioExtenso
+    Private Sub LabelSetranDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelSetranDataProvisorio.TextChanged
+        'verificar se tem letras
+        If LabelSetranDataProvisorio.Text.Any(Function(c) Char.IsLetter(c)) Then
+            'nao faz nada
+        Else
+            If LabelSetranDataProvisorio.Text <> "" Then
+                Dim OrderDate As DateTime = Convert.ToDateTime(LabelSetranDataProvisorio.Text)
+                Dim OrderDateExtenso As String = OrderDate.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+                LabelSetranDataProvisorio.Text = OrderDateExtenso
+            Else
+
+            End If
+        End If
+
     End Sub
+
 
     '//////////////////////////////////////// FIM DATA PROVISORIO //////////////////////////////////////////////
 
+
+    Private Sub BombeiroSituacaoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BombeiroSituacaoComboBox.SelectedIndexChanged
+        If BombeiroSituacaoComboBox.Text = "Finalizado Definitivo" Then
+            LabelBombeiroDataProvisorio.Text = "Liberado - Alvará Definitivo"
+        End If
+    End Sub
 End Class

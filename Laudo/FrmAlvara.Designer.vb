@@ -159,7 +159,6 @@ Partial Class FrmAlvara
         Me.ButtonApagaDataSetran = New System.Windows.Forms.PictureBox()
         Me.SetranExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.NlaudoTextBox = New System.Windows.Forms.TextBox()
-        Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.ModeloSistemaComboBox = New System.Windows.Forms.ComboBox()
         Me.ButtonConsultar = New System.Windows.Forms.Button()
         Me.ComboBoxBuscaAlvara = New System.Windows.Forms.ComboBox()
@@ -278,6 +277,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -1762,17 +1762,6 @@ Partial Class FrmAlvara
         Me.NlaudoTextBox.Size = New System.Drawing.Size(101, 20)
         Me.NlaudoTextBox.TabIndex = 36
         '
-        'LembreteCheckBox
-        '
-        Me.LembreteCheckBox.BackColor = System.Drawing.Color.Transparent
-        Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(84, 135)
-        Me.LembreteCheckBox.Name = "LembreteCheckBox"
-        Me.LembreteCheckBox.Size = New System.Drawing.Size(71, 19)
-        Me.LembreteCheckBox.TabIndex = 37
-        Me.LembreteCheckBox.Text = "Lembrete"
-        Me.LembreteCheckBox.UseVisualStyleBackColor = False
-        '
         'ModeloSistemaComboBox
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
@@ -1816,7 +1805,7 @@ Partial Class FrmAlvara
         Me.BtnCalendarioWindows.BackgroundImage = CType(resources.GetObject("BtnCalendarioWindows.BackgroundImage"), System.Drawing.Image)
         Me.BtnCalendarioWindows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCalendarioWindows.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCalendarioWindows.Location = New System.Drawing.Point(75, 120)
+        Me.BtnCalendarioWindows.Location = New System.Drawing.Point(3, 124)
         Me.BtnCalendarioWindows.Name = "BtnCalendarioWindows"
         Me.BtnCalendarioWindows.Size = New System.Drawing.Size(134, 22)
         Me.BtnCalendarioWindows.TabIndex = 43
@@ -1871,6 +1860,7 @@ Partial Class FrmAlvara
         '
         'GroupBox3
         '
+        Me.GroupBox3.AutoSize = True
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.LabelSetranDataProvisorio)
         Me.GroupBox3.Controls.Add(Me.LabelSanitarioDataProvisorio)
@@ -1886,7 +1876,7 @@ Partial Class FrmAlvara
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(503, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(215, 145)
+        Me.GroupBox3.Size = New System.Drawing.Size(215, 165)
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Vencimento Alvará Provisório "
@@ -1897,9 +1887,9 @@ Partial Class FrmAlvara
         Me.LabelSetranDataProvisorio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SetranProvisorioDATA", True))
         Me.LabelSetranDataProvisorio.Location = New System.Drawing.Point(64, 105)
         Me.LabelSetranDataProvisorio.Name = "LabelSetranDataProvisorio"
-        Me.LabelSetranDataProvisorio.Size = New System.Drawing.Size(39, 13)
+        Me.LabelSetranDataProvisorio.Size = New System.Drawing.Size(54, 13)
         Me.LabelSetranDataProvisorio.TabIndex = 85
-        Me.LabelSetranDataProvisorio.Text = "Label4"
+        Me.LabelSetranDataProvisorio.Text = "Sem Data"
         '
         'LabelSanitarioDataProvisorio
         '
@@ -1907,9 +1897,9 @@ Partial Class FrmAlvara
         Me.LabelSanitarioDataProvisorio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "SanitarioProvisorioDATA", True))
         Me.LabelSanitarioDataProvisorio.Location = New System.Drawing.Point(64, 85)
         Me.LabelSanitarioDataProvisorio.Name = "LabelSanitarioDataProvisorio"
-        Me.LabelSanitarioDataProvisorio.Size = New System.Drawing.Size(39, 13)
+        Me.LabelSanitarioDataProvisorio.Size = New System.Drawing.Size(54, 13)
         Me.LabelSanitarioDataProvisorio.TabIndex = 84
-        Me.LabelSanitarioDataProvisorio.Text = "Label4"
+        Me.LabelSanitarioDataProvisorio.Text = "Sem Data"
         '
         'LabelViabilidadeDataProvisorio
         '
@@ -1917,9 +1907,9 @@ Partial Class FrmAlvara
         Me.LabelViabilidadeDataProvisorio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ViabilidadeProvisorioDATA", True))
         Me.LabelViabilidadeDataProvisorio.Location = New System.Drawing.Point(64, 63)
         Me.LabelViabilidadeDataProvisorio.Name = "LabelViabilidadeDataProvisorio"
-        Me.LabelViabilidadeDataProvisorio.Size = New System.Drawing.Size(39, 13)
+        Me.LabelViabilidadeDataProvisorio.Size = New System.Drawing.Size(54, 13)
         Me.LabelViabilidadeDataProvisorio.TabIndex = 83
-        Me.LabelViabilidadeDataProvisorio.Text = "Label4"
+        Me.LabelViabilidadeDataProvisorio.Text = "Sem Data"
         '
         'LabelAmbientalDataProvisorio
         '
@@ -1927,9 +1917,9 @@ Partial Class FrmAlvara
         Me.LabelAmbientalDataProvisorio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AmbientalProvisorioDATA", True))
         Me.LabelAmbientalDataProvisorio.Location = New System.Drawing.Point(64, 41)
         Me.LabelAmbientalDataProvisorio.Name = "LabelAmbientalDataProvisorio"
-        Me.LabelAmbientalDataProvisorio.Size = New System.Drawing.Size(39, 13)
+        Me.LabelAmbientalDataProvisorio.Size = New System.Drawing.Size(54, 13)
         Me.LabelAmbientalDataProvisorio.TabIndex = 82
-        Me.LabelAmbientalDataProvisorio.Text = "Label4"
+        Me.LabelAmbientalDataProvisorio.Text = "Sem Data"
         '
         'LabelBombeiroDataProvisorio
         '
@@ -1937,9 +1927,9 @@ Partial Class FrmAlvara
         Me.LabelBombeiroDataProvisorio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroProvisorioDATA", True))
         Me.LabelBombeiroDataProvisorio.Location = New System.Drawing.Point(64, 22)
         Me.LabelBombeiroDataProvisorio.Name = "LabelBombeiroDataProvisorio"
-        Me.LabelBombeiroDataProvisorio.Size = New System.Drawing.Size(39, 13)
+        Me.LabelBombeiroDataProvisorio.Size = New System.Drawing.Size(54, 13)
         Me.LabelBombeiroDataProvisorio.TabIndex = 81
-        Me.LabelBombeiroDataProvisorio.Text = "Label4"
+        Me.LabelBombeiroDataProvisorio.Text = "Sem Data"
         '
         'Label9
         '
@@ -2926,6 +2916,7 @@ Partial Class FrmAlvara
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.LembreteCheckBox)
         Me.GroupBox9.Controls.Add(Me.CNPJLabel)
         Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
         Me.GroupBox9.Controls.Add(EndEstadoLabel1)
@@ -2935,7 +2926,6 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.EndCidadeLabel2)
         Me.GroupBox9.Controls.Add(EndCidadeLabel1)
         Me.GroupBox9.Controls.Add(Me.BtnData1)
-        Me.GroupBox9.Controls.Add(Me.LembreteCheckBox)
         Me.GroupBox9.Controls.Add(Me.CMCLabel)
         Me.GroupBox9.Controls.Add(AvisarDiaLabel)
         Me.GroupBox9.Controls.Add(Me.AvisarDiaMaskedTextBox)
@@ -3090,6 +3080,16 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'LembreteCheckBox
+        '
+        Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 133)
+        Me.LembreteCheckBox.Name = "LembreteCheckBox"
+        Me.LembreteCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.LembreteCheckBox.TabIndex = 81
+        Me.LembreteCheckBox.Text = "Lembrete"
+        Me.LembreteCheckBox.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3190,6 +3190,7 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBoxCima.ResumeLayout(False)
+        Me.GroupBoxCima.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3239,7 +3240,6 @@ Partial Class FrmAlvara
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents NlaudoTextBox As TextBox
-    Friend WithEvents LembreteCheckBox As CheckBox
     Friend WithEvents ModeloSistemaComboBox As ComboBox
     Friend WithEvents ButtonConsultar As Button
     Friend WithEvents ComboBoxBuscaAlvara As ComboBox
@@ -3401,4 +3401,5 @@ Partial Class FrmAlvara
     Friend WithEvents LabelSetranDataProvisorio As Label
     Friend WithEvents LabelSanitarioDataProvisorio As Label
     Friend WithEvents LabelViabilidadeDataProvisorio As Label
+    Friend WithEvents LembreteCheckBox As CheckBox
 End Class
