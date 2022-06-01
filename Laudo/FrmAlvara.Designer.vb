@@ -1816,7 +1816,7 @@ Partial Class FrmAlvara
         Me.BtnCalendarioWindows.BackgroundImage = CType(resources.GetObject("BtnCalendarioWindows.BackgroundImage"), System.Drawing.Image)
         Me.BtnCalendarioWindows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCalendarioWindows.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCalendarioWindows.Location = New System.Drawing.Point(144, 121)
+        Me.BtnCalendarioWindows.Location = New System.Drawing.Point(75, 120)
         Me.BtnCalendarioWindows.Name = "BtnCalendarioWindows"
         Me.BtnCalendarioWindows.Size = New System.Drawing.Size(134, 22)
         Me.BtnCalendarioWindows.TabIndex = 43
@@ -1886,7 +1886,7 @@ Partial Class FrmAlvara
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(503, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(286, 145)
+        Me.GroupBox3.Size = New System.Drawing.Size(215, 145)
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Vencimento Alvará Provisório "

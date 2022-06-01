@@ -1194,7 +1194,8 @@ Public Class FrmAlvara
     End Sub
 
 
-    'Apagar Data Provisório Bombeiro
+    '//////////////////////////////////////// INICIO DATA PROVISORIO ////////////////////////////////////////////////////////////////
+
     Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
         'perguntar antes 
         If MsgBox("Deseja Alterar a data provisório do Bombeiro?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
@@ -1428,22 +1429,49 @@ Public Class FrmAlvara
 
     'pega a datetime do LabelBombeiroDataProvisorio, e muda para data extenso
     Private Sub LabelBombeiroDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.Click
+
         Dim BombeiroDataProvisorio As DateTime = LabelBombeiroDataProvisorio.Text
         Dim BombeiroDataProvisorioExtenso As String = BombeiroDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
         LabelBombeiroDataProvisorio.Text = BombeiroDataProvisorioExtenso
     End Sub
 
-    Private Sub LabelBombeiroDataProvisorio_TextChanged(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.TextChanged
-        'dd/mm/aaaa, tira "/"  coloca no lugar do /, coloca dia da semana, mes e ano
-        Dim BombeiroDataProvisorio As DateTime = LabelBombeiroDataProvisorio.Text
-        Dim BombeiroDataProvisorioExtenso As String = BombeiroDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
-        LabelBombeiroDataProvisorio.Text = BombeiroDataProvisorioExtenso
 
-
-
+    'LabelBombeiroDataProvisorio após mostrar dados mostrar como  "dddd, dd 'de' MMMM 'de' yyyy"
+    Private Sub LabelBombeiroDataProvisorio_VisibleChanged(sender As Object, e As EventArgs) Handles LabelBombeiroDataProvisorio.VisibleChanged
+        'tipo DateTime
+        'ver se vem algum valor reader
+        If LabelBombeiroDataProvisorio.Text <> "" Then
+            'pega a datetime do LabelBombeiroDataProvisorio, e muda para data extenso
+            Dim BombeiroDataProvisorio As DateTime = LabelBombeiroDataProvisorio.Text
+            Dim BombeiroDataProvisorioExtenso As String = BombeiroDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+            LabelBombeiroDataProvisorio.Text = BombeiroDataProvisorioExtenso
+        End If
+    End Sub
+    'ambiental
+    Private Sub LabelAmbientalDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelAmbientalDataProvisorio.Click
+        Dim AmbientalDataProvisorio As DateTime = LabelAmbientalDataProvisorio.Text
+        Dim AmbientalDataProvisorioExtenso As String = AmbientalDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+        LabelAmbientalDataProvisorio.Text = AmbientalDataProvisorioExtenso
+    End Sub
+    'viabilidade
+    Private Sub LabelViabilidadeDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelViabilidadeDataProvisorio.Click
+        Dim ViabilidadeDataProvisorio As DateTime = LabelViabilidadeDataProvisorio.Text
+        Dim ViabilidadeDataProvisorioExtenso As String = ViabilidadeDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+        LabelViabilidadeDataProvisorio.Text = ViabilidadeDataProvisorioExtenso
+    End Sub
+    'Sanitario
+    Private Sub LabelSanitarioDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelSanitarioDataProvisorio.Click
+        Dim SanitarioDataProvisorio As DateTime = LabelSanitarioDataProvisorio.Text
+        Dim SanitarioDataProvisorioExtenso As String = SanitarioDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+        LabelSanitarioDataProvisorio.Text = SanitarioDataProvisorioExtenso
+    End Sub
+    'Setran
+    Private Sub LabelSetranDataProvisorio_Click(sender As Object, e As EventArgs) Handles LabelSetranDataProvisorio.Click
+        Dim SetranDataProvisorio As DateTime = LabelSetranDataProvisorio.Text
+        Dim SetranDataProvisorioExtenso As String = SetranDataProvisorio.ToString("dddd, dd 'de' MMMM 'de' yyyy")
+        LabelSetranDataProvisorio.Text = SetranDataProvisorioExtenso
     End Sub
 
-
-    'LabelBombeiroDataProvisorio após carregar dados mostrar como  "dddd, dd 'de' MMMM 'de' yyyy"
+    '//////////////////////////////////////// FIM DATA PROVISORIO //////////////////////////////////////////////
 
 End Class
