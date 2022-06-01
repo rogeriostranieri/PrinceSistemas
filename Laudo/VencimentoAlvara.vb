@@ -89,4 +89,29 @@ Class VencimentoAlvara
         DateTimePicker2.Value = DateTime.Now
         Filtro()
     End Sub
+
+    '-60 dias
+    Private Sub ButtonMenos60_Click(sender As Object, e As EventArgs) Handles ButtonMenos60.Click
+        DateTimePicker1.Value = DateTime.Now.AddDays(-60)
+        DateTimePicker2.Value = DateTime.Now
+        Filtro()
+    End Sub
+    '-90 dias
+    Private Sub ButtonMenos90_Click(sender As Object, e As EventArgs) Handles ButtonMenos90.Click
+        DateTimePicker1.Value = DateTime.Now.AddDays(-90)
+        DateTimePicker2.Value = DateTime.Now
+        Filtro()
+    End Sub
+    '+60 dias
+    Private Sub ButtonMais60_Click(sender As Object, e As EventArgs) Handles ButtonMais60.Click
+        DateTimePicker1.Value = DateTime.Now
+        DateTimePicker2.Value = DateTime.Now.AddDays(60)
+        Filtro()
+    End Sub
+    '+90 dias
+    Private Sub ButtonMais90_Click(sender As Object, e As EventArgs) Handles ButtonMais90.Click
+        DateTimePicker1.Value = DateTime.Now
+        DateTimePicker2.Value = DateTime.Now.AddDays(90)
+        Filtro()
+    End Sub
 End Class

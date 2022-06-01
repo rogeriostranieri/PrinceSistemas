@@ -28,6 +28,14 @@ Partial Class VencimentoAlvara
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
@@ -40,14 +48,10 @@ Partial Class VencimentoAlvara
         Me.ButtonMais30 = New System.Windows.Forms.Button()
         Me.ButtonMenos7 = New System.Windows.Forms.Button()
         Me.ButtonMenos30 = New System.Windows.Forms.Button()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ButtonMenos90 = New System.Windows.Forms.Button()
+        Me.ButtonMenos60 = New System.Windows.Forms.Button()
+        Me.ButtonMais60 = New System.Windows.Forms.Button()
+        Me.ButtonMais90 = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,14 +107,78 @@ Partial Class VencimentoAlvara
         Me.LaudosDataGridView.Size = New System.Drawing.Size(872, 239)
         Me.LaudosDataGridView.TabIndex = 1
         '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 250
+        '
+        'DataGridViewTextBoxColumn52
+        '
+        Me.DataGridViewTextBoxColumn52.DataPropertyName = "AmbientalProvisorioDATA"
+        Me.DataGridViewTextBoxColumn52.HeaderText = "Ambiental"
+        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
+        Me.DataGridViewTextBoxColumn52.ReadOnly = True
+        Me.DataGridViewTextBoxColumn52.Width = 70
+        '
+        'DataGridViewTextBoxColumn53
+        '
+        Me.DataGridViewTextBoxColumn53.DataPropertyName = "ViabilidadeProvisorioDATA"
+        Me.DataGridViewTextBoxColumn53.HeaderText = "Viabilidade"
+        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
+        Me.DataGridViewTextBoxColumn53.ReadOnly = True
+        Me.DataGridViewTextBoxColumn53.Width = 70
+        '
+        'DataGridViewTextBoxColumn54
+        '
+        Me.DataGridViewTextBoxColumn54.DataPropertyName = "SanitarioProvisorioDATA"
+        Me.DataGridViewTextBoxColumn54.HeaderText = "Sanitario"
+        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
+        Me.DataGridViewTextBoxColumn54.ReadOnly = True
+        Me.DataGridViewTextBoxColumn54.Width = 70
+        '
+        'DataGridViewTextBoxColumn55
+        '
+        Me.DataGridViewTextBoxColumn55.DataPropertyName = "SetranProvisorioDATA"
+        Me.DataGridViewTextBoxColumn55.HeaderText = "Setran"
+        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
+        Me.DataGridViewTextBoxColumn55.ReadOnly = True
+        Me.DataGridViewTextBoxColumn55.Width = 70
+        '
+        'Situacao
+        '
+        Me.Situacao.DataPropertyName = "Situacao"
+        Me.Situacao.HeaderText = "Situação Prefeitura"
+        Me.Situacao.Name = "Situacao"
+        Me.Situacao.ReadOnly = True
+        Me.Situacao.Width = 110
+        '
+        'DataGridViewTextBoxColumn51
+        '
+        Me.DataGridViewTextBoxColumn51.DataPropertyName = "BombeiroProvisorioDATA"
+        Me.DataGridViewTextBoxColumn51.HeaderText = "Bombeiro"
+        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
+        Me.DataGridViewTextBoxColumn51.ReadOnly = True
+        Me.DataGridViewTextBoxColumn51.Width = 70
+        '
+        'BombeiroSituacao
+        '
+        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
+        Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
+        Me.BombeiroSituacao.Name = "BombeiroSituacao"
+        Me.BombeiroSituacao.ReadOnly = True
+        Me.BombeiroSituacao.Width = 110
+        '
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Century Schoolbook", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Franklin Gothic Medium Cond", 20.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(12, 19)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(764, 41)
+        Me.Label3.Size = New System.Drawing.Size(764, 55)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Vencimentos de alvará de localização das Empresas"
         '
@@ -190,7 +258,7 @@ Partial Class VencimentoAlvara
         'ButtonMais7
         '
         Me.ButtonMais7.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais7.Location = New System.Drawing.Point(174, 119)
+        Me.ButtonMais7.Location = New System.Drawing.Point(344, 119)
         Me.ButtonMais7.Name = "ButtonMais7"
         Me.ButtonMais7.Size = New System.Drawing.Size(71, 24)
         Me.ButtonMais7.TabIndex = 22
@@ -200,7 +268,7 @@ Partial Class VencimentoAlvara
         'ButtonMais30
         '
         Me.ButtonMais30.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais30.Location = New System.Drawing.Point(251, 119)
+        Me.ButtonMais30.Location = New System.Drawing.Point(421, 119)
         Me.ButtonMais30.Name = "ButtonMais30"
         Me.ButtonMais30.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMais30.TabIndex = 23
@@ -210,7 +278,7 @@ Partial Class VencimentoAlvara
         'ButtonMenos7
         '
         Me.ButtonMenos7.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos7.Location = New System.Drawing.Point(97, 119)
+        Me.ButtonMenos7.Location = New System.Drawing.Point(267, 119)
         Me.ButtonMenos7.Name = "ButtonMenos7"
         Me.ButtonMenos7.Size = New System.Drawing.Size(71, 24)
         Me.ButtonMenos7.TabIndex = 25
@@ -220,76 +288,52 @@ Partial Class VencimentoAlvara
         'ButtonMenos30
         '
         Me.ButtonMenos30.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos30.Location = New System.Drawing.Point(12, 119)
+        Me.ButtonMenos30.Location = New System.Drawing.Point(182, 119)
         Me.ButtonMenos30.Name = "ButtonMenos30"
         Me.ButtonMenos30.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMenos30.TabIndex = 24
         Me.ButtonMenos30.Text = "- 30 Dias"
         Me.ButtonMenos30.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn2
+        'ButtonMenos90
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 250
+        Me.ButtonMenos90.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonMenos90.Location = New System.Drawing.Point(12, 119)
+        Me.ButtonMenos90.Name = "ButtonMenos90"
+        Me.ButtonMenos90.Size = New System.Drawing.Size(79, 24)
+        Me.ButtonMenos90.TabIndex = 26
+        Me.ButtonMenos90.Text = "- 90 Dias"
+        Me.ButtonMenos90.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn52
+        'ButtonMenos60
         '
-        Me.DataGridViewTextBoxColumn52.DataPropertyName = "AmbientalProvisorioDATA"
-        Me.DataGridViewTextBoxColumn52.HeaderText = "Ambiental"
-        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
-        Me.DataGridViewTextBoxColumn52.ReadOnly = True
-        Me.DataGridViewTextBoxColumn52.Width = 70
+        Me.ButtonMenos60.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonMenos60.Location = New System.Drawing.Point(97, 119)
+        Me.ButtonMenos60.Name = "ButtonMenos60"
+        Me.ButtonMenos60.Size = New System.Drawing.Size(79, 24)
+        Me.ButtonMenos60.TabIndex = 27
+        Me.ButtonMenos60.Text = "- 60 Dias"
+        Me.ButtonMenos60.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn53
+        'ButtonMais60
         '
-        Me.DataGridViewTextBoxColumn53.DataPropertyName = "ViabilidadeProvisorioDATA"
-        Me.DataGridViewTextBoxColumn53.HeaderText = "Viabilidade"
-        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
-        Me.DataGridViewTextBoxColumn53.ReadOnly = True
-        Me.DataGridViewTextBoxColumn53.Width = 70
+        Me.ButtonMais60.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonMais60.Location = New System.Drawing.Point(506, 119)
+        Me.ButtonMais60.Name = "ButtonMais60"
+        Me.ButtonMais60.Size = New System.Drawing.Size(79, 24)
+        Me.ButtonMais60.TabIndex = 28
+        Me.ButtonMais60.Text = "+ 60 Dias"
+        Me.ButtonMais60.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn54
+        'ButtonMais90
         '
-        Me.DataGridViewTextBoxColumn54.DataPropertyName = "SanitarioProvisorioDATA"
-        Me.DataGridViewTextBoxColumn54.HeaderText = "Sanitario"
-        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
-        Me.DataGridViewTextBoxColumn54.ReadOnly = True
-        Me.DataGridViewTextBoxColumn54.Width = 70
-        '
-        'DataGridViewTextBoxColumn55
-        '
-        Me.DataGridViewTextBoxColumn55.DataPropertyName = "SetranProvisorioDATA"
-        Me.DataGridViewTextBoxColumn55.HeaderText = "Setran"
-        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
-        Me.DataGridViewTextBoxColumn55.ReadOnly = True
-        Me.DataGridViewTextBoxColumn55.Width = 70
-        '
-        'Situacao
-        '
-        Me.Situacao.DataPropertyName = "Situacao"
-        Me.Situacao.HeaderText = "Situação Prefeitura"
-        Me.Situacao.Name = "Situacao"
-        Me.Situacao.ReadOnly = True
-        Me.Situacao.Width = 110
-        '
-        'DataGridViewTextBoxColumn51
-        '
-        Me.DataGridViewTextBoxColumn51.DataPropertyName = "BombeiroProvisorioDATA"
-        Me.DataGridViewTextBoxColumn51.HeaderText = "Bombeiro"
-        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
-        Me.DataGridViewTextBoxColumn51.ReadOnly = True
-        Me.DataGridViewTextBoxColumn51.Width = 70
-        '
-        'BombeiroSituacao
-        '
-        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
-        Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
-        Me.BombeiroSituacao.Name = "BombeiroSituacao"
-        Me.BombeiroSituacao.ReadOnly = True
-        Me.BombeiroSituacao.Width = 110
+        Me.ButtonMais90.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonMais90.Location = New System.Drawing.Point(591, 119)
+        Me.ButtonMais90.Name = "ButtonMais90"
+        Me.ButtonMais90.Size = New System.Drawing.Size(79, 24)
+        Me.ButtonMais90.TabIndex = 29
+        Me.ButtonMais90.Text = "+ 90 Dias"
+        Me.ButtonMais90.UseVisualStyleBackColor = True
         '
         'VencimentoAlvara
         '
@@ -298,6 +342,10 @@ Partial Class VencimentoAlvara
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.backgroundtecnologia
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(896, 391)
+        Me.Controls.Add(Me.ButtonMais90)
+        Me.Controls.Add(Me.ButtonMais60)
+        Me.Controls.Add(Me.ButtonMenos60)
+        Me.Controls.Add(Me.ButtonMenos90)
         Me.Controls.Add(Me.ButtonMenos7)
         Me.Controls.Add(Me.ButtonMenos30)
         Me.Controls.Add(Me.ButtonMais30)
@@ -346,4 +394,8 @@ Partial Class VencimentoAlvara
     Friend WithEvents Situacao As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn51 As DataGridViewTextBoxColumn
     Friend WithEvents BombeiroSituacao As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonMenos90 As Button
+    Friend WithEvents ButtonMenos60 As Button
+    Friend WithEvents ButtonMais60 As Button
+    Friend WithEvents ButtonMais90 As Button
 End Class
