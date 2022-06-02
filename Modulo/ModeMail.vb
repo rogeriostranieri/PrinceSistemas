@@ -103,52 +103,47 @@ Module ModeMail
         'igual esta no comando no formulario FrmLegalizacao
         FrmLegalizacao.SistemaExternoComboBox.SelectedIndex = 0
 
+
         Try
             Dim A = FrmLegalizacao.RazaoSocialTextBox.Text.ToString()
             Dim B = FrmLegalizacao.CNPJMaskedTextBox.Text.ToString()
             Dim C = FrmLegalizacao.ProcessoComboBox.Text.ToString()
             Dim D = FrmLegalizacao.MotivoRichTextBox.Text.ToString()
-            Dim E = FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
+            Dim E = "Sim" 'FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
             Dim F = FrmLegalizacao.IETextBox.Text.ToString()
-            If E = "" Then
+            If F = "" Then
                 F = "Não tem Inscrição Estadual"
             End If
 
-            'assunto
-            FrmMail.TextBoxAssunto.Text = C & " - da Empresa: " & A & ""
+            'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
+            If C = "Transformação" Then
+                'caixa MsgBox VBA e InputBox
+                Dim G = InputBox("Digite qual tipo Processo de Transformação", "Processo de Transformação")
+                'InputBox colocar "escreva aqui"
 
-            If F = "" Then
-                'corpo do email
-                FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>A Empresa:</b> " & A & ", <br/>
-<b>Inscrita no CNPJ</b> Nº: " & B & ".<br/>
+                C = G
+            End If
+
+            '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
+            'assunto
+            FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
+
+            'corpo do email
+            FrmMail.RichTextBoxMensagem.SelectedText &=
+"<html><body><b>A Empresa = </b> " & A & ", <br/>
+<b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
 <br/>
-<b>Com o processo de:</b> " & C & ", <br/>
-<b>Teve como objetivo de:</b> " & D & ",<br/>
+<b>Com o processo de = </b> " & C & ", <br/>
+<b>Teve como objetivo de = </b> " & D & ",<br/>
 <br/>
-<b>E no Sistema ja foi atualizado:</b> " & E & ".<br/>
+<b>E no Sistema ja foi atualizado = </b> " & E & ".<br/>
 <br/>
 <br/>            
 //-----------------//-----------------//-----------------//-----------------//<br/>
 </body></html>
 "
-            Else
-                'corpo do email
-                FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>A Empresa:</b> " & A & ", <br/>
-<b>Inscrita no CNPJ</b> Nº: " & B & ", e <b>inscrita no Estado</b> com Nº: " & F & ". <br/>
-<br/>
-<b>Com o processo de:</b> " & C & ", <br/>
-<b>Teve como objetivo de:</b> " & D & ",<br/>
-<br />
-<b>E no Sistema ja foi atualizado:</b> " & E & ".<br/>
-<br/>
-<br/>            
-//-----------------//-----------------//-----------------//-----------------//<br />
-</body></html>
-"
-            End If
 
+            '/////////////////////////// FIM CAIXA DO EMAIL ////////////////////////////////////////////////
 
         Catch ex As System.InvalidCastException
             MessageBox.Show("ERRO" & vbCrLf & ex.Message, "Prince Avisa")
@@ -158,6 +153,61 @@ Module ModeMail
 
     End Sub
 
+    Sub EnviaremaillegalizaoNAO()
+        FrmLegalizacao.TabControle.SelectTab(0)
 
+        'abrir histórico
+        FrmMail.TabControle.SelectTab(0)
+
+        FrmMail.TextBoxAssunto.Text = ""
+        FrmMail.RichTextBoxMensagem.Text = ""
+
+
+        Try
+            Dim A = FrmLegalizacao.RazaoSocialTextBox.Text.ToString()
+            Dim B = FrmLegalizacao.CNPJMaskedTextBox.Text.ToString()
+            Dim C = FrmLegalizacao.ProcessoComboBox.Text.ToString()
+            Dim D = FrmLegalizacao.MotivoRichTextBox.Text.ToString()
+            Dim E = FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
+            Dim F = FrmLegalizacao.IETextBox.Text.ToString()
+            If F = "" Then
+                F = "Não tem Inscrição Estadual"
+            End If
+
+            'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
+            If C = "Transformação" Then
+                'caixa MsgBox VBA e InputBox
+                Dim G = InputBox("Digite qual tipo Processo de Transformação", "Processo de Transformação")
+                'InputBox colocar "escreva aqui"
+
+                C = G
+            End If
+
+            '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
+            'assunto
+            FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
+
+            'corpo do email
+            FrmMail.RichTextBoxMensagem.SelectedText &=
+"<html><body><b>A Empresa = </b> " & A & ", <br/>
+<b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
+<br/>
+<b>Com o processo de = </b> " & C & ", <br/>
+<b>Teve como objetivo de = </b> " & D & ",<br/>
+<br/>
+<b>E no Sistema ja foi atualizado = </b> " & E & ".<br/>
+<br/>
+<br/>            
+//-----------------//-----------------//-----------------//-----------------//<br/>
+</body></html>
+"
+
+            '/////////////////////////// FIM CAIXA DO EMAIL ////////////////////////////////////////////////
+
+        Catch ex As System.InvalidCastException
+            MessageBox.Show("ERRO" & vbCrLf & ex.Message, "Prince Avisa")
+
+        End Try
+    End Sub
 
 End Module

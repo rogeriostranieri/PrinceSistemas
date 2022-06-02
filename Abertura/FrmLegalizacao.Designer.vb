@@ -1954,6 +1954,7 @@ Partial Class FrmLegalizacao
         '
         Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
         Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
+        Me.EnderecoTextBox.MaxLength = 1000
         Me.EnderecoTextBox.Name = "EnderecoTextBox"
         Me.EnderecoTextBox.Size = New System.Drawing.Size(378, 20)
         Me.EnderecoTextBox.TabIndex = 34
@@ -2008,6 +2009,7 @@ Partial Class FrmLegalizacao
         '
         Me.EndPaisTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndPais", True))
         Me.EndPaisTextBox.Location = New System.Drawing.Point(378, 127)
+        Me.EndPaisTextBox.MaxLength = 1000
         Me.EndPaisTextBox.Name = "EndPaisTextBox"
         Me.EndPaisTextBox.Size = New System.Drawing.Size(179, 20)
         Me.EndPaisTextBox.TabIndex = 15
@@ -2024,6 +2026,7 @@ Partial Class FrmLegalizacao
         '
         Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndBairro", True))
         Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 101)
+        Me.EndBairroTextBox.MaxLength = 1000
         Me.EndBairroTextBox.Name = "EndBairroTextBox"
         Me.EndBairroTextBox.Size = New System.Drawing.Size(212, 20)
         Me.EndBairroTextBox.TabIndex = 5
@@ -2040,6 +2043,7 @@ Partial Class FrmLegalizacao
         '
         Me.EndComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndComplemento", True))
         Me.EndComplementoTextBox.Location = New System.Drawing.Point(369, 101)
+        Me.EndComplementoTextBox.MaxLength = 1000
         Me.EndComplementoTextBox.Name = "EndComplementoTextBox"
         Me.EndComplementoTextBox.Size = New System.Drawing.Size(188, 20)
         Me.EndComplementoTextBox.TabIndex = 7
@@ -2084,6 +2088,7 @@ Partial Class FrmLegalizacao
         '
         Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
         Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 127)
+        Me.EndCidadeTextBox.MaxLength = 1000
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
         Me.EndCidadeTextBox.Size = New System.Drawing.Size(170, 20)
         Me.EndCidadeTextBox.TabIndex = 11
@@ -2117,6 +2122,7 @@ Partial Class FrmLegalizacao
         '
         Me.EmpEmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpEmail", True))
         Me.EmpEmailTextBox.Location = New System.Drawing.Point(79, 64)
+        Me.EmpEmailTextBox.MaxLength = 1000
         Me.EmpEmailTextBox.Name = "EmpEmailTextBox"
         Me.EmpEmailTextBox.Size = New System.Drawing.Size(309, 20)
         Me.EmpEmailTextBox.TabIndex = 22
@@ -2125,6 +2131,7 @@ Partial Class FrmLegalizacao
         '
         Me.PaginaWebTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PaginaWeb", True))
         Me.PaginaWebTextBox.Location = New System.Drawing.Point(79, 90)
+        Me.PaginaWebTextBox.MaxLength = 1000
         Me.PaginaWebTextBox.Name = "PaginaWebTextBox"
         Me.PaginaWebTextBox.Size = New System.Drawing.Size(309, 20)
         Me.PaginaWebTextBox.TabIndex = 24

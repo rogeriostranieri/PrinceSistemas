@@ -370,6 +370,8 @@ Public Class FrmAlvara
                         Me.LaudosBindingSource.EndEdit()
                         Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
                         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                        'salvar
+
 
                         'Modifica bloqueando td novamente
                         BtnEditar.Text = "Editar"

@@ -1906,21 +1906,30 @@ CPF =
         ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
     End Sub
 
+    'gerar CancelEventArgs e
+
     Private Sub EMAIL()
         Try
             'If StatusComboBox.Text = "Finalizado" Then
             'selecioanr Index 0
             If SistemaExternoComboBox.SelectedIndex = 0 Then
 
-                'SistemaExternoComboBox muda para Sim
-                ' SistemaExternoComboBox.SelectedIndex = 1
+                Dim message As String
 
-                If MsgBox(" Deseja enviar por e-mail toda alteração feita?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
+                'message Deseja enviar por e-mail toda alteração feita?
+                message = "Deseja enviar por e-mail toda alteração feita?"
 
+                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNo)
+                If result = DialogResult.Cancel Then
+
+                ElseIf result = DialogResult.No Then
+                    'cancelar
+
+                ElseIf result = DialogResult.Yes Then
                     If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
                         SistemaExternoComboBox.SelectedIndex = 0
                         Dim Sair As String
-                        Sair = MsgBox("O e-Mail ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                        Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
 
                         FrmMail.MdiParent = MDIPrincipal
@@ -1944,6 +1953,7 @@ CPF =
                 End If
             End If
 
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -1953,24 +1963,68 @@ CPF =
     End Sub
 
     Private Sub ButtoneMail_Click(sender As Object, e As EventArgs) Handles ButtoneMail.Click
-        If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
+        'perguntar se deseja enviar a empresa por email
+        Try
 
-            FrmMail.Focus()
-            FrmMail.Close()
-            FrmMail.MdiParent = MDIPrincipal
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            FrmMail.Show()
-            FrmMail.Focus()
+            Dim message As String
+
+            'message Deseja enviar por e-mail toda alteração feita?
+            message = "Deseja enviar por e-mail, as informações desta empresa? ou NÂO, apenas abrir o e-mail??"
+
+            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+            If result = DialogResult.Cancel Then
+
+            ElseIf result = DialogResult.No Then
+                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
+
+                    FrmMail.Focus()
+                    FrmMail.Close()
+                    FrmMail.MdiParent = MDIPrincipal
+                    ' WebAgenda.WindowState = FormWindowState.Maximized
+                    FrmMail.Show()
+                    FrmMail.Focus()
 
 
-        Else
+                Else
 
-            FrmMail.MdiParent = MDIPrincipal
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            FrmMail.Show()
-            FrmMail.Focus()
+                    FrmMail.MdiParent = MDIPrincipal
+                    ' WebAgenda.WindowState = FormWindowState.Maximized
+                    FrmMail.Show()
+                    FrmMail.Focus()
 
-        End If
+                End If
+            ElseIf result = DialogResult.Yes Then
+                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
+
+                    Dim Sair As String
+                    Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
+
+                    FrmMail.MdiParent = MDIPrincipal
+                    FrmMail.Show()
+                    FrmMail.Focus()
+
+
+                    'abrir a automação
+                    ModeMail.EnviaremaillegalizaoNAO()
+
+                Else
+
+                    FrmMail.MdiParent = MDIPrincipal
+                    FrmMail.Show()
+                    FrmMail.Focus()
+                    ModeMail.EnviaremaillegalizaoNAO()
+
+
+                End If
+            End If
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
     End Sub
 
     Private Sub NovaRazaoSocialComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialComboBox.SelectedIndexChanged

@@ -264,6 +264,7 @@ Partial Class FrmAlvara
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.CNPJLabel = New System.Windows.Forms.Label()
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
         Me.EndEstadoLabel2 = New System.Windows.Forms.Label()
@@ -277,7 +278,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -2181,6 +2181,7 @@ Partial Class FrmAlvara
         '
         Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
         Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
+        Me.EnderecoTextBox.MaxLength = 1000
         Me.EnderecoTextBox.Name = "EnderecoTextBox"
         Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
         Me.EnderecoTextBox.TabIndex = 58
@@ -2262,6 +2263,7 @@ Partial Class FrmAlvara
         '
         Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndComp", True))
         Me.EndCompTextBox.Location = New System.Drawing.Point(223, 72)
+        Me.EndCompTextBox.MaxLength = 1000
         Me.EndCompTextBox.Name = "EndCompTextBox"
         Me.EndCompTextBox.Size = New System.Drawing.Size(304, 20)
         Me.EndCompTextBox.TabIndex = 10
@@ -2270,6 +2272,7 @@ Partial Class FrmAlvara
         '
         Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndBairro", True))
         Me.EndBairroTextBox.Location = New System.Drawing.Point(83, 124)
+        Me.EndBairroTextBox.MaxLength = 1000
         Me.EndBairroTextBox.Name = "EndBairroTextBox"
         Me.EndBairroTextBox.Size = New System.Drawing.Size(151, 20)
         Me.EndBairroTextBox.TabIndex = 12
@@ -2278,6 +2281,7 @@ Partial Class FrmAlvara
         '
         Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
         Me.EndCidadeTextBox.Location = New System.Drawing.Point(83, 150)
+        Me.EndCidadeTextBox.MaxLength = 1000
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
         Me.EndCidadeTextBox.Size = New System.Drawing.Size(117, 20)
         Me.EndCidadeTextBox.TabIndex = 18
@@ -2446,6 +2450,7 @@ Partial Class FrmAlvara
         '
         Me.EmailRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EmailRequerente", True))
         Me.EmailRequerenteTextBox.Location = New System.Drawing.Point(258, 130)
+        Me.EmailRequerenteTextBox.MaxLength = 1000
         Me.EmailRequerenteTextBox.Name = "EmailRequerenteTextBox"
         Me.EmailRequerenteTextBox.Size = New System.Drawing.Size(232, 20)
         Me.EmailRequerenteTextBox.TabIndex = 29
@@ -2462,6 +2467,7 @@ Partial Class FrmAlvara
         '
         Me.EndRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndRequerente", True))
         Me.EndRequerenteTextBox.Location = New System.Drawing.Point(83, 104)
+        Me.EndRequerenteTextBox.MaxLength = 1000
         Me.EndRequerenteTextBox.Name = "EndRequerenteTextBox"
         Me.EndRequerenteTextBox.Size = New System.Drawing.Size(407, 20)
         Me.EndRequerenteTextBox.TabIndex = 27
@@ -2944,6 +2950,16 @@ Partial Class FrmAlvara
         Me.GroupBox9.TabIndex = 78
         Me.GroupBox9.TabStop = False
         '
+        'LembreteCheckBox
+        '
+        Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 133)
+        Me.LembreteCheckBox.Name = "LembreteCheckBox"
+        Me.LembreteCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.LembreteCheckBox.TabIndex = 81
+        Me.LembreteCheckBox.Text = "Lembrete"
+        Me.LembreteCheckBox.UseVisualStyleBackColor = True
+        '
         'CNPJLabel
         '
         Me.CNPJLabel.AutoSize = True
@@ -3079,16 +3095,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'LembreteCheckBox
-        '
-        Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 133)
-        Me.LembreteCheckBox.Name = "LembreteCheckBox"
-        Me.LembreteCheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.LembreteCheckBox.TabIndex = 81
-        Me.LembreteCheckBox.Text = "Lembrete"
-        Me.LembreteCheckBox.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
