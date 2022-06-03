@@ -2523,8 +2523,8 @@ NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, resi
 
     Private Sub BtnImportarSocioAdm_Click(sender As Object, e As EventArgs) Handles BtnImportarSocioAdm.Click
         'pega dados 
-        TabControle.SelectedIndex = 0
-        TabControle.SelectedIndex = 1
+        TabControl2.SelectedIndex = 0
+        TabControl2.SelectedIndex = 1
 
         Dim Responsavel As String = NomeResponsavelTextBox.Text
         Dim DataDeNascimento As String = RespDataNascMaskedTextBox.Text
