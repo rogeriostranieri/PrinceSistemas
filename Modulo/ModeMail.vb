@@ -93,6 +93,10 @@ Module ModeMail
 
     Sub Enviaremaillegalizao()
         FrmLegalizacao.TabControle.SelectTab(0)
+        FrmLegalizacao.TabControle.SelectTab(1)
+        FrmLegalizacao.TabControl2.SelectTab(6)
+        'retorna
+        FrmLegalizacao.TabControle.SelectTab(0)
 
         'abrir histórico
         FrmMail.TabControle.SelectTab(0)
@@ -102,6 +106,7 @@ Module ModeMail
 
         'igual esta no comando no formulario FrmLegalizacao
         FrmLegalizacao.SistemaExternoComboBox.SelectedIndex = 0
+
 
 
         Try
@@ -114,13 +119,18 @@ Module ModeMail
             If F = "" Then
                 F = "Não tem Inscrição Estadual"
             End If
+            Dim H = FrmLegalizacao.RazaoSocialAntigaTextBox.Text.ToString()
+
+
+            '///////////////////////  FALTA FAZER SE TIVER  RAZAO SOCIAL ANTIGA OU NAO
+            If H = "" Then
+                H = "Não teve Modificação"
+            End If
 
             'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
             If C = "Transformação" Then
                 'caixa MsgBox VBA e InputBox
                 Dim G = InputBox("Digite qual tipo Processo de Transformação", "Processo de Transformação")
-                'InputBox colocar "escreva aqui"
-
                 C = G
             End If
 
@@ -131,6 +141,8 @@ Module ModeMail
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
 "<html><body><b>A Empresa = </b> " & A & ", <br/>
+<b>Com Nome Empresarial Antigo = </b> " & H & ", <br/>
+<br/>
 <b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
 <br/>
 <b>Com o processo de = </b> " & C & ", <br/>
@@ -155,6 +167,10 @@ Module ModeMail
 
     Sub EnviaremaillegalizaoNAO()
         FrmLegalizacao.TabControle.SelectTab(0)
+        FrmLegalizacao.TabControle.SelectTab(1)
+        FrmLegalizacao.TabControl2.SelectTab(6)
+        'retorna
+        FrmLegalizacao.TabControle.SelectTab(0)
 
         'abrir histórico
         FrmMail.TabControle.SelectTab(0)
@@ -173,6 +189,7 @@ Module ModeMail
             If F = "" Then
                 F = "Não tem Inscrição Estadual"
             End If
+            Dim H = FrmLegalizacao.RazaoSocialAntigaTextBox.Text.ToString()
 
             'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
             If C = "Transformação" Then
@@ -190,6 +207,8 @@ Module ModeMail
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
 "<html><body><b>A Empresa = </b> " & A & ", <br/>
+<b>Nome Empresarial Antigo = </b> " & H & ", <br/>
+<br/>
 <b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
 <br/>
 <b>Com o processo de = </b> " & C & ", <br/>

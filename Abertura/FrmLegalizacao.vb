@@ -2498,4 +2498,36 @@ CPF =
     Private Sub ButtonCalcCapSocial_Click(sender As Object, e As EventArgs) Handles ButtonCalcCapSocial.Click
         FrmCalculadoraCapital.Show()
     End Sub
+
+    Private Sub BtnImportarRazaoSocial_Click(sender As Object, e As EventArgs) Handles BtnImportarRazaoSocial.Click
+        'pega a razaosocialtextbox e coloca no RazaoSocialAntigaTextBox 
+        RazaoSocialAntigaTextBox.Text = RazaoSocialTextBox.Text
+    End Sub
+
+    'Razao Social 1
+    Private Sub BtnUsarRazao1_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao1.Click
+        'pega NovaRazaoSocial1TextBox e coloca no NovaRazaoSocialFinalTextBox
+        'ativa a TabControle 2 e retorna
+        TabControle.SelectedIndex = 2
+        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial1TextBox.Text
+    End Sub
+    'Razao Social 2
+    Private Sub BtnUsarRazao2_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao2.Click
+        'pega NovaRazaoSocial2TextBox e coloca no NovaRazaoSocialFinalTextBox
+        'ativa a TabControle 2 e retorna
+        TabControle.SelectedIndex = 2
+        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial2TextBox.Text
+    End Sub
+    'Razao Social 3
+    Private Sub BtnUsarRazao3_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao3.Click
+        'pega NovaRazaoSocial3TextBox e coloca no NovaRazaoSocialFinalTextBox
+        'ativa a TabControle 2 e retorna
+        TabControle.SelectedIndex = 2
+        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial3TextBox.Text
+    End Sub
+
+    Private Sub BtnUsarNomeFantasia_Click(sender As Object, e As EventArgs) Handles BtnUsarNomeFantasia.Click
+        'pega NomeFantasiaTextBox1 e  coloca no NomeFantasiaTextBox
+        NomeFantasiaTextBox.Text = NomeFantasiaTextBox1.Text
+    End Sub
 End Class

@@ -198,6 +198,13 @@ Partial Class FrmLegalizacao
         Me.DataExcSocialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TabPage18 = New System.Windows.Forms.TabPage()
+        Me.BtnUsarNomeFantasia = New System.Windows.Forms.Button()
+        Me.BtnUsarRazao3 = New System.Windows.Forms.Button()
+        Me.BtnUsarRazao2 = New System.Windows.Forms.Button()
+        Me.BtnUsarRazao1 = New System.Windows.Forms.Button()
+        Me.RazaoSocialAntigaLabel = New System.Windows.Forms.Label()
+        Me.BtnImportarRazaoSocial = New System.Windows.Forms.Button()
+        Me.RazaoSocialAntigaTextBox = New System.Windows.Forms.TextBox()
         Me.NomeFantasiaTextBox1 = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial3TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial2TextBox = New System.Windows.Forms.TextBox()
@@ -1208,7 +1215,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial1Label
         '
         NovaRazaoSocial1Label.AutoSize = True
-        NovaRazaoSocial1Label.Location = New System.Drawing.Point(8, 45)
+        NovaRazaoSocial1Label.Location = New System.Drawing.Point(8, 59)
         NovaRazaoSocial1Label.Name = "NovaRazaoSocial1Label"
         NovaRazaoSocial1Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial1Label.TabIndex = 0
@@ -1217,7 +1224,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial2Label
         '
         NovaRazaoSocial2Label.AutoSize = True
-        NovaRazaoSocial2Label.Location = New System.Drawing.Point(8, 71)
+        NovaRazaoSocial2Label.Location = New System.Drawing.Point(8, 85)
         NovaRazaoSocial2Label.Name = "NovaRazaoSocial2Label"
         NovaRazaoSocial2Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial2Label.TabIndex = 2
@@ -1226,7 +1233,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial3Label
         '
         NovaRazaoSocial3Label.AutoSize = True
-        NovaRazaoSocial3Label.Location = New System.Drawing.Point(8, 97)
+        NovaRazaoSocial3Label.Location = New System.Drawing.Point(8, 111)
         NovaRazaoSocial3Label.Name = "NovaRazaoSocial3Label"
         NovaRazaoSocial3Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial3Label.TabIndex = 4
@@ -1244,7 +1251,7 @@ Partial Class FrmLegalizacao
         'NomeFantasiaLabel1
         '
         NomeFantasiaLabel1.AutoSize = True
-        NomeFantasiaLabel1.Location = New System.Drawing.Point(38, 124)
+        NomeFantasiaLabel1.Location = New System.Drawing.Point(38, 138)
         NomeFantasiaLabel1.Name = "NomeFantasiaLabel1"
         NomeFantasiaLabel1.Size = New System.Drawing.Size(81, 13)
         NomeFantasiaLabel1.TabIndex = 8
@@ -2212,6 +2219,13 @@ Partial Class FrmLegalizacao
         'TabPage18
         '
         Me.TabPage18.AutoScroll = True
+        Me.TabPage18.Controls.Add(Me.BtnUsarNomeFantasia)
+        Me.TabPage18.Controls.Add(Me.BtnUsarRazao3)
+        Me.TabPage18.Controls.Add(Me.BtnUsarRazao2)
+        Me.TabPage18.Controls.Add(Me.BtnUsarRazao1)
+        Me.TabPage18.Controls.Add(Me.RazaoSocialAntigaLabel)
+        Me.TabPage18.Controls.Add(Me.BtnImportarRazaoSocial)
+        Me.TabPage18.Controls.Add(Me.RazaoSocialAntigaTextBox)
         Me.TabPage18.Controls.Add(NomeFantasiaLabel1)
         Me.TabPage18.Controls.Add(Me.NomeFantasiaTextBox1)
         Me.TabPage18.Controls.Add(NovaRazaoSocial3Label)
@@ -2227,36 +2241,103 @@ Partial Class FrmLegalizacao
         Me.TabPage18.Text = "Busca de Nome"
         Me.TabPage18.UseVisualStyleBackColor = True
         '
+        'BtnUsarNomeFantasia
+        '
+        Me.BtnUsarNomeFantasia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnUsarNomeFantasia.Location = New System.Drawing.Point(477, 135)
+        Me.BtnUsarNomeFantasia.Name = "BtnUsarNomeFantasia"
+        Me.BtnUsarNomeFantasia.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarNomeFantasia.TabIndex = 50
+        Me.BtnUsarNomeFantasia.Text = "Usar"
+        Me.BtnUsarNomeFantasia.UseVisualStyleBackColor = True
+        '
+        'BtnUsarRazao3
+        '
+        Me.BtnUsarRazao3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnUsarRazao3.Location = New System.Drawing.Point(477, 106)
+        Me.BtnUsarRazao3.Name = "BtnUsarRazao3"
+        Me.BtnUsarRazao3.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao3.TabIndex = 49
+        Me.BtnUsarRazao3.Text = "Usar"
+        Me.BtnUsarRazao3.UseVisualStyleBackColor = True
+        '
+        'BtnUsarRazao2
+        '
+        Me.BtnUsarRazao2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnUsarRazao2.Location = New System.Drawing.Point(477, 80)
+        Me.BtnUsarRazao2.Name = "BtnUsarRazao2"
+        Me.BtnUsarRazao2.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao2.TabIndex = 48
+        Me.BtnUsarRazao2.Text = "Usar"
+        Me.BtnUsarRazao2.UseVisualStyleBackColor = True
+        '
+        'BtnUsarRazao1
+        '
+        Me.BtnUsarRazao1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnUsarRazao1.Location = New System.Drawing.Point(477, 54)
+        Me.BtnUsarRazao1.Name = "BtnUsarRazao1"
+        Me.BtnUsarRazao1.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao1.TabIndex = 47
+        Me.BtnUsarRazao1.Text = "Usar"
+        Me.BtnUsarRazao1.UseVisualStyleBackColor = True
+        '
+        'RazaoSocialAntigaLabel
+        '
+        Me.RazaoSocialAntigaLabel.AutoSize = True
+        Me.RazaoSocialAntigaLabel.Location = New System.Drawing.Point(13, 19)
+        Me.RazaoSocialAntigaLabel.Name = "RazaoSocialAntigaLabel"
+        Me.RazaoSocialAntigaLabel.Size = New System.Drawing.Size(106, 13)
+        Me.RazaoSocialAntigaLabel.TabIndex = 46
+        Me.RazaoSocialAntigaLabel.Text = "Razão Social Antiga:"
+        '
+        'BtnImportarRazaoSocial
+        '
+        Me.BtnImportarRazaoSocial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(477, 14)
+        Me.BtnImportarRazaoSocial.Name = "BtnImportarRazaoSocial"
+        Me.BtnImportarRazaoSocial.Size = New System.Drawing.Size(62, 23)
+        Me.BtnImportarRazaoSocial.TabIndex = 45
+        Me.BtnImportarRazaoSocial.Text = "Importar"
+        Me.BtnImportarRazaoSocial.UseVisualStyleBackColor = True
+        '
+        'RazaoSocialAntigaTextBox
+        '
+        Me.RazaoSocialAntigaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RazaoSocialAntiga", True))
+        Me.RazaoSocialAntigaTextBox.Location = New System.Drawing.Point(125, 16)
+        Me.RazaoSocialAntigaTextBox.Name = "RazaoSocialAntigaTextBox"
+        Me.RazaoSocialAntigaTextBox.Size = New System.Drawing.Size(346, 20)
+        Me.RazaoSocialAntigaTextBox.TabIndex = 10
+        '
         'NomeFantasiaTextBox1
         '
         Me.NomeFantasiaTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
-        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(125, 121)
+        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(125, 135)
         Me.NomeFantasiaTextBox1.Name = "NomeFantasiaTextBox1"
-        Me.NomeFantasiaTextBox1.Size = New System.Drawing.Size(414, 20)
+        Me.NomeFantasiaTextBox1.Size = New System.Drawing.Size(346, 20)
         Me.NomeFantasiaTextBox1.TabIndex = 9
         '
         'NovaRazaoSocial3TextBox
         '
         Me.NovaRazaoSocial3TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial3", True))
-        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(125, 94)
+        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(125, 108)
         Me.NovaRazaoSocial3TextBox.Name = "NovaRazaoSocial3TextBox"
-        Me.NovaRazaoSocial3TextBox.Size = New System.Drawing.Size(414, 20)
+        Me.NovaRazaoSocial3TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial3TextBox.TabIndex = 5
         '
         'NovaRazaoSocial2TextBox
         '
         Me.NovaRazaoSocial2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial2", True))
-        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(125, 68)
+        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(125, 82)
         Me.NovaRazaoSocial2TextBox.Name = "NovaRazaoSocial2TextBox"
-        Me.NovaRazaoSocial2TextBox.Size = New System.Drawing.Size(414, 20)
+        Me.NovaRazaoSocial2TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial2TextBox.TabIndex = 3
         '
         'NovaRazaoSocial1TextBox
         '
         Me.NovaRazaoSocial1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial1", True))
-        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(125, 42)
+        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(125, 56)
         Me.NovaRazaoSocial1TextBox.Name = "NovaRazaoSocial1TextBox"
-        Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(414, 20)
+        Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial1TextBox.TabIndex = 1
         '
         'TabPage3
@@ -4875,4 +4956,11 @@ Partial Class FrmLegalizacao
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
+    Friend WithEvents RazaoSocialAntigaLabel As Label
+    Friend WithEvents BtnImportarRazaoSocial As Button
+    Friend WithEvents RazaoSocialAntigaTextBox As TextBox
+    Friend WithEvents BtnUsarNomeFantasia As Button
+    Friend WithEvents BtnUsarRazao3 As Button
+    Friend WithEvents BtnUsarRazao2 As Button
+    Friend WithEvents BtnUsarRazao1 As Button
 End Class

@@ -277,7 +277,24 @@ Public Class FrmAlvara
 
         Try
             'pergunta salvar yesnocancel
-            If MessageBox.Show("Deseja Salvar estas alterações?", "Salvar", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Dim message As String
+            message = String.Format("Deseja Salvar as alterações realizada?")
+            'mostra mensagem box SIM OU NAO OU CANCELA
+            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+            If result = DialogResult.Cancel Then
+                ' e.Cancel = True
+            ElseIf result = DialogResult.No Then
+                BtnEditar.Text = "Editar"
+                Button17.Enabled = True
+                GroupBox9.Enabled = False
+                GroupBox4.Enabled = False
+                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                'retorna para CNPJMaskedTextBox empresa que estava  
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+            ElseIf result = DialogResult.Yes Then
                 Try
 
                     'Salva alterações
@@ -342,7 +359,7 @@ Public Class FrmAlvara
 
 
                 Dim message As String
-                message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+                message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar as alterações?", changedRecords.Rows.Count)
                 'mostra mensagem box SIM OU NAO OU CANCELA
                 Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
                 If result = DialogResult.Cancel Then
@@ -554,6 +571,9 @@ Public Class FrmAlvara
             SituacaoComboBox.Text = "Não Iniciado"
             ModeloSistemaComboBox.SelectedIndex = -1
             BombeiroSituacaoComboBox.SelectedIndex = -1
+
+            'data agora
+            DataCriadoMaskedTextBox.Text = DateTime.Now.ToString()
 
             Editar()
 
@@ -1561,4 +1581,6 @@ Public Class FrmAlvara
             LabelBombeiroDataProvisorio.Text = "Liberado - Alvará Definitivo"
         End If
     End Sub
+
+
 End Class
