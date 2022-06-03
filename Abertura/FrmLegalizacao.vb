@@ -1798,18 +1798,8 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº " & QuantidadeSociosTextBox.Text & "  //////////////////////////////////////////////////////////
 
-Nome Completo =
-Solteiro(a)? =
-Data de nascimento =
-. . . Endereço residencial . . .
-Rua =
-Nº =
-Bairro =
-CEP = 
-Cidade/Estado =
-RG =
-Orgão Emissor/Estado = 
-CPF = 
+NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, residente e domiciliado na XXXXXXXXXX, portador da Cédula da Identidade Civil RG Nº XXXXXXXXXX, e do CPF Nº XXXXXXXXXX." & vbCrLf & "
+
 
 ////////////////////////////////////////////////
 "
@@ -2529,5 +2519,141 @@ CPF =
     Private Sub BtnUsarNomeFantasia_Click(sender As Object, e As EventArgs) Handles BtnUsarNomeFantasia.Click
         'pega NomeFantasiaTextBox1 e  coloca no NomeFantasiaTextBox
         NomeFantasiaTextBox.Text = NomeFantasiaTextBox1.Text
+    End Sub
+
+    Private Sub BtnImportarSocioAdm_Click(sender As Object, e As EventArgs) Handles BtnImportarSocioAdm.Click
+        'pega dados 
+        TabControle.SelectedIndex = 0
+        TabControle.SelectedIndex = 1
+
+        Dim Responsavel As String = NomeResponsavelTextBox.Text
+        Dim DataDeNascimento As String = RespDataNascMaskedTextBox.Text
+        'RespDataNascMaskedTextBox.Text converter em "dddd, dd 'de' MMMM 'de' yyyy"
+        Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dddd, dd 'de' MMMM 'de' yyyy")
+        Dim RG As String = RespRGTextBox.Text
+        Dim SiglaRG As String = RespRgSiglaTextBox.Text
+        Dim CPF As String = CPFResponsavelMaskedTextBox.Text
+
+
+        'verificar se estão preenchidos
+        If Responsavel = "" Then
+            MsgBox("Preencha o Nome do Responsável", MsgBoxStyle.Exclamation, "Atenção")
+            NomeResponsavelTextBox.Focus()
+            Exit Sub
+        End If
+        If DataDeNascimento = "" Then
+            MsgBox("Preencha a Data de Nascimento do Responsável", MsgBoxStyle.Exclamation, "Atenção")
+            RespDataNascMaskedTextBox.Focus()
+            Exit Sub
+        End If
+        If RG = "" Then
+            MsgBox("Preencha o RG do Responsável", MsgBoxStyle.Exclamation, "Atenção")
+            RespRGTextBox.Focus()
+            Exit Sub
+        End If
+        If SiglaRG = "" Then
+            MsgBox("Preencha a Sigla do RG do Responsável", MsgBoxStyle.Exclamation, "Atenção")
+            RespRgSiglaTextBox.Focus()
+            Exit Sub
+        End If
+        If CPF = "" Then
+            MsgBox("Preencha o CPF do Responsável", MsgBoxStyle.Exclamation, "Atenção")
+            CPFResponsavelMaskedTextBox.Focus()
+            Exit Sub
+        End If
+
+
+        'Campos para procurar
+        '"Nome Completo ="
+        '"Data de nascimento ="
+        '"RG ="
+        '"Orgão Emissor/Estado ="
+        '"CPF ="
+
+        'procurar se no DadosSociosRichTextBox tem Responsavel e emite mgs
+        If DadosSociosRichTextBox.Text.Contains(Responsavel) Then
+
+            'perguntar se deseja atualizar seus dados
+            If MsgBox("Já existe um Responsável com o nome " & Responsavel & ", Deseja atualizar os dados do Responsável?", MsgBoxStyle.YesNo, "Atenção") = MsgBoxResult.Yes Then
+                'atualiza os dados
+                'procura o local do nome do Responsavel e substitui pelos novos dados
+                Dim LocalResponsavel As Integer = DadosSociosRichTextBox.Text.IndexOf(Responsavel)
+
+                DadosSociosRichTextBox.Text = DadosSociosRichTextBox.Text.Remove(LocalResponsavel, Responsavel.Length)
+                'Insert Responsavel e depois procurar abaixo do nome do responsavel os dados
+                'apagar o paragrafo onde se encontra
+                DadosSociosRichTextBox.Text = DadosSociosRichTextBox.Text.Insert(LocalResponsavel, "DADOS NOVOS = " & vbCrLf & Responsavel & ", brasileiro, casado XXXXXXX, " & DataDeNascimentoFormatada & ", empresário, residente e domiciliado na XXXXXXXXXX, portador da Cédula da Identidade Civil RG Nº " & RG & " " & SiglaRG & ", e do CPF Nº " & CPF & "." & vbCrLf & vbCrLf & "DADOS ANTIGOS = " & vbCrLf)
+            End If
+
+
+        Else
+
+            'adiciona o novo numero em socios
+            If QuantidadeSociosTextBox.Text = "" Then
+                QuantidadeSociosTextBox.Text = "1"
+            Else
+                QuantidadeSociosTextBox.Text = QuantidadeSociosTextBox.Text + 1
+            End If
+
+            DadosSociosRichTextBox.SelectedText &=
+" Sócio Nº " & QuantidadeSociosTextBox.Text & "  //////////////////////////////////////////////////////////
+
+" & Responsavel & ", brasileiro, casado XXXXXXX, " & DataDeNascimentoFormatada & ", empresário, residente e domiciliado na XXXXXXXXXX, portador da Cédula da Identidade Civil RG Nº " & RG & " " & SiglaRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+
+////////////////////////////////////////////////
+"
+
+        End If
+
+
+    End Sub
+
+    Private Sub Teste()
+
+        TabControle.SelectedIndex = 0
+        Dim Responsavel As String = NomeResponsavelTextBox.Text
+        Dim DataDeNascimento As String = RespDataNascMaskedTextBox.Text
+        Dim RG As String = RespRGTextBox.Text
+        Dim SiglaRG As String = RespRgSiglaTextBox.Text
+        Dim CPF As String = CPFResponsavelMaskedTextBox.Text
+
+
+
+
+        Try
+            'localizar na DadosSociosRichTextBox "Nome Completo ="  e adicona Responsavel
+            Dim Posicao As Integer = DadosSociosRichTextBox.Find("Nome Completo =", 0, RichTextBoxFinds.WholeWord)
+            DadosSociosRichTextBox.SelectionStart = Posicao
+            DadosSociosRichTextBox.SelectionLength = Len("Nome Completo =")
+            DadosSociosRichTextBox.SelectedText = "Nome Completo =" & Responsavel
+
+            'localizar na DadosSociosRichTextBox "Data de nascimento ="  e adicona DataDeNascimento
+            Posicao = DadosSociosRichTextBox.Find("Data de nascimento =", 0, RichTextBoxFinds.WholeWord)
+            DadosSociosRichTextBox.SelectionStart = Posicao
+            DadosSociosRichTextBox.SelectionLength = Len("Data de nascimento =")
+            DadosSociosRichTextBox.SelectedText = "Data de nascimento =" & DataDeNascimento
+
+            'localizar na DadosSociosRichTextBox "RG ="  e adicona RG
+            Posicao = DadosSociosRichTextBox.Find("RG =", 0, RichTextBoxFinds.WholeWord)
+            DadosSociosRichTextBox.SelectionStart = Posicao
+            DadosSociosRichTextBox.SelectionLength = Len("RG =")
+            DadosSociosRichTextBox.SelectedText = "RG =" & RG
+
+            'localizar na DadosSociosRichTextBox "Orgão Emissor/Estado ="  e adicona SiglaRG
+            Posicao = DadosSociosRichTextBox.Find("Orgão Emissor/Estado =", 0, RichTextBoxFinds.WholeWord)
+            DadosSociosRichTextBox.SelectionStart = Posicao
+            DadosSociosRichTextBox.SelectionLength = Len("Orgão Emissor/Estado =")
+            DadosSociosRichTextBox.SelectedText = "Orgão Emissor/Estado =" & SiglaRG
+
+            'localizar na DadosSociosRichTextBox "CPF ="  e adicona CPF
+            Posicao = DadosSociosRichTextBox.Find("CPF =", 0, RichTextBoxFinds.WholeWord)
+            DadosSociosRichTextBox.SelectionStart = Posicao
+            DadosSociosRichTextBox.SelectionLength = Len("CPF =")
+            DadosSociosRichTextBox.SelectedText = "CPF =" & CPF
+
+
+        Catch ex As Exception
+            MsgBox("Não foi possível localizar o campo 'Nome Completo =' no RichTextBox. Verifique se o campo existe e se está na primeira linha.", MsgBoxStyle.Exclamation, "Aviso")
+        End Try
     End Sub
 End Class

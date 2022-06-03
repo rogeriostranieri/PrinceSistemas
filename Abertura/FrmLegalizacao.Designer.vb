@@ -152,6 +152,7 @@ Partial Class FrmLegalizacao
         Me.TituloeleitorTextBox = New System.Windows.Forms.TextBox()
         Me.CPFResponsavelMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage19 = New System.Windows.Forms.TabPage()
+        Me.BtnImportarSocioAdm = New System.Windows.Forms.Button()
         Me.BtnLimparSocio = New System.Windows.Forms.Button()
         Me.BtnLimparSocios = New System.Windows.Forms.Button()
         Me.LblQuantidadeSocios = New System.Windows.Forms.Label()
@@ -1555,6 +1556,7 @@ Partial Class FrmLegalizacao
         'TabPage12
         '
         Me.TabPage12.AutoScroll = True
+        Me.TabPage12.Controls.Add(Me.BtnImportarSocioAdm)
         Me.TabPage12.Controls.Add(Me.BtnCopiarSenhaGov)
         Me.TabPage12.Controls.Add(RespPaiLabel)
         Me.TabPage12.Controls.Add(Me.SenhaGovLabel)
@@ -1752,6 +1754,16 @@ Partial Class FrmLegalizacao
         Me.TabPage19.TabIndex = 6
         Me.TabPage19.Text = "Dados dos Sócios"
         Me.TabPage19.UseVisualStyleBackColor = True
+        '
+        'BtnImportarSocioAdm
+        '
+        Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.Green
+        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(483, 70)
+        Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
+        Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(75, 49)
+        Me.BtnImportarSocioAdm.TabIndex = 7
+        Me.BtnImportarSocioAdm.Text = "Adicionar Socio Nº1 Administrador"
+        Me.BtnImportarSocioAdm.UseVisualStyleBackColor = True
         '
         'BtnLimparSocio
         '
@@ -4963,4 +4975,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnUsarRazao3 As Button
     Friend WithEvents BtnUsarRazao2 As Button
     Friend WithEvents BtnUsarRazao1 As Button
+    Friend WithEvents BtnImportarSocioAdm As Button
 End Class
