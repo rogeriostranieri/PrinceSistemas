@@ -2608,52 +2608,5 @@ NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, resi
 
     End Sub
 
-    Private Sub Teste()
 
-        TabControle.SelectedIndex = 0
-        Dim Responsavel As String = NomeResponsavelTextBox.Text
-        Dim DataDeNascimento As String = RespDataNascMaskedTextBox.Text
-        Dim RG As String = RespRGTextBox.Text
-        Dim SiglaRG As String = RespRgSiglaTextBox.Text
-        Dim CPF As String = CPFResponsavelMaskedTextBox.Text
-
-
-
-
-        Try
-            'localizar na DadosSociosRichTextBox "Nome Completo ="  e adicona Responsavel
-            Dim Posicao As Integer = DadosSociosRichTextBox.Find("Nome Completo =", 0, RichTextBoxFinds.WholeWord)
-            DadosSociosRichTextBox.SelectionStart = Posicao
-            DadosSociosRichTextBox.SelectionLength = Len("Nome Completo =")
-            DadosSociosRichTextBox.SelectedText = "Nome Completo =" & Responsavel
-
-            'localizar na DadosSociosRichTextBox "Data de nascimento ="  e adicona DataDeNascimento
-            Posicao = DadosSociosRichTextBox.Find("Data de nascimento =", 0, RichTextBoxFinds.WholeWord)
-            DadosSociosRichTextBox.SelectionStart = Posicao
-            DadosSociosRichTextBox.SelectionLength = Len("Data de nascimento =")
-            DadosSociosRichTextBox.SelectedText = "Data de nascimento =" & DataDeNascimento
-
-            'localizar na DadosSociosRichTextBox "RG ="  e adicona RG
-            Posicao = DadosSociosRichTextBox.Find("RG =", 0, RichTextBoxFinds.WholeWord)
-            DadosSociosRichTextBox.SelectionStart = Posicao
-            DadosSociosRichTextBox.SelectionLength = Len("RG =")
-            DadosSociosRichTextBox.SelectedText = "RG =" & RG
-
-            'localizar na DadosSociosRichTextBox "Orgão Emissor/Estado ="  e adicona SiglaRG
-            Posicao = DadosSociosRichTextBox.Find("Orgão Emissor/Estado =", 0, RichTextBoxFinds.WholeWord)
-            DadosSociosRichTextBox.SelectionStart = Posicao
-            DadosSociosRichTextBox.SelectionLength = Len("Orgão Emissor/Estado =")
-            DadosSociosRichTextBox.SelectedText = "Orgão Emissor/Estado =" & SiglaRG
-
-            'localizar na DadosSociosRichTextBox "CPF ="  e adicona CPF
-            Posicao = DadosSociosRichTextBox.Find("CPF =", 0, RichTextBoxFinds.WholeWord)
-            DadosSociosRichTextBox.SelectionStart = Posicao
-            DadosSociosRichTextBox.SelectionLength = Len("CPF =")
-            DadosSociosRichTextBox.SelectedText = "CPF =" & CPF
-
-
-        Catch ex As Exception
-            MsgBox("Não foi possível localizar o campo 'Nome Completo =' no RichTextBox. Verifique se o campo existe e se está na primeira linha.", MsgBoxStyle.Exclamation, "Aviso")
-        End Try
-    End Sub
 End Class

@@ -192,9 +192,7 @@ Partial Class FrmAlvara
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.NaturezaDoPedidoOBSRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
-        Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
         Me.Area2TextBox = New System.Windows.Forms.TextBox()
         Me.AreaTextBox = New System.Windows.Forms.TextBox()
         Me.CadImobTextBox = New System.Windows.Forms.TextBox()
@@ -202,9 +200,6 @@ Partial Class FrmAlvara
         Me.EndQuadraTextBox = New System.Windows.Forms.TextBox()
         Me.EndZonaTextBox = New System.Windows.Forms.TextBox()
         Me.EndNumTextBox = New System.Windows.Forms.TextBox()
-        Me.EndCompTextBox = New System.Windows.Forms.TextBox()
-        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
-        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
         Me.EndEstadoTextBox = New System.Windows.Forms.TextBox()
         Me.EndCEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button22 = New System.Windows.Forms.Button()
@@ -278,6 +273,11 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
+        Me.EndCompTextBox = New System.Windows.Forms.TextBox()
+        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
+        Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
+        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -2139,10 +2139,13 @@ Partial Class FrmAlvara
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
-        Me.TabPage7.Controls.Add(PontoRefLabel)
-        Me.TabPage7.Controls.Add(Me.EnderecoTextBox)
-        Me.TabPage7.Controls.Add(Me.Button21)
+        Me.TabPage7.Controls.Add(Me.EndCidadeTextBox)
         Me.TabPage7.Controls.Add(Me.PontoRefTextBox)
+        Me.TabPage7.Controls.Add(Me.EndBairroTextBox)
+        Me.TabPage7.Controls.Add(Me.EndCompTextBox)
+        Me.TabPage7.Controls.Add(Me.EnderecoTextBox)
+        Me.TabPage7.Controls.Add(PontoRefLabel)
+        Me.TabPage7.Controls.Add(Me.Button21)
         Me.TabPage7.Controls.Add(Me.Area2TextBox)
         Me.TabPage7.Controls.Add(Me.AreaTextBox)
         Me.TabPage7.Controls.Add(Me.CadImobTextBox)
@@ -2150,9 +2153,6 @@ Partial Class FrmAlvara
         Me.TabPage7.Controls.Add(Me.EndQuadraTextBox)
         Me.TabPage7.Controls.Add(Me.EndZonaTextBox)
         Me.TabPage7.Controls.Add(Me.EndNumTextBox)
-        Me.TabPage7.Controls.Add(Me.EndCompTextBox)
-        Me.TabPage7.Controls.Add(Me.EndBairroTextBox)
-        Me.TabPage7.Controls.Add(Me.EndCidadeTextBox)
         Me.TabPage7.Controls.Add(Me.EndEstadoTextBox)
         Me.TabPage7.Controls.Add(Area2Label)
         Me.TabPage7.Controls.Add(AreaLabel)
@@ -2177,15 +2177,6 @@ Partial Class FrmAlvara
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
-        'EnderecoTextBox
-        '
-        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
-        Me.EnderecoTextBox.MaxLength = 1000
-        Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
-        Me.EnderecoTextBox.TabIndex = 58
-        '
         'Button21
         '
         Me.Button21.Location = New System.Drawing.Point(473, 98)
@@ -2194,14 +2185,6 @@ Partial Class FrmAlvara
         Me.Button21.TabIndex = 51
         Me.Button21.Text = "Buscar"
         Me.Button21.UseVisualStyleBackColor = True
-        '
-        'PontoRefTextBox
-        '
-        Me.PontoRefTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "PontoRef", True))
-        Me.PontoRefTextBox.Location = New System.Drawing.Point(343, 124)
-        Me.PontoRefTextBox.Name = "PontoRefTextBox"
-        Me.PontoRefTextBox.Size = New System.Drawing.Size(184, 20)
-        Me.PontoRefTextBox.TabIndex = 52
         '
         'Area2TextBox
         '
@@ -2258,33 +2241,6 @@ Partial Class FrmAlvara
         Me.EndNumTextBox.Name = "EndNumTextBox"
         Me.EndNumTextBox.Size = New System.Drawing.Size(64, 20)
         Me.EndNumTextBox.TabIndex = 8
-        '
-        'EndCompTextBox
-        '
-        Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndComp", True))
-        Me.EndCompTextBox.Location = New System.Drawing.Point(223, 72)
-        Me.EndCompTextBox.MaxLength = 1000
-        Me.EndCompTextBox.Name = "EndCompTextBox"
-        Me.EndCompTextBox.Size = New System.Drawing.Size(304, 20)
-        Me.EndCompTextBox.TabIndex = 10
-        '
-        'EndBairroTextBox
-        '
-        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(83, 124)
-        Me.EndBairroTextBox.MaxLength = 1000
-        Me.EndBairroTextBox.Name = "EndBairroTextBox"
-        Me.EndBairroTextBox.Size = New System.Drawing.Size(151, 20)
-        Me.EndBairroTextBox.TabIndex = 12
-        '
-        'EndCidadeTextBox
-        '
-        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(83, 150)
-        Me.EndCidadeTextBox.MaxLength = 1000
-        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
-        Me.EndCidadeTextBox.Size = New System.Drawing.Size(117, 20)
-        Me.EndCidadeTextBox.TabIndex = 18
         '
         'EndEstadoTextBox
         '
@@ -3096,6 +3052,46 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'EnderecoTextBox
+        '
+        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
+        Me.EnderecoTextBox.Name = "EnderecoTextBox"
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
+        Me.EnderecoTextBox.TabIndex = 53
+        '
+        'EndCompTextBox
+        '
+        Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndComp", True))
+        Me.EndCompTextBox.Location = New System.Drawing.Point(234, 72)
+        Me.EndCompTextBox.Name = "EndCompTextBox"
+        Me.EndCompTextBox.Size = New System.Drawing.Size(293, 20)
+        Me.EndCompTextBox.TabIndex = 54
+        '
+        'EndBairroTextBox
+        '
+        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndBairro", True))
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(83, 124)
+        Me.EndBairroTextBox.Name = "EndBairroTextBox"
+        Me.EndBairroTextBox.Size = New System.Drawing.Size(146, 20)
+        Me.EndBairroTextBox.TabIndex = 55
+        '
+        'PontoRefTextBox
+        '
+        Me.PontoRefTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "PontoRef", True))
+        Me.PontoRefTextBox.Location = New System.Drawing.Point(349, 124)
+        Me.PontoRefTextBox.Name = "PontoRefTextBox"
+        Me.PontoRefTextBox.Size = New System.Drawing.Size(178, 20)
+        Me.PontoRefTextBox.TabIndex = 56
+        '
+        'EndCidadeTextBox
+        '
+        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(83, 150)
+        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
+        Me.EndCidadeTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.EndCidadeTextBox.TabIndex = 57
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3306,7 +3302,6 @@ Partial Class FrmAlvara
     Friend WithEvents NaturezaDoPedidoOBSRichTextBox As RichTextBox
     Friend WithEvents TabPage7 As TabPage
     Friend WithEvents Button21 As Button
-    Friend WithEvents PontoRefTextBox As TextBox
     Friend WithEvents Area2TextBox As TextBox
     Friend WithEvents AreaTextBox As TextBox
     Friend WithEvents CadImobTextBox As TextBox
@@ -3315,9 +3310,6 @@ Partial Class FrmAlvara
     Friend WithEvents EndQuadraTextBox As TextBox
     Friend WithEvents EndZonaTextBox As TextBox
     Friend WithEvents EndNumTextBox As TextBox
-    Friend WithEvents EndCompTextBox As TextBox
-    Friend WithEvents EndBairroTextBox As TextBox
-    Friend WithEvents EndCidadeTextBox As TextBox
     Friend WithEvents EndEstadoTextBox As TextBox
     Friend WithEvents EndCEPMaskedTextBox As MaskedTextBox
     Friend WithEvents Button22 As Button
@@ -3384,7 +3376,6 @@ Partial Class FrmAlvara
     Friend WithEvents ButtonApagaDataViabilidade As PictureBox
     Friend WithEvents ButtonApagaDataSanitario As PictureBox
     Friend WithEvents ButtonApagaDataSetran As PictureBox
-    Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents BtnLocalizar As Button
     Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
@@ -3408,4 +3399,9 @@ Partial Class FrmAlvara
     Friend WithEvents LabelSanitarioDataProvisorio As Label
     Friend WithEvents LabelViabilidadeDataProvisorio As Label
     Friend WithEvents LembreteCheckBox As CheckBox
+    Friend WithEvents PontoRefTextBox As TextBox
+    Friend WithEvents EndBairroTextBox As TextBox
+    Friend WithEvents EndCompTextBox As TextBox
+    Friend WithEvents EnderecoTextBox As TextBox
+    Friend WithEvents EndCidadeTextBox As TextBox
 End Class
