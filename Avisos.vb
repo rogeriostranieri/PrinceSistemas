@@ -229,5 +229,22 @@
 
     End Sub
 
+    Private Sub BtnProtocolados_Click(sender As Object, e As EventArgs) Handles BtnProtocolados.Click
+        If Application.OpenForms.OfType(Of FrmProtocolados)().Count() > 0 Then
+
+            FrmProtocolados.Focus()
+            FrmProtocolados.Close()
+            FrmProtocolados.MdiParent = MDIPrincipal
+            FrmProtocolados.Show()
+
+        Else
+
+            FrmProtocolados.MdiParent = MDIPrincipal
+            FrmProtocolados.Show()
+
+
+        End If
+    End Sub
+
     '/////////// fim do codigo de mostrar calendario        
 End Class

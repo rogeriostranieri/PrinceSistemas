@@ -472,6 +472,12 @@
     <Compile Include="Relatorios\RlTipoEmpresa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Socios\FrmSocios.Designer.vb">
+      <DependentUpon>FrmSocios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\FrmSocios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SplashScreen.designer.vb">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </Compile>
@@ -668,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\RlTipoEmpresa.resx">
       <DependentUpon>RlTipoEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\FrmSocios.resx">
+      <DependentUpon>FrmSocios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>

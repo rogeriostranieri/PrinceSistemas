@@ -842,5 +842,19 @@ Public Class MDIPrincipal
         End If
     End Sub
 
+    Private Sub TESTEToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTEToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
 
+            FrmSocios.Focus()
+            FrmSocios.MdiParent = Me
+
+
+        Else
+
+            FrmSocios.MdiParent = Me
+            FrmSocios.Show()
+
+
+        End If
+    End Sub
 End Class

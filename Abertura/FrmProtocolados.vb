@@ -41,6 +41,10 @@
         Me.EmpresasBindingSource.Filter = "Status like '%" & filtro & "%'"
     End Sub
 
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        Me.Close()
+    End Sub
+
 
     ' EmpresasBindingSource.Filter = "Status = 'Junta Comercial - Protocolado' OR Status = 'Receita Federal - DBE' OR Status = 'Receita Estadual - Protocolado' OR Status = 'Simples Nacional - Protocolado' OR Status = 'Receita Federal - e-Processo' OR Status = 'Pêndencia Sistema Externo' "
 End Class
