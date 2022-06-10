@@ -4,7 +4,16 @@
         Me.SociosTableAdapter.Fill(Me.PrinceDBDataSet.Socios)
         BloquearEdicao()
 
-        'tirar as borda dos groupbox
+        'coloca CivilComboBox para selecionar comunhão parcial de bens
+        CivilComboBox.Items.Add("solteiro")
+        CivilComboBox.Items.Add("comunhão parcial de bens")
+        CivilComboBox.Items.Add("comunhão universal de bens")
+        CivilComboBox.Items.Add("separação convencional de bens")
+        CivilComboBox.Items.Add("separação obrigatória de bens")
+        CivilComboBox.Items.Add("participação final nos aquestos")
+
+        GeneroComboBox.Items.Add("Masculino")
+        GeneroComboBox.Items.Add("Feminino")
 
     End Sub
 
@@ -20,12 +29,46 @@
         GroupBoxOutrosDados.Enabled = True
     End Sub
 
+    Private Sub EstadoCivil()
+        'limpar CivilComboBox
+        CivilComboBox.Items.Clear()
+
+        If GeneroComboBox.Text = "Masculino" Then
+            CivilComboBox.Items.Add("solteiro")
+            CivilComboBox.Items.Add("comunhão parcial de bens")
+            CivilComboBox.Items.Add("comunhão universal de bens")
+            CivilComboBox.Items.Add("separação convencional de bens")
+            CivilComboBox.Items.Add("separação obrigatória de bens")
+            CivilComboBox.Items.Add("participação final nos aquestos")
+        ElseIf GeneroComboBox.Text = "Feminino" Then
+            CivilComboBox.Items.Add("solteira")
+            CivilComboBox.Items.Add("comunhão parcial de bens")
+            CivilComboBox.Items.Add("comunhão universal de bens")
+            CivilComboBox.Items.Add("separação convencional de bens")
+            CivilComboBox.Items.Add("separação obrigatória de bens")
+            CivilComboBox.Items.Add("participação final nos aquestos")
+        Else
+            CivilComboBox.Items.Add("solteiro")
+            CivilComboBox.Items.Add("comunhão parcial de bens")
+            CivilComboBox.Items.Add("comunhão universal de bens")
+            CivilComboBox.Items.Add("separação convencional de bens")
+            CivilComboBox.Items.Add("separação obrigatória de bens")
+            CivilComboBox.Items.Add("participação final nos aquestos")
+        End If
+
+    End Sub
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         'pergunta, adiciona novo registro
         If MessageBox.Show("Deseja adicionar um novo registro?", "Novo Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             'new register
             SociosBindingSource.AddNew()
             LiberarEdicao()
+
+
+            'selecionar  index 0 GeneroComboBox e CivilComboBox
+            GeneroComboBox.SelectedIndex = 0
+            CivilComboBox.SelectedIndex = 0
+
         End If
 
     End Sub
@@ -81,5 +124,41 @@
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.Close()
+    End Sub
+
+    Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
+        Using WS = New WSCorreios.AtendeClienteClient()
+            Try
+                'Using WS = New WSCorreios.AtendeClienteClient()
+                Dim Resultado = WS.consultaCEP(CEPMaskedTextBox.Text)
+                RUATextBox.Text = Resultado.[end]
+                'EndComplementoTextBox.Text = Resultado.complemento
+                ComplementoTextBox.Text = Resultado.complemento2
+                CidadeTextBox.Text = Resultado.cidade
+                BairroTextBox.Text = Resultado.bairro
+                EstadoTextBox.Text = Resultado.uf
+                ' mgs de erro
+
+            Catch Ex As Exception
+                ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+
+                If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
+                    System.Diagnostics.Process.Start("https://buscacepinter.correios.com.br/app/endereco/index.php")
+                Else
+
+                End If
+            End Try
+
+        End Using
+    End Sub
+
+    Private Sub GeneroComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GeneroComboBox.SelectedIndexChanged
+        'ao selecionar feminino mudar o nome solteiro para solteira do  CivilComboBox 
+        EstadoCivil()
+    End Sub
+
+    Private Sub CivilComboBox_Click(sender As Object, e As EventArgs) Handles CivilComboBox.Click
+        'verifica se esta no Feminino e mudar para solteira do  CivilComboBox da lista
+        EstadoCivil()
     End Sub
 End Class

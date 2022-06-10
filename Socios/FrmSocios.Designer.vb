@@ -49,10 +49,7 @@ Partial Class FrmSocios
         Dim Telefone2Label As System.Windows.Forms.Label
         Dim EMailLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
-        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
-        Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
-        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Dim GeneroLabel As System.Windows.Forms.Label
         Me.SociosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -90,6 +87,7 @@ Partial Class FrmSocios
         Me.EMailTextBox = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
+        Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -105,6 +103,11 @@ Partial Class FrmSocios
         Me.BtnSalvar = New System.Windows.Forms.PictureBox()
         Me.BtnNovo = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
+        Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -130,8 +133,7 @@ Partial Class FrmSocios
         Telefone1Label = New System.Windows.Forms.Label()
         Telefone2Label = New System.Windows.Forms.Label()
         EMailLabel = New System.Windows.Forms.Label()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        GeneroLabel = New System.Windows.Forms.Label()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SociosBindingNavigator.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -145,12 +147,14 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CPFLabel
         '
         CPFLabel.AutoSize = True
-        CPFLabel.Location = New System.Drawing.Point(68, 27)
+        CPFLabel.Location = New System.Drawing.Point(78, 27)
         CPFLabel.Name = "CPFLabel"
         CPFLabel.Size = New System.Drawing.Size(30, 13)
         CPFLabel.TabIndex = 1
@@ -159,7 +163,7 @@ Partial Class FrmSocios
         'NomeCompletoLabel
         '
         NomeCompletoLabel.AutoSize = True
-        NomeCompletoLabel.Location = New System.Drawing.Point(13, 53)
+        NomeCompletoLabel.Location = New System.Drawing.Point(23, 53)
         NomeCompletoLabel.Name = "NomeCompletoLabel"
         NomeCompletoLabel.Size = New System.Drawing.Size(85, 13)
         NomeCompletoLabel.TabIndex = 3
@@ -168,34 +172,34 @@ Partial Class FrmSocios
         'NomeMaeLabel
         '
         NomeMaeLabel.AutoSize = True
-        NomeMaeLabel.Location = New System.Drawing.Point(36, 79)
+        NomeMaeLabel.Location = New System.Drawing.Point(31, 79)
         NomeMaeLabel.Name = "NomeMaeLabel"
-        NomeMaeLabel.Size = New System.Drawing.Size(62, 13)
+        NomeMaeLabel.Size = New System.Drawing.Size(77, 13)
         NomeMaeLabel.TabIndex = 5
-        NomeMaeLabel.Text = "Nome Mae:"
+        NomeMaeLabel.Text = "Nome da Mae:"
         '
         'NomePaiLabel
         '
         NomePaiLabel.AutoSize = True
-        NomePaiLabel.Location = New System.Drawing.Point(42, 105)
+        NomePaiLabel.Location = New System.Drawing.Point(37, 105)
         NomePaiLabel.Name = "NomePaiLabel"
-        NomePaiLabel.Size = New System.Drawing.Size(56, 13)
+        NomePaiLabel.Size = New System.Drawing.Size(71, 13)
         NomePaiLabel.TabIndex = 7
-        NomePaiLabel.Text = "Nome Pai:"
+        NomePaiLabel.Text = "Nome do Pai:"
         '
         'DatadeNascLabel
         '
         DatadeNascLabel.AutoSize = True
-        DatadeNascLabel.Location = New System.Drawing.Point(25, 131)
+        DatadeNascLabel.Location = New System.Drawing.Point(1, 130)
         DatadeNascLabel.Name = "DatadeNascLabel"
-        DatadeNascLabel.Size = New System.Drawing.Size(73, 13)
+        DatadeNascLabel.Size = New System.Drawing.Size(107, 13)
         DatadeNascLabel.TabIndex = 9
-        DatadeNascLabel.Text = "Datade Nasc:"
+        DatadeNascLabel.Text = "Data de Nascimento:"
         '
         'RGLabel
         '
         RGLabel.AutoSize = True
-        RGLabel.Location = New System.Drawing.Point(72, 214)
+        RGLabel.Location = New System.Drawing.Point(82, 214)
         RGLabel.Name = "RGLabel"
         RGLabel.Size = New System.Drawing.Size(26, 13)
         RGLabel.TabIndex = 11
@@ -204,7 +208,7 @@ Partial Class FrmSocios
         'OrgaoRGLabel
         '
         OrgaoRGLabel.AutoSize = True
-        OrgaoRGLabel.Location = New System.Drawing.Point(228, 214)
+        OrgaoRGLabel.Location = New System.Drawing.Point(238, 214)
         OrgaoRGLabel.Name = "OrgaoRGLabel"
         OrgaoRGLabel.Size = New System.Drawing.Size(58, 13)
         OrgaoRGLabel.TabIndex = 13
@@ -213,7 +217,7 @@ Partial Class FrmSocios
         'EstadoRGLabel
         '
         EstadoRGLabel.AutoSize = True
-        EstadoRGLabel.Location = New System.Drawing.Point(352, 214)
+        EstadoRGLabel.Location = New System.Drawing.Point(362, 214)
         EstadoRGLabel.Name = "EstadoRGLabel"
         EstadoRGLabel.Size = New System.Drawing.Size(62, 13)
         EstadoRGLabel.TabIndex = 15
@@ -222,7 +226,7 @@ Partial Class FrmSocios
         'TituloDeEleitorLabel
         '
         TituloDeEleitorLabel.AutoSize = True
-        TituloDeEleitorLabel.Location = New System.Drawing.Point(13, 240)
+        TituloDeEleitorLabel.Location = New System.Drawing.Point(23, 240)
         TituloDeEleitorLabel.Name = "TituloDeEleitorLabel"
         TituloDeEleitorLabel.Size = New System.Drawing.Size(85, 13)
         TituloDeEleitorLabel.TabIndex = 17
@@ -231,7 +235,7 @@ Partial Class FrmSocios
         'SenhaGOVLabel
         '
         SenhaGOVLabel.AutoSize = True
-        SenhaGOVLabel.Location = New System.Drawing.Point(268, 157)
+        SenhaGOVLabel.Location = New System.Drawing.Point(41, 184)
         SenhaGOVLabel.Name = "SenhaGOVLabel"
         SenhaGOVLabel.Size = New System.Drawing.Size(67, 13)
         SenhaGOVLabel.TabIndex = 19
@@ -240,7 +244,7 @@ Partial Class FrmSocios
         'CNHLabel
         '
         CNHLabel.AutoSize = True
-        CNHLabel.Location = New System.Drawing.Point(65, 266)
+        CNHLabel.Location = New System.Drawing.Point(75, 266)
         CNHLabel.Name = "CNHLabel"
         CNHLabel.Size = New System.Drawing.Size(33, 13)
         CNHLabel.TabIndex = 21
@@ -249,7 +253,7 @@ Partial Class FrmSocios
         'CNHExpedicaoLabel
         '
         CNHExpedicaoLabel.AutoSize = True
-        CNHExpedicaoLabel.Location = New System.Drawing.Point(210, 292)
+        CNHExpedicaoLabel.Location = New System.Drawing.Point(220, 292)
         CNHExpedicaoLabel.Name = "CNHExpedicaoLabel"
         CNHExpedicaoLabel.Size = New System.Drawing.Size(60, 13)
         CNHExpedicaoLabel.TabIndex = 23
@@ -258,16 +262,16 @@ Partial Class FrmSocios
         'CNHDataExpLabel
         '
         CNHDataExpLabel.AutoSize = True
-        CNHDataExpLabel.Location = New System.Drawing.Point(44, 292)
+        CNHDataExpLabel.Location = New System.Drawing.Point(28, 292)
         CNHDataExpLabel.Name = "CNHDataExpLabel"
-        CNHDataExpLabel.Size = New System.Drawing.Size(54, 13)
+        CNHDataExpLabel.Size = New System.Drawing.Size(80, 13)
         CNHDataExpLabel.TabIndex = 25
-        CNHDataExpLabel.Text = "Data Exp:"
+        CNHDataExpLabel.Text = "Data Exp CNH:"
         '
         'CivilLabel
         '
         CivilLabel.AutoSize = True
-        CivilLabel.Location = New System.Drawing.Point(33, 157)
+        CivilLabel.Location = New System.Drawing.Point(43, 157)
         CivilLabel.Name = "CivilLabel"
         CivilLabel.Size = New System.Drawing.Size(65, 13)
         CivilLabel.TabIndex = 27
@@ -330,7 +334,7 @@ Partial Class FrmSocios
         'EstadoLabel
         '
         EstadoLabel.AutoSize = True
-        EstadoLabel.Location = New System.Drawing.Point(261, 126)
+        EstadoLabel.Location = New System.Drawing.Point(261, 134)
         EstadoLabel.Name = "EstadoLabel"
         EstadoLabel.Size = New System.Drawing.Size(43, 13)
         EstadoLabel.TabIndex = 41
@@ -370,41 +374,7 @@ Partial Class FrmSocios
         EMailLabel.Name = "EMailLabel"
         EMailLabel.Size = New System.Drawing.Size(38, 13)
         EMailLabel.TabIndex = 49
-        EMailLabel.Text = "e Mail:"
-        '
-        'PrinceDBDataSet
-        '
-        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
-        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SociosBindingSource
-        '
-        Me.SociosBindingSource.DataMember = "Socios"
-        Me.SociosBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'SociosTableAdapter
-        '
-        Me.SociosTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
-        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
-        Me.TableAdapterManager.CNAETableAdapter = Nothing
-        Me.TableAdapterManager.ContadorTableAdapter = Nothing
-        Me.TableAdapterManager.ContatosTableAdapter = Nothing
-        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
-        Me.TableAdapterManager.eMailTableAdapter = Nothing
-        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.LaudosTableAdapter = Nothing
-        Me.TableAdapterManager.LoginTableAdapter = Nothing
-        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
-        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
-        Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
-        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        EMailLabel.Text = "e-Mail:"
         '
         'SociosBindingNavigator
         '
@@ -495,7 +465,7 @@ Partial Class FrmSocios
         'CPFMaskedTextBox
         '
         Me.CPFMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
-        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(104, 24)
+        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(114, 24)
         Me.CPFMaskedTextBox.Mask = "999,999,999-99"
         Me.CPFMaskedTextBox.Name = "CPFMaskedTextBox"
         Me.CPFMaskedTextBox.Size = New System.Drawing.Size(100, 20)
@@ -504,7 +474,7 @@ Partial Class FrmSocios
         'NomeCompletoTextBox
         '
         Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(104, 50)
+        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
         Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
         Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
         Me.NomeCompletoTextBox.TabIndex = 4
@@ -512,7 +482,7 @@ Partial Class FrmSocios
         'NomeMaeTextBox
         '
         Me.NomeMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeMae", True))
-        Me.NomeMaeTextBox.Location = New System.Drawing.Point(104, 76)
+        Me.NomeMaeTextBox.Location = New System.Drawing.Point(114, 76)
         Me.NomeMaeTextBox.Name = "NomeMaeTextBox"
         Me.NomeMaeTextBox.Size = New System.Drawing.Size(355, 20)
         Me.NomeMaeTextBox.TabIndex = 6
@@ -520,7 +490,7 @@ Partial Class FrmSocios
         'NomePaiTextBox
         '
         Me.NomePaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomePai", True))
-        Me.NomePaiTextBox.Location = New System.Drawing.Point(104, 102)
+        Me.NomePaiTextBox.Location = New System.Drawing.Point(114, 102)
         Me.NomePaiTextBox.Name = "NomePaiTextBox"
         Me.NomePaiTextBox.Size = New System.Drawing.Size(355, 20)
         Me.NomePaiTextBox.TabIndex = 8
@@ -528,7 +498,7 @@ Partial Class FrmSocios
         'DatadeNascMaskedTextBox
         '
         Me.DatadeNascMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "DatadeNasc", True))
-        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(104, 128)
+        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(114, 128)
         Me.DatadeNascMaskedTextBox.Mask = "00/00/0000"
         Me.DatadeNascMaskedTextBox.Name = "DatadeNascMaskedTextBox"
         Me.DatadeNascMaskedTextBox.Size = New System.Drawing.Size(72, 20)
@@ -538,7 +508,7 @@ Partial Class FrmSocios
         'RGTextBox
         '
         Me.RGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RG", True))
-        Me.RGTextBox.Location = New System.Drawing.Point(104, 211)
+        Me.RGTextBox.Location = New System.Drawing.Point(114, 211)
         Me.RGTextBox.Name = "RGTextBox"
         Me.RGTextBox.Size = New System.Drawing.Size(118, 20)
         Me.RGTextBox.TabIndex = 12
@@ -546,7 +516,7 @@ Partial Class FrmSocios
         'OrgaoRGTextBox
         '
         Me.OrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "OrgaoRG", True))
-        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(292, 211)
+        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(302, 211)
         Me.OrgaoRGTextBox.Name = "OrgaoRGTextBox"
         Me.OrgaoRGTextBox.Size = New System.Drawing.Size(54, 20)
         Me.OrgaoRGTextBox.TabIndex = 14
@@ -554,7 +524,7 @@ Partial Class FrmSocios
         'EstadoRGTextBox
         '
         Me.EstadoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "EstadoRG", True))
-        Me.EstadoRGTextBox.Location = New System.Drawing.Point(420, 211)
+        Me.EstadoRGTextBox.Location = New System.Drawing.Point(430, 211)
         Me.EstadoRGTextBox.Name = "EstadoRGTextBox"
         Me.EstadoRGTextBox.Size = New System.Drawing.Size(39, 20)
         Me.EstadoRGTextBox.TabIndex = 16
@@ -562,7 +532,7 @@ Partial Class FrmSocios
         'TituloDeEleitorTextBox
         '
         Me.TituloDeEleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "TituloDeEleitor", True))
-        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(104, 237)
+        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(114, 237)
         Me.TituloDeEleitorTextBox.Name = "TituloDeEleitorTextBox"
         Me.TituloDeEleitorTextBox.Size = New System.Drawing.Size(118, 20)
         Me.TituloDeEleitorTextBox.TabIndex = 18
@@ -570,7 +540,7 @@ Partial Class FrmSocios
         'SenhaGOVTextBox
         '
         Me.SenhaGOVTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "SenhaGOV", True))
-        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(341, 154)
+        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(114, 181)
         Me.SenhaGOVTextBox.Name = "SenhaGOVTextBox"
         Me.SenhaGOVTextBox.Size = New System.Drawing.Size(118, 20)
         Me.SenhaGOVTextBox.TabIndex = 20
@@ -578,7 +548,7 @@ Partial Class FrmSocios
         'CNHTextBox
         '
         Me.CNHTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNH", True))
-        Me.CNHTextBox.Location = New System.Drawing.Point(104, 263)
+        Me.CNHTextBox.Location = New System.Drawing.Point(114, 263)
         Me.CNHTextBox.Name = "CNHTextBox"
         Me.CNHTextBox.Size = New System.Drawing.Size(118, 20)
         Me.CNHTextBox.TabIndex = 22
@@ -586,7 +556,7 @@ Partial Class FrmSocios
         'CNHExpedicaoTextBox
         '
         Me.CNHExpedicaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHExpedicao", True))
-        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(276, 289)
+        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(286, 289)
         Me.CNHExpedicaoTextBox.Name = "CNHExpedicaoTextBox"
         Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CNHExpedicaoTextBox.TabIndex = 24
@@ -594,7 +564,7 @@ Partial Class FrmSocios
         'CNHDataExpTextBox
         '
         Me.CNHDataExpTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
-        Me.CNHDataExpTextBox.Location = New System.Drawing.Point(104, 289)
+        Me.CNHDataExpTextBox.Location = New System.Drawing.Point(114, 289)
         Me.CNHDataExpTextBox.Name = "CNHDataExpTextBox"
         Me.CNHDataExpTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CNHDataExpTextBox.TabIndex = 26
@@ -603,9 +573,9 @@ Partial Class FrmSocios
         '
         Me.CivilComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
         Me.CivilComboBox.FormattingEnabled = True
-        Me.CivilComboBox.Location = New System.Drawing.Point(104, 154)
+        Me.CivilComboBox.Location = New System.Drawing.Point(114, 154)
         Me.CivilComboBox.Name = "CivilComboBox"
-        Me.CivilComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.CivilComboBox.Size = New System.Drawing.Size(188, 21)
         Me.CivilComboBox.TabIndex = 28
         '
         'CEPMaskedTextBox
@@ -638,7 +608,7 @@ Partial Class FrmSocios
         Me.BairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Bairro", True))
         Me.BairroTextBox.Location = New System.Drawing.Point(81, 105)
         Me.BairroTextBox.Name = "BairroTextBox"
-        Me.BairroTextBox.Size = New System.Drawing.Size(208, 20)
+        Me.BairroTextBox.Size = New System.Drawing.Size(271, 20)
         Me.BairroTextBox.TabIndex = 36
         '
         'ComplementoTextBox
@@ -660,7 +630,7 @@ Partial Class FrmSocios
         'EstadoTextBox
         '
         Me.EstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Estado", True))
-        Me.EstadoTextBox.Location = New System.Drawing.Point(310, 123)
+        Me.EstadoTextBox.Location = New System.Drawing.Point(310, 131)
         Me.EstadoTextBox.Name = "EstadoTextBox"
         Me.EstadoTextBox.Size = New System.Drawing.Size(42, 20)
         Me.EstadoTextBox.TabIndex = 42
@@ -722,6 +692,7 @@ Partial Class FrmSocios
         '
         'GroupBoxOutrosDados
         '
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
         Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
         Me.GroupBoxOutrosDados.Controls.Add(Me.EMailTextBox)
         Me.GroupBoxOutrosDados.Controls.Add(Telefone2Label)
@@ -753,8 +724,21 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
         '
+        'BtnCorreios
+        '
+        Me.BtnCorreios.BackColor = System.Drawing.Color.White
+        Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorreios.Location = New System.Drawing.Point(159, 26)
+        Me.BtnCorreios.Name = "BtnCorreios"
+        Me.BtnCorreios.Size = New System.Drawing.Size(73, 22)
+        Me.BtnCorreios.TabIndex = 51
+        Me.BtnCorreios.Text = "Preencher"
+        Me.BtnCorreios.UseVisualStyleBackColor = False
+        '
         'GroupBoxDadosPessoais
         '
+        Me.GroupBoxDadosPessoais.Controls.Add(GeneroLabel)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.GeneroComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CivilLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CivilComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CNHDataExpLabel)
@@ -951,6 +935,58 @@ Partial Class FrmSocios
         Me.BtnNovo.TabStop = False
         Me.ToolTip1.SetToolTip(Me.BtnNovo, "Novo Registro")
         '
+        'SociosBindingSource
+        '
+        Me.SociosBindingSource.DataMember = "Socios"
+        Me.SociosBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SociosTableAdapter
+        '
+        Me.SociosTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.ContadorTableAdapter = Nothing
+        Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.LaudosTableAdapter = Nothing
+        Me.TableAdapterManager.LoginTableAdapter = Nothing
+        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
+        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
+        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'GeneroLabel
+        '
+        GeneroLabel.AutoSize = True
+        GeneroLabel.Location = New System.Drawing.Point(314, 27)
+        GeneroLabel.Name = "GeneroLabel"
+        GeneroLabel.Size = New System.Drawing.Size(45, 13)
+        GeneroLabel.TabIndex = 28
+        GeneroLabel.Text = "Genero:"
+        '
+        'GeneroComboBox
+        '
+        Me.GeneroComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Genero", True))
+        Me.GeneroComboBox.FormattingEnabled = True
+        Me.GeneroComboBox.Location = New System.Drawing.Point(365, 24)
+        Me.GeneroComboBox.Name = "GeneroComboBox"
+        Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
+        Me.GeneroComboBox.TabIndex = 29
+        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -965,8 +1001,6 @@ Partial Class FrmSocios
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sócios"
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SociosBindingNavigator.ResumeLayout(False)
         Me.SociosBindingNavigator.PerformLayout()
@@ -985,6 +1019,8 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1046,4 +1082,6 @@ Partial Class FrmSocios
     Friend WithEvents BtnCancelar As PictureBox
     Friend WithEvents BtnExcluir As PictureBox
     Friend WithEvents BtnEditar As PictureBox
+    Friend WithEvents BtnCorreios As Button
+    Friend WithEvents GeneroComboBox As ComboBox
 End Class
