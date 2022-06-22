@@ -43,4 +43,9 @@ Public Class ConsultaCNPJ
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Close()
     End Sub
+
+    Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
+        'procura campo lagradouro e pega o endereço do site
+
+    End Sub
 End Class

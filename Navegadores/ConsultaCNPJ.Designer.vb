@@ -38,6 +38,7 @@ Partial Class ConsultaCNPJ
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnExportar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -61,7 +62,7 @@ Partial Class ConsultaCNPJ
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.ToolStripLabel4, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.ToolStripLabel4, Me.ToolStripButton1, Me.BtnExportar})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -149,6 +150,15 @@ Partial Class ConsultaCNPJ
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(647, 428)
         Me.TableLayoutPanel1.TabIndex = 16
         '
+        'BtnExportar
+        '
+        Me.BtnExportar.Image = CType(resources.GetObject("BtnExportar.Image"), System.Drawing.Image)
+        Me.BtnExportar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnExportar.Name = "BtnExportar"
+        Me.BtnExportar.Size = New System.Drawing.Size(71, 22)
+        Me.BtnExportar.Text = "Exportar"
+        Me.BtnExportar.ToolTipText = "Exportar"
+        '
         'ConsultaCNPJ
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -186,4 +196,5 @@ Partial Class ConsultaCNPJ
     Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents BtnExportar As ToolStripButton
 End Class

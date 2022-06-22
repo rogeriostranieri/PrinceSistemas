@@ -55,7 +55,7 @@
 
     'conveter TextBoxCapitalSocial em Moeda local ao digitar
     Private Sub TextBoxCapitalSocial_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.TextChanged
-        TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text, 2)
+        ' TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text, 2)
     End Sub
 
 

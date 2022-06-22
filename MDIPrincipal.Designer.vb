@@ -68,6 +68,7 @@ Partial Class MDIPrincipal
         Me.EMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiversosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculadoraDeCapitalSocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -86,7 +87,6 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -96,7 +96,7 @@ Partial Class MDIPrincipal
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.White
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.TESTEToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(984, 25)
@@ -148,7 +148,7 @@ Partial Class MDIPrincipal
         'ContadorToolStripMenuItem1
         '
         Me.ContadorToolStripMenuItem1.Name = "ContadorToolStripMenuItem1"
-        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
+        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ContadorToolStripMenuItem1.Text = "Dados"
         '
         'EmpresasToolStripMenuItem
@@ -402,6 +402,12 @@ Partial Class MDIPrincipal
         Me.CalculadoraDeCapitalSocialToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.CalculadoraDeCapitalSocialToolStripMenuItem.Text = "Calculadora de Capital Social"
         '
+        'TESTEToolStripMenuItem
+        '
+        Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
+        Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
+        Me.TESTEToolStripMenuItem.Text = "Sócios"
+        '
         'ToolStrip
         '
         Me.ToolStrip.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -532,12 +538,6 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Name = "LblNomeCompleto"
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
-        '
-        'TESTEToolStripMenuItem
-        '
-        Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
-        Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(55, 21)
-        Me.TESTEToolStripMenuItem.Text = "TESTE"
         '
         'MDIPrincipal
         '
