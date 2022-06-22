@@ -2522,6 +2522,13 @@ NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, resi
     End Sub
 
     Private Sub BtnImportarSocioAdm_Click(sender As Object, e As EventArgs) Handles BtnImportarSocioAdm.Click
+        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+            FrmSocios.Focus()
+        Else
+            FrmSocios.Show()
+        End If
+    End Sub
+    Private Sub TESTE()
         'pega dados 
         TabControl2.SelectedIndex = 0
         TabControl2.SelectedIndex = 1

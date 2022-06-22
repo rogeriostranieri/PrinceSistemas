@@ -842,7 +842,8 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub TESTEToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTEToolStripMenuItem.Click
+
+    Private Sub SóciosGeralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SóciosGeralToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
 
             FrmSocios.Focus()

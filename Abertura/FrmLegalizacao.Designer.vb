@@ -170,7 +170,11 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
-        Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EndPaisTextBox = New System.Windows.Forms.TextBox()
+        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
+        Me.EndComplementoTextBox = New System.Windows.Forms.TextBox()
+        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
+        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.EndDataTextBox = New System.Windows.Forms.TextBox()
         Me.EndQuadraTextBox = New System.Windows.Forms.TextBox()
         Me.EndZonaTextBox = New System.Windows.Forms.TextBox()
@@ -332,6 +336,7 @@ Partial Class FrmLegalizacao
         Me.ProcuracaoNMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ProcuracaoComboBox = New System.Windows.Forms.ComboBox()
         Me.Button45 = New System.Windows.Forms.Button()
+        Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NovaRazaoSocialComboBox = New System.Windows.Forms.ComboBox()
         Me.AvisarDiaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
@@ -407,11 +412,6 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
-        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
-        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
-        Me.EndComplementoTextBox = New System.Windows.Forms.TextBox()
-        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
-        Me.EndPaisTextBox = New System.Windows.Forms.TextBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -510,7 +510,6 @@ Partial Class FrmLegalizacao
         Me.TabPage13.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage14.SuspendLayout()
-        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
         Me.TabPage18.SuspendLayout()
@@ -536,6 +535,7 @@ Partial Class FrmLegalizacao
         Me.TabPage6.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage17.SuspendLayout()
+        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -1598,7 +1598,7 @@ Partial Class FrmLegalizacao
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
         Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(75, 49)
         Me.BtnImportarSocioAdm.TabIndex = 7
-        Me.BtnImportarSocioAdm.Text = "Adicionar Socio Nº1 Administrador"
+        Me.BtnImportarSocioAdm.Text = "Adicionar Socios"
         Me.BtnImportarSocioAdm.UseVisualStyleBackColor = True
         '
         'BtnCopiarSenhaGov
@@ -1969,10 +1969,45 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
         '
-        'LaudosBindingSource
+        'EndPaisTextBox
         '
-        Me.LaudosBindingSource.DataMember = "Laudos"
-        Me.LaudosBindingSource.DataSource = Me.PrinceDBDataSet
+        Me.EndPaisTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndPais", True))
+        Me.EndPaisTextBox.Location = New System.Drawing.Point(378, 127)
+        Me.EndPaisTextBox.Name = "EndPaisTextBox"
+        Me.EndPaisTextBox.Size = New System.Drawing.Size(179, 20)
+        Me.EndPaisTextBox.TabIndex = 38
+        '
+        'EndCidadeTextBox
+        '
+        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 127)
+        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
+        Me.EndCidadeTextBox.Size = New System.Drawing.Size(170, 20)
+        Me.EndCidadeTextBox.TabIndex = 37
+        '
+        'EndComplementoTextBox
+        '
+        Me.EndComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndComplemento", True))
+        Me.EndComplementoTextBox.Location = New System.Drawing.Point(369, 101)
+        Me.EndComplementoTextBox.Name = "EndComplementoTextBox"
+        Me.EndComplementoTextBox.Size = New System.Drawing.Size(188, 20)
+        Me.EndComplementoTextBox.TabIndex = 36
+        '
+        'EndBairroTextBox
+        '
+        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndBairro", True))
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 101)
+        Me.EndBairroTextBox.Name = "EndBairroTextBox"
+        Me.EndBairroTextBox.Size = New System.Drawing.Size(214, 20)
+        Me.EndBairroTextBox.TabIndex = 35
+        '
+        'EnderecoTextBox
+        '
+        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Endereco", True))
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
+        Me.EnderecoTextBox.Name = "EnderecoTextBox"
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(384, 20)
+        Me.EnderecoTextBox.TabIndex = 34
         '
         'EndDataTextBox
         '
@@ -3692,6 +3727,11 @@ Partial Class FrmLegalizacao
         Me.Button45.Text = "Solicitar"
         Me.Button45.UseVisualStyleBackColor = True
         '
+        'LaudosBindingSource
+        '
+        Me.LaudosBindingSource.DataMember = "Laudos"
+        Me.LaudosBindingSource.DataSource = Me.PrinceDBDataSet
+        '
         'NovaRazaoSocialComboBox
         '
         Me.NovaRazaoSocialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial", True))
@@ -3843,6 +3883,7 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -4513,46 +4554,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'EnderecoTextBox
-        '
-        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
-        Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(384, 20)
-        Me.EnderecoTextBox.TabIndex = 34
-        '
-        'EndBairroTextBox
-        '
-        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 101)
-        Me.EndBairroTextBox.Name = "EndBairroTextBox"
-        Me.EndBairroTextBox.Size = New System.Drawing.Size(214, 20)
-        Me.EndBairroTextBox.TabIndex = 35
-        '
-        'EndComplementoTextBox
-        '
-        Me.EndComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndComplemento", True))
-        Me.EndComplementoTextBox.Location = New System.Drawing.Point(369, 101)
-        Me.EndComplementoTextBox.Name = "EndComplementoTextBox"
-        Me.EndComplementoTextBox.Size = New System.Drawing.Size(188, 20)
-        Me.EndComplementoTextBox.TabIndex = 36
-        '
-        'EndCidadeTextBox
-        '
-        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 127)
-        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
-        Me.EndCidadeTextBox.Size = New System.Drawing.Size(170, 20)
-        Me.EndCidadeTextBox.TabIndex = 37
-        '
-        'EndPaisTextBox
-        '
-        Me.EndPaisTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndPais", True))
-        Me.EndPaisTextBox.Location = New System.Drawing.Point(378, 127)
-        Me.EndPaisTextBox.Name = "EndPaisTextBox"
-        Me.EndPaisTextBox.Size = New System.Drawing.Size(179, 20)
-        Me.EndPaisTextBox.TabIndex = 38
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4594,7 +4595,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.PerformLayout()
         Me.TabPage14.ResumeLayout(False)
         Me.TabPage14.PerformLayout()
-        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage15.PerformLayout()
         Me.TabPage16.ResumeLayout(False)
@@ -4640,6 +4640,7 @@ Partial Class FrmLegalizacao
         Me.TabPage2.PerformLayout()
         Me.TabPage17.ResumeLayout(False)
         Me.TabPage17.PerformLayout()
+        CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)

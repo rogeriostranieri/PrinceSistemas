@@ -48,9 +48,11 @@ Partial Class FrmSocios
         Dim Telefone1Label As System.Windows.Forms.Label
         Dim Telefone2Label As System.Windows.Forms.Label
         Dim EMailLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
         Dim GeneroLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
         Me.SociosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -89,6 +91,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -103,11 +106,10 @@ Partial Class FrmSocios
         Me.BtnSalvar = New System.Windows.Forms.PictureBox()
         Me.BtnNovo = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
+        Me.BtnExtensoDN = New System.Windows.Forms.Button()
+        Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -136,6 +138,8 @@ Partial Class FrmSocios
         GeneroLabel = New System.Windows.Forms.Label()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SociosBindingNavigator.SuspendLayout()
+        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.GroupBoxDadosPessoais.SuspendLayout()
@@ -147,8 +151,6 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CPFLabel
@@ -376,6 +378,15 @@ Partial Class FrmSocios
         EMailLabel.TabIndex = 49
         EMailLabel.Text = "e-Mail:"
         '
+        'GeneroLabel
+        '
+        GeneroLabel.AutoSize = True
+        GeneroLabel.Location = New System.Drawing.Point(314, 27)
+        GeneroLabel.Name = "GeneroLabel"
+        GeneroLabel.Size = New System.Drawing.Size(45, 13)
+        GeneroLabel.TabIndex = 28
+        GeneroLabel.Text = "Genero:"
+        '
         'SociosBindingNavigator
         '
         Me.SociosBindingNavigator.AddNewItem = Nothing
@@ -393,6 +404,16 @@ Partial Class FrmSocios
         Me.SociosBindingNavigator.Size = New System.Drawing.Size(1067, 25)
         Me.SociosBindingNavigator.TabIndex = 0
         Me.SociosBindingNavigator.Text = "BindingNavigator1"
+        '
+        'SociosBindingSource
+        '
+        Me.SociosBindingSource.DataMember = "Socios"
+        Me.SociosBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -737,6 +758,8 @@ Partial Class FrmSocios
         '
         'GroupBoxDadosPessoais
         '
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.TextBoxExtensoDN)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnExtensoDN)
         Me.GroupBoxDadosPessoais.Controls.Add(GeneroLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.GeneroComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CivilLabel)
@@ -775,6 +798,15 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'GeneroComboBox
+        '
+        Me.GeneroComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Genero", True))
+        Me.GeneroComboBox.FormattingEnabled = True
+        Me.GeneroComboBox.Location = New System.Drawing.Point(365, 24)
+        Me.GeneroComboBox.Name = "GeneroComboBox"
+        Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
+        Me.GeneroComboBox.TabIndex = 29
         '
         'PictureBox2
         '
@@ -824,22 +856,28 @@ Partial Class FrmSocios
         Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CPFComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
+        Me.CPFComboBox.DataSource = Me.SociosBindingSource
+        Me.CPFComboBox.DisplayMember = "CPF"
         Me.CPFComboBox.FormattingEnabled = True
         Me.CPFComboBox.Location = New System.Drawing.Point(414, 13)
         Me.CPFComboBox.Name = "CPFComboBox"
         Me.CPFComboBox.Size = New System.Drawing.Size(121, 21)
         Me.CPFComboBox.TabIndex = 4
+        Me.CPFComboBox.ValueMember = "CPF"
         '
         'NomeCompletoComboBox
         '
         Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.NomeCompletoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
+        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
+        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
         Me.NomeCompletoComboBox.FormattingEnabled = True
         Me.NomeCompletoComboBox.Location = New System.Drawing.Point(110, 13)
         Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
         Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
         Me.NomeCompletoComboBox.TabIndex = 3
+        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
         '
         'Label3
         '
@@ -935,16 +973,6 @@ Partial Class FrmSocios
         Me.BtnNovo.TabStop = False
         Me.ToolTip1.SetToolTip(Me.BtnNovo, "Novo Registro")
         '
-        'SociosBindingSource
-        '
-        Me.SociosBindingSource.DataMember = "Socios"
-        Me.SociosBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'PrinceDBDataSet
-        '
-        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
-        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'SociosTableAdapter
         '
         Me.SociosTableAdapter.ClearBeforeFill = True
@@ -969,23 +997,23 @@ Partial Class FrmSocios
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'GeneroLabel
+        'BtnExtensoDN
         '
-        GeneroLabel.AutoSize = True
-        GeneroLabel.Location = New System.Drawing.Point(314, 27)
-        GeneroLabel.Name = "GeneroLabel"
-        GeneroLabel.Size = New System.Drawing.Size(45, 13)
-        GeneroLabel.TabIndex = 28
-        GeneroLabel.Text = "Genero:"
+        Me.BtnExtensoDN.BackColor = System.Drawing.Color.White
+        Me.BtnExtensoDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExtensoDN.Location = New System.Drawing.Point(192, 127)
+        Me.BtnExtensoDN.Name = "BtnExtensoDN"
+        Me.BtnExtensoDN.Size = New System.Drawing.Size(60, 21)
+        Me.BtnExtensoDN.TabIndex = 52
+        Me.BtnExtensoDN.Text = "Extenso"
+        Me.BtnExtensoDN.UseVisualStyleBackColor = False
         '
-        'GeneroComboBox
+        'TextBoxExtensoDN
         '
-        Me.GeneroComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Genero", True))
-        Me.GeneroComboBox.FormattingEnabled = True
-        Me.GeneroComboBox.Location = New System.Drawing.Point(365, 24)
-        Me.GeneroComboBox.Name = "GeneroComboBox"
-        Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
-        Me.GeneroComboBox.TabIndex = 29
+        Me.TextBoxExtensoDN.Location = New System.Drawing.Point(256, 128)
+        Me.TextBoxExtensoDN.Name = "TextBoxExtensoDN"
+        Me.TextBoxExtensoDN.Size = New System.Drawing.Size(213, 20)
+        Me.TextBoxExtensoDN.TabIndex = 53
         '
         'FrmSocios
         '
@@ -1004,6 +1032,8 @@ Partial Class FrmSocios
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SociosBindingNavigator.ResumeLayout(False)
         Me.SociosBindingNavigator.PerformLayout()
+        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBoxOutrosDados.ResumeLayout(False)
@@ -1019,8 +1049,6 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1084,4 +1112,6 @@ Partial Class FrmSocios
     Friend WithEvents BtnEditar As PictureBox
     Friend WithEvents BtnCorreios As Button
     Friend WithEvents GeneroComboBox As ComboBox
+    Friend WithEvents BtnExtensoDN As Button
+    Friend WithEvents TextBoxExtensoDN As TextBox
 End Class

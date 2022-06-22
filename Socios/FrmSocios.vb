@@ -15,12 +15,15 @@
         GeneroComboBox.Items.Add("Masculino")
         GeneroComboBox.Items.Add("Feminino")
 
+        TextBoxExtensoDN.Visible = False
+
     End Sub
 
     Private Sub BloquearEdicao()
         'bloquear ediçao GroupBoxDadosPessoais
         GroupBoxDadosPessoais.Enabled = False
         GroupBoxOutrosDados.Enabled = False
+
     End Sub
 
     Private Sub LiberarEdicao()
@@ -69,6 +72,7 @@
             GeneroComboBox.SelectedIndex = 0
             CivilComboBox.SelectedIndex = 0
 
+            TextBoxExtensoDN.Visible = False
         End If
 
     End Sub
@@ -77,6 +81,7 @@
         'perguntar, editar ou não
         If MessageBox.Show("Deseja editar o registro?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             LiberarEdicao()
+            TextBoxExtensoDN.Visible = False
         End If
 
     End Sub
@@ -89,6 +94,7 @@
             Me.SociosBindingSource.EndEdit()
             Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
             BloquearEdicao()
+            TextBoxExtensoDN.Visible = False
         End If
 
     End Sub
@@ -99,6 +105,7 @@
             'cancelar ediçao
             Me.SociosBindingSource.CancelEdit()
             BloquearEdicao()
+            TextBoxExtensoDN.Visible = False
         End If
 
     End Sub
@@ -112,6 +119,7 @@
             Me.SociosBindingSource.EndEdit()
             Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
             BloquearEdicao()
+            TextBoxExtensoDN.Visible = False
         End If
     End Sub
 
@@ -160,5 +168,13 @@
     Private Sub CivilComboBox_Click(sender As Object, e As EventArgs) Handles CivilComboBox.Click
         'verifica se esta no Feminino e mudar para solteira do  CivilComboBox da lista
         EstadoCivil()
+    End Sub
+
+    Private Sub BtnExtensoDN_Click(sender As Object, e As EventArgs) Handles BtnExtensoDN.Click
+        Dim DataDeNascimento As String = DatadeNascMaskedTextBox.Text
+        Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dddd, dd 'de' MMMM 'de' yyyy")
+        'TextBoxExtensoDN
+        TextBoxExtensoDN.Visible = True
+        TextBoxExtensoDN.Text = DataDeNascimentoFormatada
     End Sub
 End Class
