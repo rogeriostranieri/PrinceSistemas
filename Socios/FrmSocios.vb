@@ -124,14 +124,10 @@
     End Sub
 
     'ao digitar no CPFComboBox mudar para formato CPF
-    Private Sub CPFComboBox_TextChanged(sender As Object, e As EventArgs) Handles CPFComboBox.TextChanged
+    Private Sub CPFComboBox_TextChanged(sender As Object, e As EventArgs)
         'ao digitar converter para cpf
         CPFComboBox.Text = Format(CPFComboBox.Text, "000\.000\.000\-00")
 
-    End Sub
-
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        Me.Close()
     End Sub
 
     Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
@@ -176,5 +172,9 @@
         'TextBoxExtensoDN
         TextBoxExtensoDN.Visible = True
         TextBoxExtensoDN.Text = DataDeNascimentoFormatada
+    End Sub
+
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        Me.Close()
     End Sub
 End Class

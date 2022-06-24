@@ -91,12 +91,11 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
+        Me.BtnExtensoDN = New System.Windows.Forms.Button()
         Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.CPFComboBox = New System.Windows.Forms.ComboBox()
-        Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -105,11 +104,12 @@ Partial Class FrmSocios
         Me.BtnEditar = New System.Windows.Forms.PictureBox()
         Me.BtnSalvar = New System.Windows.Forms.PictureBox()
         Me.BtnNovo = New System.Windows.Forms.PictureBox()
+        Me.BtnFechar = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.BtnExtensoDN = New System.Windows.Forms.Button()
-        Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
+        Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
+        Me.CPFComboBox = New System.Windows.Forms.ComboBox()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -143,7 +143,6 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.GroupBoxDadosPessoais.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.BtnCancelar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -697,10 +696,10 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.73477!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxOutrosDados, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxDadosPessoais, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox2, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnFechar, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -799,6 +798,24 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
         '
+        'TextBoxExtensoDN
+        '
+        Me.TextBoxExtensoDN.Location = New System.Drawing.Point(256, 128)
+        Me.TextBoxExtensoDN.Name = "TextBoxExtensoDN"
+        Me.TextBoxExtensoDN.Size = New System.Drawing.Size(213, 20)
+        Me.TextBoxExtensoDN.TabIndex = 53
+        '
+        'BtnExtensoDN
+        '
+        Me.BtnExtensoDN.BackColor = System.Drawing.Color.White
+        Me.BtnExtensoDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExtensoDN.Location = New System.Drawing.Point(192, 127)
+        Me.BtnExtensoDN.Name = "BtnExtensoDN"
+        Me.BtnExtensoDN.Size = New System.Drawing.Size(60, 21)
+        Me.BtnExtensoDN.TabIndex = 52
+        Me.BtnExtensoDN.Text = "Extenso"
+        Me.BtnExtensoDN.UseVisualStyleBackColor = False
+        '
         'GeneroComboBox
         '
         Me.GeneroComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Genero", True))
@@ -807,21 +824,6 @@ Partial Class FrmSocios
         Me.GeneroComboBox.Name = "GeneroComboBox"
         Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
         Me.GeneroComboBox.TabIndex = 29
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(934, 3)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(130, 58)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 53
-        Me.PictureBox2.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox2, "Fechar")
         '
         'Label1
         '
@@ -850,34 +852,6 @@ Partial Class FrmSocios
         Me.GroupBox3.TabIndex = 55
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Localizar Sócio"
-        '
-        'CPFComboBox
-        '
-        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CPFComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
-        Me.CPFComboBox.DataSource = Me.SociosBindingSource
-        Me.CPFComboBox.DisplayMember = "CPF"
-        Me.CPFComboBox.FormattingEnabled = True
-        Me.CPFComboBox.Location = New System.Drawing.Point(414, 13)
-        Me.CPFComboBox.Name = "CPFComboBox"
-        Me.CPFComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.CPFComboBox.TabIndex = 4
-        Me.CPFComboBox.ValueMember = "CPF"
-        '
-        'NomeCompletoComboBox
-        '
-        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.NomeCompletoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
-        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
-        Me.NomeCompletoComboBox.FormattingEnabled = True
-        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(110, 13)
-        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
-        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
-        Me.NomeCompletoComboBox.TabIndex = 3
-        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
         '
         'Label3
         '
@@ -973,6 +947,20 @@ Partial Class FrmSocios
         Me.BtnNovo.TabStop = False
         Me.ToolTip1.SetToolTip(Me.BtnNovo, "Novo Registro")
         '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtnFechar.FlatAppearance.BorderSize = 0
+        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFechar.Location = New System.Drawing.Point(918, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(146, 58)
+        Me.BtnFechar.TabIndex = 57
+        Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BtnFechar.UseVisualStyleBackColor = True
+        '
         'SociosTableAdapter
         '
         Me.SociosTableAdapter.ClearBeforeFill = True
@@ -997,23 +985,31 @@ Partial Class FrmSocios
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'BtnExtensoDN
+        'NomeCompletoComboBox
         '
-        Me.BtnExtensoDN.BackColor = System.Drawing.Color.White
-        Me.BtnExtensoDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExtensoDN.Location = New System.Drawing.Point(192, 127)
-        Me.BtnExtensoDN.Name = "BtnExtensoDN"
-        Me.BtnExtensoDN.Size = New System.Drawing.Size(60, 21)
-        Me.BtnExtensoDN.TabIndex = 52
-        Me.BtnExtensoDN.Text = "Extenso"
-        Me.BtnExtensoDN.UseVisualStyleBackColor = False
+        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
+        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
+        Me.NomeCompletoComboBox.FormattingEnabled = True
+        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(114, 13)
+        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
+        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
+        Me.NomeCompletoComboBox.TabIndex = 7
+        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
         '
-        'TextBoxExtensoDN
+        'CPFComboBox
         '
-        Me.TextBoxExtensoDN.Location = New System.Drawing.Point(256, 128)
-        Me.TextBoxExtensoDN.Name = "TextBoxExtensoDN"
-        Me.TextBoxExtensoDN.Size = New System.Drawing.Size(213, 20)
-        Me.TextBoxExtensoDN.TabIndex = 53
+        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CPFComboBox.DataSource = Me.SociosBindingSource
+        Me.CPFComboBox.DisplayMember = "CPF"
+        Me.CPFComboBox.FormattingEnabled = True
+        Me.CPFComboBox.Location = New System.Drawing.Point(419, 13)
+        Me.CPFComboBox.Name = "CPFComboBox"
+        Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
+        Me.CPFComboBox.TabIndex = 8
+        Me.CPFComboBox.ValueMember = "CPF"
         '
         'FrmSocios
         '
@@ -1040,7 +1036,6 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.PerformLayout()
         Me.GroupBoxDadosPessoais.ResumeLayout(False)
         Me.GroupBoxDadosPessoais.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1096,13 +1091,10 @@ Partial Class FrmSocios
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents GroupBoxOutrosDados As GroupBox
     Friend WithEvents GroupBoxDadosPessoais As GroupBox
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents CPFComboBox As ComboBox
-    Friend WithEvents NomeCompletoComboBox As ComboBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BtnNovo As PictureBox
     Friend WithEvents BtnSalvar As PictureBox
@@ -1114,4 +1106,7 @@ Partial Class FrmSocios
     Friend WithEvents GeneroComboBox As ComboBox
     Friend WithEvents BtnExtensoDN As Button
     Friend WithEvents TextBoxExtensoDN As TextBox
+    Friend WithEvents BtnFechar As Button
+    Friend WithEvents NomeCompletoComboBox As ComboBox
+    Friend WithEvents CPFComboBox As ComboBox
 End Class
