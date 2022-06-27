@@ -23,41 +23,6 @@
         '--------------------------------------
 
 
-        'Mensagem de texto ao passar o mouse em cima....................
-
-        ' Cria a ToolTip e associa com o Form container.
-        Dim toolTip1 As New ToolTip()
-        'cria outra ToolTip e associa ao controle Button
-        Dim buttonToolTip As New ToolTip With {
-            .ToolTipTitle = "Dica ToolTip para o controle Button",
-            .UseFading = True,
-            .UseAnimation = True,
-            .IsBalloon = True,
-            .ShowAlways = True,
-            .AutoPopDelay = 5000,
-            .InitialDelay = 1000,
-            .ReshowDelay = 500
-        }
-        buttonToolTip.IsBalloon = True
-        ' Define o delay para a ToolTip.
-        toolTip1.AutoPopDelay = 5000
-        toolTip1.InitialDelay = 1000
-        toolTip1.ReshowDelay = 500
-        ' Força a o texto da ToolTip a ser exibido mesmo que o form não esta ativo
-        toolTip1.ShowAlways = True
-        ' Define o texto da ToolTip para o Button, TextBox, Checkbox e Label
-        'toolTip1.SetToolTip(Me.btnTeste, "Este é o Botão Teste")
-        ' Define o texto da ToolTip para o Button, TextBox, Checkbox e Label
-        toolTip1.SetToolTip(Me.PictureBox4, "Clique para ver os Lembretes")
-        toolTip1.SetToolTip(Me.PictureBox5, "Clique para ver as Prioridades")
-        toolTip1.SetToolTip(Me.PictureBox3, "Clique para Atualizar os Dados")
-
-        'FIM DO CODIGO .........................
-
-
-
-
-
         Filtro()
 
         'nao permitir maximizar

@@ -272,6 +272,7 @@ Partial Class Avisos
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox4.TabIndex = 16
         Me.PictureBox4.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox4, "Clique aqui para ver os Lembretes")
         '
         'PictureBox5
         '
@@ -284,19 +285,20 @@ Partial Class Avisos
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 17
         Me.PictureBox5.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox5, "Clique aqui para ver os Urgentes")
         '
         'BtnProtocolados
         '
         Me.BtnProtocolados.BackColor = System.Drawing.Color.Transparent
         Me.BtnProtocolados.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProtocolados.Image = Global.PrinceSistemas.My.Resources.Resources.protocolados
-        Me.BtnProtocolados.Location = New System.Drawing.Point(196, 3)
+        Me.BtnProtocolados.Location = New System.Drawing.Point(204, 10)
         Me.BtnProtocolados.Name = "BtnProtocolados"
-        Me.BtnProtocolados.Size = New System.Drawing.Size(63, 66)
+        Me.BtnProtocolados.Size = New System.Drawing.Size(55, 51)
         Me.BtnProtocolados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnProtocolados.TabIndex = 19
         Me.BtnProtocolados.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnProtocolados, "Empresas Protocoladas")
+        Me.ToolTip1.SetToolTip(Me.BtnProtocolados, "Clique aqui para ver as Empresas Protocoladas")
         '
         'Calendar1
         '
