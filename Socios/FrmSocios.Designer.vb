@@ -89,6 +89,8 @@ Partial Class FrmSocios
         Me.EMailTextBox = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
+        Me.BtnAddSocios = New System.Windows.Forms.Button()
+        Me.BtnExportar = New System.Windows.Forms.Button()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
         Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
@@ -96,6 +98,8 @@ Partial Class FrmSocios
         Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.CPFComboBox = New System.Windows.Forms.ComboBox()
+        Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -108,8 +112,6 @@ Partial Class FrmSocios
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
-        Me.CPFComboBox = New System.Windows.Forms.ComboBox()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -292,9 +294,9 @@ Partial Class FrmSocios
         RUALabel.AutoSize = True
         RUALabel.Location = New System.Drawing.Point(42, 56)
         RUALabel.Name = "RUALabel"
-        RUALabel.Size = New System.Drawing.Size(33, 13)
+        RUALabel.Size = New System.Drawing.Size(30, 13)
         RUALabel.TabIndex = 31
-        RUALabel.Text = "RUA:"
+        RUALabel.Text = "Rua:"
         '
         'NumLabel
         '
@@ -712,6 +714,8 @@ Partial Class FrmSocios
         '
         'GroupBoxOutrosDados
         '
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAddSocios)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnExportar)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
         Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
         Me.GroupBoxOutrosDados.Controls.Add(Me.EMailTextBox)
@@ -743,6 +747,30 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
+        '
+        'BtnAddSocios
+        '
+        Me.BtnAddSocios.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnAddSocios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAddSocios.Location = New System.Drawing.Point(21, 296)
+        Me.BtnAddSocios.Name = "BtnAddSocios"
+        Me.BtnAddSocios.Size = New System.Drawing.Size(184, 23)
+        Me.BtnAddSocios.TabIndex = 53
+        Me.BtnAddSocios.Text = "Adicionar Sócios em Empresas"
+        Me.BtnAddSocios.UseVisualStyleBackColor = False
+        '
+        'BtnExportar
+        '
+        Me.BtnExportar.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnExportar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExportar.Location = New System.Drawing.Point(21, 270)
+        Me.BtnExportar.Name = "BtnExportar"
+        Me.BtnExportar.Size = New System.Drawing.Size(184, 23)
+        Me.BtnExportar.TabIndex = 52
+        Me.BtnExportar.Text = "Exportar Responsavel da Federal"
+        Me.BtnExportar.UseVisualStyleBackColor = False
         '
         'BtnCorreios
         '
@@ -852,6 +880,32 @@ Partial Class FrmSocios
         Me.GroupBox3.TabIndex = 55
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Localizar Sócio"
+        '
+        'CPFComboBox
+        '
+        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CPFComboBox.DataSource = Me.SociosBindingSource
+        Me.CPFComboBox.DisplayMember = "CPF"
+        Me.CPFComboBox.FormattingEnabled = True
+        Me.CPFComboBox.Location = New System.Drawing.Point(419, 13)
+        Me.CPFComboBox.Name = "CPFComboBox"
+        Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
+        Me.CPFComboBox.TabIndex = 8
+        Me.CPFComboBox.ValueMember = "CPF"
+        '
+        'NomeCompletoComboBox
+        '
+        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
+        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
+        Me.NomeCompletoComboBox.FormattingEnabled = True
+        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(114, 13)
+        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
+        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
+        Me.NomeCompletoComboBox.TabIndex = 7
+        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
         '
         'Label3
         '
@@ -985,32 +1039,6 @@ Partial Class FrmSocios
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'NomeCompletoComboBox
-        '
-        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
-        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
-        Me.NomeCompletoComboBox.FormattingEnabled = True
-        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(114, 13)
-        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
-        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
-        Me.NomeCompletoComboBox.TabIndex = 7
-        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
-        '
-        'CPFComboBox
-        '
-        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CPFComboBox.DataSource = Me.SociosBindingSource
-        Me.CPFComboBox.DisplayMember = "CPF"
-        Me.CPFComboBox.FormattingEnabled = True
-        Me.CPFComboBox.Location = New System.Drawing.Point(419, 13)
-        Me.CPFComboBox.Name = "CPFComboBox"
-        Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
-        Me.CPFComboBox.TabIndex = 8
-        Me.CPFComboBox.ValueMember = "CPF"
-        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1109,4 +1137,6 @@ Partial Class FrmSocios
     Friend WithEvents BtnFechar As Button
     Friend WithEvents NomeCompletoComboBox As ComboBox
     Friend WithEvents CPFComboBox As ComboBox
+    Friend WithEvents BtnExportar As Button
+    Friend WithEvents BtnAddSocios As Button
 End Class

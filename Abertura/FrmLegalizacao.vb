@@ -1789,20 +1789,11 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnAdicionarSocio_Click(sender As Object, e As EventArgs) Handles BtnAdicionarSocio.Click
-        If QuantidadeSociosTextBox.Text = "" Then
-            QuantidadeSociosTextBox.Text = "1"
+        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+            FrmSocios.Focus()
         Else
-            QuantidadeSociosTextBox.Text = QuantidadeSociosTextBox.Text + 1
+            FrmSocios.Show()
         End If
-
-        DadosSociosRichTextBox.SelectedText &=
-" Sócio Nº " & QuantidadeSociosTextBox.Text & "  //////////////////////////////////////////////////////////
-
-NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, residente e domiciliado na XXXXXXXXXX, portador da Cédula da Identidade Civil RG Nº XXXXXXXXXX, e do CPF Nº XXXXXXXXXX." & vbCrLf & "
-
-
-////////////////////////////////////////////////
-"
 
     End Sub
 
@@ -1820,12 +1811,28 @@ NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, resi
     End Sub
 
 
+    Private Sub BtnAddmaisSocio_Click(sender As Object, e As EventArgs) Handles BtnAddmaisSocio.Click
+        If QuantidadeSociosTextBox.Text = "" Then
+            QuantidadeSociosTextBox.Text = "0"
+        Else
+            QuantidadeSociosTextBox.Text = QuantidadeSociosTextBox.Text + 1
+
+        End If
+
+        If QuantidadeSociosTextBox.Text < "0" Then
+            QuantidadeSociosTextBox.Text = "0"
+        End If
+    End Sub
+
+
 
     Private Sub BtnLimparSocios_Click(sender As Object, e As EventArgs) Handles BtnLimparSocios.Click
         If MsgBox("Deseja limpar todos Sócios?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
             DadosSociosRichTextBox.Text = ""
             QuantidadeSociosTextBox.Text = "0"
         End If
+
+
     End Sub
 
 
@@ -2614,6 +2621,5 @@ NOME COMPLETO, brasileiro, casado XXXXXXX, DATA DE NASCIMENTO, empresário, resi
 
 
     End Sub
-
 
 End Class

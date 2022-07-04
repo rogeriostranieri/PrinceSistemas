@@ -412,6 +412,7 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
+        Me.BtnAddmaisSocio = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1751,6 +1752,7 @@ Partial Class FrmLegalizacao
         'TabPage19
         '
         Me.TabPage19.AutoScroll = True
+        Me.TabPage19.Controls.Add(Me.BtnAddmaisSocio)
         Me.TabPage19.Controls.Add(Me.BtnLimparSocio)
         Me.TabPage19.Controls.Add(Me.BtnLimparSocios)
         Me.TabPage19.Controls.Add(Me.LblQuantidadeSocios)
@@ -1777,7 +1779,7 @@ Partial Class FrmLegalizacao
         'BtnLimparSocios
         '
         Me.BtnLimparSocios.ForeColor = System.Drawing.Color.Crimson
-        Me.BtnLimparSocios.Location = New System.Drawing.Point(475, 82)
+        Me.BtnLimparSocios.Location = New System.Drawing.Point(475, 65)
         Me.BtnLimparSocios.Name = "BtnLimparSocios"
         Me.BtnLimparSocios.Size = New System.Drawing.Size(75, 23)
         Me.BtnLimparSocios.TabIndex = 5
@@ -1787,7 +1789,7 @@ Partial Class FrmLegalizacao
         'LblQuantidadeSocios
         '
         Me.LblQuantidadeSocios.AutoSize = True
-        Me.LblQuantidadeSocios.Location = New System.Drawing.Point(465, 131)
+        Me.LblQuantidadeSocios.Location = New System.Drawing.Point(465, 107)
         Me.LblQuantidadeSocios.Name = "LblQuantidadeSocios"
         Me.LblQuantidadeSocios.Size = New System.Drawing.Size(88, 13)
         Me.LblQuantidadeSocios.TabIndex = 4
@@ -1797,7 +1799,7 @@ Partial Class FrmLegalizacao
         '
         Me.QuantidadeSociosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "QuantidadeSocios", True))
         Me.QuantidadeSociosTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantidadeSociosTextBox.Location = New System.Drawing.Point(471, 150)
+        Me.QuantidadeSociosTextBox.Location = New System.Drawing.Point(477, 136)
         Me.QuantidadeSociosTextBox.Name = "QuantidadeSociosTextBox"
         Me.QuantidadeSociosTextBox.ReadOnly = True
         Me.QuantidadeSociosTextBox.Size = New System.Drawing.Size(39, 22)
@@ -4554,6 +4556,15 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnAddmaisSocio
+        '
+        Me.BtnAddmaisSocio.Location = New System.Drawing.Point(519, 123)
+        Me.BtnAddmaisSocio.Name = "BtnAddmaisSocio"
+        Me.BtnAddmaisSocio.Size = New System.Drawing.Size(35, 23)
+        Me.BtnAddmaisSocio.TabIndex = 7
+        Me.BtnAddmaisSocio.Text = "+1"
+        Me.BtnAddmaisSocio.UseVisualStyleBackColor = True
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4972,4 +4983,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents EndPaisTextBox As TextBox
     Friend WithEvents EndCidadeTextBox As TextBox
+    Friend WithEvents BtnAddmaisSocio As Button
 End Class
