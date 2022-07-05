@@ -17,7 +17,7 @@
         DiaBox.Text = DateTime.Now.ToString("dd")
         MesBox.Text = DateTime.Now.ToString("MM")
         AnoBox.Text = DateTime.Now.ToString("yyyy")
-        Mes = MonthName(MesBox.Text)
+        'Mes = MonthName(MesBox.Text)
 
         'termina a DATA
 
@@ -29,12 +29,17 @@
 
 
 
+        Dim MesExtenso As String = MonthName(MesBox.Text)
+        Dim Ano As String = AnoBox.Text
+        Dim Dia As String = DiaBox.Text
+        Dim Mes As String = MesBox.Text
+
         'coloca itens na combo
-        ComboBox1.Items.Add("Agenda Tributária de " & AnoBox.Text)
-        ComboBox1.Items.Add("Agenda para o Dia: " & DiaBox.Text & " de " & Mes & " de " & AnoBox.Text)
-        ComboBox1.Items.Add("Diário - Período do Fato Gerador de " & Mes & " de " & AnoBox.Text)
-        ComboBox1.Items.Add("Outros Vencimentos de " & Mes & " de " & AnoBox.Text)
-        ComboBox1.Items.Add("Declarações, Demonstrativos e Documentos de " & Mes & " de " & AnoBox.Text)
+        ComboBox1.Items.Add("Agenda Tributária de " & MesExtenso & " de " & Ano)
+        ComboBox1.Items.Add("Agenda para o Dia: " & Dia & " de " & MesExtenso & " de " & Ano)
+        ComboBox1.Items.Add("Vencimentos diários")
+        ComboBox1.Items.Add("Vencimentos sem dia específico")
+        ComboBox1.Items.Add("Prazo de entrega de declarações (obrigações acessórias)")
         ComboBox1.SelectedIndex = 0
 
 
@@ -42,39 +47,11 @@
 
     Private Sub WebBrowser1_ProgressChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.WebBrowserProgressChangedEventArgs)
 
-
-
-
-        ProgressBar1.Visible = True
-
-        Dim d, t As Integer
-
-        d = e.CurrentProgress
-
-        t = e.MaximumProgress
-
-        If d <= 0 Then
-
-
-
-            ProgressBar1.Value = 0
-
-            ProgressBar1.Visible = False
-            TxtCarregar.Text = "Completo"
-            Label5.Visible = False
-
-        Else
-
-
-            ProgressBar1.Value = Math.Min(ProgressBar1.Maximum, Convert.ToInt32(Math.Floor(ProgressBar1.Maximum * (d / t))))
-            TxtCarregar.Text = "Carregando..."
-            Label5.Visible = True
-            Label5.Text = "Aguarde Carregar a página a baixo"
-        End If
-
-
-
-
+        'barra de progresso para WebView2
+        ProgressBar1.Maximum = e.MaximumProgress
+        ProgressBar1.Value = e.CurrentProgress
+        'mostrar no Label5 o progresso da pagina
+        Label5.Text = e.CurrentProgress & " %"
 
 
 
@@ -83,28 +60,39 @@
         Dim MesExtenso As String = MonthName(MesBox.Text)
         Dim Ano As String = AnoBox.Text
         Dim Dia As String = DiaBox.Text
+        Dim Mes As String = MesBox.Text
 
         ' Mes = MonthName(MesBox.Text)
 
-        If ComboBox1.Text = "Agenda Tributária de " & AnoBox.Text Then
-
-            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/agenda-tributaria-de-" & MesExtenso & "-de-" & Ano & ".html") '& AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-" & CleanText(Mes) & "-" & AnoBox.Text & ".html")
-            'WebBrowser1.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-de-" & CleanText(Mes) & "-de-" & AnoBox.Text & ".html") '& AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-" & CleanText(Mes) & "-" & AnoBox.Text & ".html")
-            'coloca a url do WebView2 no TextBox1
+        If ComboBox1.Text = "Agenda Tributária de " & MesExtenso & " de " & Ano Then
+            'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-2022/julho-2022
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "")
+            WebView2.Refresh()
             TextBox1.Text = WebView2.Source.ToString
 
+        ElseIf ComboBox1.Text = "Agenda para o Dia: " & Dia & " de " & MesExtenso & " de " & Ano Then
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/dia-" & Dia & "-" & Mes & "-" & Ano & "")
+            WebView2.Refresh()
+            TextBox1.Text = WebView2.Source.ToString
 
-        ElseIf ComboBox1.Text = "Agenda para o Dia: " & DiaBox.Text & " de " & Mes & " de " & AnoBox.Text Then
-            'WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/dia-" & DiaBox.Text & "-" & Mes & "-" & AnoBox.Text & "")
-
-        ElseIf ComboBox1.Text = "Diário - Período do Fato Gerador de " & Mes & " de " & AnoBox.Text Then
+        ElseIf ComboBox1.Text = "Vencimentos diários" Then
             'WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/diario")
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/diario")
+            WebView2.Refresh()
+            TextBox1.Text = WebView2.Source.ToString
 
-        ElseIf ComboBox1.Text = "Outros Vencimentos de " & Mes & " de " & AnoBox.Text Then
+        ElseIf ComboBox1.Text = "Vencimentos sem dia específico" Then
             ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/outros-vencimentos")
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/vencimentos-sem-dia-especifico")
+            WebView2.Refresh()
+            TextBox1.Text = WebView2.Source.ToString
 
-        ElseIf ComboBox1.Text = "Declarações, Demonstrativos e Documentos de " & Mes & " de " & AnoBox.Text Then
+        ElseIf ComboBox1.Text = "Prazo de entrega de declarações (obrigações acessórias)" Then
             ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/declaracoes-demonstrativos-e-documentos")
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/declaracoes-demonstrativos-e-documentos")
+            WebView2.Refresh()
+            TextBox1.Text = WebView2.Source.ToString
+
         End If
 
     End Sub
@@ -144,5 +132,9 @@
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'atualiza a pagina
+        WebView2.Refresh()
 
+    End Sub
 End Class

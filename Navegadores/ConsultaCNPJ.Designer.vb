@@ -24,7 +24,6 @@ Partial Class ConsultaCNPJ
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaCNPJ))
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
@@ -33,27 +32,18 @@ Partial Class ConsultaCNPJ
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.BtnExportar = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BtnExportar = New System.Windows.Forms.ToolStripButton()
+        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(3, 31)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(641, 394)
-        Me.WebBrowser1.TabIndex = 4
-        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
         '
         'ContextMenuStrip1
         '
@@ -109,6 +99,15 @@ Partial Class ConsultaCNPJ
         Me.ToolStripButton1.Size = New System.Drawing.Size(62, 22)
         Me.ToolStripButton1.Text = "Fechar"
         '
+        'BtnExportar
+        '
+        Me.BtnExportar.Image = CType(resources.GetObject("BtnExportar.Image"), System.Drawing.Image)
+        Me.BtnExportar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnExportar.Name = "BtnExportar"
+        Me.BtnExportar.Size = New System.Drawing.Size(71, 22)
+        Me.BtnExportar.Text = "Exportar"
+        Me.BtnExportar.ToolTipText = "Exportar"
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.TxtCarregar})
@@ -140,7 +139,7 @@ Partial Class ConsultaCNPJ
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ToolStrip1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.WebBrowser1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.WebView21, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -150,14 +149,17 @@ Partial Class ConsultaCNPJ
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(647, 428)
         Me.TableLayoutPanel1.TabIndex = 16
         '
-        'BtnExportar
+        'WebView21
         '
-        Me.BtnExportar.Image = CType(resources.GetObject("BtnExportar.Image"), System.Drawing.Image)
-        Me.BtnExportar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnExportar.Name = "BtnExportar"
-        Me.BtnExportar.Size = New System.Drawing.Size(71, 22)
-        Me.BtnExportar.Text = "Exportar"
-        Me.BtnExportar.ToolTipText = "Exportar"
+        Me.WebView21.AllowExternalDrop = True
+        Me.WebView21.CreationProperties = Nothing
+        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebView21.Location = New System.Drawing.Point(3, 31)
+        Me.WebView21.Name = "WebView21"
+        Me.WebView21.Size = New System.Drawing.Size(641, 394)
+        Me.WebView21.TabIndex = 8
+        Me.WebView21.ZoomFactor = 1.0R
         '
         'ConsultaCNPJ
         '
@@ -178,11 +180,11 @@ Partial Class ConsultaCNPJ
         Me.StatusStrip1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
@@ -197,4 +199,5 @@ Partial Class ConsultaCNPJ
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents BtnExportar As ToolStripButton
+    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class

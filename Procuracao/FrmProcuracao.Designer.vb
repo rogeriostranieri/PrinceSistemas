@@ -28,10 +28,11 @@ Partial Class FrmProcuracao
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -40,7 +41,7 @@ Partial Class FrmProcuracao
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ToolStrip1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.StatusStrip1, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.WebBrowser1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.WebView21, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -87,16 +88,17 @@ Partial Class FrmProcuracao
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(100, 15)
         '
-        'WebBrowser1
+        'WebView21
         '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(3, 28)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(575, 394)
-        Me.WebBrowser1.TabIndex = 2
-        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
+        Me.WebView21.AllowExternalDrop = True
+        Me.WebView21.CreationProperties = Nothing
+        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebView21.Location = New System.Drawing.Point(3, 28)
+        Me.WebView21.Name = "WebView21"
+        Me.WebView21.Size = New System.Drawing.Size(575, 394)
+        Me.WebView21.TabIndex = 2
+        Me.WebView21.ZoomFactor = 1.0R
         '
         'FrmProcuracao
         '
@@ -114,6 +116,7 @@ Partial Class FrmProcuracao
         Me.ToolStrip1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -124,5 +127,5 @@ Partial Class FrmProcuracao
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents TxtCarregar As ToolStripStatusLabel
     Friend WithEvents ProgressBar1 As ToolStripProgressBar
-    Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class

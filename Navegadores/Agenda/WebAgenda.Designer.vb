@@ -38,11 +38,12 @@ Partial Class WebAgenda
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.WebView2 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -181,6 +182,7 @@ Partial Class WebAgenda
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -193,6 +195,13 @@ Partial Class WebAgenda
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(860, 132)
         Me.Panel1.TabIndex = 15
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(316, 101)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(479, 20)
+        Me.TextBox1.TabIndex = 15
         '
         'Button1
         '
@@ -238,12 +247,15 @@ Partial Class WebAgenda
         Me.WebView2.TabIndex = 16
         Me.WebView2.ZoomFactor = 1.0R
         '
-        'TextBox1
+        'Button2
         '
-        Me.TextBox1.Location = New System.Drawing.Point(316, 101)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(479, 20)
-        Me.TextBox1.TabIndex = 15
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(249, 66)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(53, 28)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Acessar"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'WebAgenda
         '
@@ -290,4 +302,5 @@ Partial Class WebAgenda
     Friend WithEvents Button1 As Button
     Friend WithEvents WebView2 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Button2 As Button
 End Class

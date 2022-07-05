@@ -253,10 +253,10 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Federal\FrmProcuracao.Designer.vb">
+    <Compile Include="Procuracao\FrmProcuracao.Designer.vb">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </Compile>
-    <Compile Include="Federal\FrmProcuracao.vb">
+    <Compile Include="Procuracao\FrmProcuracao.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.Designer.vb">
@@ -584,7 +584,7 @@
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Federal\FrmProcuracao.resx">
+    <EmbeddedResource Include="Procuracao\FrmProcuracao.resx">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Administracao\FrmControleSituacaoAlvara.resx">
