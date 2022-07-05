@@ -23,7 +23,6 @@ Partial Class WebAgenda
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WebAgenda))
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -42,21 +41,14 @@ Partial Class WebAgenda
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.WebView2 = New Microsoft.Web.WebView2.WinForms.WebView2()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WebView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 132)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(860, 296)
-        Me.WebBrowser1.TabIndex = 0
         '
         'ComboBox1
         '
@@ -119,7 +111,7 @@ Partial Class WebAgenda
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(34, 21)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(12, 16)
+        Me.Label3.Size = New System.Drawing.Size(11, 16)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "/"
         '
@@ -129,7 +121,7 @@ Partial Class WebAgenda
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(74, 21)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(12, 16)
+        Me.Label4.Size = New System.Drawing.Size(11, 16)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "/"
         '
@@ -189,6 +181,7 @@ Partial Class WebAgenda
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -217,7 +210,7 @@ Partial Class WebAgenda
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(191, 108)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 16)
+        Me.Label5.Size = New System.Drawing.Size(48, 16)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Label5"
         '
@@ -231,12 +224,33 @@ Partial Class WebAgenda
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
+        'WebView2
+        '
+        Me.WebView2.AllowExternalDrop = True
+        Me.WebView2.CreationProperties = Nothing
+        Me.WebView2.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebView2.Location = New System.Drawing.Point(0, 132)
+        Me.WebView2.Name = "WebView2"
+        Me.WebView2.Size = New System.Drawing.Size(860, 296)
+        Me.WebView2.Source = New System.Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributa" &
+        "ria", System.UriKind.Absolute)
+        Me.WebView2.TabIndex = 16
+        Me.WebView2.ZoomFactor = 1.0R
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(316, 101)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(479, 20)
+        Me.TextBox1.TabIndex = 15
+        '
         'WebAgenda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(860, 450)
-        Me.Controls.Add(Me.WebBrowser1)
+        Me.Controls.Add(Me.WebView2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -251,12 +265,11 @@ Partial Class WebAgenda
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WebView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
@@ -275,4 +288,6 @@ Partial Class WebAgenda
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents WebView2 As Microsoft.Web.WebView2.WinForms.WebView2
+    Friend WithEvents TextBox1 As TextBox
 End Class

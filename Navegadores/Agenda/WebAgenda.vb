@@ -40,7 +40,7 @@
 
     End Sub
 
-    Private Sub WebBrowser1_ProgressChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.WebBrowserProgressChangedEventArgs) Handles WebBrowser1.ProgressChanged
+    Private Sub WebBrowser1_ProgressChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.WebBrowserProgressChangedEventArgs)
 
 
 
@@ -80,21 +80,31 @@
 
     End Sub
     Private Sub MudaCombo()
-        Mes = MonthName(MesBox.Text)
+        Dim MesExtenso As String = MonthName(MesBox.Text)
+        Dim Ano As String = AnoBox.Text
+        Dim Dia As String = DiaBox.Text
+
+        ' Mes = MonthName(MesBox.Text)
+
         If ComboBox1.Text = "Agenda Tributária de " & AnoBox.Text Then
-            WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-" & CleanText(Mes) & "-" & AnoBox.Text & "")
+
+            WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/agenda-tributaria-de-" & MesExtenso & "-de-" & Ano & ".html") '& AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-" & CleanText(Mes) & "-" & AnoBox.Text & ".html")
+            'WebBrowser1.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-de-" & CleanText(Mes) & "-de-" & AnoBox.Text & ".html") '& AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/agenda-tributaria-" & CleanText(Mes) & "-" & AnoBox.Text & ".html")
+            'coloca a url do WebView2 no TextBox1
+            TextBox1.Text = WebView2.Source.ToString
+
 
         ElseIf ComboBox1.Text = "Agenda para o Dia: " & DiaBox.Text & " de " & Mes & " de " & AnoBox.Text Then
-            WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/dia-" & DiaBox.Text & "-" & Mes & "-" & AnoBox.Text & "")
+            'WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/dia-" & DiaBox.Text & "-" & Mes & "-" & AnoBox.Text & "")
 
         ElseIf ComboBox1.Text = "Diário - Período do Fato Gerador de " & Mes & " de " & AnoBox.Text Then
-            WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/diario")
+            'WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/diario")
 
         ElseIf ComboBox1.Text = "Outros Vencimentos de " & Mes & " de " & AnoBox.Text Then
-            WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/outros-vencimentos")
+            ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/outros-vencimentos")
 
         ElseIf ComboBox1.Text = "Declarações, Demonstrativos e Documentos de " & Mes & " de " & AnoBox.Text Then
-            WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/declaracoes-demonstrativos-e-documentos")
+            ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/declaracoes-demonstrativos-e-documentos")
         End If
 
     End Sub
