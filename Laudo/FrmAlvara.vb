@@ -35,7 +35,8 @@ Public Class FrmAlvara
         'ativa os provisorio datas
         DesativaDataProvisorio()
 
-
+        'tirar borda do TableLayoutPanel1
+        TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
     End Sub
 
     Private Sub DesativaDataProvisorio()

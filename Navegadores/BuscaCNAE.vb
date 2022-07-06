@@ -1,17 +1,5 @@
 ﻿Public Class BuscaCNAE
 
-    Private Sub WebBrowser1_ProgressChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.WebBrowserProgressChangedEventArgs)
-
-        If e.CurrentProgress > 0 And e.MaximumProgress > 0 Then
-            Dim pct As Integer = CInt(e.CurrentProgress / e.MaximumProgress * 100)
-            If pct > 100 Then pct = 100
-            TxtCarregar.Text = pct & "%"
-            ProgressBar1.Value = pct
-        End If
-    End Sub
-
-
-
     Private Sub WebAgenda_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
 
@@ -19,6 +7,33 @@
 
     Private Sub BuscaCNAE_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+
+    End Sub
+
+
+
+    Private Sub WebView2_NavigationStarting(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs) Handles WebView21.NavigationStarting
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = True
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregando..."
+
+        'mostrar ProgressBar1 colorido
+        ProgressBar1.Style = ProgressBarStyle.Marquee
+        ProgressBar1.MarqueeAnimationSpeed = 30
+        ProgressBar1.Maximum = 100
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Value = 0
+        ProgressBar1.Step = 1
+
+
+    End Sub
+
+    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregamento Completo"
 
     End Sub
 End Class

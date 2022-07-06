@@ -253,10 +253,10 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Procuracao\FrmProcuracao.Designer.vb">
+    <Compile Include="Navegadores\Procuracao\FrmProcuracao.Designer.vb">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </Compile>
-    <Compile Include="Procuracao\FrmProcuracao.vb">
+    <Compile Include="Navegadores\Procuracao\FrmProcuracao.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.Designer.vb">
@@ -584,7 +584,7 @@
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Procuracao\FrmProcuracao.resx">
+    <EmbeddedResource Include="Navegadores\Procuracao\FrmProcuracao.resx">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Administracao\FrmControleSituacaoAlvara.resx">
@@ -972,9 +972,7 @@
     <Content Include="Atualizacao.txt" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Consulta CNPJ\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

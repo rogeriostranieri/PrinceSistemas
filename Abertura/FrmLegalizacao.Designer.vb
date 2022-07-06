@@ -153,6 +153,7 @@ Partial Class FrmLegalizacao
         Me.TituloeleitorTextBox = New System.Windows.Forms.TextBox()
         Me.CPFResponsavelMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage19 = New System.Windows.Forms.TabPage()
+        Me.BtnAddmaisSocio = New System.Windows.Forms.Button()
         Me.BtnLimparSocio = New System.Windows.Forms.Button()
         Me.BtnLimparSocios = New System.Windows.Forms.Button()
         Me.LblQuantidadeSocios = New System.Windows.Forms.Label()
@@ -412,7 +413,6 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
-        Me.BtnAddmaisSocio = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1766,6 +1766,15 @@ Partial Class FrmLegalizacao
         Me.TabPage19.TabIndex = 6
         Me.TabPage19.Text = "Dados dos Sócios"
         Me.TabPage19.UseVisualStyleBackColor = True
+        '
+        'BtnAddmaisSocio
+        '
+        Me.BtnAddmaisSocio.Location = New System.Drawing.Point(519, 123)
+        Me.BtnAddmaisSocio.Name = "BtnAddmaisSocio"
+        Me.BtnAddmaisSocio.Size = New System.Drawing.Size(35, 23)
+        Me.BtnAddmaisSocio.TabIndex = 7
+        Me.BtnAddmaisSocio.Text = "+1"
+        Me.BtnAddmaisSocio.UseVisualStyleBackColor = True
         '
         'BtnLimparSocio
         '
@@ -4068,6 +4077,7 @@ Partial Class FrmLegalizacao
         '
         Me.ButtoneMail.BackgroundImage = CType(resources.GetObject("ButtoneMail.BackgroundImage"), System.Drawing.Image)
         Me.ButtoneMail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtoneMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtoneMail.Location = New System.Drawing.Point(7, 97)
         Me.ButtoneMail.Name = "ButtoneMail"
         Me.ButtoneMail.Size = New System.Drawing.Size(69, 23)
@@ -4112,6 +4122,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnNovo.BackgroundImage = CType(resources.GetObject("BtnNovo.BackgroundImage"), System.Drawing.Image)
         Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNovo.ForeColor = System.Drawing.Color.Green
         Me.BtnNovo.Location = New System.Drawing.Point(6, 19)
         Me.BtnNovo.Name = "BtnNovo"
@@ -4124,6 +4135,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnExcluir.BackgroundImage = CType(resources.GetObject("BtnExcluir.BackgroundImage"), System.Drawing.Image)
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.BtnExcluir.Location = New System.Drawing.Point(6, 117)
         Me.BtnExcluir.Name = "BtnExcluir"
@@ -4136,6 +4148,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSalvar.Location = New System.Drawing.Point(6, 47)
         Me.BtnSalvar.Name = "BtnSalvar"
         Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
@@ -4147,6 +4160,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFechar.Location = New System.Drawing.Point(6, 146)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
@@ -4158,6 +4172,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnContador.BackgroundImage = CType(resources.GetObject("BtnContador.BackgroundImage"), System.Drawing.Image)
         Me.BtnContador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnContador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnContador.Location = New System.Drawing.Point(7, 126)
         Me.BtnContador.Name = "BtnContador"
         Me.BtnContador.Size = New System.Drawing.Size(69, 23)
@@ -4169,6 +4184,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnEditar.BackgroundImage = CType(resources.GetObject("BtnEditar.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Location = New System.Drawing.Point(7, 76)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(69, 23)
@@ -4190,6 +4206,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAlteracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAlteracao.Location = New System.Drawing.Point(7, 19)
         Me.BtnAlteracao.Name = "BtnAlteracao"
         Me.BtnAlteracao.Size = New System.Drawing.Size(69, 39)
@@ -4555,15 +4572,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'BtnAddmaisSocio
-        '
-        Me.BtnAddmaisSocio.Location = New System.Drawing.Point(519, 123)
-        Me.BtnAddmaisSocio.Name = "BtnAddmaisSocio"
-        Me.BtnAddmaisSocio.Size = New System.Drawing.Size(35, 23)
-        Me.BtnAddmaisSocio.TabIndex = 7
-        Me.BtnAddmaisSocio.Text = "+1"
-        Me.BtnAddmaisSocio.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '

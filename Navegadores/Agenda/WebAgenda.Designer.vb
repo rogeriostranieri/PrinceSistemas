@@ -36,14 +36,11 @@ Partial Class WebAgenda
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.WebView2 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.LblStatusCarregamento = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -154,38 +151,31 @@ Partial Class WebAgenda
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.TxtCarregar})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.LblStatusCarregamento})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(860, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(860, 25)
         Me.StatusStrip1.TabIndex = 14
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
+        Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(39, 17)
-        Me.ToolStripStatusLabel1.Text = "Status"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(56, 20)
+        Me.ToolStripStatusLabel1.Text = "Status :"
         '
         'ProgressBar1
         '
+        Me.ProgressBar1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(100, 16)
-        '
-        'TxtCarregar
-        '
-        Me.TxtCarregar.Name = "TxtCarregar"
-        Me.TxtCarregar.Size = New System.Drawing.Size(112, 17)
-        Me.TxtCarregar.Text = "Esperando Conexão"
+        Me.ProgressBar1.Size = New System.Drawing.Size(100, 19)
         '
         'Panel1
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.ComboBox1)
@@ -196,37 +186,23 @@ Partial Class WebAgenda
         Me.Panel1.Size = New System.Drawing.Size(860, 132)
         Me.Panel1.TabIndex = 15
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(316, 101)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(479, 20)
-        Me.TextBox1.TabIndex = 15
-        '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(804, 12)
+        Me.Button1.Location = New System.Drawing.Point(720, 12)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(53, 28)
+        Me.Button1.Size = New System.Drawing.Size(137, 66)
         Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Fechar"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(191, 108)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 16)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Label5"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.logo_receita
-        Me.PictureBox1.Location = New System.Drawing.Point(606, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(503, 28)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(128, 66)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -241,21 +217,18 @@ Partial Class WebAgenda
         Me.WebView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView2.Location = New System.Drawing.Point(0, 132)
         Me.WebView2.Name = "WebView2"
-        Me.WebView2.Size = New System.Drawing.Size(860, 296)
+        Me.WebView2.Size = New System.Drawing.Size(860, 293)
         Me.WebView2.Source = New System.Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributa" &
         "ria", System.UriKind.Absolute)
         Me.WebView2.TabIndex = 16
         Me.WebView2.ZoomFactor = 1.0R
         '
-        'Button2
+        'LblStatusCarregamento
         '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(249, 66)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(53, 28)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "Acessar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.LblStatusCarregamento.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblStatusCarregamento.Name = "LblStatusCarregamento"
+        Me.LblStatusCarregamento.Size = New System.Drawing.Size(153, 20)
+        Me.LblStatusCarregamento.Text = "ToolStripStatusLabel2"
         '
         'WebAgenda
         '
@@ -294,13 +267,10 @@ Partial Class WebAgenda
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ProgressBar1 As ToolStripProgressBar
-    Friend WithEvents TxtCarregar As ToolStripStatusLabel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnAtualizar As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents WebView2 As Microsoft.Web.WebView2.WinForms.WebView2
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents LblStatusCarregamento As ToolStripStatusLabel
 End Class

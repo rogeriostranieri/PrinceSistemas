@@ -192,6 +192,11 @@ Partial Class FrmAlvara
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.NaturezaDoPedidoOBSRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
+        Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
+        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
+        Me.EndCompTextBox = New System.Windows.Forms.TextBox()
+        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
         Me.Area2TextBox = New System.Windows.Forms.TextBox()
         Me.AreaTextBox = New System.Windows.Forms.TextBox()
@@ -273,11 +278,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.EnderecoTextBox = New System.Windows.Forms.TextBox()
-        Me.EndCompTextBox = New System.Windows.Forms.TextBox()
-        Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
-        Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
-        Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -853,6 +853,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -1816,6 +1817,7 @@ Partial Class FrmAlvara
         '
         Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
         Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button19.Location = New System.Drawing.Point(13, 130)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(69, 23)
@@ -1827,6 +1829,7 @@ Partial Class FrmAlvara
         '
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSalvar.Location = New System.Drawing.Point(13, 43)
         Me.BtnSalvar.Name = "BtnSalvar"
         Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
@@ -1838,6 +1841,7 @@ Partial Class FrmAlvara
         '
         Me.Button17.BackgroundImage = CType(resources.GetObject("Button17.BackgroundImage"), System.Drawing.Image)
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Button17.Location = New System.Drawing.Point(13, 101)
         Me.Button17.Name = "Button17"
@@ -1850,6 +1854,7 @@ Partial Class FrmAlvara
         '
         Me.Button16.BackgroundImage = CType(resources.GetObject("Button16.BackgroundImage"), System.Drawing.Image)
         Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.ForeColor = System.Drawing.Color.Green
         Me.Button16.Location = New System.Drawing.Point(13, 15)
         Me.Button16.Name = "Button16"
@@ -2176,6 +2181,46 @@ Partial Class FrmAlvara
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'EndCidadeTextBox
+        '
+        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(83, 150)
+        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
+        Me.EndCidadeTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.EndCidadeTextBox.TabIndex = 57
+        '
+        'PontoRefTextBox
+        '
+        Me.PontoRefTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "PontoRef", True))
+        Me.PontoRefTextBox.Location = New System.Drawing.Point(349, 124)
+        Me.PontoRefTextBox.Name = "PontoRefTextBox"
+        Me.PontoRefTextBox.Size = New System.Drawing.Size(178, 20)
+        Me.PontoRefTextBox.TabIndex = 56
+        '
+        'EndBairroTextBox
+        '
+        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndBairro", True))
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(83, 124)
+        Me.EndBairroTextBox.Name = "EndBairroTextBox"
+        Me.EndBairroTextBox.Size = New System.Drawing.Size(146, 20)
+        Me.EndBairroTextBox.TabIndex = 55
+        '
+        'EndCompTextBox
+        '
+        Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndComp", True))
+        Me.EndCompTextBox.Location = New System.Drawing.Point(234, 72)
+        Me.EndCompTextBox.Name = "EndCompTextBox"
+        Me.EndCompTextBox.Size = New System.Drawing.Size(293, 20)
+        Me.EndCompTextBox.TabIndex = 54
+        '
+        'EnderecoTextBox
+        '
+        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
+        Me.EnderecoTextBox.Name = "EnderecoTextBox"
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
+        Me.EnderecoTextBox.TabIndex = 53
         '
         'Button21
         '
@@ -2698,7 +2743,8 @@ Partial Class FrmAlvara
         '
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 147)
+        Me.BtnAnotacoesLEgalizacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 160)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
         Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 80
@@ -2717,6 +2763,7 @@ Partial Class FrmAlvara
         '
         Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button14.Location = New System.Drawing.Point(13, 51)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(69, 23)
@@ -2728,6 +2775,7 @@ Partial Class FrmAlvara
         '
         Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Location = New System.Drawing.Point(13, 80)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(69, 23)
@@ -2757,6 +2805,7 @@ Partial Class FrmAlvara
         '
         Me.BtnEditar.BackgroundImage = CType(resources.GetObject("BtnEditar.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Location = New System.Drawing.Point(13, 72)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(69, 23)
@@ -2768,9 +2817,10 @@ Partial Class FrmAlvara
         '
         Me.BtnNovaAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnNovaAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnNovaAlteracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 109)
         Me.BtnNovaAlteracao.Name = "BtnNovaAlteracao"
-        Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 35)
+        Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 45)
         Me.BtnNovaAlteracao.TabIndex = 76
         Me.BtnNovaAlteracao.Text = "Nova Alteração"
         Me.BtnNovaAlteracao.UseVisualStyleBackColor = True
@@ -2779,6 +2829,7 @@ Partial Class FrmAlvara
         '
         Me.Btnempresa.BackgroundImage = CType(resources.GetObject("Btnempresa.BackgroundImage"), System.Drawing.Image)
         Me.Btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Btnempresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnempresa.Location = New System.Drawing.Point(13, 22)
         Me.Btnempresa.Name = "Btnempresa"
         Me.Btnempresa.Size = New System.Drawing.Size(69, 23)
@@ -3051,46 +3102,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'EnderecoTextBox
-        '
-        Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(83, 46)
-        Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(444, 20)
-        Me.EnderecoTextBox.TabIndex = 53
-        '
-        'EndCompTextBox
-        '
-        Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndComp", True))
-        Me.EndCompTextBox.Location = New System.Drawing.Point(234, 72)
-        Me.EndCompTextBox.Name = "EndCompTextBox"
-        Me.EndCompTextBox.Size = New System.Drawing.Size(293, 20)
-        Me.EndCompTextBox.TabIndex = 54
-        '
-        'EndBairroTextBox
-        '
-        Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(83, 124)
-        Me.EndBairroTextBox.Name = "EndBairroTextBox"
-        Me.EndBairroTextBox.Size = New System.Drawing.Size(146, 20)
-        Me.EndBairroTextBox.TabIndex = 55
-        '
-        'PontoRefTextBox
-        '
-        Me.PontoRefTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "PontoRef", True))
-        Me.PontoRefTextBox.Location = New System.Drawing.Point(349, 124)
-        Me.PontoRefTextBox.Name = "PontoRefTextBox"
-        Me.PontoRefTextBox.Size = New System.Drawing.Size(178, 20)
-        Me.PontoRefTextBox.TabIndex = 56
-        '
-        'EndCidadeTextBox
-        '
-        Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(83, 150)
-        Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
-        Me.EndCidadeTextBox.Size = New System.Drawing.Size(117, 20)
-        Me.EndCidadeTextBox.TabIndex = 57
         '
         'FrmAlvara
         '

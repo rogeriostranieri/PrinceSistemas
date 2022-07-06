@@ -71,10 +71,10 @@ Partial Class FrmAnotacoes
         Me.ButtonPrefeitura = New System.Windows.Forms.Button()
         Me.ButtonDemais = New System.Windows.Forms.Button()
         Me.RichTextBoxAnotacao = New System.Windows.Forms.RichTextBox()
-        Me.ButtonFechar = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AnotacoesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ButtonFechar = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxEditor.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -115,6 +115,7 @@ Partial Class FrmAnotacoes
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -123,9 +124,9 @@ Partial Class FrmAnotacoes
         Me.GroupBoxEditor.BackColor = System.Drawing.Color.Transparent
         Me.GroupBoxEditor.Controls.Add(Me.ToolStrip1)
         Me.GroupBoxEditor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxEditor.Location = New System.Drawing.Point(149, 49)
+        Me.GroupBoxEditor.Location = New System.Drawing.Point(155, 63)
         Me.GroupBoxEditor.Name = "GroupBoxEditor"
-        Me.GroupBoxEditor.Size = New System.Drawing.Size(704, 55)
+        Me.GroupBoxEditor.Size = New System.Drawing.Size(699, 53)
         Me.GroupBoxEditor.TabIndex = 53
         Me.GroupBoxEditor.TabStop = False
         '
@@ -135,7 +136,7 @@ Partial Class FrmAnotacoes
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cbofonte, Me.ToolStripSeparator1, Me.cbotamanho, Me.ToolStripSeparator2, Me.MudarCorBotao, Me.BtnRealcar, Me.ToolStripSeparator3, Me.BtnNegrito, Me.BtnItalico, Me.BtnSublinhado, Me.ToolStripSeparator4, Me.BtnDataHoraAgora, Me.ToolStripSeparator5, Me.BtnColar, Me.BtnCopiar, Me.ToolStripSeparator7, Me.BtnPesquisar, Me.ToolStripSeparator8, Me.BtnDesfazer, Me.BtnRefazer, Me.ToolStripSeparator6, Me.BtnEsquerda, Me.BtnCentral, Me.BtnDireita, Me.ToolStripSeparator9})
         Me.ToolStrip1.Location = New System.Drawing.Point(3, 16)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(698, 36)
+        Me.ToolStrip1.Size = New System.Drawing.Size(693, 34)
         Me.ToolStrip1.TabIndex = 11
         '
         'cbofonte
@@ -143,26 +144,26 @@ Partial Class FrmAnotacoes
         Me.cbofonte.FlatStyle = System.Windows.Forms.FlatStyle.Standard
         Me.cbofonte.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.cbofonte.Name = "cbofonte"
-        Me.cbofonte.Size = New System.Drawing.Size(201, 36)
+        Me.cbofonte.Size = New System.Drawing.Size(201, 34)
         Me.cbofonte.ToolTipText = "Escolha sua fonte do texto"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 34)
         '
         'cbotamanho
         '
         Me.cbotamanho.FlatStyle = System.Windows.Forms.FlatStyle.Standard
         Me.cbotamanho.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.cbotamanho.Name = "cbotamanho"
-        Me.cbotamanho.Size = New System.Drawing.Size(75, 36)
+        Me.cbotamanho.Size = New System.Drawing.Size(75, 34)
         Me.cbotamanho.ToolTipText = "Tamanho do texto"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 34)
         '
         'MudarCorBotao
         '
@@ -171,7 +172,7 @@ Partial Class FrmAnotacoes
         Me.MudarCorBotao.Image = CType(resources.GetObject("MudarCorBotao.Image"), System.Drawing.Image)
         Me.MudarCorBotao.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.MudarCorBotao.Name = "MudarCorBotao"
-        Me.MudarCorBotao.Size = New System.Drawing.Size(23, 33)
+        Me.MudarCorBotao.Size = New System.Drawing.Size(23, 31)
         Me.MudarCorBotao.Text = "Cores"
         Me.MudarCorBotao.ToolTipText = "Escolher Cores no texto"
         '
@@ -181,13 +182,13 @@ Partial Class FrmAnotacoes
         Me.BtnRealcar.Image = CType(resources.GetObject("BtnRealcar.Image"), System.Drawing.Image)
         Me.BtnRealcar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRealcar.Name = "BtnRealcar"
-        Me.BtnRealcar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnRealcar.Size = New System.Drawing.Size(23, 31)
         Me.BtnRealcar.Text = "Realçar texto"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 34)
         '
         'BtnNegrito
         '
@@ -196,7 +197,7 @@ Partial Class FrmAnotacoes
         Me.BtnNegrito.Image = CType(resources.GetObject("BtnNegrito.Image"), System.Drawing.Image)
         Me.BtnNegrito.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNegrito.Name = "BtnNegrito"
-        Me.BtnNegrito.Size = New System.Drawing.Size(23, 33)
+        Me.BtnNegrito.Size = New System.Drawing.Size(23, 31)
         Me.BtnNegrito.Text = "B"
         Me.BtnNegrito.ToolTipText = "Negrito"
         '
@@ -207,7 +208,7 @@ Partial Class FrmAnotacoes
         Me.BtnItalico.Image = CType(resources.GetObject("BtnItalico.Image"), System.Drawing.Image)
         Me.BtnItalico.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnItalico.Name = "BtnItalico"
-        Me.BtnItalico.Size = New System.Drawing.Size(23, 33)
+        Me.BtnItalico.Size = New System.Drawing.Size(23, 31)
         Me.BtnItalico.Text = "I"
         Me.BtnItalico.ToolTipText = "Itálico"
         '
@@ -218,14 +219,14 @@ Partial Class FrmAnotacoes
         Me.BtnSublinhado.Image = CType(resources.GetObject("BtnSublinhado.Image"), System.Drawing.Image)
         Me.BtnSublinhado.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnSublinhado.Name = "BtnSublinhado"
-        Me.BtnSublinhado.Size = New System.Drawing.Size(23, 33)
+        Me.BtnSublinhado.Size = New System.Drawing.Size(23, 31)
         Me.BtnSublinhado.Text = "S"
         Me.BtnSublinhado.ToolTipText = "Sublinhado"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 34)
         '
         'BtnDataHoraAgora
         '
@@ -233,13 +234,13 @@ Partial Class FrmAnotacoes
         Me.BtnDataHoraAgora.Image = CType(resources.GetObject("BtnDataHoraAgora.Image"), System.Drawing.Image)
         Me.BtnDataHoraAgora.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnDataHoraAgora.Name = "BtnDataHoraAgora"
-        Me.BtnDataHoraAgora.Size = New System.Drawing.Size(23, 33)
+        Me.BtnDataHoraAgora.Size = New System.Drawing.Size(23, 31)
         Me.BtnDataHoraAgora.Text = "Data e Hora Agora"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 34)
         '
         'BtnColar
         '
@@ -247,7 +248,7 @@ Partial Class FrmAnotacoes
         Me.BtnColar.Image = CType(resources.GetObject("BtnColar.Image"), System.Drawing.Image)
         Me.BtnColar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnColar.Name = "BtnColar"
-        Me.BtnColar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnColar.Size = New System.Drawing.Size(23, 31)
         Me.BtnColar.Text = "Colar"
         '
         'BtnCopiar
@@ -256,13 +257,13 @@ Partial Class FrmAnotacoes
         Me.BtnCopiar.Image = CType(resources.GetObject("BtnCopiar.Image"), System.Drawing.Image)
         Me.BtnCopiar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnCopiar.Name = "BtnCopiar"
-        Me.BtnCopiar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnCopiar.Size = New System.Drawing.Size(23, 31)
         Me.BtnCopiar.Text = "Copiar"
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 34)
         '
         'BtnPesquisar
         '
@@ -270,14 +271,14 @@ Partial Class FrmAnotacoes
         Me.BtnPesquisar.Image = CType(resources.GetObject("BtnPesquisar.Image"), System.Drawing.Image)
         Me.BtnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnPesquisar.Name = "BtnPesquisar"
-        Me.BtnPesquisar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnPesquisar.Size = New System.Drawing.Size(23, 31)
         Me.BtnPesquisar.Text = "Pesquisar"
         Me.BtnPesquisar.ToolTipText = "Localizar e Subistituir"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 34)
         '
         'BtnDesfazer
         '
@@ -285,7 +286,7 @@ Partial Class FrmAnotacoes
         Me.BtnDesfazer.Image = CType(resources.GetObject("BtnDesfazer.Image"), System.Drawing.Image)
         Me.BtnDesfazer.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnDesfazer.Name = "BtnDesfazer"
-        Me.BtnDesfazer.Size = New System.Drawing.Size(23, 33)
+        Me.BtnDesfazer.Size = New System.Drawing.Size(23, 31)
         Me.BtnDesfazer.Text = "Desfazer"
         '
         'BtnRefazer
@@ -294,13 +295,13 @@ Partial Class FrmAnotacoes
         Me.BtnRefazer.Image = CType(resources.GetObject("BtnRefazer.Image"), System.Drawing.Image)
         Me.BtnRefazer.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefazer.Name = "BtnRefazer"
-        Me.BtnRefazer.Size = New System.Drawing.Size(23, 33)
+        Me.BtnRefazer.Size = New System.Drawing.Size(23, 31)
         Me.BtnRefazer.Text = "Refazer"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 34)
         '
         'BtnEsquerda
         '
@@ -308,7 +309,7 @@ Partial Class FrmAnotacoes
         Me.BtnEsquerda.Image = CType(resources.GetObject("BtnEsquerda.Image"), System.Drawing.Image)
         Me.BtnEsquerda.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnEsquerda.Name = "BtnEsquerda"
-        Me.BtnEsquerda.Size = New System.Drawing.Size(23, 33)
+        Me.BtnEsquerda.Size = New System.Drawing.Size(23, 31)
         Me.BtnEsquerda.Text = "Organizar à esquerda"
         '
         'BtnCentral
@@ -317,7 +318,7 @@ Partial Class FrmAnotacoes
         Me.BtnCentral.Image = CType(resources.GetObject("BtnCentral.Image"), System.Drawing.Image)
         Me.BtnCentral.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnCentral.Name = "BtnCentral"
-        Me.BtnCentral.Size = New System.Drawing.Size(23, 33)
+        Me.BtnCentral.Size = New System.Drawing.Size(23, 31)
         Me.BtnCentral.Text = "Organizar no centro"
         '
         'BtnDireita
@@ -326,20 +327,20 @@ Partial Class FrmAnotacoes
         Me.BtnDireita.Image = CType(resources.GetObject("BtnDireita.Image"), System.Drawing.Image)
         Me.BtnDireita.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnDireita.Name = "BtnDireita"
-        Me.BtnDireita.Size = New System.Drawing.Size(23, 33)
+        Me.BtnDireita.Size = New System.Drawing.Size(23, 31)
         Me.BtnDireita.Text = "Organizar à direita"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 34)
         '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.lblMudaTexto)
-        Me.GroupBox2.Location = New System.Drawing.Point(149, 3)
+        Me.GroupBox2.Location = New System.Drawing.Point(155, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(651, 40)
         Me.GroupBox2.TabIndex = 56
@@ -371,9 +372,9 @@ Partial Class FrmAnotacoes
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.ButtonLimpar)
         Me.GroupBox1.Controls.Add(Me.ButtonSalvar)
-        Me.GroupBox1.Location = New System.Drawing.Point(859, 110)
+        Me.GroupBox1.Location = New System.Drawing.Point(860, 122)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(78, 104)
+        Me.GroupBox1.Size = New System.Drawing.Size(122, 137)
         Me.GroupBox1.TabIndex = 54
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Menu"
@@ -382,10 +383,12 @@ Partial Class FrmAnotacoes
         '
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonLimpar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(6, 48)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(6, 73)
         Me.ButtonLimpar.Name = "ButtonLimpar"
-        Me.ButtonLimpar.Size = New System.Drawing.Size(69, 23)
+        Me.ButtonLimpar.Size = New System.Drawing.Size(83, 47)
         Me.ButtonLimpar.TabIndex = 53
         Me.ButtonLimpar.Text = "Limpar"
         Me.ButtonLimpar.UseVisualStyleBackColor = True
@@ -394,9 +397,12 @@ Partial Class FrmAnotacoes
         '
         Me.ButtonSalvar.BackgroundImage = CType(resources.GetObject("ButtonSalvar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonSalvar.ForeColor = System.Drawing.Color.SeaGreen
         Me.ButtonSalvar.Location = New System.Drawing.Point(6, 19)
         Me.ButtonSalvar.Name = "ButtonSalvar"
-        Me.ButtonSalvar.Size = New System.Drawing.Size(69, 23)
+        Me.ButtonSalvar.Size = New System.Drawing.Size(83, 48)
         Me.ButtonSalvar.TabIndex = 51
         Me.ButtonSalvar.Text = "Salvar"
         Me.ButtonSalvar.UseVisualStyleBackColor = True
@@ -413,7 +419,7 @@ Partial Class FrmAnotacoes
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonEstadual, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonPrefeitura, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonDemais, 0, 5)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 110)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 122)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 7
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -513,32 +519,19 @@ Partial Class FrmAnotacoes
         'RichTextBoxAnotacao
         '
         Me.RichTextBoxAnotacao.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RichTextBoxAnotacao.Location = New System.Drawing.Point(149, 110)
+        Me.RichTextBoxAnotacao.Location = New System.Drawing.Point(155, 122)
         Me.RichTextBoxAnotacao.Name = "RichTextBoxAnotacao"
-        Me.RichTextBoxAnotacao.Size = New System.Drawing.Size(704, 678)
+        Me.RichTextBoxAnotacao.Size = New System.Drawing.Size(699, 666)
         Me.RichTextBoxAnotacao.TabIndex = 54
         Me.RichTextBoxAnotacao.Text = ""
-        '
-        'ButtonFechar
-        '
-        Me.ButtonFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonFechar.BackgroundImage = CType(resources.GetObject("ButtonFechar.BackgroundImage"), System.Drawing.Image)
-        Me.ButtonFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonFechar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ButtonFechar.Location = New System.Drawing.Point(875, 3)
-        Me.ButtonFechar.Name = "ButtonFechar"
-        Me.ButtonFechar.Size = New System.Drawing.Size(69, 23)
-        Me.ButtonFechar.TabIndex = 52
-        Me.ButtonFechar.Text = "Fechar"
-        Me.ButtonFechar.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.TableLayoutPanel5.ColumnCount = 3
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.52511!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.11416!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.474886!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.67513!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.8934!))
         Me.TableLayoutPanel5.Controls.Add(Me.ButtonFechar, 2, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.RichTextBoxAnotacao, 1, 2)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel2, 0, 2)
@@ -550,11 +543,11 @@ Partial Class FrmAnotacoes
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 4
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.18792!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.81208!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(947, 845)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(985, 845)
         Me.TableLayoutPanel5.TabIndex = 55
         '
         'PictureBox1
@@ -564,7 +557,7 @@ Partial Class FrmAnotacoes
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(140, 40)
+        Me.PictureBox1.Size = New System.Drawing.Size(146, 54)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
@@ -574,11 +567,26 @@ Partial Class FrmAnotacoes
         Me.AnotacoesBindingSource.DataMember = "Anotacoes"
         Me.AnotacoesBindingSource.DataSource = Me.PrinceDBDataSet
         '
+        'ButtonFechar
+        '
+        Me.ButtonFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonFechar.BackColor = System.Drawing.Color.Transparent
+        Me.ButtonFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.ButtonFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonFechar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ButtonFechar.Location = New System.Drawing.Point(860, 3)
+        Me.ButtonFechar.Name = "ButtonFechar"
+        Me.ButtonFechar.Size = New System.Drawing.Size(122, 54)
+        Me.ButtonFechar.TabIndex = 52
+        Me.ButtonFechar.UseVisualStyleBackColor = False
+        '
         'FrmAnotacoes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(947, 845)
+        Me.ClientSize = New System.Drawing.Size(985, 845)
         Me.Controls.Add(Me.TableLayoutPanel5)
         Me.KeyPreview = True
         Me.Name = "FrmAnotacoes"
@@ -638,7 +646,6 @@ Partial Class FrmAnotacoes
     Friend WithEvents ButtonPrefeitura As Button
     Friend WithEvents ButtonDemais As Button
     Friend WithEvents RichTextBoxAnotacao As RichTextBox
-    Friend WithEvents ButtonFechar As Button
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents AnotacoesBindingSource As BindingSource
     Friend WithEvents BtnPesquisar As ToolStripButton
@@ -654,4 +661,5 @@ Partial Class FrmAnotacoes
     Friend WithEvents BtnCentral As ToolStripButton
     Friend WithEvents BtnDireita As ToolStripButton
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ButtonFechar As Button
 End Class

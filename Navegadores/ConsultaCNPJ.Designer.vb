@@ -36,7 +36,7 @@ Partial Class ConsultaCNPJ
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.TxtCarregar = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.LblStatusCarregamento = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.ToolStrip1.SuspendLayout()
@@ -110,29 +110,32 @@ Partial Class ConsultaCNPJ
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.TxtCarregar})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.LblStatusCarregamento})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(647, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(647, 25)
         Me.StatusStrip1.TabIndex = 15
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
+        Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(39, 17)
-        Me.ToolStripStatusLabel1.Text = "Status"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(56, 20)
+        Me.ToolStripStatusLabel1.Text = "Status :"
         '
         'ProgressBar1
         '
+        Me.ProgressBar1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(100, 16)
+        Me.ProgressBar1.Size = New System.Drawing.Size(100, 19)
         '
-        'TxtCarregar
+        'LblStatusCarregamento
         '
-        Me.TxtCarregar.Name = "TxtCarregar"
-        Me.TxtCarregar.Size = New System.Drawing.Size(112, 17)
-        Me.TxtCarregar.Text = "Esperando Conexão"
+        Me.LblStatusCarregamento.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblStatusCarregamento.Name = "LblStatusCarregamento"
+        Me.LblStatusCarregamento.Size = New System.Drawing.Size(141, 20)
+        Me.LblStatusCarregamento.Text = "Esperando Conexão"
         '
         'TableLayoutPanel1
         '
@@ -146,7 +149,7 @@ Partial Class ConsultaCNPJ
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.542056!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.45795!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(647, 428)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(647, 425)
         Me.TableLayoutPanel1.TabIndex = 16
         '
         'WebView21
@@ -155,9 +158,9 @@ Partial Class ConsultaCNPJ
         Me.WebView21.CreationProperties = Nothing
         Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
         Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebView21.Location = New System.Drawing.Point(3, 31)
+        Me.WebView21.Location = New System.Drawing.Point(3, 30)
         Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(641, 394)
+        Me.WebView21.Size = New System.Drawing.Size(641, 392)
         Me.WebView21.TabIndex = 8
         Me.WebView21.ZoomFactor = 1.0R
         '
@@ -193,7 +196,7 @@ Partial Class ConsultaCNPJ
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ProgressBar1 As ToolStripProgressBar
-    Friend WithEvents TxtCarregar As ToolStripStatusLabel
+    Friend WithEvents LblStatusCarregamento As ToolStripStatusLabel
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents ToolStripButton1 As ToolStripButton

@@ -43,19 +43,13 @@
         ComboBox1.SelectedIndex = 0
 
 
-    End Sub
-
-    Private Sub WebBrowser1_ProgressChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.WebBrowserProgressChangedEventArgs)
-
-        'barra de progresso para WebView2
-        ProgressBar1.Maximum = e.MaximumProgress
-        ProgressBar1.Value = e.CurrentProgress
-        'mostrar no Label5 o progresso da pagina
-        Label5.Text = e.CurrentProgress & " %"
-
 
 
     End Sub
+
+
+
+
     Private Sub MudaCombo()
         Dim MesExtenso As String = MonthName(MesBox.Text)
         Dim Ano As String = AnoBox.Text
@@ -68,30 +62,25 @@
             'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-2022/julho-2022
             WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "")
             WebView2.Refresh()
-            TextBox1.Text = WebView2.Source.ToString
 
         ElseIf ComboBox1.Text = "Agenda para o Dia: " & Dia & " de " & MesExtenso & " de " & Ano Then
             WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/dia-" & Dia & "-" & Mes & "-" & Ano & "")
             WebView2.Refresh()
-            TextBox1.Text = WebView2.Source.ToString
 
         ElseIf ComboBox1.Text = "Vencimentos diários" Then
             'WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/diario")
             WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/diario")
             WebView2.Refresh()
-            TextBox1.Text = WebView2.Source.ToString
 
         ElseIf ComboBox1.Text = "Vencimentos sem dia específico" Then
             ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/outros-vencimentos")
             WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/vencimentos-sem-dia-especifico")
             WebView2.Refresh()
-            TextBox1.Text = WebView2.Source.ToString
 
         ElseIf ComboBox1.Text = "Prazo de entrega de declarações (obrigações acessórias)" Then
             ' WebBrowser1.Navigate("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & AnoBox.Text & "/" & CleanText(Mes) & "-" & AnoBox.Text & "/declaracoes-demonstrativos-e-documentos")
             WebView2.Source = New Uri("https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-" & Ano & "/" & MesExtenso & "-" & Ano & "/declaracoes-demonstrativos-e-documentos")
             WebView2.Refresh()
-            TextBox1.Text = WebView2.Source.ToString
 
         End If
 
@@ -132,9 +121,28 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'atualiza a pagina
-        WebView2.Refresh()
+    Private Sub WebView2_NavigationStarting(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs) Handles WebView2.NavigationStarting
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = True
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregando..."
+
+        'mostrar ProgressBar1 colorido
+        ProgressBar1.Style = ProgressBarStyle.Marquee
+        ProgressBar1.MarqueeAnimationSpeed = 30
+        ProgressBar1.Maximum = 100
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Value = 0
+        ProgressBar1.Step = 1
+
+
+    End Sub
+
+    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView2.NavigationCompleted
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregamento Completo"
 
     End Sub
 End Class

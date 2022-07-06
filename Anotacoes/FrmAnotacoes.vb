@@ -392,4 +392,6 @@ Public Class FrmAnotacoes
         RichTextBoxAnotacao.Clear()
 
     End Sub
+
+
 End Class
