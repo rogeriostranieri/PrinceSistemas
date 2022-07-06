@@ -36,13 +36,6 @@ Public Class ConsultaCNPJ
 
     End Sub
 
-    Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
-        'buscar text "NOME EMPRESARIAL" e mostrar por menssagem
-
-    End Sub
-
-    Private Sub PegarDados()
 
 
-    End Sub
 End Class

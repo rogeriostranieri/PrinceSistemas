@@ -34,6 +34,7 @@ Partial Class MDIPrincipal
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContadorToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SóciosGeralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControleLegalizaçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlvaráToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,7 +88,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.SóciosGeralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TESTEToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -97,10 +98,10 @@ Partial Class MDIPrincipal
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.White
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.TESTEToolStripMenuItem1})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(984, 25)
+        Me.MenuStrip.Size = New System.Drawing.Size(1050, 25)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -158,6 +159,12 @@ Partial Class MDIPrincipal
         Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
         Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
         Me.TESTEToolStripMenuItem.Text = "Sócios"
+        '
+        'SóciosGeralToolStripMenuItem
+        '
+        Me.SóciosGeralToolStripMenuItem.Name = "SóciosGeralToolStripMenuItem"
+        Me.SóciosGeralToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.SóciosGeralToolStripMenuItem.Text = "Sócios Geral"
         '
         'EmpresasToolStripMenuItem
         '
@@ -417,7 +424,7 @@ Partial Class MDIPrincipal
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3, Me.ToolStripSeparator7, Me.ToolStripButton4, Me.ToolStripSeparator5, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripButton6, Me.LbTema, Me.ToolStripLabel1, Me.ToolStripSeparator9})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(984, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(1050, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -530,7 +537,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.StatusStrip.Size = New System.Drawing.Size(984, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1050, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -541,18 +548,18 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
         '
-        'SóciosGeralToolStripMenuItem
+        'TESTEToolStripMenuItem1
         '
-        Me.SóciosGeralToolStripMenuItem.Name = "SóciosGeralToolStripMenuItem"
-        Me.SóciosGeralToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SóciosGeralToolStripMenuItem.Text = "Sócios Geral"
+        Me.TESTEToolStripMenuItem1.Name = "TESTEToolStripMenuItem1"
+        Me.TESTEToolStripMenuItem1.Size = New System.Drawing.Size(55, 21)
+        Me.TESTEToolStripMenuItem1.Text = "TESTE"
         '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(984, 453)
+        Me.ClientSize = New System.Drawing.Size(1050, 453)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
@@ -636,4 +643,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
     Friend WithEvents TESTEToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SóciosGeralToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TESTEToolStripMenuItem1 As ToolStripMenuItem
 End Class

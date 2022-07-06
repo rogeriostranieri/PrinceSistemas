@@ -32,7 +32,6 @@ Partial Class ConsultaCNPJ
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.BtnExportar = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
@@ -52,11 +51,11 @@ Partial Class ConsultaCNPJ
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.ToolStripLabel4, Me.ToolStripButton1, Me.BtnExportar})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.ToolStripLabel4, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(647, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(910, 25)
         Me.ToolStrip1.TabIndex = 7
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -99,21 +98,12 @@ Partial Class ConsultaCNPJ
         Me.ToolStripButton1.Size = New System.Drawing.Size(62, 22)
         Me.ToolStripButton1.Text = "Fechar"
         '
-        'BtnExportar
-        '
-        Me.BtnExportar.Image = CType(resources.GetObject("BtnExportar.Image"), System.Drawing.Image)
-        Me.BtnExportar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnExportar.Name = "BtnExportar"
-        Me.BtnExportar.Size = New System.Drawing.Size(71, 22)
-        Me.BtnExportar.Text = "Exportar"
-        Me.BtnExportar.ToolTipText = "Exportar"
-        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.LblStatusCarregamento})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(647, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(910, 25)
         Me.StatusStrip1.TabIndex = 15
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -149,7 +139,7 @@ Partial Class ConsultaCNPJ
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.542056!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.45795!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(647, 425)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(910, 425)
         Me.TableLayoutPanel1.TabIndex = 16
         '
         'WebView21
@@ -160,7 +150,7 @@ Partial Class ConsultaCNPJ
         Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView21.Location = New System.Drawing.Point(3, 30)
         Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(641, 392)
+        Me.WebView21.Size = New System.Drawing.Size(904, 392)
         Me.WebView21.TabIndex = 8
         Me.WebView21.ZoomFactor = 1.0R
         '
@@ -168,7 +158,7 @@ Partial Class ConsultaCNPJ
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(647, 450)
+        Me.ClientSize = New System.Drawing.Size(910, 450)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -201,6 +191,5 @@ Partial Class ConsultaCNPJ
     Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents BtnExportar As ToolStripButton
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class

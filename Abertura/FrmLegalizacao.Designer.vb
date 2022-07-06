@@ -1409,7 +1409,7 @@ Partial Class FrmLegalizacao
         Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RazaoSocial", True))
         Me.RazaoSocialTextBox.Location = New System.Drawing.Point(99, 69)
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(433, 20)
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(528, 20)
         Me.RazaoSocialTextBox.TabIndex = 2
         '
         'NomeFantasiaTextBox
@@ -3867,6 +3867,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(212, 41)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(61, 22)
@@ -4026,7 +4027,7 @@ Partial Class FrmLegalizacao
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(533, 72)
+        Me.Label4.Location = New System.Drawing.Point(65, 152)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(32, 13)
         Me.Label4.TabIndex = 31
@@ -4047,10 +4048,10 @@ Partial Class FrmLegalizacao
         Me.PorteDaEmpresaComboBox.Cursor = System.Windows.Forms.Cursors.Default
         Me.PorteDaEmpresaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PorteDaEmpresa", True))
         Me.PorteDaEmpresaComboBox.FormattingEnabled = True
-        Me.PorteDaEmpresaComboBox.Items.AddRange(New Object() {"ME", "EPP", "Demais", "Outros", "-"})
-        Me.PorteDaEmpresaComboBox.Location = New System.Drawing.Point(567, 68)
+        Me.PorteDaEmpresaComboBox.Items.AddRange(New Object() {"Microempresa", "Empresa de Pequeno Porte", "Demais", "Outros"})
+        Me.PorteDaEmpresaComboBox.Location = New System.Drawing.Point(99, 148)
         Me.PorteDaEmpresaComboBox.Name = "PorteDaEmpresaComboBox"
-        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(195, 21)
         Me.PorteDaEmpresaComboBox.TabIndex = 29
         '
         'RegimeFederalComboBox

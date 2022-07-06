@@ -22,13 +22,19 @@ Partial Class BoxConsultaCNPJEmpresa
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.BtnExterno = New System.Windows.Forms.Button()
         Me.BtnInterno = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnImportar = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -41,7 +47,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(107, 113)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(221, 113)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -100,6 +106,38 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Deseja abrir a consulta CNPJ..."
         '
+        'BtnImportar
+        '
+        Me.BtnImportar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportar.Location = New System.Drawing.Point(258, 56)
+        Me.BtnImportar.Name = "BtnImportar"
+        Me.BtnImportar.Size = New System.Drawing.Size(117, 50)
+        Me.BtnImportar.TabIndex = 4
+        Me.BtnImportar.Text = "Importar Dados"
+        Me.BtnImportar.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(258, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Label2"
+        '
+        'WebView21
+        '
+        Me.WebView21.AllowExternalDrop = True
+        Me.WebView21.CreationProperties = Nothing
+        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView21.Location = New System.Drawing.Point(12, 119)
+        Me.WebView21.Name = "WebView21"
+        Me.WebView21.Size = New System.Drawing.Size(75, 23)
+        Me.WebView21.TabIndex = 6
+        Me.WebView21.ZoomFactor = 1.0R
+        '
         'BoxConsultaCNPJEmpresa
         '
         Me.AcceptButton = Me.OK_Button
@@ -108,7 +146,10 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(265, 154)
+        Me.ClientSize = New System.Drawing.Size(379, 154)
+        Me.Controls.Add(Me.WebView21)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
@@ -121,6 +162,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta CNPJ - Prince Sistemas"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -131,4 +173,8 @@ Partial Class BoxConsultaCNPJEmpresa
     Friend WithEvents BtnExterno As Button
     Friend WithEvents BtnInterno As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents BtnImportar As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label2 As Label
+    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class
