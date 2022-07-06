@@ -84,6 +84,14 @@ Public Class BoxConsultaCNPJEmpresa
         If atividades_secundarias.Count > 0 Then
             atividades_secundarias_code = atividades_secundarias(0).Item("code").ToString
             atividades_secundarias_text = atividades_secundarias(0).Item("text").ToString
+
+            'pegar todas as atividades secundárias texto e código
+            For i = 1 To atividades_secundarias.Count - 1
+                atividades_secundarias_code = atividades_secundarias_code + vbCrLf + atividades_secundarias(i).Item("code").ToString
+                atividades_secundarias_text = atividades_secundarias_text + "," + atividades_secundarias(i).Item("text").ToString
+            Next
+
+
         End If
 
 
@@ -142,10 +150,41 @@ Public Class BoxConsultaCNPJEmpresa
         'RAMO DE ATIVIDADE //////////////////////////////////////////////////
 
         'CNAEPrincipalTextBox e CNAESecundarioRichTextBox
-        FrmLegalizacao.CNAEPrincipalTextBox.Text = atividade_principal_code
-        FrmLegalizacao.CNAESecundarioRichTextBox.Text = atividades_secundarias_text
+
+        'atividade_principal_code_str apenas numeros
+        Dim atividade_principal_code_str As String = atividade_principal_code.Replace(".", "")
+        Dim atividade_principal_code_str_2 As String = atividade_principal_code_str.Replace("-", "")
+
+        'atividade_principal_code_str_2 0000000 para formato 9999-9/99
+        Dim atividade_principal_code_str_3 As String = atividade_principal_code_str_2.Insert(4, "-")
+        Dim atividade_principal_code_str_4 As String = atividade_principal_code_str_3.Insert(6, "/")
+        FrmLegalizacao.CNAEPrincipalTextBox.Text = atividade_principal_code_str_4
 
 
+        'atividades_secundarias_code apenas numeros de cada vbCrLf
+
+
+        Dim atividades_secundarias_code_str As String = atividades_secundarias_code.Replace(".", "")
+        Dim atividades_secundarias_code_str_2 As String = atividades_secundarias_code_str.Replace("-", "")
+
+        'atividades_secundarias_code_str_2 0000000 para formato 9999-9/99
+        Dim atividades_secundarias_code_str_3 As String = atividades_secundarias_code_str_2.Insert(4, "-")
+        Dim atividades_secundarias_code_str_4 As String = atividades_secundarias_code_str_3.Insert(6, "/")
+
+        'nova linha após 9999-9/99
+        Dim atividades_secundarias_code_str_5 As String = atividades_secundarias_code_str_4 + vbCrLf
+
+
+
+
+
+
+
+
+        'verificar se tem texto dentro RamoDeAtividadeRichTextBox, se nao tiver, preencher com atividade_principal_text + atividades_secundarias_text
+        If FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = "" Then
+            FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = atividade_principal_text + vbCrLf + "; " + atividades_secundarias_text + vbCrLf + "; "
+        End If
 
 
         'FINALIZAR //////////////////////////////////////////////////
