@@ -52,6 +52,10 @@ Public Class BoxConsultaCNPJEmpresa
         Dim data_abertura As String = json_obj.Item("abertura").ToString
         Dim fantasia As String = json_obj.Item("fantasia").ToString
         Dim porte As String = json_obj.Item("porte").ToString
+        'verificar se for MICRO EMPRESA mudar para Microempresa
+        If porte = "MICRO EMPRESA" Then
+            porte = "Microempresa"
+        End If
         Dim logradouro As String = json_obj.Item("logradouro").ToString
         Dim numero As String = json_obj.Item("numero").ToString
         Dim complemento As String = json_obj.Item("complemento").ToString
@@ -65,6 +69,9 @@ Public Class BoxConsultaCNPJEmpresa
         Dim capital_social_str As String = capital_social.Replace(".", ",")
         Dim capital_social_str_2 As String = capital_social_str.Replace("R$", "")
 
+
+        '//////////////////////////////// ATIVIDADE PRINCIPAL ///////////////////////////////////////
+
         ' "atividade_principal" object Atividade Principal
         ' code String Código da atividade principal
         ' text String Descrição da atividade principal
@@ -73,6 +80,10 @@ Public Class BoxConsultaCNPJEmpresa
         Dim atividade_principal_code As String = atividade_principal(0).Item("code").ToString
         Dim atividade_principal_text As String = atividade_principal(0).Item("text").ToString
 
+
+
+
+        '//////////////////////////////// ATIVIDADE SECUNDÁRIA ///////////////////////////////////////
         ' "atividades_secundarias" object Atividades Secundárias
         ' code String Código da atividade secundária
         ' text String Descrição da atividade secundária
@@ -81,18 +92,37 @@ Public Class BoxConsultaCNPJEmpresa
         Dim atividades_secundarias As Newtonsoft.Json.Linq.JArray = json_obj.Item("atividades_secundarias")
         Dim atividades_secundarias_code As String = ""
         Dim atividades_secundarias_text As String = ""
+
         If atividades_secundarias.Count > 0 Then
-            atividades_secundarias_code = atividades_secundarias(0).Item("code").ToString
+            atividades_secundarias_code = atividades_secundarias(0).Item("code").ToString.ToString.Replace("-", "").Replace(".", "").Insert(4, "-").Insert(6, "/")
             atividades_secundarias_text = atividades_secundarias(0).Item("text").ToString
 
             'pegar todas as atividades secundárias texto e código
             For i = 1 To atividades_secundarias.Count - 1
-                atividades_secundarias_code = atividades_secundarias_code + vbCrLf + atividades_secundarias(i).Item("code").ToString
-                atividades_secundarias_text = atividades_secundarias_text + "," + atividades_secundarias(i).Item("text").ToString
+                'NOVA LINHA atividades_secundarias_code = atividades_secundarias_code + vbCrLf + atividades_secundarias(i).Item("code").ToString
+                ' atividades_secundarias_text = atividades_secundarias_text + vbNewLine + atividades_secundarias(i).Item("text").ToString
+                '  'apenas numeros e mudar formato para 9999-9/99
+                atividades_secundarias_code = atividades_secundarias_code + vbNewLine + atividades_secundarias(i).Item("code").ToString.Replace("-", "").Replace(".", "").Insert(4, "-").Insert(6, "/")
+                atividades_secundarias_text = atividades_secundarias_text + vbNewLine + atividades_secundarias(i).Item("text").ToString
+                'para cada CODE colocar no formato 9999-9/99
+                ' atividades_secundarias_code = atividades_secundarias_code.Replace("-", "").Replace(".", "")
+                'atividades_secundarias_code = atividades_secundarias_code.Insert(4, "-").Insert(6, "/")
+
             Next
 
-
         End If
+
+
+
+        '////// FIM DO CODIGO DO CNAE ///////
+
+
+
+
+
+
+
+
 
 
 
@@ -160,22 +190,8 @@ Public Class BoxConsultaCNPJEmpresa
         Dim atividade_principal_code_str_4 As String = atividade_principal_code_str_3.Insert(6, "/")
         FrmLegalizacao.CNAEPrincipalTextBox.Text = atividade_principal_code_str_4
 
-
-        'atividades_secundarias_code apenas numeros de cada vbCrLf
-
-
-        Dim atividades_secundarias_code_str As String = atividades_secundarias_code.Replace(".", "")
-        Dim atividades_secundarias_code_str_2 As String = atividades_secundarias_code_str.Replace("-", "")
-
-        'atividades_secundarias_code_str_2 0000000 para formato 9999-9/99
-        Dim atividades_secundarias_code_str_3 As String = atividades_secundarias_code_str_2.Insert(4, "-")
-        Dim atividades_secundarias_code_str_4 As String = atividades_secundarias_code_str_3.Insert(6, "/")
-
-        'nova linha após 9999-9/99
-        Dim atividades_secundarias_code_str_5 As String = atividades_secundarias_code_str_4 + vbCrLf
-
-
-
+        'Atividade secundaria FrmLegalizacao.CNAESecundarioRichTextBox.Text CODE
+        FrmLegalizacao.CNAESecundarioRichTextBox.Text = atividades_secundarias_code
 
 
 
