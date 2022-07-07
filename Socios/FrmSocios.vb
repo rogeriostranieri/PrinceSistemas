@@ -17,6 +17,7 @@
 
         TextBoxExtensoDN.Visible = False
 
+
     End Sub
 
     Private Sub BloquearEdicao()
@@ -166,12 +167,15 @@
         EstadoCivil()
     End Sub
 
-    Private Sub BtnExtensoDN_Click(sender As Object, e As EventArgs) Handles BtnExtensoDN.Click
+    Private Sub DataDeNascExtenso()
         Dim DataDeNascimento As String = DatadeNascMaskedTextBox.Text
         Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dd 'de' MMMM 'de' yyyy")
         'TextBoxExtensoDN
         TextBoxExtensoDN.Visible = True
         TextBoxExtensoDN.Text = DataDeNascimentoFormatada
+    End Sub
+    Private Sub BtnExtensoDN_Click(sender As Object, e As EventArgs) Handles BtnExtensoDN.Click
+        DataDeNascExtenso()
     End Sub
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
@@ -225,134 +229,142 @@
 
     Private Sub AddSocios()
         Try
-            'ativar TabControle 1
-            FrmLegalizacao.TabControl1.SelectedIndex = 1
+            If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
 
-            'aativar TabControl2 0
-            FrmLegalizacao.TabControl2.SelectedIndex = 1
+                'ativar TabControle 1
+                FrmLegalizacao.TabControl1.SelectedIndex = 1
 
-
-            'Dados
-            Dim CPF As String = CPFMaskedTextBox.Text
-            Dim NomeCompleto As String = NomeCompletoTextBox.Text
-            Dim NomeDaMae As String = NomeMaeTextBox.Text
-            Dim NomeDaPai As String = NomePaiTextBox.Text
-
-            'clicar no BtnExtensoDN
-            BtnExtensoDN.PerformClick()
-            Dim DataDeNascimento As String = TextBoxExtensoDN.Text
+                'aativar TabControl2 0
+                FrmLegalizacao.TabControl2.SelectedIndex = 1
 
 
-            Dim RG As String = RGTextBox.Text
-            Dim OrgaoRG As String = OrgaoRGTextBox.Text
-            Dim EstadoRG As String = EstadoRGTextBox.Text
-            Dim SenhaGOV As String = SenhaGOVTextBox.Text
-            Dim TituloDeEleitor As String = TituloDeEleitorTextBox.Text
-            Dim CNH As String = CNHTextBox.Text
-            Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
-            Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
-            Dim EstadoCivil As String = CivilComboBox.Text
-            Dim Empresario As String
-            Dim Genero As String = GeneroComboBox.Text
-            Dim domiciliado As String
+                'Dados
+                Dim CPF As String = CPFMaskedTextBox.Text
+                Dim NomeCompleto As String = NomeCompletoTextBox.Text
+                Dim NomeDaMae As String = NomeMaeTextBox.Text
+                Dim NomeDaPai As String = NomePaiTextBox.Text
 
-            'endereço
-            Dim RUA As String = RUATextBox.Text
-            Dim N As String = NumTextBox.Text
-            Dim Compl As String = ComplementoTextBox.Text
-            Dim Bairro As String = BairroTextBox.Text
-            Dim CEP As String = CEPMaskedTextBox.Text
-            Dim Cidade As String = CidadeTextBox.Text
-            Dim Estado As String = EstadoTextBox.Text
-            Dim Portador As String
+                'clicar no BtnExtensoDN
+                DataDeNascExtenso()
+                Dim DataDeNascimento As String = TextBoxExtensoDN.Text
 
 
-            'verificar se está no masculino ou feminio no campo GeneroComboBox
-            If Genero = "Masculino" Then
-                'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
-                EstadoCivil = "Solteiro"
-                Empresario = "empresario"
-                domiciliado = "domiciliado"
-                Portador = "portador"
-            ElseIf Genero = "Feminino" Then
-                EstadoCivil = "Solteira"
-                Empresario = "empresaria"
-                domiciliado = "domiciliada"
-                Portador = "portadora"
-            End If
+                Dim RG As String = RGTextBox.Text
+                Dim OrgaoRG As String = OrgaoRGTextBox.Text
+                Dim EstadoRG As String = EstadoRGTextBox.Text
+                Dim SenhaGOV As String = SenhaGOVTextBox.Text
+                Dim TituloDeEleitor As String = TituloDeEleitorTextBox.Text
+                Dim CNH As String = CNHTextBox.Text
+                Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
+                Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
+                Dim EstadoCivil As String = CivilComboBox.Text
+                Dim Empresario As String
+                Dim Genero As String = GeneroComboBox.Text
+                Dim domiciliado As String
+
+                'endereço
+                Dim RUA As String = RUATextBox.Text
+                'primeira letra da RUA em minusculo
+                Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+                Dim N As String = NumTextBox.Text
+                Dim Compl As String = ComplementoTextBox.Text
+                Dim Bairro As String = BairroTextBox.Text
+                Dim CEP As String = CEPMaskedTextBox.Text
+                Dim Cidade As String = CidadeTextBox.Text
+                Dim Estado As String = EstadoTextBox.Text
+                Dim Portador As String
+                Dim Brasileiro As String
 
 
-            '
+                'verificar se está no masculino ou feminio no campo GeneroComboBox
+                If Genero = "Masculino" Then
+                    'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
+                    EstadoCivil = "solteiro"
+                    Empresario = "empresario"
+                    domiciliado = "domiciliado"
+                    Portador = "portador"
+                    Brasileiro = "brasileiro"
+
+                ElseIf Genero = "Feminino" Then
+                    EstadoCivil = "solteira"
+                    Empresario = "empresaria"
+                    domiciliado = "domiciliada"
+                    Portador = "portadora"
+                    Brasileiro = "brasileira"
+
+                End If
 
 
-            'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
-            If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
-                MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
+                '
+
+
+                'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
+                If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
+                    MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
 
 
 
 
-                If MsgBox("Deseja adicionar o novo cadastro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                    'procurar o CPF no FrmLegalizacao.DadosSociosRichTextBox
-                    Dim Posição As Integer = FrmLegalizacao.DadosSociosRichTextBox.Find(CPF)
-                    'Novos dados na linha de baixo
-                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
+                    If MsgBox("Deseja adicionar o novo cadastro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                        'procurar o CPF no FrmLegalizacao.DadosSociosRichTextBox
+                        Dim Posição As Integer = FrmLegalizacao.DadosSociosRichTextBox.Find(CPF)
+                        'Novos dados na linha de baixo
+                        FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
 
-                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
+                        FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
 
 Novos dados:" + " 
 
-" & NomeCompleto & ", brasileiro, " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
-
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 
 " + vbCrLf)
 
 
-                End If
+                    End If
 
-            Else
-
-
-
-                'Contagem de Socios
-                If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
-                    FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
                 Else
-                    FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
-                End If
-
-                Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
 
 
 
-                'com complemento
-                If Compl = "" Then
-                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
+                    'Contagem de Socios
+                    If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
+                        FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
+                    Else
+                        FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
+                    End If
 
-" & NomeCompleto & ", brasileiro, " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+                    Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
 
 
-//////////////////////////////////////////////////////////////////////
-"
-                Else ' Sem complemento
-                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", brasileiro, " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA & ", " & N & ", " & Compl & "," & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+                    'com complemento
+                    If Compl = "" Then
+                        FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
+    " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 
 //////////////////////////////////////////////////////////////////////
 "
+                    Else ' Sem complemento
+                        FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
+    " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
+
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+
+//////////////////////////////////////////////////////////////////////
+"
+                    End If
+
                 End If
+
+                'Focar na frente o FrmLegalizacao
+                FrmLegalizacao.Focus()
+                FrmLegalizacao.DadosSociosRichTextBox.Focus()
+
+                Me.Close()
 
             End If
-
-            'Focar na frente o FrmLegalizacao
-            FrmLegalizacao.Focus()
-            FrmLegalizacao.DadosSociosRichTextBox.Focus()
-
-            Me.Close()
 
         Catch ex As Exception
             MsgBox(ex.Message)

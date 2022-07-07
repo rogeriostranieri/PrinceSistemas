@@ -35,7 +35,21 @@ Public Class Login
                         MDIPrincipal.Show()
                         Me.Hide()
                     Else
-                        MessageBox.Show("Usuário ou Senha incorreta!")
+                        '  MessageBox.Show("Usuário ou Senha incorreta!")
+                        'verificar se é senha ou login incorreto
+                        Dim sql2 As String = "select count(*) from Login where Usuario=@Usuario"
+                        Using Conn2 As New SqlConnection(str)
+                            Using cmd2 As New SqlCommand(sql2, Conn2)
+                                Conn2.Open()
+                                cmd2.Parameters.AddWithValue("@Usuario", txtUsername.Text)
+                                Dim value2 = cmd2.ExecuteScalar()
+                                If value2 > 0 Then
+                                    MessageBox.Show("Senha incorreta!")
+                                Else
+                                    MessageBox.Show("Usuário não existe!")
+                                End If
+                            End Using
+                        End Using
                     End If
                 End Using
 

@@ -89,8 +89,6 @@ Partial Class FrmSocios
         Me.EMailTextBox = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
-        Me.BtnAddSocios = New System.Windows.Forms.Button()
-        Me.BtnExportar = New System.Windows.Forms.Button()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
         Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
@@ -109,6 +107,9 @@ Partial Class FrmSocios
         Me.BtnSalvar = New System.Windows.Forms.PictureBox()
         Me.BtnNovo = New System.Windows.Forms.PictureBox()
         Me.BtnFechar = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnAddSocios = New System.Windows.Forms.Button()
+        Me.BtnExportar = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
@@ -152,6 +153,7 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'CPFLabel
@@ -702,20 +704,20 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.BtnFechar, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 3)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 3
+        Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.68182!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.31818!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 330.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 446)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 328.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 496)
         Me.TableLayoutPanel1.TabIndex = 51
         '
         'GroupBoxOutrosDados
         '
-        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAddSocios)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnExportar)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
         Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
         Me.GroupBoxOutrosDados.Controls.Add(Me.EMailTextBox)
@@ -741,36 +743,12 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.Controls.Add(Me.CEPMaskedTextBox)
         Me.GroupBoxOutrosDados.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(550, 118)
+        Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(550, 131)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(514, 325)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(514, 322)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
-        '
-        'BtnAddSocios
-        '
-        Me.BtnAddSocios.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnAddSocios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAddSocios.Location = New System.Drawing.Point(21, 296)
-        Me.BtnAddSocios.Name = "BtnAddSocios"
-        Me.BtnAddSocios.Size = New System.Drawing.Size(184, 23)
-        Me.BtnAddSocios.TabIndex = 53
-        Me.BtnAddSocios.Text = "Adicionar Sócios em Empresas"
-        Me.BtnAddSocios.UseVisualStyleBackColor = False
-        '
-        'BtnExportar
-        '
-        Me.BtnExportar.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnExportar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnExportar.Location = New System.Drawing.Point(21, 270)
-        Me.BtnExportar.Name = "BtnExportar"
-        Me.BtnExportar.Size = New System.Drawing.Size(184, 23)
-        Me.BtnExportar.TabIndex = 52
-        Me.BtnExportar.Text = "Exportar Responsavel da Federal"
-        Me.BtnExportar.UseVisualStyleBackColor = False
         '
         'BtnCorreios
         '
@@ -819,9 +797,9 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CPFMaskedTextBox)
         Me.GroupBoxDadosPessoais.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 118)
+        Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 131)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(541, 325)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(541, 322)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -861,7 +839,7 @@ Partial Class FrmSocios
         Me.Label1.ForeColor = System.Drawing.Color.Blue
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(541, 64)
+        Me.Label1.Size = New System.Drawing.Size(541, 71)
         Me.Label1.TabIndex = 54
         Me.Label1.Text = "DADOS CADASTRAIS DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -874,9 +852,9 @@ Partial Class FrmSocios
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 67)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 74)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(541, 45)
+        Me.GroupBox3.Size = New System.Drawing.Size(541, 51)
         Me.GroupBox3.TabIndex = 55
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Localizar Sócio"
@@ -935,9 +913,9 @@ Partial Class FrmSocios
         Me.GroupBox1.Controls.Add(Me.BtnNovo)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(550, 67)
+        Me.GroupBox1.Location = New System.Drawing.Point(550, 74)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(514, 45)
+        Me.GroupBox1.Size = New System.Drawing.Size(514, 51)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -1010,10 +988,47 @@ Partial Class FrmSocios
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFechar.Location = New System.Drawing.Point(918, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(146, 58)
+        Me.BtnFechar.Size = New System.Drawing.Size(146, 65)
         Me.BtnFechar.TabIndex = 57
         Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BtnFechar.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
+        Me.GroupBox2.Controls.Add(Me.BtnExportar)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 459)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(541, 34)
+        Me.GroupBox2.TabIndex = 58
+        Me.GroupBox2.TabStop = False
+        '
+        'BtnAddSocios
+        '
+        Me.BtnAddSocios.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnAddSocios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddSocios.Location = New System.Drawing.Point(220, 5)
+        Me.BtnAddSocios.Name = "BtnAddSocios"
+        Me.BtnAddSocios.Size = New System.Drawing.Size(200, 23)
+        Me.BtnAddSocios.TabIndex = 53
+        Me.BtnAddSocios.Text = "Exportar cadastro do Sócio"
+        Me.BtnAddSocios.UseVisualStyleBackColor = False
+        '
+        'BtnExportar
+        '
+        Me.BtnExportar.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnExportar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExportar.Location = New System.Drawing.Point(4, 5)
+        Me.BtnExportar.Name = "BtnExportar"
+        Me.BtnExportar.Size = New System.Drawing.Size(210, 23)
+        Me.BtnExportar.TabIndex = 52
+        Me.BtnExportar.Text = "Exportar Responsavel da Federal"
+        Me.BtnExportar.UseVisualStyleBackColor = False
         '
         'SociosTableAdapter
         '
@@ -1045,7 +1060,7 @@ Partial Class FrmSocios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1067, 471)
+        Me.ClientSize = New System.Drawing.Size(1067, 521)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.SociosBindingNavigator)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1073,6 +1088,7 @@ Partial Class FrmSocios
         CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1140,4 +1156,5 @@ Partial Class FrmSocios
     Friend WithEvents CPFComboBox As ComboBox
     Friend WithEvents BtnExportar As Button
     Friend WithEvents BtnAddSocios As Button
+    Friend WithEvents GroupBox2 As GroupBox
 End Class
