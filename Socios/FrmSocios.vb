@@ -350,5 +350,20 @@ Novos dados:" + "
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         AddSocios()
     End Sub
+    Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
+
+    'ao fechar PrinceDBDataSet.Socios.GetChanges() verificar se teve alterações
+    Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Me.PrinceDBDataSet.HasChanges Then
+            If MsgBox("Deseja salvar as alterações?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                Me.Validate()
+                Me.SociosBindingSource.EndEdit()
+                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+            End If
+        End If
+    End Sub
+
 
 End Class

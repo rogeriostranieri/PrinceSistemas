@@ -1049,6 +1049,7 @@ Partial Class FrmSocios
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.SociosBindingNavigator)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Name = "FrmSocios"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

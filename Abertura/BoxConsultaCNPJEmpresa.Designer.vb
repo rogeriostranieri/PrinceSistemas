@@ -31,7 +31,6 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnImportar = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +46,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(221, 113)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(230, 113)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -117,16 +116,6 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BtnImportar.Text = "Importar Dados"
         Me.BtnImportar.UseVisualStyleBackColor = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(258, 40)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Label2"
-        '
         'WebView21
         '
         Me.WebView21.AllowExternalDrop = True
@@ -146,9 +135,8 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(379, 154)
+        Me.ClientSize = New System.Drawing.Size(388, 154)
         Me.Controls.Add(Me.WebView21)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
@@ -175,6 +163,5 @@ Partial Class BoxConsultaCNPJEmpresa
     Friend WithEvents Label1 As Label
     Friend WithEvents BtnImportar As Button
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label2 As Label
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class
