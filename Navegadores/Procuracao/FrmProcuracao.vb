@@ -45,7 +45,7 @@
             FrmLegalizacao.TabControle.SelectTab(1)
             FrmLegalizacao.TabControl2.SelectTab(0)
             Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
-            CPF = CPF.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            Dim unused As String = CPF.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             'mudar para WebView21 .Document.GetElementById("cpfRespLegalDelegante").SetAttribute("value", CPF)
             'mudar para WebView21
 
