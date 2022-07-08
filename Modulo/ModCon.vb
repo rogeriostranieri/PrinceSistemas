@@ -1,5 +1,265 @@
 ﻿Imports System.Data.SqlClient
 Module ModCon
+
+    Sub VerificaCNPJemprCOMlaudos()
+        Try
+
+            Dim CNPJEMPRESAS As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+
+            'vreificar se o CNPJ de Empresa está cadastrado no laudos
+            Dim Str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+            Dim Sql As String = "select count(*) from Laudos where CNPJ=@CNPJEMPRESAS"
+
+            Dim Cn As New SqlConnection(Str)
+            Dim Cmd As New SqlCommand(Sql, Cn)
+            Cn.Open()
+            Cmd.Parameters.Add("@CNPJEMPRESAS", SqlDbType.VarChar).Value = CNPJEMPRESAS
+            Dim Cont As Integer = Cmd.ExecuteScalar
+            Cn.Close()
+            If Cont = 0 Then
+                '////////////////////// QUANDO ENCOTRAR O CNPJ ////////////////////////////////////
+                MsgBox("CNPJ não encontrado no Laudos")
+                If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+
+
+                    MessageBox.Show("Controle de laudos está aberto! Fechando o formulário .....
+Tente novamente!", "Prince Ajuda")
+                    FrmAlvara.Close()
+
+
+                Else
+                    If MsgBox("Registro não encontrado.
+Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Sistemas") = MsgBoxResult.Yes Then
+                        If MsgBox(" Deseja importar o registro atual como novo registro de laudo?", MsgBoxStyle.YesNoCancel, "Novo Laudo/Alvará") = MsgBoxResult.Yes Then
+
+                            'TAB PRINCIPAL
+                            FrmAlvara.TabAlvara.SelectTab(0)
+
+                            ' abrir aba dados para pegar informações
+                            FrmLegalizacao.TabControle.SelectTab(1) 'dados
+
+                            'tabcontrole dos aba dados
+                            FrmLegalizacao.TabControl2.SelectTab(0)
+                            FrmLegalizacao.TabControl2.SelectTab(1)
+                            FrmLegalizacao.TabControl2.SelectTab(2)
+                            FrmLegalizacao.TabControl2.SelectTab(3)
+                            FrmLegalizacao.TabControl2.SelectTab(4)
+                            FrmLegalizacao.TabControl2.SelectTab(5)
+                            FrmLegalizacao.TabControl2.SelectTab(6)
+
+
+
+
+
+                            'Abrir FORM
+                            FrmAlvara.Show()
+                            'Valida e Abre um novo registro
+                            FrmAlvara.Validate()
+                            FrmAlvara.LaudosBindingSource.AddNew()
+                            '  LFrmAlvara.RazaoSocialTextBox.Text = RazaoSocialTextBox.Text
+
+
+                            'codigo de copiar entre os form
+
+                            'COPIA OS DADOS
+                            FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
+                            FrmAlvara.CNPJMaskedTextBox.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+
+                            'Não Iniciado
+                            FrmAlvara.SituacaoComboBox.Text = "Não Iniciado"
+
+
+                            FrmAlvara.TabControl2.SelectTab(1)
+                            'copia
+                            FrmAlvara.EndCEPMaskedTextBox.Text = FrmLegalizacao.EndCEPMaskedTextBox.Text
+                            FrmAlvara.EnderecoTextBox.Text = FrmLegalizacao.EnderecoTextBox.Text
+                            FrmAlvara.EndNumTextBox.Text = FrmLegalizacao.EndNumeroTextBox.Text
+                            FrmAlvara.EndCompTextBox.Text = FrmLegalizacao.EndComplementoTextBox.Text
+                            FrmAlvara.EndBairroTextBox.Text = FrmLegalizacao.EndBairroTextBox.Text
+                            FrmAlvara.EndCidadeTextBox.Text = FrmLegalizacao.EndCidadeTextBox.Text
+                            FrmAlvara.EndEstadoTextBox.Text = FrmLegalizacao.EndEstadoTextBox.Text
+
+                            FrmAlvara.AreaTextBox.Text = FrmLegalizacao.AreaTextBox.Text
+                            FrmAlvara.Area2TextBox.Text = FrmLegalizacao.Area2TextBox.Text
+                            FrmAlvara.CadImobTextBox.Text = FrmLegalizacao.CadImobTextBox.Text
+                            FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
+                            FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
+                            FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
+
+
+
+                            FrmAlvara.TabControl2.SelectTab(4)
+                            'copia
+                            FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
+                            FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+                            FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+                            FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
+                            FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
+
+
+
+                            FrmAlvara.TabControl2.SelectTab(3)
+                            'copia
+                            FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
+CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+                            FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
+
+
+                            FrmAlvara.TabControl2.SelectTab(5)
+
+                            If FrmLegalizacao.ProcessoComboBox.Text = "Abertura" Then
+                                'copia
+                                FrmAlvara.NaturezaDoPedidoRichTextBox.Text = "Nova Empresa;
+"
+
+                            Else
+                                'copia
+                                FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text
+
+                            End If
+                            'copia
+                            ' FrmAlvara.NaturezaDoPedidoRichTextBox.Text = FrmLegalizacao.MotivoTextBox.Text
+
+                            'data de criação e aviso
+                            FrmAlvara.DataCriadoMaskedTextBox.Text = System.DateTime.Now
+                            FrmAlvara.AvisarDiaMaskedTextBox.Text = System.DateTime.Today
+
+                            'termina as copia e foca
+                            'Focus
+                            FrmAlvara.RazaoSocialTextBox.Focus()
+                            FrmAlvara.TabControlAcompanhamento.SelectTab(0)
+
+                            'unchek lembrete
+                            FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+
+                            'TAB PRINCIPAL
+                            FrmAlvara.TabAlvara.SelectTab(1)
+                            'Uncheck controle de ligações
+                            FrmAlvara.BombeirosCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.ViabilidadeCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.AmbientalCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.SanitarioCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.SetranCheckBox.CheckState = CheckState.Unchecked
+
+                            'adiciona dados
+                            FrmAlvara.TabControl2.SelectTab(4)
+                            FrmAlvara.Button23.PerformClick()
+
+
+                            'TAB PRINCIPAL volta
+                            FrmAlvara.TabAlvara.SelectTab(0)
+                            'TAB DA NATUREZA DO PEDIDO
+                            FrmAlvara.TabControl2.SelectTab(5)
+
+                            'Combobox
+                            FrmAlvara.SituacaoComboBox.Text = "Não Iniciado"
+                            FrmAlvara.ModeloSistemaComboBox.SelectedIndex = -1
+                            FrmAlvara.BombeiroSituacaoComboBox.SelectedIndex = -1
+
+
+                            FrmAlvara.RazaoSocialTextBox.Focus()
+
+                            MessageBox.Show("Importação realizada com sucesso",
+    "Prince Sistemas Informa")
+                        Else
+
+                            'Abrir FORM
+                            FrmAlvara.Show()
+                            'Valida e Abre um novo registro
+                            FrmAlvara.Validate()
+                            FrmAlvara.LaudosBindingSource.AddNew()
+                            FrmAlvara.TabControlAcompanhamento.SelectTab(0)
+
+                            FrmAlvara.ComboBoxBuscaAlvara.Focus()
+                            FrmAlvara.RazaoSocialTextBox.Focus()
+
+
+                            'unchek lembrete
+                            FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+
+                            'Uncheck controle de ligações
+                            FrmAlvara.BombeirosCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.ViabilidadeCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.AmbientalCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.SanitarioCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.SetranCheckBox.CheckState = CheckState.Unchecked
+
+
+
+                        End If
+                    Else
+                        'Abrir FORM
+                        FrmAlvara.Show()
+
+
+                    End If
+                End If
+
+                FrmLegalizacao.Focus()
+                FrmLegalizacao.TabControle.SelectTab(0)
+
+                FrmAlvara.Focus()
+                FrmAlvara.TabAlvara.SelectTab(0)
+
+                '////////////////////// QUANDO NAO ENCOTRAR O CNPJ ////////////////////////////////////
+            Else
+                MsgBox("CNPJ encontrado no Laudos")
+                ' MessageBox.Show("Ja existe um Laudo/Alvará cadastrado com o mesmo CNPJ! Abrindo...")
+                If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+
+                    'Abre o alvara ja cadastrado com a busca CNPJ
+                    '//////////////// ARRUMAR O ERRO AO ABRIR O ALVARA 
+
+
+                    FrmAlvara.Focus()
+                    FrmAlvara.ComboBoxBuscaCNPJ.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+                    FrmAlvara.RazaoSocialTextBox.Focus()
+                    'FIM  abre o alvara ja cadastrado com a busca CNPJ
+
+                    'Verifica Razao Social
+                    If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
+                        If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+
+                            FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
+
+                        End If
+
+                    End If
+                Else
+
+                    FrmAlvara.Show()
+                    'FrmAlvara.ComboBox3.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+                    ' FrmAlvara.ComboBox1.Focus()
+                    FrmAlvara.RazaoSocialTextBox.Focus()
+
+                    'Verifica Razao Social
+                    If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
+                        If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+                            FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
+
+                        End If
+
+                    End If
+
+                End If
+
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("Erro na conexão!" & ex.Message)
+
+        Finally
+            'Whether there is error or not. Close the connection.
+
+        End Try
+
+    End Sub
+
+    Private Sub EncontrarCNPJEmpresaLaudo()
+
+    End Sub
     Sub ConexaoLaudo()
 
         Dim Str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"

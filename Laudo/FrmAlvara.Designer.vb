@@ -956,6 +956,7 @@ Partial Class FrmAlvara
         '
         Me.CNPJMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNPJ", True))
         Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(85, 60)
+        Me.CNPJMaskedTextBox.Mask = "99,999,999/9999-99"
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
         Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(111, 20)
         Me.CNPJMaskedTextBox.TabIndex = 4

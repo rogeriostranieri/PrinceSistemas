@@ -272,8 +272,7 @@ Public Class FrmAlvara
         End If
     End Sub
     Private Sub SalvarFinal()
-        'arrumar o CNPJ ou CPF
-        CNPJouCPF()
+
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
 
         Try
@@ -346,8 +345,7 @@ Public Class FrmAlvara
 
     End Sub
     Private Sub Salvar()
-        'arrumar o CNPJ ou CPF
-        CNPJouCPF()
+
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
         Try
             Dim changedRecords As DataTable
@@ -1155,75 +1153,6 @@ Public Class FrmAlvara
     End Sub
 
 
-    Private Sub LimparCNPJ()
-        CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "").Replace(Environment.NewLine, "")
-        '        permitir apenas numeros
-        CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Replace("a", "").Replace("b", "").Replace("c", "").Replace("d", "").Replace("e", "").Replace("f", "").Replace("g", "").Replace("h", "").Replace("i", "").Replace("j", "").Replace("k", "").Replace("l", "").Replace("m", "").Replace("n", "").Replace("o", "").Replace("p", "").Replace("q", "").Replace("r", "").Replace("s", "").Replace("t", "").Replace("u", "").Replace("v", "").Replace("w", "").Replace("x", "").Replace("y", "").Replace("z", "")
-
-    End Sub
-
-    Private Sub CNPJouCPF()
-        LimparCNPJ()
-
-        If CNPJMaskedTextBox.Text.Length = 14 Then
-            LimparCNPJ()
-            'CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Insert(2, "/").Insert(6, "/").Insert(10, "-")
-            CNPJMaskedTextBox.Mask = "00,000,000/0000-00"
-            CNPJLabel.Text = "CNPJ:"
-            'label localização  55; 63
-            CNPJLabel.Location = New Point(46, 63)
-        ElseIf CNPJMaskedTextBox.Text.Length = 11 Then
-            LimparCNPJ()
-            'CNPJMaskedTextBox.Text = CNPJMaskedTextBox.Text.Insert(3, "-").Insert(7, "-")
-            CNPJMaskedTextBox.Mask = "000,000,000-00"
-            CNPJLabel.Text = "CPF:"
-            'label localizacao 48; 63
-            CNPJLabel.Location = New Point(48, 63)
-        Else
-            LimparCNPJ()
-            CNPJMaskedTextBox.Mask = ""
-            CNPJLabel.Text = "Outro Doc:"
-            'label localizacao 26; 63
-            CNPJLabel.Location = New Point(26, 63)
-        End If
-
-        'apagar a máscara de um Textbox ao deletar os caracteres
-        'CNPJMaskedTextBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
-
-
-
-
-    End Sub
-    Private Sub CNPJMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles CNPJMaskedTextBox.Leave
-        'verifica se os numeros e muda cnpj ou cpf, e não contar caracteres
-        CNPJouCPF()
-
-    End Sub
-
-    Private Sub CNPJMaskedTextBox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles CNPJMaskedTextBox.MaskInputRejected
-        CNPJouCPF()
-    End Sub
-    'CNPJMaskedTextBox ao  apertar delete
-    Private Sub CNPJMaskedTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles CNPJMaskedTextBox.KeyDown
-        If e.KeyCode = Keys.Delete Then
-            'LimparCNPJ()
-            CNPJMaskedTextBox.Text = ""
-            CNPJLabel.Text = "CNPJ:"
-            CNPJLabel.Location = New Point(46, 63)
-        End If
-
-        If e.KeyCode = Keys.Back Then
-            CNPJMaskedTextBox.Text = ""
-            CNPJLabel.Text = "CNPJ:"
-            CNPJLabel.Location = New Point(46, 63)
-        End If
-
-        'ao colar
-        If e.KeyCode = Keys.V And e.Control Then
-            CNPJMaskedTextBox.Text = ""
-            CNPJouCPF()
-        End If
-    End Sub
 
 
     Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click

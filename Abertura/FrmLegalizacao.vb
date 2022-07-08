@@ -1103,7 +1103,11 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
     Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
 
-        Call ConexaoLaudo()
+        ' Call ConexaoLaudo()
+        Call VerificaCNPJemprCOMlaudos()
+
+        'chamar mod teste
+        'Call teste123456()
 
     End Sub
 
