@@ -37,7 +37,7 @@ Public Class BoxConsultaCNPJEmpresa
 
 
             'pergunta se deseja importar o CNPJ
-            Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ?", "Importar CNPJ", MessageBoxButtons.YesNo)
+            Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ? Isto irá sobrepor os dados existentes...", "Importar CNPJ", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 'mudar lavel para AGUARDE...
                 BtnImportar.Text = "AGUARDE..."
@@ -64,6 +64,8 @@ Public Class BoxConsultaCNPJEmpresa
                 If porte = "MICRO EMPRESA" Then
                     porte = "Microempresa"
                 End If
+                'Situação cadastral	
+                Dim situacao_cadastral As String = json_obj.Item("situacao").ToString
                 Dim logradouro As String = json_obj.Item("logradouro").ToString
                 Dim numero As String = json_obj.Item("numero").ToString
                 Dim complemento As String = json_obj.Item("complemento").ToString
@@ -148,7 +150,7 @@ Public Class BoxConsultaCNPJEmpresa
                 FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text = data_abertura
                 FrmLegalizacao.NomeFantasiaTextBox.Text = fantasia
                 FrmLegalizacao.PorteDaEmpresaComboBox.Text = porte
-
+                FrmLegalizacao.SituacaoCadastralComboBox.Text = situacao_cadastral
 
 
                 'ENDEREÇo //////////////////////////////////////////////////
@@ -164,8 +166,24 @@ Public Class BoxConsultaCNPJEmpresa
 
                 'TELEFONE E EMAIL //////////////////////////////////////////////////
 
-                'telefone
-                FrmLegalizacao.EmpTel1TextBox.Text = telefone
+                'verificar se tem "/" entre os telefones, e dividir em dois campos EmpTel1TextBox e EmpTel2TextBox
+                'formato (44) 3035-0111/ (44) 3035-0111
+
+                Dim tel_1 As String = telefone.Replace("-", "")
+                Dim tel_2 As String = ""
+                If telefone.Contains("/") Then
+                    tel_1 = telefone.Split("/")(0)
+                    tel_2 = telefone.Split("/ ")(1)
+                End If
+                FrmLegalizacao.EmpTel1TextBox.Text = tel_1
+                'tel_2 tirar o espaço inicial do telefone
+                FrmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
+                ' FrmLegalizacao.EmpTel2TextBox.Text = tel_2
+
+
+
+
+
                 FrmLegalizacao.EmpEmailTextBox.Text = email
 
                 'Capital Social
@@ -206,6 +224,8 @@ Public Class BoxConsultaCNPJEmpresa
 
                 'mostrar mgs de sucesso
                 MsgBox("Importação realizada com sucesso!", MsgBoxStyle.Information, "Importação")
+                'mgsbox O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias
+                MsgBox("O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias", MsgBoxStyle.Information, "Importação")
                 'fechar formulario
                 Me.Close()
             End If
@@ -215,11 +235,14 @@ Public Class BoxConsultaCNPJEmpresa
             MsgBox("Erro ao importar: " + ex.Message, MsgBoxStyle.Critical, "Erro")
         End Try
 
+
     End Sub
 
     Private Sub BoxConsultaCNPJEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WebView21.Visible = False
     End Sub
+
+
 
 
 End Class

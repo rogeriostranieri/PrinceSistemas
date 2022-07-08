@@ -316,7 +316,6 @@
 Novos dados:" + " 
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
-
 " + vbCrLf)
 
 
@@ -343,7 +342,6 @@ Novos dados:" + "
     " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
-
 //////////////////////////////////////////////////////////////////////
 "
                     Else ' Sem complemento
@@ -351,7 +349,6 @@ Novos dados:" + "
     " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
-
 //////////////////////////////////////////////////////////////////////
 "
                     End If

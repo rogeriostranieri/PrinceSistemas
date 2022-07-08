@@ -1052,33 +1052,11 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
-
-        Try
-
-            If Trim(IETextBox.Text) = "" Then
-
-                Dim CNPJ As String = CNPJMaskedTextBox.Text
-                CNPJ = CNPJ.Replace("/", "").Replace(".", "-")
-
-                Clipboard.SetText(CNPJ)
-                MsgBox("CNPJ copiado e abrindo site para consulta IE", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-                System.Diagnostics.Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
-
-            Else
-                '  Clipboard.SetText(CNPJMaskedTextBox.Text)
-                ' MsgBox("CNPJ copiado e abrindo site para consulta completa", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-                System.Diagnostics.Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IETextBox.Text)
-
-
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Erro ao abrir site para consulta IE" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
-        End Try
-
+        If Application.OpenForms.OfType(Of BoxConsultaIEEmpresa)().Count() > 0 Then
+            BoxConsultaIEEmpresa.Focus()
+        Else
+            BoxConsultaIEEmpresa.Show()
+        End If
     End Sub
 
     Private Sub IEjuntaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles IEjuntaComboBox.SelectedIndexChanged
@@ -1865,8 +1843,17 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     '/////////// fim do codigo de mostrar calendario
 
     Private Sub LinkLabel18_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel18.LinkClicked
-        System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+        ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+        Dim CNPJ As String = CNPJMaskedTextBox.Text
+        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
+        ConsultaCNPJ.Show()
+        ConsultaCNPJ.ToolStripLabel2.Text = "Consulta Optantes do Simples Nacional"
+        ConsultaCNPJ.ToolStripLabel3.Text = "RECEITA FEDERAL DO BRASIL"
+        ConsultaCNPJ.WebView21.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+        'esperar carregar toda pagina WebView21 Script Async
+        'mostra mgs copiado o  CNPJ 
+        MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
     End Sub
 
     Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click

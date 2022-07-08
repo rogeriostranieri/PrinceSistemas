@@ -113,6 +113,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abertura\BoxConsultaIEEmpresa.Designer.vb">
+      <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\BoxConsultaIEEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abertura\Calculadora\FrmCalculadoraCapital.Designer.vb">
       <DependentUpon>FrmCalculadoraCapital.vb</DependentUpon>
     </Compile>
@@ -256,7 +262,12 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegadores\CNPJInfo.vb" />
+    <Compile Include="Navegadores\ConsultaIE.Designer.vb">
+      <DependentUpon>ConsultaIE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores\ConsultaIE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Navegadores\FrmConsultaCNPJImportar.Designer.vb">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </Compile>
@@ -525,6 +536,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Abertura\BoxConsultaIEEmpresa.resx">
+      <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Calculadora\FrmCalculadoraCapital.resx">
       <DependentUpon>FrmCalculadoraCapital.vb</DependentUpon>
     </EmbeddedResource>
@@ -593,6 +607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores\ConsultaIE.resx">
+      <DependentUpon>ConsultaIE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores\FrmConsultaCNPJImportar.resx">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
@@ -985,7 +1002,9 @@
     <Content Include="Atualizacao.txt" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Navegadores\WebConsulta Federal\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

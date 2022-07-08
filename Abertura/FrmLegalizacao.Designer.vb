@@ -107,6 +107,7 @@ Partial Class FrmLegalizacao
         Dim IEeProcNumLabel As System.Windows.Forms.Label
         Dim Label10 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
+        Dim SituacaoCadastralLabel As System.Windows.Forms.Label
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -413,6 +414,7 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
+        Me.SituacaoCadastralComboBox = New System.Windows.Forms.ComboBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -496,6 +498,7 @@ Partial Class FrmLegalizacao
         IETipoLabel = New System.Windows.Forms.Label()
         IEeProcNumLabel = New System.Windows.Forms.Label()
         Label10 = New System.Windows.Forms.Label()
+        SituacaoCadastralLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -911,7 +914,7 @@ Partial Class FrmLegalizacao
         'RegimeFederalLabel
         '
         RegimeFederalLabel.AutoSize = True
-        RegimeFederalLabel.Location = New System.Drawing.Point(423, 98)
+        RegimeFederalLabel.Location = New System.Drawing.Point(422, 152)
         RegimeFederalLabel.Name = "RegimeFederalLabel"
         RegimeFederalLabel.Size = New System.Drawing.Size(84, 13)
         RegimeFederalLabel.TabIndex = 27
@@ -3930,6 +3933,8 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(SituacaoCadastralLabel)
+        Me.GroupBox2.Controls.Add(Me.SituacaoCadastralComboBox)
         Me.GroupBox2.Controls.Add(Me.LinkLabel18)
         Me.GroupBox2.Controls.Add(Me.NaturezaJuridicaComboBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialLabel)
@@ -3965,7 +3970,7 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel18.AutoSize = True
         Me.LinkLabel18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel18.Location = New System.Drawing.Point(503, 116)
+        Me.LinkLabel18.Location = New System.Drawing.Point(499, 134)
         Me.LinkLabel18.Name = "LinkLabel18"
         Me.LinkLabel18.Size = New System.Drawing.Size(128, 13)
         Me.LinkLabel18.TabIndex = 65
@@ -4017,6 +4022,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button29.BackgroundImage = CType(resources.GetObject("Button29.BackgroundImage"), System.Drawing.Image)
         Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button29.Location = New System.Drawing.Point(567, 41)
         Me.Button29.Name = "Button29"
         Me.Button29.Size = New System.Drawing.Size(61, 22)
@@ -4059,7 +4065,7 @@ Partial Class FrmLegalizacao
         Me.RegimeFederalComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RegimeFederal", True))
         Me.RegimeFederalComboBox.FormattingEnabled = True
         Me.RegimeFederalComboBox.Items.AddRange(New Object() {"Lucro Normal", "Lucro Presumido", "RET", "Simples Nacional", "Pendência"})
-        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(507, 95)
+        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(506, 149)
         Me.RegimeFederalComboBox.Name = "RegimeFederalComboBox"
         Me.RegimeFederalComboBox.Size = New System.Drawing.Size(121, 21)
         Me.RegimeFederalComboBox.TabIndex = 28
@@ -4574,6 +4580,25 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'SituacaoCadastralLabel
+        '
+        SituacaoCadastralLabel.AutoSize = True
+        SituacaoCadastralLabel.Location = New System.Drawing.Point(423, 98)
+        SituacaoCadastralLabel.Name = "SituacaoCadastralLabel"
+        SituacaoCadastralLabel.Size = New System.Drawing.Size(99, 13)
+        SituacaoCadastralLabel.TabIndex = 65
+        SituacaoCadastralLabel.Text = "Situação Cadastral:"
+        '
+        'SituacaoCadastralComboBox
+        '
+        Me.SituacaoCadastralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SituacaoCadastral", True))
+        Me.SituacaoCadastralComboBox.FormattingEnabled = True
+        Me.SituacaoCadastralComboBox.Items.AddRange(New Object() {"ATIVO", "BAIXADA", "INAPTA"})
+        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(522, 95)
+        Me.SituacaoCadastralComboBox.Name = "SituacaoCadastralComboBox"
+        Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(106, 21)
+        Me.SituacaoCadastralComboBox.TabIndex = 66
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4993,4 +5018,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents EndPaisTextBox As TextBox
     Friend WithEvents EndCidadeTextBox As TextBox
     Friend WithEvents BtnAddmaisSocio As Button
+    Friend WithEvents SituacaoCadastralComboBox As ComboBox
 End Class

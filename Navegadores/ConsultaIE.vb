@@ -1,5 +1,4 @@
-﻿
-Public Class ConsultaCNPJ
+﻿Public Class ConsultaIE
     Private Sub ConsultaCNPJ_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
 
@@ -35,6 +34,7 @@ Public Class ConsultaCNPJ
         LblStatusCarregamento.Text = "Carregamento Completo"
 
     End Sub
+
 
 
 End Class
