@@ -207,44 +207,37 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                 ' MessageBox.Show("Ja existe um Laudo/Alvará cadastrado com o mesmo CNPJ! Abrindo...")
                 If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
 
-                    'Abre o alvara ja cadastrado com a busca CNPJ
-                    '//////////////// ARRUMAR O ERRO AO ABRIR O ALVARA 
-
-
-                    FrmAlvara.Focus()
+                    'FrmAlvara encontrar o CNPJ igual do FrmLegalizacao.CNPJMaskedTextBox.Text
                     FrmAlvara.ComboBoxBuscaCNPJ.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
                     FrmAlvara.ComboBoxBuscaCNPJ.Focus()
-                    FrmAlvara.RazaoSocialTextBox.Focus()
-                    'FIM  abre o alvara ja cadastrado com a busca CNPJ
+                    FrmAlvara.ComboBoxBuscaCNPJ.SelectAll()
 
-                    'Verifica Razao Social
+
+                    'apos carregar formulario Verifica Razao Social são iguais FrmLegalizacao.RazaoSocial
+
                     If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
                         If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
-
                             FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
-
                         End If
-
                     End If
                 Else
 
                     FrmAlvara.Show()
-                    'FrmAlvara.ComboBox3.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
-                    ' FrmAlvara.ComboBox1.Focus()
-                    FrmAlvara.RazaoSocialTextBox.Focus()
+                    FrmAlvara.ComboBoxBuscaCNPJ.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+                    FrmAlvara.ComboBoxBuscaCNPJ.SelectAll()
 
-                    'Verifica Razao Social
+                    'apos carregar formulario Verifica Razao Social são iguais FrmLegalizacao.RazaoSocial
+
                     If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
                         If MessageBox.Show("Razão Social Diferentes, deseja atualizar?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
                             FrmAlvara.RazaoSocialTextBox.Text = FrmLegalizacao.RazaoSocialTextBox.Text
-
                         End If
-
                     End If
 
                 End If
 
-            End If
+                    End If
 
 
         Catch ex As Exception

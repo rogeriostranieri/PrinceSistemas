@@ -39,18 +39,18 @@
 
         If GeneroComboBox.Text = "Masculino" Then
             CivilComboBox.Items.Add("solteiro")
-            CivilComboBox.Items.Add("comunhão parcial de bens")
-            CivilComboBox.Items.Add("comunhão universal de bens")
-            CivilComboBox.Items.Add("separação convencional de bens")
-            CivilComboBox.Items.Add("separação obrigatória de bens")
-            CivilComboBox.Items.Add("participação final nos aquestos")
+            CivilComboBox.Items.Add("casado em regime de comunhão parcial de bens")
+            CivilComboBox.Items.Add("casado em regime de comunhão universal de bens")
+            CivilComboBox.Items.Add("separado")
+            CivilComboBox.Items.Add("casado em regime de separação obrigatória de bens")
+            CivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
         ElseIf GeneroComboBox.Text = "Feminino" Then
             CivilComboBox.Items.Add("solteira")
-            CivilComboBox.Items.Add("comunhão parcial de bens")
-            CivilComboBox.Items.Add("comunhão universal de bens")
-            CivilComboBox.Items.Add("separação convencional de bens")
-            CivilComboBox.Items.Add("separação obrigatória de bens")
-            CivilComboBox.Items.Add("participação final nos aquestos")
+            CivilComboBox.Items.Add("casada em regime de comunhão parcial de bens")
+            CivilComboBox.Items.Add("casada em regime de comunhão universal de bens")
+            CivilComboBox.Items.Add("separada")
+            CivilComboBox.Items.Add("casada em regime de separação obrigatória de bens")
+            CivilComboBox.Items.Add("casada em regime de participação final nos aquestos")
         Else
             CivilComboBox.Items.Add("solteiro")
             CivilComboBox.Items.Add("comunhão parcial de bens")
@@ -84,6 +84,7 @@
             LiberarEdicao()
             TextBoxExtensoDN.Visible = False
         End If
+
 
     End Sub
 
@@ -274,23 +275,26 @@
                 Dim Estado As String = EstadoTextBox.Text
                 Dim Portador As String
                 Dim Brasileiro As String
+                Dim Nascido As String
 
 
                 'verificar se está no masculino ou feminio no campo GeneroComboBox
                 If Genero = "Masculino" Then
                     'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
-                    EstadoCivil = "solteiro"
+                    ' EstadoCivil = "solteiro"
                     Empresario = "empresario"
                     domiciliado = "domiciliado"
                     Portador = "portador"
                     Brasileiro = "brasileiro"
+                    Nascido = "nascido em"
 
                 ElseIf Genero = "Feminino" Then
-                    EstadoCivil = "solteira"
+                    'EstadoCivil = "solteira"
                     Empresario = "empresaria"
                     domiciliado = "domiciliada"
                     Portador = "portadora"
                     Brasileiro = "brasileira"
+                    Nascido = "nascida em"
 
                 End If
 
@@ -315,7 +319,7 @@
 
 Novos dados:" + " 
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 " + vbCrLf)
 
 
@@ -341,14 +345,14 @@ Novos dados:" + "
                         FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
     " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
                     Else ' Sem complemento
                         FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
     " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & "," & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
                     End If

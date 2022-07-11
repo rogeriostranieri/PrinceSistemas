@@ -6,7 +6,7 @@
     End Sub
 
     Private Sub BuscaCNAE_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+
 
     End Sub
 

@@ -101,11 +101,6 @@ Partial Class FrmSocios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.BtnCancelar = New System.Windows.Forms.PictureBox()
-        Me.BtnExcluir = New System.Windows.Forms.PictureBox()
-        Me.BtnEditar = New System.Windows.Forms.PictureBox()
-        Me.BtnSalvar = New System.Windows.Forms.PictureBox()
-        Me.BtnNovo = New System.Windows.Forms.PictureBox()
         Me.BtnFechar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnAddSocios = New System.Windows.Forms.Button()
@@ -113,6 +108,11 @@ Partial Class FrmSocios
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.BtnExcluir = New System.Windows.Forms.Button()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
+        Me.BtnSalvar = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
+        Me.BtnNovo = New System.Windows.Forms.Button()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -148,11 +148,6 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.BtnCancelar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BtnExcluir, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -599,7 +594,7 @@ Partial Class FrmSocios
         Me.CivilComboBox.FormattingEnabled = True
         Me.CivilComboBox.Location = New System.Drawing.Point(114, 154)
         Me.CivilComboBox.Name = "CivilComboBox"
-        Me.CivilComboBox.Size = New System.Drawing.Size(188, 21)
+        Me.CivilComboBox.Size = New System.Drawing.Size(355, 21)
         Me.CivilComboBox.TabIndex = 28
         '
         'CEPMaskedTextBox
@@ -906,11 +901,11 @@ Partial Class FrmSocios
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.BtnCancelar)
-        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
+        Me.GroupBox1.Controls.Add(Me.BtnNovo)
         Me.GroupBox1.Controls.Add(Me.BtnEditar)
         Me.GroupBox1.Controls.Add(Me.BtnSalvar)
-        Me.GroupBox1.Controls.Add(Me.BtnNovo)
+        Me.GroupBox1.Controls.Add(Me.BtnCancelar)
+        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(550, 74)
@@ -918,66 +913,6 @@ Partial Class FrmSocios
         Me.GroupBox1.Size = New System.Drawing.Size(514, 51)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
-        '
-        'BtnCancelar
-        '
-        Me.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancelar.Image = Global.PrinceSistemas.My.Resources.Resources.icone_alerta
-        Me.BtnCancelar.Location = New System.Drawing.Point(395, 0)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(52, 45)
-        Me.BtnCancelar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnCancelar.TabIndex = 4
-        Me.BtnCancelar.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnCancelar, "Cancelar Tudo")
-        '
-        'BtnExcluir
-        '
-        Me.BtnExcluir.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnExcluir.Image = Global.PrinceSistemas.My.Resources.Resources.icone_delete
-        Me.BtnExcluir.Location = New System.Drawing.Point(453, 0)
-        Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(52, 45)
-        Me.BtnExcluir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnExcluir.TabIndex = 3
-        Me.BtnExcluir.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnExcluir, "Excluir Registro Corrente")
-        '
-        'BtnEditar
-        '
-        Me.BtnEditar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnEditar.Image = Global.PrinceSistemas.My.Resources.Resources.icone_editar
-        Me.BtnEditar.Location = New System.Drawing.Point(279, 0)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(52, 45)
-        Me.BtnEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnEditar.TabIndex = 2
-        Me.BtnEditar.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnEditar, "Editar Registo Corrente")
-        '
-        'BtnSalvar
-        '
-        Me.BtnSalvar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSalvar.Image = Global.PrinceSistemas.My.Resources.Resources.icone_ok
-        Me.BtnSalvar.Location = New System.Drawing.Point(337, 0)
-        Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(52, 45)
-        Me.BtnSalvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnSalvar.TabIndex = 1
-        Me.BtnSalvar.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnSalvar, "Salvar Registros")
-        '
-        'BtnNovo
-        '
-        Me.BtnNovo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNovo.Image = Global.PrinceSistemas.My.Resources.Resources.icone_adicionar
-        Me.BtnNovo.Location = New System.Drawing.Point(221, 0)
-        Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(52, 45)
-        Me.BtnNovo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnNovo.TabIndex = 0
-        Me.BtnNovo.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnNovo, "Novo Registro")
         '
         'BtnFechar
         '
@@ -1054,6 +989,60 @@ Partial Class FrmSocios
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'BtnExcluir
+        '
+        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExcluir.ForeColor = System.Drawing.Color.Crimson
+        Me.BtnExcluir.Location = New System.Drawing.Point(433, 19)
+        Me.BtnExcluir.Name = "BtnExcluir"
+        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExcluir.TabIndex = 5
+        Me.BtnExcluir.Text = "Excluir"
+        Me.BtnExcluir.UseVisualStyleBackColor = True
+        '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCancelar.Location = New System.Drawing.Point(352, 19)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCancelar.TabIndex = 6
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = True
+        '
+        'BtnSalvar
+        '
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnSalvar.Location = New System.Drawing.Point(271, 19)
+        Me.BtnSalvar.Name = "BtnSalvar"
+        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSalvar.TabIndex = 7
+        Me.BtnSalvar.Text = "Salvar"
+        Me.BtnSalvar.UseVisualStyleBackColor = True
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnEditar.Location = New System.Drawing.Point(190, 19)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnEditar.TabIndex = 8
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = True
+        '
+        'BtnNovo
+        '
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnNovo.Location = New System.Drawing.Point(109, 19)
+        Me.BtnNovo.Name = "BtnNovo"
+        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
+        Me.BtnNovo.TabIndex = 9
+        Me.BtnNovo.Text = "Novo"
+        Me.BtnNovo.UseVisualStyleBackColor = True
+        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1083,11 +1072,6 @@ Partial Class FrmSocios
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.BtnCancelar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BtnExcluir, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BtnEditar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BtnSalvar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BtnNovo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1141,12 +1125,7 @@ Partial Class FrmSocios
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents BtnNovo As PictureBox
-    Friend WithEvents BtnSalvar As PictureBox
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents BtnCancelar As PictureBox
-    Friend WithEvents BtnExcluir As PictureBox
-    Friend WithEvents BtnEditar As PictureBox
     Friend WithEvents BtnCorreios As Button
     Friend WithEvents GeneroComboBox As ComboBox
     Friend WithEvents BtnExtensoDN As Button
@@ -1157,4 +1136,9 @@ Partial Class FrmSocios
     Friend WithEvents BtnExportar As Button
     Friend WithEvents BtnAddSocios As Button
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents BtnExcluir As Button
+    Friend WithEvents BtnNovo As Button
+    Friend WithEvents BtnEditar As Button
+    Friend WithEvents BtnSalvar As Button
+    Friend WithEvents BtnCancelar As Button
 End Class

@@ -540,8 +540,18 @@ Public Class FrmLegalizacao
     End Sub
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
-        System.Diagnostics.Process.Start("https://concla.ibge.gov.br/busca-online-cnae.html")
+        'System.Diagnostics.Process.Start("https://concla.ibge.gov.br/busca-online-cnae.html")
         'BuscaCNAE.Show() mto problema com site
+        'verificar se esta aberto e abrir form BuscaCNAE
+        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
+            BuscaCNAE.Focus()
+            BuscaCNAE.WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+
+        Else
+            BuscaCNAE.Show()
+            BuscaCNAE.WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+
+        End If
 
     End Sub
 
@@ -1023,7 +1033,16 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
+            BuscaCNAE.Focus()
+            BuscaCNAE.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+
+        Else
+            BuscaCNAE.Show()
+            BuscaCNAE.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+
+        End If
     End Sub
 
     Private Sub TipoDeEmpresaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TipoDeEmpresaComboBox.SelectedIndexChanged
@@ -1657,7 +1676,17 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub CnaeSimples_Click(sender As Object, e As EventArgs) Handles CnaeSimples.Click
-        System.Diagnostics.Process.Start("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+        'System.Diagnostics.Process.Start("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
+            BuscaCNAE.Focus()
+            BuscaCNAE.WebView21.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+
+        Else
+            BuscaCNAE.Show()
+            BuscaCNAE.WebView21.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+
+        End If
+
     End Sub
 
     Private Sub BtnData1_Click(sender As Object, e As EventArgs) Handles BtnData1.Click
