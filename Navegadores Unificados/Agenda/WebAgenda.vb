@@ -2,6 +2,10 @@
     'Mes do ano etenso
     Dim Mes As String
 
+    'ao fechar form tambem fechar WebView2
+    Private Sub WebAgenda_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        WebView2.Dispose()
+    End Sub
 
 
     Private Sub WebAgenda_Load(sender As Object, e As EventArgs) Handles MyBase.Load

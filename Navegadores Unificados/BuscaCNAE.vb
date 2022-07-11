@@ -5,9 +5,10 @@
 
     End Sub
 
-    Private Sub BuscaCNAE_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'ao fechar form tambem fechar webview2
 
-
+    Private Sub BuscaCNAE_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        WebAgenda.Dispose()
     End Sub
 
 

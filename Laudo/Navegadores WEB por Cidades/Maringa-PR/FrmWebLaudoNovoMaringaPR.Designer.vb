@@ -38,13 +38,13 @@ Partial Class FrmWebLaudoNovoMaringaPR
         Me.ImportarCNPJToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CadastroImobiliarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EndereçoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÁreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CnaeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.ÁreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CnaeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -173,6 +173,18 @@ Partial Class FrmWebLaudoNovoMaringaPR
         Me.EndereçoToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.EndereçoToolStripMenuItem.Text = "Ou Endereço"
         '
+        'ÁreaToolStripMenuItem
+        '
+        Me.ÁreaToolStripMenuItem.Name = "ÁreaToolStripMenuItem"
+        Me.ÁreaToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.ÁreaToolStripMenuItem.Text = "Área"
+        '
+        'CnaeToolStripMenuItem
+        '
+        Me.CnaeToolStripMenuItem.Name = "CnaeToolStripMenuItem"
+        Me.CnaeToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.CnaeToolStripMenuItem.Text = "Cnae"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
@@ -213,18 +225,6 @@ Partial Class FrmWebLaudoNovoMaringaPR
         Me.WebView21.Size = New System.Drawing.Size(794, 336)
         Me.WebView21.TabIndex = 8
         Me.WebView21.ZoomFactor = 1.0R
-        '
-        'ÁreaToolStripMenuItem
-        '
-        Me.ÁreaToolStripMenuItem.Name = "ÁreaToolStripMenuItem"
-        Me.ÁreaToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.ÁreaToolStripMenuItem.Text = "Área"
-        '
-        'CnaeToolStripMenuItem
-        '
-        Me.CnaeToolStripMenuItem.Name = "CnaeToolStripMenuItem"
-        Me.CnaeToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.CnaeToolStripMenuItem.Text = "Cnae"
         '
         'FrmWebLaudoNovoMaringaPR
         '

@@ -280,5 +280,9 @@
         MEI()
     End Sub
 
+    'ao fechar form tambem fechar webview2
+    Private Sub FrmWebLaudoAntigo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        WebBrowser1.Dispose()
+    End Sub
 
 End Class

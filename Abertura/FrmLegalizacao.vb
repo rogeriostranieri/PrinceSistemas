@@ -2645,5 +2645,9 @@ prazo de 90 dias para empresas abertas a partir de 2021.
 
     End Sub
 
+    Private Sub BtnWord_Click(sender As Object, e As EventArgs) Handles BtnWord.Click
+        'chamar modulo ModEmpresasExportarWord no public CriarDocumentoWord
+        Call ModEmpresasExportarWord.CriarDocumentoWord()
 
+    End Sub
 End Class

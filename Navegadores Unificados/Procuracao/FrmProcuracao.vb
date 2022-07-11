@@ -138,4 +138,10 @@
         LblStatusCarregamento.Text = "Carregamento Completo"
 
     End Sub
+
+
+    'ao fechar form tambem fechar webview2
+    Private Sub FrmImportacao_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        WebView21.Dispose()
+    End Sub
 End Class

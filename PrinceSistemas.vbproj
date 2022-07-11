@@ -73,6 +73,10 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1264.42, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.WebView2.1.0.1264.42\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -268,6 +272,7 @@
     <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo\WORD\ModEmpresasExportarWord.vb" />
     <Compile Include="Navegadores Unificados\ConsultaIE.Designer.vb">
       <DependentUpon>ConsultaIE.vb</DependentUpon>
     </Compile>

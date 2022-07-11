@@ -106,8 +106,8 @@ Partial Class FrmLegalizacao
         Dim IETipoLabel As System.Windows.Forms.Label
         Dim IEeProcNumLabel As System.Windows.Forms.Label
         Dim Label10 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Dim SituacaoCadastralLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -360,6 +360,7 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.SituacaoCadastralComboBox = New System.Windows.Forms.ComboBox()
         Me.LinkLabel18 = New System.Windows.Forms.LinkLabel()
         Me.RazaoSocialLabel = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
@@ -390,6 +391,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.BtnWord = New System.Windows.Forms.Button()
         Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         Me.NovaRazaoSocialLabel = New System.Windows.Forms.Label()
         Me.PictureBoxSistemaExterno = New System.Windows.Forms.PictureBox()
@@ -414,7 +416,6 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
-        Me.SituacaoCadastralComboBox = New System.Windows.Forms.ComboBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1306,6 +1307,15 @@ Partial Class FrmLegalizacao
         Label10.Size = New System.Drawing.Size(50, 13)
         Label10.TabIndex = 47
         Label10.Text = "Contrato:"
+        '
+        'SituacaoCadastralLabel
+        '
+        SituacaoCadastralLabel.AutoSize = True
+        SituacaoCadastralLabel.Location = New System.Drawing.Point(423, 98)
+        SituacaoCadastralLabel.Name = "SituacaoCadastralLabel"
+        SituacaoCadastralLabel.Size = New System.Drawing.Size(99, 13)
+        SituacaoCadastralLabel.TabIndex = 65
+        SituacaoCadastralLabel.Text = "Situação Cadastral:"
         '
         'EmpresasBindingNavigator
         '
@@ -3966,6 +3976,16 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
+        'SituacaoCadastralComboBox
+        '
+        Me.SituacaoCadastralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SituacaoCadastral", True))
+        Me.SituacaoCadastralComboBox.FormattingEnabled = True
+        Me.SituacaoCadastralComboBox.Items.AddRange(New Object() {"ATIVO", "BAIXADA", "INAPTA"})
+        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(522, 95)
+        Me.SituacaoCadastralComboBox.Name = "SituacaoCadastralComboBox"
+        Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(106, 21)
+        Me.SituacaoCadastralComboBox.TabIndex = 66
+        '
         'LinkLabel18
         '
         Me.LinkLabel18.AutoSize = True
@@ -4303,6 +4323,18 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
         '
+        'BtnWord
+        '
+        Me.BtnWord.BackgroundImage = CType(resources.GetObject("BtnWord.BackgroundImage"), System.Drawing.Image)
+        Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnWord.Location = New System.Drawing.Point(10, 64)
+        Me.BtnWord.Name = "BtnWord"
+        Me.BtnWord.Size = New System.Drawing.Size(69, 23)
+        Me.BtnWord.TabIndex = 72
+        Me.BtnWord.Text = "Teste"
+        Me.BtnWord.UseVisualStyleBackColor = True
+        '
         'StatusComboBox
         '
         Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
@@ -4513,6 +4545,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBoxMenuBaixo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBoxMenuBaixo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnWord)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnContador)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnAlteracao)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.Button24)
@@ -4579,25 +4612,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'SituacaoCadastralLabel
-        '
-        SituacaoCadastralLabel.AutoSize = True
-        SituacaoCadastralLabel.Location = New System.Drawing.Point(423, 98)
-        SituacaoCadastralLabel.Name = "SituacaoCadastralLabel"
-        SituacaoCadastralLabel.Size = New System.Drawing.Size(99, 13)
-        SituacaoCadastralLabel.TabIndex = 65
-        SituacaoCadastralLabel.Text = "Situação Cadastral:"
-        '
-        'SituacaoCadastralComboBox
-        '
-        Me.SituacaoCadastralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SituacaoCadastral", True))
-        Me.SituacaoCadastralComboBox.FormattingEnabled = True
-        Me.SituacaoCadastralComboBox.Items.AddRange(New Object() {"ATIVO", "BAIXADA", "INAPTA"})
-        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(522, 95)
-        Me.SituacaoCadastralComboBox.Name = "SituacaoCadastralComboBox"
-        Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(106, 21)
-        Me.SituacaoCadastralComboBox.TabIndex = 66
         '
         'FrmLegalizacao
         '
@@ -5019,4 +5033,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents EndCidadeTextBox As TextBox
     Friend WithEvents BtnAddmaisSocio As Button
     Friend WithEvents SituacaoCadastralComboBox As ComboBox
+    Friend WithEvents BtnWord As Button
 End Class

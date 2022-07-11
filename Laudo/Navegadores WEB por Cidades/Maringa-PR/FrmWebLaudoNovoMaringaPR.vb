@@ -95,4 +95,9 @@
         'mostar form
         FrmAlvara.Focus()
     End Sub
+
+    'ao fechar form tambem fechar webview2
+    Private Sub FrmWebLaudoNovoMaringaPR_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        WebView21.Dispose()
+    End Sub
 End Class
