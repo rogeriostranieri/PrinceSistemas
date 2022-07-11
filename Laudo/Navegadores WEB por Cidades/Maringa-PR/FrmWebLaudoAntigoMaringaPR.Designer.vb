@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmWebLaudoAntigo
+Partial Class FrmWebLaudoAntigoMaringaPR
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -23,7 +23,7 @@ Partial Class FrmWebLaudoAntigo
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWebLaudoAntigo))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWebLaudoAntigoMaringaPR))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()

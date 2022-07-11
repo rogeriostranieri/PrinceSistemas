@@ -474,16 +474,15 @@ Public Class FrmAlvara
 
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
-            'tirar espaço do textbox laudo
-            NlaudoTextBox.Text = NlaudoTextBox.Text.Replace(" ", "")
-            'termina  
+            If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoNovoMaringaPR.Focus()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebLaudoNovoMaringaPR.Show()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
 
-            'Copia
-            Clipboard.SetText(NlaudoTextBox.Text)
-
-            MsgBox("Protocolo Copiado e abrindo site...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-            System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
+            End If
 
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
@@ -783,24 +782,25 @@ Public Class FrmAlvara
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles ButtonSolicitar.Click
         GroupBox4.Text = "Dados Cadastrais"
-
         If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
-
             'System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br/laudosnew/index.php")
-            If Application.OpenForms.OfType(Of FrmWebLaudoAntigo)().Count() > 0 Then
-
-                FrmWebLaudoAntigo.Focus()
-
+            If Application.OpenForms.OfType(Of FrmWebLaudoAntigoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoAntigoMaringaPR.Focus()
             Else
-
-                FrmWebLaudoAntigo.Show()
-
+                FrmWebLaudoAntigoMaringaPR.Show()
             End If
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
+            'System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
+            If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoNovoMaringaPR.Focus()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e1s1")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebLaudoNovoMaringaPR.Show()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e1s1")
 
-            System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
-
+            End If
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
 

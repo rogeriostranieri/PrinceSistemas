@@ -1,4 +1,4 @@
-﻿Public Class FrmWebLaudoAntigo
+﻿Public Class FrmWebLaudoAntigoMaringaPR
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         WebBrowser1.Navigate("http://venus.maringa.pr.gov.br/laudosnew/requerimentos.php")
