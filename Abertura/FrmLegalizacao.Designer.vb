@@ -391,7 +391,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.BtnWord = New System.Windows.Forms.Button()
         Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         Me.NovaRazaoSocialLabel = New System.Windows.Forms.Label()
         Me.PictureBoxSistemaExterno = New System.Windows.Forms.PictureBox()
@@ -401,6 +400,7 @@ Partial Class FrmLegalizacao
         Me.BtnVerEventos = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.SistemaExternoLabel = New System.Windows.Forms.Label()
+        Me.BtnWord = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.BtnLocalizar = New System.Windows.Forms.Button()
@@ -4323,18 +4323,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
         '
-        'BtnWord
-        '
-        Me.BtnWord.BackgroundImage = CType(resources.GetObject("BtnWord.BackgroundImage"), System.Drawing.Image)
-        Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnWord.Location = New System.Drawing.Point(10, 64)
-        Me.BtnWord.Name = "BtnWord"
-        Me.BtnWord.Size = New System.Drawing.Size(69, 23)
-        Me.BtnWord.TabIndex = 72
-        Me.BtnWord.Text = "Teste"
-        Me.BtnWord.UseVisualStyleBackColor = True
-        '
         'StatusComboBox
         '
         Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
@@ -4420,6 +4408,18 @@ Partial Class FrmLegalizacao
         Me.SistemaExternoLabel.Size = New System.Drawing.Size(159, 13)
         Me.SistemaExternoLabel.TabIndex = 68
         Me.SistemaExternoLabel.Text = "Atualização no Sistema Externo:"
+        '
+        'BtnWord
+        '
+        Me.BtnWord.BackgroundImage = CType(resources.GetObject("BtnWord.BackgroundImage"), System.Drawing.Image)
+        Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnWord.Location = New System.Drawing.Point(7, 68)
+        Me.BtnWord.Name = "BtnWord"
+        Me.BtnWord.Size = New System.Drawing.Size(69, 23)
+        Me.BtnWord.TabIndex = 72
+        Me.BtnWord.Text = "WORD"
+        Me.BtnWord.UseVisualStyleBackColor = True
         '
         'Label2
         '

@@ -1,4 +1,5 @@
-﻿Public Class FrmSocios
+﻿
+Public Class FrmSocios
     Private Sub FrmSocios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Socios'. Você pode movê-la ou removê-la conforme necessário.
         Me.SociosTableAdapter.Fill(Me.PrinceDBDataSet.Socios)
@@ -230,7 +231,6 @@
 
     Private Sub AddSocios()
         Try
-            If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
 
                 'ativar TabControle 1
                 FrmLegalizacao.TabControl1.SelectedIndex = 1
@@ -282,7 +282,7 @@
                 If Genero = "Masculino" Then
                     'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
                     ' EstadoCivil = "solteiro"
-                    Empresario = "empresario"
+                    Empresario = "empresário"
                     domiciliado = "domiciliado"
                     Portador = "portador"
                     Brasileiro = "brasileiro"
@@ -290,7 +290,7 @@
 
                 ElseIf Genero = "Feminino" Then
                     'EstadoCivil = "solteira"
-                    Empresario = "empresaria"
+                    Empresario = "empresária"
                     domiciliado = "domiciliada"
                     Portador = "portadora"
                     Brasileiro = "brasileira"
@@ -365,7 +365,7 @@ Novos dados:" + "
 
                 Me.Close()
 
-            End If
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -373,7 +373,10 @@ Novos dados:" + "
 
     End Sub
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
-        AddSocios()
+        If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+
+            AddSocios()
+        End If
 
     End Sub
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -389,6 +392,25 @@ Novos dados:" + "
                 Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
             End If
         End If
+    End Sub
+
+
+    Private Sub BtnWord_Click(sender As Object, e As EventArgs) Handles BtnWord.Click
+        'verificar se foi selecinado o combobox1
+        If ComboBox1.SelectedIndex = -1 Then
+            MsgBox("Selecione um número de sócio", MsgBoxStyle.Exclamation, "Atenção")
+            ComboBox1.Focus()
+            Exit Sub
+
+        Else
+            'verificar se ExportarContratoWordDialog está aberto e focar
+            If ExportarContratoWordDialog.Visible = True Then
+                ExportarContratoWordDialog.Focus()
+            Else
+                ExportarContratoWordDialog.Show()
+            End If
+        End If
+
     End Sub
 
 

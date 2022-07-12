@@ -88,6 +88,9 @@ Partial Class FrmSocios
         Me.Telefone2MaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.EMailTextBox = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BtnWord = New System.Windows.Forms.Button()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
@@ -101,6 +104,11 @@ Partial Class FrmSocios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnNovo = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
+        Me.BtnSalvar = New System.Windows.Forms.Button()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
+        Me.BtnExcluir = New System.Windows.Forms.Button()
         Me.BtnFechar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnAddSocios = New System.Windows.Forms.Button()
@@ -108,11 +116,7 @@ Partial Class FrmSocios
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.BtnExcluir = New System.Windows.Forms.Button()
-        Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.BtnSalvar = New System.Windows.Forms.Button()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.BtnNovo = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -144,6 +148,7 @@ Partial Class FrmSocios
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.GroupBoxDadosPessoais.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -693,6 +698,7 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.26523!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.73477!))
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox4, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxOutrosDados, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxDadosPessoais, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
@@ -710,6 +716,40 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 496)
         Me.TableLayoutPanel1.TabIndex = 51
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.ComboBox1)
+        Me.GroupBox4.Controls.Add(Me.BtnWord)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox4.Location = New System.Drawing.Point(550, 459)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(514, 34)
+        Me.GroupBox4.TabIndex = 59
+        Me.GroupBox4.TabStop = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.ComboBox1.Location = New System.Drawing.Point(88, 8)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(58, 21)
+        Me.ComboBox1.TabIndex = 54
+        '
+        'BtnWord
+        '
+        Me.BtnWord.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnWord.Location = New System.Drawing.Point(155, 6)
+        Me.BtnWord.Name = "BtnWord"
+        Me.BtnWord.Size = New System.Drawing.Size(174, 23)
+        Me.BtnWord.TabIndex = 53
+        Me.BtnWord.Text = "Exportar Sócio para o Word"
+        Me.BtnWord.UseVisualStyleBackColor = False
         '
         'GroupBoxOutrosDados
         '
@@ -914,6 +954,60 @@ Partial Class FrmSocios
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
+        'BtnNovo
+        '
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnNovo.Location = New System.Drawing.Point(109, 19)
+        Me.BtnNovo.Name = "BtnNovo"
+        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
+        Me.BtnNovo.TabIndex = 9
+        Me.BtnNovo.Text = "Novo"
+        Me.BtnNovo.UseVisualStyleBackColor = True
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnEditar.Location = New System.Drawing.Point(190, 19)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnEditar.TabIndex = 8
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = True
+        '
+        'BtnSalvar
+        '
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnSalvar.Location = New System.Drawing.Point(271, 19)
+        Me.BtnSalvar.Name = "BtnSalvar"
+        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSalvar.TabIndex = 7
+        Me.BtnSalvar.Text = "Salvar"
+        Me.BtnSalvar.UseVisualStyleBackColor = True
+        '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCancelar.Location = New System.Drawing.Point(352, 19)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCancelar.TabIndex = 6
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = True
+        '
+        'BtnExcluir
+        '
+        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExcluir.ForeColor = System.Drawing.Color.Crimson
+        Me.BtnExcluir.Location = New System.Drawing.Point(433, 19)
+        Me.BtnExcluir.Name = "BtnExcluir"
+        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExcluir.TabIndex = 5
+        Me.BtnExcluir.Text = "Excluir"
+        Me.BtnExcluir.UseVisualStyleBackColor = True
+        '
         'BtnFechar
         '
         Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
@@ -989,59 +1083,15 @@ Partial Class FrmSocios
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'BtnExcluir
+        'Label4
         '
-        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExcluir.ForeColor = System.Drawing.Color.Crimson
-        Me.BtnExcluir.Location = New System.Drawing.Point(433, 19)
-        Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExcluir.TabIndex = 5
-        Me.BtnExcluir.Text = "Excluir"
-        Me.BtnExcluir.UseVisualStyleBackColor = True
-        '
-        'BtnCancelar
-        '
-        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCancelar.Location = New System.Drawing.Point(352, 19)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnCancelar.TabIndex = 6
-        Me.BtnCancelar.Text = "Cancelar"
-        Me.BtnCancelar.UseVisualStyleBackColor = True
-        '
-        'BtnSalvar
-        '
-        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnSalvar.Location = New System.Drawing.Point(271, 19)
-        Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnSalvar.TabIndex = 7
-        Me.BtnSalvar.Text = "Salvar"
-        Me.BtnSalvar.UseVisualStyleBackColor = True
-        '
-        'BtnEditar
-        '
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnEditar.Location = New System.Drawing.Point(190, 19)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnEditar.TabIndex = 8
-        Me.BtnEditar.Text = "Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
-        '
-        'BtnNovo
-        '
-        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnNovo.Location = New System.Drawing.Point(109, 19)
-        Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
-        Me.BtnNovo.TabIndex = 9
-        Me.BtnNovo.Text = "Novo"
-        Me.BtnNovo.UseVisualStyleBackColor = True
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(16, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(72, 15)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Nº do sócio:"
         '
         'FrmSocios
         '
@@ -1065,6 +1115,8 @@ Partial Class FrmSocios
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.GroupBoxOutrosDados.ResumeLayout(False)
         Me.GroupBoxOutrosDados.PerformLayout()
         Me.GroupBoxDadosPessoais.ResumeLayout(False)
@@ -1141,4 +1193,8 @@ Partial Class FrmSocios
     Friend WithEvents BtnEditar As Button
     Friend WithEvents BtnSalvar As Button
     Friend WithEvents BtnCancelar As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents BtnWord As Button
+    Friend WithEvents Label4 As Label
 End Class

@@ -135,6 +135,18 @@
     <Compile Include="Abertura\DialogCalendarioEmpresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\Exportar Contrato\DadosExportacao.Designer.vb">
+      <DependentUpon>DadosExportacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Exportar Contrato\DadosExportacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.Designer.vb">
+      <DependentUpon>ExportarContratoWordDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </Compile>
@@ -272,7 +284,13 @@
     <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo\WORD\ModEmpresasExportarWord.vb" />
+    <Compile Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.Designer.vb">
+      <DependentUpon>FrmBombeiroPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\ModNumeroExtenso.vb" />
     <Compile Include="Navegadores Unificados\ConsultaIE.Designer.vb">
       <DependentUpon>ConsultaIE.vb</DependentUpon>
     </Compile>
@@ -556,6 +574,12 @@
     <EmbeddedResource Include="Abertura\DialogCalendarioEmpresas.resx">
       <DependentUpon>DialogCalendarioEmpresas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Exportar Contrato\DadosExportacao.resx">
+      <DependentUpon>DadosExportacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.resx">
+      <DependentUpon>ExportarContratoWordDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </EmbeddedResource>
@@ -621,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.resx">
       <DependentUpon>FrmWebLaudoNovoMaringaPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.resx">
+      <DependentUpon>FrmBombeiroPR.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\ConsultaIE.resx">
       <DependentUpon>ConsultaIE.vb</DependentUpon>
@@ -1017,6 +1044,7 @@
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Modulo\WORD\" />
     <Folder Include="Navegadores Unificados\WebConsulta Federal\" />
   </ItemGroup>
   <ItemGroup>

@@ -2646,8 +2646,33 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnWord_Click(sender As Object, e As EventArgs) Handles BtnWord.Click
-        'chamar modulo ModEmpresasExportarWord no public CriarDocumentoWord
-        Call ModEmpresasExportarWord.CriarDocumentoWord()
-
+        If ExportarContratoWordDialog.Visible = True Then
+            ExportarContratoWordDialog.Focus()
+        Else
+            ExportarContratoWordDialog.Show()
+        End If
     End Sub
+
+    Private Sub CapitalSTextBox_Validated(sender As Object, e As EventArgs) Handles CapitalSTextBox.Validated
+        ''verificar se o valor é numérico e mostra mgs
+        If IsNumeric(CapitalSTextBox.Text) = False Then
+            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
+            CapitalSTextBox.Focus()
+            Exit Sub
+        Else
+            CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
+        End If
+    End Sub
+
+    Private Sub CapitalITextBox_Validated(sender As Object, e As EventArgs) Handles CapitalITextBox.Validated
+        ''verificar se o valor é numérico e mostra mgs
+        If IsNumeric(CapitalITextBox.Text) = False Then
+            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
+            CapitalITextBox.Focus()
+            Exit Sub
+        Else
+            CapitalITextBox.Text = FormatCurrency(CapitalITextBox.Text)
+        End If
+    End Sub
+
 End Class

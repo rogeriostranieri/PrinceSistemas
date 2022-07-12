@@ -38,12 +38,20 @@
 
 
     Private Sub ImportarCNPJToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarCNPJToolStripMenuItem.Click
-        WebView21.ExecuteScriptAsync("document.getElementById('form:maskCpfResp:maskCpfResp').value = '" & FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(".", "").Replace("-", "") & "'")
+        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(".", "").Replace("-", "") & "'"
+        WebView21.ExecuteScriptAsync("document.getElementById('form:maskCpfResp:maskCpfResp').value = '" & CNPJ)
 
     End Sub
 
     Private Sub CadastroImobiliarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroImobiliarioToolStripMenuItem.Click
-        WebView21.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:codImobiliario').value = '" & FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(".", "").Replace("-", "") & "'")
+        'ativar TabAlvara 0
+        FrmAlvara.TabAlvara.SelectedIndex = 0
+        'TabControl2
+        FrmAlvara.TabControl2.SelectedIndex = 1
+        Dim CADIMOB As String = FrmAlvara.CadImobTextBox.Text
+        Me.Focus()
+        'WebView21 Id('formCadastroImobiliario:codImobiliario') 
+        WebView21.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:codImobiliario').value = '" & CADIMOB & "'")
         'clicar em id=formCadastroImobiliario:btnConsultaCadastro
         WebView21.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:btnConsultaCadastro').click()")
     End Sub
@@ -76,12 +84,17 @@
         'selecionar aba FrmAlvara.TabControl2 1
         FrmAlvara.TabControl2.SelectTab(1)
 
+        Dim Area1 As String = FrmAlvara.AreaTextBox.Text
+        Dim Area2 As String = FrmAlvara.Area2TextBox.Text
+
+
+        Me.Focus()
         'id="form:areaConstruida_input"
         'AreaTextBox
-        WebView21.ExecuteScriptAsync("document.getElementById('form:areaConstruida_input').value = '" & FrmAlvara.AreaTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementById('form:areaConstruida_input').value = '" & Area1 & "'")
         'id="form:areaPatio_input"
         'Area2TextBox
-        WebView21.ExecuteScriptAsync("document.getElementById('form:areaPatio_input').value = '" & FrmAlvara.Area2TextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementById('form:areaPatio_input').value = '" & Area2 & "'")
 
     End Sub
 
@@ -99,5 +112,9 @@
     'ao fechar form tambem fechar webview2
     Private Sub FrmWebLaudoNovoMaringaPR_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         WebView21.Dispose()
+    End Sub
+
+    Private Sub FrmWebLaudoNovoMaringaPR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

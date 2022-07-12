@@ -657,7 +657,15 @@ Public Class FrmAlvara
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
 
-        System.Diagnostics.Process.Start("https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Acompanhar-Processo")
+        'System.Diagnostics.Process.Start("https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Acompanhar-Processo")
+
+        'verifica se o FrmBombeiroPR está aberto ou abrir
+        If FrmBombeiroPR.Visible = False Then
+            FrmBombeiroPR.Show()
+        Else
+            FrmBombeiroPR.Focus()
+        End If
+
 
     End Sub
 
@@ -672,9 +680,19 @@ Public Class FrmAlvara
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         'verificar CNPJLabel contem a palavra "CNPJ"
-        If CNPJLabel.Text = "CNPJ:" Then
-            BoxConsultaCNPJLaudo.Show()
+        'verificar se esta aberto BoxConsultaCNPJLaudo ou abrir
+        If BoxConsultaCNPJLaudo.Visible = False Then
+            ' BoxConsultaCNPJLaudo.Show()
+            If CNPJLabel.Text = "CNPJ:" Then
+                BoxConsultaCNPJLaudo.Show()
+            End If
+        Else
+            'BoxConsultaCNPJLaudo.Focus()
+            If CNPJLabel.Text = "CNPJ:" Then
+                BoxConsultaCNPJLaudo.Focus()
+            End If
         End If
+
 
     End Sub
 
@@ -794,11 +812,11 @@ Public Class FrmAlvara
             'System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
             If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
                 FrmWebLaudoNovoMaringaPR.Focus()
-                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e1s1")
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
                 'copiar cnpj sem / e - e .
             Else
                 FrmWebLaudoNovoMaringaPR.Show()
-                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e1s1")
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
 
             End If
 

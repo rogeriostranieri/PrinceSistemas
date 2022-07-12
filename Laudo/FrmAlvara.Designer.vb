@@ -1363,7 +1363,7 @@ Partial Class FrmAlvara
         '
         Me.BombeiroNProcessoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroNProcesso", True))
         Me.BombeiroNProcessoMaskedTextBox.Location = New System.Drawing.Point(83, 19)
-        Me.BombeiroNProcessoMaskedTextBox.Mask = "0.0.00.00.0000000000-00"
+        Me.BombeiroNProcessoMaskedTextBox.Mask = "9,9,99,99,9999999999-99"
         Me.BombeiroNProcessoMaskedTextBox.Name = "BombeiroNProcessoMaskedTextBox"
         Me.BombeiroNProcessoMaskedTextBox.Size = New System.Drawing.Size(136, 20)
         Me.BombeiroNProcessoMaskedTextBox.TabIndex = 4
