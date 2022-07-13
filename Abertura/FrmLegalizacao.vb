@@ -418,9 +418,23 @@ Public Class FrmLegalizacao
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnConsultaJunta.Click
+        'System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + ProtocoloJuntaComercialTextBox.Text)
 
-        System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + ProtocoloJuntaComercialTextBox.Text)
+        Dim Protocolo As String = ProtocoloJuntaComercialTextBox.Text
+        'verificar FrmWBEmpresaFacilPR está aberto ou abrir
+        Dim frm As New FrmWBEmpresaFacilPR
+        '            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
 
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

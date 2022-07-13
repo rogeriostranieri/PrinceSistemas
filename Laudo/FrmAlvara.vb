@@ -650,9 +650,16 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        'System.Diagnostics.Process.Start("http://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Solicitacao-de-Vistoria")
+        'verifica se o FrmBombeiroPR está aberto ou abrir
+        If FrmBombeiroPR.Visible = False Then
+            FrmBombeiroPR.Show()
+            FrmBombeiroPR.WebView21.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
 
-        System.Diagnostics.Process.Start("http://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Solicitacao-de-Vistoria")
-
+        Else
+            FrmBombeiroPR.Focus()
+            FrmBombeiroPR.WebView21.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
+        End If
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
@@ -662,8 +669,11 @@ Public Class FrmAlvara
         'verifica se o FrmBombeiroPR está aberto ou abrir
         If FrmBombeiroPR.Visible = False Then
             FrmBombeiroPR.Show()
+            FrmBombeiroPR.WebView21.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso")
+
         Else
             FrmBombeiroPR.Focus()
+            FrmBombeiroPR.WebView21.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso")
         End If
 
 

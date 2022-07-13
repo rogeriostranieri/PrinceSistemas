@@ -403,9 +403,16 @@ Public Class ExportarContratoWordDialog
 
     End Sub
     Private Sub BtnSocios_Click(sender As Object, e As EventArgs) Handles BtnSocios.Click
-        If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-            ExportarWordSocios()
+        'verificar se o campo TextBoxCaminho contem ".docx"
+        If TextBoxCaminho.Text.Substring(TextBoxCaminho.Text.Length - 5, 5) = ".docx" Then
+            If MsgBox("Deseja exportar os dados do sócio para o Word?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                ExportarWordSocios()
+            End If
+        Else
+            MsgBox("Selecione um arquivo docx para exportar", MsgBoxStyle.OkOnly, "Atenção")
         End If
+
+
 
     End Sub
 
@@ -428,7 +435,15 @@ Public Class ExportarContratoWordDialog
     End Sub
 
     Private Sub BtnContrato_Click(sender As Object, e As EventArgs) Handles BtnContrato.Click
-        ExportarContrato()
+        'verificar se o campo TextBoxCaminho contem ".docx"
+        If TextBoxCaminho.Text.Substring(TextBoxCaminho.Text.Length - 5, 5) = ".docx" Then
+            If MsgBox("Deseja exportar os dados da empresa aberto para o Contrato Social?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                ExportarContrato()
+            End If
+        Else
+            MsgBox("Selecione um arquivo docx para exportar", MsgBoxStyle.OkOnly, "Atenção")
+        End If
+
     End Sub
     Private Sub ExportarContrato()
 
@@ -599,6 +614,11 @@ Public Class ExportarContratoWordDialog
 
     Private Sub BtnDados_Click(sender As Object, e As EventArgs) Handles BtnDados.Click
         'verificar se form DadosExportacao esta aberto e abrir
+        If DadosExportacao.Visible = True Then
+            DadosExportacao.Focus()
+        Else
+            DadosExportacao.Show()
+        End If
 
     End Sub
 

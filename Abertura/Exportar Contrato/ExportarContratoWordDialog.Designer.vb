@@ -151,19 +151,19 @@ Partial Class ExportarContratoWordDialog
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(33, 137)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(325, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(335, 76)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Exportação"
         '
         'BtnDados
         '
-        Me.BtnDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDados.Location = New System.Drawing.Point(207, 31)
         Me.BtnDados.Name = "BtnDados"
-        Me.BtnDados.Size = New System.Drawing.Size(98, 30)
+        Me.BtnDados.Size = New System.Drawing.Size(111, 30)
         Me.BtnDados.TabIndex = 3
-        Me.BtnDados.Text = "Dados..."
+        Me.BtnDados.Text = "Informações"
         Me.BtnDados.UseVisualStyleBackColor = True
         '
         'ExportarContratoWordDialog
@@ -186,7 +186,7 @@ Partial Class ExportarContratoWordDialog
         Me.Name = "ExportarContratoWordDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ExportarContratoWordDialog"
+        Me.Text = "Exportar para DOCX"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)

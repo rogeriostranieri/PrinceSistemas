@@ -147,6 +147,12 @@
     <Compile Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\WEB\FrmWBEmpresaFacilPR.Designer.vb">
+      <DependentUpon>FrmWBEmpresaFacilPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\WEB\FrmWBEmpresaFacilPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </Compile>
@@ -579,6 +585,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.resx">
       <DependentUpon>ExportarContratoWordDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\WEB\FrmWBEmpresaFacilPR.resx">
+      <DependentUpon>FrmWBEmpresaFacilPR.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>

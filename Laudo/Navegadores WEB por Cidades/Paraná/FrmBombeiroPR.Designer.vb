@@ -38,7 +38,10 @@ Partial Class FrmBombeiroPR
         Me.ProcessoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CNPJToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DadosSolicitanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÁreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TesteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.StatusStrip1.SuspendLayout()
@@ -51,7 +54,7 @@ Partial Class FrmBombeiroPR
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.LblStatusCarregamento})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(800, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(927, 25)
         Me.StatusStrip1.TabIndex = 19
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -81,7 +84,7 @@ Partial Class FrmBombeiroPR
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(800, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(927, 25)
         Me.ToolStrip1.TabIndex = 17
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -125,24 +128,24 @@ Partial Class FrmBombeiroPR
         Me.ToolStripDropDownButton1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarCNPJToolStripMenuItem, Me.ProcessoToolStripMenuItem})
-        Me.ToolStripDropDownButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripDropDownButton1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(114, 22)
-        Me.ToolStripDropDownButton1.Text = "Importar Dados"
-        Me.ToolStripDropDownButton1.ToolTipText = "Importar Dados"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(134, 22)
+        Me.ToolStripDropDownButton1.Text = "Acompanhamento"
+        Me.ToolStripDropDownButton1.ToolTipText = "Acompanhamento"
         '
         'ImportarCNPJToolStripMenuItem
         '
         Me.ImportarCNPJToolStripMenuItem.Name = "ImportarCNPJToolStripMenuItem"
-        Me.ImportarCNPJToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ImportarCNPJToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.ImportarCNPJToolStripMenuItem.Text = "Copiar Nº do CNPJ"
         '
         'ProcessoToolStripMenuItem
         '
         Me.ProcessoToolStripMenuItem.Name = "ProcessoToolStripMenuItem"
-        Me.ProcessoToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ProcessoToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.ProcessoToolStripMenuItem.Text = "Processo"
         '
         'ToolStripSeparator3
@@ -154,20 +157,38 @@ Partial Class FrmBombeiroPR
         '
         Me.ToolStripDropDownButton2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
-        Me.ToolStripDropDownButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CNPJToolStripMenuItem, Me.DadosSolicitanteToolStripMenuItem, Me.ÁreaToolStripMenuItem, Me.TesteToolStripMenuItem})
+        Me.ToolStripDropDownButton2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(71, 22)
-        Me.ToolStripDropDownButton2.Text = "Exportar"
-        Me.ToolStripDropDownButton2.ToolTipText = "Importar Dados"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(163, 22)
+        Me.ToolStripDropDownButton2.Text = "Solicitação / Renovação"
+        Me.ToolStripDropDownButton2.ToolTipText = "Acompanhamento"
         '
-        'ToolStripMenuItem1
+        'CNPJToolStripMenuItem
         '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(183, 22)
-        Me.ToolStripMenuItem1.Text = "Exportar Processo"
+        Me.CNPJToolStripMenuItem.Name = "CNPJToolStripMenuItem"
+        Me.CNPJToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.CNPJToolStripMenuItem.Text = "Copiar Nº do CNPJ"
+        '
+        'DadosSolicitanteToolStripMenuItem
+        '
+        Me.DadosSolicitanteToolStripMenuItem.Name = "DadosSolicitanteToolStripMenuItem"
+        Me.DadosSolicitanteToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.DadosSolicitanteToolStripMenuItem.Text = "Dados Solicitante"
+        '
+        'ÁreaToolStripMenuItem
+        '
+        Me.ÁreaToolStripMenuItem.Name = "ÁreaToolStripMenuItem"
+        Me.ÁreaToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.ÁreaToolStripMenuItem.Text = "Área"
+        '
+        'TesteToolStripMenuItem
+        '
+        Me.TesteToolStripMenuItem.Name = "TesteToolStripMenuItem"
+        Me.TesteToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.TesteToolStripMenuItem.Text = "Teste Pegar Codigo FINAL"
         '
         'ToolStripSeparator4
         '
@@ -182,7 +203,7 @@ Partial Class FrmBombeiroPR
         Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView21.Location = New System.Drawing.Point(0, 0)
         Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(800, 450)
+        Me.WebView21.Size = New System.Drawing.Size(927, 450)
         Me.WebView21.TabIndex = 18
         Me.WebView21.ZoomFactor = 1.0R
         '
@@ -190,7 +211,7 @@ Partial Class FrmBombeiroPR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(927, 450)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.WebView21)
@@ -222,9 +243,12 @@ Partial Class FrmBombeiroPR
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
     Friend WithEvents ImportarCNPJToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents ProcessoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
+    Friend WithEvents CNPJToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DadosSolicitanteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ÁreaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TesteToolStripMenuItem As ToolStripMenuItem
 End Class
