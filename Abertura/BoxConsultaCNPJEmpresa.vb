@@ -56,8 +56,16 @@ Public Class BoxConsultaCNPJEmpresa
                 Dim json As String = Await response.Content.ReadAsStringAsync
                 'nome, natureza_juridica, data_abertura,fantasia,porte,logradouro,numero,complemento,bairro,municipio,uf,cep,telefone,email,capital_social,atividade_principal,atividades_secundarias
                 Dim json_obj As JObject = JObject.Parse(json)
+                'se der erro no Nome finaliza o sub
+                If json_obj("nome") Is Nothing Then
+                    MessageBox.Show("CNPJ não encontrado no site da Receita Federal...", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    BtnImportar.Text = "Importar"
+                    BtnImportar.Enabled = True
+                    Exit Sub
+                End If
                 Dim nome As String = json_obj.Item("nome").ToString
-                Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
+
+                    Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
                 Dim data_abertura As String = json_obj.Item("abertura").ToString
                 Dim fantasia As String = json_obj.Item("fantasia").ToString
                 Dim porte As String = json_obj.Item("porte").ToString

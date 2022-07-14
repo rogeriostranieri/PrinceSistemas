@@ -1,37 +1,23 @@
 ﻿Imports Microsoft.Office.Interop.Word
-Imports System.Windows.Forms
 
 Public Class ExportarContratoWordDialog
-    Dim word As New Microsoft.Office.Interop.Word.Application
-    Dim doc As Microsoft.Office.Interop.Word.Document
-    Dim rng As Microsoft.Office.Interop.Word.Range
-
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        'Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
 
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
-        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        ' Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
 
-    Private Sub EscolherArquivo()
-        'procurar um aquivo e adcionar caminho completo dentro do TextBoxCaminho
-        Dim openFileDialog1 As New OpenFileDialog()
-        openFileDialog1.InitialDirectory = "c:\"
-        openFileDialog1.Filter = "Word files (*.docx)|*.docx|All files (*.*)|*.*"
-        openFileDialog1.FilterIndex = 2
-        openFileDialog1.RestoreDirectory = True
 
-
-        If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCaminho.Text = openFileDialog1.FileName
-        End If
-
-    End Sub
     Private Sub ExportarSocios()
+
+        Dim word As New Microsoft.Office.Interop.Word.Application
+        Dim doc As Microsoft.Office.Interop.Word.Document
+        Dim rng As Microsoft.Office.Interop.Word.Range
         Try
 
             'Dados
@@ -322,7 +308,81 @@ Public Class ExportarContratoWordDialog
             rng.Find.Replacement.Text = Genero2
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
-            '/////////////////////// FALTA FAZER + de 2 Socios ///////////////////////////
+
+
+
+            '/////////////////////// + de 2 Socios  Capital Social TABELA ///////////////////////////
+            'dados 
+            ' FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text
+            'pegar nome do socio da primeira linha
+            Dim PegarLinha As New List(Of String)
+            PegarLinha = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Lines.ToList()
+            Dim Nlinha As String = NumeroSocio
+            'se a resposta do Nlinha for vazia, não faz nada
+            If Nlinha = "" Then
+                'Exit Sub
+            Else
+                'se a resposta do Nlinha for um numero, remove a linha
+                If IsNumeric(Nlinha) Then
+                    'PegarLinha.RemoveAt(Nlinha - 1)
+                    'DivisaoCapitalSociosRichTextBox.Text = String.Join(vbCrLf, PegarLinha)
+                    'pegar nome do socio antes da virgula "," da linha Nlinha
+                    Dim SocioTabela As String = PegarLinha(Nlinha - 1).Substring(0, PegarLinha(Nlinha - 1).IndexOf(","))
+                    'pegar o valor em Reais do socio depois da virgula "," da linha Nlinha
+                    Dim CapitalSocialTabela As String = PegarLinha(Nlinha - 1).Substring(PegarLinha(Nlinha - 1).IndexOf(",") + 1)
+                    'Pegar valor sem os reais e com os centavos
+                    Dim CapitalQuotaTabela As String
+                    'CapitalSocialTabela sem os R$ e ,00
+                    CapitalQuotaTabela = CapitalSocialTabela.Replace("R$", "").Replace(",", "").Replace(" ", "")
+
+
+                    'SocioTabela
+                    rng.Find.Text = "@" & NumeroSocio & "SocioTabela"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = SocioTabela
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+                    'CapitalSocialTabela
+                    rng.Find.Text = "@" & NumeroSocio & "CapitalSocialTabela"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = CapitalSocialTabela
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+                    'CapitalQuotaTabela
+                    rng.Find.Text = "@" & NumeroSocio & "CapitalQuotaTabela"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = CapitalQuotaTabela
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+                    'Total de Capital Social
+                    Dim TotalCapitalSocial As String = ""
+                    For i = 0 To PegarLinha.Count - 1
+                        TotalCapitalSocial += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1)
+                    Next
+                    TotalCapitalSocial = TotalCapitalSocial.Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    'TotalCapitalSocial
+                    rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocial"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = "R$ " & TotalCapitalSocial
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+                    'Total de Capital Social Quotas
+                    Dim TotalCapitalSocialQuotas As String = ""
+                    For i = 0 To PegarLinha.Count - 1
+                        TotalCapitalSocialQuotas += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1).Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    Next
+                    TotalCapitalSocialQuotas = TotalCapitalSocialQuotas.Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    'TotalCapitalSocialQuotas
+                    rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocialQuotas"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = TotalCapitalSocialQuotas
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+                Else
+                    'se a resposta do Nlinha for uma letra, não faz nada
+                    MsgBox("Erro em achar socios na tabela", MsgBoxStyle.Exclamation, "Atenção")
+                End If
+            End If
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -340,10 +400,11 @@ Public Class ExportarContratoWordDialog
             Dim Message As String = "Deseja escolher novo local para salvar o arquivo?"
             Dim result As Integer = MessageBox.Show(Message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
             If result = DialogResult.Yes Then
-                Dim saveFileDialog1 As New SaveFileDialog()
-                saveFileDialog1.Filter = "Word Documents (*.docx)|*.docx"
-                saveFileDialog1.FilterIndex = 2
-                saveFileDialog1.RestoreDirectory = True
+                Dim saveFileDialog1 As New SaveFileDialog With {
+                    .Filter = "Word Documents (*.docx)|*.docx",
+                    .FilterIndex = 2,
+                    .RestoreDirectory = True
+                }
                 saveFileDialog1.ShowDialog()
                 If (saveFileDialog1.FileName <> "") Then
                     doc.SaveAs(saveFileDialog1.FileName)
@@ -420,12 +481,13 @@ Public Class ExportarContratoWordDialog
         'pegar o caminho onde foi salvo e abrir
         ' Dim Abrir As String = MsgBox("Deseja abrir o arquivo?", MsgBoxStyle.YesNo, "Abrir")
         'If Abrir = vbYes Then
-        Dim AbrirArquivo As New OpenFileDialog
-            AbrirArquivo.Filter = "Word Document (*.docx)|*.docx"
-            AbrirArquivo.ShowDialog()
-            If AbrirArquivo.FileName <> "" Then
-                Process.Start(AbrirArquivo.FileName)
-            End If
+        Dim AbrirArquivo As New OpenFileDialog With {
+            .Filter = "Word Document (*.docx)|*.docx"
+        }
+        AbrirArquivo.ShowDialog()
+        If AbrirArquivo.FileName <> "" Then
+            Process.Start(AbrirArquivo.FileName)
+        End If
         ' End If
 
     End Sub
@@ -438,7 +500,7 @@ Public Class ExportarContratoWordDialog
         'verificar se o campo TextBoxCaminho contem ".docx"
         If TextBoxCaminho.Text.Substring(TextBoxCaminho.Text.Length - 5, 5) = ".docx" Then
             If MsgBox("Deseja exportar os dados da empresa aberto para o Contrato Social?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                ExportarContrato()
+                ExportarWordContrato()
             End If
         Else
             MsgBox("Selecione um arquivo docx para exportar", MsgBoxStyle.OkOnly, "Atenção")
@@ -446,7 +508,9 @@ Public Class ExportarContratoWordDialog
 
     End Sub
     Private Sub ExportarContrato()
-
+        Dim word As New Microsoft.Office.Interop.Word.Application
+        Dim doc As Microsoft.Office.Interop.Word.Document
+        Dim rng As Microsoft.Office.Interop.Word.Range
         'pega dados
         FrmLegalizacao.TabControle.SelectTab(2)
 
@@ -622,7 +686,60 @@ Public Class ExportarContratoWordDialog
 
     End Sub
 
-    Private Sub ExportarContratoWordDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub ExportarWordContrato()
+
+        'verificar se FrmSocios está aberto ou abrir form
+        If FrmLegalizacao.Visible = True Then
+            If MsgBox("Está selecionado o Empresa correta para exportar?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                'verificar se TextBoxCaminho.Text está vazio ou não, e com arquivo docx selecionado
+                If TextBoxCaminho.Text = "" Then
+                    MsgBox("Selecione o arquivo docx para exportar", MsgBoxStyle.OkOnly, "Atenção")
+                    Exit Sub
+                Else
+                    'verificar se tem ".docx" no final do caminho
+                    If TextBoxCaminho.Text.Substring(TextBoxCaminho.Text.Length - 5, 5) = ".docx" Then
+                        ExportarContrato()
+                    Else
+                        MsgBox("Selecione um arquivo docx para exportar", MsgBoxStyle.OkOnly, "Atenção")
+                        Exit Sub
+                    End If
+
+                End If
+
+            End If
+
+        Else
+            'mostra mgsbox avisando que o form não está aberto
+            'MsgBox("O formulário de Socios não está aberto. Por favor, abra o formulário de Socios e tente novamente.", MsgBoxStyle.Critical, "Erro")
+            'perguntar se deseja abrir o form
+            If MsgBox("O formulário de Empresas não está aberto. Deseja abrir o formulário de Empresas?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                'verificar se o form está aberto, se sim, abrir o form
+                If FrmLegalizacao.Visible = True Then
+                    FrmLegalizacao.Focus()
+                Else
+                    'se não, abrir o form
+                    FrmLegalizacao.Show()
+                End If
+            End If
+        End If
 
     End Sub
+
+    Private Sub EscolherArquivo()
+        'procurar um aquivo e adcionar caminho completo dentro do TextBoxCaminho
+        Dim openFileDialog1 As New OpenFileDialog With {
+            .InitialDirectory = "c:\",
+            .Filter = "Word files (*.docx)|*.docx|All files (*.*)|*.*",
+            .FilterIndex = 2,
+            .RestoreDirectory = True
+        }
+
+
+        If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            TextBoxCaminho.Text = openFileDialog1.FileName
+        End If
+
+    End Sub
+
+
 End Class

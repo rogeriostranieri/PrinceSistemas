@@ -53,7 +53,7 @@ Module ModNumeroExtenso
     ''' Função auxiliar - Parte decimal a converter
     ''' </summary>
     ''' <param name="number">Parte decimal a converter</param>
-    Public Function getDecimal(ByVal number As Byte) As String
+    Public Function GetDecimal(ByVal number As Byte) As String
         Try
 
             Select Case number
@@ -76,7 +76,7 @@ Module ModNumeroExtenso
                         Return strArray(number \ 10 - 2) & " "
                     Else
                         Return strArray(number \ 10 - 2) & " e " &
-                            getDecimal(number Mod 10) & " "
+                            GetDecimal(number Mod 10) & " "
                     End If
                 Case Else
                     Return String.Empty
@@ -92,14 +92,14 @@ Module ModNumeroExtenso
     ''' Função auxiliar - Parte inteira a converter
     ''' </summary>
     ''' <param name="number">Parte inteira a converter</param>
-    Public Function getInteger(ByVal number As Decimal) As String
+    Public Function GetInteger(ByVal number As Decimal) As String
         Try
 
             number = Int(number)
 
             Select Case number
                 Case Is < 0
-                    Return "-" & getInteger(-number)
+                    Return "-" & GetInteger(-number)
                 Case 0
                     Return ""
                 Case 1 To 19
@@ -119,7 +119,7 @@ Module ModNumeroExtenso
                         Return strArray(number \ 10 - 2)
                     Else
                         Return strArray(number \ 10 - 2) & " e " &
-                            getInteger(number Mod 10)
+                            GetInteger(number Mod 10)
                     End If
 
                 Case 100
@@ -135,7 +135,7 @@ Module ModNumeroExtenso
                         Return strArray(number \ 100 - 1) & " "
                     Else
                         Return strArray(number \ 100 - 1) & " e " &
-                            getInteger(number Mod 100)
+                            GetInteger(number Mod 100)
                     End If
 
 
@@ -144,22 +144,22 @@ Module ModNumeroExtenso
                         Case 0
                             Return "Mil"
                         Case Is <= 100
-                            Return "Mil e " & getInteger(number Mod 1000)
+                            Return "Mil e " & GetInteger(number Mod 1000)
                         Case Else
-                            Return "Mil, " & getInteger(number Mod 1000)
+                            Return "Mil, " & GetInteger(number Mod 1000)
                     End Select
 
 
                 Case 2000 To 999999
                     Select Case (number Mod 1000)
                         Case 0
-                            Return getInteger(number \ 1000) & "Mil"
+                            Return GetInteger(number \ 1000) & "Mil"
                         Case Is <= 100
-                            Return getInteger(number \ 1000) & "Mil e " &
-                                getInteger(number Mod 1000)
+                            Return GetInteger(number \ 1000) & "Mil e " &
+                                GetInteger(number Mod 1000)
                         Case Else
-                            Return getInteger(number \ 1000) & "Mil, " &
-                                getInteger(number Mod 1000)
+                            Return GetInteger(number \ 1000) & "Mil, " &
+                                GetInteger(number Mod 1000)
                     End Select
 
 
@@ -168,24 +168,24 @@ Module ModNumeroExtenso
                         Case 0
                             Return "Um Milhão"
                         Case Is <= 100
-                            Return getInteger(number \ 1000000) & "Milhão e " &
-                                getInteger(number Mod 1000000)
+                            Return GetInteger(number \ 1000000) & "Milhão e " &
+                                GetInteger(number Mod 1000000)
                         Case Else
-                            Return getInteger(number \ 1000000) & "Milhão, " &
-                                getInteger(number Mod 1000000)
+                            Return GetInteger(number \ 1000000) & "Milhão, " &
+                                GetInteger(number Mod 1000000)
                     End Select
 
 
                 Case 2000000 To 999999999
                     Select Case (number Mod 1000000)
                         Case 0
-                            Return getInteger(number \ 1000000) & " Milhões"
+                            Return GetInteger(number \ 1000000) & " Milhões"
                         Case Is <= 100
-                            Return getInteger(number \ 1000000) & "Milhões e " &
-                                getInteger(number Mod 1000000)
+                            Return GetInteger(number \ 1000000) & "Milhões e " &
+                                GetInteger(number Mod 1000000)
                         Case Else
-                            Return getInteger(number \ 1000000) & "Milhões, " &
-                                getInteger(number Mod 1000000)
+                            Return GetInteger(number \ 1000000) & "Milhões, " &
+                                GetInteger(number Mod 1000000)
                     End Select
 
 
@@ -194,25 +194,25 @@ Module ModNumeroExtenso
                         Case 0
                             Return "Um Bilião"
                         Case Is <= 100
-                            Return getInteger(number \ 1000000000) & "Bilião e " &
-                                getInteger(number Mod 1000000000)
+                            Return GetInteger(number \ 1000000000) & "Bilião e " &
+                                GetInteger(number Mod 1000000000)
                         Case Else
-                            Return getInteger(number \ 1000000000) & "Bilião, " &
-                                getInteger(number Mod 1000000000)
+                            Return GetInteger(number \ 1000000000) & "Bilião, " &
+                                GetInteger(number Mod 1000000000)
                     End Select
 
 
                 Case Else
                     Select Case (number Mod 1000000000)
                         Case 0
-                            Return getInteger(number \ 1000000000) & "Mil Milhões"
+                            Return GetInteger(number \ 1000000000) & "Mil Milhões"
 
                         Case Is <= 100
-                            Return getInteger(number \ 1000000000) & "Mil Milhões e " &
-                                getInteger(number Mod 1000000000)
+                            Return GetInteger(number \ 1000000000) & "Mil Milhões e " &
+                                GetInteger(number Mod 1000000000)
                         Case Else
-                            Return getInteger(number \ 1000000000) & "Mil Milhões, " &
-                                getInteger(number Mod 1000000000)
+                            Return GetInteger(number \ 1000000000) & "Mil Milhões, " &
+                                GetInteger(number Mod 1000000000)
                     End Select
             End Select
 

@@ -118,36 +118,41 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox2.Text" xml:space="preserve">
-    <value>CPF
-Socio
-DataDeNascimento
-RG
-OrgaoRG
-EstadoRG
-EstadoCivil
-Genero
-Empresario
-domiciliado
-Portador
-Brasileiro
-Nascido
-Rua
-Numero
-Complemento
-Bairro
-Cidade
-Estado
-CEP
-NomeCompleto
-Genero1 = "Sócio"
-Genero2 = "o sócio"
-AdministradorMaiuscula = "Administrador"
-OAdministradorMaiuscula = "O administrador"
-AdministradorMinuscula = "administrador"
-OAdministradorMinuscula = "o administrador"
-AdministradoresMaiuscula = "Administradores"
-OAdministradoresMinuscula = "Os administradores"
-AdministradoresMinuscula = "administradores"
-OAdministradoresMaiuscula = "os administradores"</value>
+    <value>@CPF
+@Socio
+@DataDeNascimento
+@RG
+@OrgaoRG
+@EstadoRG
+@EstadoCivil
+@Genero
+@Empresario
+@domiciliado
+@Portador
+@Brasileiro
+@Nascido
+@Rua
+@Numero
+@Complemento
+@Bairro
+@Cidade
+@Estado
+@CEP
+@NomeCompleto
+@Genero1 = "Sócio"
+@Genero2 = "o sócio"
+@AdministradorMaiuscula = "Administrador"
+@OAdministradorMaiuscula = "O administrador"
+@AdministradorMinuscula = "administrador"
+@OAdministradorMinuscula = "o administrador"
+@AdministradoresMaiuscula = "Administradores"
+@OAdministradoresMinuscula = "Os administradores"
+@AdministradoresMinuscula = "administradores"
+@OAdministradoresMaiuscula = "os administradores"
+@SocioTabela
+@CapitalSocialTabela
+@CapitalQuotaTabela
+@TotalCapitalSocial
+@TotalCapitalSocialQuotas</value>
   </data>
 </root>

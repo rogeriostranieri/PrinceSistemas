@@ -23,6 +23,17 @@ Partial Class FrmSocios
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim CEPLabel As System.Windows.Forms.Label
+        Dim RUALabel As System.Windows.Forms.Label
+        Dim NumLabel As System.Windows.Forms.Label
+        Dim BairroLabel As System.Windows.Forms.Label
+        Dim ComplementoLabel As System.Windows.Forms.Label
+        Dim CidadeLabel As System.Windows.Forms.Label
+        Dim EstadoLabel As System.Windows.Forms.Label
+        Dim PaísLabel As System.Windows.Forms.Label
+        Dim Telefone1Label As System.Windows.Forms.Label
+        Dim Telefone2Label As System.Windows.Forms.Label
+        Dim EMailLabel As System.Windows.Forms.Label
         Dim CPFLabel As System.Windows.Forms.Label
         Dim NomeCompletoLabel As System.Windows.Forms.Label
         Dim NomeMaeLabel As System.Windows.Forms.Label
@@ -37,17 +48,6 @@ Partial Class FrmSocios
         Dim CNHExpedicaoLabel As System.Windows.Forms.Label
         Dim CNHDataExpLabel As System.Windows.Forms.Label
         Dim CivilLabel As System.Windows.Forms.Label
-        Dim CEPLabel As System.Windows.Forms.Label
-        Dim RUALabel As System.Windows.Forms.Label
-        Dim NumLabel As System.Windows.Forms.Label
-        Dim BairroLabel As System.Windows.Forms.Label
-        Dim ComplementoLabel As System.Windows.Forms.Label
-        Dim CidadeLabel As System.Windows.Forms.Label
-        Dim EstadoLabel As System.Windows.Forms.Label
-        Dim PaísLabel As System.Windows.Forms.Label
-        Dim Telefone1Label As System.Windows.Forms.Label
-        Dim Telefone2Label As System.Windows.Forms.Label
-        Dim EMailLabel As System.Windows.Forms.Label
         Dim GeneroLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
         Me.SociosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
@@ -62,61 +62,90 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
-        Me.NomeMaeTextBox = New System.Windows.Forms.TextBox()
-        Me.NomePaiTextBox = New System.Windows.Forms.TextBox()
-        Me.DatadeNascMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.RGTextBox = New System.Windows.Forms.TextBox()
-        Me.OrgaoRGTextBox = New System.Windows.Forms.TextBox()
-        Me.EstadoRGTextBox = New System.Windows.Forms.TextBox()
-        Me.TituloDeEleitorTextBox = New System.Windows.Forms.TextBox()
-        Me.SenhaGOVTextBox = New System.Windows.Forms.TextBox()
-        Me.CNHTextBox = New System.Windows.Forms.TextBox()
-        Me.CNHExpedicaoTextBox = New System.Windows.Forms.TextBox()
-        Me.CNHDataExpTextBox = New System.Windows.Forms.TextBox()
-        Me.CivilComboBox = New System.Windows.Forms.ComboBox()
-        Me.CEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.RUATextBox = New System.Windows.Forms.TextBox()
-        Me.NumTextBox = New System.Windows.Forms.TextBox()
-        Me.BairroTextBox = New System.Windows.Forms.TextBox()
-        Me.ComplementoTextBox = New System.Windows.Forms.TextBox()
-        Me.CidadeTextBox = New System.Windows.Forms.TextBox()
-        Me.EstadoTextBox = New System.Windows.Forms.TextBox()
-        Me.PaísTextBox = New System.Windows.Forms.TextBox()
-        Me.Telefone1MaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.Telefone2MaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.EMailTextBox = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.BtnWord = New System.Windows.Forms.Button()
-        Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
-        Me.BtnCorreios = New System.Windows.Forms.Button()
-        Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
-        Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
-        Me.BtnExtensoDN = New System.Windows.Forms.Button()
-        Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.CPFComboBox = New System.Windows.Forms.ComboBox()
         Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnNovo = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnExcluir = New System.Windows.Forms.Button()
-        Me.BtnFechar = New System.Windows.Forms.Button()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
+        Me.BtnExtensoDN = New System.Windows.Forms.Button()
+        Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
+        Me.CivilComboBox = New System.Windows.Forms.ComboBox()
+        Me.CNHDataExpTextBox = New System.Windows.Forms.TextBox()
+        Me.CNHExpedicaoTextBox = New System.Windows.Forms.TextBox()
+        Me.CNHTextBox = New System.Windows.Forms.TextBox()
+        Me.SenhaGOVTextBox = New System.Windows.Forms.TextBox()
+        Me.TituloDeEleitorTextBox = New System.Windows.Forms.TextBox()
+        Me.EstadoRGTextBox = New System.Windows.Forms.TextBox()
+        Me.OrgaoRGTextBox = New System.Windows.Forms.TextBox()
+        Me.RGTextBox = New System.Windows.Forms.TextBox()
+        Me.DatadeNascMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.NomePaiTextBox = New System.Windows.Forms.TextBox()
+        Me.NomeMaeTextBox = New System.Windows.Forms.TextBox()
+        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
+        Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
+        Me.BtnCorreios = New System.Windows.Forms.Button()
+        Me.EMailTextBox = New System.Windows.Forms.TextBox()
+        Me.Telefone2MaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.Telefone1MaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.PaísTextBox = New System.Windows.Forms.TextBox()
+        Me.EstadoTextBox = New System.Windows.Forms.TextBox()
+        Me.CidadeTextBox = New System.Windows.Forms.TextBox()
+        Me.ComplementoTextBox = New System.Windows.Forms.TextBox()
+        Me.BairroTextBox = New System.Windows.Forms.TextBox()
+        Me.NumTextBox = New System.Windows.Forms.TextBox()
+        Me.RUATextBox = New System.Windows.Forms.TextBox()
+        Me.CEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.BtnAddSocios = New System.Windows.Forms.Button()
-        Me.BtnExportar = New System.Windows.Forms.Button()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
-        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.BtnCapitalSocial = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BtnAddSocios = New System.Windows.Forms.Button()
+        Me.BtnWord = New System.Windows.Forms.Button()
+        Me.BtnExportar = New System.Windows.Forms.Button()
+        Me.BtnFechar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBoxMenuCapitalSocial = New System.Windows.Forms.GroupBox()
+        Me.BtnADDSocioCapital = New System.Windows.Forms.Button()
+        Me.ButtonLimpar = New System.Windows.Forms.Button()
+        Me.ButtonPorcentagem = New System.Windows.Forms.Button()
+        Me.GroupBoxCapitalSocial = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ColumnSocio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnPorcentagem = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnAntigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnNovo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GanhaEPerca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LblCapTotal = New System.Windows.Forms.Label()
+        Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
+        CEPLabel = New System.Windows.Forms.Label()
+        RUALabel = New System.Windows.Forms.Label()
+        NumLabel = New System.Windows.Forms.Label()
+        BairroLabel = New System.Windows.Forms.Label()
+        ComplementoLabel = New System.Windows.Forms.Label()
+        CidadeLabel = New System.Windows.Forms.Label()
+        EstadoLabel = New System.Windows.Forms.Label()
+        PaísLabel = New System.Windows.Forms.Label()
+        Telefone1Label = New System.Windows.Forms.Label()
+        Telefone2Label = New System.Windows.Forms.Label()
+        EMailLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         NomeMaeLabel = New System.Windows.Forms.Label()
@@ -131,30 +160,122 @@ Partial Class FrmSocios
         CNHExpedicaoLabel = New System.Windows.Forms.Label()
         CNHDataExpLabel = New System.Windows.Forms.Label()
         CivilLabel = New System.Windows.Forms.Label()
-        CEPLabel = New System.Windows.Forms.Label()
-        RUALabel = New System.Windows.Forms.Label()
-        NumLabel = New System.Windows.Forms.Label()
-        BairroLabel = New System.Windows.Forms.Label()
-        ComplementoLabel = New System.Windows.Forms.Label()
-        CidadeLabel = New System.Windows.Forms.Label()
-        EstadoLabel = New System.Windows.Forms.Label()
-        PaísLabel = New System.Windows.Forms.Label()
-        Telefone1Label = New System.Windows.Forms.Label()
-        Telefone2Label = New System.Windows.Forms.Label()
-        EMailLabel = New System.Windows.Forms.Label()
         GeneroLabel = New System.Windows.Forms.Label()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SociosBindingNavigator.SuspendLayout()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBoxOutrosDados.SuspendLayout()
-        Me.GroupBoxDadosPessoais.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBoxDadosPessoais.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.GroupBoxOutrosDados.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBoxMenuCapitalSocial.SuspendLayout()
+        Me.GroupBoxCapitalSocial.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'CEPLabel
+        '
+        CEPLabel.AutoSize = True
+        CEPLabel.Location = New System.Drawing.Point(44, 30)
+        CEPLabel.Name = "CEPLabel"
+        CEPLabel.Size = New System.Drawing.Size(31, 13)
+        CEPLabel.TabIndex = 29
+        CEPLabel.Text = "CEP:"
+        '
+        'RUALabel
+        '
+        RUALabel.AutoSize = True
+        RUALabel.Location = New System.Drawing.Point(42, 56)
+        RUALabel.Name = "RUALabel"
+        RUALabel.Size = New System.Drawing.Size(30, 13)
+        RUALabel.TabIndex = 31
+        RUALabel.Text = "Rua:"
+        '
+        'NumLabel
+        '
+        NumLabel.AutoSize = True
+        NumLabel.Location = New System.Drawing.Point(43, 82)
+        NumLabel.Name = "NumLabel"
+        NumLabel.Size = New System.Drawing.Size(32, 13)
+        NumLabel.TabIndex = 33
+        NumLabel.Text = "Num:"
+        '
+        'BairroLabel
+        '
+        BairroLabel.AutoSize = True
+        BairroLabel.Location = New System.Drawing.Point(38, 108)
+        BairroLabel.Name = "BairroLabel"
+        BairroLabel.Size = New System.Drawing.Size(37, 13)
+        BairroLabel.TabIndex = 35
+        BairroLabel.Text = "Bairro:"
+        '
+        'ComplementoLabel
+        '
+        ComplementoLabel.AutoSize = True
+        ComplementoLabel.Location = New System.Drawing.Point(152, 82)
+        ComplementoLabel.Name = "ComplementoLabel"
+        ComplementoLabel.Size = New System.Drawing.Size(74, 13)
+        ComplementoLabel.TabIndex = 37
+        ComplementoLabel.Text = "Complemento:"
+        '
+        'CidadeLabel
+        '
+        CidadeLabel.AutoSize = True
+        CidadeLabel.Location = New System.Drawing.Point(32, 134)
+        CidadeLabel.Name = "CidadeLabel"
+        CidadeLabel.Size = New System.Drawing.Size(43, 13)
+        CidadeLabel.TabIndex = 39
+        CidadeLabel.Text = "Cidade:"
+        '
+        'EstadoLabel
+        '
+        EstadoLabel.AutoSize = True
+        EstadoLabel.Location = New System.Drawing.Point(261, 134)
+        EstadoLabel.Name = "EstadoLabel"
+        EstadoLabel.Size = New System.Drawing.Size(43, 13)
+        EstadoLabel.TabIndex = 41
+        EstadoLabel.Text = "Estado:"
+        '
+        'PaísLabel
+        '
+        PaísLabel.AutoSize = True
+        PaísLabel.Location = New System.Drawing.Point(43, 160)
+        PaísLabel.Name = "PaísLabel"
+        PaísLabel.Size = New System.Drawing.Size(32, 13)
+        PaísLabel.TabIndex = 43
+        PaísLabel.Text = "País:"
+        '
+        'Telefone1Label
+        '
+        Telefone1Label.AutoSize = True
+        Telefone1Label.Location = New System.Drawing.Point(14, 186)
+        Telefone1Label.Name = "Telefone1Label"
+        Telefone1Label.Size = New System.Drawing.Size(61, 13)
+        Telefone1Label.TabIndex = 45
+        Telefone1Label.Text = "Telefone 1:"
+        '
+        'Telefone2Label
+        '
+        Telefone2Label.AutoSize = True
+        Telefone2Label.Location = New System.Drawing.Point(14, 212)
+        Telefone2Label.Name = "Telefone2Label"
+        Telefone2Label.Size = New System.Drawing.Size(61, 13)
+        Telefone2Label.TabIndex = 47
+        Telefone2Label.Text = "Telefone 2:"
+        '
+        'EMailLabel
+        '
+        EMailLabel.AutoSize = True
+        EMailLabel.Location = New System.Drawing.Point(37, 238)
+        EMailLabel.Name = "EMailLabel"
+        EMailLabel.Size = New System.Drawing.Size(38, 13)
+        EMailLabel.TabIndex = 49
+        EMailLabel.Text = "e-Mail:"
         '
         'CPFLabel
         '
@@ -282,105 +403,6 @@ Partial Class FrmSocios
         CivilLabel.TabIndex = 27
         CivilLabel.Text = "Estado Civil:"
         '
-        'CEPLabel
-        '
-        CEPLabel.AutoSize = True
-        CEPLabel.Location = New System.Drawing.Point(44, 30)
-        CEPLabel.Name = "CEPLabel"
-        CEPLabel.Size = New System.Drawing.Size(31, 13)
-        CEPLabel.TabIndex = 29
-        CEPLabel.Text = "CEP:"
-        '
-        'RUALabel
-        '
-        RUALabel.AutoSize = True
-        RUALabel.Location = New System.Drawing.Point(42, 56)
-        RUALabel.Name = "RUALabel"
-        RUALabel.Size = New System.Drawing.Size(30, 13)
-        RUALabel.TabIndex = 31
-        RUALabel.Text = "Rua:"
-        '
-        'NumLabel
-        '
-        NumLabel.AutoSize = True
-        NumLabel.Location = New System.Drawing.Point(43, 82)
-        NumLabel.Name = "NumLabel"
-        NumLabel.Size = New System.Drawing.Size(32, 13)
-        NumLabel.TabIndex = 33
-        NumLabel.Text = "Num:"
-        '
-        'BairroLabel
-        '
-        BairroLabel.AutoSize = True
-        BairroLabel.Location = New System.Drawing.Point(38, 108)
-        BairroLabel.Name = "BairroLabel"
-        BairroLabel.Size = New System.Drawing.Size(37, 13)
-        BairroLabel.TabIndex = 35
-        BairroLabel.Text = "Bairro:"
-        '
-        'ComplementoLabel
-        '
-        ComplementoLabel.AutoSize = True
-        ComplementoLabel.Location = New System.Drawing.Point(152, 82)
-        ComplementoLabel.Name = "ComplementoLabel"
-        ComplementoLabel.Size = New System.Drawing.Size(74, 13)
-        ComplementoLabel.TabIndex = 37
-        ComplementoLabel.Text = "Complemento:"
-        '
-        'CidadeLabel
-        '
-        CidadeLabel.AutoSize = True
-        CidadeLabel.Location = New System.Drawing.Point(32, 134)
-        CidadeLabel.Name = "CidadeLabel"
-        CidadeLabel.Size = New System.Drawing.Size(43, 13)
-        CidadeLabel.TabIndex = 39
-        CidadeLabel.Text = "Cidade:"
-        '
-        'EstadoLabel
-        '
-        EstadoLabel.AutoSize = True
-        EstadoLabel.Location = New System.Drawing.Point(261, 134)
-        EstadoLabel.Name = "EstadoLabel"
-        EstadoLabel.Size = New System.Drawing.Size(43, 13)
-        EstadoLabel.TabIndex = 41
-        EstadoLabel.Text = "Estado:"
-        '
-        'PaísLabel
-        '
-        PaísLabel.AutoSize = True
-        PaísLabel.Location = New System.Drawing.Point(43, 160)
-        PaísLabel.Name = "PaísLabel"
-        PaísLabel.Size = New System.Drawing.Size(32, 13)
-        PaísLabel.TabIndex = 43
-        PaísLabel.Text = "País:"
-        '
-        'Telefone1Label
-        '
-        Telefone1Label.AutoSize = True
-        Telefone1Label.Location = New System.Drawing.Point(14, 186)
-        Telefone1Label.Name = "Telefone1Label"
-        Telefone1Label.Size = New System.Drawing.Size(61, 13)
-        Telefone1Label.TabIndex = 45
-        Telefone1Label.Text = "Telefone 1:"
-        '
-        'Telefone2Label
-        '
-        Telefone2Label.AutoSize = True
-        Telefone2Label.Location = New System.Drawing.Point(14, 212)
-        Telefone2Label.Name = "Telefone2Label"
-        Telefone2Label.Size = New System.Drawing.Size(61, 13)
-        Telefone2Label.TabIndex = 47
-        Telefone2Label.Text = "Telefone 2:"
-        '
-        'EMailLabel
-        '
-        EMailLabel.AutoSize = True
-        EMailLabel.Location = New System.Drawing.Point(37, 238)
-        EMailLabel.Name = "EMailLabel"
-        EMailLabel.Size = New System.Drawing.Size(38, 13)
-        EMailLabel.TabIndex = 49
-        EMailLabel.Text = "e-Mail:"
-        '
         'GeneroLabel
         '
         GeneroLabel.AutoSize = True
@@ -404,7 +426,7 @@ Partial Class FrmSocios
         Me.SociosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.SociosBindingNavigator.Name = "SociosBindingNavigator"
         Me.SociosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.SociosBindingNavigator.Size = New System.Drawing.Size(1067, 25)
+        Me.SociosBindingNavigator.Size = New System.Drawing.Size(683, 25)
         Me.SociosBindingNavigator.TabIndex = 0
         Me.SociosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -486,315 +508,166 @@ Partial Class FrmSocios
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'CPFMaskedTextBox
+        'CPFComboBox
         '
-        Me.CPFMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
-        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(114, 24)
-        Me.CPFMaskedTextBox.Mask = "999,999,999-99"
-        Me.CPFMaskedTextBox.Name = "CPFMaskedTextBox"
-        Me.CPFMaskedTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.CPFMaskedTextBox.TabIndex = 2
+        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CPFComboBox.DataSource = Me.SociosBindingSource
+        Me.CPFComboBox.DisplayMember = "CPF"
+        Me.CPFComboBox.FormattingEnabled = True
+        Me.CPFComboBox.Location = New System.Drawing.Point(490, 1)
+        Me.CPFComboBox.Name = "CPFComboBox"
+        Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
+        Me.CPFComboBox.TabIndex = 8
+        Me.CPFComboBox.ValueMember = "CPF"
         '
-        'NomeCompletoTextBox
+        'NomeCompletoComboBox
         '
-        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
-        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
-        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
-        Me.NomeCompletoTextBox.TabIndex = 4
+        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
+        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
+        Me.NomeCompletoComboBox.FormattingEnabled = True
+        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(251, 1)
+        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
+        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
+        Me.NomeCompletoComboBox.TabIndex = 7
+        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
         '
-        'NomeMaeTextBox
+        'Label3
         '
-        Me.NomeMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeMae", True))
-        Me.NomeMaeTextBox.Location = New System.Drawing.Point(114, 76)
-        Me.NomeMaeTextBox.Name = "NomeMaeTextBox"
-        Me.NomeMaeTextBox.Size = New System.Drawing.Size(355, 20)
-        Me.NomeMaeTextBox.TabIndex = 6
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(455, 4)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(37, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "CPF's:"
         '
-        'NomePaiTextBox
+        'Label2
         '
-        Me.NomePaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomePai", True))
-        Me.NomePaiTextBox.Location = New System.Drawing.Point(114, 102)
-        Me.NomePaiTextBox.Name = "NomePaiTextBox"
-        Me.NomePaiTextBox.Size = New System.Drawing.Size(355, 20)
-        Me.NomePaiTextBox.TabIndex = 8
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(210, 4)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(43, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Nomes:"
         '
-        'DatadeNascMaskedTextBox
+        'SociosTableAdapter
         '
-        Me.DatadeNascMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "DatadeNasc", True))
-        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(114, 128)
-        Me.DatadeNascMaskedTextBox.Mask = "00/00/0000"
-        Me.DatadeNascMaskedTextBox.Name = "DatadeNascMaskedTextBox"
-        Me.DatadeNascMaskedTextBox.Size = New System.Drawing.Size(72, 20)
-        Me.DatadeNascMaskedTextBox.TabIndex = 10
-        Me.DatadeNascMaskedTextBox.ValidatingType = GetType(Date)
+        Me.SociosTableAdapter.ClearBeforeFill = True
         '
-        'RGTextBox
+        'TableAdapterManager
         '
-        Me.RGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RG", True))
-        Me.RGTextBox.Location = New System.Drawing.Point(114, 211)
-        Me.RGTextBox.Name = "RGTextBox"
-        Me.RGTextBox.Size = New System.Drawing.Size(118, 20)
-        Me.RGTextBox.TabIndex = 12
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.ContadorTableAdapter = Nothing
+        Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.LaudosTableAdapter = Nothing
+        Me.TableAdapterManager.LoginTableAdapter = Nothing
+        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
+        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
+        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'OrgaoRGTextBox
+        'GroupBox1
         '
-        Me.OrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "OrgaoRG", True))
-        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(302, 211)
-        Me.OrgaoRGTextBox.Name = "OrgaoRGTextBox"
-        Me.OrgaoRGTextBox.Size = New System.Drawing.Size(54, 20)
-        Me.OrgaoRGTextBox.TabIndex = 14
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.BtnNovo)
+        Me.GroupBox1.Controls.Add(Me.BtnEditar)
+        Me.GroupBox1.Controls.Add(Me.BtnSalvar)
+        Me.GroupBox1.Controls.Add(Me.BtnCancelar)
+        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Location = New System.Drawing.Point(552, 63)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(90, 173)
+        Me.GroupBox1.TabIndex = 56
+        Me.GroupBox1.TabStop = False
         '
-        'EstadoRGTextBox
+        'BtnNovo
         '
-        Me.EstadoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "EstadoRG", True))
-        Me.EstadoRGTextBox.Location = New System.Drawing.Point(430, 211)
-        Me.EstadoRGTextBox.Name = "EstadoRGTextBox"
-        Me.EstadoRGTextBox.Size = New System.Drawing.Size(39, 20)
-        Me.EstadoRGTextBox.TabIndex = 16
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnNovo.Location = New System.Drawing.Point(7, 19)
+        Me.BtnNovo.Name = "BtnNovo"
+        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
+        Me.BtnNovo.TabIndex = 9
+        Me.BtnNovo.Text = "Novo"
+        Me.BtnNovo.UseVisualStyleBackColor = True
         '
-        'TituloDeEleitorTextBox
+        'BtnEditar
         '
-        Me.TituloDeEleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "TituloDeEleitor", True))
-        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(114, 237)
-        Me.TituloDeEleitorTextBox.Name = "TituloDeEleitorTextBox"
-        Me.TituloDeEleitorTextBox.Size = New System.Drawing.Size(118, 20)
-        Me.TituloDeEleitorTextBox.TabIndex = 18
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnEditar.Location = New System.Drawing.Point(7, 45)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnEditar.TabIndex = 8
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = True
         '
-        'SenhaGOVTextBox
+        'BtnSalvar
         '
-        Me.SenhaGOVTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "SenhaGOV", True))
-        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(114, 181)
-        Me.SenhaGOVTextBox.Name = "SenhaGOVTextBox"
-        Me.SenhaGOVTextBox.Size = New System.Drawing.Size(118, 20)
-        Me.SenhaGOVTextBox.TabIndex = 20
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnSalvar.Location = New System.Drawing.Point(7, 71)
+        Me.BtnSalvar.Name = "BtnSalvar"
+        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSalvar.TabIndex = 7
+        Me.BtnSalvar.Text = "Salvar"
+        Me.BtnSalvar.UseVisualStyleBackColor = True
         '
-        'CNHTextBox
+        'BtnCancelar
         '
-        Me.CNHTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNH", True))
-        Me.CNHTextBox.Location = New System.Drawing.Point(114, 263)
-        Me.CNHTextBox.Name = "CNHTextBox"
-        Me.CNHTextBox.Size = New System.Drawing.Size(118, 20)
-        Me.CNHTextBox.TabIndex = 22
+        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCancelar.Location = New System.Drawing.Point(7, 97)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCancelar.TabIndex = 6
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = True
         '
-        'CNHExpedicaoTextBox
+        'BtnExcluir
         '
-        Me.CNHExpedicaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHExpedicao", True))
-        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(286, 289)
-        Me.CNHExpedicaoTextBox.Name = "CNHExpedicaoTextBox"
-        Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.CNHExpedicaoTextBox.TabIndex = 24
+        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExcluir.ForeColor = System.Drawing.Color.Crimson
+        Me.BtnExcluir.Location = New System.Drawing.Point(7, 123)
+        Me.BtnExcluir.Name = "BtnExcluir"
+        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExcluir.TabIndex = 5
+        Me.BtnExcluir.Text = "Excluir"
+        Me.BtnExcluir.UseVisualStyleBackColor = True
         '
-        'CNHDataExpTextBox
+        'TabControl1
         '
-        Me.CNHDataExpTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
-        Me.CNHDataExpTextBox.Location = New System.Drawing.Point(114, 289)
-        Me.CNHDataExpTextBox.Name = "CNHDataExpTextBox"
-        Me.CNHDataExpTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.CNHDataExpTextBox.TabIndex = 26
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(3, 63)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(543, 349)
+        Me.TabControl1.TabIndex = 61
         '
-        'CivilComboBox
+        'TabPage1
         '
-        Me.CivilComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
-        Me.CivilComboBox.FormattingEnabled = True
-        Me.CivilComboBox.Location = New System.Drawing.Point(114, 154)
-        Me.CivilComboBox.Name = "CivilComboBox"
-        Me.CivilComboBox.Size = New System.Drawing.Size(355, 21)
-        Me.CivilComboBox.TabIndex = 28
-        '
-        'CEPMaskedTextBox
-        '
-        Me.CEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CEP", True))
-        Me.CEPMaskedTextBox.Location = New System.Drawing.Point(81, 27)
-        Me.CEPMaskedTextBox.Mask = "99,999-999"
-        Me.CEPMaskedTextBox.Name = "CEPMaskedTextBox"
-        Me.CEPMaskedTextBox.Size = New System.Drawing.Size(72, 20)
-        Me.CEPMaskedTextBox.TabIndex = 30
-        '
-        'RUATextBox
-        '
-        Me.RUATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RUA", True))
-        Me.RUATextBox.Location = New System.Drawing.Point(81, 53)
-        Me.RUATextBox.Name = "RUATextBox"
-        Me.RUATextBox.Size = New System.Drawing.Size(271, 20)
-        Me.RUATextBox.TabIndex = 32
-        '
-        'NumTextBox
-        '
-        Me.NumTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Num", True))
-        Me.NumTextBox.Location = New System.Drawing.Point(81, 79)
-        Me.NumTextBox.Name = "NumTextBox"
-        Me.NumTextBox.Size = New System.Drawing.Size(65, 20)
-        Me.NumTextBox.TabIndex = 34
-        '
-        'BairroTextBox
-        '
-        Me.BairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Bairro", True))
-        Me.BairroTextBox.Location = New System.Drawing.Point(81, 105)
-        Me.BairroTextBox.Name = "BairroTextBox"
-        Me.BairroTextBox.Size = New System.Drawing.Size(271, 20)
-        Me.BairroTextBox.TabIndex = 36
-        '
-        'ComplementoTextBox
-        '
-        Me.ComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Complemento", True))
-        Me.ComplementoTextBox.Location = New System.Drawing.Point(232, 79)
-        Me.ComplementoTextBox.Name = "ComplementoTextBox"
-        Me.ComplementoTextBox.Size = New System.Drawing.Size(120, 20)
-        Me.ComplementoTextBox.TabIndex = 38
-        '
-        'CidadeTextBox
-        '
-        Me.CidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Cidade", True))
-        Me.CidadeTextBox.Location = New System.Drawing.Point(81, 131)
-        Me.CidadeTextBox.Name = "CidadeTextBox"
-        Me.CidadeTextBox.Size = New System.Drawing.Size(174, 20)
-        Me.CidadeTextBox.TabIndex = 40
-        '
-        'EstadoTextBox
-        '
-        Me.EstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Estado", True))
-        Me.EstadoTextBox.Location = New System.Drawing.Point(310, 131)
-        Me.EstadoTextBox.Name = "EstadoTextBox"
-        Me.EstadoTextBox.Size = New System.Drawing.Size(42, 20)
-        Me.EstadoTextBox.TabIndex = 42
-        '
-        'PaísTextBox
-        '
-        Me.PaísTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "País", True))
-        Me.PaísTextBox.Location = New System.Drawing.Point(81, 157)
-        Me.PaísTextBox.Name = "PaísTextBox"
-        Me.PaísTextBox.Size = New System.Drawing.Size(124, 20)
-        Me.PaísTextBox.TabIndex = 44
-        '
-        'Telefone1MaskedTextBox
-        '
-        Me.Telefone1MaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Telefone1", True))
-        Me.Telefone1MaskedTextBox.Location = New System.Drawing.Point(81, 183)
-        Me.Telefone1MaskedTextBox.Name = "Telefone1MaskedTextBox"
-        Me.Telefone1MaskedTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Telefone1MaskedTextBox.TabIndex = 46
-        '
-        'Telefone2MaskedTextBox
-        '
-        Me.Telefone2MaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Telefone2", True))
-        Me.Telefone2MaskedTextBox.Location = New System.Drawing.Point(81, 209)
-        Me.Telefone2MaskedTextBox.Name = "Telefone2MaskedTextBox"
-        Me.Telefone2MaskedTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Telefone2MaskedTextBox.TabIndex = 48
-        '
-        'EMailTextBox
-        '
-        Me.EMailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "eMail", True))
-        Me.EMailTextBox.Location = New System.Drawing.Point(81, 235)
-        Me.EMailTextBox.Name = "EMailTextBox"
-        Me.EMailTextBox.Size = New System.Drawing.Size(271, 20)
-        Me.EMailTextBox.TabIndex = 50
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.26523!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.73477!))
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox4, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxOutrosDados, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxDadosPessoais, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnFechar, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 3)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.68182!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.31818!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 328.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 496)
-        Me.TableLayoutPanel1.TabIndex = 51
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label4)
-        Me.GroupBox4.Controls.Add(Me.ComboBox1)
-        Me.GroupBox4.Controls.Add(Me.BtnWord)
-        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(550, 459)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(514, 34)
-        Me.GroupBox4.TabIndex = 59
-        Me.GroupBox4.TabStop = False
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
-        Me.ComboBox1.Location = New System.Drawing.Point(88, 8)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(58, 21)
-        Me.ComboBox1.TabIndex = 54
-        '
-        'BtnWord
-        '
-        Me.BtnWord.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnWord.Location = New System.Drawing.Point(155, 6)
-        Me.BtnWord.Name = "BtnWord"
-        Me.BtnWord.Size = New System.Drawing.Size(174, 23)
-        Me.BtnWord.TabIndex = 53
-        Me.BtnWord.Text = "Exportar Sócio para o Word"
-        Me.BtnWord.UseVisualStyleBackColor = False
-        '
-        'GroupBoxOutrosDados
-        '
-        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
-        Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.EMailTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(Telefone2Label)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.Telefone2MaskedTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(Telefone1Label)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.Telefone1MaskedTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(PaísLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.PaísTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(EstadoLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.EstadoTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(CidadeLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.CidadeTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(ComplementoLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.ComplementoTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(BairroLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.BairroTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(NumLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.NumTextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(RUALabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.RUATextBox)
-        Me.GroupBoxOutrosDados.Controls.Add(CEPLabel)
-        Me.GroupBoxOutrosDados.Controls.Add(Me.CEPMaskedTextBox)
-        Me.GroupBoxOutrosDados.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(550, 131)
-        Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(514, 322)
-        Me.GroupBoxOutrosDados.TabIndex = 52
-        Me.GroupBoxOutrosDados.TabStop = False
-        Me.GroupBoxOutrosDados.Text = "Outros Dados"
-        '
-        'BtnCorreios
-        '
-        Me.BtnCorreios.BackColor = System.Drawing.Color.White
-        Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCorreios.Location = New System.Drawing.Point(159, 26)
-        Me.BtnCorreios.Name = "BtnCorreios"
-        Me.BtnCorreios.Size = New System.Drawing.Size(73, 22)
-        Me.BtnCorreios.TabIndex = 51
-        Me.BtnCorreios.Text = "Preencher"
-        Me.BtnCorreios.UseVisualStyleBackColor = False
+        Me.TabPage1.Controls.Add(Me.GroupBoxDadosPessoais)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(535, 323)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Sócio"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'GroupBoxDadosPessoais
         '
@@ -832,9 +705,9 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CPFMaskedTextBox)
         Me.GroupBoxDadosPessoais.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 131)
+        Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(541, 322)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(529, 317)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -866,6 +739,385 @@ Partial Class FrmSocios
         Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
         Me.GeneroComboBox.TabIndex = 29
         '
+        'CivilComboBox
+        '
+        Me.CivilComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
+        Me.CivilComboBox.FormattingEnabled = True
+        Me.CivilComboBox.Location = New System.Drawing.Point(114, 154)
+        Me.CivilComboBox.Name = "CivilComboBox"
+        Me.CivilComboBox.Size = New System.Drawing.Size(355, 21)
+        Me.CivilComboBox.TabIndex = 28
+        '
+        'CNHDataExpTextBox
+        '
+        Me.CNHDataExpTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
+        Me.CNHDataExpTextBox.Location = New System.Drawing.Point(114, 289)
+        Me.CNHDataExpTextBox.Name = "CNHDataExpTextBox"
+        Me.CNHDataExpTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CNHDataExpTextBox.TabIndex = 26
+        '
+        'CNHExpedicaoTextBox
+        '
+        Me.CNHExpedicaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHExpedicao", True))
+        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(286, 289)
+        Me.CNHExpedicaoTextBox.Name = "CNHExpedicaoTextBox"
+        Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CNHExpedicaoTextBox.TabIndex = 24
+        '
+        'CNHTextBox
+        '
+        Me.CNHTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNH", True))
+        Me.CNHTextBox.Location = New System.Drawing.Point(114, 263)
+        Me.CNHTextBox.Name = "CNHTextBox"
+        Me.CNHTextBox.Size = New System.Drawing.Size(118, 20)
+        Me.CNHTextBox.TabIndex = 22
+        '
+        'SenhaGOVTextBox
+        '
+        Me.SenhaGOVTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "SenhaGOV", True))
+        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(114, 181)
+        Me.SenhaGOVTextBox.Name = "SenhaGOVTextBox"
+        Me.SenhaGOVTextBox.Size = New System.Drawing.Size(118, 20)
+        Me.SenhaGOVTextBox.TabIndex = 20
+        '
+        'TituloDeEleitorTextBox
+        '
+        Me.TituloDeEleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "TituloDeEleitor", True))
+        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(114, 237)
+        Me.TituloDeEleitorTextBox.Name = "TituloDeEleitorTextBox"
+        Me.TituloDeEleitorTextBox.Size = New System.Drawing.Size(118, 20)
+        Me.TituloDeEleitorTextBox.TabIndex = 18
+        '
+        'EstadoRGTextBox
+        '
+        Me.EstadoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "EstadoRG", True))
+        Me.EstadoRGTextBox.Location = New System.Drawing.Point(430, 211)
+        Me.EstadoRGTextBox.Name = "EstadoRGTextBox"
+        Me.EstadoRGTextBox.Size = New System.Drawing.Size(39, 20)
+        Me.EstadoRGTextBox.TabIndex = 16
+        '
+        'OrgaoRGTextBox
+        '
+        Me.OrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "OrgaoRG", True))
+        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(302, 211)
+        Me.OrgaoRGTextBox.Name = "OrgaoRGTextBox"
+        Me.OrgaoRGTextBox.Size = New System.Drawing.Size(54, 20)
+        Me.OrgaoRGTextBox.TabIndex = 14
+        '
+        'RGTextBox
+        '
+        Me.RGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RG", True))
+        Me.RGTextBox.Location = New System.Drawing.Point(114, 211)
+        Me.RGTextBox.Name = "RGTextBox"
+        Me.RGTextBox.Size = New System.Drawing.Size(118, 20)
+        Me.RGTextBox.TabIndex = 12
+        '
+        'DatadeNascMaskedTextBox
+        '
+        Me.DatadeNascMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "DatadeNasc", True))
+        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(114, 128)
+        Me.DatadeNascMaskedTextBox.Mask = "00/00/0000"
+        Me.DatadeNascMaskedTextBox.Name = "DatadeNascMaskedTextBox"
+        Me.DatadeNascMaskedTextBox.Size = New System.Drawing.Size(72, 20)
+        Me.DatadeNascMaskedTextBox.TabIndex = 10
+        Me.DatadeNascMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'NomePaiTextBox
+        '
+        Me.NomePaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomePai", True))
+        Me.NomePaiTextBox.Location = New System.Drawing.Point(114, 102)
+        Me.NomePaiTextBox.Name = "NomePaiTextBox"
+        Me.NomePaiTextBox.Size = New System.Drawing.Size(355, 20)
+        Me.NomePaiTextBox.TabIndex = 8
+        '
+        'NomeMaeTextBox
+        '
+        Me.NomeMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeMae", True))
+        Me.NomeMaeTextBox.Location = New System.Drawing.Point(114, 76)
+        Me.NomeMaeTextBox.Name = "NomeMaeTextBox"
+        Me.NomeMaeTextBox.Size = New System.Drawing.Size(355, 20)
+        Me.NomeMaeTextBox.TabIndex = 6
+        '
+        'NomeCompletoTextBox
+        '
+        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
+        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
+        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
+        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
+        Me.NomeCompletoTextBox.TabIndex = 4
+        '
+        'CPFMaskedTextBox
+        '
+        Me.CPFMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
+        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(114, 24)
+        Me.CPFMaskedTextBox.Mask = "999,999,999-99"
+        Me.CPFMaskedTextBox.Name = "CPFMaskedTextBox"
+        Me.CPFMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CPFMaskedTextBox.TabIndex = 2
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.GroupBoxOutrosDados)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(549, 323)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Endereço"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'GroupBoxOutrosDados
+        '
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
+        Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.EMailTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(Telefone2Label)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.Telefone2MaskedTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(Telefone1Label)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.Telefone1MaskedTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(PaísLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.PaísTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(EstadoLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.EstadoTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(CidadeLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.CidadeTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(ComplementoLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.ComplementoTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(BairroLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BairroTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(NumLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.NumTextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(RUALabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.RUATextBox)
+        Me.GroupBoxOutrosDados.Controls.Add(CEPLabel)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.CEPMaskedTextBox)
+        Me.GroupBoxOutrosDados.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(543, 317)
+        Me.GroupBoxOutrosDados.TabIndex = 52
+        Me.GroupBoxOutrosDados.TabStop = False
+        Me.GroupBoxOutrosDados.Text = "Outros Dados"
+        '
+        'BtnCorreios
+        '
+        Me.BtnCorreios.BackColor = System.Drawing.Color.White
+        Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorreios.Location = New System.Drawing.Point(159, 26)
+        Me.BtnCorreios.Name = "BtnCorreios"
+        Me.BtnCorreios.Size = New System.Drawing.Size(73, 22)
+        Me.BtnCorreios.TabIndex = 51
+        Me.BtnCorreios.Text = "Preencher"
+        Me.BtnCorreios.UseVisualStyleBackColor = False
+        '
+        'EMailTextBox
+        '
+        Me.EMailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "eMail", True))
+        Me.EMailTextBox.Location = New System.Drawing.Point(81, 235)
+        Me.EMailTextBox.Name = "EMailTextBox"
+        Me.EMailTextBox.Size = New System.Drawing.Size(271, 20)
+        Me.EMailTextBox.TabIndex = 50
+        '
+        'Telefone2MaskedTextBox
+        '
+        Me.Telefone2MaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Telefone2", True))
+        Me.Telefone2MaskedTextBox.Location = New System.Drawing.Point(81, 209)
+        Me.Telefone2MaskedTextBox.Name = "Telefone2MaskedTextBox"
+        Me.Telefone2MaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.Telefone2MaskedTextBox.TabIndex = 48
+        '
+        'Telefone1MaskedTextBox
+        '
+        Me.Telefone1MaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Telefone1", True))
+        Me.Telefone1MaskedTextBox.Location = New System.Drawing.Point(81, 183)
+        Me.Telefone1MaskedTextBox.Name = "Telefone1MaskedTextBox"
+        Me.Telefone1MaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.Telefone1MaskedTextBox.TabIndex = 46
+        '
+        'PaísTextBox
+        '
+        Me.PaísTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "País", True))
+        Me.PaísTextBox.Location = New System.Drawing.Point(81, 157)
+        Me.PaísTextBox.Name = "PaísTextBox"
+        Me.PaísTextBox.Size = New System.Drawing.Size(124, 20)
+        Me.PaísTextBox.TabIndex = 44
+        '
+        'EstadoTextBox
+        '
+        Me.EstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Estado", True))
+        Me.EstadoTextBox.Location = New System.Drawing.Point(310, 131)
+        Me.EstadoTextBox.Name = "EstadoTextBox"
+        Me.EstadoTextBox.Size = New System.Drawing.Size(42, 20)
+        Me.EstadoTextBox.TabIndex = 42
+        '
+        'CidadeTextBox
+        '
+        Me.CidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Cidade", True))
+        Me.CidadeTextBox.Location = New System.Drawing.Point(81, 131)
+        Me.CidadeTextBox.Name = "CidadeTextBox"
+        Me.CidadeTextBox.Size = New System.Drawing.Size(174, 20)
+        Me.CidadeTextBox.TabIndex = 40
+        '
+        'ComplementoTextBox
+        '
+        Me.ComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Complemento", True))
+        Me.ComplementoTextBox.Location = New System.Drawing.Point(232, 79)
+        Me.ComplementoTextBox.Name = "ComplementoTextBox"
+        Me.ComplementoTextBox.Size = New System.Drawing.Size(120, 20)
+        Me.ComplementoTextBox.TabIndex = 38
+        '
+        'BairroTextBox
+        '
+        Me.BairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Bairro", True))
+        Me.BairroTextBox.Location = New System.Drawing.Point(81, 105)
+        Me.BairroTextBox.Name = "BairroTextBox"
+        Me.BairroTextBox.Size = New System.Drawing.Size(271, 20)
+        Me.BairroTextBox.TabIndex = 36
+        '
+        'NumTextBox
+        '
+        Me.NumTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Num", True))
+        Me.NumTextBox.Location = New System.Drawing.Point(81, 79)
+        Me.NumTextBox.Name = "NumTextBox"
+        Me.NumTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.NumTextBox.TabIndex = 34
+        '
+        'RUATextBox
+        '
+        Me.RUATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RUA", True))
+        Me.RUATextBox.Location = New System.Drawing.Point(81, 53)
+        Me.RUATextBox.Name = "RUATextBox"
+        Me.RUATextBox.Size = New System.Drawing.Size(271, 20)
+        Me.RUATextBox.TabIndex = 32
+        '
+        'CEPMaskedTextBox
+        '
+        Me.CEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CEP", True))
+        Me.CEPMaskedTextBox.Location = New System.Drawing.Point(81, 27)
+        Me.CEPMaskedTextBox.Mask = "99,999-999"
+        Me.CEPMaskedTextBox.Name = "CEPMaskedTextBox"
+        Me.CEPMaskedTextBox.Size = New System.Drawing.Size(72, 20)
+        Me.CEPMaskedTextBox.TabIndex = 30
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(549, 323)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Contato"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(549, 323)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Capital Social"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.BtnCapitalSocial)
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
+        Me.GroupBox2.Controls.Add(Me.BtnWord)
+        Me.GroupBox2.Controls.Add(Me.BtnExportar)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 418)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(532, 76)
+        Me.GroupBox2.TabIndex = 58
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Exportação"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(11, 57)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(72, 15)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Nº do sócio:"
+        '
+        'BtnCapitalSocial
+        '
+        Me.BtnCapitalSocial.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnCapitalSocial.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCapitalSocial.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCapitalSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCapitalSocial.Location = New System.Drawing.Point(308, 19)
+        Me.BtnCapitalSocial.Name = "BtnCapitalSocial"
+        Me.BtnCapitalSocial.Size = New System.Drawing.Size(168, 23)
+        Me.BtnCapitalSocial.TabIndex = 54
+        Me.BtnCapitalSocial.Text = "Calculadora Capítal Social"
+        Me.BtnCapitalSocial.UseVisualStyleBackColor = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.ComboBox1.Location = New System.Drawing.Point(83, 54)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(58, 21)
+        Me.ComboBox1.TabIndex = 54
+        '
+        'BtnAddSocios
+        '
+        Me.BtnAddSocios.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnAddSocios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddSocios.Location = New System.Drawing.Point(167, 19)
+        Me.BtnAddSocios.Name = "BtnAddSocios"
+        Me.BtnAddSocios.Size = New System.Drawing.Size(135, 23)
+        Me.BtnAddSocios.TabIndex = 53
+        Me.BtnAddSocios.Text = "Cadastro do Sócio"
+        Me.BtnAddSocios.UseVisualStyleBackColor = False
+        '
+        'BtnWord
+        '
+        Me.BtnWord.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnWord.Location = New System.Drawing.Point(150, 52)
+        Me.BtnWord.Name = "BtnWord"
+        Me.BtnWord.Size = New System.Drawing.Size(174, 23)
+        Me.BtnWord.TabIndex = 53
+        Me.BtnWord.Text = "Exportar Sócio para o Word"
+        Me.BtnWord.UseVisualStyleBackColor = False
+        '
+        'BtnExportar
+        '
+        Me.BtnExportar.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnExportar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExportar.Location = New System.Drawing.Point(8, 19)
+        Me.BtnExportar.Name = "BtnExportar"
+        Me.BtnExportar.Size = New System.Drawing.Size(153, 23)
+        Me.BtnExportar.TabIndex = 52
+        Me.BtnExportar.Text = "Responsavel da Federal"
+        Me.BtnExportar.UseVisualStyleBackColor = False
+        '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BtnFechar.FlatAppearance.BorderSize = 0
+        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFechar.Location = New System.Drawing.Point(552, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(107, 54)
+        Me.BtnFechar.TabIndex = 57
+        Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BtnFechar.UseVisualStyleBackColor = True
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -874,232 +1126,179 @@ Partial Class FrmSocios
         Me.Label1.ForeColor = System.Drawing.Color.Blue
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(541, 71)
+        Me.Label1.Size = New System.Drawing.Size(543, 60)
         Me.Label1.TabIndex = 54
         Me.Label1.Text = "DADOS CADASTRAIS DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'GroupBox3
+        'TableLayoutPanel1
         '
-        Me.GroupBox3.Controls.Add(Me.CPFComboBox)
-        Me.GroupBox3.Controls.Add(Me.NomeCompletoComboBox)
-        Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 74)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(541, 51)
-        Me.GroupBox3.TabIndex = 55
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Localizar Sócio"
+        Me.TableLayoutPanel1.AutoScroll = True
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.51534!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.48466!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnFechar, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TabControl1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenuCapitalSocial, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxCapitalSocial, 0, 3)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 355.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 234.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(683, 547)
+        Me.TableLayoutPanel1.TabIndex = 51
         '
-        'CPFComboBox
+        'GroupBoxMenuCapitalSocial
         '
-        Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.CPFComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CPFComboBox.DataSource = Me.SociosBindingSource
-        Me.CPFComboBox.DisplayMember = "CPF"
-        Me.CPFComboBox.FormattingEnabled = True
-        Me.CPFComboBox.Location = New System.Drawing.Point(419, 13)
-        Me.CPFComboBox.Name = "CPFComboBox"
-        Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
-        Me.CPFComboBox.TabIndex = 8
-        Me.CPFComboBox.ValueMember = "CPF"
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(552, 503)
+        Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
+        Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(94, 177)
+        Me.GroupBoxMenuCapitalSocial.TabIndex = 63
+        Me.GroupBoxMenuCapitalSocial.TabStop = False
+        Me.GroupBoxMenuCapitalSocial.Text = "Menu do Capital Social"
         '
-        'NomeCompletoComboBox
+        'BtnADDSocioCapital
         '
-        Me.NomeCompletoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.NomeCompletoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
-        Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
-        Me.NomeCompletoComboBox.FormattingEnabled = True
-        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(114, 13)
-        Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
-        Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
-        Me.NomeCompletoComboBox.TabIndex = 7
-        Me.NomeCompletoComboBox.ValueMember = "NomeCompleto"
+        Me.BtnADDSocioCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnADDSocioCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnADDSocioCapital.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnADDSocioCapital.Location = New System.Drawing.Point(6, 48)
+        Me.BtnADDSocioCapital.Name = "BtnADDSocioCapital"
+        Me.BtnADDSocioCapital.Size = New System.Drawing.Size(75, 44)
+        Me.BtnADDSocioCapital.TabIndex = 8
+        Me.BtnADDSocioCapital.Text = "Adicionar Sócio"
+        Me.BtnADDSocioCapital.UseVisualStyleBackColor = True
         '
-        'Label3
+        'ButtonLimpar
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(316, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Localizar por CPF ="
+        Me.ButtonLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonLimpar.ForeColor = System.Drawing.Color.Red
+        Me.ButtonLimpar.Location = New System.Drawing.Point(7, 131)
+        Me.ButtonLimpar.Name = "ButtonLimpar"
+        Me.ButtonLimpar.Size = New System.Drawing.Size(76, 29)
+        Me.ButtonLimpar.TabIndex = 39
+        Me.ButtonLimpar.Text = "Limpar Tudo"
+        Me.ButtonLimpar.UseVisualStyleBackColor = True
         '
-        'Label2
+        'ButtonPorcentagem
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 16)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 13)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Localiar por Nome ="
+        Me.ButtonPorcentagem.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonPorcentagem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonPorcentagem.Location = New System.Drawing.Point(6, 96)
+        Me.ButtonPorcentagem.Name = "ButtonPorcentagem"
+        Me.ButtonPorcentagem.Size = New System.Drawing.Size(76, 29)
+        Me.ButtonPorcentagem.TabIndex = 36
+        Me.ButtonPorcentagem.Text = "Calcular"
+        Me.ButtonPorcentagem.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'GroupBoxCapitalSocial
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.BtnNovo)
-        Me.GroupBox1.Controls.Add(Me.BtnEditar)
-        Me.GroupBox1.Controls.Add(Me.BtnSalvar)
-        Me.GroupBox1.Controls.Add(Me.BtnCancelar)
-        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(550, 74)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(514, 51)
-        Me.GroupBox1.TabIndex = 56
-        Me.GroupBox1.TabStop = False
+        Me.GroupBoxCapitalSocial.Controls.Add(Me.Label5)
+        Me.GroupBoxCapitalSocial.Controls.Add(Me.DataGridView1)
+        Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
+        Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
+        Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 503)
+        Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(543, 228)
+        Me.GroupBoxCapitalSocial.TabIndex = 64
+        Me.GroupBoxCapitalSocial.TabStop = False
         '
-        'BtnNovo
+        'Label5
         '
-        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnNovo.Location = New System.Drawing.Point(109, 19)
-        Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
-        Me.BtnNovo.TabIndex = 9
-        Me.BtnNovo.Text = "Novo"
-        Me.BtnNovo.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(11, 15)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(283, 24)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "Calculadora de Capital Social"
         '
-        'BtnEditar
+        'DataGridView1
         '
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnEditar.Location = New System.Drawing.Point(190, 19)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnEditar.TabIndex = 8
-        Me.BtnEditar.Text = "Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnSocio, Me.ColumnPorcentagem, Me.ColumnAntigo, Me.ColumnNovo, Me.GanhaEPerca})
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 68)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(514, 150)
+        Me.DataGridView1.TabIndex = 38
         '
-        'BtnSalvar
+        'ColumnSocio
         '
-        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnSalvar.Location = New System.Drawing.Point(271, 19)
-        Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnSalvar.TabIndex = 7
-        Me.BtnSalvar.Text = "Salvar"
-        Me.BtnSalvar.UseVisualStyleBackColor = True
+        Me.ColumnSocio.HeaderText = "Socio"
+        Me.ColumnSocio.Name = "ColumnSocio"
         '
-        'BtnCancelar
+        'ColumnPorcentagem
         '
-        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCancelar.Location = New System.Drawing.Point(352, 19)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnCancelar.TabIndex = 6
-        Me.BtnCancelar.Text = "Cancelar"
-        Me.BtnCancelar.UseVisualStyleBackColor = True
+        Me.ColumnPorcentagem.HeaderText = "%"
+        Me.ColumnPorcentagem.Name = "ColumnPorcentagem"
+        Me.ColumnPorcentagem.Width = 60
         '
-        'BtnExcluir
+        'ColumnAntigo
         '
-        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExcluir.ForeColor = System.Drawing.Color.Crimson
-        Me.BtnExcluir.Location = New System.Drawing.Point(433, 19)
-        Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExcluir.TabIndex = 5
-        Me.BtnExcluir.Text = "Excluir"
-        Me.BtnExcluir.UseVisualStyleBackColor = True
+        Me.ColumnAntigo.HeaderText = "Capital Antigo"
+        Me.ColumnAntigo.Name = "ColumnAntigo"
         '
-        'BtnFechar
+        'ColumnNovo
         '
-        Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFechar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnFechar.FlatAppearance.BorderSize = 0
-        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(918, 3)
-        Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(146, 65)
-        Me.BtnFechar.TabIndex = 57
-        Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.BtnFechar.UseVisualStyleBackColor = True
+        Me.ColumnNovo.HeaderText = "Capital Novo"
+        Me.ColumnNovo.Name = "ColumnNovo"
         '
-        'GroupBox2
+        'GanhaEPerca
         '
-        Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
-        Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 459)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(541, 34)
-        Me.GroupBox2.TabIndex = 58
-        Me.GroupBox2.TabStop = False
+        Me.GanhaEPerca.HeaderText = "Ganhou/Perdeu"
+        Me.GanhaEPerca.Name = "GanhaEPerca"
         '
-        'BtnAddSocios
+        'LblCapTotal
         '
-        Me.BtnAddSocios.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnAddSocios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddSocios.Location = New System.Drawing.Point(220, 5)
-        Me.BtnAddSocios.Name = "BtnAddSocios"
-        Me.BtnAddSocios.Size = New System.Drawing.Size(200, 23)
-        Me.BtnAddSocios.TabIndex = 53
-        Me.BtnAddSocios.Text = "Exportar cadastro do Sócio"
-        Me.BtnAddSocios.UseVisualStyleBackColor = False
+        Me.LblCapTotal.AutoSize = True
+        Me.LblCapTotal.BackColor = System.Drawing.Color.Transparent
+        Me.LblCapTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCapTotal.Location = New System.Drawing.Point(14, 48)
+        Me.LblCapTotal.Name = "LblCapTotal"
+        Me.LblCapTotal.Size = New System.Drawing.Size(127, 16)
+        Me.LblCapTotal.TabIndex = 37
+        Me.LblCapTotal.Text = "Capital Social Total:"
         '
-        'BtnExportar
+        'TextBoxCapitalSocial
         '
-        Me.BtnExportar.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnExportar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExportar.Location = New System.Drawing.Point(4, 5)
-        Me.BtnExportar.Name = "BtnExportar"
-        Me.BtnExportar.Size = New System.Drawing.Size(210, 23)
-        Me.BtnExportar.TabIndex = 52
-        Me.BtnExportar.Text = "Exportar Responsavel da Federal"
-        Me.BtnExportar.UseVisualStyleBackColor = False
-        '
-        'SociosTableAdapter
-        '
-        Me.SociosTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
-        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
-        Me.TableAdapterManager.CNAETableAdapter = Nothing
-        Me.TableAdapterManager.ContadorTableAdapter = Nothing
-        Me.TableAdapterManager.ContatosTableAdapter = Nothing
-        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
-        Me.TableAdapterManager.eMailTableAdapter = Nothing
-        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.LaudosTableAdapter = Nothing
-        Me.TableAdapterManager.LoginTableAdapter = Nothing
-        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
-        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
-        Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
-        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 11)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 15)
-        Me.Label4.TabIndex = 55
-        Me.Label4.Text = "Nº do sócio:"
+        Me.TextBoxCapitalSocial.Location = New System.Drawing.Point(147, 44)
+        Me.TextBoxCapitalSocial.Name = "TextBoxCapitalSocial"
+        Me.TextBoxCapitalSocial.Size = New System.Drawing.Size(140, 20)
+        Me.TextBoxCapitalSocial.TabIndex = 35
+        Me.TextBoxCapitalSocial.Text = "0"
         '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1067, 521)
+        Me.ClientSize = New System.Drawing.Size(683, 572)
+        Me.Controls.Add(Me.CPFComboBox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.NomeCompletoComboBox)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.SociosBindingNavigator)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1113,18 +1312,22 @@ Partial Class FrmSocios
         Me.SociosBindingNavigator.PerformLayout()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBoxOutrosDados.ResumeLayout(False)
-        Me.GroupBoxOutrosDados.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.GroupBoxDadosPessoais.ResumeLayout(False)
         Me.GroupBoxDadosPessoais.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.GroupBoxOutrosDados.ResumeLayout(False)
+        Me.GroupBoxOutrosDados.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBoxMenuCapitalSocial.ResumeLayout(False)
+        Me.GroupBoxCapitalSocial.ResumeLayout(False)
+        Me.GroupBoxCapitalSocial.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1144,57 +1347,75 @@ Partial Class FrmSocios
     Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
-    Friend WithEvents CPFMaskedTextBox As MaskedTextBox
-    Friend WithEvents NomeCompletoTextBox As TextBox
-    Friend WithEvents NomeMaeTextBox As TextBox
-    Friend WithEvents NomePaiTextBox As TextBox
-    Friend WithEvents DatadeNascMaskedTextBox As MaskedTextBox
-    Friend WithEvents RGTextBox As TextBox
-    Friend WithEvents OrgaoRGTextBox As TextBox
-    Friend WithEvents EstadoRGTextBox As TextBox
-    Friend WithEvents TituloDeEleitorTextBox As TextBox
-    Friend WithEvents SenhaGOVTextBox As TextBox
-    Friend WithEvents CNHTextBox As TextBox
-    Friend WithEvents CNHExpedicaoTextBox As TextBox
-    Friend WithEvents CNHDataExpTextBox As TextBox
-    Friend WithEvents CivilComboBox As ComboBox
-    Friend WithEvents CEPMaskedTextBox As MaskedTextBox
-    Friend WithEvents RUATextBox As TextBox
-    Friend WithEvents NumTextBox As TextBox
-    Friend WithEvents BairroTextBox As TextBox
-    Friend WithEvents ComplementoTextBox As TextBox
-    Friend WithEvents CidadeTextBox As TextBox
-    Friend WithEvents EstadoTextBox As TextBox
-    Friend WithEvents PaísTextBox As TextBox
-    Friend WithEvents Telefone1MaskedTextBox As MaskedTextBox
-    Friend WithEvents Telefone2MaskedTextBox As MaskedTextBox
-    Friend WithEvents EMailTextBox As TextBox
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents GroupBoxOutrosDados As GroupBox
-    Friend WithEvents GroupBoxDadosPessoais As GroupBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents BtnCorreios As Button
-    Friend WithEvents GeneroComboBox As ComboBox
-    Friend WithEvents BtnExtensoDN As Button
-    Friend WithEvents TextBoxExtensoDN As TextBox
-    Friend WithEvents BtnFechar As Button
     Friend WithEvents NomeCompletoComboBox As ComboBox
     Friend WithEvents CPFComboBox As ComboBox
-    Friend WithEvents BtnExportar As Button
-    Friend WithEvents BtnAddSocios As Button
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents BtnExcluir As Button
+    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BtnNovo As Button
     Friend WithEvents BtnEditar As Button
     Friend WithEvents BtnSalvar As Button
     Friend WithEvents BtnCancelar As Button
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents BtnWord As Button
+    Friend WithEvents BtnExcluir As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents GroupBoxDadosPessoais As GroupBox
+    Friend WithEvents TextBoxExtensoDN As TextBox
+    Friend WithEvents BtnExtensoDN As Button
+    Friend WithEvents GeneroComboBox As ComboBox
+    Friend WithEvents CivilComboBox As ComboBox
+    Friend WithEvents CNHDataExpTextBox As TextBox
+    Friend WithEvents CNHExpedicaoTextBox As TextBox
+    Friend WithEvents CNHTextBox As TextBox
+    Friend WithEvents SenhaGOVTextBox As TextBox
+    Friend WithEvents TituloDeEleitorTextBox As TextBox
+    Friend WithEvents EstadoRGTextBox As TextBox
+    Friend WithEvents OrgaoRGTextBox As TextBox
+    Friend WithEvents RGTextBox As TextBox
+    Friend WithEvents DatadeNascMaskedTextBox As MaskedTextBox
+    Friend WithEvents NomePaiTextBox As TextBox
+    Friend WithEvents NomeMaeTextBox As TextBox
+    Friend WithEvents NomeCompletoTextBox As TextBox
+    Friend WithEvents CPFMaskedTextBox As MaskedTextBox
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents GroupBoxOutrosDados As GroupBox
+    Friend WithEvents BtnCorreios As Button
+    Friend WithEvents EMailTextBox As TextBox
+    Friend WithEvents Telefone2MaskedTextBox As MaskedTextBox
+    Friend WithEvents Telefone1MaskedTextBox As MaskedTextBox
+    Friend WithEvents PaísTextBox As TextBox
+    Friend WithEvents EstadoTextBox As TextBox
+    Friend WithEvents CidadeTextBox As TextBox
+    Friend WithEvents ComplementoTextBox As TextBox
+    Friend WithEvents BairroTextBox As TextBox
+    Friend WithEvents NumTextBox As TextBox
+    Friend WithEvents RUATextBox As TextBox
+    Friend WithEvents CEPMaskedTextBox As MaskedTextBox
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents BtnCapitalSocial As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents BtnAddSocios As Button
+    Friend WithEvents BtnWord As Button
+    Friend WithEvents BtnExportar As Button
+    Friend WithEvents BtnFechar As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents GroupBoxMenuCapitalSocial As GroupBox
+    Friend WithEvents BtnADDSocioCapital As Button
+    Friend WithEvents GroupBoxCapitalSocial As GroupBox
+    Friend WithEvents ButtonLimpar As Button
+    Friend WithEvents ButtonPorcentagem As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ColumnSocio As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnPorcentagem As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnAntigo As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnNovo As DataGridViewTextBoxColumn
+    Friend WithEvents GanhaEPerca As DataGridViewTextBoxColumn
+    Friend WithEvents LblCapTotal As Label
+    Friend WithEvents TextBoxCapitalSocial As TextBox
 End Class

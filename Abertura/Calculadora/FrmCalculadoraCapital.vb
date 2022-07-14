@@ -488,9 +488,6 @@
         DataGridView1.Rows.Clear()
         DataGridView1.Refresh()
         'limpa a formatação do datagridview
-
-
-
     End Sub
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
@@ -500,5 +497,9 @@
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
+
+    Private Sub FrmCalculadoraCapital_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

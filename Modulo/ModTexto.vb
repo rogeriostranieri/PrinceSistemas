@@ -12,4 +12,5 @@
 
         Return sText
     End Function
+
 End Module

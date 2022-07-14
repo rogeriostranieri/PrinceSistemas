@@ -1,5 +1,9 @@
 ﻿
 Public Class FrmSocios
+
+    Private Sub FrmSocios_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
     Private Sub FrmSocios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Socios'. Você pode movê-la ou removê-la conforme necessário.
         Me.SociosTableAdapter.Fill(Me.PrinceDBDataSet.Socios)
@@ -18,7 +22,18 @@ Public Class FrmSocios
 
         TextBoxExtensoDN.Visible = False
 
+        'tamhanho do form 699; 584
+        Me.Width = 699
+        Me.Height = 584
+        'auto size e scroll do form
+        Me.AutoSize = False
+        Me.AutoScroll = True
 
+        GroupBoxCapitalSocial.Visible = False
+        GroupBoxMenuCapitalSocial.Visible = False
+        'desabilita
+        GroupBoxMenuCapitalSocial.Enabled = False
+        GroupBoxCapitalSocial.Enabled = False
     End Sub
 
     Private Sub BloquearEdicao()
@@ -232,90 +247,90 @@ Public Class FrmSocios
     Private Sub AddSocios()
         Try
 
-                'ativar TabControle 1
-                FrmLegalizacao.TabControl1.SelectedIndex = 1
+            'ativar TabControle 1
+            FrmLegalizacao.TabControl1.SelectedIndex = 1
 
-                'aativar TabControl2 0
-                FrmLegalizacao.TabControl2.SelectedIndex = 1
-
-
-                'Dados
-                Dim CPF As String = CPFMaskedTextBox.Text
-                Dim NomeCompleto As String = NomeCompletoTextBox.Text
-                Dim NomeDaMae As String = NomeMaeTextBox.Text
-                Dim NomeDaPai As String = NomePaiTextBox.Text
-
-                'clicar no BtnExtensoDN
-                DataDeNascExtenso()
-                Dim DataDeNascimento As String = TextBoxExtensoDN.Text
+            'aativar TabControl2 0
+            FrmLegalizacao.TabControl2.SelectedIndex = 1
 
 
-                Dim RG As String = RGTextBox.Text
-                Dim OrgaoRG As String = OrgaoRGTextBox.Text
-                Dim EstadoRG As String = EstadoRGTextBox.Text
-                Dim SenhaGOV As String = SenhaGOVTextBox.Text
-                Dim TituloDeEleitor As String = TituloDeEleitorTextBox.Text
-                Dim CNH As String = CNHTextBox.Text
-                Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
-                Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
-                Dim EstadoCivil As String = CivilComboBox.Text
-                Dim Empresario As String
-                Dim Genero As String = GeneroComboBox.Text
-                Dim domiciliado As String
+            'Dados
+            Dim CPF As String = CPFMaskedTextBox.Text
+            Dim NomeCompleto As String = NomeCompletoTextBox.Text
+            Dim NomeDaMae As String = NomeMaeTextBox.Text
+            Dim NomeDaPai As String = NomePaiTextBox.Text
 
-                'endereço
-                Dim RUA As String = RUATextBox.Text
-                'primeira letra da RUA em minusculo
-                Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
-                Dim N As String = NumTextBox.Text
-                Dim Compl As String = ComplementoTextBox.Text
-                Dim Bairro As String = BairroTextBox.Text
-                Dim CEP As String = CEPMaskedTextBox.Text
-                Dim Cidade As String = CidadeTextBox.Text
-                Dim Estado As String = EstadoTextBox.Text
-                Dim Portador As String
-                Dim Brasileiro As String
-                Dim Nascido As String
+            'clicar no BtnExtensoDN
+            DataDeNascExtenso()
+            Dim DataDeNascimento As String = TextBoxExtensoDN.Text
 
 
-                'verificar se está no masculino ou feminio no campo GeneroComboBox
-                If Genero = "Masculino" Then
-                    'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
-                    ' EstadoCivil = "solteiro"
-                    Empresario = "empresário"
-                    domiciliado = "domiciliado"
-                    Portador = "portador"
-                    Brasileiro = "brasileiro"
-                    Nascido = "nascido em"
+            Dim RG As String = RGTextBox.Text
+            Dim OrgaoRG As String = OrgaoRGTextBox.Text
+            Dim EstadoRG As String = EstadoRGTextBox.Text
+            Dim SenhaGOV As String = SenhaGOVTextBox.Text
+            Dim TituloDeEleitor As String = TituloDeEleitorTextBox.Text
+            Dim CNH As String = CNHTextBox.Text
+            Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
+            Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
+            Dim EstadoCivil As String = CivilComboBox.Text
+            Dim Empresario As String
+            Dim Genero As String = GeneroComboBox.Text
+            Dim domiciliado As String
 
-                ElseIf Genero = "Feminino" Then
-                    'EstadoCivil = "solteira"
-                    Empresario = "empresária"
-                    domiciliado = "domiciliada"
-                    Portador = "portadora"
-                    Brasileiro = "brasileira"
-                    Nascido = "nascida em"
-
-                End If
-
-
-                '
-
-
-                'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
-                If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
-                    MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
-
+            'endereço
+            Dim RUA As String = RUATextBox.Text
+            'primeira letra da RUA em minusculo
+            Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Dim N As String = NumTextBox.Text
+            Dim Compl As String = ComplementoTextBox.Text
+            Dim Bairro As String = BairroTextBox.Text
+            Dim CEP As String = CEPMaskedTextBox.Text
+            Dim Cidade As String = CidadeTextBox.Text
+            Dim Estado As String = EstadoTextBox.Text
+            Dim Portador As String
+            Dim Brasileiro As String
+            Dim Nascido As String
 
 
+            'verificar se está no masculino ou feminio no campo GeneroComboBox
+            If Genero = "Masculino" Then
+                'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
+                ' EstadoCivil = "solteiro"
+                Empresario = "empresário"
+                domiciliado = "domiciliado"
+                Portador = "portador"
+                Brasileiro = "brasileiro"
+                Nascido = "nascido em"
 
-                    If MsgBox("Deseja adicionar o novo cadastro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                        'procurar o CPF no FrmLegalizacao.DadosSociosRichTextBox
-                        Dim Posição As Integer = FrmLegalizacao.DadosSociosRichTextBox.Find(CPF)
-                        'Novos dados na linha de baixo
-                        FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
+            ElseIf Genero = "Feminino" Then
+                'EstadoCivil = "solteira"
+                Empresario = "empresária"
+                domiciliado = "domiciliada"
+                Portador = "portadora"
+                Brasileiro = "brasileira"
+                Nascido = "nascida em"
 
-                        FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
+            End If
+
+
+            '
+
+
+            'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
+            If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
+                MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
+
+
+
+
+                If MsgBox("Deseja adicionar o novo cadastro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                    'procurar o CPF no FrmLegalizacao.DadosSociosRichTextBox
+                    Dim Posição As Integer = FrmLegalizacao.DadosSociosRichTextBox.Find(CPF)
+                    'Novos dados na linha de baixo
+                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
+
+                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
 
 Novos dados:" + " 
 
@@ -323,47 +338,47 @@ Novos dados:" + "
 " + vbCrLf)
 
 
-                    End If
+                End If
 
+            Else
+
+
+
+                'Contagem de Socios
+                If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
+                    FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
                 Else
+                    FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
+                End If
+
+                Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
 
 
 
-                    'Contagem de Socios
-                    If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
-                        FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
-                    Else
-                        FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
-                    End If
-
-                    Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
-
-
-
-                    'com complemento
-                    If Compl = "" Then
-                        FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-    " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
+                'com complemento
+                If Compl = "" Then
+                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
+" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
-                    Else ' Sem complemento
-                        FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-    " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
+                Else ' Sem complemento
+                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
+" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
-                    End If
-
                 End If
 
-                'Focar na frente o FrmLegalizacao
-                FrmLegalizacao.Focus()
-                FrmLegalizacao.DadosSociosRichTextBox.Focus()
+            End If
 
-                Me.Close()
+            'Focar na frente o FrmLegalizacao
+            FrmLegalizacao.Focus()
+            FrmLegalizacao.DadosSociosRichTextBox.Focus()
+
+            Me.Close()
 
 
 
@@ -407,11 +422,540 @@ Novos dados:" + "
             If ExportarContratoWordDialog.Visible = True Then
                 ExportarContratoWordDialog.Focus()
             Else
-                ExportarContratoWordDialog.Show()
+                ExportarContratoWordDialog.ShowDialog()
             End If
         End If
 
     End Sub
 
+    Private Sub BtnCapitalSocial_Click(sender As Object, e As EventArgs) Handles BtnCapitalSocial.Click
+        GroupBoxCapitalSocial.Visible = True
+        GroupBoxMenuCapitalSocial.Visible = True
+        'desabilita
+        GroupBoxMenuCapitalSocial.Enabled = True
+        GroupBoxCapitalSocial.Enabled = True
 
+    End Sub
+
+
+
+
+
+    '//////////////////////////////////////////// INICIO CALCULADORA DE CAPITAL ///////////////
+    Private Sub Porcentagem()
+        Dim valor As Double = CDbl(TextBoxCapitalSocial.Text)
+
+
+        ' nao ultrapassar 100% da cell 1 do capital social do TextBoxCapitalSocial
+        If TextBoxCapitalSocial.Text = "" Then
+            MsgBox("Digite o valor do capital social")
+            TextBoxCapitalSocial.Focus()
+            Exit Sub
+        End If
+
+        'cada linha tem seu calculo de porcentagem cell 1,sob o valor da TextBoxCapitalSocial 
+        'conveter Double
+
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If row.Cells(1).Value = "" Then
+                row.Cells(1).Value = 0
+            End If
+            'calculo da porcentagem
+            'Cells(3) porcentagem
+            row.Cells(3).Value = (row.Cells(1).Value * valor) / 100
+            'coluna 3 converte em Double
+            row.Cells(3).Value = CDbl(row.Cells(3).Value)
+            'coluna 3 converte em String
+            row.Cells(3).Value = FormatCurrency(row.Cells(3).Value)
+
+        Next
+
+
+
+
+
+        'depois totalizar o valores das em uma nova linha, e nao repetir o calculo
+        'se tiver TOTAL limpas e fazer calculo novamente
+        If DataGridView1.Rows.Count > 0 Then
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If row.Cells(0).Value = "TOTAL" Then
+                    DataGridView1.Rows.Remove(row)
+                End If
+            Next
+        End If
+
+        '////////////////////////////    TOTAL   ////////////////////////
+        'double
+        Dim total As Double = 0
+        Dim total1 As Double = 0
+
+        For i = 0 To DataGridView1.Rows.Count - 2
+
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value = "Total"
+            'em negrito
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Style.Font = New Font("Arial", 10, FontStyle.Bold)
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = ""
+
+
+
+            'total da coluna 3 - NOVO CAPITAL SOCIAL
+            total += DataGridView1.Rows(i).Cells(3).Value
+
+            'total de coluna 1 - Porcentagem
+            total1 += DataGridView1.Rows(i).Cells(1).Value
+            'mudar para % porcentagem
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = total1
+            'adiciona %
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value & "%"
+
+
+
+
+
+            '////////////////////////////    FIM TOTAL   ////////////////////////
+
+            'Valor da porcentagem ultrapassou o valor do capital social
+            If total > valor Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+
+                Exit Sub
+            End If
+
+            'DataGridView1 Cells(1), nao passar de 100, conveter em doble
+            If DataGridView1.Rows(i).Cells(1).Value > 100 Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+
+                Exit Sub
+            End If
+        Next
+
+
+
+        'CONVERTER EM REAIS E %
+        For i = 0 To DataGridView1.Rows.Count - 1
+            'DataGridView1.Rows(i).Cells(3).Value = FormatCurrency(DataGridView1.Rows(i).Cells(3).Value)
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = FormatCurrency(total)
+
+        Next
+
+
+
+
+    End Sub
+    Private Sub PercaGanho()
+        Dim valor As Double = CDbl(TextBoxCapitalSocial.Text)
+
+        ' nao ultrapassar 100% da cell 1 do capital social do TextBoxCapitalSocial
+        If TextBoxCapitalSocial.Text = "" Then
+            MsgBox("Digite o valor do capital social")
+            TextBoxCapitalSocial.Focus()
+            Exit Sub
+        End If
+
+        'coluna 2 e 3 nao podem ser vazio
+        If DataGridView1.Rows(0).Cells(2).Value = "" Then
+            MsgBox("Coluna 2 não pode ser vazia")
+            Exit Sub
+        End If
+
+
+
+        If DataGridView1.Rows(0).Cells(3).Value = "" Then
+            MsgBox("Coluna 3 não pode ser vazia")
+            Exit Sub
+        End If
+
+
+
+
+        ' cada linha calcular a coluna3 - coluna2 individualmente e converter string para double
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            'Converter em double em DIM 
+            'A cadeia de caracteres 
+            'e convertida para um valor double.
+
+            Dim valor1 As Double = CDbl(row.Cells(2).Value)
+            Dim valor2 As Double = CDbl(row.Cells(3).Value)
+
+
+
+            'calculo da porcentagem
+            row.Cells(4).Value = (valor2 - valor1)
+
+            'coluna 3 converte em Double
+            row.Cells(4).Value = CDbl(row.Cells(4).Value)
+            'converter em reais
+            row.Cells(4).Value = FormatCurrency(row.Cells(4).Value)
+            'conveter coluna 2 em reais
+            row.Cells(2).Value = FormatCurrency(row.Cells(2).Value)
+
+
+
+
+            'pintar em vermelho o valor negativo
+            If row.Cells(4).Value < 0 Then
+                row.Cells(4).Style.BackColor = Color.Red
+                'letra branca
+                row.Cells(4).Style.ForeColor = Color.White
+                'negrito
+                row.Cells(4).Style.Font = New Font(DataGridView1.Font, FontStyle.Bold)
+            End If
+            'pintar em verde valor positivo
+            If row.Cells(4).Value > 0 Then
+                row.Cells(4).Style.BackColor = Color.Green
+                'letra branca
+                row.Cells(4).Style.ForeColor = Color.White
+                'negrito
+                row.Cells(4).Style.Font = New Font(DataGridView1.Font, FontStyle.Bold)
+            End If
+        Next
+
+
+        '// porcentagem //////////////
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            'calculo da porcentagem na coluna 1
+            row.Cells(1).Value = (row.Cells(3).Value / valor) * 100
+
+        Next
+
+
+        '////////////////////////////    TOTAL   ////////////////////////
+        'double
+        Dim total1 As Double = 0
+        Dim total2 As Double = 0
+        Dim total3 As Double = 0
+        Dim total4 As Double = 0
+        For i = 0 To DataGridView1.Rows.Count - 2
+
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value = "Total"
+            'em negrito
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Style.Font = New Font("Arial", 10, FontStyle.Bold)
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = ""
+
+
+            'total da coluna 1
+            total1 += DataGridView1.Rows(i).Cells(1).Value
+            'coloca no final total e colocar %
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = total1
+            'adiciona %
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value & "%"
+
+
+            'total da coluna 2 - Antigo CAPITAL SOCIAL
+            total2 += DataGridView1.Rows(i).Cells(2).Value
+            'coloca no final total
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = FormatCurrency(total2)
+
+            'total da coluna 3 - NOVO CAPITAL SOCIAL
+            total3 += DataGridView1.Rows(i).Cells(3).Value
+            'coloca no final
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = FormatCurrency(total3)
+
+
+            'total de coluna 4 - Perda Ganho
+            total4 += DataGridView1.Rows(i).Cells(4).Value
+            'coloca no final
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(4).Value = FormatCurrency(total4)
+
+
+
+
+            '////////////////////////////    FIM TOTAL   ////////////////////////
+
+            'Valor da porcentagem ultrapassou o valor do capital social
+            If total1 > valor Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+                Exit Sub
+            End If
+
+            'DataGridView1 Cells(1), nao passar de 100, conveter em doble
+            If DataGridView1.Rows(i).Cells(1).Value > 100 Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+
+                Exit Sub
+            End If
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub Todos()
+        Dim valor As Double = CDbl(TextBoxCapitalSocial.Text)
+
+        'Porcentagem/////////////////////////////////////////////////////////////////////////////////
+        ' nao ultrapassar 100% da cell 1 do capital social do TextBoxCapitalSocial
+        If TextBoxCapitalSocial.Text = "" Then
+            MsgBox("Digite o valor do capital social")
+            TextBoxCapitalSocial.Focus()
+            Exit Sub
+        End If
+
+        'cada linha tem seu calculo de porcentagem cell 1,sob o valor da TextBoxCapitalSocial 
+        'conveter Double
+
+
+
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If row.Cells(1).Value = "" Then
+                row.Cells(1).Value = 0
+            End If
+
+
+            'calculo da porcentagem
+            'Cells(3) porcentagem
+            row.Cells(3).Value = (row.Cells(1).Value * valor) / 100
+            '///////////////////////////////////////
+
+            'verifica se a coluna esta em reais e deixa apenas numeros
+            If row.Cells(1).Value.ToString.Contains("R$") Then
+                row.Cells(1).Value = row.Cells(1).Value.ToString.Replace("R$", "")
+            End If
+            'pega o valor da  coluna 3 - coluna 2 e coloca na coluna 4
+            row.Cells(4).Value = row.Cells(3).Value - row.Cells(2).Value
+            '///////////////////////////////////////
+            'coluna 3 converte em Double
+            row.Cells(3).Value = CDbl(row.Cells(3).Value)
+
+
+            'pega o valor integer da coluna 3 e diminui da coluna 2 e coloca resultado na coluna 4
+            ' usar tryparse
+
+            ' 
+
+            'coluna 4 converte em Double
+            row.Cells(4).Value = CDbl(row.Cells(4).Value)
+            'coluna 4 converte em String
+            row.Cells(4).Value = FormatCurrency(row.Cells(4).Value)
+            'coluna 3 converte em String
+            row.Cells(3).Value = FormatCurrency(row.Cells(3).Value)
+
+        Next
+
+
+
+
+
+        'depois totalizar o valores das em uma nova linha, e nao repetir o calculo
+        'se tiver TOTAL limpas e fazer calculo novamente
+        If DataGridView1.Rows.Count > 0 Then
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If row.Cells(0).Value = "TOTAL" Then
+                    DataGridView1.Rows.Remove(row)
+                End If
+            Next
+        End If
+
+
+        '////////////////////////////    TOTAL   ////////////////////////
+        'double
+        Dim total1 As Double = 0
+        Dim total2 As Double = 0
+        Dim total3 As Double = 0
+        Dim total4 As Double = 0
+
+        For i = 0 To DataGridView1.Rows.Count - 2
+
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value = "Total"
+            'em negrito
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Style.Font = New Font("Arial", 10, FontStyle.Bold)
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = ""
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = ""
+
+            'total de coluna 1 - Porcentagem
+            total1 += DataGridView1.Rows(i).Cells(1).Value
+            'mudar para % porcentagem
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = total1
+            'adiciona %
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value & "%"
+
+
+            'total da coluna 2 - Antigo CAPITAL SOCIAL
+            total2 += DataGridView1.Rows(i).Cells(2).Value
+            'coloca no final total
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = FormatCurrency(total2)
+
+
+            'total da coluna 3 - NOVO CAPITAL SOCIAL
+            total3 += DataGridView1.Rows(i).Cells(3).Value
+            'total3 no final
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = FormatCurrency(total3)
+
+
+            'total de coluna 4 - Perda Ganho
+            total4 += DataGridView1.Rows(i).Cells(4).Value
+            'em reais o total no final
+            DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(4).Value = FormatCurrency(total4)
+
+
+
+
+
+            '////////////////////////////    FIM TOTAL   ////////////////////////
+
+            'Valor da porcentagem ultrapassou o valor do capital social
+            If total1 > valor Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+                Exit Sub
+            End If
+
+            'DataGridView1 Cells(1), nao passar de 100, conveter em doble
+            If DataGridView1.Rows(i).Cells(1).Value > 100 Then
+                MsgBox("Valor da porcentagem ultrapassou o valor do capital social")
+
+                Exit Sub
+            End If
+        Next
+
+
+
+
+
+        'PERCA E GANHA///////////////////////////////////////////////////////////////////////////
+        'coluna 2 e 3 nao podem ser vazio
+        If DataGridView1.Rows(0).Cells(2).Value = "" Then
+            MsgBox("Coluna 2 não pode ser vazia")
+            Exit Sub
+        End If
+
+
+
+        If DataGridView1.Rows(0).Cells(3).Value = "" Then
+            MsgBox("Coluna 3 não pode ser vazia")
+            Exit Sub
+        End If
+
+
+
+
+        ' cada linha calcular a coluna3 - coluna2 individualmente e converter string para double
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            'Converter em double em DIM 
+
+
+            'pintar em vermelho o valor negativo
+            If row.Cells(4).Value < 0 Then
+                row.Cells(4).Style.BackColor = Color.Red
+                'letra branca
+                row.Cells(4).Style.ForeColor = Color.White
+                'negrito
+                row.Cells(4).Style.Font = New Font(DataGridView1.Font, FontStyle.Bold)
+            End If
+            'pintar em verde valor positivo
+            If row.Cells(4).Value > 0 Then
+                row.Cells(4).Style.BackColor = Color.Green
+                'letra branca
+                row.Cells(4).Style.ForeColor = Color.White
+                'negrito
+                row.Cells(4).Style.Font = New Font(DataGridView1.Font, FontStyle.Bold)
+            End If
+        Next
+
+
+    End Sub
+
+
+    Private Sub Limpar()
+        'limpaar
+        DataGridView1.Rows.Clear()
+        DataGridView1.Refresh()
+        'limpa a formatação do datagridview
+    End Sub
+
+    Private Sub ButtonPorcentagem_Click(sender As Object, e As EventArgs) Handles ButtonPorcentagem.Click
+
+        'Porcentagem
+        'PercaGanho
+        'Todos
+        Try
+            'verifica se tem apenas valor na coluna 1 e as outras colunas vazias , e chama Porcentagem
+            If DataGridView1.Rows.Count > 0 Then
+                If DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value = "" And DataGridView1.Rows(0).Cells(3).Value = "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
+                    Porcentagem()
+                    'verifica se tem apenas valor na coluna 2  e 3 e as outras colunas vazias, e chama PercaGanho
+                ElseIf DataGridView1.Rows(0).Cells(1).Value = "" And DataGridView1.Rows(0).Cells(2).Value <> "" And DataGridView1.Rows(0).Cells(3).Value <> "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
+                    PercaGanho()
+                ElseIf DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value <> "" And DataGridView1.Rows(0).Cells(3).Value = "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
+                    Todos()
+                ElseIf DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value <> "" And DataGridView1.Rows(0).Cells(3).Value <> "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
+                    DataGridView1.Refresh()
+                    'Todos()
+                    'mgs ação nao permitida após calculo feito
+                    MsgBox("Não é possivel realizar mais de um calculo, após o calculo ser realizado, não é possivel realizar outro calculo", MsgBoxStyle.Information, "Aviso")
+
+                End If
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("Um calculo não foi realizado, verifique se todos os campos estão preenchidos corretamente", MsgBoxStyle.Information, "Aviso")
+            'limpar todas colunas e linhas, menos a primeira coluna 
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                For j As Integer = 1 To DataGridView1.Columns.Count - 1
+                    DataGridView1.Rows(i).Cells(j).Value = ""
+                Next
+            Next
+            DataGridView1.Refresh()
+        End Try
+    End Sub
+
+    Private Sub ButtonLimpar_Click(sender As Object, e As EventArgs) Handles ButtonLimpar.Click
+        Limpar()
+    End Sub
+
+
+    Private Sub BtnADDSocioCapital_Click(sender As Object, e As EventArgs) Handles BtnADDSocioCapital.Click
+        Dim NomeCompleto As String = NomeCompletoTextBox.Text
+
+        If MsgBox("Deseja adicionar " & NomeCompleto & " na calculadora de capital social?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+            'copiar NomeCompletoTextBox e adicionar
+            'DataGridView1 adicionar uma nova linha nomecompleto
+            'verificar se tem preenchido a linha e adicionar uma nova
+            If DataGridView1.Rows.Count = 0 Then
+                DataGridView1.Rows.Add(NomeCompleto)
+            Else
+                'verificar se o nome já existe
+                For Each row As DataGridViewRow In DataGridView1.Rows
+                    If row.Cells(0).Value = NomeCompleto Then
+                        MsgBox("Nome já existe", MsgBoxStyle.Exclamation, "Atenção")
+                        Exit Sub
+                    End If
+                Next
+                DataGridView1.Rows.Add(NomeCompleto)
+            End If
+        Else
+
+        End If
+
+    End Sub
+
+
+
+    'TextBoxCapitalSocial usar mascara em reais
+    Private Sub TextBoxCapitalSocial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCapitalSocial.KeyPress
+        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    'CapitalSTextBox validar em reais
+    Private Sub TextBoxCapitalSocial_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.LostFocus
+        If TextBoxCapitalSocial.Text = "" Then
+            TextBoxCapitalSocial.Text = "0,00"
+        Else
+            TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
+        End If
+    End Sub
 End Class

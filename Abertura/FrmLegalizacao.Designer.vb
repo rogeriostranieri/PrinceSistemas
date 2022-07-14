@@ -108,6 +108,8 @@ Partial Class FrmLegalizacao
         Dim Label10 As System.Windows.Forms.Label
         Dim SituacaoCadastralLabel As System.Windows.Forms.Label
         Dim DivisaoCapitalSociosLabel As System.Windows.Forms.Label
+        Dim CapitalQuotaValorLabel As System.Windows.Forms.Label
+        Dim CapitaQuotaTotalLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -195,13 +197,15 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.BtnPreencherCapital = New System.Windows.Forms.LinkLabel()
+        Me.CapitaQuotaTotalTextBox = New System.Windows.Forms.TextBox()
+        Me.CapitalQuotaValorTextBox = New System.Windows.Forms.TextBox()
         Me.DivisaoCapitalSociosRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnAddSocios = New System.Windows.Forms.Button()
         Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
         Me.CapitalITextBox = New System.Windows.Forms.TextBox()
         Me.CapitalSTextBox = New System.Windows.Forms.TextBox()
         Me.DataExcSocialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.TabPage18 = New System.Windows.Forms.TabPage()
         Me.BtnUsarNomeFantasia = New System.Windows.Forms.Button()
         Me.BtnUsarRazao3 = New System.Windows.Forms.Button()
@@ -418,6 +422,7 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
+        Me.BtnRemoveSocios = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -503,6 +508,8 @@ Partial Class FrmLegalizacao
         Label10 = New System.Windows.Forms.Label()
         SituacaoCadastralLabel = New System.Windows.Forms.Label()
         DivisaoCapitalSociosLabel = New System.Windows.Forms.Label()
+        CapitalQuotaValorLabel = New System.Windows.Forms.Label()
+        CapitaQuotaTotalLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1107,7 +1114,7 @@ Partial Class FrmLegalizacao
         'DataExcSocialLabel
         '
         DataExcSocialLabel.AutoSize = True
-        DataExcSocialLabel.Location = New System.Drawing.Point(254, 25)
+        DataExcSocialLabel.Location = New System.Drawing.Point(328, 75)
         DataExcSocialLabel.Name = "DataExcSocialLabel"
         DataExcSocialLabel.Size = New System.Drawing.Size(128, 13)
         DataExcSocialLabel.TabIndex = 4
@@ -1328,6 +1335,24 @@ Partial Class FrmLegalizacao
         DivisaoCapitalSociosLabel.Size = New System.Drawing.Size(127, 13)
         DivisaoCapitalSociosLabel.TabIndex = 60
         DivisaoCapitalSociosLabel.Text = "Divisao de Capital Social:"
+        '
+        'CapitalQuotaValorLabel
+        '
+        CapitalQuotaValorLabel.AutoSize = True
+        CapitalQuotaValorLabel.Location = New System.Drawing.Point(250, 25)
+        CapitalQuotaValorLabel.Name = "CapitalQuotaValorLabel"
+        CapitalQuotaValorLabel.Size = New System.Drawing.Size(130, 13)
+        CapitalQuotaValorLabel.TabIndex = 61
+        CapitalQuotaValorLabel.Text = "Valor nominal das Quotas "
+        '
+        'CapitaQuotaTotalLabel
+        '
+        CapitaQuotaTotalLabel.AutoSize = True
+        CapitaQuotaTotalLabel.Location = New System.Drawing.Point(286, 51)
+        CapitaQuotaTotalLabel.Name = "CapitaQuotaTotalLabel"
+        CapitaQuotaTotalLabel.Size = New System.Drawing.Size(91, 13)
+        CapitaQuotaTotalLabel.TabIndex = 62
+        CapitaQuotaTotalLabel.Text = "Total das Quotas:"
         '
         'EmpresasBindingNavigator
         '
@@ -2192,9 +2217,15 @@ Partial Class FrmLegalizacao
         'TabPage16
         '
         Me.TabPage16.AutoScroll = True
+        Me.TabPage16.Controls.Add(Me.BtnRemoveSocios)
+        Me.TabPage16.Controls.Add(Me.BtnPreencherCapital)
+        Me.TabPage16.Controls.Add(CapitaQuotaTotalLabel)
+        Me.TabPage16.Controls.Add(Me.CapitaQuotaTotalTextBox)
+        Me.TabPage16.Controls.Add(CapitalQuotaValorLabel)
+        Me.TabPage16.Controls.Add(Me.CapitalQuotaValorTextBox)
         Me.TabPage16.Controls.Add(DivisaoCapitalSociosLabel)
         Me.TabPage16.Controls.Add(Me.DivisaoCapitalSociosRichTextBox)
-        Me.TabPage16.Controls.Add(Me.Button1)
+        Me.TabPage16.Controls.Add(Me.BtnAddSocios)
         Me.TabPage16.Controls.Add(Me.ButtonCalcCapSocial)
         Me.TabPage16.Controls.Add(Me.CapitalITextBox)
         Me.TabPage16.Controls.Add(Me.CapitalSTextBox)
@@ -2202,7 +2233,6 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Controls.Add(Me.DataExcSocialMaskedTextBox)
         Me.TabPage16.Controls.Add(CapitalILabel)
         Me.TabPage16.Controls.Add(CapitalSLabel)
-        Me.TabPage16.Controls.Add(Me.Label8)
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
@@ -2211,35 +2241,63 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
         '
+        'BtnPreencherCapital
+        '
+        Me.BtnPreencherCapital.AutoSize = True
+        Me.BtnPreencherCapital.Location = New System.Drawing.Point(178, 6)
+        Me.BtnPreencherCapital.Name = "BtnPreencherCapital"
+        Me.BtnPreencherCapital.Size = New System.Drawing.Size(56, 13)
+        Me.BtnPreencherCapital.TabIndex = 64
+        Me.BtnPreencherCapital.TabStop = True
+        Me.BtnPreencherCapital.Text = "Preencher"
+        '
+        'CapitaQuotaTotalTextBox
+        '
+        Me.CapitaQuotaTotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitaQuotaTotal", True))
+        Me.CapitaQuotaTotalTextBox.Location = New System.Drawing.Point(383, 48)
+        Me.CapitaQuotaTotalTextBox.Name = "CapitaQuotaTotalTextBox"
+        Me.CapitaQuotaTotalTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitaQuotaTotalTextBox.TabIndex = 63
+        '
+        'CapitalQuotaValorTextBox
+        '
+        Me.CapitalQuotaValorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalQuotaValor", True))
+        Me.CapitalQuotaValorTextBox.Location = New System.Drawing.Point(383, 22)
+        Me.CapitalQuotaValorTextBox.Name = "CapitalQuotaValorTextBox"
+        Me.CapitalQuotaValorTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitalQuotaValorTextBox.TabIndex = 62
+        '
         'DivisaoCapitalSociosRichTextBox
         '
         Me.DivisaoCapitalSociosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DivisaoCapitalSocios", True))
+        Me.DivisaoCapitalSociosRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DivisaoCapitalSociosRichTextBox.Location = New System.Drawing.Point(9, 104)
         Me.DivisaoCapitalSociosRichTextBox.Name = "DivisaoCapitalSociosRichTextBox"
+        Me.DivisaoCapitalSociosRichTextBox.ReadOnly = True
         Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(267, 67)
         Me.DivisaoCapitalSociosRichTextBox.TabIndex = 61
         Me.DivisaoCapitalSociosRichTextBox.Text = ""
         '
-        'Button1
+        'BtnAddSocios
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(282, 135)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(67, 31)
-        Me.Button1.TabIndex = 60
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnAddSocios.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.Button_Add_icon
+        Me.BtnAddSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddSocios.Location = New System.Drawing.Point(282, 104)
+        Me.BtnAddSocios.Name = "BtnAddSocios"
+        Me.BtnAddSocios.Size = New System.Drawing.Size(35, 31)
+        Me.BtnAddSocios.TabIndex = 60
+        Me.BtnAddSocios.UseVisualStyleBackColor = True
         '
         'ButtonCalcCapSocial
         '
         Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
         Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(429, 51)
+        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(441, 125)
         Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
-        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(117, 56)
+        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(118, 47)
         Me.ButtonCalcCapSocial.TabIndex = 58
         Me.ButtonCalcCapSocial.Text = "Calculadora de Capital Social"
         Me.ButtonCalcCapSocial.UseVisualStyleBackColor = True
@@ -2263,21 +2321,12 @@ Partial Class FrmLegalizacao
         'DataExcSocialMaskedTextBox
         '
         Me.DataExcSocialMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataExcSocial", True))
-        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(382, 22)
+        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(456, 72)
         Me.DataExcSocialMaskedTextBox.Mask = "99/99"
         Me.DataExcSocialMaskedTextBox.Name = "DataExcSocialMaskedTextBox"
         Me.DataExcSocialMaskedTextBox.Size = New System.Drawing.Size(44, 20)
         Me.DataExcSocialMaskedTextBox.TabIndex = 5
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(424, 30)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 12)
-        Me.Label8.TabIndex = 10
-        Me.Label8.Text = "Padrão: 31/12"
+        Me.DataExcSocialMaskedTextBox.Text = "3112"
         '
         'TabPage18
         '
@@ -4639,6 +4688,18 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnRemoveSocios
+        '
+        Me.BtnRemoveSocios.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.Button_Delete_icon
+        Me.BtnRemoveSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnRemoveSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveSocios.Location = New System.Drawing.Point(282, 140)
+        Me.BtnRemoveSocios.Name = "BtnRemoveSocios"
+        Me.BtnRemoveSocios.Size = New System.Drawing.Size(35, 31)
+        Me.BtnRemoveSocios.TabIndex = 65
+        Me.BtnRemoveSocios.UseVisualStyleBackColor = True
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4934,7 +4995,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents DataExcSocialMaskedTextBox As MaskedTextBox
     Friend WithEvents CapitalITextBox As TextBox
     Friend WithEvents CapitalSTextBox As TextBox
-    Friend WithEvents Label8 As Label
     Friend WithEvents CNHdataexpMaskedTextBox As MaskedTextBox
     Friend WithEvents CNHexpTextBox As TextBox
     Friend WithEvents CNHnumeroTextBox As TextBox
@@ -5059,6 +5119,10 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnAddmaisSocio As Button
     Friend WithEvents SituacaoCadastralComboBox As ComboBox
     Friend WithEvents BtnWord As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnAddSocios As Button
     Friend WithEvents DivisaoCapitalSociosRichTextBox As RichTextBox
+    Friend WithEvents CapitalQuotaValorTextBox As TextBox
+    Friend WithEvents CapitaQuotaTotalTextBox As TextBox
+    Friend WithEvents BtnPreencherCapital As LinkLabel
+    Friend WithEvents BtnRemoveSocios As Button
 End Class

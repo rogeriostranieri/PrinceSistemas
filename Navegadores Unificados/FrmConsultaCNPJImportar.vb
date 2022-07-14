@@ -2,10 +2,6 @@
 
 Public Class FrmConsultaCNPJImportar
 
-    Private url As String = "https://www.microsoft.com"
-    Dim fns As Boolean = False
-
-
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

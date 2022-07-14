@@ -2650,39 +2650,175 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         If ExportarContratoWordDialog.Visible = True Then
             ExportarContratoWordDialog.Focus()
         Else
-            ExportarContratoWordDialog.Show()
+            ExportarContratoWordDialog.ShowDialog()
         End If
     End Sub
 
-    Private Sub CapitalSTextBox_Validated(sender As Object, e As EventArgs) Handles CapitalSTextBox.Validated
-        ''verificar se o valor é numérico e mostra mgs
-        If IsNumeric(CapitalSTextBox.Text) = False Then
-            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
-            CapitalSTextBox.Focus()
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
+        '/////////////////////////// ADD MANUAL ////////////////////////////////////////////////
+        'caixa de texto para add socio
+        Dim NomeSocio As String = InputBox("Digite o Nome Completo do sócio", "Adicionar Sócio")
+        Dim CapitalSocio As String = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
+
+        'se cancelar nao faz nada
+        If NomeSocio = "" Then
             Exit Sub
+        End If
+        If CapitalSocio = "" Then
+            Exit Sub
+        End If
+
+        'CapitalSocio apenas numeros
+        If IsNumeric(CapitalSocio) = False Then
+            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
+            CapitalSocio = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
+        End If
+        'CapitalSocio sem caracteres CleanText
+        CapitalSocio = CleanText(CapitalSocio)
+
+
+
+        '////////////////////// NOME PEQUENO DO SOCIO ///////////////////////////////   
+        'com a 1 letra ToUpper e o resto ToLower
+        'e depois @NomeCompleto
+        Dim NomePequeno As String = NomeSocio
+        Dim NomePequenoArray() As String = NomePequeno.Split(" ")
+        Dim NomePequenoArray2(NomePequenoArray.Length - 1) As String
+        For i = 0 To NomePequenoArray.Length - 1
+            NomePequenoArray2(i) = NomePequenoArray(i).Substring(0, 1).ToUpper & NomePequenoArray(i).Substring(1, NomePequenoArray(i).Length - 1).ToLower
+        Next
+        Dim NomePequeno2 As String = ""
+        For i = 0 To NomePequenoArray2.Length - 1
+            NomePequeno2 = NomePequeno2 & NomePequenoArray2(i) & " "
+        Next
+        NomePequeno2 = NomePequeno2.Substring(0, NomePequeno2.Length - 1)
+
+        '////////////////////// CAPITAL SOCIAL  ///////////////////////////////   
+        'transformar em reais o valor do CapitalSocio
+
+        Dim CapitalSocioFinal As String = FormatCurrency(CapitalSocio)
+
+
+
+        'adicionar final
+        DivisaoCapitalSociosRichTextBox.Text &= NomePequeno2 & "," & CapitalSocioFinal & vbCrLf
+
+
+    End Sub
+
+    'CapitalSTextBox usar mascara em reais
+    Private Sub CapitalSTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CapitalSTextBox.KeyPress
+        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    'CapitalSTextBox validar em reais
+    Private Sub CapitalSTextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalSTextBox.LostFocus
+        If CapitalSTextBox.Text = "" Then
+            CapitalSTextBox.Text = "0,00"
         Else
             CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
         End If
     End Sub
 
-    Private Sub CapitalITextBox_Validated(sender As Object, e As EventArgs) Handles CapitalITextBox.Validated
-        ''verificar se o valor é numérico e mostra mgs
-        If IsNumeric(CapitalITextBox.Text) = False Then
-            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
-            CapitalITextBox.Focus()
-            Exit Sub
+    'CapitalITextBox
+    Private Sub CapitalITextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CapitalITextBox.KeyPress
+        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    'CapitalITextBox validar em reais
+    Private Sub CapitalITextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalITextBox.LostFocus
+        If CapitalITextBox.Text = "" Then
+            CapitalITextBox.Text = "0,00"
         Else
             CapitalITextBox.Text = FormatCurrency(CapitalITextBox.Text)
         End If
     End Sub
+    'CapitalQuotaValorTextBox.Text  validar em reais
+    Private Sub CapitalQuotaValorTextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalQuotaValorTextBox.LostFocus
+        If CapitalQuotaValorTextBox.Text = "" Then
+            CapitalQuotaValorTextBox.Text = "0,00"
+        Else
+            CapitalQuotaValorTextBox.Text = FormatCurrency(CapitalQuotaValorTextBox.Text)
+        End If
+    End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub CapitalQuotaValorTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CapitalQuotaValorTextBox.KeyPress
+        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
 
-        'caixa de texto para add socio
-        Dim NomeSocio As String = InputBox("Digite o nome do sócio", "Adicionar Sócio")
-        Dim CapitalSocio As String = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
-        'DivisaoCapitalSociosRichTextBox add linha cada
-        DivisaoCapitalSociosRichTextBox.Text &= NomeSocio & ", " & CapitalSocio & vbCrLf
+    'CapitaQuotaTotalTextBox  validar sem os reais, apenas numeros sem ",00"
+    Private Sub CapitaQuotaTotalTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CapitaQuotaTotalTextBox.KeyPress
+        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+
+    Private Sub BtnPreencherCapital_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles BtnPreencherCapital.LinkClicked
+        'verificar se tem valor dentro do CapitalSTextBox
+        'CapitalITextBox colocar igual CapitalSTextBox
+        'CapitalQuotaValorTextBox colocar valor R$ 1,00
+        'CapitaQuotaTotalTextBox igual CapitalSTextBox mas sem os "R$ " e apos ",00"
+        If CapitalSTextBox.Text = "" Then
+            'mgsbox add valor
+            MsgBox("Adicione o valor do capital social", MsgBoxStyle.Exclamation, "Atenção")
+            'focus
+            CapitalSTextBox.Focus()
+        Else
+            'CapitalITextBox colocar igual CapitalSTextBox
+            CapitalITextBox.Text = CapitalSTextBox.Text
+            'CapitalQuotaValorTextBox colocar valor R$ 1,00
+            CapitalQuotaValorTextBox.Text = "R$ 1,00"
+            'CapitaQuotaTotalTextBox igual CapitalSTextBox mas sem os "R$ " e apos ",00"
+            Dim CapitalSemNada As String = CapitalSTextBox.Text.Replace("R$ ", "").Replace(",00", "")
+            CapitaQuotaTotalTextBox.Text = CapitalSemNada
+
+        End If
+    End Sub
+
+    Private Sub BtnRemoveSocios_Click(sender As Object, e As EventArgs) Handles BtnRemoveSocios.Click
+        'DivisaoCapitalSociosRichTextBox.Text
+
+        Dim unused As New List(Of String)
+        Dim Remover As List(Of String) = DivisaoCapitalSociosRichTextBox.Lines.ToList()
+        Dim Nlinha As String = InputBox("Digite qual Número da linha para excluir?", "Excluir Sócio")
+        'se a resposta do Nlinha for vazia, não faz nada
+        If Nlinha = "" Then
+            Exit Sub
+        Else
+            'se a resposta do Nlinha for um numero, remove a linha
+            If IsNumeric(Nlinha) Then
+                Remover.RemoveAt(Nlinha - 1)
+                DivisaoCapitalSociosRichTextBox.Text = String.Join(vbCrLf, Remover)
+            Else
+                'se a resposta do Nlinha for uma letra, não faz nada
+                MsgBox("Digite um número", MsgBoxStyle.Exclamation, "Atenção")
+            End If
+        End If
+        'Remover.RemoveAt(Nlinha)
+        'DivisaoCapitalSociosRichTextBox.Lines = Remover.ToArray()
+        'Remover = Nothing
 
 
     End Sub

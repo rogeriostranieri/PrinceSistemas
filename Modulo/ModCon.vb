@@ -250,9 +250,6 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
     End Sub
 
-    Private Sub EncontrarCNPJEmpresaLaudo()
-
-    End Sub
     Sub ConexaoLaudo()
 
         Dim Str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"

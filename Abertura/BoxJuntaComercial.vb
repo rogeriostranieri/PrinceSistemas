@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class BoxJuntaComercial
-    Dim Protocolo As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
+    ReadOnly Protocolo As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
