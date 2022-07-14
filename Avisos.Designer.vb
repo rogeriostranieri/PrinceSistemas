@@ -102,6 +102,7 @@ Partial Class Avisos
         Me.LaudosDataGridView.AllowUserToAddRows = False
         Me.LaudosDataGridView.AllowUserToDeleteRows = False
         Me.LaudosDataGridView.AutoGenerateColumns = False
+        Me.LaudosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn59, Me.BombeiroSituacao})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
@@ -110,6 +111,7 @@ Partial Class Avisos
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.LaudosDataGridView.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.LaudosDataGridView, "Clique na empresa para abrir")
         '
         'DataGridViewTextBoxColumn2
         '
@@ -117,7 +119,7 @@ Partial Class Avisos
         Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 230
+        Me.DataGridViewTextBoxColumn2.Width = 88
         '
         'DataGridViewTextBoxColumn59
         '
@@ -125,7 +127,7 @@ Partial Class Avisos
         Me.DataGridViewTextBoxColumn59.HeaderText = "Situação Prefeitura"
         Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
         Me.DataGridViewTextBoxColumn59.ReadOnly = True
-        Me.DataGridViewTextBoxColumn59.Width = 130
+        Me.DataGridViewTextBoxColumn59.Width = 112
         '
         'BombeiroSituacao
         '
@@ -133,7 +135,7 @@ Partial Class Avisos
         Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
         Me.BombeiroSituacao.Name = "BombeiroSituacao"
         Me.BombeiroSituacao.ReadOnly = True
-        Me.BombeiroSituacao.Width = 130
+        Me.BombeiroSituacao.Width = 111
         '
         'EmpresasBindingSource
         '
@@ -149,6 +151,7 @@ Partial Class Avisos
         Me.EmpresasDataGridView.AllowUserToAddRows = False
         Me.EmpresasDataGridView.AllowUserToDeleteRows = False
         Me.EmpresasDataGridView.AutoGenerateColumns = False
+        Me.EmpresasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.EmpresasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn68, Me.Processo, Me.DataGridViewTextBoxColumn89})
         Me.EmpresasDataGridView.DataSource = Me.EmpresasBindingSource
@@ -157,6 +160,7 @@ Partial Class Avisos
         Me.EmpresasDataGridView.ReadOnly = True
         Me.EmpresasDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.EmpresasDataGridView.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.EmpresasDataGridView, "Clique na empresa para abrir")
         '
         'DataGridViewTextBoxColumn68
         '
@@ -164,7 +168,7 @@ Partial Class Avisos
         Me.DataGridViewTextBoxColumn68.HeaderText = "Razão Social"
         Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
         Me.DataGridViewTextBoxColumn68.ReadOnly = True
-        Me.DataGridViewTextBoxColumn68.Width = 200
+        Me.DataGridViewTextBoxColumn68.Width = 95
         '
         'Processo
         '
@@ -172,7 +176,7 @@ Partial Class Avisos
         Me.Processo.HeaderText = "Processo"
         Me.Processo.Name = "Processo"
         Me.Processo.ReadOnly = True
-        Me.Processo.Width = 80
+        Me.Processo.Width = 76
         '
         'DataGridViewTextBoxColumn89
         '
@@ -180,7 +184,7 @@ Partial Class Avisos
         Me.DataGridViewTextBoxColumn89.HeaderText = "Status"
         Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
         Me.DataGridViewTextBoxColumn89.ReadOnly = True
-        Me.DataGridViewTextBoxColumn89.Width = 170
+        Me.DataGridViewTextBoxColumn89.Width = 62
         '
         'MaskedTextBox1
         '

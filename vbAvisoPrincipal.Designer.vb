@@ -31,6 +31,7 @@ Partial Class VbAvisoPrincipal
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.ButtonMais7 = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +67,7 @@ Partial Class VbAvisoPrincipal
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -106,6 +108,7 @@ Partial Class VbAvisoPrincipal
         Me.LaudosDataGridView1.AllowUserToDeleteRows = False
         Me.LaudosDataGridView1.AllowUserToOrderColumns = True
         Me.LaudosDataGridView1.AutoGenerateColumns = False
+        Me.LaudosDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LaudosDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         Me.LaudosDataGridView1.DataSource = Me.LaudosBindingSource
@@ -114,6 +117,7 @@ Partial Class VbAvisoPrincipal
         Me.LaudosDataGridView1.ReadOnly = True
         Me.LaudosDataGridView1.Size = New System.Drawing.Size(544, 115)
         Me.LaudosDataGridView1.TabIndex = 20
+        Me.ToolTip1.SetToolTip(Me.LaudosDataGridView1, "Clique na empresa para abrir")
         '
         'DataGridViewTextBoxColumn2
         '
@@ -121,7 +125,7 @@ Partial Class VbAvisoPrincipal
         Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 350
+        Me.DataGridViewTextBoxColumn2.Width = 95
         '
         'MonthCalendar2
         '
@@ -181,6 +185,7 @@ Partial Class VbAvisoPrincipal
 #Disable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonMais7 As Button
+    Friend WithEvents ToolTip1 As ToolTip
 #Enable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
 
 

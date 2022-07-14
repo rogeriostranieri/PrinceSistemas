@@ -418,22 +418,16 @@ Public Class FrmLegalizacao
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnConsultaJunta.Click
-        'System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + ProtocoloJuntaComercialTextBox.Text)
-
-        Dim Protocolo As String = ProtocoloJuntaComercialTextBox.Text
-        'verificar FrmWBEmpresaFacilPR está aberto ou abrir
-        Dim frm As New FrmWBEmpresaFacilPR
-        '            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+        Dim frm As New BoxJuntaComercial
 
         If frm.Visible = True Then
             'coloca focus e frente
             frm.Focus()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+
         Else
             frm.Show()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
         End If
     End Sub
 
@@ -1933,13 +1927,6 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         End If
     End Sub
 
-    Private Sub BtnFedJunta_Click(sender As Object, e As EventArgs) Handles BtnFedJunta.Click
-
-        TabControle.SelectTab(2)
-        TabControle.SelectTab(3)
-        ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
-    End Sub
-
     'gerar CancelEventArgs e
 
     Private Sub EMAIL()
@@ -2689,4 +2676,14 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         End If
     End Sub
 
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+
+        'caixa de texto para add socio
+        Dim NomeSocio As String = InputBox("Digite o nome do sócio", "Adicionar Sócio")
+        Dim CapitalSocio As String = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
+        'DivisaoCapitalSociosRichTextBox add linha cada
+        DivisaoCapitalSociosRichTextBox.Text &= NomeSocio & ", " & CapitalSocio & vbCrLf
+
+
+    End Sub
 End Class

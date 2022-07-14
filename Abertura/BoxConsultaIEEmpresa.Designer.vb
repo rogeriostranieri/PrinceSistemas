@@ -127,10 +127,12 @@ Partial Class BoxConsultaIEEmpresa
         '
         'BoxConsultaIEEmpresa
         '
+        Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(384, 144)
         Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.BtnImportar)
@@ -138,6 +140,7 @@ Partial Class BoxConsultaIEEmpresa
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.KeyPreview = True
         Me.Name = "BoxConsultaIEEmpresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BoxConsultaIEEmpresa"

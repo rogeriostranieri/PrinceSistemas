@@ -107,6 +107,7 @@ Partial Class FrmLegalizacao
         Dim IEeProcNumLabel As System.Windows.Forms.Label
         Dim Label10 As System.Windows.Forms.Label
         Dim SituacaoCadastralLabel As System.Windows.Forms.Label
+        Dim DivisaoCapitalSociosLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -194,6 +195,8 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.DivisaoCapitalSociosRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
         Me.CapitalITextBox = New System.Windows.Forms.TextBox()
         Me.CapitalSTextBox = New System.Windows.Forms.TextBox()
@@ -260,7 +263,6 @@ Partial Class FrmLegalizacao
         Me.ProtocoloJuntaComercialTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.BtnAnotacoesFederal = New System.Windows.Forms.Button()
-        Me.BtnFedJunta = New System.Windows.Forms.Button()
         Me.BtnData4 = New System.Windows.Forms.Button()
         Me.Button47 = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
@@ -500,6 +502,7 @@ Partial Class FrmLegalizacao
         IEeProcNumLabel = New System.Windows.Forms.Label()
         Label10 = New System.Windows.Forms.Label()
         SituacaoCadastralLabel = New System.Windows.Forms.Label()
+        DivisaoCapitalSociosLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1316,6 +1319,15 @@ Partial Class FrmLegalizacao
         SituacaoCadastralLabel.Size = New System.Drawing.Size(99, 13)
         SituacaoCadastralLabel.TabIndex = 65
         SituacaoCadastralLabel.Text = "Situação Cadastral:"
+        '
+        'DivisaoCapitalSociosLabel
+        '
+        DivisaoCapitalSociosLabel.AutoSize = True
+        DivisaoCapitalSociosLabel.Location = New System.Drawing.Point(6, 88)
+        DivisaoCapitalSociosLabel.Name = "DivisaoCapitalSociosLabel"
+        DivisaoCapitalSociosLabel.Size = New System.Drawing.Size(127, 13)
+        DivisaoCapitalSociosLabel.TabIndex = 60
+        DivisaoCapitalSociosLabel.Text = "Divisao de Capital Social:"
         '
         'EmpresasBindingNavigator
         '
@@ -2179,6 +2191,10 @@ Partial Class FrmLegalizacao
         '
         'TabPage16
         '
+        Me.TabPage16.AutoScroll = True
+        Me.TabPage16.Controls.Add(DivisaoCapitalSociosLabel)
+        Me.TabPage16.Controls.Add(Me.DivisaoCapitalSociosRichTextBox)
+        Me.TabPage16.Controls.Add(Me.Button1)
         Me.TabPage16.Controls.Add(Me.ButtonCalcCapSocial)
         Me.TabPage16.Controls.Add(Me.CapitalITextBox)
         Me.TabPage16.Controls.Add(Me.CapitalSTextBox)
@@ -2192,15 +2208,36 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage16.Size = New System.Drawing.Size(564, 179)
         Me.TabPage16.TabIndex = 4
-        Me.TabPage16.Text = "Social"
+        Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
+        '
+        'DivisaoCapitalSociosRichTextBox
+        '
+        Me.DivisaoCapitalSociosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DivisaoCapitalSocios", True))
+        Me.DivisaoCapitalSociosRichTextBox.Location = New System.Drawing.Point(9, 104)
+        Me.DivisaoCapitalSociosRichTextBox.Name = "DivisaoCapitalSociosRichTextBox"
+        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(267, 67)
+        Me.DivisaoCapitalSociosRichTextBox.TabIndex = 61
+        Me.DivisaoCapitalSociosRichTextBox.Text = ""
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(282, 135)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(67, 31)
+        Me.Button1.TabIndex = 60
+        Me.Button1.Text = "Add"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ButtonCalcCapSocial
         '
         Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
         Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(117, 83)
+        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(429, 51)
         Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
         Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(117, 56)
         Me.ButtonCalcCapSocial.TabIndex = 58
@@ -2879,7 +2916,6 @@ Partial Class FrmLegalizacao
         '
         Me.TabPage4.AutoScroll = True
         Me.TabPage4.Controls.Add(Me.BtnAnotacoesFederal)
-        Me.TabPage4.Controls.Add(Me.BtnFedJunta)
         Me.TabPage4.Controls.Add(Me.BtnData4)
         Me.TabPage4.Controls.Add(Me.Button47)
         Me.TabPage4.Controls.Add(Me.GroupBox7)
@@ -2910,16 +2946,6 @@ Partial Class FrmLegalizacao
         Me.BtnAnotacoesFederal.TabIndex = 72
         Me.BtnAnotacoesFederal.Text = "Anotações"
         Me.BtnAnotacoesFederal.UseVisualStyleBackColor = True
-        '
-        'BtnFedJunta
-        '
-        Me.BtnFedJunta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnFedJunta.Location = New System.Drawing.Point(265, 35)
-        Me.BtnFedJunta.Name = "BtnFedJunta"
-        Me.BtnFedJunta.Size = New System.Drawing.Size(43, 21)
-        Me.BtnFedJunta.TabIndex = 53
-        Me.BtnFedJunta.Text = "Copiar"
-        Me.BtnFedJunta.UseVisualStyleBackColor = True
         '
         'BtnData4
         '
@@ -4987,7 +5013,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents LinkLabel18 As LinkLabel
     Friend WithEvents BtnLocalizar As Button
     Friend WithEvents BtnContador As Button
-    Friend WithEvents BtnFedJunta As Button
     Friend WithEvents CADstatusBindingSource As BindingSource
     Friend WithEvents CADstatusTableAdapter As PrinceDBDataSetTableAdapters.CADstatusTableAdapter
     Friend WithEvents BtnAnotacoesLEgalizacao As Button
@@ -5034,4 +5059,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnAddmaisSocio As Button
     Friend WithEvents SituacaoCadastralComboBox As ComboBox
     Friend WithEvents BtnWord As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents DivisaoCapitalSociosRichTextBox As RichTextBox
 End Class

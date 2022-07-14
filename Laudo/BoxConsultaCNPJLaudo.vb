@@ -217,6 +217,10 @@ Public Class BoxConsultaCNPJLaudo
             'mostrar mgs de erro
             MsgBox("Erro ao importar: " + ex.Message, MsgBoxStyle.Critical, "Erro")
         End Try
+        Me.Close()
+    End Sub
 
+    Private Sub BoxConsultaCNPJLaudo_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 End Class

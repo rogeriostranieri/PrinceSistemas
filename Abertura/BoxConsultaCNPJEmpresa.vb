@@ -20,6 +20,7 @@ Public Class BoxConsultaCNPJEmpresa
 
         System.Diagnostics.Process.Start("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
         Me.Close()
+
     End Sub
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
@@ -235,7 +236,7 @@ Public Class BoxConsultaCNPJEmpresa
             MsgBox("Erro ao importar: " + ex.Message, MsgBoxStyle.Critical, "Erro")
         End Try
 
-
+        Me.Close()
     End Sub
 
     Private Sub BoxConsultaCNPJEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -243,6 +244,9 @@ Public Class BoxConsultaCNPJEmpresa
     End Sub
 
 
+    Private Sub BoxConsultaCNPJEmpresa_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
 
 
 End Class

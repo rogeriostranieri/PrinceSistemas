@@ -16,7 +16,7 @@
 
         End If
 
-
+        Me.Close()
     End Sub
 
     Private Sub Cancel_Button_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
@@ -43,11 +43,16 @@
             Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
             Me.Close()
         End If
+        Me.Close()
 
     End Sub
 
     Private Sub BtnImportar_Click(sender As Object, e As EventArgs) Handles BtnImportar.Click
         'mgs em teste
         MsgBox("Em teste Importar IE")
+    End Sub
+
+    Private Sub BoxConsultaIEEmpresa_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 End Class
