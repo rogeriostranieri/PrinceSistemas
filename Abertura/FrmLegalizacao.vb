@@ -2516,9 +2516,6 @@ prazo de 90 dias para empresas abertas a partir de 2021.
 
     End Sub
 
-    Private Sub ButtonCalcCapSocial_Click(sender As Object, e As EventArgs) Handles ButtonCalcCapSocial.Click
-        FrmCalculadoraCapital.Show()
-    End Sub
 
     Private Sub BtnImportarRazaoSocial_Click(sender As Object, e As EventArgs) Handles BtnImportarRazaoSocial.Click
         'pega a razaosocialtextbox e coloca no RazaoSocialAntigaTextBox 
@@ -2553,11 +2550,26 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnImportarSocioAdm_Click(sender As Object, e As EventArgs) Handles BtnImportarSocioAdm.Click
-        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
-            FrmSocios.Focus()
+        'verifica se tem NomeResponsavelTextBox preenchido ou abre
+        If NomeResponsavelTextBox.Text = "" Then
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                FrmSocios.Focus()
+            Else
+                FrmSocios.Show()
+            End If
         Else
-            FrmSocios.Show()
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                FrmSocios.Focus()
+                'igual do frmsocios.NomeCompletoComboBox.text
+                FrmSocios.NomeCompletoComboBox.Text = NomeResponsavelTextBox.Text
+            Else
+                FrmSocios.Show()
+                FrmSocios.NomeCompletoComboBox.Text = NomeResponsavelTextBox.Text
+            End If
+
         End If
+
+
     End Sub
     Private Sub TESTE()
         'pega dados 
@@ -2654,55 +2666,37 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         End If
     End Sub
 
+
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
-        '/////////////////////////// ADD MANUAL ////////////////////////////////////////////////
-        'caixa de texto para add socio
-        Dim NomeSocio As String = InputBox("Digite o Nome Completo do sócio", "Adicionar Sócio")
-        Dim CapitalSocio As String = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
+        'pergunta se deseja add manual
+        If MsgBox("Deseja Importar o sócio pelo formulário?", MsgBoxStyle.YesNo, "Atenção") = MsgBoxResult.Yes Then
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                FrmSocios.Focus()
 
-        'se cancelar nao faz nada
-        If NomeSocio = "" Then
-            Exit Sub
+                FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
+                FrmSocios.GroupBoxCapitalSocial.Visible = True
+                FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
+                FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
+                FrmSocios.GroupBoxCapitalSocial.Enabled = True
+
+                Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
+                'exporta para frmsocios.TextBoxCapitalSocial.text
+                FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
+            Else
+                FrmSocios.Show()
+
+                FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
+                FrmSocios.GroupBoxCapitalSocial.Visible = True
+                FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
+                FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
+                FrmSocios.GroupBoxCapitalSocial.Enabled = True
+
+                Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
+                'exporta para frmsocios.TextBoxCapitalSocial.text
+                FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
+            End If
+        Else
         End If
-        If CapitalSocio = "" Then
-            Exit Sub
-        End If
-
-        'CapitalSocio apenas numeros
-        If IsNumeric(CapitalSocio) = False Then
-            MsgBox("O valor do Capital Social deve ser apenas numérico", MsgBoxStyle.Exclamation, "Atenção")
-            CapitalSocio = InputBox("Digite o capital social do sócio", "Adicionar Sócio")
-        End If
-        'CapitalSocio sem caracteres CleanText
-        CapitalSocio = CleanText(CapitalSocio)
-
-
-
-        '////////////////////// NOME PEQUENO DO SOCIO ///////////////////////////////   
-        'com a 1 letra ToUpper e o resto ToLower
-        'e depois @NomeCompleto
-        Dim NomePequeno As String = NomeSocio
-        Dim NomePequenoArray() As String = NomePequeno.Split(" ")
-        Dim NomePequenoArray2(NomePequenoArray.Length - 1) As String
-        For i = 0 To NomePequenoArray.Length - 1
-            NomePequenoArray2(i) = NomePequenoArray(i).Substring(0, 1).ToUpper & NomePequenoArray(i).Substring(1, NomePequenoArray(i).Length - 1).ToLower
-        Next
-        Dim NomePequeno2 As String = ""
-        For i = 0 To NomePequenoArray2.Length - 1
-            NomePequeno2 = NomePequeno2 & NomePequenoArray2(i) & " "
-        Next
-        NomePequeno2 = NomePequeno2.Substring(0, NomePequeno2.Length - 1)
-
-        '////////////////////// CAPITAL SOCIAL  ///////////////////////////////   
-        'transformar em reais o valor do CapitalSocio
-
-        Dim CapitalSocioFinal As String = FormatCurrency(CapitalSocio)
-
-
-
-        'adicionar final
-        DivisaoCapitalSociosRichTextBox.Text &= NomePequeno2 & "," & CapitalSocioFinal & vbCrLf
-
 
     End Sub
 
@@ -2798,28 +2792,15 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnRemoveSocios_Click(sender As Object, e As EventArgs) Handles BtnRemoveSocios.Click
-        'DivisaoCapitalSociosRichTextBox.Text
-
-        Dim unused As New List(Of String)
-        Dim Remover As List(Of String) = DivisaoCapitalSociosRichTextBox.Lines.ToList()
-        Dim Nlinha As String = InputBox("Digite qual Número da linha para excluir?", "Excluir Sócio")
-        'se a resposta do Nlinha for vazia, não faz nada
-        If Nlinha = "" Then
-            Exit Sub
+        'perguntar se deseja limpar os dados
+        If MsgBox("Deseja limpar a Divisão de Capital Social?", MsgBoxStyle.YesNo, "Atenção") = MsgBoxResult.Yes Then
+            'limpar os dados
+            DivisaoCapitalSociosRichTextBox.Text = ""
         Else
-            'se a resposta do Nlinha for um numero, remove a linha
-            If IsNumeric(Nlinha) Then
-                Remover.RemoveAt(Nlinha - 1)
-                DivisaoCapitalSociosRichTextBox.Text = String.Join(vbCrLf, Remover)
-            Else
-                'se a resposta do Nlinha for uma letra, não faz nada
-                MsgBox("Digite um número", MsgBoxStyle.Exclamation, "Atenção")
-            End If
+            'não faz nada
         End If
-        'Remover.RemoveAt(Nlinha)
-        'DivisaoCapitalSociosRichTextBox.Lines = Remover.ToArray()
-        'Remover = Nothing
-
 
     End Sub
+
+
 End Class

@@ -327,13 +327,13 @@ Public Class ExportarContratoWordDialog
                     'PegarLinha.RemoveAt(Nlinha - 1)
                     'DivisaoCapitalSociosRichTextBox.Text = String.Join(vbCrLf, PegarLinha)
                     'pegar nome do socio antes da virgula "," da linha Nlinha
-                    Dim SocioTabela As String = PegarLinha(Nlinha - 1).Substring(0, PegarLinha(Nlinha - 1).IndexOf(","))
+                    Dim SocioTabela As String = PegarLinha(Nlinha - 1).Substring(0, PegarLinha(Nlinha - 1).IndexOf(" - "))
                     'pegar o valor em Reais do socio depois da virgula "," da linha Nlinha
-                    Dim CapitalSocialTabela As String = PegarLinha(Nlinha - 1).Substring(PegarLinha(Nlinha - 1).IndexOf(",") + 1)
+                    Dim CapitalSocialTabela As String = PegarLinha(Nlinha - 1).Substring(PegarLinha(Nlinha - 1).IndexOf(" - ") + 1)
                     'Pegar valor sem os reais e com os centavos
                     Dim CapitalQuotaTabela As String
                     'CapitalSocialTabela sem os R$ e ,00
-                    CapitalQuotaTabela = CapitalSocialTabela.Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    CapitalQuotaTabela = CapitalSocialTabela.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
 
 
                     'SocioTabela
@@ -355,9 +355,9 @@ Public Class ExportarContratoWordDialog
                     'Total de Capital Social
                     Dim TotalCapitalSocial As String = ""
                     For i = 0 To PegarLinha.Count - 1
-                        TotalCapitalSocial += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1)
+                        TotalCapitalSocial += PegarLinha(i).Substring(PegarLinha(i).IndexOf(" - ") + 1)
                     Next
-                    TotalCapitalSocial = TotalCapitalSocial.Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    TotalCapitalSocial = TotalCapitalSocial.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
                     'TotalCapitalSocial
                     rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocial"
                     rng.Find.Replacement.ClearFormatting()
@@ -367,9 +367,9 @@ Public Class ExportarContratoWordDialog
                     'Total de Capital Social Quotas
                     Dim TotalCapitalSocialQuotas As String = ""
                     For i = 0 To PegarLinha.Count - 1
-                        TotalCapitalSocialQuotas += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1).Replace("R$", "").Replace(",", "").Replace(" ", "")
+                        TotalCapitalSocialQuotas += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1).Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
                     Next
-                    TotalCapitalSocialQuotas = TotalCapitalSocialQuotas.Replace("R$", "").Replace(",", "").Replace(" ", "")
+                    TotalCapitalSocialQuotas = TotalCapitalSocialQuotas.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
                     'TotalCapitalSocialQuotas
                     rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocialQuotas"
                     rng.Find.Replacement.ClearFormatting()

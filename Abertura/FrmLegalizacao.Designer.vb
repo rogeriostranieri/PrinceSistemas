@@ -197,12 +197,12 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.BtnRemoveSocios = New System.Windows.Forms.Button()
         Me.BtnPreencherCapital = New System.Windows.Forms.LinkLabel()
         Me.CapitaQuotaTotalTextBox = New System.Windows.Forms.TextBox()
         Me.CapitalQuotaValorTextBox = New System.Windows.Forms.TextBox()
         Me.DivisaoCapitalSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAddSocios = New System.Windows.Forms.Button()
-        Me.ButtonCalcCapSocial = New System.Windows.Forms.Button()
         Me.CapitalITextBox = New System.Windows.Forms.TextBox()
         Me.CapitalSTextBox = New System.Windows.Forms.TextBox()
         Me.DataExcSocialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -422,7 +422,7 @@ Partial Class FrmLegalizacao
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
-        Me.BtnRemoveSocios = New System.Windows.Forms.Button()
+        Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1334,7 +1334,7 @@ Partial Class FrmLegalizacao
         DivisaoCapitalSociosLabel.Name = "DivisaoCapitalSociosLabel"
         DivisaoCapitalSociosLabel.Size = New System.Drawing.Size(127, 13)
         DivisaoCapitalSociosLabel.TabIndex = 60
-        DivisaoCapitalSociosLabel.Text = "Divisao de Capital Social:"
+        DivisaoCapitalSociosLabel.Text = "Divisão de Capital Social:"
         '
         'CapitalQuotaValorLabel
         '
@@ -2226,7 +2226,6 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Controls.Add(DivisaoCapitalSociosLabel)
         Me.TabPage16.Controls.Add(Me.DivisaoCapitalSociosRichTextBox)
         Me.TabPage16.Controls.Add(Me.BtnAddSocios)
-        Me.TabPage16.Controls.Add(Me.ButtonCalcCapSocial)
         Me.TabPage16.Controls.Add(Me.CapitalITextBox)
         Me.TabPage16.Controls.Add(Me.CapitalSTextBox)
         Me.TabPage16.Controls.Add(DataExcSocialLabel)
@@ -2240,6 +2239,19 @@ Partial Class FrmLegalizacao
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
+        '
+        'BtnRemoveSocios
+        '
+        Me.BtnRemoveSocios.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.Button_Delete_icon
+        Me.BtnRemoveSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnRemoveSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveSocios.Location = New System.Drawing.Point(504, 140)
+        Me.BtnRemoveSocios.Name = "BtnRemoveSocios"
+        Me.BtnRemoveSocios.Size = New System.Drawing.Size(35, 31)
+        Me.BtnRemoveSocios.TabIndex = 65
+        Me.ToolTipDICAS.SetToolTip(Me.BtnRemoveSocios, "Remover Sócio")
+        Me.BtnRemoveSocios.UseVisualStyleBackColor = True
         '
         'BtnPreencherCapital
         '
@@ -2274,7 +2286,7 @@ Partial Class FrmLegalizacao
         Me.DivisaoCapitalSociosRichTextBox.Location = New System.Drawing.Point(9, 104)
         Me.DivisaoCapitalSociosRichTextBox.Name = "DivisaoCapitalSociosRichTextBox"
         Me.DivisaoCapitalSociosRichTextBox.ReadOnly = True
-        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(267, 67)
+        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(491, 67)
         Me.DivisaoCapitalSociosRichTextBox.TabIndex = 61
         Me.DivisaoCapitalSociosRichTextBox.Text = ""
         '
@@ -2284,23 +2296,12 @@ Partial Class FrmLegalizacao
         Me.BtnAddSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddSocios.Location = New System.Drawing.Point(282, 104)
+        Me.BtnAddSocios.Location = New System.Drawing.Point(504, 104)
         Me.BtnAddSocios.Name = "BtnAddSocios"
         Me.BtnAddSocios.Size = New System.Drawing.Size(35, 31)
         Me.BtnAddSocios.TabIndex = 60
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAddSocios, "Adicionar Sócio")
         Me.BtnAddSocios.UseVisualStyleBackColor = True
-        '
-        'ButtonCalcCapSocial
-        '
-        Me.ButtonCalcCapSocial.BackgroundImage = CType(resources.GetObject("ButtonCalcCapSocial.BackgroundImage"), System.Drawing.Image)
-        Me.ButtonCalcCapSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonCalcCapSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonCalcCapSocial.Location = New System.Drawing.Point(441, 125)
-        Me.ButtonCalcCapSocial.Name = "ButtonCalcCapSocial"
-        Me.ButtonCalcCapSocial.Size = New System.Drawing.Size(118, 47)
-        Me.ButtonCalcCapSocial.TabIndex = 58
-        Me.ButtonCalcCapSocial.Text = "Calculadora de Capital Social"
-        Me.ButtonCalcCapSocial.UseVisualStyleBackColor = True
         '
         'CapitalITextBox
         '
@@ -4688,18 +4689,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnRemoveSocios
-        '
-        Me.BtnRemoveSocios.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.Button_Delete_icon
-        Me.BtnRemoveSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnRemoveSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemoveSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveSocios.Location = New System.Drawing.Point(282, 140)
-        Me.BtnRemoveSocios.Name = "BtnRemoveSocios"
-        Me.BtnRemoveSocios.Size = New System.Drawing.Size(35, 31)
-        Me.BtnRemoveSocios.TabIndex = 65
-        Me.BtnRemoveSocios.UseVisualStyleBackColor = True
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5092,7 +5081,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents StatusComboBox As ComboBox
     Friend WithEvents LaudosBindingSource As BindingSource
     Friend WithEvents LaudosTableAdapter As PrinceDBDataSetTableAdapters.LaudosTableAdapter
-    Friend WithEvents ButtonCalcCapSocial As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents GroupBoxMenuCima As GroupBox
@@ -5125,4 +5113,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents CapitaQuotaTotalTextBox As TextBox
     Friend WithEvents BtnPreencherCapital As LinkLabel
     Friend WithEvents BtnRemoveSocios As Button
+    Friend WithEvents ToolTipDICAS As ToolTip
 End Class

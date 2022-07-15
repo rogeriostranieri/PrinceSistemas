@@ -1,6 +1,17 @@
 ﻿
 Public Class FrmSocios
 
+    Private Sub AtivarTab()
+        'ativar TabControl1 1
+        TabControl1.SelectedTab = TabPage1
+        'ativar TabControl1 2
+        TabControl1.SelectedTab = TabPage2
+        'ativar TabControl1 3
+        TabControl1.SelectedTab = TabPage3
+        'ativar TabControl1 1
+        TabControl1.SelectedTab = TabPage1
+
+    End Sub
     Private Sub FrmSocios_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
@@ -34,6 +45,9 @@ Public Class FrmSocios
         'desabilita
         GroupBoxMenuCapitalSocial.Enabled = False
         GroupBoxCapitalSocial.Enabled = False
+
+        'seleciona o primeiro do ComboBox1
+        ComboBox1.SelectedIndex = 0
     End Sub
 
     Private Sub BloquearEdicao()
@@ -225,6 +239,8 @@ Public Class FrmSocios
         Try
             'perguntar antes
             If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                AtivarTab()
+
                 If FrmLegalizacao.Visible = True Then
                     FrmLegalizacao.Focus()
                     ExportarDados()
@@ -389,7 +405,7 @@ Novos dados:" + "
     End Sub
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-
+            AtivarTab()
             AddSocios()
         End If
 
@@ -419,6 +435,8 @@ Novos dados:" + "
 
         Else
             'verificar se ExportarContratoWordDialog está aberto e focar
+            AtivarTab()
+
             If ExportarContratoWordDialog.Visible = True Then
                 ExportarContratoWordDialog.Focus()
             Else
@@ -429,11 +447,23 @@ Novos dados:" + "
     End Sub
 
     Private Sub BtnCapitalSocial_Click(sender As Object, e As EventArgs) Handles BtnCapitalSocial.Click
-        GroupBoxCapitalSocial.Visible = True
-        GroupBoxMenuCapitalSocial.Visible = True
-        'desabilita
-        GroupBoxMenuCapitalSocial.Enabled = True
-        GroupBoxCapitalSocial.Enabled = True
+        '"Abrir Calculadora Capítal Social" ao apertar fica precionado e com texto alterado para "Fechar Calculadora Capítal Social"
+        If BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social" Then
+            AtivarTab()
+            BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
+            GroupBoxCapitalSocial.Visible = True
+            GroupBoxMenuCapitalSocial.Visible = True
+            GroupBoxMenuCapitalSocial.Enabled = True
+            GroupBoxCapitalSocial.Enabled = True
+
+            'deixar botão pressionado
+        ElseIf BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social" Then
+            BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social"
+            GroupBoxCapitalSocial.Visible = False
+            GroupBoxMenuCapitalSocial.Visible = False
+            GroupBoxMenuCapitalSocial.Enabled = False
+            GroupBoxCapitalSocial.Enabled = False
+        End If
 
     End Sub
 
@@ -957,5 +987,61 @@ Novos dados:" + "
         Else
             TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
         End If
+    End Sub
+
+    Private Sub BtnCapitalEmpresas_Click(sender As Object, e As EventArgs) Handles BtnCapitalEmpresas.Click
+        '////////////////////// NOME DO SOCIO + CAPITAL ///////////////////////////////
+        ''verificar se frmEmpresas esta aberto
+        If FrmLegalizacao.Visible = True Then
+            FrmLegalizacao.Focus()
+            'ativar TabControle 1
+            FrmLegalizacao.TabControl1.SelectedIndex = 1
+            'TabControl2 5
+            FrmLegalizacao.TabControl2.SelectedIndex = 5
+
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                ''para cada linha pegar nome do socio da coluna 0 e capital da coluna 3 da datagridview1
+                'colocar dentro frmlegalizacao.DivisaoCapitalSociosRichTextBox.text
+                If row.Cells(0).Value <> "" Then
+                    If row.Cells(0).Value <> "Total:" Then
+                        Dim NomeSocio As String = row.Cells(0).Value
+                        Dim CapitalSocio As String = row.Cells(3).Value
+
+                        '////////////////////// INICIO NOME PEQUENO DO SOCIO ///////////////////////////////   
+                        'com a 1 letra ToUpper e o resto ToLower
+                        'e depois @NomeCompleto
+                        Dim NomePequeno As String = NomeSocio
+                        Dim NomePequenoArray() As String = NomePequeno.Split(" ")
+                        Dim NomePequenoArray2(NomePequenoArray.Length - 1) As String
+                        For i = 0 To NomePequenoArray.Length - 1
+                            NomePequenoArray2(i) = NomePequenoArray(i).Substring(0, 1).ToUpper & NomePequenoArray(i).Substring(1, NomePequenoArray(i).Length - 1).ToLower
+                        Next
+                        Dim NomePequeno2 As String = ""
+                        For i = 0 To NomePequenoArray2.Length - 1
+                            NomePequeno2 = NomePequeno2 & NomePequenoArray2(i) & " "
+                        Next
+                        NomePequeno2 = NomePequeno2.Substring(0, NomePequeno2.Length - 1)
+                        '////////////////////// FIM NOME PEQUENO DO SOCIO ///////////////////////////////   
+
+                        'EXPORTAR /////////////////////////
+                        FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text & NomePequeno2 & " - " & CapitalSocio & vbCrLf
+                        'FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text & row.Cells(0).Value & " - " & row.Cells(3).Value & vbNewLine
+
+                        'excluir a linha que tem excreito "TOTAL:" do FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text
+                        If row.Cells(0).Value = "Total:" Then
+                            FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text.Substring(0, FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text.Length - 2)
+                        End If
+
+                    Else
+                        'mgsbox para não adicionar linha total
+                        MsgBox("Efetuar o calculo antes de exportar", MsgBoxStyle.Information, "Aviso")
+                    End If
+                End If
+            Next
+        Else
+            'mgsbox abrir formulario empresas
+            MsgBox("Impossivel exportar pois o formulario empresas não está aberto!", MsgBoxStyle.Information, "Aviso")
+        End If
+
     End Sub
 End Class
