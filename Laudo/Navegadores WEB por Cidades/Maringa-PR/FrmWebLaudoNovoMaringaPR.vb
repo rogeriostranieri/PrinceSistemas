@@ -10,7 +10,7 @@
     End Sub
 
 
-    Private Sub WebView2_NavigationStarting(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs) Handles WebView21.NavigationStarting
+    Private Sub WebView2_NavigationStarting(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs)
         'mostrar barra de progresso e mudar LblStatusCarregamento
         ProgressBar1.Visible = True
         LblStatusCarregamento.Visible = True
@@ -27,7 +27,7 @@
 
     End Sub
 
-    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
+    Private Sub WebView21_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)
         'mostrar barra de progresso e mudar LblStatusCarregamento
         ProgressBar1.Visible = False
         LblStatusCarregamento.Visible = True
@@ -114,7 +114,11 @@
         WebView21.Dispose()
     End Sub
 
-    Private Sub FrmWebLaudoNovoMaringaPR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregamento Completo"
 
     End Sub
 End Class

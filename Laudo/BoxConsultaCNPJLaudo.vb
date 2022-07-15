@@ -163,7 +163,22 @@ Public Class BoxConsultaCNPJLaudo
                 'TELEFONE E EMAIL //////////////////////////////////////////////////
 
                 'telefone
-                FrmAlvara.FoneRequerenteTextBox.Text = telefone
+
+                Dim tel_1 As String = telefone.Replace("-", "")
+                Dim tel_2 As String = ""
+                If telefone.Contains("/") Then
+                    tel_1 = telefone.Split("/")(0)
+                    tel_2 = telefone.Split("/ ")(1)
+                End If
+                'ignorar tel_1 e tel_2 for = "(0000) 0000-0000"
+                If tel_1 <> "(0000) 0000-0000" Then
+                    FrmAlvara.FoneRequerenteTextBox.Text = tel_1
+                End If
+                If tel_2 <> "(0000) 0000-0000" Then
+                    FrmAlvara.FoneRequerenteTextBox.Text = tel_2.TrimStart(" ")
+                End If
+
+                'FrmAlvara.FoneRequerenteTextBox.Text = telefone
                 FrmAlvara.EmailRequerenteTextBox.Text = email
 
                 'Capital Social

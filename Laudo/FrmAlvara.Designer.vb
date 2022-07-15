@@ -1768,7 +1768,7 @@ Partial Class FrmAlvara
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
         Me.ModeloSistemaComboBox.FormattingEnabled = True
-        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Junta Comercial", "Bombeiro Certificado", "Inscrição no Cadastro Mobiliário", "Baixa de Alvará", "Outros"})
+        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Junta Comercial", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "Baixa de Alvará", "Outros"})
         Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(81, 46)
         Me.ModeloSistemaComboBox.Name = "ModeloSistemaComboBox"
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)

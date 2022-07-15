@@ -290,6 +290,12 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.Designer.vb">
+      <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.Designer.vb">
       <DependentUpon>FrmWebLaudoNovoMaringaPR.vb</DependentUpon>
     </Compile>
@@ -660,6 +666,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.resx">
+      <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.resx">
       <DependentUpon>FrmWebLaudoNovoMaringaPR.vb</DependentUpon>

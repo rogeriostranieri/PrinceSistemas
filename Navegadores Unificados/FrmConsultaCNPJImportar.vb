@@ -38,17 +38,5 @@ Public Class FrmConsultaCNPJImportar
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'abrir o site https://www.cnpj.ws/ , preencher o CNPJ na class=input_1JKQ, 
-        'DAdos doCNPJ
-        Dim CNPJ As String = TextBox1.Text
-        Dim CNPJ_Limpo As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
 
-        'Consulta automatizada do CNPJ no site da receita federal 
-        Dim urlBaseReceitaFederal = "http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?"
-        Dim url As String = urlBaseReceitaFederal & "cnpj=" & CNPJ_Limpo
-
-
-
-    End Sub
 End Class

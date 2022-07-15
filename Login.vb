@@ -8,9 +8,7 @@ Public Class Login
     ' onde CustomPrincipal é a implementação de IPrincipal usada para realizar a autenticação. 
     ' Subsequentemente, My.User irá retornar informações de identificação encapsuladas num objeto CustomPrincipal
     ' como nome de usuário, nome de exibição etc.
-
     Private Sub ConnectToSQL()
-
 
         If txtUsername.Text.Length <= 0 Then
             MessageBox.Show("Digite o nome de Usuário!")
@@ -78,9 +76,6 @@ Public Class Login
         'chama validação da expiração
         Call ModData.FimData()
         'continua
-
-
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

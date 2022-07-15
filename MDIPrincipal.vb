@@ -851,19 +851,5 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub TESTEToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TESTEToolStripMenuItem1.Click
-        If Application.OpenForms.OfType(Of FrmConsultaCNPJImportar)().Count() > 0 Then
 
-            FrmConsultaCNPJImportar.Focus()
-            FrmConsultaCNPJImportar.MdiParent = Me
-
-
-        Else
-
-            FrmConsultaCNPJImportar.MdiParent = Me
-            FrmConsultaCNPJImportar.Show()
-
-
-        End If
-    End Sub
 End Class

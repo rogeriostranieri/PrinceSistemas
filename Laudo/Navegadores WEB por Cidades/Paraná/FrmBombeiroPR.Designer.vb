@@ -217,8 +217,9 @@ Partial Class FrmBombeiroPR
         Me.Controls.Add(Me.WebView21)
         Me.KeyPreview = True
         Me.Name = "FrmBombeiroPR"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmBombeiroPR"
+        Me.Text = "PREV FOGO -  BOMBEIROS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()

@@ -4,6 +4,14 @@
 
     End Sub
 
+    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregamento Completo"
+
+    End Sub
+
     Private Sub FrmBombeiroPR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'WebView21.Source = New Uri("https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Acompanhar-Processo")
     End Sub

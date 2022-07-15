@@ -463,14 +463,41 @@ Public Class FrmAlvara
         If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
             'tirar espaço do textbox laudo
             NlaudoTextBox.Text = NlaudoTextBox.Text.Replace(" ", "")
-            'termina  
 
-            'Copia
-            Clipboard.SetText(NlaudoTextBox.Text)
 
-            MsgBox("Protocolo Copiado e abrindo site...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+            If Application.OpenForms.OfType(Of FrmWebLaudoAntigoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoAntigoMaringaPR.Focus()
+                FrmWebLaudoAntigoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
 
-            System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
+                'ocultar ToolStrip1 - ToolStripButton3
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator4.Visible = False
+                FrmWebLaudoAntigoMaringaPR.Button1.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator1.Visible = False
+                FrmWebLaudoAntigoMaringaPR.MenuImportar.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator2.Visible = False
+                FrmWebLaudoAntigoMaringaPR.Button3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = False
+                'ToolStripButton1 true
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton1.Visible = True
+
+            Else
+                FrmWebLaudoAntigoMaringaPR.Show()
+                FrmWebLaudoAntigoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
+                'ocultar ToolStrip1 - ToolStripButton3
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator4.Visible = False
+                FrmWebLaudoAntigoMaringaPR.Button1.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator1.Visible = False
+                FrmWebLaudoAntigoMaringaPR.MenuImportar.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator2.Visible = False
+                FrmWebLaudoAntigoMaringaPR.Button3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator3.Visible = False
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = False
+                'ToolStripButton1 true
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton1.Visible = True
+            End If
 
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
@@ -513,6 +540,29 @@ Public Class FrmAlvara
 
 
             End Select
+
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
+            'https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0
+            If Application.OpenForms.OfType(Of FrmWebAlvaráMEI2)().Count() > 0 Then
+                FrmWebAlvaráMEI2.Focus()
+                FrmWebAlvaráMEI2.WebView21.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebAlvaráMEI2.Show()
+                FrmWebAlvaráMEI2.WebView21.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
+
+            End If
+
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
+            If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoNovoMaringaPR.Focus()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebLaudoNovoMaringaPR.Show()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
+
+            End If
 
         Else
 
@@ -814,8 +864,34 @@ Public Class FrmAlvara
             'System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br/laudosnew/index.php")
             If Application.OpenForms.OfType(Of FrmWebLaudoAntigoMaringaPR)().Count() > 0 Then
                 FrmWebLaudoAntigoMaringaPR.Focus()
+                FrmWebLaudoAntigoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/")
+                'ocultar ToolStrip1 - ToolStripButton3
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator4.Visible = True
+                FrmWebLaudoAntigoMaringaPR.Button1.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator1.Visible = True
+                FrmWebLaudoAntigoMaringaPR.MenuImportar.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator2.Visible = True
+                FrmWebLaudoAntigoMaringaPR.Button3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = True
+                'ToolStripButton1 true
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton1.Visible = False
             Else
                 FrmWebLaudoAntigoMaringaPR.Show()
+                FrmWebLaudoAntigoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/")
+                'ocultar ToolStrip1 - ToolStripButton3
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator4.Visible = True
+                FrmWebLaudoAntigoMaringaPR.Button1.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator1.Visible = True
+                FrmWebLaudoAntigoMaringaPR.MenuImportar.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator2.Visible = True
+                FrmWebLaudoAntigoMaringaPR.Button3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripSeparator3.Visible = True
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton3.Visible = True
+                'ToolStripButton1 true
+                FrmWebLaudoAntigoMaringaPR.ToolStripButton1.Visible = False
             End If
 
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
@@ -841,6 +917,31 @@ Public Class FrmAlvara
 
         ElseIf ModeloSistemaComboBox.Text = "Bombeiro Certificado" Then
             TabAlvara.SelectTab(1)
+
+
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
+            'https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0
+            If Application.OpenForms.OfType(Of FrmWebAlvaráMEI2)().Count() > 0 Then
+                FrmWebAlvaráMEI2.Focus()
+                FrmWebAlvaráMEI2.WebView21.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebAlvaráMEI2.Show()
+                FrmWebAlvaráMEI2.WebView21.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
+
+            End If
+
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
+            If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
+                FrmWebLaudoNovoMaringaPR.Focus()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
+                'copiar cnpj sem / e - e .
+            Else
+                FrmWebLaudoNovoMaringaPR.Show()
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
+
+            End If
+
 
         Else
 
@@ -999,6 +1100,15 @@ Public Class FrmAlvara
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
             ButtonConsultar.Visible = False
+
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
+            NlaudoLabel.Visible = True
+            NlaudoTextBox.Visible = True
+            ButtonConsultar.Visible = True
+        ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
+            NlaudoLabel.Visible = True
+            NlaudoTextBox.Visible = True
+            ButtonConsultar.Visible = True
         Else
             NlaudoLabel.Visible = False
             NlaudoTextBox.Visible = False

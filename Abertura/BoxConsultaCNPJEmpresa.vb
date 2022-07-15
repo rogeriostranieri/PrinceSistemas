@@ -82,7 +82,9 @@ Public Class BoxConsultaCNPJEmpresa
                 Dim municipio As String = json_obj.Item("municipio").ToString
                 Dim uf As String = json_obj.Item("uf").ToString
                 Dim cep As String = json_obj.Item("cep").ToString
+
                 Dim telefone As String = json_obj.Item("telefone").ToString
+
                 Dim email As String = json_obj.Item("email").ToString
                 Dim capital_social As String = json_obj.Item("capital_social").ToString
                 Dim capital_social_str As String = capital_social.Replace(".", ",")
@@ -184,18 +186,23 @@ Public Class BoxConsultaCNPJEmpresa
                     tel_1 = telefone.Split("/")(0)
                     tel_2 = telefone.Split("/ ")(1)
                 End If
-                FrmLegalizacao.EmpTel1TextBox.Text = tel_1
-                'tel_2 tirar o espaço inicial do telefone
-                FrmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
-                ' FrmLegalizacao.EmpTel2TextBox.Text = tel_2
+                'ignorar tel_1 e tel_2 for = "(0000) 0000-0000"
+                If tel_1 <> "(0000) 0000-0000" Then
+                    FrmLegalizacao.EmpTel1TextBox.Text = tel_1
+                End If
+                If tel_2 <> "(0000) 0000-0000" Then
+                    FrmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
+                End If
+
+                'FrmLegalizacao.EmpTel1TextBox.Text = tel_1
+                ' FrmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
 
 
-
-
-
+                'EMAIL //////////////////////////////////////////////////
                 FrmLegalizacao.EmpEmailTextBox.Text = email
 
-                'Capital Social
+                'CAPITAL SOCIAL //////////////////////////////////////////////////
+
                 FrmLegalizacao.TabControl2.SelectedIndex = 5
                 FrmLegalizacao.CapitalSTextBox.Text = capital_social_str_2
 

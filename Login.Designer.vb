@@ -39,6 +39,8 @@ Partial Class Login
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UsernameLabel
@@ -114,11 +116,11 @@ Partial Class Login
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(377, 12)
+        Me.Button1.Location = New System.Drawing.Point(346, 12)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(51, 26)
+        Me.Button1.Size = New System.Drawing.Size(55, 26)
         Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Ajuda"
+        Me.Button1.Text = "Sobre"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Label1
@@ -148,6 +150,17 @@ Partial Class Login
         Me.Button2.Text = "Conectar"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Area_de_Membros
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 62)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(180, 186)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'Login
         '
         Me.AcceptButton = Me.OK
@@ -156,7 +169,7 @@ Partial Class Login
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(426, 276)
+        Me.ClientSize = New System.Drawing.Size(400, 258)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
@@ -166,6 +179,7 @@ Partial Class Login
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.PasswordLabel)
         Me.Controls.Add(Me.UsernameLabel)
+        Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -174,6 +188,7 @@ Partial Class Login
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Acesso ao Prince Sistemas"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -182,4 +197,5 @@ Partial Class Login
     Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
