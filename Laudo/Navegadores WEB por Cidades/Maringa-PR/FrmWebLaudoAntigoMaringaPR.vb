@@ -134,7 +134,13 @@
         FrmAlvara.Focus()
 
     End Sub
+    Private Sub WebView21_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        LblStatusCarregamento.Visible = True
+        LblStatusCarregamento.Text = "Carregamento Completo"
 
+    End Sub
 
     Private Sub FrmWebLaudoAntigo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'WebView21 acessar a "http://venus.maringa.pr.gov.br/laudosnew/"

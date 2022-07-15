@@ -4,7 +4,7 @@
 
     End Sub
 
-    Private Sub WebView2_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)
+    Private Sub WebView21_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
         'mostrar barra de progresso e mudar LblStatusCarregamento
         ProgressBar1.Visible = False
         LblStatusCarregamento.Visible = True
