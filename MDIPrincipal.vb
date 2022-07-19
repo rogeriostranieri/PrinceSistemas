@@ -851,5 +851,15 @@ Public Class MDIPrincipal
         End If
     End Sub
 
+    Private Sub WebSiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WebSiteToolStripMenuItem.Click
+        'abrir o WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = Me
 
+        Else
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = Me
+        End If
+    End Sub
 End Class

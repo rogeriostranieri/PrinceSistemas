@@ -153,6 +153,7 @@
     <Compile Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\Favoritos.vb" />
     <Compile Include="Abertura\WEB\FrmWBEmpresaFacilPR.Designer.vb">
       <DependentUpon>FrmWBEmpresaFacilPR.vb</DependentUpon>
     </Compile>
@@ -378,6 +379,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.Designer.vb">
+      <DependentUpon>WebSiteGERAL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrinceDBDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -705,6 +712,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo\LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
+      <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>

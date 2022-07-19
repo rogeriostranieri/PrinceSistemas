@@ -687,7 +687,7 @@ Public Class ExportarContratoWordDialog
         For Each LinhaTabelaRS In TabelaRS
             If LinhaTabelaRS.Contains("-") Then
                 NomeSocioTabelaRS = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
-                    CapitalSocialTabelaRS = CapitalSocialTabelaRS + Val(LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2))
+                CapitalSocialTabelaRS += Val(LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2))
                 'pega numero da linha onde ta o socio + nome dele
                 Dim LinhaTabelaRS1 As String = LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2)
                 Dim LinhaTabelaRS2 As String = LinhaTabelaRS1.Substring(0, LinhaTabelaRS1.IndexOf(" "))

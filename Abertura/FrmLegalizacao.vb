@@ -2669,21 +2669,20 @@ prazo de 90 dias para empresas abertas a partir de 2021.
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         'pergunta se deseja add manual
-        If MsgBox("Deseja Importar o sócio pelo formulário?", MsgBoxStyle.YesNo, "Atenção") = MsgBoxResult.Yes Then
-            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
-                FrmSocios.Focus()
+        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+            FrmSocios.Focus()
 
-                FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
-                FrmSocios.GroupBoxCapitalSocial.Visible = True
-                FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
-                FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
-                FrmSocios.GroupBoxCapitalSocial.Enabled = True
+            FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
+            FrmSocios.GroupBoxCapitalSocial.Visible = True
+            FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
+            FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
+            FrmSocios.GroupBoxCapitalSocial.Enabled = True
 
-                Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
-                'exporta para frmsocios.TextBoxCapitalSocial.text
-                FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
-            Else
-                FrmSocios.Show()
+            Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
+            'exporta para frmsocios.TextBoxCapitalSocial.text
+            FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
+        Else
+            FrmSocios.Show()
 
                 FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
                 FrmSocios.GroupBoxCapitalSocial.Visible = True
@@ -2695,8 +2694,7 @@ prazo de 90 dias para empresas abertas a partir de 2021.
                 'exporta para frmsocios.TextBoxCapitalSocial.text
                 FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
             End If
-        Else
-        End If
+
 
     End Sub
 
