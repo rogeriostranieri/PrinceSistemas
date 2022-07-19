@@ -40,4 +40,8 @@ Public Class ConsultaCNPJ
     Private Sub ConsultaCNPJ_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         WebView21.Dispose()
     End Sub
+
+    Private Sub ConsultaCNPJ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

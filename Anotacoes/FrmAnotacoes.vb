@@ -46,7 +46,6 @@ Public Class FrmAnotacoes
     End Sub
 
     Private Sub Salvar()
-
         Dim changedRecords As System.Data.DataTable
         Me.AnotacoesBindingSource.EndEdit()
         changedRecords = PrinceDBDataSet.Anotacoes.GetChanges()
@@ -70,17 +69,17 @@ Public Class FrmAnotacoes
 
 
             ElseIf result = DialogResult.Yes Then
-                Try
-                    'Salva alterações
-                    Me.Validate()
+                ' Try
+                'Salva alterações
+                Me.Validate()
                     Me.AnotacoesBindingSource.EndEdit()
                     Me.AnotacoesTableAdapter.Update(Me.PrinceDBDataSet.Anotacoes)
 
-                    'Catch exc As Exception
-                    'MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Catch error_t As Exception
-                    MsgBox(error_t.ToString)
-                End Try
+                'Catch exc As Exception
+                'MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                ' Catch error_t As Exception
+                'MsgBox(error_t.ToString)
+                ' End Try
 
             End If
         Else
@@ -322,7 +321,7 @@ Public Class FrmAnotacoes
 
             lblMudaTexto.Text = "Legalização"
             RichTextBoxAnotacao.DataBindings.Clear()
-            RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "FrmLegalizacao"))
+            RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Legalizacao"))
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
         End Try

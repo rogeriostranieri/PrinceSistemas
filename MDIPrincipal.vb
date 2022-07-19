@@ -229,8 +229,8 @@ Public Class MDIPrincipal
 
 
     Private Sub MDIPrincipal_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        ' Me.Close()
-        Login.Close()
+        Application.Exit()
+
     End Sub
 
 

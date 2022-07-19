@@ -42,6 +42,12 @@ Public Class ExportarContratoWordDialog
             Dim ExpediçãoCNH As String = FrmSocios.CNHExpedicaoTextBox.Text
             Dim DataExpediçãoCNH As String = FrmSocios.CNHDataExpTextBox.Text
             Dim EstadoCivil As String = FrmSocios.CivilComboBox.Text
+            If EstadoCivil = "solteiro" Then
+                EstadoCivil = "maior, solteiro"
+            ElseIf EstadoCivil = "solteira" Then
+                EstadoCivil = "maior, solteira"
+            End If
+
             Dim Empresario As String
             Dim Genero As String = FrmSocios.GeneroComboBox.Text
             Dim domiciliado As String
@@ -58,7 +64,7 @@ Public Class ExportarContratoWordDialog
                 'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
                 'se tiver, adicionar "," antes do complemento
                 If Compl <> "" Then
-                    Compl = "," & Compl
+                    Compl = ", " & Compl
                 End If
             Next
 
@@ -66,13 +72,16 @@ Public Class ExportarContratoWordDialog
 
             Dim Bairro As String = FrmSocios.BairroTextBox.Text
             Dim CEP As String = FrmSocios.CEPMaskedTextBox.Text
-            Dim Cidade As String = FrmSocios.CidadeTextBox.Text
-            Dim Estado As String = FrmSocios.EstadoTextBox.Text
+            Dim CidadeSocio As String = FrmSocios.CidadeTextBox.Text
+            Dim EstadoSocio As String = FrmSocios.EstadoTextBox.Text
             Dim Portador As String
             Dim Brasileiro As String
             Dim Nascido As String
-            Dim Genero1 As String
-            Dim Genero2 As String
+
+            Dim SocioGenero As String
+            Dim OsocioGenero As String
+            Dim SociosGenero As String
+            Dim OssociosGenero As String
 
             'Administrador
             Dim AdministradorMaiuscula As String
@@ -109,8 +118,10 @@ Public Class ExportarContratoWordDialog
                 Portador = "portador"
                 Brasileiro = "brasileiro"
                 Nascido = "nascido em"
-                Genero1 = "Sócio"
-                Genero2 = "o sócio"
+                SocioGenero = "sócio"
+                OsocioGenero = "o sócio"
+                SociosGenero = "Sócios"
+                OssociosGenero = "Os sócios"
                 AdministradorMaiuscula = "Administrador"
                 OAdministradorMaiuscula = "O administrador"
                 AdministradorMinuscula = "administrador"
@@ -127,8 +138,10 @@ Public Class ExportarContratoWordDialog
                 Portador = "portadora"
                 Brasileiro = "brasileira"
                 Nascido = "nascida em"
-                Genero1 = "Sócia"
-                Genero2 = "a sócia"
+                SocioGenero = "sócia"
+                OsocioGenero = "a sócia"
+                SociosGenero = "Sócias"
+                OssociosGenero = "As sócias"
                 AdministradorMaiuscula = "Administradora"
                 OAdministradorMaiuscula = "A administradora"
                 AdministradorMinuscula = "administradora"
@@ -234,7 +247,7 @@ Public Class ExportarContratoWordDialog
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Numero
-            rng.Find.Text = "@" & NumeroSocio & "Numero"
+            rng.Find.Text = "@" & NumeroSocio & "N"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = N
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
@@ -252,15 +265,15 @@ Public Class ExportarContratoWordDialog
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Cidade
-            rng.Find.Text = "@" & NumeroSocio & "Cidade"
+            rng.Find.Text = "@" & NumeroSocio & "CidadeSocio"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Cidade
+            rng.Find.Replacement.Text = CidadeSocio
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Estado
-            rng.Find.Text = "@" & NumeroSocio & "Estado"
+            rng.Find.Text = "@" & NumeroSocio & "EstadoSocio"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Estado
+            rng.Find.Replacement.Text = EstadoSocio
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CEP
@@ -271,118 +284,52 @@ Public Class ExportarContratoWordDialog
 
 
 
-
             '////////////////////// NOME PEQUENO DO SOCIO ///////////////////////////////   
             'com a 1 letra ToUpper e o resto ToLower
             'e depois @NomeCompleto
             Dim NomePequeno As String = FrmSocios.NomeCompletoTextBox.Text
-            Dim NomePequenoArray() As String = NomePequeno.Split(" ")
-            Dim NomePequenoArray2(NomePequenoArray.Length - 1) As String
-            For i = 0 To NomePequenoArray.Length - 1
-                NomePequenoArray2(i) = NomePequenoArray(i).Substring(0, 1).ToUpper & NomePequenoArray(i).Substring(1, NomePequenoArray(i).Length - 1).ToLower
-            Next
-            Dim NomePequeno2 As String = ""
-            For i = 0 To NomePequenoArray2.Length - 1
-                NomePequeno2 = NomePequeno2 & NomePequenoArray2(i) & " "
-            Next
-            NomePequeno2 = NomePequeno2.Substring(0, NomePequeno2.Length - 1)
-
-            'NomeCompleto
-            rng.Find.Text = "@" & NumeroSocio & "NomeCompleto"
+            'deixar cada letra maiscula e o resto minuscula
+            NomePequeno = NomePequeno.ToUpper
+            NomePequeno = NomePequeno.ToLower
+            'substituir @NomeCompleto pelo nome pequeno do socio
+            rng.Find.Text = "@" & NumeroSocio & "NomePequeno"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = NomePequeno2
+            rng.Find.Replacement.Text = NomePequeno
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+
+
 
 
 
             '//////////////////////////////////  GENERO  /////////////////////////
             'Verificar Masculino e Feminino no Contrato em geral
             'Genero1 maisculo
-            rng.Find.Text = "@" & NumeroSocio & "Genero1"
+            rng.Find.Text = "@" & NumeroSocio & "SociGenero"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Genero1
+            rng.Find.Replacement.Text = SocioGenero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
             'Genero2 minúsculo
-            rng.Find.Text = "@" & NumeroSocio & "Genero2"
+            rng.Find.Text = "@" & NumeroSocio & "OsocioGenero"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Genero2
+            rng.Find.Replacement.Text = OsocioGenero
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'Genero1
+            rng.Find.Text = "@" & NumeroSocio & "SocisGenero"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = SociosGenero
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+            'Genero2
+            rng.Find.Text = "@" & NumeroSocio & "OssociosGenero"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OssociosGenero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
 
 
-            '/////////////////////// + de 2 Socios  Capital Social TABELA ///////////////////////////
-            'dados 
-            ' FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Text
-            'pegar nome do socio da primeira linha
-            Dim PegarLinha As New List(Of String)
-            PegarLinha = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Lines.ToList()
-            Dim Nlinha As String = NumeroSocio
-            'se a resposta do Nlinha for vazia, não faz nada
-            If Nlinha = "" Then
-                'Exit Sub
-            Else
-                'se a resposta do Nlinha for um numero, remove a linha
-                If IsNumeric(Nlinha) Then
-                    'PegarLinha.RemoveAt(Nlinha - 1)
-                    'DivisaoCapitalSociosRichTextBox.Text = String.Join(vbCrLf, PegarLinha)
-                    'pegar nome do socio antes da virgula "," da linha Nlinha
-                    Dim SocioTabela As String = PegarLinha(Nlinha - 1).Substring(0, PegarLinha(Nlinha - 1).IndexOf(" - "))
-                    'pegar o valor em Reais do socio depois da virgula "," da linha Nlinha
-                    Dim CapitalSocialTabela As String = PegarLinha(Nlinha - 1).Substring(PegarLinha(Nlinha - 1).IndexOf(" - ") + 1)
-                    'Pegar valor sem os reais e com os centavos
-                    Dim CapitalQuotaTabela As String
-                    'CapitalSocialTabela sem os R$ e ,00
-                    CapitalQuotaTabela = CapitalSocialTabela.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
 
-
-                    'SocioTabela
-                    rng.Find.Text = "@" & NumeroSocio & "SocioTabela"
-                    rng.Find.Replacement.ClearFormatting()
-                    rng.Find.Replacement.Text = SocioTabela
-                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-                    'CapitalSocialTabela
-                    rng.Find.Text = "@" & NumeroSocio & "CapitalSocialTabela"
-                    rng.Find.Replacement.ClearFormatting()
-                    rng.Find.Replacement.Text = CapitalSocialTabela
-                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-                    'CapitalQuotaTabela
-                    rng.Find.Text = "@" & NumeroSocio & "CapitalQuotaTabela"
-                    rng.Find.Replacement.ClearFormatting()
-                    rng.Find.Replacement.Text = CapitalQuotaTabela
-                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-                    'Total de Capital Social
-                    Dim TotalCapitalSocial As String = ""
-                    For i = 0 To PegarLinha.Count - 1
-                        TotalCapitalSocial += PegarLinha(i).Substring(PegarLinha(i).IndexOf(" - ") + 1)
-                    Next
-                    TotalCapitalSocial = TotalCapitalSocial.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
-                    'TotalCapitalSocial
-                    rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocial"
-                    rng.Find.Replacement.ClearFormatting()
-                    rng.Find.Replacement.Text = "R$ " & TotalCapitalSocial
-                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-                    'Total de Capital Social Quotas
-                    Dim TotalCapitalSocialQuotas As String = ""
-                    For i = 0 To PegarLinha.Count - 1
-                        TotalCapitalSocialQuotas += PegarLinha(i).Substring(PegarLinha(i).IndexOf(",") + 1).Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
-                    Next
-                    TotalCapitalSocialQuotas = TotalCapitalSocialQuotas.Replace("R$", "").Replace(",", "").Replace(" - ", "").Replace(" ", "")
-                    'TotalCapitalSocialQuotas
-                    rng.Find.Text = "@" & NumeroSocio & "TotalCapitalSocialQuotas"
-                    rng.Find.Replacement.ClearFormatting()
-                    rng.Find.Replacement.Text = TotalCapitalSocialQuotas
-                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-                Else
-                    'se a resposta do Nlinha for uma letra, não faz nada
-                    MsgBox("Erro em achar socios na tabela", MsgBoxStyle.Exclamation, "Atenção")
-                End If
-            End If
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -498,8 +445,10 @@ Public Class ExportarContratoWordDialog
 
     Private Sub BtnContrato_Click(sender As Object, e As EventArgs) Handles BtnContrato.Click
         'verificar se o campo TextBoxCaminho contem ".docx"
+        Dim AntigaRazaoSocial As String = FrmLegalizacao.RazaoSocialTextBox.Text
+
         If TextBoxCaminho.Text.Substring(TextBoxCaminho.Text.Length - 5, 5) = ".docx" Then
-            If MsgBox("Deseja exportar os dados da empresa aberto para o Contrato Social?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+            If MsgBox("Deseja exportar os dados da empresa " & AntigaRazaoSocial & " para o Contrato Social no WORD?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                 ExportarWordContrato()
             End If
         Else
@@ -508,171 +457,309 @@ Public Class ExportarContratoWordDialog
 
     End Sub
     Private Sub ExportarContrato()
+        '  Try
         Dim word As New Microsoft.Office.Interop.Word.Application
-        Dim doc As Microsoft.Office.Interop.Word.Document
-        Dim rng As Microsoft.Office.Interop.Word.Range
-        'pega dados
-        FrmLegalizacao.TabControle.SelectTab(2)
+            Dim doc As Microsoft.Office.Interop.Word.Document
+            Dim rng As Microsoft.Office.Interop.Word.Range
 
-        FrmLegalizacao.TabControl2.SelectTab(0)
-        FrmLegalizacao.TabControl2.SelectTab(1)
-        FrmLegalizacao.TabControl2.SelectTab(2)
-        FrmLegalizacao.TabControl2.SelectTab(3)
-        FrmLegalizacao.TabControl2.SelectTab(4)
-        FrmLegalizacao.TabControl2.SelectTab(5)
-        FrmLegalizacao.TabControl2.SelectTab(6)
+            'pega dados
+            FrmLegalizacao.TabControle.SelectTab(0)
+            FrmLegalizacao.TabControle.SelectTab(2)
+            'Empresa facil NIRE
+            FrmLegalizacao.TabControl1.SelectTab(0)
+            'volta pros dados
+            FrmLegalizacao.TabControle.SelectTab(1)
+            'Pega dados TabControl2
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            FrmLegalizacao.TabControl2.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(2)
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
+            FrmLegalizacao.TabControl2.SelectTab(5)
+            FrmLegalizacao.TabControl2.SelectTab(6)
 
-        'Volta
-        FrmLegalizacao.TabControl2.SelectTab(0)
+            'Volta
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            FrmLegalizacao.TabControle.SelectTab(0)
 
-        FrmLegalizacao.TabControle.SelectTab(0)
+            '/////////////////////////////////// DADOS /////////////////////////////////////
+            Dim AntigaRazaoSocial As String = FrmLegalizacao.RazaoSocialTextBox.Text
+            Dim NovaRazaoSocial As String = FrmLegalizacao.NovaRazaoSocialFinalTextBox.Text
+            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
 
-        '/////////////////////////////////// DADOS /////////////////////////////////////
-        Dim AntigaRazaoSocial As String = FrmLegalizacao.RazaoSocialTextBox.Text
-        Dim NovaRazaoSocial As String = FrmLegalizacao.NovaRazaoSocialFinalTextBox.Text
+            'endereço
+            Dim RUA As String = FrmLegalizacao.EnderecoTextBox.Text
+            'primeira letra da RUA em minusculo
+            Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Dim Numero As String = FrmLegalizacao.EndNumeroTextBox.Text
+            'verificar se tem complemento EndComplementoTextBox
+            'For Each next
+            Dim Complemento As String = FrmLegalizacao.EndComplementoTextBox.Text
+            For Each Complemento In FrmLegalizacao.EndComplementoTextBox.Text
+                'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
+                'se tiver, adicionar "," antes do complemento
+                If Complemento <> "" Then
+                    Complemento = ", " & Complemento
+                End If
+            Next
+            Dim Bairro As String = FrmLegalizacao.EndBairroTextBox.Text
+            Dim CEP As String = FrmLegalizacao.EndCEPMaskedTextBox.Text
+            Dim Cidade As String = FrmLegalizacao.EndCidadeTextBox.Text
+            Dim UF As String = FrmLegalizacao.EndEstadoTextBox.Text
+            Dim NIRE As String = FrmLegalizacao.NIRETextBox.Text
+            Dim AltAbertBaixa As String = FrmLegalizacao.ProcessoComboBox.Text
+            Dim NAlteracao As String = FrmLegalizacao.NAlteracaoComboBox.Text
 
 
-        'endereço
-        Dim RUA As String = FrmLegalizacao.EnderecoTextBox.Text
-        'primeira letra da RUA em minusculo
-        Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
-        Dim Numero As String = FrmLegalizacao.EndNumeroTextBox.Text
-        'verificar se tem complemento EndComplementoTextBox
-        'For Each next
-        Dim Complemento As String = FrmLegalizacao.EndComplementoTextBox.Text
-        For Each Complemento In FrmLegalizacao.EndComplementoTextBox.Text
-            'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
-            'se tiver, adicionar "," antes do complemento
-            If Complemento <> "" Then
-                Complemento = "," & Complemento
+            'EmpInicioAtividade 
+            Dim EmpInicioAtividade As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
+            Dim EmpInicioAtividadeFormatada As String = Format(CDate(EmpInicioAtividade), "dd 'de' MMMM 'de' yyyy")
+            Dim InicioDeAtividadeFinal As String = EmpInicioAtividadeFormatada
+
+            'EmpInicioAtividade 
+            Dim DataAssinatura As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
+            Dim DataAssinatura1 As String = Format(CDate(DataAssinatura), "" & Cidade & "'-'" & UF & "',' dd 'de' MMMM 'de' yyyy'.'")
+            Dim DataAssinaturaFinal As String = DataAssinatura1
+
+
+            'RamoDeAtividadeRichTextBox 
+            Dim RamoDeAtividade As String = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
+
+
+            'CapitalSocial(tambem extenso)
+            Dim CapitalSocialNumero As String = FrmLegalizacao.CapitalSTextBox.Text
+            'CapitalSocialNumero em decimal
+            Dim CapitalSocialDecimal As Decimal = CDec(CapitalSocialNumero)
+            'CapitalSocialNumero em extenso
+            Dim CapitalSocialExtenso As String = NumberToEuro(CapitalSocialDecimal)
+
+
+            Dim DataNire As String = FrmLegalizacao.NireDataMaskedTextBox.Text
+            'DataNire formato dd 'de' MMMM 'de' yyyy
+            Dim DataNireFormatada As String = Format(CDate(DataNire), "dd 'de' MMMM 'de' yyyy")
+            Dim DataNireFinal As String = DataNireFormatada
+
+
+            '/////////////////////////////// INICIO CODIGO /////////////////////////////////
+            'caminho do documento que vai ser modificado
+            Dim Caminho As String = TextBoxCaminho.Text
+
+            doc = word.Documents.Open(Caminho)
+            rng = doc.Range(0, doc.Characters.Count)
+            rng.Find.ClearFormatting()
+
+            'AntigaRazaoSocial
+            rng.Find.Text = "@AntigaRazaoSocial"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AntigaRazaoSocial
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'NovaRazaoSocial
+            rng.Find.Text = "@NovaRazaoSocial"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = NovaRazaoSocial
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'RUA
+            rng.Find.Text = "@Rua"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = RUA1
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'Numero
+            rng.Find.Text = "@Numero"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = Numero
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'Complemento
+            rng.Find.Text = "@Complemento"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = Complemento
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'Bairro
+            rng.Find.Text = "@Bairro"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = Bairro
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'CEP
+            rng.Find.Text = "@CEP"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = CEP
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'Cidade
+            'colocar apenas primeira letra maiscula de cada palavra
+            Dim Cidade1 As String = Cidade.Substring(0, 1).ToUpper() & Cidade.Substring(1)
+
+            rng.Find.Text = "@Cidade"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = Cidade1
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'UF
+            rng.Find.Text = "@UF"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = UF
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'InicioDeAtividadeFinal
+            rng.Find.Text = "@InicioDeAtividade"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = InicioDeAtividadeFinal
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'InicioDeAtividadeFinal1
+            rng.Find.Text = "@DataAssinatura"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = DataAssinaturaFinal
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'RamoDeAtividade
+            rng.Find.Text = "@RamoDeAtividade"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = RamoDeAtividade
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'CapitalSocialExtenso
+            rng.Find.Text = "@CapitalSocialExtenso"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = CapitalSocialExtenso
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'CapitalSocialNumero
+            rng.Find.Text = "@CapitalSocialNumero"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = CapitalSocialNumero
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+
+            'Nire
+            rng.Find.Text = "@Nire"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = NIRE
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'DataNire
+            rng.Find.Text = "@DataNire"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = DataNireFinal
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+
+            'AltAbertBaixa
+            rng.Find.Text = "@AltAbertBaixa"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AltAbertBaixa
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'AltAbertBaixa
+            rng.Find.Text = "@NAlteracao"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = NAlteracao
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'CNPJ
+            rng.Find.Text = "@CNPJ"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = CNPJ
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+        'alterar cabeçalho do word
+
+
+
+
+        '/////////////////////// + de 2 Socios  Capital Social TABELA ///////////////////////////
+        'dados 
+        '"@" & Linha & "TabelaSocio"
+        Dim TabelaRS As New List(Of String)
+        TabelaRS = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Lines.ToList()
+        'para toda linha da TabelaRS, pegar o nome do socio apenas antes do " - "
+        Dim LinhaTabelaRS As String
+        Dim CapitalSocialTabelaRS As Integer = 0
+        Dim NomeSocioTabelaRS As String
+
+        'pegar apenas linhas TabelaRS
+
+        For Each LinhaTabelaRS In TabelaRS
+            If LinhaTabelaRS.Contains("-") Then
+                NomeSocioTabelaRS = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
+                    CapitalSocialTabelaRS = CapitalSocialTabelaRS + Val(LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2))
+                'pega numero da linha onde ta o socio + nome dele
+                Dim LinhaTabelaRS1 As String = LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2)
+                Dim LinhaTabelaRS2 As String = LinhaTabelaRS1.Substring(0, LinhaTabelaRS1.IndexOf(" "))
+
+                'pegar o nome do socio apenas antes do " - "
+                Dim NomeSocioTabelaRS1 As String = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
+
+                'coloca word depois
+                rng.Find.Text = "@" & LinhaTabelaRS2 & "TabelaSocio"
+                rng.Find.Replacement.ClearFormatting()
+                rng.Find.Replacement.Text = NomeSocioTabelaRS1
+                rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+
+
+                ' rng.Find.Text = "@" & LinhaTabelaRS & "CapitalSocialTabela"
+                ' rng.Find.Replacement.ClearFormatting()
+                ' rng.Find.Replacement.Text = CapitalSocialTabelaRS
+                ' rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+                ' LinhaTabelaRS = LinhaTabelaRS + 1
             End If
         Next
-        Dim Bairro As String = FrmLegalizacao.EndBairroTextBox.Text
-        Dim CEP As String = FrmLegalizacao.EndCEPMaskedTextBox.Text
-        Dim Cidade As String = FrmLegalizacao.EndCidadeTextBox.Text
-        Dim UF As String = FrmLegalizacao.EndEstadoTextBox.Text
-
-
-        'EmpInicioAtividade 
-        Dim EmpInicioAtividade As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
-        Dim EmpInicioAtividadeFormatada As String = Format(CDate(EmpInicioAtividade), "dd 'de' MMMM 'de' yyyy")
-        Dim InicioDeAtividadeFinal As String = EmpInicioAtividadeFormatada
-
-        'EmpInicioAtividade 
-        Dim DataAssinatura As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
-        Dim DataAssinatura1 As String = Format(CDate(DataAssinatura), "" & Cidade & "'-'" & UF & "',' dd 'de' MMMM 'de' yyyy'.'")
-        Dim DataAssinaturaFinal As String = DataAssinatura1
-
-
-        'RamoDeAtividadeRichTextBox 
-        Dim RamoDeAtividade As String = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
-
-
-        'CapitalSocial(tambem extenso)
-        Dim CapitalSocialNumero As String = FrmLegalizacao.CapitalSTextBox.Text
-        'CapitalSocialNumero em decimal
-        Dim CapitalSocialDecimal As Decimal = CDec(CapitalSocialNumero)
-        'CapitalSocialNumero em extenso
-        Dim CapitalSocialExtenso As String = NumberToEuro(CapitalSocialDecimal)
 
 
 
-        '/////////////////////////////// INICIO CODIGO /////////////////////////////////
-        'caminho do documento que vai ser modificado
-        Dim Caminho As String = TextBoxCaminho.Text
 
-        doc = word.Documents.Open(Caminho)
-        rng = doc.Range(0, doc.Characters.Count)
-        rng.Find.ClearFormatting()
 
-        'AntigaRazaoSocial
-        rng.Find.Text = "@AntigaRazaoSocial"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = AntigaRazaoSocial
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
-        'NovaRazaoSocial
-        rng.Find.Text = "@NovaRazaoSocial"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = NovaRazaoSocial
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'RUA
-        rng.Find.Text = "@RUA"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = RUA1
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'Numero
-        rng.Find.Text = "@Numero"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = Numero
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'Complemento
-        rng.Find.Text = "@Complemento"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = Complemento
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'Bairro
-        rng.Find.Text = "@Bairro"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = Bairro
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'CEP
-        rng.Find.Text = "@CEP"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = CEP
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'Cidade
-        rng.Find.Text = "@Cidade"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = Cidade
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'UF
-        rng.Find.Text = "@UF"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = UF
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'InicioDeAtividadeFinal
-        rng.Find.Text = "@InicioDeAtividade"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = InicioDeAtividadeFinal
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'InicioDeAtividadeFinal1
-        rng.Find.Text = "@DataAssinatura"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = DataAssinaturaFinal
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'RamoDeAtividade
-        rng.Find.Text = "@RamoDeAtividade"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = RamoDeAtividade
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'CapitalSocialExtenso
-        rng.Find.Text = "@CapitalSocialExtenso"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = CapitalSocialExtenso
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-        'CapitalSocialNumero
-        rng.Find.Text = "@CapitalSocialNumero"
-        rng.Find.Replacement.ClearFormatting()
-        rng.Find.Replacement.Text = CapitalSocialNumero
-        rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+        '//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
         '/////////////////////////////// FIM CODIGO /////////////////////////////////
 
+
+        '/////////////////////// SALVAR //////////////////////////////////////
+        'perguntar se deseja escolher local diferente para salvar ou sobreescrever o mesmo que foi selecionado
+        'se sim, abrir o dialogo de salvar e salvar no local escolhido
+        'se nao, sobreescrever o arquivo que foi selecionado
+
+        Dim Message As String = "Deseja escolher novo local para salvar o arquivo?"
+            Dim result As Integer = MessageBox.Show(Message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+            If result = DialogResult.Yes Then
+                Dim saveFileDialog1 As New SaveFileDialog With {
+                .Filter = "Word Documents (*.docx)|*.docx",
+                .FilterIndex = 2,
+                .RestoreDirectory = True
+            }
+                saveFileDialog1.ShowDialog()
+                If (saveFileDialog1.FileName <> "") Then
+                    doc.SaveAs(saveFileDialog1.FileName)
+                    doc.Close()
+                    doc = Nothing
+                End If
+            ElseIf result = DialogResult.No Then
+                doc.Save()
+                doc.Close()
+                doc = Nothing
+            ElseIf result = DialogResult.Cancel Then
+                doc.Close()
+                doc = Nothing
+            End If
+
+
+            ' Catch ex As Exception
+        '  MsgBox(ex.Message)
+        'finalizar o documento que foi aberto
+        '  Dim doc As Microsoft.Office.Interop.Word.Document
+        ' doc.Close()
+        ' doc = Nothing
+
+        'End Try
 
     End Sub
 

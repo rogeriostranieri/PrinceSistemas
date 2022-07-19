@@ -4843,6 +4843,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnAnexo5 As Global.System.Data.DataColumn
         
+        Private _columnLegalizacao As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -4991,6 +4993,14 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property _LegalizacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me._columnLegalizacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5027,9 +5037,9 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddAnotacoesRow(ByVal parentLoginRowByLogin_Anotacoes As LoginRow, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal FrmLegalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte) As AnotacoesRow
+        Public Overloads Function AddAnotacoesRow(ByVal parentLoginRowByLogin_Anotacoes As LoginRow, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal FrmLegalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte, ByVal Legalizacao As String) As AnotacoesRow
             Dim rowAnotacoesRow As AnotacoesRow = CType(Me.NewRow,AnotacoesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Federal, Estadual, Municipal, Inicial, Demais, FrmLegalizacao, Anexos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Federal, Estadual, Municipal, Inicial, Demais, FrmLegalizacao, Anexos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5, Legalizacao}
             If (Not (parentLoginRowByLogin_Anotacoes) Is Nothing) Then
                 columnValuesArray(1) = parentLoginRowByLogin_Anotacoes(1)
             End If
@@ -5075,6 +5085,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnAnexo3 = MyBase.Columns("Anexo3")
             Me.columnAnexo4 = MyBase.Columns("Anexo4")
             Me.columnAnexo5 = MyBase.Columns("Anexo5")
+            Me._columnLegalizacao = MyBase.Columns("Legalizacao")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5111,6 +5122,11 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnAnexo4)
             Me.columnAnexo5 = New Global.System.Data.DataColumn("Anexo5", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnexo5)
+            Me._columnLegalizacao = New Global.System.Data.DataColumn("Legalizacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnLegalizacao.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "_LegalizacaoColumn")
+            Me._columnLegalizacao.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnLegalizacao")
+            Me._columnLegalizacao.ExtendedProperties.Add("Generator_UserColumnName", "Legalizacao")
+            MyBase.Columns.Add(Me._columnLegalizacao)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Anotacoes}, true))
             Me.columnID_Anotacoes.AutoIncrement = true
             Me.columnID_Anotacoes.AutoIncrementSeed = -1
@@ -5125,6 +5141,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnInicial.MaxLength = 2147483647
             Me.columnDemais.MaxLength = 2147483647
             Me.columnLegalizacao.MaxLength = 2147483647
+            Me._columnLegalizacao.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11969,6 +11986,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Legalizacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAnotacoes._LegalizacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Legalizacao' na tabela 'Anotacoes' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAnotacoes._LegalizacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property LoginRow() As LoginRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("Login_Anotacoes")),LoginRow)
@@ -12132,6 +12164,18 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetAnexo5Null()
             Me(Me.tableAnotacoes.Anexo5Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsLegalizacaoNull() As Boolean
+            Return Me.IsNull(Me.tableAnotacoes._LegalizacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetLegalizacaoNull()
+            Me(Me.tableAnotacoes._LegalizacaoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -23859,6 +23903,7 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Anexo3", "Anexo3")
             tableMapping.ColumnMappings.Add("Anexo4", "Anexo4")
             tableMapping.ColumnMappings.Add("Anexo5", "Anexo5")
+            tableMapping.ColumnMappings.Add("Legalizacao", "Legalizacao")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -23868,12 +23913,12 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Anotacoes] ([Usuario], [Federal], [Estadual], [Municipal], [Inicial]"& _ 
-                ", [Demais], [FrmLegalizacao], [Anexos], [Anexo1], [Anexo2], [Anexo3], [Anexo4], "& _ 
-                "[Anexo5]) VALUES (@Usuario, @Federal, @Estadual, @Municipal, @Inicial, @Demais, "& _ 
-                "@FrmLegalizacao, @Anexos, @Anexo1, @Anexo2, @Anexo3, @Anexo4, @Anexo5);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
-                "ID_Anotacoes, Usuario, Federal, Estadual, Municipal, Inicial, Demais, FrmLegaliz"& _ 
-                "acao, Anexos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5 FROM Anotacoes WHERE (ID_An"& _ 
-                "otacoes = SCOPE_IDENTITY())"
+                ", [Demais], [Legalizacao], [Anexos], [Anexo1], [Anexo2], [Anexo3], [Anexo4], [An"& _ 
+                "exo5]) VALUES (@Usuario, @Federal, @Estadual, @Municipal, @Inicial, @Demais, @Le"& _ 
+                "galizacao, @Anexos, @Anexo1, @Anexo2, @Anexo3, @Anexo4, @Anexo5);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Ano"& _ 
+                "tacoes, Usuario, Federal, Estadual, Municipal, Inicial, Demais, Legalizacao, Ane"& _ 
+                "xos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5 FROM Anotacoes WHERE (ID_Anotacoes ="& _ 
+                " SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Federal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Federal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23881,7 +23926,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Municipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Municipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inicial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inicial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Demais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Demais", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FrmLegalizacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FrmLegalizacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Legalizacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Legalizacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexos", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexo1", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexo1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexo2", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexo2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23891,12 +23936,12 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Anotacoes] SET [Usuario] = @Usuario, [Federal] = @Federal, [Estadual] = @"& _ 
-                "Estadual, [Municipal] = @Municipal, [Inicial] = @Inicial, [Demais] = @Demais, [F"& _ 
-                "rmLegalizacao] = @FrmLegalizacao, [Anexos] = @Anexos, [Anexo1] = @Anexo1, [Anexo"& _ 
-                "2] = @Anexo2, [Anexo3] = @Anexo3, [Anexo4] = @Anexo4, [Anexo5] = @Anexo5 WHERE ("& _ 
-                "([ID_Anotacoes] = @Original_ID_Anotacoes));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Anotacoes, Usuario, Feder"& _ 
-                "al, Estadual, Municipal, Inicial, Demais, FrmLegalizacao, Anexos, Anexo1, Anexo2"& _ 
-                ", Anexo3, Anexo4, Anexo5 FROM Anotacoes WHERE (ID_Anotacoes = @ID_Anotacoes)"
+                "Estadual, [Municipal] = @Municipal, [Inicial] = @Inicial, [Demais] = @Demais, [L"& _ 
+                "egalizacao] = @Legalizacao, [Anexos] = @Anexos, [Anexo1] = @Anexo1, [Anexo2] = @"& _ 
+                "Anexo2, [Anexo3] = @Anexo3, [Anexo4] = @Anexo4, [Anexo5] = @Anexo5 WHERE (([ID_A"& _ 
+                "notacoes] = @Original_ID_Anotacoes));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Anotacoes, Usuario, Federal, Es"& _ 
+                "tadual, Municipal, Inicial, Demais, Legalizacao, Anexos, Anexo1, Anexo2, Anexo3,"& _ 
+                " Anexo4, Anexo5 FROM Anotacoes WHERE (ID_Anotacoes = @ID_Anotacoes)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Federal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Federal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23904,7 +23949,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Municipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Municipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inicial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inicial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Demais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Demais", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FrmLegalizacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FrmLegalizacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Legalizacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Legalizacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexos", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexo1", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexo1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anexo2", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anexo2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -24009,7 +24054,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal FrmLegalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte) As Integer
+        Public Overloads Overridable Function Insert(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal Legalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte) As Integer
             If (Usuario Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -24040,10 +24085,10 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(Demais,String)
             End If
-            If (FrmLegalizacao Is Nothing) Then
+            If (Legalizacao Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(FrmLegalizacao,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Legalizacao,String)
             End If
             If (Anexos Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
@@ -24094,7 +24139,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal FrmLegalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte, ByVal Original_ID_Anotacoes As Integer, ByVal ID_Anotacoes As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal Legalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte, ByVal Original_ID_Anotacoes As Integer, ByVal ID_Anotacoes As Integer) As Integer
             If (Usuario Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -24125,10 +24170,10 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Demais,String)
             End If
-            If (FrmLegalizacao Is Nothing) Then
+            If (Legalizacao Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FrmLegalizacao,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Legalizacao,String)
             End If
             If (Anexos Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
@@ -24181,8 +24226,8 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal FrmLegalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte, ByVal Original_ID_Anotacoes As Integer) As Integer
-            Return Me.Update(Usuario, Federal, Estadual, Municipal, Inicial, Demais, FrmLegalizacao, Anexos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5, Original_ID_Anotacoes, Original_ID_Anotacoes)
+        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Federal As String, ByVal Estadual As String, ByVal Municipal As String, ByVal Inicial As String, ByVal Demais As String, ByVal Legalizacao As String, ByVal Anexos() As Byte, ByVal Anexo1() As Byte, ByVal Anexo2() As Byte, ByVal Anexo3() As Byte, ByVal Anexo4() As Byte, ByVal Anexo5() As Byte, ByVal Original_ID_Anotacoes As Integer) As Integer
+            Return Me.Update(Usuario, Federal, Estadual, Municipal, Inicial, Demais, Legalizacao, Anexos, Anexo1, Anexo2, Anexo3, Anexo4, Anexo5, Original_ID_Anotacoes, Original_ID_Anotacoes)
         End Function
     End Class
     

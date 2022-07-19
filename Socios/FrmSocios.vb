@@ -33,12 +33,6 @@ Public Class FrmSocios
 
         TextBoxExtensoDN.Visible = False
 
-        'tamhanho do form 699; 584
-        Me.Width = 699
-        Me.Height = 584
-        'auto size e scroll do form
-        Me.AutoSize = False
-        Me.AutoScroll = True
 
         GroupBoxCapitalSocial.Visible = False
         GroupBoxMenuCapitalSocial.Visible = False
@@ -455,6 +449,8 @@ Novos dados:" + "
             GroupBoxMenuCapitalSocial.Visible = True
             GroupBoxMenuCapitalSocial.Enabled = True
             GroupBoxCapitalSocial.Enabled = True
+            'aumentar tamanho do frmsocios para 748; 631
+            Me.Size = New Size(748, 631)
 
             'deixar botão pressionado
         ElseIf BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social" Then
@@ -463,6 +459,8 @@ Novos dados:" + "
             GroupBoxMenuCapitalSocial.Visible = False
             GroupBoxMenuCapitalSocial.Enabled = False
             GroupBoxCapitalSocial.Enabled = False
+            'retornar para tamanho original do frmscoios
+
         End If
 
     End Sub
@@ -1042,6 +1040,20 @@ Novos dados:" + "
             'mgsbox abrir formulario empresas
             MsgBox("Impossivel exportar pois o formulario empresas não está aberto!", MsgBoxStyle.Information, "Aviso")
         End If
+
+    End Sub
+
+    Private Sub BtnAtalhoEndereco_Click(sender As Object, e As EventArgs) Handles BtnAtalhoEndereco.Click, BtnAtalhoEndereco2.Click
+        'ativar TabControl1 1
+        TabControl1.SelectedIndex = 1
+    End Sub
+
+    Private Sub BtnAtalhoContato_Click(sender As Object, e As EventArgs) Handles BtnAtalhoContato.Click, BtnAtalhoContato2.Click
+        TabControl1.SelectedIndex = 2
+    End Sub
+
+    Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, Button2.Click
+        TabControl1.SelectedIndex = 0
 
     End Sub
 End Class

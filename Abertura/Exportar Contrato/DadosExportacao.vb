@@ -17,17 +17,7 @@ Public Class DadosExportacao
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox2.ReadOnly = True
 
-        'juntar as colunas da primeira linha da TableLayoutPanel2
-        Dim sb As New System.Text.StringBuilder
-        For Each c As Control In Me.TableLayoutPanel2.Controls
-            If TypeOf c Is TextBox Then
-                sb.Append(c.Text)
-            ElseIf TypeOf c Is ComboBox Then
-                sb.Append(c.Text)
-            End If
-        Next
-        Me.RichTextBox1.Text = sb.ToString
-        sb.Remove(0, sb.Length)
+
 
     End Sub
 

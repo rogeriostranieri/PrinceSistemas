@@ -72,9 +72,9 @@ Partial Class FrmAnotacoes
         Me.ButtonDemais = New System.Windows.Forms.Button()
         Me.RichTextBoxAnotacao = New System.Windows.Forms.RichTextBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonFechar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AnotacoesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ButtonFechar = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxEditor.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -457,7 +457,7 @@ Partial Class FrmAnotacoes
         Me.ButtonLegalizacao.Name = "ButtonLegalizacao"
         Me.ButtonLegalizacao.Size = New System.Drawing.Size(120, 29)
         Me.ButtonLegalizacao.TabIndex = 52
-        Me.ButtonLegalizacao.Text = "FrmLegalizacao"
+        Me.ButtonLegalizacao.Text = "Legalizacao"
         Me.ButtonLegalizacao.UseVisualStyleBackColor = True
         '
         'ButtonFederal
@@ -550,6 +550,21 @@ Partial Class FrmAnotacoes
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(985, 845)
         Me.TableLayoutPanel5.TabIndex = 55
         '
+        'ButtonFechar
+        '
+        Me.ButtonFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonFechar.BackColor = System.Drawing.Color.Transparent
+        Me.ButtonFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.ButtonFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonFechar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ButtonFechar.Location = New System.Drawing.Point(860, 3)
+        Me.ButtonFechar.Name = "ButtonFechar"
+        Me.ButtonFechar.Size = New System.Drawing.Size(122, 54)
+        Me.ButtonFechar.TabIndex = 52
+        Me.ButtonFechar.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
@@ -566,21 +581,6 @@ Partial Class FrmAnotacoes
         '
         Me.AnotacoesBindingSource.DataMember = "Anotacoes"
         Me.AnotacoesBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'ButtonFechar
-        '
-        Me.ButtonFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonFechar.BackColor = System.Drawing.Color.Transparent
-        Me.ButtonFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.ButtonFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonFechar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonFechar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ButtonFechar.Location = New System.Drawing.Point(860, 3)
-        Me.ButtonFechar.Name = "ButtonFechar"
-        Me.ButtonFechar.Size = New System.Drawing.Size(122, 54)
-        Me.ButtonFechar.TabIndex = 52
-        Me.ButtonFechar.UseVisualStyleBackColor = False
         '
         'FrmAnotacoes
         '
