@@ -386,6 +386,12 @@
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Navegadores Unificados\WebCorreios.Designer.vb">
+      <DependentUpon>WebCorreios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\WebCorreios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PrinceDBDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -715,6 +721,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\WebCorreios.resx">
+      <DependentUpon>WebCorreios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>

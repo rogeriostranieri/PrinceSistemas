@@ -175,6 +175,7 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.EndPaisTextBox = New System.Windows.Forms.TextBox()
         Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
         Me.EndComplementoTextBox = New System.Windows.Forms.TextBox()
@@ -187,7 +188,6 @@ Partial Class FrmLegalizacao
         Me.EndCEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Area2TextBox = New System.Windows.Forms.TextBox()
         Me.AreaTextBox = New System.Windows.Forms.TextBox()
-        Me.LinkLabel10 = New System.Windows.Forms.LinkLabel()
         Me.EndEstadoTextBox = New System.Windows.Forms.TextBox()
         Me.EndNumeroTextBox = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -1993,6 +1993,7 @@ Partial Class FrmLegalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(Me.BtnCorreios)
         Me.TabPage14.Controls.Add(Me.EndPaisTextBox)
         Me.TabPage14.Controls.Add(Me.EndCidadeTextBox)
         Me.TabPage14.Controls.Add(Me.EndComplementoTextBox)
@@ -2014,7 +2015,6 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Controls.Add(EndComplementoLabel)
         Me.TabPage14.Controls.Add(Me.AreaTextBox)
         Me.TabPage14.Controls.Add(EndCEPLabel)
-        Me.TabPage14.Controls.Add(Me.LinkLabel10)
         Me.TabPage14.Controls.Add(EndPaisLabel)
         Me.TabPage14.Controls.Add(Me.EndEstadoTextBox)
         Me.TabPage14.Controls.Add(Me.EndNumeroTextBox)
@@ -2029,6 +2029,16 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'BtnCorreios
+        '
+        Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorreios.Location = New System.Drawing.Point(210, 23)
+        Me.BtnCorreios.Name = "BtnCorreios"
+        Me.BtnCorreios.Size = New System.Drawing.Size(62, 21)
+        Me.BtnCorreios.TabIndex = 39
+        Me.BtnCorreios.Text = "Buscar"
+        Me.BtnCorreios.UseVisualStyleBackColor = True
         '
         'EndPaisTextBox
         '
@@ -2126,16 +2136,6 @@ Partial Class FrmLegalizacao
         Me.AreaTextBox.Name = "AreaTextBox"
         Me.AreaTextBox.Size = New System.Drawing.Size(49, 20)
         Me.AreaTextBox.TabIndex = 27
-        '
-        'LinkLabel10
-        '
-        Me.LinkLabel10.AutoSize = True
-        Me.LinkLabel10.Location = New System.Drawing.Point(473, 11)
-        Me.LinkLabel10.Name = "LinkLabel10"
-        Me.LinkLabel10.Size = New System.Drawing.Size(84, 13)
-        Me.LinkLabel10.TabIndex = 26
-        Me.LinkLabel10.TabStop = True
-        Me.LinkLabel10.Text = "Site Correios BR"
         '
         'EndEstadoTextBox
         '
@@ -4915,7 +4915,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents Label1 As Label
     Friend WithEvents LinkLabel9 As LinkLabel
     Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents LinkLabel10 As LinkLabel
     Friend WithEvents CPFResponsavelMaskedTextBox As MaskedTextBox
     Friend WithEvents NomeResponsavelTextBox As TextBox
     Friend WithEvents Button21 As Button
@@ -5114,4 +5113,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnPreencherCapital As LinkLabel
     Friend WithEvents BtnRemoveSocios As Button
     Friend WithEvents ToolTipDICAS As ToolTip
+    Friend WithEvents BtnCorreios As Button
 End Class

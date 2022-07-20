@@ -42,9 +42,9 @@ Partial Class AboutBox
         '
         Me.LogoPictureBox.BackColor = System.Drawing.Color.Transparent
         Me.LogoPictureBox.Image = Global.PrinceSistemas.My.Resources.Resources.Prince_Sistemas3
-        Me.LogoPictureBox.Location = New System.Drawing.Point(143, 137)
+        Me.LogoPictureBox.Location = New System.Drawing.Point(173, 178)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(281, 91)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(248, 82)
         Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
@@ -166,10 +166,10 @@ Partial Class AboutBox
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.fenix
+        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.fenix_tudo
         Me.PictureBox1.Location = New System.Drawing.Point(1, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(225, 260)
+        Me.PictureBox1.Size = New System.Drawing.Size(236, 260)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
