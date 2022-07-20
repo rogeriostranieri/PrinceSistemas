@@ -2795,6 +2795,6 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
-        ConsultaCNPJ.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
     End Sub
 End Class
