@@ -39,4 +39,8 @@
     Private Sub WebCorreios_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         WebView21.Dispose()
     End Sub
+
+    Private Sub WebCorreios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
