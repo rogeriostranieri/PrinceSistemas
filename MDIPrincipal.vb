@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.IO
+Imports System.Data.SqlClient
+
 
 Public Class MDIPrincipal
 
@@ -852,14 +854,39 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub WebSiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WebSiteToolStripMenuItem.Click
-        'abrir o WebSiteGERAL
-        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.MdiParent = Me
+        Try
+            'ler o txt e pegar o site inicial que está na frente "pagina_inicial:" do txt
+            Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
+            Dim sr As New StreamReader(path)
+            Dim line As String = sr.ReadLine()
+            Dim site As String = ""
+            While line IsNot Nothing
+                If line.Contains("pagina_inicial:") Then
+                    site = line.Replace("pagina_inicial:", "")
+                End If
+                line = sr.ReadLine()
+            End While
+            sr.Close()
 
-        Else
-            WebSiteGERAL.Show()
-            WebSiteGERAL.MdiParent = Me
-        End If
+
+            '  Dim WebSiteGeral As New WebSiteGERAL
+            Dim URLsite As String = WebSiteGeral.TxtURL.Text
+
+            'abrir o WebSiteGERAL
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                WebSiteGeral.Focus()
+                WebSiteGeral.MdiParent = Me
+                'site WebView com site
+                WebSiteGERAL.WebsiteNavigate(site)
+            Else
+                WebSiteGeral.Show()
+                WebSiteGeral.MdiParent = Me
+                WebSiteGERAL.WebsiteNavigate(site)
+            End If
+
+        Catch ex As Exception
+            'abrir o site do google no lugar
+            WebSiteGERAL.WebsiteNavigate("https://www.google.com.br/")
+        End Try
     End Sub
 End Class

@@ -29,13 +29,6 @@ Public Class WebSiteGERAL
 
     End Sub
 
-    Private Sub WebView_NavigationCompleted_1(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView.NavigationCompleted
-        'mostrar barra de progresso e mudar LblStatusCarregamento
-        ProgressBar1.Visible = False
-        TxtCarregamento.Visible = True
-        TxtCarregamento.Text = "Carregamento Completo"
-
-    End Sub
 
     '//////////////////////////////////////////////////////////////////////////////
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -45,12 +38,40 @@ Public Class WebSiteGERAL
             'navigate to URL
             'WebView.Source = New Uri(TxtURL.Text)
             WebsiteNavigate(TxtURL.Text)
+            'click no botao
+
         End If
+
+        'ao altera o site salvar no txt da primeira linha inciando com "pagina_inicial:" e site depois
+        Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
+
+        '"pagina_inicial:" e pega o site depois e coloca no ToolStripTextBox1.Tex
+        If File.Exists(path) Then
+            Dim lines As String() = File.ReadAllLines(path)
+            Dim line As String = lines(0)
+            Dim site As String = line.Substring(15)
+            ToolStripTextBox1.Text = site
+        End If
+
+
+        '//////////////////////////////////////////////////////////////////////////////
+        'abrir uma nova aba no TabControl1, ao clicar no botao TabPage2 + 
+
+
+
+
+
     End Sub
 
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         'unsubscribe from CoreWebView2 event(s) (remove event handlers) 
-        RemoveHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
+        'verificar antes se o WebView está vazio
+        If WebView.CoreWebView2 IsNot Nothing Then
+
+
+            RemoveHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
+        End If
+
         'dispose of WebView
         WebView.Dispose()
     End Sub
@@ -76,7 +97,7 @@ Public Class WebSiteGERAL
         End If
     End Sub
 
-    Private Sub WebsiteNavigate(ByVal dest As String)
+    Friend Sub WebsiteNavigate(ByVal dest As String)
         If WebView IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(dest) Then
             'se no TxtURL for digitado algo separado " " pesquisar no google
             '"https://www.google.com.br/search?q="  Replace(" ", "+")
@@ -179,6 +200,12 @@ Public Class WebSiteGERAL
 
     Private Sub WebView_NavigationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs) Handles WebView.NavigationCompleted
         LogMsg("WebView_NavigationCompleted")
+        'mostrar barra de progresso e mudar LblStatusCarregamento
+        ProgressBar1.Visible = False
+        TxtCarregamento.Visible = True
+        TxtCarregamento.Text = "Carregamento Completo"
+
+        Titulo()
     End Sub
 
     Private Sub WebView_WebMessageReceived(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs) Handles WebView.WebMessageReceived

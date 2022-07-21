@@ -662,6 +662,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles BtnConsultaRedeSim.Click
         Dim frm As New WebREDESIM
+        Dim Protocolo As String = ProtocoloREDESIMTextBox.Text
         TabControle.SelectTab(2)
         TabControle.SelectTab(3)
         Try
@@ -672,8 +673,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                 If Trim(ProtocoloJuntaComercialTextBox.Text) = "" Then
 
                     MsgBox("Protocolo VAZIO e abrindo site para Solicitar...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-                    ' System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+                    'http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot="& Protocolo & "&erro=3
 
                     If frm.Visible = True Then
                         'coloca focus e frente
@@ -696,13 +696,12 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                         'coloca focus e frente
                         frm.Focus()
                         frm.BringToFront()
-                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
                     Else
                         frm.Show()
                         frm.BringToFront()
-                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
                     End If
-                    'System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.158688954.1840779760.1611238476-1712582906.1584021811")
 
                 End If
 
@@ -713,11 +712,11 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                     'coloca focus e frente
                     frm.Focus()
                     frm.BringToFront()
-                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
                 Else
                     frm.Show()
                     frm.BringToFront()
-                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
                 End If
             End If
 

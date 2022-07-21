@@ -343,7 +343,7 @@ Public Class FrmSocios
 
 Novos dados:" + " 
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 " + vbCrLf)
 
 
@@ -369,14 +369,14 @@ Novos dados:" + "
                     FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
                 Else ' Sem complemento
                     FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
                 End If
