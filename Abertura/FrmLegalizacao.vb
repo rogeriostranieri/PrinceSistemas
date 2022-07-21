@@ -661,7 +661,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles BtnConsultaRedeSim.Click
-
+        Dim frm As New WebREDESIM
         TabControle.SelectTab(2)
         TabControle.SelectTab(3)
         Try
@@ -673,30 +673,52 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
                     MsgBox("Protocolo VAZIO e abrindo site para Solicitar...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
 
-                    System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+                    ' System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
 
+                    If frm.Visible = True Then
+                        'coloca focus e frente
+                        frm.Focus()
+                        frm.BringToFront()
+                        frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+                    Else
+                        frm.Show()
+                        frm.BringToFront()
+                        frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+                    End If
 
                 Else
 
                     ' Clipboard.SetText(ProtocoloJuntaComercialTextBox.Text)
-                    ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
-                    Clipboard.SetText(ProtocoloREDESIMTextBox.Text)
+                    'Dim ProtocoloJunta As String = ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
+                    ' Clipboard.SetText(ProtocoloREDESIMTextBox.Text)
 
-                    MsgBox("Protocolo Copiado da Junta Comercial e abrindo site...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-                    System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.158688954.1840779760.1611238476-1712582906.1584021811")
+                    If frm.Visible = True Then
+                        'coloca focus e frente
+                        frm.Focus()
+                        frm.BringToFront()
+                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                    Else
+                        frm.Show()
+                        frm.BringToFront()
+                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                    End If
+                    'System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.158688954.1840779760.1611238476-1712582906.1584021811")
 
                 End If
 
 
             Else
 
-
-                Clipboard.SetText(ProtocoloREDESIMTextBox.Text)
-                MsgBox("Protocolo REDESIM Copiado e abrindo site...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-
-                System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
-
+                If frm.Visible = True Then
+                    'coloca focus e frente
+                    frm.Focus()
+                    frm.BringToFront()
+                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                Else
+                    frm.Show()
+                    frm.BringToFront()
+                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp")
+                End If
             End If
 
 
@@ -1427,23 +1449,65 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub LinkLabel8_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel8.LinkClicked
-        System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
-
+        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+        Dim frm As New WebREDESIM
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+        End If
     End Sub
 
     Private Sub LinkLabel13_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel13.LinkClicked
         System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
-
+        Dim frm As New WebREDESIM
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        End If
     End Sub
 
     Private Sub LinkLabel14_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel14.LinkClicked
-        System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
-
+        ' System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        Dim frm As New WebREDESIM
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        End If
     End Sub
 
     Private Sub LinkLabel15_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel15.LinkClicked
-        System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+        ' System.Diagnostics.Process.Start("")
 
+        'verificar FrmWBEmpresaFacilPR está aberto ou abrir
+        Dim frm As New WebREDESIM
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+        End If
     End Sub
 
     Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
@@ -1805,11 +1869,27 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnAdicionarSocio_Click(sender As Object, e As EventArgs) Handles BtnAdicionarSocio.Click
-        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
-            FrmSocios.Focus()
+        'ativa TabControl2 inicia 0
+        TabControl2.SelectedIndex = 0
+        'verifica se esta vazio NomeResponsavelTextBox
+
+        If NomeResponsavelTextBox.Text = "" Then
+            MsgBox("Preencha o campo Nome do Responsável", MsgBoxStyle.Information, "Atenção")
+            NomeResponsavelTextBox.Focus()
+            Exit Sub
+
         Else
-            FrmSocios.Show()
+            TabControl2.SelectedIndex = 1
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                'pegar NomeResponsavelTextBox e coloca no FrmSocio.NomeResponsavelTextBox
+                FrmSocios.Focus()
+                FrmSocios.NomeCompletoComboBox.Text = NomeResponsavelTextBox.Text
+            Else
+                FrmSocios.Show()
+                FrmSocios.NomeCompletoComboBox.Text = NomeResponsavelTextBox.Text
+            End If
         End If
+
 
     End Sub
 

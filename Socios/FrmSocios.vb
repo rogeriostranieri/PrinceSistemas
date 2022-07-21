@@ -263,7 +263,6 @@ Public Class FrmSocios
             'aativar TabControl2 0
             FrmLegalizacao.TabControl2.SelectedIndex = 1
 
-
             'Dados
             Dim CPF As String = CPFMaskedTextBox.Text
             Dim NomeCompleto As String = NomeCompletoTextBox.Text
@@ -393,7 +392,9 @@ Novos dados:" + "
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' MsgBox "Preencha todos os campos obrigatórios" + Message
+            MsgBox("Preencha todos os campos obrigatórios", MsgBoxStyle.Exclamation, "Atenção")
+            Me.Focus()
         End Try
 
     End Sub
