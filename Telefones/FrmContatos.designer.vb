@@ -53,6 +53,7 @@ Partial Class FrmContatos
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.NomeTextBox = New System.Windows.Forms.TextBox()
         Me.ID_ContatosLabel1 = New System.Windows.Forms.Label()
         Me.Telefone_ResidencialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -84,7 +85,6 @@ Partial Class FrmContatos
         Me.ContatosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ContatosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         NomeLabel = New System.Windows.Forms.Label()
         ID_ContatosLabel = New System.Windows.Forms.Label()
         Telefone_ResidencialLabel = New System.Windows.Forms.Label()
@@ -360,6 +360,12 @@ Partial Class FrmContatos
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(102, 22)
+        Me.ToolStripLabel1.Text = "Buscar por Nome:"
+        '
         'NomeTextBox
         '
         Me.NomeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContatosBindingSource, "Nome", True))
@@ -571,6 +577,8 @@ Partial Class FrmContatos
         '
         'GroupoContato
         '
+        Me.GroupoContato.BackColor = System.Drawing.Color.Transparent
+        Me.GroupoContato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupoContato.Controls.Add(Me.GroupBox2)
         Me.GroupoContato.Controls.Add(Me.GroupBox1)
         Me.GroupoContato.Controls.Add(DataLabel)
@@ -649,15 +657,21 @@ Partial Class FrmContatos
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Me.ContatosTableAdapter
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -673,16 +687,12 @@ Partial Class FrmContatos
         Me.ComboBox1.TabIndex = 40
         Me.ComboBox1.ValueMember = "Nome"
         '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(102, 22)
-        Me.ToolStripLabel1.Text = "Buscar por Nome:"
-        '
         'FrmContatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(640, 594)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.BtnFechar)

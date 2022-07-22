@@ -2,7 +2,6 @@
 Imports System.IO
 
 Public Class FrmLegalizacao
-    'ESPAÇO para os DIM GERAL
 
     'Bloqueando para edição
     Private Sub Bloquear()
@@ -445,6 +444,12 @@ Public Class FrmLegalizacao
                 'Using WS = New WSCorreios.AtendeClienteClient()
                 Dim Resultado = WS.consultaCEP(EndCEPMaskedTextBox.Text)
                 EnderecoTextBox.Text = Resultado.[end]
+                'EnderecoTextBox com primeira letra minuscula
+                Dim Rua As String = EnderecoTextBox.Text
+                'primeira letra minuscula
+                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
+                EnderecoTextBox.Text = Rua
+
                 'EndComplementoTextBox.Text = Resultado.complemento
                 EndComplementoTextBox.Text = Resultado.complemento2
                 EndCidadeTextBox.Text = Resultado.cidade
@@ -452,13 +457,25 @@ Public Class FrmLegalizacao
                 EndEstadoTextBox.Text = Resultado.uf
                 ' mgs de erro
 
+
             Catch Ex As Exception
                 ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
 
                 If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
-                    System.Diagnostics.Process.Start("https://buscacepinter.correios.com.br/app/endereco/index.php")
-                Else
+                    If WebCorreios.Visible = True Then
+                        'fechar
+                        WebCorreios.Close()
+                        WebCorreios.Show()
+                        WebCorreios.Focus()
+                        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
+                    Else
+                        'abrir
+                        WebCorreios.Show()
+                        WebCorreios.Focus()
+                        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+
+                    End If
                 End If
             End Try
 
@@ -934,35 +951,15 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
 
     Private Sub Legalizacao_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
-        ' Dim result As Integer = MessageBox.Show("Deseja Salvar as Alterações antes de fechar?", "Prince Alerta", MessageBoxButtons.YesNoCancel)
-        ' If result = DialogResult.Cancel Then
-        '    e.Cancel = True
-        'ElseIf result = DialogResult.No Then
-
-        ' ElseIf result = DialogResult.Yes Then
-        '    Me.Validate()
-        'Me.EmpresasBindingSource.EndEdit()
-        ' Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
-
-        ' End If
-
-
         Dim changedRecords As System.Data.DataTable
-        ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
         Me.EmpresasBindingSource.EndEdit()
-
-
         changedRecords = PrinceDBDataSet.Empresas.GetChanges()
 
 
         If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
 
             Dim message As String
-
-            'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-
+            message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
 
             Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
             If result = DialogResult.Cancel Then
@@ -2874,7 +2871,21 @@ prazo de 90 dias para empresas abertas a partir de 2021.
     End Sub
 
     Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
-        WebCorreios.Show()
-        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+        'vers e WebCorreios esta aberto
+        If WebCorreios.Visible = True Then
+            'fechar
+            WebCorreios.Close()
+            WebCorreios.Show()
+            WebCorreios.Focus()
+            WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+
+        Else
+            'abrir
+            WebCorreios.Show()
+            WebCorreios.Focus()
+            WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+
+        End If
+
     End Sub
 End Class

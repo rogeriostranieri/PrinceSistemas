@@ -98,7 +98,7 @@ Partial Class MDIPrincipal
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.White
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.WebSiteToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.WebSiteToolStripMenuItem, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(1050, 25)

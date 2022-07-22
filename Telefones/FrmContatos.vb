@@ -73,6 +73,11 @@
                 'Using WS = New WSCorreios.AtendeClienteClient()
                 Dim Resultado = WS.consultaCEP(End_CEPMaskedTextBox.Text)
                 End_RuaTextBox.Text = Resultado.[end]
+                Dim Rua As String = End_RuaTextBox.Text
+                'primeira letra minuscula
+                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
+                End_RuaTextBox.Text = Rua
+
                 'EndComplementoTextBox.Text = Resultado.complemento
                 End_CompTextBox.Text = Resultado.complemento2
                 End_CidadeTextBox.Text = Resultado.cidade

@@ -380,6 +380,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.Designer.vb">
+      <DependentUpon>WEBConsultaCPF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.Designer.vb">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </Compile>
@@ -428,10 +434,10 @@
     <Compile Include="BackupERestore.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegadores Unificados\ConsultaCNPJ.Designer.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.Designer.vb">
       <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
     </Compile>
-    <Compile Include="Navegadores Unificados\ConsultaCNPJ.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Connected Services\WSCorreios\Reference.vb">
@@ -519,10 +525,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Navegadores Unificados\BuscaCNAE.Designer.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\BuscaCNAE.Designer.vb">
       <DependentUpon>BuscaCNAE.vb</DependentUpon>
     </Compile>
-    <Compile Include="Navegadores Unificados\BuscaCNAE.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\BuscaCNAE.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrinceDBDataSet.vb">
@@ -725,6 +731,9 @@
     <EmbeddedResource Include="Modulo\LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.resx">
+      <DependentUpon>WEBConsultaCPF.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </EmbeddedResource>
@@ -746,7 +755,7 @@
     <EmbeddedResource Include="BackupERestore.resx">
       <DependentUpon>BackupERestore.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\ConsultaCNPJ.resx">
+    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.resx">
       <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contador\Contador.resx">
@@ -788,7 +797,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\BuscaCNAE.resx">
+    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\BuscaCNAE.resx">
       <DependentUpon>BuscaCNAE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrioridadeAviso.resx">

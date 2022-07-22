@@ -654,19 +654,13 @@ Public Class FrmAlvara
 
     Private Sub LaudosConsulta_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dim changedRecords As System.Data.DataTable
-        ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
         Me.LaudosBindingSource.EndEdit()
-
-
         changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
 
         If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-
             Dim message As String
-
-            'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+            message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
 
 
             Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)

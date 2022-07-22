@@ -1,5 +1,5 @@
 ﻿Module ModTexto
-    Function CleanText(ByVal sText As String) As String
+    Function LimpaTexto(ByVal sText As String) As String
         'Arrays com as letras normalizadas e as expressões regulares 
         'Têm de ter o mesmo tamanho
         Dim cLetters() As String = {"a", "e", "i", "o", "u", "c", "n", "A", "E", "I", "O", "U", "C", "N"}
@@ -12,5 +12,26 @@
 
         Return sText
     End Function
+
+    'deixas apenas numeros
+    Function ApenasNumeros(ByVal sText As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^0-9]", "")
+    End Function
+
+    'transformar letra maiuscula apenas a primeira por exemplo "Rogerio Silva Sauro"
+    Function ApenasPrimeiraLetraMaiusculo(ByVal sText As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^A-Z]", "").ToUpper()
+    End Function
+
+    'Transformar em Toda letra maiuscula
+    Function TodoMaiusculo(ByVal sText As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^A-Z]", "").ToUpper()
+    End Function
+
+    'Transformar em Toda letra Minuscula
+    Function TodoMinusculo(ByVal sText As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^a-z]", "").ToLower()
+    End Function
+
 
 End Module

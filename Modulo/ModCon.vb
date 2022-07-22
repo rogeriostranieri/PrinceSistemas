@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Module ModCon
-
     Sub VerificaCNPJemprCOMlaudos()
         Try
 
@@ -237,7 +236,7 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
                 End If
 
-                    End If
+            End If
 
 
         Catch ex As Exception

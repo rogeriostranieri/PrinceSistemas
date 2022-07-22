@@ -1,6 +1,6 @@
-﻿
-Public Class FrmSocios
+﻿Imports System.Data.SqlClient
 
+Public Class FrmSocios
     Private Sub AtivarTab()
         'ativar TabControl1 1
         TabControl1.SelectedTab = TabPage1
@@ -22,6 +22,7 @@ Public Class FrmSocios
 
         'coloca CivilComboBox para selecionar comunhão parcial de bens
         CivilComboBox.Items.Add("solteiro")
+        CivilComboBox.Items.Add("divorciado")
         CivilComboBox.Items.Add("comunhão parcial de bens")
         CivilComboBox.Items.Add("comunhão universal de bens")
         CivilComboBox.Items.Add("separação convencional de bens")
@@ -42,6 +43,7 @@ Public Class FrmSocios
 
         'seleciona o primeiro do ComboBox1
         ComboBox1.SelectedIndex = 0
+
     End Sub
 
     Private Sub BloquearEdicao()
@@ -63,6 +65,7 @@ Public Class FrmSocios
 
         If GeneroComboBox.Text = "Masculino" Then
             CivilComboBox.Items.Add("solteiro")
+            CivilComboBox.Items.Add("divorciado")
             CivilComboBox.Items.Add("casado em regime de comunhão parcial de bens")
             CivilComboBox.Items.Add("casado em regime de comunhão universal de bens")
             CivilComboBox.Items.Add("separado")
@@ -70,6 +73,7 @@ Public Class FrmSocios
             CivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
         ElseIf GeneroComboBox.Text = "Feminino" Then
             CivilComboBox.Items.Add("solteira")
+            CivilComboBox.Items.Add("divorciada")
             CivilComboBox.Items.Add("casada em regime de comunhão parcial de bens")
             CivilComboBox.Items.Add("casada em regime de comunhão universal de bens")
             CivilComboBox.Items.Add("separada")
@@ -77,6 +81,7 @@ Public Class FrmSocios
             CivilComboBox.Items.Add("casada em regime de participação final nos aquestos")
         Else
             CivilComboBox.Items.Add("solteiro")
+            CivilComboBox.Items.Add("divorciado")
             CivilComboBox.Items.Add("comunhão parcial de bens")
             CivilComboBox.Items.Add("comunhão universal de bens")
             CivilComboBox.Items.Add("separação convencional de bens")
@@ -119,10 +124,10 @@ Public Class FrmSocios
             Me.Validate()
             Me.SociosBindingSource.EndEdit()
             Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+            MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
             BloquearEdicao()
             TextBoxExtensoDN.Visible = False
         End If
-
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
@@ -162,6 +167,11 @@ Public Class FrmSocios
                 'Using WS = New WSCorreios.AtendeClienteClient()
                 Dim Resultado = WS.consultaCEP(CEPMaskedTextBox.Text)
                 RUATextBox.Text = Resultado.[end]
+                Dim Rua As String = RUATextBox.Text
+                'primeira letra minuscula
+                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
+                RUATextBox.Text = Rua
+
                 'EndComplementoTextBox.Text = Resultado.complemento
                 ComplementoTextBox.Text = Resultado.complemento2
                 CidadeTextBox.Text = Resultado.cidade
@@ -230,9 +240,11 @@ Public Class FrmSocios
         FrmLegalizacao.CNHdataexpMaskedTextBox.Text = CNHDataExpTextBox.Text
     End Sub
     Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
+        Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
+        Dim NomeSocio As String = NomeCompletoTextBox.Text
         Try
             'perguntar antes
-            If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+            If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                 AtivarTab()
 
                 If FrmLegalizacao.Visible = True Then
@@ -323,7 +335,13 @@ Public Class FrmSocios
             End If
 
 
-            '
+            'se Compl está vazio ou não, então não adicionar o complemento
+            If Compl = "" Then
+                Compl = ""
+            Else
+                Compl = ", " & ComplementoTextBox.Text
+            End If
+
 
 
             'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
@@ -343,7 +361,7 @@ Public Class FrmSocios
 
 Novos dados:" + " 
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", Nº: " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 " + vbCrLf)
 
 
@@ -364,22 +382,14 @@ Novos dados:" + "
 
 
 
-                'com complemento
-                If Compl = "" Then
-                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
+                'FORMA FINAL
+                FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", Nº: " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
-                Else ' Sem complemento
-                    FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", " & N & ", " & Compl & "," & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
-//////////////////////////////////////////////////////////////////////
-"
-                End If
 
             End If
 
@@ -399,7 +409,10 @@ Novos dados:" + "
 
     End Sub
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
-        If MsgBox("Deseja exportar os dados do sócio para Empresa em aberto?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+        Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
+        Dim NomeSocio As String = NomeCompletoTextBox.Text
+
+        If MsgBox("Deseja exportar os dados do sócio " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
             AtivarTab()
             AddSocios()
         End If
@@ -411,13 +424,40 @@ Novos dados:" + "
 
     'ao fechar PrinceDBDataSet.Socios.GetChanges() verificar se teve alterações
     Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If Me.PrinceDBDataSet.HasChanges Then
-            If MsgBox("Deseja salvar as alterações?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                Me.Validate()
-                Me.SociosBindingSource.EndEdit()
-                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+        'verificar se teve alterações no formulario atual compadado ao que tem no banco de dados
+        Dim changedRecords As System.Data.DataTable
+        Me.SociosBindingSource.EndEdit()
+        changedRecords = PrinceDBDataSet.Socios.GetChanges()
+
+
+        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            Dim message As String
+            'mostrar quantas alterações foram feitas e id
+            message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
+
+            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+            If result = DialogResult.Cancel Then
+                e.Cancel = True
+            ElseIf result = DialogResult.No Then
+
+            ElseIf result = DialogResult.Yes Then
+                Try
+                    'salvar alterações
+                    Me.Validate()
+                    Me.SociosBindingSource.EndEdit()
+                    Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+
+                Catch exc As Exception
+
+                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                End Try
+
             End If
+
+
         End If
+
     End Sub
 
 
@@ -1055,6 +1095,31 @@ Novos dados:" + "
 
     Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, Button2.Click
         TabControl1.SelectedIndex = 0
+
+    End Sub
+
+    Private Sub GeneroComboBox_TextUpdate(sender As Object, e As EventArgs) Handles GeneroComboBox.TextUpdate
+        EstadoCivil()
+    End Sub
+
+    Private Sub RGTextBox_Validated(sender As Object, e As EventArgs) Handles RGTextBox.Validated
+        'ModTexto usar o  OnlyNumbers
+        RGTextBox.Text = ApenasNumeros(RGTextBox.Text)
+        ' RGTextBox.Text = RGTextBox.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("/", "").Replace(" ", "")
+
+    End Sub
+
+    Private Sub BtnConsultaCPF_Click(sender As Object, e As EventArgs) Handles BtnConsultaCPF.Click
+        'verificar se o WEBConsultaCPF está aberto
+        If WEBConsultaCPF.Visible = True Then
+            WEBConsultaCPF.Focus()
+            WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+        Else
+            WEBConsultaCPF.Show()
+            WEBConsultaCPF.Focus()
+            WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+
+        End If
 
     End Sub
 End Class
