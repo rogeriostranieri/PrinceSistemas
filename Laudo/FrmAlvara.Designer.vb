@@ -232,9 +232,11 @@ Partial Class FrmAlvara
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.BtnContLigacao = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.BtnAnotacoesPref = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxProcesso = New System.Windows.Forms.GroupBox()
@@ -278,6 +280,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -2564,6 +2567,7 @@ Partial Class FrmAlvara
         '
         'TabPage14
         '
+        Me.TabPage14.Controls.Add(Me.LinkLabel2)
         Me.TabPage14.Controls.Add(Me.BtnAnotacoesPref)
         Me.TabPage14.Controls.Add(Me.Button6)
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
@@ -2573,13 +2577,23 @@ Partial Class FrmAlvara
         Me.TabPage14.Text = "Procedimento"
         Me.TabPage14.UseVisualStyleBackColor = True
         '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(23, 177)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(323, 13)
+        Me.LinkLabel2.TabIndex = 80
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Documentos necessários para Requerimento de Extravio de Alvará"
+        '
         'BtnAnotacoesPref
         '
         Me.BtnAnotacoesPref.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.BtnAnotacoesPref.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPref.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesPref.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoesPref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAnotacoesPref.Location = New System.Drawing.Point(20, 99)
+        Me.BtnAnotacoesPref.Location = New System.Drawing.Point(23, 80)
         Me.BtnAnotacoesPref.Name = "BtnAnotacoesPref"
         Me.BtnAnotacoesPref.Size = New System.Drawing.Size(155, 52)
         Me.BtnAnotacoesPref.TabIndex = 42
@@ -2602,6 +2616,7 @@ Partial Class FrmAlvara
         'TabPage15
         '
         Me.TabPage15.AutoScroll = True
+        Me.TabPage15.Controls.Add(Me.LinkLabel1)
         Me.TabPage15.Controls.Add(Me.BtnNovoProtocolo)
         Me.TabPage15.Controls.Add(Me.PictureBox3)
         Me.TabPage15.Controls.Add(Me.GroupBoxProcesso)
@@ -2614,6 +2629,16 @@ Partial Class FrmAlvara
         Me.TabPage15.TabIndex = 3
         Me.TabPage15.Text = "Protocolo"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(16, 149)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(323, 13)
+        Me.LinkLabel1.TabIndex = 79
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Documentos necessários para Requerimento de Extravio de Alvará"
         '
         'BtnNovoProtocolo
         '
@@ -2930,6 +2955,7 @@ Partial Class FrmAlvara
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.BtnMgsBoxAvisarDia)
         Me.GroupBox9.Controls.Add(Me.LembreteCheckBox)
         Me.GroupBox9.Controls.Add(Me.CNPJLabel)
         Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
@@ -3104,6 +3130,16 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'BtnMgsBoxAvisarDia
+        '
+        Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(156, 133)
+        Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
+        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
+        Me.BtnMgsBoxAvisarDia.TabIndex = 82
+        Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
+        Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3189,6 +3225,7 @@ Partial Class FrmAlvara
         Me.TabPage13.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.TabPage14.ResumeLayout(False)
+        Me.TabPage14.PerformLayout()
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage15.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3416,4 +3453,7 @@ Partial Class FrmAlvara
     Friend WithEvents EndCompTextBox As TextBox
     Friend WithEvents EnderecoTextBox As TextBox
     Friend WithEvents EndCidadeTextBox As TextBox
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents BtnMgsBoxAvisarDia As Button
 End Class

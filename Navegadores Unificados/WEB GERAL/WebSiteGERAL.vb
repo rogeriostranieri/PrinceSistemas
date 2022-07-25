@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.Web.WebView2.Core
-Imports Microsoft.Web.WebView2
 Imports System.IO
 Public Class WebSiteGERAL
     Private Sub Titulo()
@@ -251,5 +250,236 @@ Public Class WebSiteGERAL
     End Sub
 
 
+    Private Sub AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem.Click
+        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40") Then
+        Else
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+            'mgsbox esperar carrega site
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
 
+
+        'verificar se o frmlegalizacao está aberto
+        If FrmLegalizacao Is Nothing Then
+            FrmLegalizacao = New FrmLegalizacao
+            FrmLegalizacao.Show()
+            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+            Exit Sub
+        Else
+            'ativa TabControle 0
+            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+            FrmLegalizacao.TabControle.SelectedIndex = 1
+            FrmLegalizacao.TabControl2.SelectedIndex = 0
+            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+
+            FrmLegalizacao.TabControle.SelectedIndex = 5
+            Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
+
+            FrmLegalizacao.TabControle.SelectedIndex = 0
+
+            'procurar no webviewl o texto e colocar no campo
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
+
+            Me.Focus()
+
+        End If
+    End Sub
+
+    Private Sub BtnSimplesNacionalPrimeiraParteInício_Click(sender As Object, e As EventArgs) Handles BtnSimplesNacionalPrimeiraParteInício.Click
+        'WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39") Then
+        Else
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+
+            Exit Sub
+
+        End If
+
+        'verificar se o frmlegalizacao está aberto
+        If FrmLegalizacao Is Nothing Then
+            FrmLegalizacao = New FrmLegalizacao
+            FrmLegalizacao.Show()
+            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+            Exit Sub
+        Else
+            'ativa TabControle 0
+            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+            FrmLegalizacao.TabControle.SelectedIndex = 1
+            FrmLegalizacao.TabControl2.SelectedIndex = 0
+            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+
+            FrmLegalizacao.TabControle.SelectedIndex = 5
+            Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
+
+            FrmLegalizacao.TabControle.SelectedIndex = 0
+
+            'procurar no webviewl o texto e colocar no campo
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
+
+            Me.Focus()
+
+        End If
+    End Sub
+
+
+
+    Private Sub BtnRedeSimAbertura_Click(sender As Object, e As EventArgs) Handles BtnRedeSimAbertura.Click
+        WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+
+    End Sub
+
+    Private Sub BtnREDESIMAlteracao_Click(sender As Object, e As EventArgs) Handles BtnREDESIMAlteracao.Click
+        If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral") Then
+        Else
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+
+        End If
+
+        'verificar se o frmlegalizacao está aberto
+        If FrmLegalizacao Is Nothing Then
+            FrmLegalizacao = New FrmLegalizacao
+            FrmLegalizacao.Show()
+            'mgsbox abrir na empresa
+            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+            Exit Sub
+        Else
+            'ativa TabControle 0
+
+            FrmLegalizacao.TabControle.SelectedIndex = 2
+            FrmLegalizacao.TabControle.SelectedIndex = 3
+
+            'ProtocoloREDESIMTextBox
+            'ProtocoloJuntaComercialTextBox
+            'verificar se os dois estão preenchidos
+            If FrmLegalizacao.ProtocoloREDESIMTextBox.Text = "" Or FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text = "" Then
+                MsgBox("Favor, preencher os dois protocolos!")
+                Exit Sub
+            Else
+                If FrmLegalizacao.ProtocoloREDESIMTextBox.Text <> "" Then
+                    Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloREDESIMTextBox.Text
+                    WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
+                    Me.Focus()
+                    Exit Sub
+                Else
+                    ' FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text <> "" 
+                    Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
+                    'procurar no webviewl o texto e colocar no campo
+                    WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
+                    Me.Focus()
+                    Exit Sub
+                End If
+            End If
+
+
+
+        End If
+    End Sub
+
+    Private Sub BtnREDESIMBaixa_Click(sender As Object, e As EventArgs) Handles BtnREDESIMBaixa.Click
+        If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa") Then
+        Else
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+
+        'verificar se o frmlegalizacao está aberto
+        If FrmLegalizacao Is Nothing Then
+            FrmLegalizacao = New FrmLegalizacao
+            FrmLegalizacao.Show()
+            'mgsbox abrir na empresa
+            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+            Exit Sub
+        Else
+            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+            If FrmLegalizacao.CNPJMaskedTextBox.Text = "" Then
+                MsgBox("CNPJ vazio!")
+                Exit Sub
+            End If
+
+            'procurar no webviewl o texto e colocar no campo id="cpfCnpj"
+            WebView.ExecuteScriptAsync("document.getElementById('id='cpfCnpj').value = '" & CNPJ & "'")
+            Me.Focus()
+        End If
+    End Sub
+
+
+    Private Sub BtnSimplesNacionalSegundasParteDados_Click(sender As Object, e As EventArgs) Handles BtnSimplesNacionalSegundasParteDados.Click
+        'pegar a data dentro doid="ctl00_ContentPlaceHolder1_pnlMensagem_lblMensagem"
+        Dim DataSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder1_pnlMensagem_lblMensagem')").ToString
+        'pegar apenas os numeros "consultado a partir do dia " e antes ", no Portal do Simples Nacional "...
+        'frmlegalizacao.DataSimplesMaskedTextBox.text
+        Dim DataSimples2 As String = DataSimples.Substring(DataSimples.IndexOf("consultado a partir do dia ") + "consultado a partir do dia ".Length, DataSimples.IndexOf(", no Portal do Simples Nacional ...") - DataSimples.IndexOf("consultado a partir do dia ") - "consultado a partir do dia ".Length)
+        FrmLegalizacao.TabControle.SelectedIndex = 5
+        FrmLegalizacao.DataSimplesMaskedTextBox.Text = DataSimples2
+        FrmLegalizacao.AvisarDiaMaskedTextBox.Text = DataSimples2
+        'DataSimples2 em formato extenso dd, de mmmm de yyyy
+        Dim DataSimples3 As String = DataSimples2.Substring(0, 2) & " de " & DataSimples2.Substring(3, 3) & " de " & DataSimples2.Substring(7, 4)
+        MsgBox("Data Final finaliza em: " & DataSimples3)
+        FrmLegalizacao.Focus()
+    End Sub
+
+    Private Sub ImportarDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarDadosToolStripMenuItem.Click
+        'verificar se o site é  "https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx"
+        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx") Then
+        Else
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+
+            Exit Sub
+
+        End If
+
+
+        'verificar se o frmlegalizacao está aberto
+        If FrmLegalizacao Is Nothing Then
+            FrmLegalizacao = New FrmLegalizacao
+            FrmLegalizacao.Show()
+            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+            Exit Sub
+        Else
+            'ativa TabControle 0
+            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+            FrmLegalizacao.TabControle.SelectedIndex = 1
+            FrmLegalizacao.TabControl2.SelectedIndex = 0
+            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+
+            FrmLegalizacao.TabControle.SelectedIndex = 0
+
+            'procurar no webviewl o texto e colocar no campo
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+
+            Me.Focus()
+
+        End If
+    End Sub
+
+    Private Sub ExportarCódigoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarCódigoToolStripMenuItem.Click
+        'pegar numeros da id=ctl00_ContentPlaceHolder_lblResultado
+        Dim CodigoSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder_lblResultado')").ToString
+        '<span id="ctl00_ContentPlaceHolder_lblResultado" class="label resultado">Código de acesso gerado com sucesso. Seu código é: <span style="color:Red;font-size:13px;">788566192115</span>.<br>Esse código é uma senha, portanto é sigiloso. Anote-o e guarde-o em lugar seguro e de fácil recuperação para futuros acessos.</span>
+        'pegar apenas os numeros "apos Seu código é: "
+        Dim CodigoSimples2 As String = CodigoSimples.Substring(CodigoSimples.IndexOf("Seu código é: ") + 14)
+        'pegar apenas os numeros "apos <span style="color:Red;font-size:13px;">"
+        'Dim CodigoSimples3 As String = CodigoSimples2.Substring(CodigoSimples2.IndexOf("<span style=") + 15)
+
+        FrmLegalizacao.TabControle.SelectedIndex = 5
+        FrmLegalizacao.CodigoSimplesTextBox.Text = CodigoSimples2
+        FrmLegalizacao.Focus()
+    End Sub
 End Class

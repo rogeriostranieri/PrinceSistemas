@@ -305,6 +305,7 @@ Partial Class FrmLegalizacao
         Me.IEjuntaComboBox = New System.Windows.Forms.ComboBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.BtnMgsBoxDataSimples = New System.Windows.Forms.Button()
         Me.BtnAnotacoesSimples = New System.Windows.Forms.Button()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.Button36 = New System.Windows.Forms.Button()
@@ -317,7 +318,7 @@ Partial Class FrmLegalizacao
         Me.DataSimplesMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ObsSimplesRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.LinkLabel17 = New System.Windows.Forms.LinkLabel()
+        Me.LblLinkAjudaSimples = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.txtDataASomar = New System.Windows.Forms.TextBox()
@@ -331,7 +332,6 @@ Partial Class FrmLegalizacao
         Me.CodigoSimplesTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.BtnAnotacoesPrefeitura = New System.Windows.Forms.Button()
-        Me.LinkLabel16 = New System.Windows.Forms.LinkLabel()
         Me.Button32 = New System.Windows.Forms.Button()
         Me.BombeiroJuntaComboBox = New System.Windows.Forms.ComboBox()
         Me.PrefeituraObsRichTextBox = New System.Windows.Forms.RichTextBox()
@@ -397,6 +397,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
         Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         Me.NovaRazaoSocialLabel = New System.Windows.Forms.Label()
         Me.PictureBoxSistemaExterno = New System.Windows.Forms.PictureBox()
@@ -3390,6 +3391,7 @@ Partial Class FrmLegalizacao
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
+        Me.TabPage7.Controls.Add(Me.BtnMgsBoxDataSimples)
         Me.TabPage7.Controls.Add(Me.BtnAnotacoesSimples)
         Me.TabPage7.Controls.Add(Me.GroupBox13)
         Me.TabPage7.Controls.Add(OrgãoPedSimplesLabel)
@@ -3412,11 +3414,21 @@ Partial Class FrmLegalizacao
         Me.TabPage7.Text = "Simples Nacional"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
+        'BtnMgsBoxDataSimples
+        '
+        Me.BtnMgsBoxDataSimples.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnMgsBoxDataSimples.Location = New System.Drawing.Point(274, 76)
+        Me.BtnMgsBoxDataSimples.Name = "BtnMgsBoxDataSimples"
+        Me.BtnMgsBoxDataSimples.Size = New System.Drawing.Size(57, 20)
+        Me.BtnMgsBoxDataSimples.TabIndex = 72
+        Me.BtnMgsBoxDataSimples.Text = "Detalhes"
+        Me.BtnMgsBoxDataSimples.UseVisualStyleBackColor = True
+        '
         'BtnAnotacoesSimples
         '
         Me.BtnAnotacoesSimples.BackgroundImage = CType(resources.GetObject("BtnAnotacoesSimples.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesSimples.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(299, 74)
+        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(11, 80)
         Me.BtnAnotacoesSimples.Name = "BtnAnotacoesSimples"
         Me.BtnAnotacoesSimples.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesSimples.TabIndex = 76
@@ -3530,7 +3542,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox11
         '
-        Me.GroupBox11.Controls.Add(Me.LinkLabel17)
+        Me.GroupBox11.Controls.Add(Me.LblLinkAjudaSimples)
         Me.GroupBox11.Controls.Add(Me.Label5)
         Me.GroupBox11.Controls.Add(Me.Button8)
         Me.GroupBox11.Controls.Add(PrazoSimplesLabel)
@@ -3544,15 +3556,16 @@ Partial Class FrmLegalizacao
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Prazo máximo do Simples Nacional"
         '
-        'LinkLabel17
+        'LblLinkAjudaSimples
         '
-        Me.LinkLabel17.AutoSize = True
-        Me.LinkLabel17.Location = New System.Drawing.Point(183, 53)
-        Me.LinkLabel17.Name = "LinkLabel17"
-        Me.LinkLabel17.Size = New System.Drawing.Size(34, 13)
-        Me.LinkLabel17.TabIndex = 55
-        Me.LinkLabel17.TabStop = True
-        Me.LinkLabel17.Text = "Ajuda"
+        Me.LblLinkAjudaSimples.AutoSize = True
+        Me.LblLinkAjudaSimples.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblLinkAjudaSimples.Location = New System.Drawing.Point(119, 25)
+        Me.LblLinkAjudaSimples.Name = "LblLinkAjudaSimples"
+        Me.LblLinkAjudaSimples.Size = New System.Drawing.Size(42, 16)
+        Me.LblLinkAjudaSimples.TabIndex = 56
+        Me.LblLinkAjudaSimples.TabStop = True
+        Me.LblLinkAjudaSimples.Text = "Ajuda"
         '
         'Label5
         '
@@ -3665,7 +3678,6 @@ Partial Class FrmLegalizacao
         '
         Me.TabPage6.AutoScroll = True
         Me.TabPage6.Controls.Add(Me.BtnAnotacoesPrefeitura)
-        Me.TabPage6.Controls.Add(Me.LinkLabel16)
         Me.TabPage6.Controls.Add(Me.Button32)
         Me.TabPage6.Controls.Add(BombeiroJuntaLabel)
         Me.TabPage6.Controls.Add(Me.BombeiroJuntaComboBox)
@@ -3682,28 +3694,18 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesPrefeitura.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPrefeitura.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesPrefeitura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(338, 19)
+        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(250, 176)
         Me.BtnAnotacoesPrefeitura.Name = "BtnAnotacoesPrefeitura"
         Me.BtnAnotacoesPrefeitura.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesPrefeitura.TabIndex = 74
         Me.BtnAnotacoesPrefeitura.Text = "Anotações"
         Me.BtnAnotacoesPrefeitura.UseVisualStyleBackColor = True
         '
-        'LinkLabel16
-        '
-        Me.LinkLabel16.AutoSize = True
-        Me.LinkLabel16.Location = New System.Drawing.Point(12, 179)
-        Me.LinkLabel16.Name = "LinkLabel16"
-        Me.LinkLabel16.Size = New System.Drawing.Size(323, 13)
-        Me.LinkLabel16.TabIndex = 43
-        Me.LinkLabel16.TabStop = True
-        Me.LinkLabel16.Text = "Documentos necessários para Requerimento de Extravio de Alvará"
-        '
         'Button32
         '
         Me.Button32.FlatAppearance.BorderSize = 2
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button32.Location = New System.Drawing.Point(325, 71)
+        Me.Button32.Location = New System.Drawing.Point(325, 11)
         Me.Button32.Name = "Button32"
         Me.Button32.Size = New System.Drawing.Size(153, 39)
         Me.Button32.TabIndex = 42
@@ -4191,7 +4193,7 @@ Partial Class FrmLegalizacao
         'LinkLabel9
         '
         Me.LinkLabel9.AutoSize = True
-        Me.LinkLabel9.Location = New System.Drawing.Point(241, 106)
+        Me.LinkLabel9.Location = New System.Drawing.Point(247, 106)
         Me.LinkLabel9.Name = "LinkLabel9"
         Me.LinkLabel9.Size = New System.Drawing.Size(56, 13)
         Me.LinkLabel9.TabIndex = 34
@@ -4214,7 +4216,7 @@ Partial Class FrmLegalizacao
         Me.NAlteracaoComboBox.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "+21"})
         Me.NAlteracaoComboBox.Location = New System.Drawing.Point(201, 102)
         Me.NAlteracaoComboBox.Name = "NAlteracaoComboBox"
-        Me.NAlteracaoComboBox.Size = New System.Drawing.Size(34, 21)
+        Me.NAlteracaoComboBox.Size = New System.Drawing.Size(44, 21)
         Me.NAlteracaoComboBox.TabIndex = 21
         '
         'OpenFileDialog1
@@ -4366,6 +4368,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.BtnMgsBoxAvisarDia)
         Me.GroupBox10.Controls.Add(Me.StatusComboBox)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialComboBox)
         Me.GroupBox10.Controls.Add(Me.NovaRazaoSocialLabel)
@@ -4398,6 +4401,16 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
+        '
+        'BtnMgsBoxAvisarDia
+        '
+        Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(185, 40)
+        Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
+        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
+        Me.BtnMgsBoxAvisarDia.TabIndex = 77
+        Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
+        Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
         '
         'StatusComboBox
         '
@@ -5008,7 +5021,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents ProcuracaoDataMaskedTextBox As MaskedTextBox
     Friend WithEvents ProcuracaoNMaskedTextBox As MaskedTextBox
     Friend WithEvents ProcuracaoComboBox As ComboBox
-    Friend WithEvents LinkLabel16 As LinkLabel
     Friend WithEvents TabPage18 As TabPage
     Friend WithEvents NovaRazaoSocialComboBox As ComboBox
     Friend WithEvents NovaRazaoSocial3TextBox As TextBox
@@ -5046,7 +5058,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnData3 As Button
     Friend WithEvents BtnData4 As Button
     Friend WithEvents BtnConsultaeProcessoEstado As Button
-    Friend WithEvents LinkLabel17 As LinkLabel
     Friend WithEvents PictureBoxSistemaExterno As PictureBox
     Friend WithEvents NovaRazaoSocialLabel As Label
     Friend WithEvents TabPage19 As TabPage
@@ -5114,4 +5125,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnRemoveSocios As Button
     Friend WithEvents ToolTipDICAS As ToolTip
     Friend WithEvents BtnCorreios As Button
+    Friend WithEvents LblLinkAjudaSimples As LinkLabel
+    Friend WithEvents BtnMgsBoxDataSimples As Button
+    Friend WithEvents BtnMgsBoxAvisarDia As Button
 End Class

@@ -61,7 +61,6 @@ Public Class WEBConsultaCPF
 
 
 
-    Private CPF As String
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         '     FrmSocios.NomeCompletoTextBox.Text
         'mgs box informando que está em teste

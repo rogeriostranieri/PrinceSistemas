@@ -44,6 +44,22 @@ Partial Class WebSiteGERAL
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.BtnSimplesNacionalSolicitação = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnSimplesNacionalPrimeiraParteInício = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnSimplesNacionalSegundasParteDados = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarCódigoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripDropDownButton3 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.BtnRedeSimAbertura = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnREDESIMAlteracao = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnREDESIMBaixa = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -248,7 +264,7 @@ Partial Class WebSiteGERAL
         'ToolStrip3
         '
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(788, 26)
@@ -270,7 +286,7 @@ Partial Class WebSiteGERAL
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
         Me.ToolStripMenuItem1.Text = "Pagina Inicial"
         '
         'ToolStripTextBox1
@@ -279,6 +295,108 @@ Partial Class WebSiteGERAL
         Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
         Me.ToolStripTextBox1.Size = New System.Drawing.Size(200, 23)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 26)
+        '
+        'ToolStripDropDownButton2
+        '
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSimplesNacionalSolicitação, Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso, Me.AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem, Me.ToolStripSeparator4})
+        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(111, 23)
+        Me.ToolStripDropDownButton2.Text = "Simples Nacional"
+        '
+        'BtnSimplesNacionalSolicitação
+        '
+        Me.BtnSimplesNacionalSolicitação.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSimplesNacionalPrimeiraParteInício, Me.BtnSimplesNacionalSegundasParteDados})
+        Me.BtnSimplesNacionalSolicitação.Name = "BtnSimplesNacionalSolicitação"
+        Me.BtnSimplesNacionalSolicitação.Size = New System.Drawing.Size(437, 22)
+        Me.BtnSimplesNacionalSolicitação.Text = "Solicitação de Opção pelo Simples Nacional"
+        '
+        'BtnSimplesNacionalPrimeiraParteInício
+        '
+        Me.BtnSimplesNacionalPrimeiraParteInício.Name = "BtnSimplesNacionalPrimeiraParteInício"
+        Me.BtnSimplesNacionalPrimeiraParteInício.Size = New System.Drawing.Size(191, 22)
+        Me.BtnSimplesNacionalPrimeiraParteInício.Text = "Primeira Parte - Início"
+        '
+        'BtnSimplesNacionalSegundasParteDados
+        '
+        Me.BtnSimplesNacionalSegundasParteDados.Name = "BtnSimplesNacionalSegundasParteDados"
+        Me.BtnSimplesNacionalSegundasParteDados.Size = New System.Drawing.Size(234, 22)
+        Me.BtnSimplesNacionalSegundasParteDados.Text = "Exportar Data Final do Simples"
+        '
+        'BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso
+        '
+        Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarDadosToolStripMenuItem, Me.ExportarCódigoToolStripMenuItem})
+        Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso.Name = "BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso"
+        Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso.Size = New System.Drawing.Size(437, 22)
+        Me.BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso.Text = "Criar ou Alterar seu Código de Acesso"
+        '
+        'ImportarDadosToolStripMenuItem
+        '
+        Me.ImportarDadosToolStripMenuItem.Name = "ImportarDadosToolStripMenuItem"
+        Me.ImportarDadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportarDadosToolStripMenuItem.Text = "Importar Dados"
+        '
+        'ExportarCódigoToolStripMenuItem
+        '
+        Me.ExportarCódigoToolStripMenuItem.Name = "ExportarCódigoToolStripMenuItem"
+        Me.ExportarCódigoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExportarCódigoToolStripMenuItem.Text = "Exportar Código"
+        '
+        'AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem
+        '
+        Me.AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem.Name = "AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem"
+        Me.AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem.Size = New System.Drawing.Size(437, 22)
+        Me.AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem.Text = "Acompanhamento da Formalização da Opção pelo Simples Nacional"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(434, 6)
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 26)
+        '
+        'ToolStripDropDownButton3
+        '
+        Me.ToolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRedeSimAbertura, Me.BtnREDESIMAlteracao, Me.BtnREDESIMBaixa, Me.ToolStripSeparator5})
+        Me.ToolStripDropDownButton3.Image = CType(resources.GetObject("ToolStripDropDownButton3.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton3.Name = "ToolStripDropDownButton3"
+        Me.ToolStripDropDownButton3.Size = New System.Drawing.Size(67, 23)
+        Me.ToolStripDropDownButton3.Text = "REDESIM"
+        '
+        'BtnRedeSimAbertura
+        '
+        Me.BtnRedeSimAbertura.Name = "BtnRedeSimAbertura"
+        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(124, 22)
+        Me.BtnRedeSimAbertura.Text = "Abertura"
+        '
+        'BtnREDESIMAlteracao
+        '
+        Me.BtnREDESIMAlteracao.Name = "BtnREDESIMAlteracao"
+        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(124, 22)
+        Me.BtnREDESIMAlteracao.Text = "Alteração"
+        '
+        'BtnREDESIMBaixa
+        '
+        Me.BtnREDESIMBaixa.Name = "BtnREDESIMBaixa"
+        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(124, 22)
+        Me.BtnREDESIMBaixa.Text = "Baixa"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(121, 6)
         '
         'ToolStrip1
         '
@@ -372,4 +490,20 @@ Partial Class WebSiteGERAL
     Friend WithEvents BtnFavoritos As ToolStripSplitButton
     Friend WithEvents BtnAddFavoritos As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
+    Friend WithEvents BtnSimplesNacionalCriarOuAlterarSeuCódigoDeAcesso As ToolStripMenuItem
+    Friend WithEvents AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents BtnSimplesNacionalSolicitação As ToolStripMenuItem
+    Friend WithEvents BtnSimplesNacionalPrimeiraParteInício As ToolStripMenuItem
+    Friend WithEvents BtnSimplesNacionalSegundasParteDados As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents ToolStripDropDownButton3 As ToolStripDropDownButton
+    Friend WithEvents BtnRedeSimAbertura As ToolStripMenuItem
+    Friend WithEvents BtnREDESIMAlteracao As ToolStripMenuItem
+    Friend WithEvents BtnREDESIMBaixa As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents ImportarDadosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportarCódigoToolStripMenuItem As ToolStripMenuItem
 End Class

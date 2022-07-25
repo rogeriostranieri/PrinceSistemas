@@ -30,9 +30,7 @@ Public Class FrmLegalizacao
 
 
     Private Sub Salvar()
-
         Dim changedRecords As System.Data.DataTable
-        ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
         Me.EmpresasBindingSource.EndEdit()
         changedRecords = PrinceDBDataSet.Empresas.GetChanges()
 
@@ -40,10 +38,7 @@ Public Class FrmLegalizacao
         If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
 
             Dim message As String
-
-            'MOSTRA MENSAGM BOX
-            'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+            message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
 
             'mostra mensagem box SIM OU NAO OU CANCELA
             Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
@@ -134,22 +129,14 @@ Public Class FrmLegalizacao
             StatusComboBox.DisplayMember = "Descricao"
             StatusComboBox.ValueMember = "Descricao"
 
-
-
-
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
-
             BtnEditar.Text = "Cancelar"
             Editar()
 
-            'chama combobox status
-            '   ModCombobox.ComboboxLegalizacao()
             ModCombobox.ComboboxLegalizacaoProcesso()
-            ' ModCombobox.ComboboxLegalizacao()
-
             'Ficar focado no campo busca
             Me.ComboBoxBuscaEmpresa.Focus()
 
@@ -157,9 +144,6 @@ Public Class FrmLegalizacao
             MessageBox.Show("Ocorreu um Erro ao carregar o formulário" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
-
-        'tirar borda do TableLayoutPanel1
-        TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
 
     End Sub
 
@@ -678,66 +662,61 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles BtnConsultaRedeSim.Click
-        Dim frm As New WebREDESIM
-        Dim Protocolo As String = ProtocoloREDESIMTextBox.Text
+        Dim frm As New WebSiteGERAL
         TabControle.SelectTab(2)
         TabControle.SelectTab(3)
         Try
-            If Trim(ProtocoloREDESIMTextBox.Text) = "" Then
 
-
-
-                If Trim(ProtocoloJuntaComercialTextBox.Text) = "" Then
-
-                    MsgBox("Protocolo VAZIO e abrindo site para Solicitar...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-                    'http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot="& Protocolo & "&erro=3
-
-                    If frm.Visible = True Then
-                        'coloca focus e frente
-                        frm.Focus()
-                        frm.BringToFront()
-                        frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
-                    Else
-                        frm.Show()
-                        frm.BringToFront()
-                        frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
-                    End If
-
-                Else
-
-                    ' Clipboard.SetText(ProtocoloJuntaComercialTextBox.Text)
-                    'Dim ProtocoloJunta As String = ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
-                    ' Clipboard.SetText(ProtocoloREDESIMTextBox.Text)
-
-                    If frm.Visible = True Then
-                        'coloca focus e frente
-                        frm.Focus()
-                        frm.BringToFront()
-                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
-                    Else
-                        frm.Show()
-                        frm.BringToFront()
-                        frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
-                    End If
-
-                End If
-
-
-            Else
-
+            If BtnConsultaRedeSim.Text = "Solicitar" Then
                 If frm.Visible = True Then
                     'coloca focus e frente
                     frm.Focus()
                     frm.BringToFront()
-                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
+                    frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
                 Else
                     frm.Show()
                     frm.BringToFront()
-                    frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & Protocolo & "&erro=3")
+                    frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
                 End If
+
+            ElseIf BtnConsultaRedeSim.Text = "Consultar" Then
+                If frm.Visible = True Then
+                    If ProtocoloREDESIMTextBox.Text <> "" Then
+
+                        frm.Focus()
+                        frm.BringToFront()
+                        Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
+                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        Exit Sub
+                    ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
+
+                        frm.Focus()
+                        frm.BringToFront()
+                        Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
+                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        Exit Sub
+                    End If
+                Else
+                    If ProtocoloREDESIMTextBox.Text <> "" Then
+
+                        frm.Show()
+                        frm.Focus()
+                        frm.BringToFront()
+                        Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
+                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        Exit Sub
+                    ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
+
+                        frm.Show()
+                        frm.Focus()
+                        frm.BringToFront()
+                        Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
+                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        Exit Sub
+                    End If
+                End If
+
             End If
-
-
 
         Catch ex As Exception
             MessageBox.Show("Erro ao abrir o site, verifique se o protocolo está correto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -783,21 +762,52 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
     End Sub
 
     Private Sub LinkLabel6_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel6.LinkClicked
+        'System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+        Dim frm As New WebSiteGERAL
 
-        System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
-
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+        End If
     End Sub
 
     Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
+        '  System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+        Dim frm As New WebSiteGERAL
 
-        System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
-
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+        End If
     End Sub
 
     Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel5.LinkClicked
 
-        System.Diagnostics.Process.Start("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+        'System.Diagnostics.Process.Start("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+        Dim frm As New WebSiteGERAL
 
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+        End If
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
@@ -1270,8 +1280,19 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub LinkLabel11_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel11.LinkClicked
+        'System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        Dim frm As New WebSiteGERAL
 
-        System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        End If
 
     End Sub
 
@@ -1441,21 +1462,32 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub LinkLabel12_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel12.LinkClicked
-        System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
-    End Sub
-
-    Private Sub LinkLabel8_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel8.LinkClicked
-        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
-        Dim frm As New WebREDESIM
+        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+        Dim frm As New WebSiteGERAL
         If frm.Visible = True Then
             'coloca focus e frente
             frm.Focus()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
         Else
             frm.Show()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+        End If
+    End Sub
+
+    Private Sub LinkLabel8_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel8.LinkClicked
+        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+        Dim frm As New WebSiteGERAL
+        If frm.Visible = True Then
+            'coloca focus e frente
+            frm.Focus()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+        Else
+            frm.Show()
+            frm.BringToFront()
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
         End If
     End Sub
 
@@ -1493,16 +1525,16 @@ Protocolo RedeSim= " & G & ".
         ' System.Diagnostics.Process.Start("")
 
         'verificar FrmWBEmpresaFacilPR está aberto ou abrir
-        Dim frm As New WebREDESIM
+        Dim frm As New WebSiteGERAL
         If frm.Visible = True Then
             'coloca focus e frente
             frm.Focus()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
         Else
             frm.Show()
             frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
         End If
     End Sub
 
@@ -1532,11 +1564,6 @@ Protocolo RedeSim= " & G & ".
 
         End Try
     End Sub
-
-    Private Sub LinkLabel16_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel16.LinkClicked
-        MessageBox.Show(" Anúncio por 03 ( três) dias em jornal ou (3 vias) da declaração de extravio registrada em cartório - conforme modelo", "Prince Ajuda")
-    End Sub
-
 
     Private Sub BtnVerEventos_Click(sender As Object, e As EventArgs) Handles BtnVerEventos.Click, Button48.Click, Button47.Click
         TabControle.SelectTab(0)
@@ -1762,7 +1789,14 @@ Protocolo RedeSim= " & G & ".
     Private Sub BtnData3_Click(sender As Object, e As EventArgs) Handles BtnData3.Click
         ProtJuntaFinalMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
 
-        StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact("Junta Comercial - Protocolado")
+        'procurar "Junta Comercial - Protocolado"no StatusComboBox e selecionar
+        Try
+            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact("Junta Comercial - Protocolado")
+        Catch ex As Exception
+            MessageBox.Show("Erro ao alterar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'selecionar select all
+            StatusComboBox.SelectedIndex = 0
+        End Try
 
     End Sub
 
@@ -1792,30 +1826,6 @@ Protocolo RedeSim= " & G & ".
 
         End If
     End Sub
-
-
-    Private Sub AjudaSimples()
-        MessageBox.Show(" 2.8. A ME ou a EPP que iniciar sua atividade em outro mês que não o de janeiro poderá optar pelo Simples Nacional?
-Após efetuar a inscrição no CNPJ, bem como obter as suas inscrições municipal e estadual, caso exigível (ver Pergunta 2.11), se quiser que a opção pelo Simples Nacional produza efeitos retroativos à abertura do CNPJ, a ME ou a EPP precisa observar ao mesmo tempo dois prazos para solicitá-la:
--> até 30 dias contados do último deferimento de inscrição (seja a estadual ou a municipal), e 
--> para empresas com data de abertura constante no CNPJ:
-   *o até 31 de dezembro de 2020: até 180 dias contados da inscrição no CNPJ; ou 
-   *o a partir de 1º de janeiro de 2021: até 60 dias contados da inscrição no CNPJ.
-
-    Observações:
- Os prazos não são somados. Ou seja, não existe um prazo de 210 dias contados da inscrição no CNPJ para empresas abertas até 2020, nem um
-prazo de 90 dias para empresas abertas a partir de 2021.
- A inscrição municipal é sempre exigível. A inscrição estadual é exigida para a empresa que exerça atividades sujeitas ao ICMS 
-
-    Após o fim desse prazo para opção como empresa em início de atividade, a opção somente será possível no mês de janeiro do ano-calendário seguinte, produzindo efeitos a partir desse mês e não mais desde a abertura do CNPJ
-
-(Base normativa: art. 2º, IV, art. 6º, § 5º, I, da Resolução CGSN nº 140, de 2018; art. 5º da Resolução CGSN nº 150, de 2019; art. 2º da Resolução CGSN nº 155, de 2020.) ", "Prince Ajuda")
-    End Sub
-    Private Sub LinkLabel17_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel17.LinkClicked
-        AjudaSimples()
-
-    End Sub
-
 
     Private Sub SistemaExternoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SistemaExternoComboBox.SelectedIndexChanged
         Try
@@ -2123,13 +2133,11 @@ prazo de 90 dias para empresas abertas a partir de 2021.
         'LinkLabel17
         If NovaRazaoSocialComboBox.Text = "Sim" Then
             NovaRazaoSocialFinalTextBox.Visible = True
-            LinkLabel17.Visible = True
             LabelNovaRazaoFinal.Visible = True
             LinkLabelMudarRazaoSocial.Visible = True
 
         Else
             NovaRazaoSocialFinalTextBox.Visible = False
-            LinkLabel17.Visible = False
             LabelNovaRazaoFinal.Visible = False
             LinkLabelMudarRazaoSocial.Visible = False
         End If
@@ -2887,5 +2895,44 @@ prazo de 90 dias para empresas abertas a partir de 2021.
 
         End If
 
+    End Sub
+
+    Private Sub LblLinkAjudaSimples_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LblLinkAjudaSimples.LinkClicked
+        MessageBox.Show("A solicitação de opção pelo Simples Nacional somente pode ser realizada no mês de janeiro, até o seu último dia útil. Uma vez deferida, produz efeitos a partir do primeiro dia do ano calendário da opção." & vbCrLf & "
+Para empresas em início de atividade, o prazo para soliticação de opção é de 30 dias contados do último deferimento de inscrição (municipal ou estadual, caso exigíveis), desde que não tenham decorridos 60 dias da inscrição do CNPJ. Se deferida, a opção produz efeitos a partir da data da abertura do CNPJ. Após esse prazo, a opção somente será possível no mês de janeiro do ano-calendário seguinte.")
+
+    End Sub
+
+    Private Sub BtnMgsBoxDataSimples_Click(sender As Object, e As EventArgs) Handles BtnMgsBoxDataSimples.Click
+        'DataSimplesMaskedTextBox em extenso por mgsbox
+        Try
+            Dim a As DateTime
+            a = DataSimplesMaskedTextBox.Text
+            MsgBox(a.ToLongDateString)
+        Catch
+            MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
+        End Try
+
+    End Sub
+
+    Private Sub BtnMgsBoxAvisarDia_Click(sender As Object, e As EventArgs) Handles BtnMgsBoxAvisarDia.Click
+        'AvisarDiaMaskedTextBox
+        Try
+            Dim a As DateTime
+            a = AvisarDiaMaskedTextBox.Text
+            MsgBox(a.ToLongDateString)
+            'avisar que cai no final de semana
+            If a.DayOfWeek = DayOfWeek.Saturday Or a.DayOfWeek = DayOfWeek.Sunday Then
+                MsgBox("Cai no fim de semana, alterando para proximo dia útil")
+                'se for domingo ou sabado , mudar data do AvisarDiaMaskedTextBox para segunda feira
+                If a.DayOfWeek = DayOfWeek.Sunday Then
+                    AvisarDiaMaskedTextBox.Text = a.AddDays(1)
+                ElseIf a.DayOfWeek = DayOfWeek.Saturday Then
+                    AvisarDiaMaskedTextBox.Text = a.AddDays(2)
+                End If
+            End If
+        Catch
+            MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
+        End Try
     End Sub
 End Class

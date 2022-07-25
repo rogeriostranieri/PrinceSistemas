@@ -276,37 +276,65 @@ Public Class FrmAlvara
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
 
         Try
-            'pergunta salvar yesnocancel
-            Dim message As String
-            message = String.Format("Deseja Salvar as alterações realizada?")
-            'mostra mensagem box SIM OU NAO OU CANCELA
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-                ' e.Cancel = True
-            ElseIf result = DialogResult.No Then
-                BtnEditar.Text = "Editar"
-                Button17.Enabled = True
-                GroupBox9.Enabled = False
-                GroupBox4.Enabled = False
-                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                'retorna para CNPJMaskedTextBox empresa que estava  
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-            ElseIf result = DialogResult.Yes Then
-                Try
+            Dim changedRecords As System.Data.DataTable
+            Me.LaudosBindingSource.EndEdit()
+            changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
-                    'Salva alterações
-                    Me.Validate()
-                    Me.LaudosBindingSource.EndEdit()
-                    Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-                    'Modifica bloqueando td novamente
+            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+                Dim message As String
+                message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+
+
+                'mostra mensagem box SIM OU NAO OU CANCELA
+                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+                If result = DialogResult.Cancel Then
+                    ' e.Cancel = True
+                ElseIf result = DialogResult.No Then
                     BtnEditar.Text = "Editar"
+                    Button17.Enabled = True
                     GroupBox9.Enabled = False
                     GroupBox4.Enabled = False
+                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                    'retorna para CNPJMaskedTextBox empresa que estava  
+                    ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                    'focar ComboBoxBuscaCNPJ
+                    ComboBoxBuscaCNPJ.Select()
+                    DesativaDataProvisorio()
+                ElseIf result = DialogResult.Yes Then
+                    Try
+
+                        'Salva alterações
+                        Me.Validate()
+                        Me.LaudosBindingSource.EndEdit()
+                        Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                        'Modifica bloqueando td novamente
+                        BtnEditar.Text = "Editar"
+                        GroupBox9.Enabled = False
+                        GroupBox4.Enabled = False
+
+                        'retorna para CNPJMaskedTextBox empresa que estava  
+                        ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                        'focar ComboBoxBuscaCNPJ
+                        ComboBoxBuscaCNPJ.Select()
+                        DesativaDataProvisorio()
+
+                    Catch exc As Exception
+
+                        MessageBox.Show("2 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                    End Try
+                Else
+
+                    BtnEditar.Text = "Editar"
+                    Button17.Enabled = True
+                    GroupBox9.Enabled = False
+                    GroupBox4.Enabled = False
+                    Button17.Enabled = True
+                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
 
                     'retorna para CNPJMaskedTextBox empresa que estava  
                     ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
@@ -314,29 +342,8 @@ Public Class FrmAlvara
                     ComboBoxBuscaCNPJ.Select()
                     DesativaDataProvisorio()
 
-                Catch exc As Exception
-
-                    MessageBox.Show("2 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
-                End Try
-            Else
-
-                BtnEditar.Text = "Editar"
-                Button17.Enabled = True
-                GroupBox9.Enabled = False
-                GroupBox4.Enabled = False
-                Button17.Enabled = True
-                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-
-                'retorna para CNPJMaskedTextBox empresa que estava  
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-
+                End If
             End If
-
 
         Catch ex As Exception
             MessageBox.Show("2 - Ocorreu um Erro ao Salvar" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -348,18 +355,15 @@ Public Class FrmAlvara
 
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
         Try
-            Dim changedRecords As DataTable
-            ' changedRecords = PrinceDBDataSet.Telefones.GetChanges()
+            Dim changedRecords As System.Data.DataTable
             Me.LaudosBindingSource.EndEdit()
             changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
 
             If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-
-
                 Dim message As String
-                message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar as alterações?", changedRecords.Rows.Count)
-                'mostra mensagem box SIM OU NAO OU CANCELA
+                message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+
                 Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
                 If result = DialogResult.Cancel Then
                     ' e.Cancel = True
@@ -1644,5 +1648,28 @@ Public Class FrmAlvara
         End If
     End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked, LinkLabel2.LinkClicked
+        'abri o link externo http://www.maringa.pr.gov.br/site/index.php?sessao=37549ccd71a237&artigo=25
+        System.Diagnostics.Process.Start("http://www.maringa.pr.gov.br/site/index.php?sessao=37549ccd71a237&artigo=25")
+    End Sub
 
+    Private Sub BtnMgsBoxAvisarDia_Click(sender As Object, e As EventArgs) Handles BtnMgsBoxAvisarDia.Click
+        Try
+            Dim a As DateTime
+            a = AvisarDiaMaskedTextBox.Text
+            MsgBox(a.ToLongDateString)
+            'avisar que cai no final de semana
+            If a.DayOfWeek = DayOfWeek.Saturday Or a.DayOfWeek = DayOfWeek.Sunday Then
+                MsgBox("Cai no fim de semana, alterando para proximo dia útil")
+                'se for domingo ou sabado , mudar data do AvisarDiaMaskedTextBox para segunda feira
+                If a.DayOfWeek = DayOfWeek.Sunday Then
+                    AvisarDiaMaskedTextBox.Text = a.AddDays(1)
+                ElseIf a.DayOfWeek = DayOfWeek.Saturday Then
+                    AvisarDiaMaskedTextBox.Text = a.AddDays(2)
+                End If
+            End If
+        Catch
+            MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
+        End Try
+    End Sub
 End Class
