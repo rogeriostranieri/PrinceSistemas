@@ -60,6 +60,7 @@ Partial Class WebSiteGERAL
         Me.BtnREDESIMAlteracao = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnREDESIMBaixa = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ImportarPRNToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -321,7 +322,7 @@ Partial Class WebSiteGERAL
         'BtnSimplesNacionalPrimeiraParteInício
         '
         Me.BtnSimplesNacionalPrimeiraParteInício.Name = "BtnSimplesNacionalPrimeiraParteInício"
-        Me.BtnSimplesNacionalPrimeiraParteInício.Size = New System.Drawing.Size(191, 22)
+        Me.BtnSimplesNacionalPrimeiraParteInício.Size = New System.Drawing.Size(234, 22)
         Me.BtnSimplesNacionalPrimeiraParteInício.Text = "Primeira Parte - Início"
         '
         'BtnSimplesNacionalSegundasParteDados
@@ -340,13 +341,13 @@ Partial Class WebSiteGERAL
         'ImportarDadosToolStripMenuItem
         '
         Me.ImportarDadosToolStripMenuItem.Name = "ImportarDadosToolStripMenuItem"
-        Me.ImportarDadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportarDadosToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.ImportarDadosToolStripMenuItem.Text = "Importar Dados"
         '
         'ExportarCódigoToolStripMenuItem
         '
         Me.ExportarCódigoToolStripMenuItem.Name = "ExportarCódigoToolStripMenuItem"
-        Me.ExportarCódigoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExportarCódigoToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.ExportarCódigoToolStripMenuItem.Text = "Exportar Código"
         '
         'AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem
@@ -368,7 +369,7 @@ Partial Class WebSiteGERAL
         'ToolStripDropDownButton3
         '
         Me.ToolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRedeSimAbertura, Me.BtnREDESIMAlteracao, Me.BtnREDESIMBaixa, Me.ToolStripSeparator5})
+        Me.ToolStripDropDownButton3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRedeSimAbertura, Me.BtnREDESIMAlteracao, Me.BtnREDESIMBaixa, Me.ToolStripSeparator5, Me.ImportarPRNToolStripMenuItem})
         Me.ToolStripDropDownButton3.Image = CType(resources.GetObject("ToolStripDropDownButton3.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton3.Name = "ToolStripDropDownButton3"
@@ -378,25 +379,31 @@ Partial Class WebSiteGERAL
         'BtnRedeSimAbertura
         '
         Me.BtnRedeSimAbertura.Name = "BtnRedeSimAbertura"
-        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(124, 22)
+        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(180, 22)
         Me.BtnRedeSimAbertura.Text = "Abertura"
         '
         'BtnREDESIMAlteracao
         '
         Me.BtnREDESIMAlteracao.Name = "BtnREDESIMAlteracao"
-        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(124, 22)
+        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(180, 22)
         Me.BtnREDESIMAlteracao.Text = "Alteração"
         '
         'BtnREDESIMBaixa
         '
         Me.BtnREDESIMBaixa.Name = "BtnREDESIMBaixa"
-        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(124, 22)
+        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(180, 22)
         Me.BtnREDESIMBaixa.Text = "Baixa"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(121, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(177, 6)
+        '
+        'ImportarPRNToolStripMenuItem
+        '
+        Me.ImportarPRNToolStripMenuItem.Name = "ImportarPRNToolStripMenuItem"
+        Me.ImportarPRNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportarPRNToolStripMenuItem.Text = "Importar PRN"
         '
         'ToolStrip1
         '
@@ -506,4 +513,5 @@ Partial Class WebSiteGERAL
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
     Friend WithEvents ImportarDadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportarCódigoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportarPRNToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -482,4 +482,13 @@ Public Class WebSiteGERAL
         FrmLegalizacao.CodigoSimplesTextBox.Text = CodigoSimples2
         FrmLegalizacao.Focus()
     End Sub
+
+    Private Sub ImportarPRNToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarPRNToolStripMenuItem.Click
+        'procurar class="col-md-12" e pegar o " Protocolo REDESIM: " o numero depois PRP2266046800 
+        Dim Protocolo As String = WebView.ExecuteScriptAsync("GetElementByClassName('col-md-12')").ToString
+        Dim Protocolo2 As String = Protocolo.Substring(Protocolo.IndexOf("Protocolo REDESIM: ") + "Protocolo REDESIM: ".Length)
+        FrmLegalizacao.TabControle.SelectedIndex = 3
+        FrmLegalizacao.ProtocoloREDESIMTextBox.Text = Protocolo2
+        FrmLegalizacao.Focus()
+    End Sub
 End Class

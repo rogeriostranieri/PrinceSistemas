@@ -50,6 +50,7 @@ Public Class FrmSocios
         'bloquear ediçao GroupBoxDadosPessoais
         GroupBoxDadosPessoais.Enabled = False
         GroupBoxOutrosDados.Enabled = False
+        GroupBoxConjuge.Enabled = False
 
     End Sub
 
@@ -57,6 +58,7 @@ Public Class FrmSocios
         'bloquear ediçao GroupBoxDadosPessoais
         GroupBoxDadosPessoais.Enabled = True
         GroupBoxOutrosDados.Enabled = True
+        GroupBoxConjuge.Enabled = True
     End Sub
 
     Private Sub EstadoCivil()
@@ -71,6 +73,7 @@ Public Class FrmSocios
             CivilComboBox.Items.Add("separado")
             CivilComboBox.Items.Add("casado em regime de separação obrigatória de bens")
             CivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
+            ProfissãoTextBox.Text = "empresario"
         ElseIf GeneroComboBox.Text = "Feminino" Then
             CivilComboBox.Items.Add("solteira")
             CivilComboBox.Items.Add("divorciada")
@@ -79,6 +82,7 @@ Public Class FrmSocios
             CivilComboBox.Items.Add("separada")
             CivilComboBox.Items.Add("casada em regime de separação obrigatória de bens")
             CivilComboBox.Items.Add("casada em regime de participação final nos aquestos")
+            ProfissãoTextBox.Text = "empresaria"
         Else
             CivilComboBox.Items.Add("solteiro")
             CivilComboBox.Items.Add("divorciado")
@@ -87,6 +91,7 @@ Public Class FrmSocios
             CivilComboBox.Items.Add("separação convencional de bens")
             CivilComboBox.Items.Add("separação obrigatória de bens")
             CivilComboBox.Items.Add("participação final nos aquestos")
+            ProfissãoTextBox.Text = "empresario"
         End If
 
     End Sub
@@ -295,7 +300,7 @@ Public Class FrmSocios
             Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
             Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
             Dim EstadoCivil As String = CivilComboBox.Text
-            Dim Empresario As String
+            Dim Empresario As String = ProfissãoTextBox.Text
             Dim Genero As String = GeneroComboBox.Text
             Dim domiciliado As String
 
@@ -313,25 +318,18 @@ Public Class FrmSocios
             Dim Brasileiro As String
             Dim Nascido As String
 
-
             'verificar se está no masculino ou feminio no campo GeneroComboBox
             If Genero = "Masculino" Then
-                'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
-                ' EstadoCivil = "solteiro"
-                Empresario = "empresário"
                 domiciliado = "domiciliado"
                 Portador = "portador"
                 Brasileiro = "brasileiro"
                 Nascido = "nascido em"
 
             ElseIf Genero = "Feminino" Then
-                'EstadoCivil = "solteira"
-                Empresario = "empresária"
                 domiciliado = "domiciliada"
                 Portador = "portadora"
                 Brasileiro = "brasileira"
                 Nascido = "nascida em"
-
             End If
 
 
