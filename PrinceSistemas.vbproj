@@ -386,6 +386,12 @@
     <Compile Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.Designer.vb">
+      <DependentUpon>WebConsultaTituloDeEleitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.Designer.vb">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </Compile>
@@ -733,6 +739,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.resx">
       <DependentUpon>WEBConsultaCPF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.resx">
+      <DependentUpon>WebConsultaTituloDeEleitor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>

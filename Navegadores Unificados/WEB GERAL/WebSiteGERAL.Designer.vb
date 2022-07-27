@@ -379,30 +379,30 @@ Partial Class WebSiteGERAL
         'BtnRedeSimAbertura
         '
         Me.BtnRedeSimAbertura.Name = "BtnRedeSimAbertura"
-        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(180, 22)
+        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(146, 22)
         Me.BtnRedeSimAbertura.Text = "Abertura"
         '
         'BtnREDESIMAlteracao
         '
         Me.BtnREDESIMAlteracao.Name = "BtnREDESIMAlteracao"
-        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(180, 22)
+        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(146, 22)
         Me.BtnREDESIMAlteracao.Text = "Alteração"
         '
         'BtnREDESIMBaixa
         '
         Me.BtnREDESIMBaixa.Name = "BtnREDESIMBaixa"
-        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(180, 22)
+        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(146, 22)
         Me.BtnREDESIMBaixa.Text = "Baixa"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(143, 6)
         '
         'ImportarPRNToolStripMenuItem
         '
         Me.ImportarPRNToolStripMenuItem.Name = "ImportarPRNToolStripMenuItem"
-        Me.ImportarPRNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportarPRNToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ImportarPRNToolStripMenuItem.Text = "Importar PRN"
         '
         'ToolStrip1

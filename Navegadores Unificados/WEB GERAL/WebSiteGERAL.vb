@@ -2,6 +2,7 @@
 Imports System.IO
 Public Class WebSiteGERAL
     Private Sub Titulo()
+        TabControl1.TabPages(0).Text = "aguarde"
         TxtURL.Text = WebView.Source.ToString
         'Document Title Changed na barra de titulo
         Dim TituloSite As String = WebView.CoreWebView2.DocumentTitle
@@ -14,6 +15,8 @@ Public Class WebSiteGERAL
     '//////////////////////////////////////////////////////////////////////////////
     Private Sub WebView_NavigationStarting_1(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs) Handles WebView.NavigationStarting
         'mostrar barra de progresso e mudar LblStatusCarregamento
+        Titulo()
+
         ProgressBar1.Visible = True
         TxtCarregamento.Visible = True
         TxtCarregamento.Text = "Carregando..."
@@ -25,7 +28,6 @@ Public Class WebSiteGERAL
         ProgressBar1.Minimum = 0
         ProgressBar1.Value = 0
         ProgressBar1.Step = 1
-
     End Sub
 
 
@@ -484,11 +486,7 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub ImportarPRNToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarPRNToolStripMenuItem.Click
-        'procurar class="col-md-12" e pegar o " Protocolo REDESIM: " o numero depois PRP2266046800 
-        Dim Protocolo As String = WebView.ExecuteScriptAsync("GetElementByClassName('col-md-12')").ToString
-        Dim Protocolo2 As String = Protocolo.Substring(Protocolo.IndexOf("Protocolo REDESIM: ") + "Protocolo REDESIM: ".Length)
-        FrmLegalizacao.TabControle.SelectedIndex = 3
-        FrmLegalizacao.ProtocoloREDESIMTextBox.Text = Protocolo2
-        FrmLegalizacao.Focus()
+        'mgs box "teste"
+        MsgBox("Em Desenvolvimento")
     End Sub
 End Class

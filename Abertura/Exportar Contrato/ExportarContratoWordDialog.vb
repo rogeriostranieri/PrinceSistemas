@@ -40,8 +40,8 @@ Public Class ExportarContratoWordDialog
             Dim TituloDeEleitor As String = FrmSocios.TituloDeEleitorTextBox.Text
             Dim CNH As String = FrmSocios.CNHTextBox.Text
             Dim ExpediçãoCNH As String = FrmSocios.CNHExpedicaoTextBox.Text
-            Dim DataExpediçãoCNH As String = FrmSocios.CNHDataExpTextBox.Text
-            Dim EstadoCivil As String = FrmSocios.CivilComboBox.Text
+            Dim DataExpediçãoCNH As String = FrmSocios.CNHDataExpMaskedTextBox.Text
+            Dim EstadoCivil As String = FrmSocios.CivilTextBox.Text
             If EstadoCivil = "solteiro" Then
                 EstadoCivil = "maior, solteiro"
             ElseIf EstadoCivil = "solteira" Then

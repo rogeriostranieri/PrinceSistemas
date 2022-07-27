@@ -88,7 +88,7 @@ Partial Class Login
         '
         Me.OK.BackColor = System.Drawing.Color.LimeGreen
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.OK.Location = New System.Drawing.Point(133, 218)
+        Me.OK.Location = New System.Drawing.Point(150, 207)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(60, 30)
         Me.OK.TabIndex = 4
@@ -101,7 +101,7 @@ Partial Class Login
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Cancel.ForeColor = System.Drawing.Color.Black
-        Me.Cancel.Location = New System.Drawing.Point(233, 218)
+        Me.Cancel.Location = New System.Drawing.Point(218, 207)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(60, 30)
         Me.Cancel.TabIndex = 5
@@ -169,7 +169,7 @@ Partial Class Login
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(400, 258)
+        Me.ClientSize = New System.Drawing.Size(400, 249)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)

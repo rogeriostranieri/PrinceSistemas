@@ -18,16 +18,14 @@ Public Class FrmSocios
     Private Sub FrmSocios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Socios'. Você pode movê-la ou removê-la conforme necessário.
         Me.SociosTableAdapter.Fill(Me.PrinceDBDataSet.Socios)
-        BloquearEdicao()
 
-        'coloca CivilComboBox para selecionar comunhão parcial de bens
-        CivilComboBox.Items.Add("solteiro")
-        CivilComboBox.Items.Add("divorciado")
-        CivilComboBox.Items.Add("comunhão parcial de bens")
-        CivilComboBox.Items.Add("comunhão universal de bens")
-        CivilComboBox.Items.Add("separação convencional de bens")
-        CivilComboBox.Items.Add("separação obrigatória de bens")
-        CivilComboBox.Items.Add("participação final nos aquestos")
+
+        'listbox invisivel
+        ListBoxEstadoCivil.Visible = False
+        CivilTextBox.Visible = True
+        'listbox invisivel
+
+        BloquearEdicao()
 
         GeneroComboBox.Items.Add("Masculino")
         GeneroComboBox.Items.Add("Feminino")
@@ -43,6 +41,7 @@ Public Class FrmSocios
 
         'seleciona o primeiro do ComboBox1
         ComboBox1.SelectedIndex = 0
+
 
     End Sub
 
@@ -62,38 +61,48 @@ Public Class FrmSocios
     End Sub
 
     Private Sub EstadoCivil()
-        'limpar CivilComboBox
-        CivilComboBox.Items.Clear()
-
+        'verificar se está preenchido ou nao
+        'If CivilTextBox.Text = "" Then
         If GeneroComboBox.Text = "Masculino" Then
-            CivilComboBox.Items.Add("solteiro")
-            CivilComboBox.Items.Add("divorciado")
-            CivilComboBox.Items.Add("casado em regime de comunhão parcial de bens")
-            CivilComboBox.Items.Add("casado em regime de comunhão universal de bens")
-            CivilComboBox.Items.Add("separado")
-            CivilComboBox.Items.Add("casado em regime de separação obrigatória de bens")
-            CivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
-            ProfissãoTextBox.Text = "empresario"
-        ElseIf GeneroComboBox.Text = "Feminino" Then
-            CivilComboBox.Items.Add("solteira")
-            CivilComboBox.Items.Add("divorciada")
-            CivilComboBox.Items.Add("casada em regime de comunhão parcial de bens")
-            CivilComboBox.Items.Add("casada em regime de comunhão universal de bens")
-            CivilComboBox.Items.Add("separada")
-            CivilComboBox.Items.Add("casada em regime de separação obrigatória de bens")
-            CivilComboBox.Items.Add("casada em regime de participação final nos aquestos")
-            ProfissãoTextBox.Text = "empresaria"
-        Else
-            CivilComboBox.Items.Add("solteiro")
-            CivilComboBox.Items.Add("divorciado")
-            CivilComboBox.Items.Add("comunhão parcial de bens")
-            CivilComboBox.Items.Add("comunhão universal de bens")
-            CivilComboBox.Items.Add("separação convencional de bens")
-            CivilComboBox.Items.Add("separação obrigatória de bens")
-            CivilComboBox.Items.Add("participação final nos aquestos")
-            ProfissãoTextBox.Text = "empresario"
-        End If
+            ListBoxEstadoCivil.Items.Clear()
+            'adicionar itens ao listbox solteiro
+            ListBoxEstadoCivil.Items.Add("solteiro")
+            ListBoxEstadoCivil.Items.Add("separado")
+            ListBoxEstadoCivil.Items.Add("divorciado")
+            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão parcial de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
+            If ProfissãoTextBox.Text = "" Then
+                ProfissãoTextBox.Text = "empresário"
+            End If
 
+        ElseIf GeneroComboBox.Text = "Feminino" Then
+            ListBoxEstadoCivil.Items.Clear()
+            ListBoxEstadoCivil.Items.Add("solteira")
+            ListBoxEstadoCivil.Items.Add("separada")
+            ListBoxEstadoCivil.Items.Add("divorciada")
+            ListBoxEstadoCivil.Items.Add("casada em regime de comunhão parcial de bens")
+            ListBoxEstadoCivil.Items.Add("casada em regime de comunhão universal de bens")
+            ListBoxEstadoCivil.Items.Add("casada em regime de separação obrigatória de bens")
+            ListBoxEstadoCivil.Items.Add("casada em regime de participação final nos aquestos")
+            If ProfissãoTextBox.Text = "" Then
+                ProfissãoTextBox.Text = "empresária"
+            End If
+        Else
+            ListBoxEstadoCivil.Items.Clear()
+            ListBoxEstadoCivil.Items.Add("solteiro")
+            ListBoxEstadoCivil.Items.Add("separado")
+            ListBoxEstadoCivil.Items.Add("divorciado")
+            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão parcial de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
+            ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
+            If ProfissãoTextBox.Text = "" Then
+                ProfissãoTextBox.Text = "empresário"
+            End If
+        End If
+        '  End If
     End Sub
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         'pergunta, adiciona novo registro
@@ -105,7 +114,7 @@ Public Class FrmSocios
 
             'selecionar  index 0 GeneroComboBox e CivilComboBox
             GeneroComboBox.SelectedIndex = 0
-            CivilComboBox.SelectedIndex = 0
+            ListBoxEstadoCivil.SelectedIndex = 0
 
             TextBoxExtensoDN.Visible = False
         End If
@@ -202,7 +211,7 @@ Public Class FrmSocios
         EstadoCivil()
     End Sub
 
-    Private Sub CivilComboBox_Click(sender As Object, e As EventArgs) Handles CivilComboBox.Click
+    Private Sub CivilComboBox_Click(sender As Object, e As EventArgs)
         'verifica se esta no Feminino e mudar para solteira do  CivilComboBox da lista
         EstadoCivil()
     End Sub
@@ -242,13 +251,14 @@ Public Class FrmSocios
         FrmLegalizacao.TituloeleitorTextBox.Text = TituloDeEleitorTextBox.Text
         FrmLegalizacao.CNHnumeroTextBox.Text = CNHTextBox.Text
         FrmLegalizacao.CNHexpTextBox.Text = CNHExpedicaoTextBox.Text
-        FrmLegalizacao.CNHdataexpMaskedTextBox.Text = CNHDataExpTextBox.Text
+        FrmLegalizacao.CNHdataexpMaskedTextBox.Text = CNHDataExpMaskedTextBox.Text
     End Sub
     Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
         Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
         Dim NomeSocio As String = NomeCompletoTextBox.Text
         Try
             'perguntar antes
+            'mgsbox em negrito
             If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                 AtivarTab()
 
@@ -298,8 +308,8 @@ Public Class FrmSocios
             Dim TituloDeEleitor As String = TituloDeEleitorTextBox.Text
             Dim CNH As String = CNHTextBox.Text
             Dim ExpediçãoCNH As String = CNHExpedicaoTextBox.Text
-            Dim DataExpediçãoCNH As String = CNHDataExpTextBox.Text
-            Dim EstadoCivil As String = CivilComboBox.Text
+            Dim DataExpediçãoCNH As String = CNHDataExpMaskedTextBox.Text
+            Dim EstadoCivil As String = CivilTextBox.Text
             Dim Empresario As String = ProfissãoTextBox.Text
             Dim Genero As String = GeneroComboBox.Text
             Dim domiciliado As String
@@ -1108,16 +1118,118 @@ Novos dados:" + "
     End Sub
 
     Private Sub BtnConsultaCPF_Click(sender As Object, e As EventArgs) Handles BtnConsultaCPF.Click
-        'verificar se o WEBConsultaCPF está aberto
-        If WEBConsultaCPF.Visible = True Then
-            WEBConsultaCPF.Focus()
-            WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
-        Else
-            WEBConsultaCPF.Show()
-            WEBConsultaCPF.Focus()
-            WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+        'verificar se tem CPF e Data de nascimento preenchido
+        If CPFMaskedTextBox.Text <> "   .   .   -" And DatadeNascMaskedTextBox.Text <> "  /  /" Then
+            'verificar se o CPF é valido
+            'verificar se o WEBConsultaCPF está aberto
+            If WEBConsultaCPF.Visible = True Then
+                WEBConsultaCPF.Focus()
+                WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+            Else
+                WEBConsultaCPF.Show()
+                WEBConsultaCPF.Focus()
+                WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
 
+            End If
+        Else
+            'mgsbox preencher
+            MsgBox("Preencher o CPF e a data de nascimento", MsgBoxStyle.Information, "Aviso")
         End If
 
+
     End Sub
+
+    Private Sub CivilTextBox_Click(sender As Object, e As EventArgs) Handles CivilTextBox.Click
+        'abrir a ListBoxEstadoCivil de baixo do CivilTextBox
+        ListBoxEstadoCivil.Visible = True
+        ListBoxEstadoCivil.Top = CivilTextBox.Top + CivilTextBox.Height + 5
+        ListBoxEstadoCivil.Left = CivilTextBox.Left
+        ListBoxEstadoCivil.Width = CivilTextBox.Width
+        ListBoxEstadoCivil.Height = CivilTextBox.Height
+        ListBoxEstadoCivil.BringToFront()
+        ListBoxEstadoCivil.Focus()
+        ListBoxEstadoCivil.Items.Clear()
+        'carregar os itens "empresario" "empresaria"
+        EstadoCivil()
+        'auto size para o tamanho do ListBoxEstadoCivil
+        ListBoxEstadoCivil.AutoSize = True
+
+        'clicar na seleção no ListBoxGeral e mudar o ProfissãoTextBox.text
+        AddHandler ListBoxEstadoCivil.Click, AddressOf ListBoxEstadoCivil_Click
+    End Sub
+
+    Private Sub ListBoxEstadoCivil_Click(sender As Object, e As EventArgs) Handles ListBoxEstadoCivil.Click
+        'CivilTextBox
+        CivilTextBox.Text = ListBoxEstadoCivil.Text
+        'fechar o ListBoxGeral  
+        ListBoxEstadoCivil.Visible = False
+    End Sub
+
+    Private Sub CivilTextBox_TextChanged(sender As Object, e As EventArgs) Handles CivilTextBox.TextChanged
+        'aumentar tamanho CivilTextBox conforme tamanho do texto
+        If CivilTextBox.Text = "" Then
+            CivilTextBox.Width = 118
+        Else
+            CivilTextBox.Width = CivilTextBox.Text.Length * 6
+        End If
+    End Sub
+
+    Private Sub ListBoxEstadoCivil_Leave(sender As Object, e As EventArgs) Handles ListBoxEstadoCivil.Leave
+        ListBoxEstadoCivil.Visible = False
+    End Sub
+
+
+
+    Private Sub OrgaoRGTextBox_Validated(sender As Object, e As EventArgs) Handles OrgaoRGTextBox.Validated
+        'OrgaoRGTextBox.Text   ModTexto.TodoMaiusculo
+        OrgaoRGTextBox.Text = OrgaoRGTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(OrgaoRGTextBox.Text)
+    End Sub
+
+    Private Sub EstadoRGTextBox_Validated(sender As Object, e As EventArgs) Handles EstadoRGTextBox.Validated
+        'OrgaoRGTextBox.Text   ModTexto.TodoMaiusculo
+        EstadoRGTextBox.Text = EstadoRGTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(EstadoRGTextBox.Text)
+    End Sub
+
+    Private Sub NomeCompletoTextBox_TextChanged(sender As Object, e As EventArgs)
+        '   ModTexto.TodoMaiusculo
+        NomeCompletoTextBox.Text = NomeCompletoTextBox.Text.ToUpper()
+        'tirar todos caraceteres especiais
+        LimpaTexto(NomeCompletoTextBox.Text)
+        'aumentar tamanho NomeCompletoTextBox conforme tamanho do texto
+
+    End Sub
+
+    Private Sub NomeMaeTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomeMaeTextBox.TextChanged
+        'ToUpper
+        NomeMaeTextBox.Text = NomeMaeTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(NomeMaeTextBox.Text)
+    End Sub
+
+    Private Sub NomePaiTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomePaiTextBox.TextChanged
+        'ToUpper
+        NomePaiTextBox.Text = NomePaiTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(NomePaiTextBox.Text)
+    End Sub
+
+    Private Sub BtnConsultarTituloDeEleitor_Click(sender As Object, e As EventArgs) Handles BtnConsultarTituloDeEleitor.Click
+        'verificar se o WebConsultaTituloDeEleitor está aberto
+        Dim Form As New WebConsultaTituloDeEleitor()
+        Dim Site As String = "https://www.tre-pr.jus.br/eleitor/servicos-ao-eleitor/titulo-e-local-de-votacao/titulo-e-local-de-votacao-consulta-por-nome"
+        If Form.Visible = True Then
+            Form.Focus()
+            Form.WebView21.Source = New Uri(Site)
+        Else
+            Form.Show()
+            Form.Focus()
+            Form.WebView21.Source = New Uri(Site)
+
+        End If
+    End Sub
+
 End Class

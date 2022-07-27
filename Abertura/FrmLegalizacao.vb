@@ -2856,6 +2856,8 @@ Protocolo RedeSim= " & G & ".
             'focus
             CapitalSTextBox.Focus()
         Else
+            'tirar ".00"
+            CapitalSTextBox.Text = CapitalSTextBox.Text.Replace(",00", "").Replace(".00", "")
             'CapitalITextBox colocar igual CapitalSTextBox
             CapitalITextBox.Text = CapitalSTextBox.Text
             'CapitalQuotaValorTextBox colocar valor R$ 1,00
@@ -2864,6 +2866,11 @@ Protocolo RedeSim= " & G & ".
             Dim CapitalSemNada As String = CapitalSTextBox.Text.Replace("R$ ", "").Replace(",00", "")
             CapitaQuotaTotalTextBox.Text = CapitalSemNada
 
+            'mudar para reais
+            CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
+            CapitalITextBox.Text = FormatCurrency(CapitalITextBox.Text)
+            CapitaQuotaTotalTextBox.Text = FormatCurrency(CapitaQuotaTotalTextBox.Text)
+            DataExcSocialMaskedTextBox.Text = "31/12"
         End If
     End Sub
 
@@ -2935,4 +2942,6 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
             MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
         End Try
     End Sub
+
+
 End Class

@@ -81,6 +81,10 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.CivilTextBox = New System.Windows.Forms.TextBox()
+        Me.BtnConsultarTituloDeEleitor = New System.Windows.Forms.Button()
+        Me.CNHDataExpMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ListBoxEstadoCivil = New System.Windows.Forms.ListBox()
         Me.ProfissãoTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultaCPF = New System.Windows.Forms.Button()
         Me.BtnAtalhoContato = New System.Windows.Forms.Button()
@@ -88,8 +92,6 @@ Partial Class FrmSocios
         Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
         Me.BtnExtensoDN = New System.Windows.Forms.Button()
         Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
-        Me.CivilComboBox = New System.Windows.Forms.ComboBox()
-        Me.CNHDataExpTextBox = New System.Windows.Forms.TextBox()
         Me.CNHExpedicaoTextBox = New System.Windows.Forms.TextBox()
         Me.CNHTextBox = New System.Windows.Forms.TextBox()
         Me.SenhaGOVTextBox = New System.Windows.Forms.TextBox()
@@ -100,7 +102,6 @@ Partial Class FrmSocios
         Me.DatadeNascMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.NomePaiTextBox = New System.Windows.Forms.TextBox()
         Me.NomeMaeTextBox = New System.Windows.Forms.TextBox()
-        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
@@ -122,6 +123,7 @@ Partial Class FrmSocios
         Me.BtnAtalhoEndereco2 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.GroupBoxConjuge = New System.Windows.Forms.GroupBox()
         Me.NOMEdoCONJUGETextBox = New System.Windows.Forms.TextBox()
         Me.CPFdoCONJUGEMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -150,7 +152,7 @@ Partial Class FrmSocios
         Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBoxConjuge = New System.Windows.Forms.GroupBox()
+        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -192,13 +194,13 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
+        Me.GroupBoxConjuge.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBoxMenuCapitalSocial.SuspendLayout()
         Me.GroupBoxCapitalSocial.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBoxConjuge.SuspendLayout()
         Me.SuspendLayout()
         '
         'CEPLabel
@@ -402,20 +404,20 @@ Partial Class FrmSocios
         'CNHExpedicaoLabel
         '
         CNHExpedicaoLabel.AutoSize = True
-        CNHExpedicaoLabel.Location = New System.Drawing.Point(220, 292)
+        CNHExpedicaoLabel.Location = New System.Drawing.Point(357, 266)
         CNHExpedicaoLabel.Name = "CNHExpedicaoLabel"
-        CNHExpedicaoLabel.Size = New System.Drawing.Size(60, 13)
+        CNHExpedicaoLabel.Size = New System.Drawing.Size(39, 13)
         CNHExpedicaoLabel.TabIndex = 23
-        CNHExpedicaoLabel.Text = "Expedicao:"
+        CNHExpedicaoLabel.Text = "Orgão:"
         '
         'CNHDataExpLabel
         '
         CNHDataExpLabel.AutoSize = True
-        CNHDataExpLabel.Location = New System.Drawing.Point(28, 292)
+        CNHDataExpLabel.Location = New System.Drawing.Point(232, 266)
         CNHDataExpLabel.Name = "CNHDataExpLabel"
-        CNHDataExpLabel.Size = New System.Drawing.Size(80, 13)
+        CNHDataExpLabel.Size = New System.Drawing.Size(54, 13)
         CNHDataExpLabel.TabIndex = 25
-        CNHDataExpLabel.Text = "Data Exp CNH:"
+        CNHDataExpLabel.Text = "Data Exp:"
         '
         'CivilLabel
         '
@@ -565,7 +567,7 @@ Partial Class FrmSocios
         Me.CPFComboBox.DataSource = Me.SociosBindingSource
         Me.CPFComboBox.DisplayMember = "CPF"
         Me.CPFComboBox.FormattingEnabled = True
-        Me.CPFComboBox.Location = New System.Drawing.Point(281, 79)
+        Me.CPFComboBox.Location = New System.Drawing.Point(281, 77)
         Me.CPFComboBox.Name = "CPFComboBox"
         Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
         Me.CPFComboBox.TabIndex = 8
@@ -578,7 +580,7 @@ Partial Class FrmSocios
         Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
         Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
         Me.NomeCompletoComboBox.FormattingEnabled = True
-        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(42, 79)
+        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(42, 77)
         Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
         Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
         Me.NomeCompletoComboBox.TabIndex = 7
@@ -587,7 +589,7 @@ Partial Class FrmSocios
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(246, 82)
+        Me.Label3.Location = New System.Drawing.Point(246, 80)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 1
@@ -596,7 +598,7 @@ Partial Class FrmSocios
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1, 82)
+        Me.Label2.Location = New System.Drawing.Point(1, 80)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
         Me.Label2.TabIndex = 0
@@ -635,7 +637,7 @@ Partial Class FrmSocios
         Me.GroupBox1.Controls.Add(Me.BtnCancelar)
         Me.GroupBox1.Controls.Add(Me.BtnExcluir)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(602, 109)
+        Me.GroupBox1.Location = New System.Drawing.Point(602, 105)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(93, 168)
         Me.GroupBox1.TabIndex = 56
@@ -649,7 +651,7 @@ Partial Class FrmSocios
         Me.BtnNovo.Location = New System.Drawing.Point(7, 19)
         Me.BtnNovo.Name = "BtnNovo"
         Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
-        Me.BtnNovo.TabIndex = 9
+        Me.BtnNovo.TabIndex = 5
         Me.BtnNovo.Text = "Novo"
         Me.BtnNovo.UseVisualStyleBackColor = True
         '
@@ -691,7 +693,7 @@ Partial Class FrmSocios
         Me.BtnExcluir.Location = New System.Drawing.Point(7, 123)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExcluir.TabIndex = 5
+        Me.BtnExcluir.TabIndex = 9
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
         '
@@ -701,10 +703,10 @@ Partial Class FrmSocios
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 109)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 105)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 350)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 341)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -713,13 +715,18 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 324)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 315)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'GroupBoxDadosPessoais
         '
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.NomeCompletoTextBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.CivilTextBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnConsultarTituloDeEleitor)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.CNHDataExpMaskedTextBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.ListBoxEstadoCivil)
         Me.GroupBoxDadosPessoais.Controls.Add(ProfissãoLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.ProfissãoTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnConsultaCPF)
@@ -730,9 +737,7 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Controls.Add(GeneroLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.GeneroComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CivilLabel)
-        Me.GroupBoxDadosPessoais.Controls.Add(Me.CivilComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CNHDataExpLabel)
-        Me.GroupBoxDadosPessoais.Controls.Add(Me.CNHDataExpTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CNHExpedicaoLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CNHExpedicaoTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CNHLabel)
@@ -754,17 +759,54 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Controls.Add(NomeMaeLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.NomeMaeTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(NomeCompletoLabel)
-        Me.GroupBoxDadosPessoais.Controls.Add(Me.NomeCompletoTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(CPFLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CPFMaskedTextBox)
         Me.GroupBoxDadosPessoais.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 318)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 309)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'CivilTextBox
+        '
+        Me.CivilTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
+        Me.CivilTextBox.Location = New System.Drawing.Point(114, 155)
+        Me.CivilTextBox.Name = "CivilTextBox"
+        Me.CivilTextBox.ReadOnly = True
+        Me.CivilTextBox.Size = New System.Drawing.Size(118, 20)
+        Me.CivilTextBox.TabIndex = 62
+        '
+        'BtnConsultarTituloDeEleitor
+        '
+        Me.BtnConsultarTituloDeEleitor.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BtnConsultarTituloDeEleitor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnConsultarTituloDeEleitor.Location = New System.Drawing.Point(235, 237)
+        Me.BtnConsultarTituloDeEleitor.Name = "BtnConsultarTituloDeEleitor"
+        Me.BtnConsultarTituloDeEleitor.Size = New System.Drawing.Size(61, 20)
+        Me.BtnConsultarTituloDeEleitor.TabIndex = 61
+        Me.BtnConsultarTituloDeEleitor.Text = "Consultar"
+        Me.BtnConsultarTituloDeEleitor.UseVisualStyleBackColor = False
+        '
+        'CNHDataExpMaskedTextBox
+        '
+        Me.CNHDataExpMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
+        Me.CNHDataExpMaskedTextBox.Location = New System.Drawing.Point(286, 263)
+        Me.CNHDataExpMaskedTextBox.Mask = "00/00/0000"
+        Me.CNHDataExpMaskedTextBox.Name = "CNHDataExpMaskedTextBox"
+        Me.CNHDataExpMaskedTextBox.Size = New System.Drawing.Size(69, 20)
+        Me.CNHDataExpMaskedTextBox.TabIndex = 60
+        Me.CNHDataExpMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'ListBoxEstadoCivil
+        '
+        Me.ListBoxEstadoCivil.FormattingEnabled = True
+        Me.ListBoxEstadoCivil.Location = New System.Drawing.Point(237, 155)
+        Me.ListBoxEstadoCivil.Name = "ListBoxEstadoCivil"
+        Me.ListBoxEstadoCivil.Size = New System.Drawing.Size(39, 17)
+        Me.ListBoxEstadoCivil.TabIndex = 59
         '
         'ProfissãoTextBox
         '
@@ -780,7 +822,7 @@ Partial Class FrmSocios
         Me.BtnConsultaCPF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnConsultaCPF.Location = New System.Drawing.Point(221, 22)
         Me.BtnConsultaCPF.Name = "BtnConsultaCPF"
-        Me.BtnConsultaCPF.Size = New System.Drawing.Size(75, 23)
+        Me.BtnConsultaCPF.Size = New System.Drawing.Size(65, 23)
         Me.BtnConsultaCPF.TabIndex = 56
         Me.BtnConsultaCPF.Text = "Consultar"
         Me.BtnConsultaCPF.UseVisualStyleBackColor = False
@@ -835,30 +877,12 @@ Partial Class FrmSocios
         Me.GeneroComboBox.Size = New System.Drawing.Size(104, 21)
         Me.GeneroComboBox.TabIndex = 29
         '
-        'CivilComboBox
-        '
-        Me.CivilComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
-        Me.CivilComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CivilComboBox.FormattingEnabled = True
-        Me.CivilComboBox.Location = New System.Drawing.Point(114, 154)
-        Me.CivilComboBox.Name = "CivilComboBox"
-        Me.CivilComboBox.Size = New System.Drawing.Size(355, 21)
-        Me.CivilComboBox.TabIndex = 28
-        '
-        'CNHDataExpTextBox
-        '
-        Me.CNHDataExpTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
-        Me.CNHDataExpTextBox.Location = New System.Drawing.Point(114, 289)
-        Me.CNHDataExpTextBox.Name = "CNHDataExpTextBox"
-        Me.CNHDataExpTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.CNHDataExpTextBox.TabIndex = 26
-        '
         'CNHExpedicaoTextBox
         '
         Me.CNHExpedicaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHExpedicao", True))
-        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(286, 289)
+        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(397, 263)
         Me.CNHExpedicaoTextBox.Name = "CNHExpedicaoTextBox"
-        Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(72, 20)
         Me.CNHExpedicaoTextBox.TabIndex = 24
         '
         'CNHTextBox
@@ -935,14 +959,6 @@ Partial Class FrmSocios
         Me.NomeMaeTextBox.Size = New System.Drawing.Size(355, 20)
         Me.NomeMaeTextBox.TabIndex = 6
         '
-        'NomeCompletoTextBox
-        '
-        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
-        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
-        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
-        Me.NomeCompletoTextBox.TabIndex = 4
-        '
         'CPFMaskedTextBox
         '
         Me.CPFMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
@@ -958,7 +974,7 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 325)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 316)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -994,7 +1010,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 319)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 310)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1116,7 +1132,7 @@ Partial Class FrmSocios
         '
         Me.CEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CEP", True))
         Me.CEPMaskedTextBox.Location = New System.Drawing.Point(81, 27)
-        Me.CEPMaskedTextBox.Mask = "99,999-999"
+        Me.CEPMaskedTextBox.Mask = "99999-999"
         Me.CEPMaskedTextBox.Name = "CEPMaskedTextBox"
         Me.CEPMaskedTextBox.Size = New System.Drawing.Size(72, 20)
         Me.CEPMaskedTextBox.TabIndex = 30
@@ -1127,7 +1143,7 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.Button2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 325)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 316)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Contato"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1159,10 +1175,22 @@ Partial Class FrmSocios
         Me.TabPage4.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(583, 324)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 316)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Cônjuge"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'GroupBoxConjuge
+        '
+        Me.GroupBoxConjuge.Controls.Add(NOMEdoCONJUGELabel)
+        Me.GroupBoxConjuge.Controls.Add(Me.NOMEdoCONJUGETextBox)
+        Me.GroupBoxConjuge.Controls.Add(CPFdoCONJUGELabel)
+        Me.GroupBoxConjuge.Controls.Add(Me.CPFdoCONJUGEMaskedTextBox)
+        Me.GroupBoxConjuge.Location = New System.Drawing.Point(4, 12)
+        Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
+        Me.GroupBoxConjuge.Size = New System.Drawing.Size(528, 101)
+        Me.GroupBoxConjuge.TabIndex = 4
+        Me.GroupBoxConjuge.TabStop = False
         '
         'NOMEdoCONJUGETextBox
         '
@@ -1189,9 +1217,9 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 465)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 452)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(587, 73)
+        Me.GroupBox2.Size = New System.Drawing.Size(587, 66)
         Me.GroupBox2.TabIndex = 58
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Exportação"
@@ -1200,7 +1228,7 @@ Partial Class FrmSocios
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(409, 25)
+        Me.Label4.Location = New System.Drawing.Point(409, 18)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 15)
         Me.Label4.TabIndex = 55
@@ -1225,7 +1253,7 @@ Partial Class FrmSocios
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "+ Digitar"})
-        Me.ComboBox1.Location = New System.Drawing.Point(419, 43)
+        Me.ComboBox1.Location = New System.Drawing.Point(419, 36)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(58, 21)
         Me.ComboBox1.TabIndex = 54
@@ -1253,7 +1281,7 @@ Partial Class FrmSocios
         Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnWord.Location = New System.Drawing.Point(483, 25)
+        Me.BtnWord.Location = New System.Drawing.Point(483, 18)
         Me.BtnWord.Name = "BtnWord"
         Me.BtnWord.Size = New System.Drawing.Size(98, 43)
         Me.BtnWord.TabIndex = 53
@@ -1310,8 +1338,8 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.67509!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.70397!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.62094!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.41651!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.88368!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(698, 778)
         Me.TableLayoutPanel1.TabIndex = 51
@@ -1322,7 +1350,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 544)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 524)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1382,9 +1410,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 544)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 524)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 231)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 251)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1465,7 +1493,7 @@ Partial Class FrmSocios
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(593, 100)
+        Me.GroupBox3.Size = New System.Drawing.Size(593, 96)
         Me.GroupBox3.TabIndex = 65
         Me.GroupBox3.TabStop = False
         '
@@ -1481,17 +1509,13 @@ Partial Class FrmSocios
         Me.Label1.Text = "DADOS CADASTRAIS DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'GroupBoxConjuge
+        'NomeCompletoTextBox
         '
-        Me.GroupBoxConjuge.Controls.Add(NOMEdoCONJUGELabel)
-        Me.GroupBoxConjuge.Controls.Add(Me.NOMEdoCONJUGETextBox)
-        Me.GroupBoxConjuge.Controls.Add(CPFdoCONJUGELabel)
-        Me.GroupBoxConjuge.Controls.Add(Me.CPFdoCONJUGEMaskedTextBox)
-        Me.GroupBoxConjuge.Location = New System.Drawing.Point(4, 12)
-        Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
-        Me.GroupBoxConjuge.Size = New System.Drawing.Size(528, 101)
-        Me.GroupBoxConjuge.TabIndex = 4
-        Me.GroupBoxConjuge.TabStop = False
+        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
+        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
+        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
+        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
+        Me.NomeCompletoTextBox.TabIndex = 63
         '
         'FrmSocios
         '
@@ -1525,6 +1549,8 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
+        Me.GroupBoxConjuge.ResumeLayout(False)
+        Me.GroupBoxConjuge.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -1534,8 +1560,6 @@ Partial Class FrmSocios
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBoxConjuge.ResumeLayout(False)
-        Me.GroupBoxConjuge.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1572,8 +1596,6 @@ Partial Class FrmSocios
     Friend WithEvents TextBoxExtensoDN As TextBox
     Friend WithEvents BtnExtensoDN As Button
     Friend WithEvents GeneroComboBox As ComboBox
-    Friend WithEvents CivilComboBox As ComboBox
-    Friend WithEvents CNHDataExpTextBox As TextBox
     Friend WithEvents CNHExpedicaoTextBox As TextBox
     Friend WithEvents CNHTextBox As TextBox
     Friend WithEvents SenhaGOVTextBox As TextBox
@@ -1584,7 +1606,6 @@ Partial Class FrmSocios
     Friend WithEvents DatadeNascMaskedTextBox As MaskedTextBox
     Friend WithEvents NomePaiTextBox As TextBox
     Friend WithEvents NomeMaeTextBox As TextBox
-    Friend WithEvents NomeCompletoTextBox As TextBox
     Friend WithEvents CPFMaskedTextBox As MaskedTextBox
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents GroupBoxOutrosDados As GroupBox
@@ -1639,4 +1660,9 @@ Partial Class FrmSocios
     Friend WithEvents CPFdoCONJUGEMaskedTextBox As MaskedTextBox
     Friend WithEvents ProfissãoTextBox As TextBox
     Friend WithEvents GroupBoxConjuge As GroupBox
+    Friend WithEvents ListBoxEstadoCivil As ListBox
+    Friend WithEvents CNHDataExpMaskedTextBox As MaskedTextBox
+    Friend WithEvents BtnConsultarTituloDeEleitor As Button
+    Friend WithEvents CivilTextBox As TextBox
+    Friend WithEvents NomeCompletoTextBox As TextBox
 End Class

@@ -18,11 +18,6 @@
         Return System.Text.RegularExpressions.Regex.Replace(sText, "[^0-9]", "")
     End Function
 
-    'transformar letra maiuscula apenas a primeira por exemplo "Rogerio Silva Sauro"
-    Function ApenasPrimeiraLetraMaiusculo(ByVal sText As String) As String
-        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^A-Z]", "").ToUpper()
-    End Function
-
     'Transformar em Toda letra maiuscula
     Function TodoMaiusculo(ByVal sText As String) As String
         Return System.Text.RegularExpressions.Regex.Replace(sText, "[^A-Z]", "").ToUpper()
@@ -32,6 +27,5 @@
     Function TodoMinusculo(ByVal sText As String) As String
         Return System.Text.RegularExpressions.Regex.Replace(sText, "[^a-z]", "").ToLower()
     End Function
-
 
 End Module

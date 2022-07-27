@@ -1,4 +1,6 @@
-﻿Public Class FrmWebLaudoAntigoMaringaPR
+﻿Imports Newtonsoft.Json
+Imports System.Threading.Tasks
+Public Class FrmWebLaudoAntigoMaringaPR
     Private Sub FrmWebLaudoAntigoMaringaPR_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
 
@@ -37,32 +39,44 @@
         FrmAlvara.TabControl2.SelectTab(3)
         FrmAlvara.TabControl2.SelectTab(4)
         FrmAlvara.TabControl2.SelectTab(5)
-
-        WebView21.ExecuteScriptAsync("document.getElementById('razao').value = '" & FrmAlvara.RazaoSocialTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'")
-
-        WebView21.ExecuteScriptAsync("document.getElementById('num').value = '" & FrmAlvara.EndNumTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('cep').value = '" & FrmAlvara.EndCEPMaskedTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('complemento').value = '" & FrmAlvara.EndCompTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('zona').value = '" & FrmAlvara.EndZonaTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('quadra').value = '" & FrmAlvara.EndQuadraTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('data_data').value = '" & FrmAlvara.EndDataTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('lote').value = '" & FrmAlvara.EndDataTextBox.Text & "'")
+        'procurar campo name="razao" e preencher com o nome do cliente getElementByName
 
 
 
-        WebView21.ExecuteScriptAsync("document.getElementById('cad_imobiliario').value = '" & FrmAlvara.CadImobTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('bairro').value = '" & FrmAlvara.EndBairroTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('telefone').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('resp_tec').value = '" & FrmAlvara.ResptecnicoTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('cons_classe').value = '" & FrmAlvara.ResptecnicoNumeroTextBox.Text & "'")
+        'javascript ExecuteScriptAsync
+        WebView21.ExecuteScriptAsync("document.getElementByName('razao').value = '" & FrmAlvara.RazaoSocialTextBox.Text & "';")
+
+        'FrmAlvara.RazaoSocialTextBox.Text
 
 
 
-        WebView21.ExecuteScriptAsync("document.getElementById('obs').value = '" & FrmAlvara.NaturezaDoPedidoOBSRichTextBox.Text & "'")
 
-        WebView21.ExecuteScriptAsync("document.getElementById('ramo').value = '" & FrmAlvara.RamodeatividadeRichTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('area').value = '" & FrmAlvara.AreaTextBox.Text & "'")
+
+        'WebView21.ExecuteScriptAsync("document.getElementByName('razao').value = '" & FrmAlvara.RazaoSocialTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'")
+
+        WebView21.ExecuteScriptAsync("document.getElementByName('num').value = '" & FrmAlvara.EndNumTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('cep').value = '" & FrmAlvara.EndCEPMaskedTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('complemento').value = '" & FrmAlvara.EndCompTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('zona').value = '" & FrmAlvara.EndZonaTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('quadra').value = '" & FrmAlvara.EndQuadraTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('data_data').value = '" & FrmAlvara.EndDataTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('lote').value = '" & FrmAlvara.EndDataTextBox.Text & "'")
+
+
+
+        WebView21.ExecuteScriptAsync("document.getElementByName('cad_imobiliario').value = '" & FrmAlvara.CadImobTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('bairro').value = '" & FrmAlvara.EndBairroTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('telefone').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('resp_tec').value = '" & FrmAlvara.ResptecnicoTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('cons_classe').value = '" & FrmAlvara.ResptecnicoNumeroTextBox.Text & "'")
+
+
+
+        WebView21.ExecuteScriptAsync("document.getElementByName('obs').value = '" & FrmAlvara.NaturezaDoPedidoOBSRichTextBox.Text & "'")
+
+        WebView21.ExecuteScriptAsync("document.getElementByName('ramo').value = '" & FrmAlvara.RamodeatividadeRichTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('area').value = '" & FrmAlvara.AreaTextBox.Text & "'")
 
 
 
@@ -71,35 +85,35 @@
 
             FrmAlvara.TabControl2.SelectTab(4)
             FrmAlvara.Button23.PerformClick()
-            WebView21.ExecuteScriptAsync("document.getElementById('razao_requerente').value = '" & FrmAlvara.RequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('telefone_requerente').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('cnpj_requerente').value = '" & FrmAlvara.CNPJRequerenteMaskedTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('cpf_requerente').value = '" & FrmAlvara.CPFRequerenteMaskedTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('rg_requerente').value = '" & FrmAlvara.RGRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('email_requerente').value = '" & FrmAlvara.EmailRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('endereco_requerente').value = '" & FrmAlvara.EndRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('razao_requerente').value = '" & FrmAlvara.RequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('telefone_requerente').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_requerente').value = '" & FrmAlvara.CNPJRequerenteMaskedTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('cpf_requerente').value = '" & FrmAlvara.CPFRequerenteMaskedTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('rg_requerente').value = '" & FrmAlvara.RGRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('email_requerente').value = '" & FrmAlvara.EmailRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('endereco_requerente').value = '" & FrmAlvara.EndRequerenteTextBox.Text & "'")
 
 
 
         Else
-            WebView21.ExecuteScriptAsync("document.getElementById('razao_requerente').value = '" & FrmAlvara.RequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('telefone_requerente').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('cnpj_requerente').value = '" & FrmAlvara.CNPJRequerenteMaskedTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('cpf_requerente').value = '" & FrmAlvara.CPFRequerenteMaskedTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('rg_requerente').value = '" & FrmAlvara.RGRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('email_requerente').value = '" & FrmAlvara.EmailRequerenteTextBox.Text & "'")
-            WebView21.ExecuteScriptAsync("document.getElementById('endereco_requerente').value = '" & FrmAlvara.EndRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('razao_requerente').value = '" & FrmAlvara.RequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('telefone_requerente').value = '" & FrmAlvara.FoneRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_requerente').value = '" & FrmAlvara.CNPJRequerenteMaskedTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('cpf_requerente').value = '" & FrmAlvara.CPFRequerenteMaskedTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('rg_requerente').value = '" & FrmAlvara.RGRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('email_requerente').value = '" & FrmAlvara.EmailRequerenteTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementByName('endereco_requerente').value = '" & FrmAlvara.EndRequerenteTextBox.Text & "'")
 
 
         End If
 
         'parte do contador 1 cadastro apenas
         Contador.Show()
-        WebView21.ExecuteScriptAsync("document.getElementById('escritorio_nome').value = '" & Contador.RazaoSocialTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('escritorio_fone').value = '" & Contador.TelefoneMaskedTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('escritorio_email').value = '" & Contador.EmailTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('escritorio_cpfcnpj').value = '" & Contador.CNPJMaskedTextBox.Text & "'")
-        WebView21.ExecuteScriptAsync("document.getElementById('escritorio_rg').value = '" & Contador.RGTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('escritorio_nome').value = '" & Contador.RazaoSocialTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('escritorio_fone').value = '" & Contador.TelefoneMaskedTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('escritorio_email').value = '" & Contador.EmailTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('escritorio_cpfcnpj').value = '" & Contador.CNPJMaskedTextBox.Text & "'")
+        WebView21.ExecuteScriptAsync("document.getElementByName('escritorio_rg').value = '" & Contador.RGTextBox.Text & "'")
         Contador.Close()
 
 
@@ -113,7 +127,10 @@
 
 
     Private Sub CNPJToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem.Click
-        WebView21.ExecuteScriptAsync("document.getElementById('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'")
+        'WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'")
+        'usar tostring
+        Dim CNPJ As String = "document.getElementByName('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'"
+        WebView21.ExecuteScriptAsync(CNPJ)
 
     End Sub
 
