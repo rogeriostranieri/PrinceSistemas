@@ -291,6 +291,18 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Laudo\Exportar Dados Word\DadosExportacaoLaudos.Designer.vb">
+      <DependentUpon>DadosExportacaoLaudos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Exportar Dados Word\DadosExportacaoLaudos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.Designer.vb">
+      <DependentUpon>ExportarLaudoWordDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.Designer.vb">
       <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>
     </Compile>
@@ -697,6 +709,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Exportar Dados Word\DadosExportacaoLaudos.resx">
+      <DependentUpon>DadosExportacaoLaudos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.resx">
+      <DependentUpon>ExportarLaudoWordDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.resx">
       <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>

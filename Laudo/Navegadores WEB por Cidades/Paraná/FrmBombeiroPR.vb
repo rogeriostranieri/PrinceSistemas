@@ -89,7 +89,7 @@
         'telefone pegar o numero dentro do "(44)" e colocar na string DDDTELEFONE os dois digitos
         Dim DDDTELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(1, 2)
         'telefone pegar o numero depois do "(44)" e do espaço, e colocar na string TELEFONE depois dos dois digitos 3228-8785
-        Dim TELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(Contador.TelefoneMaskedTextBox.Text.IndexOf("(44)") + 4, 9)
+        Dim TELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(Contador.TelefoneMaskedTextBox.Text.IndexOf("(44)") + 4, 9).Replace(" ", "").Replace("-", "")
 
 
         'procura a id=txt_rg no site 
@@ -146,15 +146,17 @@
         ModCon.SalvaProtocolBomb()
 
 
-        'procura a id="modalSucessoVistoria", depois o texto "Processo n°" PEGAR numero depois "Processo n°", e coloca depois na BombeiroNProcessoMaskedTextBox
-        Dim script = "document.getElementById('modalSucessoVistoria').innerText.substring(document.getElementById('modalSucessoVistoria').innerText.indexOf('Processo n°') + 12, document.getElementById('modalSucessoVistoria').innerText.indexOf('Processo n°') + 22);"
+        'procura a id="modalSucessoVistoria", 
+        Dim script = "document.getElementById('modalSucessoVistoria').style.display = 'block';"
+        ' WebView21.ExecuteScriptAsync(script)
+
         Dim BombeiroNProcesso As String = WebView21.ExecuteScriptAsync(script).ToString
         'copiar e colar no local onde foi selecionado
-        Clipboard.SetText(BombeiroNProcesso)
+        ' Clipboard.SetText(BombeiroNProcesso)
         'colocar dentro da BombeiroNProcessoMaskedTextBox.text
-        FrmAlvara.BombeiroNProcessoMaskedTextBox.Text = Clipboard.GetText
+        FrmAlvara.BombeiroNProcessoMaskedTextBox.Text = BombeiroNProcesso
         'e tambem dentro do BombeiroExigenciaRichTextBox
-        FrmAlvara.BombeiroExigenciaRichTextBox.Text = Clipboard.GetText
+        FrmAlvara.BombeiroExigenciaRichTextBox.Text = BombeiroNProcesso
 
 
         FrmAlvara.BombeiroDataPedProcessoMaskedTextBox.Text = DateTime.Now.ToString()

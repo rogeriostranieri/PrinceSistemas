@@ -1,5 +1,5 @@
-﻿Imports Newtonsoft.Json
-Imports System.Threading.Tasks
+﻿Imports System.Net.Http
+Imports Newtonsoft.Json.Linq
 Public Class FrmWebLaudoAntigoMaringaPR
     Private Sub FrmWebLaudoAntigoMaringaPR_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -125,12 +125,14 @@ Public Class FrmWebLaudoAntigoMaringaPR
 
     End Sub
 
-
+    'Private Async Sub 
     Private Sub CNPJToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem.Click
-        'WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'")
-        'usar tostring
-        Dim CNPJ As String = "document.getElementByName('cnpj_empresa').value = '" & FrmAlvara.CNPJMaskedTextBox.Text & "'"
-        WebView21.ExecuteScriptAsync(CNPJ)
+        'selecioanr o campo name="cnpj_empresa" 
+        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
+
+        WebView21.ExecuteScriptAsync("document.getElementsByClassName('cnpj_empresa').click();")
+        'CNPJ
+        WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_empresa').value = '" & CNPJ & "'")
 
     End Sub
 

@@ -71,13 +71,13 @@ Public Class FrmMail
 
     'tem que configurar no cliente POP/IMAP e habilitar e ter os dados"
     Private Sub ButtonEnviar_Click(sender As Object, e As EventArgs) Handles ButtonEnviar.Click
-
-
         If MsgBox(" Deseja enviar este e-Mail?", MsgBoxStyle.YesNo, "Enviar") = MsgBoxResult.Yes Then
+            'inicia o ProgressBar1
+            ProgressBar1.Value = 0
+
             ProgressBar1.BackColor = Color.Green
             TabControle.SelectedIndex = 2
             TabControle.SelectedIndex = 0
-
 
             'codigo de entrada de dados 
             Dim UserName As String = EMailTextBox.Text
@@ -85,7 +85,6 @@ Public Class FrmMail
             Dim UserSenha As String = SenhaEmailTextBox.Text
             Dim destinatarios As String = Destinatario
             Dim Enviar As New System.Net.Mail.MailMessage '= New System.Net.Mail.MailMessage()
-
 
             ProgressBar1.Value = 10
 
@@ -96,10 +95,9 @@ Public Class FrmMail
             Next
 
             ProgressBar1.Value = 20
+
             Enviar.Subject = TextBoxAssunto.Text
             Enviar.Body = RichTextBoxMensagem.Text
-
-
             Enviar.IsBodyHtml = True
             Enviar.Priority = System.Net.Mail.MailPriority.High
 
@@ -114,16 +112,10 @@ Public Class FrmMail
                     Enviar.Attachments.Add(New Attachment(filePath))
                 End If
             Next
-            'Enviar.Attachments.Add(New Net.Mail.Attachment(o.ToString()))
-            'Enviar.Attachments.Add(New Net.Mail.Attachment(RichTextBox1.Text))
-
-
 
             'fim codigo de entrada de dados 
             'inicio da confg para envio
 
-
-            '  Dim client As SmtpClient = New SmtpClient(SmtpClientTextBox.Text, SmtpPortTextBox.Text)
             ProgressBar1.Value = 40
 
             Dim client As New SmtpClient With {
@@ -134,17 +126,16 @@ Public Class FrmMail
             }
 
             'Arquivos que vão em anexo dentro de um ListBox
-
             ProgressBar1.Value = 50
 
-
             client.Credentials = New System.Net.NetworkCredential(UserName, UserSenha)
-
-            'client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
             client.DeliveryMethod = SmtpDeliveryMethod.Network
+
             ProgressBar1.Value = 60
+
             Try
                 ProgressBar1.Value = 70
+
                 'envia o email
                 client.Send(Enviar)
 
@@ -153,7 +144,9 @@ Public Class FrmMail
                 'atualiza a caixa de saida neste form
                 Me.EMailCaixaDeSaidaTableAdapter.Fill(Me.PrinceDBDataSet.eMailCaixaDeSaida)
                 Me.Refresh()
+
                 ProgressBar1.Value = 80
+
                 'limpa tudo
                 TextBoxPara.Text = ""
                 TextBoxAssunto.Text = "Digite aqui o assunto..."
@@ -161,23 +154,22 @@ Public Class FrmMail
                 LblAnexo.Text = "Anexo..."
 
                 ProgressBar1.Value = 90
+
                 'finaliza mostrando que está tudo ok
                 '    Timer1.Stop()
                 '    Timer1.Enabled = False
                 ProgressBar1.BackColor = Color.Green
-                ProgressBar1.Value = 100
-                MessageBox.Show("E-mail enviado com sucesso")
 
+                ProgressBar1.Value = 100
+
+                MessageBox.Show("E-mail enviado com sucesso")
 
             Catch ex As Exception
                 ProgressBar1.Value = 100
                 ProgressBar1.BackColor = Color.Red
                 MessageBox.Show("Erro ao enviar o e-mail ,tente novamente ou configure corretamente os dados nas configurações")
-
             End Try
         End If
-
-
     End Sub
 
     Private Sub EMailCaixaDeSaidaDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EMailCaixaDeSaidaDataGridView.CellContentDoubleClick
@@ -392,5 +384,10 @@ Public Class FrmMail
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
         Me.Close()
+    End Sub
+
+    Private Sub LinkLabelGmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelGmail.LinkClicked
+        'mgsbox 
+        MsgBox("A partir de 30 de maio de 2022, o Google não autorizará mais o uso de apps ou dispositivos de terceiros que exigem apenas nome de usuário e senha para fazer login na Conta do Google . Essa mudança tem como objetivo proteger sua conta.")
     End Sub
 End Class

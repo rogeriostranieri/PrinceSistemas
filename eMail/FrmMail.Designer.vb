@@ -86,6 +86,7 @@ Partial Class FrmMail
         Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.LinkLabelGmail = New System.Windows.Forms.LinkLabel()
         EMailLabel = New System.Windows.Forms.Label()
         SenhaEmailLabel = New System.Windows.Forms.Label()
         SmtpClientLabel = New System.Windows.Forms.Label()
@@ -444,6 +445,7 @@ Partial Class FrmMail
         'TabPage3
         '
         Me.TabPage3.AutoScroll = True
+        Me.TabPage3.Controls.Add(Me.LinkLabelGmail)
         Me.TabPage3.Controls.Add(Me.Label4)
         Me.TabPage3.Controls.Add(Me.Label3)
         Me.TabPage3.Controls.Add(CredencialLabel)
@@ -640,6 +642,7 @@ Partial Class FrmMail
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -716,6 +719,16 @@ Partial Class FrmMail
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnFechar.TabIndex = 17
         Me.BtnFechar.TabStop = False
+        '
+        'LinkLabelGmail
+        '
+        Me.LinkLabelGmail.AutoSize = True
+        Me.LinkLabelGmail.Location = New System.Drawing.Point(377, 43)
+        Me.LinkLabelGmail.Name = "LinkLabelGmail"
+        Me.LinkLabelGmail.Size = New System.Drawing.Size(39, 13)
+        Me.LinkLabelGmail.TabIndex = 57
+        Me.LinkLabelGmail.TabStop = True
+        Me.LinkLabelGmail.Text = "Gmail?"
         '
         'FrmMail
         '
@@ -804,4 +817,5 @@ Partial Class FrmMail
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents BtnFechar As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents LinkLabelGmail As LinkLabel
 End Class

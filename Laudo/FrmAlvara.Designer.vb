@@ -266,6 +266,7 @@ Partial Class FrmAlvara
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.CNPJLabel = New System.Windows.Forms.Label()
         Me.SituacaoComboBox = New System.Windows.Forms.ComboBox()
@@ -280,7 +281,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
+        Me.BtnExportarWord = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -2984,6 +2985,16 @@ Partial Class FrmAlvara
         Me.GroupBox9.TabIndex = 78
         Me.GroupBox9.TabStop = False
         '
+        'BtnMgsBoxAvisarDia
+        '
+        Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(156, 133)
+        Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
+        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
+        Me.BtnMgsBoxAvisarDia.TabIndex = 82
+        Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
+        Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
+        '
         'LembreteCheckBox
         '
         Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
@@ -3096,6 +3107,7 @@ Partial Class FrmAlvara
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox10.Controls.Add(Me.BtnExportarWord)
         Me.GroupBox10.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.GroupBox10.Controls.Add(Me.Btnempresa)
         Me.GroupBox10.Controls.Add(Me.BtnNovaAlteracao)
@@ -3130,15 +3142,17 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
-        'BtnMgsBoxAvisarDia
+        'BtnExportarWord
         '
-        Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(156, 133)
-        Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
-        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
-        Me.BtnMgsBoxAvisarDia.TabIndex = 82
-        Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
-        Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
+        Me.BtnExportarWord.BackgroundImage = CType(resources.GetObject("BtnExportarWord.BackgroundImage"), System.Drawing.Image)
+        Me.BtnExportarWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExportarWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 206)
+        Me.BtnExportarWord.Name = "BtnExportarWord"
+        Me.BtnExportarWord.Size = New System.Drawing.Size(69, 23)
+        Me.BtnExportarWord.TabIndex = 81
+        Me.BtnExportarWord.Text = "WORD"
+        Me.BtnExportarWord.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
@@ -3456,4 +3470,5 @@ Partial Class FrmAlvara
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents BtnMgsBoxAvisarDia As Button
+    Friend WithEvents BtnExportarWord As Button
 End Class

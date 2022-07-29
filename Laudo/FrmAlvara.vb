@@ -1672,4 +1672,12 @@ Public Class FrmAlvara
             MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
         End Try
     End Sub
+
+    Private Sub BtnExportarWord_Click(sender As Object, e As EventArgs) Handles BtnExportarWord.Click
+        If ExportarLaudoWordDialog.Visible = True Then
+            ExportarLaudoWordDialog.Focus()
+        Else
+            ExportarLaudoWordDialog.Show()
+        End If
+    End Sub
 End Class

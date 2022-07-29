@@ -116,16 +116,7 @@ Module ModeMail
             Dim D = FrmLegalizacao.MotivoRichTextBox.Text.ToString()
             Dim E = "Sim" 'FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
             Dim F = FrmLegalizacao.IETextBox.Text.ToString()
-            If F = "" Then
-                F = "Não tem Inscrição Estadual"
-            End If
             Dim H = FrmLegalizacao.RazaoSocialAntigaTextBox.Text.ToString()
-
-
-            '///////////////////////  FALTA FAZER SE TIVER  RAZAO SOCIAL ANTIGA OU NAO
-            If H = "" Then
-                H = "Não teve Modificação"
-            End If
 
             'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
             If C = "Transformação" Then
@@ -134,6 +125,22 @@ Module ModeMail
                 C = G
             End If
 
+            'Nome Antigo
+            Dim NomeAntigo As String = ""
+            If H = "" Then
+                NomeAntigo = ""
+            Else
+                NomeAntigo = "<b>Com Nome Empresarial Antigo = </b> " & H & ", <br/>"
+
+            End If
+
+            'IE ESTADUAL
+            Dim IE As String = ""
+            If F = "" Then
+                IE = ""
+            Else
+                IE = ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>"
+            End If
             '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
             'assunto
             FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
@@ -141,9 +148,9 @@ Module ModeMail
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
 "<html><body><b>A Empresa = </b> " & A & ", <br/>
-<b>Com Nome Empresarial Antigo = </b> " & H & ", <br/>
+" & NomeAntigo & "
 <br/>
-<b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
+<b>Inscrita no CNPJ</b> Nº = " & B & "" & IE & "
 <br/>
 <b>Com o processo de = </b> " & C & ", <br/>
 <b>Teve como objetivo de = </b> " & D & ",<br/>
