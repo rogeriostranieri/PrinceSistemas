@@ -1,7 +1,9 @@
 ﻿Imports Microsoft.Office.Interop.Word
 
 Public Class ExportarContratoWordDialog
-
+    Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         'Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
@@ -14,11 +16,26 @@ Public Class ExportarContratoWordDialog
 
 
     Private Sub ExportarSocios()
-
         Dim word As New Microsoft.Office.Interop.Word.Application
         Dim doc As Microsoft.Office.Interop.Word.Document
         Dim rng As Microsoft.Office.Interop.Word.Range
+
         Try
+            'mostra PictureBoxAguarde com imagem "aguarde"
+            PictureBoxAguarde.Visible = True
+            PictureBoxAguarde.Image = My.Resources.Aguarde
+            'PictureBoxAguarde fill
+            PictureBoxAguarde.SizeMode = PictureBoxSizeMode.StretchImage
+            'dock fill
+            PictureBoxAguarde.Dock = DockStyle.Fill
+            'bloqueia os botao de abrir ok e cancelar e fechar
+            BtnAbrir.Enabled = False
+            BtnAdicionar.Enabled = False
+            BtnContrato.Enabled = False
+            BtnDados.Enabled = False
+            OK_Button.Enabled = False
+            Cancel_Button.Enabled = False
+
 
             'Dados
             Dim CPF As String = FrmSocios.CPFMaskedTextBox.Text
@@ -28,9 +45,9 @@ Public Class ExportarContratoWordDialog
 
             'clicar no BtnExtensoDN
             Dim DataDeNascimento As String = FrmSocios.DatadeNascMaskedTextBox.Text
-            Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dd 'de' MMMM 'de' yyyy")
-            Dim DataNascimento As String = DataDeNascimentoFormatada
-
+            If DataDeNascimento <> "" Then
+                DataDeNascimento = Format(CDate(DataDeNascimento), "dd 'de' MMMM 'de' yyyy")
+            End If
 
 
             Dim RG As String = FrmSocios.RGTextBox.Text
@@ -50,23 +67,23 @@ Public Class ExportarContratoWordDialog
 
             Dim Empresario As String
             Dim Genero As String = FrmSocios.GeneroComboBox.Text
-            Dim domiciliado As String
+            Dim Domiciliado As String
 
             'endereço
             Dim RUA As String = FrmSocios.RUATextBox.Text
             'primeira letra da RUA em minusculo
-            Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Dim Rua1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
             Dim N As String = FrmSocios.NumTextBox.Text
 
             'For Each next
             Dim Compl As String = FrmSocios.ComplementoTextBox.Text
-            For Each Compl In FrmSocios.ComplementoTextBox.Text
-                'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
-                'se tiver, adicionar "," antes do complemento
-                If Compl <> "" Then
-                    Compl = ", " & Compl
-                End If
-            Next
+            'For Each Compl In FrmSocios.ComplementoTextBox.Text
+            'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
+            'se tiver, adicionar "," antes do complemento
+            If Compl <> "" Then
+                Compl = ", " & Compl
+            End If
+            'Next
 
 
 
@@ -78,34 +95,37 @@ Public Class ExportarContratoWordDialog
             Dim Brasileiro As String
             Dim Nascido As String
 
+
+            'GENEROS /////////////////////////////
             Dim SocioGenero As String
             Dim OsocioGenero As String
             Dim SociosGenero As String
             Dim OssociosGenero As String
 
+            Dim ZOsocioGeneroInicio As String
+            Dim AoSocioGrande As String
+            Dim AoSocioMinusculo As String
+            Dim ADMINISTRADORGrande As String
+            Dim OtitularGrande As String
+            Dim OtitularMinusculo As String
+
             'Administrador
             Dim AdministradorMaiuscula As String
             'O administrador
             Dim OAdministradorMaiuscula As String
-
-
             'administrador
             Dim AdministradorMinuscula As String
             'o administrador
             Dim OAdministradorMinuscula As String
-
-
             'Administradores
             Dim AdministradoresMaiuscula As String
             'Os administradores
             Dim OAdministradoresMinuscula As String
-
-
             'administradores
             Dim AdministradoresMinuscula As String
             'os administradores
             Dim OAdministradoresMaiuscula As String
-
+            '//////////////////////////////////////////////////////
 
 
 
@@ -114,7 +134,7 @@ Public Class ExportarContratoWordDialog
                 'verificar se está no masculino e mudar para solteiro do  CivilComboBox da lista
                 ' EstadoCivil = "solteiro"
                 Empresario = "empresário"
-                domiciliado = "domiciliado"
+                Domiciliado = "domiciliado"
                 Portador = "portador"
                 Brasileiro = "brasileiro"
                 Nascido = "nascido em"
@@ -130,11 +150,17 @@ Public Class ExportarContratoWordDialog
                 OAdministradoresMinuscula = "Os administradores"
                 AdministradoresMinuscula = "administradores"
                 OAdministradoresMaiuscula = "os administradores"
+                ZOsocioGeneroInicio = "O sócio"
+                AoSocioGrande = "Ao sócio"
+                AoSocioMinusculo = "ao sócio"
+                ADMINISTRADORGrande = "ADMINISTRADOR"
+                OtitularGrande = "O titular"
+                OtitularMinusculo = "o titular"
 
             ElseIf Genero = "Feminino" Then
                 'EstadoCivil = "solteira"
                 Empresario = "empresária"
-                domiciliado = "domiciliada"
+                Domiciliado = "domiciliada"
                 Portador = "portadora"
                 Brasileiro = "brasileira"
                 Nascido = "nascida em"
@@ -150,6 +176,12 @@ Public Class ExportarContratoWordDialog
                 OAdministradoresMinuscula = "As administradoras"
                 AdministradoresMinuscula = "administradoras"
                 OAdministradoresMaiuscula = "as administradoras"
+                ZOsocioGeneroInicio = "A sócia"
+                AoSocioGrande = "A sócia"
+                AoSocioMinusculo = "a sócia"
+                ADMINISTRADORGrande = "ADMINISTRADORA"
+                OtitularGrande = "A titular"
+                OtitularMinusculo = "a titular"
 
             End If
 
@@ -158,96 +190,97 @@ Public Class ExportarContratoWordDialog
             'caminho do documento que vai ser modificado
             Dim Caminho As String = TextBoxCaminho.Text
 
+            '////////////////////////////////// DADOS DO SOCIO //////////////////////////////////////
             doc = word.Documents.Open(Caminho)
             rng = doc.Range(0, doc.Characters.Count)
             rng.Find.ClearFormatting()
 
             'CPF
-            rng.Find.Text = "@" & NumeroSocio & "CPF"
+            rng.Find.Text = "@" & NumeroSocio & "SocioCPF"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CPF
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'NomeCompleto"
-            rng.Find.Text = "@" & NumeroSocio & "Socio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioNomeCompleto"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = NomeCompleto
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'DataDeNascimento
-            rng.Find.Text = "@" & NumeroSocio & "DataDeNascimento"
+            rng.Find.Text = "@" & NumeroSocio & "SocioDataDeNascimento"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = DataNascimento
+            rng.Find.Replacement.Text = DataDeNascimento
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'RG
-            rng.Find.Text = "@" & NumeroSocio & "RG"
+            rng.Find.Text = "@" & NumeroSocio & "SocioRG"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = RG
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'OrgaoRG
-            rng.Find.Text = "@" & NumeroSocio & "OrgaoRG"
+            rng.Find.Text = "@" & NumeroSocio & "SocioOrgaoRG"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = OrgaoRG
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'EstadoRG
-            rng.Find.Text = "@" & NumeroSocio & "EstadoRG"
+            rng.Find.Text = "@" & NumeroSocio & "SocioEstadoRG"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = EstadoRG
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'EstadoCivil
-            rng.Find.Text = "@" & NumeroSocio & "EstadoCivil"
+            rng.Find.Text = "@" & NumeroSocio & "SocioEstadoCivil"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = EstadoCivil
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Genero
-            rng.Find.Text = "@" & NumeroSocio & "Genero"
+            rng.Find.Text = "@" & NumeroSocio & "SocioGenero"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Genero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Empresario
-            rng.Find.Text = "@" & NumeroSocio & "Empresario"
+            rng.Find.Text = "@" & NumeroSocio & "SocioEmpresario"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Empresario
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'domiciliado
-            rng.Find.Text = "@" & NumeroSocio & "domiciliado"
+            rng.Find.Text = "@" & NumeroSocio & "Sociodomiciliado"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = domiciliado
+            rng.Find.Replacement.Text = Domiciliado
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Portador
-            rng.Find.Text = "@" & NumeroSocio & "Portador"
+            rng.Find.Text = "@" & NumeroSocio & "SocioPortador"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Portador
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Brasileiro
-            rng.Find.Text = "@" & NumeroSocio & "Brasileiro"
+            rng.Find.Text = "@" & NumeroSocio & "SocioBrasileiro"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Brasileiro
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Nascido
-            rng.Find.Text = "@" & NumeroSocio & "Nascido"
+            rng.Find.Text = "@" & NumeroSocio & "SocioNascido"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Nascido
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'RUA
-            rng.Find.Text = "@" & NumeroSocio & "Rua"
+            rng.Find.Text = "@" & NumeroSocio & "SocioRua"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = RUA1
+            rng.Find.Replacement.Text = Rua1
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Numero
-            rng.Find.Text = "@" & NumeroSocio & "N"
+            rng.Find.Text = "@" & NumeroSocio & "SocioNumero"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = N
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
@@ -259,27 +292,63 @@ Public Class ExportarContratoWordDialog
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Bairro
-            rng.Find.Text = "@" & NumeroSocio & "Bairro"
+            rng.Find.Text = "@" & NumeroSocio & "SocioBairro"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Bairro
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Cidade
-            rng.Find.Text = "@" & NumeroSocio & "CidadeSocio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioCidade"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CidadeSocio
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Estado
-            rng.Find.Text = "@" & NumeroSocio & "EstadoSocio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioEstado"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = EstadoSocio
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CEP
-            rng.Find.Text = "@" & NumeroSocio & "CEP"
+            rng.Find.Text = "@" & NumeroSocio & "SocioCEP"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CEP
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'OsocioGeneroInicio = "O sócio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioGeneroInicio"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = ZOsocioGeneroInicio
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'AoSocioGrande = "Ao sócio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioGrande"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AoSocioGrande
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'AoSocioMinusculo = "ao sócio"
+            rng.Find.Text = "@" & NumeroSocio & "SocioMinusculo"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AoSocioMinusculo
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'ADMINISTRADORGrande = "ADMINISTRADOR"
+            rng.Find.Text = "@" & NumeroSocio & "AdministradorGrande"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = ADMINISTRADORGrande
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'OtitularGrande = "O titular"
+            rng.Find.Text = "@" & NumeroSocio & "TitularGrande"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OtitularGrande
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            'OtitularMinusculo = "o titular"
+            rng.Find.Text = "@" & NumeroSocio & "TitularMinusculo"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OtitularMinusculo
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
@@ -292,13 +361,10 @@ Public Class ExportarContratoWordDialog
             NomePequeno = NomePequeno.ToUpper
             NomePequeno = NomePequeno.ToLower
             'substituir @NomeCompleto pelo nome pequeno do socio
-            rng.Find.Text = "@" & NumeroSocio & "NomePequeno"
+            rng.Find.Text = "@" & NumeroSocio & "SocioNomePequeno"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = NomePequeno
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-
-
-
 
 
 
@@ -326,16 +392,54 @@ Public Class ExportarContratoWordDialog
             rng.Find.Replacement.Text = OssociosGenero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'AdministradorMaiuscula = "Administrador"
+            rng.Find.Text = "@" & NumeroSocio & "Socio1Administrador"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AdministradorMaiuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
+            'OAdministradorMaiuscula = "O administrador"
+            rng.Find.Text = "@" & NumeroSocio & "Socio2OAdministrador"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OAdministradorMaiuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'AdministradorMinuscula = "administrador"
+            rng.Find.Text = "@" & NumeroSocio & "Socio3administrador"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AdministradorMinuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'OAdministradorMinuscula = "o administrador"
+            rng.Find.Text = "@" & NumeroSocio & "Socio4oAdministrador"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OAdministradorMinuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'AdministradoresMaiuscula = "Administradores"
+            rng.Find.Text = "@" & NumeroSocio & "Socio5Administradores"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AdministradoresMaiuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'OAdministradoresMinuscula = "Os administradores"
+            rng.Find.Text = "@" & NumeroSocio & "Socio6OAdministradores"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OAdministradoresMaiuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
+            'AdministradoresMinuscula = "administradores"
+            rng.Find.Text = "@" & NumeroSocio & "Socio7administradores"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = AdministradoresMinuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
-
-
+            'OAdministradoresMaiuscula = "os administradores"
+            rng.Find.Text = "@" & NumeroSocio & "Socio8oAdministradores"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OAdministradoresMaiuscula
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
 
@@ -369,8 +473,23 @@ Public Class ExportarContratoWordDialog
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'mostra onde está o erro
+            MessageBox.Show(ex.Message)
+            doc.Save()
+            doc.Close()
+            doc = Nothing
         End Try
+
+
+            'esconder PictureBoxAguarde com imagem "aguarde"
+            PictureBoxAguarde.Visible = False
+            PictureBoxAguarde.Image = Nothing
+            'Mostra os botao de abrir ok e cancelar e fechar
+            BtnAbrir.Enabled = True
+            BtnAdicionar.Enabled = True
+            BtnContrato.Enabled = True
+            BtnDados.Enabled = True
+            OK_Button.Enabled = True
     End Sub
     Private Sub ExportarWordSocios()
 
@@ -457,10 +576,27 @@ Public Class ExportarContratoWordDialog
 
     End Sub
     Private Sub ExportarContrato()
-        '  Try
         Dim word As New Microsoft.Office.Interop.Word.Application
-            Dim doc As Microsoft.Office.Interop.Word.Document
-            Dim rng As Microsoft.Office.Interop.Word.Range
+        Dim doc As Microsoft.Office.Interop.Word.Document
+        Dim rng As Microsoft.Office.Interop.Word.Range
+
+        Try
+
+            'mostra PictureBoxAguarde com imagem "aguarde"
+            PictureBoxAguarde.Visible = True
+            PictureBoxAguarde.Image = My.Resources.Aguarde
+            'PictureBoxAguarde fill
+            PictureBoxAguarde.SizeMode = PictureBoxSizeMode.StretchImage
+            'dock fill
+            PictureBoxAguarde.Dock = DockStyle.Fill
+            'bloqueia os botao de abrir ok e cancelar e fechar
+            BtnAbrir.Enabled = False
+            BtnAdicionar.Enabled = False
+            BtnContrato.Enabled = False
+            BtnDados.Enabled = False
+            OK_Button.Enabled = False
+            Cancel_Button.Enabled = False
+
 
             'pega dados
             FrmLegalizacao.TabControle.SelectTab(0)
@@ -490,18 +626,18 @@ Public Class ExportarContratoWordDialog
             'endereço
             Dim RUA As String = FrmLegalizacao.EnderecoTextBox.Text
             'primeira letra da RUA em minusculo
-            Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Dim Rua1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
             Dim Numero As String = FrmLegalizacao.EndNumeroTextBox.Text
             'verificar se tem complemento EndComplementoTextBox
             'For Each next
             Dim Complemento As String = FrmLegalizacao.EndComplementoTextBox.Text
-            For Each Complemento In FrmLegalizacao.EndComplementoTextBox.Text
-                'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
-                'se tiver, adicionar "," antes do complemento
-                If Complemento <> "" Then
-                    Complemento = ", " & Complemento
-                End If
-            Next
+            ' For Each Complemento In FrmLegalizacao.EndComplementoTextBox.Text
+            'verificar se tem complemento FrmSocios.ComplementoTextBox.Text, 
+            'se tiver, adicionar "," antes do complemento
+            If Complemento <> "" Then
+                Complemento = ", " & Complemento
+            End If
+            'Next
             Dim Bairro As String = FrmLegalizacao.EndBairroTextBox.Text
             Dim CEP As String = FrmLegalizacao.EndCEPMaskedTextBox.Text
             Dim Cidade As String = FrmLegalizacao.EndCidadeTextBox.Text
@@ -513,14 +649,14 @@ Public Class ExportarContratoWordDialog
 
             'EmpInicioAtividade 
             Dim EmpInicioAtividade As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
-            Dim EmpInicioAtividadeFormatada As String = Format(CDate(EmpInicioAtividade), "dd 'de' MMMM 'de' yyyy")
-            Dim InicioDeAtividadeFinal As String = EmpInicioAtividadeFormatada
-
+            If EmpInicioAtividade <> "" Then
+                EmpInicioAtividade = Format(CDate(EmpInicioAtividade), "dd 'de' MMMM 'de' yyyy")
+            End If
             'EmpInicioAtividade 
             Dim DataAssinatura As String = FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text
-            Dim DataAssinatura1 As String = Format(CDate(DataAssinatura), "" & Cidade & "'-'" & UF & "',' dd 'de' MMMM 'de' yyyy'.'")
-            Dim DataAssinaturaFinal As String = DataAssinatura1
-
+            If DataAssinatura <> "" Then
+                DataAssinatura = Format(CDate(DataAssinatura), "" & Cidade & "'-'" & UF & "',' dd 'de' MMMM 'de' yyyy'.'")
+            End If
 
             'RamoDeAtividadeRichTextBox 
             Dim RamoDeAtividade As String = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
@@ -536,8 +672,10 @@ Public Class ExportarContratoWordDialog
 
             Dim DataNire As String = FrmLegalizacao.NireDataMaskedTextBox.Text
             'DataNire formato dd 'de' MMMM 'de' yyyy
-            Dim DataNireFormatada As String = Format(CDate(DataNire), "dd 'de' MMMM 'de' yyyy")
-            Dim DataNireFinal As String = DataNireFormatada
+            If DataNire <> "" Then
+                DataNire = Format(CDate(DataNire), "dd 'de' MMMM 'de' yyyy")
+            End If
+
 
 
             '/////////////////////////////// INICIO CODIGO /////////////////////////////////
@@ -549,43 +687,43 @@ Public Class ExportarContratoWordDialog
             rng.Find.ClearFormatting()
 
             'AntigaRazaoSocial
-            rng.Find.Text = "@AntigaRazaoSocial"
+            rng.Find.Text = "@EmpresaRazaoSocialNormal"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = AntigaRazaoSocial
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'NovaRazaoSocial
-            rng.Find.Text = "@NovaRazaoSocial"
+            rng.Find.Text = "@EmpresaNovaRazaoSocial"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = NovaRazaoSocial
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'RUA
-            rng.Find.Text = "@Rua"
+            rng.Find.Text = "@EmpresaRua"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = RUA1
+            rng.Find.Replacement.Text = Rua1
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Numero
-            rng.Find.Text = "@Numero"
+            rng.Find.Text = "@EmpresaNumero"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Numero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Complemento
-            rng.Find.Text = "@Complemento"
+            rng.Find.Text = "@EmpresaComplemento"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Complemento
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Bairro
-            rng.Find.Text = "@Bairro"
+            rng.Find.Text = "@EmpresaBairro"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Bairro
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CEP
-            rng.Find.Text = "@CEP"
+            rng.Find.Text = "@EmpresaCEP"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CEP
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
@@ -594,141 +732,127 @@ Public Class ExportarContratoWordDialog
             'colocar apenas primeira letra maiscula de cada palavra
             Dim Cidade1 As String = Cidade.Substring(0, 1).ToUpper() & Cidade.Substring(1)
 
-            rng.Find.Text = "@Cidade"
+            rng.Find.Text = "@EmpresaCidade"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = Cidade1
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'UF
-            rng.Find.Text = "@UF"
+            rng.Find.Text = "@EmpresaUF"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = UF
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'InicioDeAtividadeFinal
-            rng.Find.Text = "@InicioDeAtividade"
+            rng.Find.Text = "@EmpresaInicioDeAtividade"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = InicioDeAtividadeFinal
+            rng.Find.Replacement.Text = EmpInicioAtividade
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'InicioDeAtividadeFinal1
-            rng.Find.Text = "@DataAssinatura"
+            rng.Find.Text = "@EmpresaDataAssinatura"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = DataAssinaturaFinal
+            rng.Find.Replacement.Text = DataAssinatura
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'RamoDeAtividade
-            rng.Find.Text = "@RamoDeAtividade"
+            rng.Find.Text = "@EmpresaRamoDeAtividade"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = RamoDeAtividade
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CapitalSocialExtenso
-            rng.Find.Text = "@CapitalSocialExtenso"
+            rng.Find.Text = "@EmpresaCapitalSocialExtenso"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CapitalSocialExtenso
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CapitalSocialNumero
-            rng.Find.Text = "@CapitalSocialNumero"
+            rng.Find.Text = "@EmpresaCapitalSocialNumero"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CapitalSocialNumero
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
             'Nire
-            rng.Find.Text = "@Nire"
+            rng.Find.Text = "@EmpresaNire"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = NIRE
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'DataNire
-            rng.Find.Text = "@DataNire"
+            rng.Find.Text = "@EmpresaDataNire"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = DataNireFinal
+            rng.Find.Replacement.Text = DataNire
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
 
             'AltAbertBaixa
-            rng.Find.Text = "@AltAbertBaixa"
+            rng.Find.Text = "@EmpresaAltAbertBaixa"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = AltAbertBaixa
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'AltAbertBaixa
-            rng.Find.Text = "@NAlteracao"
+            rng.Find.Text = "@EmpresaNAlteracao"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = NAlteracao
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'CNPJ
-            rng.Find.Text = "@CNPJ"
+            rng.Find.Text = "@EmpresaCNPJ"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = CNPJ
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
-        'alterar cabeçalho do word
+            'alterar cabeçalho do word
 
 
 
 
-        '/////////////////////// + de 2 Socios  Capital Social TABELA ///////////////////////////
-        'dados 
-        '"@" & Linha & "TabelaSocio"
-        Dim TabelaRS As New List(Of String)
-        TabelaRS = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Lines.ToList()
-        'para toda linha da TabelaRS, pegar o nome do socio apenas antes do " - "
-        Dim LinhaTabelaRS As String
-        Dim CapitalSocialTabelaRS As Integer = 0
-        Dim NomeSocioTabelaRS As String
+            '/////////////////////// + de 2 Socios  Capital Social TABELA ///////////////////////////
+            'dados 
+            '"@" & Linha & "TabelaSocio"
+            Dim TabelaRS As New List(Of String)
+            TabelaRS = FrmLegalizacao.DivisaoCapitalSociosRichTextBox.Lines.ToList()
+            'para toda linha da TabelaRS, pegar o nome do socio apenas antes do " - "
+            Dim LinhaTabelaRS As String
+            Dim CapitalSocialTabelaRS As Integer = 0
+            Dim NomeSocioTabelaRS As String
 
-        'pegar apenas linhas TabelaRS
+            'pegar apenas linhas TabelaRS
 
-        For Each LinhaTabelaRS In TabelaRS
-            If LinhaTabelaRS.Contains("-") Then
-                NomeSocioTabelaRS = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
-                CapitalSocialTabelaRS += Val(LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2))
-                'pega numero da linha onde ta o socio + nome dele
-                Dim LinhaTabelaRS1 As String = LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2)
-                Dim LinhaTabelaRS2 As String = LinhaTabelaRS1.Substring(0, LinhaTabelaRS1.IndexOf(" "))
+            For Each LinhaTabelaRS In TabelaRS
+                If LinhaTabelaRS.Contains("-") Then
+                    NomeSocioTabelaRS = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
+                    CapitalSocialTabelaRS += Val(LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2))
+                    'pega numero da linha onde ta o socio + nome dele
+                    Dim LinhaTabelaRS1 As String = LinhaTabelaRS.Substring(LinhaTabelaRS.IndexOf("-") + 2)
+                    Dim LinhaTabelaRS2 As String = LinhaTabelaRS1.Substring(0, LinhaTabelaRS1.IndexOf(" "))
 
-                'pegar o nome do socio apenas antes do " - "
-                Dim NomeSocioTabelaRS1 As String = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
+                    'pegar o nome do socio apenas antes do " - "
+                    Dim NomeSocioTabelaRS1 As String = LinhaTabelaRS.Substring(0, LinhaTabelaRS.IndexOf("-"))
 
-                'coloca word depois
-                rng.Find.Text = "@" & LinhaTabelaRS2 & "TabelaSocio"
-                rng.Find.Replacement.ClearFormatting()
-                rng.Find.Replacement.Text = NomeSocioTabelaRS1
-                rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+                    'coloca word depois
+                    rng.Find.Text = "@" & LinhaTabelaRS2 & "EmpresaTabelaSocio"
+                    rng.Find.Replacement.ClearFormatting()
+                    rng.Find.Replacement.Text = NomeSocioTabelaRS1
+                    rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
-
-
-                ' rng.Find.Text = "@" & LinhaTabelaRS & "CapitalSocialTabela"
-                ' rng.Find.Replacement.ClearFormatting()
-                ' rng.Find.Replacement.Text = CapitalSocialTabelaRS
-                ' rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
-                ' LinhaTabelaRS = LinhaTabelaRS + 1
-            End If
-        Next
+                End If
+            Next
 
 
+            '//////////////////////////////////////////////////////////////////////////////////////////////
+            '/////////////////////////////// FIM CODIGO /////////////////////////////////
 
 
+            '/////////////////////// SALVAR //////////////////////////////////////
+            'perguntar se deseja escolher local diferente para salvar ou sobreescrever o mesmo que foi selecionado
+            'se sim, abrir o dialogo de salvar e salvar no local escolhido
+            'se nao, sobreescrever o arquivo que foi selecionado
 
-
-        '//////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-        '/////////////////////////////// FIM CODIGO /////////////////////////////////
-
-
-        '/////////////////////// SALVAR //////////////////////////////////////
-        'perguntar se deseja escolher local diferente para salvar ou sobreescrever o mesmo que foi selecionado
-        'se sim, abrir o dialogo de salvar e salvar no local escolhido
-        'se nao, sobreescrever o arquivo que foi selecionado
-
-        Dim Message As String = "Deseja escolher novo local para salvar o arquivo?"
+            Dim Message As String = "Deseja escolher novo local para salvar o arquivo?"
             Dim result As Integer = MessageBox.Show(Message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
             If result = DialogResult.Yes Then
                 Dim saveFileDialog1 As New SaveFileDialog With {
@@ -752,15 +876,26 @@ Public Class ExportarContratoWordDialog
             End If
 
 
-            ' Catch ex As Exception
-        '  MsgBox(ex.Message)
-        'finalizar o documento que foi aberto
-        '  Dim doc As Microsoft.Office.Interop.Word.Document
-        ' doc.Close()
-        ' doc = Nothing
 
-        'End Try
 
+        Catch ex As Exception
+            'mostra onde está o erro
+            MessageBox.Show(ex.Message)
+            doc.Save()
+            doc.Close()
+            doc = Nothing
+        End Try
+
+
+        'esconder PictureBoxAguarde com imagem "aguarde"
+        PictureBoxAguarde.Visible = False
+        PictureBoxAguarde.Image = Nothing
+        'Mostra os botao de abrir ok e cancelar e fechar
+        BtnAbrir.Enabled = True
+        BtnAdicionar.Enabled = True
+        BtnContrato.Enabled = True
+        BtnDados.Enabled = True
+        OK_Button.Enabled = True
     End Sub
 
     Private Sub BtnDados_Click(sender As Object, e As EventArgs) Handles BtnDados.Click
@@ -828,5 +963,8 @@ Public Class ExportarContratoWordDialog
 
     End Sub
 
-
+    Private Sub ExportarContratoWordDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'desabilita PictureBoxAguarde
+        PictureBoxAguarde.Visible = False
+    End Sub
 End Class

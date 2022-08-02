@@ -2762,16 +2762,16 @@ Protocolo RedeSim= " & G & ".
         Else
             FrmSocios.Show()
 
-                FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
-                FrmSocios.GroupBoxCapitalSocial.Visible = True
-                FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
-                FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
-                FrmSocios.GroupBoxCapitalSocial.Enabled = True
+            FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
+            FrmSocios.GroupBoxCapitalSocial.Visible = True
+            FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
+            FrmSocios.GroupBoxMenuCapitalSocial.Enabled = True
+            FrmSocios.GroupBoxCapitalSocial.Enabled = True
 
-                Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
-                'exporta para frmsocios.TextBoxCapitalSocial.text
-                FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
-            End If
+            Dim CapitalSocialEmpresas As String = CapitalSTextBox.Text
+            'exporta para frmsocios.TextBoxCapitalSocial.text
+            FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
+        End If
 
 
     End Sub
@@ -2787,7 +2787,7 @@ Protocolo RedeSim= " & G & ".
         End If
     End Sub
     'CapitalSTextBox validar em reais
-    Private Sub CapitalSTextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalSTextBox.LostFocus
+    Private Sub CapitalSTextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalSTextBox.LostFocus, CapitalSTextBox.Leave
         If CapitalSTextBox.Text = "" Then
             CapitalSTextBox.Text = "0,00"
         Else
@@ -2857,14 +2857,14 @@ Protocolo RedeSim= " & G & ".
             CapitalSTextBox.Focus()
         Else
             'tirar ".00"
-            CapitalSTextBox.Text = CapitalSTextBox.Text.Replace(",00", "").Replace(".00", "")
+            'CapitalSTextBox.Text = CapitalSTextBox.Text.Replace(",00", "").Replace(".00", "").Replace(" ", "")
             'CapitalITextBox colocar igual CapitalSTextBox
             CapitalITextBox.Text = CapitalSTextBox.Text
             'CapitalQuotaValorTextBox colocar valor R$ 1,00
             CapitalQuotaValorTextBox.Text = "R$ 1,00"
             'CapitaQuotaTotalTextBox igual CapitalSTextBox mas sem os "R$ " e apos ",00"
-            Dim CapitalSemNada As String = CapitalSTextBox.Text.Replace("R$ ", "").Replace(",00", "")
-            CapitaQuotaTotalTextBox.Text = CapitalSemNada
+            ' Dim CapitalSemNada As String = CapitalSTextBox.Text.Replace("R$ ", "").Replace(",00", "")
+            CapitaQuotaTotalTextBox.Text = CapitalSTextBox.Text
 
             'mudar para reais
             CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
@@ -2942,6 +2942,5 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
             MessageBox.Show(" Data está vazia! ", "Prince Ajuda")
         End Try
     End Sub
-
 
 End Class

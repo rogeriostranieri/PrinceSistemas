@@ -48,7 +48,7 @@ Partial Class Login
         Me.UsernameLabel.BackColor = System.Drawing.Color.Transparent
         Me.UsernameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UsernameLabel.ForeColor = System.Drawing.Color.White
-        Me.UsernameLabel.Location = New System.Drawing.Point(150, 98)
+        Me.UsernameLabel.Location = New System.Drawing.Point(150, 90)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(129, 23)
         Me.UsernameLabel.TabIndex = 0
@@ -60,7 +60,7 @@ Partial Class Login
         Me.PasswordLabel.BackColor = System.Drawing.Color.Transparent
         Me.PasswordLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PasswordLabel.ForeColor = System.Drawing.Color.White
-        Me.PasswordLabel.Location = New System.Drawing.Point(149, 142)
+        Me.PasswordLabel.Location = New System.Drawing.Point(149, 134)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(129, 23)
         Me.PasswordLabel.TabIndex = 2
@@ -70,7 +70,7 @@ Partial Class Login
         'txtUsername
         '
         Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(152, 118)
+        Me.txtUsername.Location = New System.Drawing.Point(152, 110)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(127, 21)
         Me.txtUsername.TabIndex = 1
@@ -78,7 +78,7 @@ Partial Class Login
         'txtPassword
         '
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(151, 162)
+        Me.txtPassword.Location = New System.Drawing.Point(151, 154)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(127, 21)
@@ -88,7 +88,7 @@ Partial Class Login
         '
         Me.OK.BackColor = System.Drawing.Color.LimeGreen
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.OK.Location = New System.Drawing.Point(150, 207)
+        Me.OK.Location = New System.Drawing.Point(150, 190)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(60, 30)
         Me.OK.TabIndex = 4
@@ -101,7 +101,7 @@ Partial Class Login
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Cancel.ForeColor = System.Drawing.Color.Black
-        Me.Cancel.Location = New System.Drawing.Point(218, 207)
+        Me.Cancel.Location = New System.Drawing.Point(218, 190)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(60, 30)
         Me.Cancel.TabIndex = 5

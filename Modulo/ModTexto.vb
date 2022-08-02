@@ -28,4 +28,8 @@
         Return System.Text.RegularExpressions.Regex.Replace(sText, "[^a-z]", "").ToLower()
     End Function
 
+    'apenas letras
+    Function ApenasLetras(ByVal sText As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(sText, "[^a-zA-Z]", "")
+    End Function
 End Module

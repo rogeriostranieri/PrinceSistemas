@@ -414,14 +414,10 @@ Partial Class FrmLegalizacao
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxMenuCima = New System.Windows.Forms.GroupBox()
         Me.GroupBoxMenuBaixo = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
         NomeFantasiaLabel = New System.Windows.Forms.Label()
@@ -562,14 +558,9 @@ Partial Class FrmLegalizacao
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxMenuCima.SuspendLayout()
         Me.GroupBoxMenuBaixo.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NomeFantasiaLabel
@@ -3876,33 +3867,39 @@ Partial Class FrmLegalizacao
         '
         'Button24
         '
+        Me.Button24.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button24.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button24.Location = New System.Drawing.Point(7, 172)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(69, 50)
         Me.Button24.TabIndex = 45
         Me.Button24.Text = "Portal do MEI"
-        Me.Button24.UseVisualStyleBackColor = True
+        Me.Button24.UseVisualStyleBackColor = False
         '
         'Button21
         '
+        Me.Button21.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button21.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button21.Location = New System.Drawing.Point(7, 275)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(69, 23)
         Me.Button21.TabIndex = 44
         Me.Button21.Text = "RedeSim"
-        Me.Button21.UseVisualStyleBackColor = True
+        Me.Button21.UseVisualStyleBackColor = False
         '
         'Button20
         '
+        Me.Button20.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button20.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button20.Location = New System.Drawing.Point(7, 228)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(69, 41)
         Me.Button20.TabIndex = 43
         Me.Button20.Text = "Junta Comercial"
-        Me.Button20.UseVisualStyleBackColor = True
+        Me.Button20.UseVisualStyleBackColor = False
         '
         'IETextBox
         '
@@ -4299,13 +4296,15 @@ Partial Class FrmLegalizacao
         '
         'Button28
         '
+        Me.Button28.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button28.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button28.Location = New System.Drawing.Point(7, 398)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(69, 23)
         Me.Button28.TabIndex = 48
         Me.Button28.Text = "Prefeitura"
-        Me.Button28.UseVisualStyleBackColor = True
+        Me.Button28.UseVisualStyleBackColor = False
         '
         'BtnAlteracao
         '
@@ -4321,23 +4320,27 @@ Partial Class FrmLegalizacao
         '
         'Button27
         '
+        Me.Button27.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button27.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button27.Location = New System.Drawing.Point(7, 304)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(69, 41)
         Me.Button27.TabIndex = 47
         Me.Button27.Text = "Receita Estadual"
-        Me.Button27.UseVisualStyleBackColor = True
+        Me.Button27.UseVisualStyleBackColor = False
         '
         'Button26
         '
+        Me.Button26.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button26.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button26.Location = New System.Drawing.Point(7, 351)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(69, 41)
         Me.Button26.TabIndex = 46
         Me.Button26.Text = "Simples Nacional"
-        Me.Button26.UseVisualStyleBackColor = True
+        Me.Button26.UseVisualStyleBackColor = False
         '
         'ComboBoxBuscaEmpresa
         '
@@ -4556,11 +4559,11 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.AutoScroll = True
         Me.TableLayoutPanel1.AutoSize = True
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.TableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.38476!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.61524!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox4, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenuCima, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.PictureBox5, 0, 2)
@@ -4578,44 +4581,8 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(757, 695)
         Me.TableLayoutPanel1.TabIndex = 46
         '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.PictureBox7, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(672, 3)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(82, 46)
-        Me.TableLayoutPanel3.TabIndex = 48
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox7.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox7.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(76, 40)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 45
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox4.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox4.Location = New System.Drawing.Point(672, 235)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(82, 18)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 46
-        Me.PictureBox4.TabStop = False
-        '
         'GroupBoxMenuCima
         '
-        Me.GroupBoxMenuCima.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBoxMenuCima.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnNovo)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnEditar)
@@ -4632,7 +4599,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBoxMenuBaixo
         '
-        Me.GroupBoxMenuBaixo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.GroupBoxMenuBaixo.BackColor = System.Drawing.Color.Transparent
         Me.GroupBoxMenuBaixo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnWord)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnContador)
@@ -4654,11 +4621,12 @@ Partial Class FrmLegalizacao
         '
         'TableLayoutPanel2
         '
+        Me.TableLayoutPanel2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.Fundo
+        Me.TableLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02715!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.97285!))
-        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox8, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox3, 1, 0)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.33937!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.66064!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Label8, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -4667,27 +4635,17 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(663, 46)
         Me.TableLayoutPanel2.TabIndex = 47
         '
-        'PictureBox8
+        'Label8
         '
-        Me.PictureBox8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox8.Image = Global.PrinceSistemas.My.Resources.Resources.Empresas
-        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(87, 40)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox8.TabIndex = 44
-        Me.PictureBox8.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox3.Location = New System.Drawing.Point(96, 3)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(564, 40)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 45
-        Me.PictureBox3.TabStop = False
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(3, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(162, 36)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "EMPRESAS"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ComboBoxBuscaCNPJ
         '
@@ -4802,14 +4760,10 @@ Partial Class FrmLegalizacao
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxMenuCima.ResumeLayout(False)
         Me.GroupBoxMenuBaixo.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -5092,14 +5046,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents LaudosBindingSource As BindingSource
     Friend WithEvents LaudosTableAdapter As PrinceDBDataSetTableAdapters.LaudosTableAdapter
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents GroupBoxMenuCima As GroupBox
     Friend WithEvents GroupBoxMenuBaixo As GroupBox
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents PictureBox7 As PictureBox
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
     Friend WithEvents RazaoSocialAntigaLabel As Label
     Friend WithEvents BtnImportarRazaoSocial As Button
@@ -5128,4 +5076,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents LblLinkAjudaSimples As LinkLabel
     Friend WithEvents BtnMgsBoxDataSimples As Button
     Friend WithEvents BtnMgsBoxAvisarDia As Button
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Label8 As Label
 End Class

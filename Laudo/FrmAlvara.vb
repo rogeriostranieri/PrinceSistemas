@@ -1,14 +1,15 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Data.Sql
+Imports System.Data.SqlTypes
 Imports System.Globalization
+Imports System.Configuration
 
 Public Class FrmAlvara
-
-
+    Dim str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
-
 
 
     Private Sub LaudosConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -1312,167 +1313,114 @@ Public Class FrmAlvara
 
 
     '//////////////////////////////////////// INICIO DATA PROVISORIO ////////////////////////////////////////////////////////////////
+    'fução conexão com o banco de dados
 
     Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
-        'perguntar antes 
-        If MsgBox("Deseja Alterar a data provisório do Bombeiro?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-            'limpar
-            BombeiroProvisorioDATAMaskedTextBox.Text = ""
-        Else
 
-            If MsgBox("Deseja apagar a data de bombeiro provisório?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-                'Deixa dateTime NULL
-                Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
-                BombeiroProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-                'salvar
-                Dim con As SqlConnection
-                con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        If MsgBox("Deseja apagar a data de bombeiro provisório?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
+            Try
+                Dim sql As String = "UPDATE Laudos SET BombeiroProvisorioDATA = NULL where RazaoSocial=@RazaoSocial"
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
+                Dim con As New SqlConnection(str)
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
                 con.Open()
-                Dim cmd As New SqlCommand With {
-                .Connection = con,
-                .CommandText = "UPDATE Laudos SET BombeiroProvisorioData = @BombeiroProvisorioData WHERE RazaoSocial = @RazaoSocial"
-            }
-                cmd.Parameters.AddWithValue("@BombeiroProvisorioData", OrderDate)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
                 cmd.ExecuteNonQuery()
                 con.Close()
-
-                BombeiroProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-
-                'BombeiroProvisorioDATAMaskedTextBox readyonly
+                BombeiroProvisorioDATAMaskedTextBox.Text = ""
                 BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
-
-            End If
+                MsgBox("Data de Bombeiro - Provisório foi apagada com sucesso!")
+            Catch ex As Exception
+                MsgBox("Erro ao apagar a data de bombeiro provisório!" & vbCrLf & ex.Message)
+            End Try
         End If
 
     End Sub
 
+
     'Apagar Data Provisório Ambiental
     Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
-        'perguntar antes 
-        If MsgBox("Deseja Alterar a data provisório do Ambiental?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-            'limpar
-            AmbientalProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            If MsgBox("Deseja apagar a data de ambiental provisório?", MsgBoxStyle.YesNo, "Apagar Ambiental Provisório") = MsgBoxResult.Yes Then
-                'Deixa dateTime NULL
-                Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
-                AmbientalProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-                'salvar
-                Dim con As SqlConnection
-                con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        If MsgBox("Deseja apagar a data de Ambiental provisório?", MsgBoxStyle.YesNo, "Apagar Ambiental Provisório") = MsgBoxResult.Yes Then
+            Try
+                Dim sql As String = "UPDATE Laudos SET AmbientalProvisorioData = NULL where RazaoSocial=@RazaoSocial"
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
+                Dim con As New SqlConnection(str)
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
                 con.Open()
-                Dim cmd As New SqlCommand With {
-                .Connection = con,
-                .CommandText = "UPDATE Laudos SET AmbientalProvisorioData = @AmbientalProvisorioData WHERE RazaoSocial = @RazaoSocial"
-            }
-                cmd.Parameters.AddWithValue("@AmbientalProvisorioData", OrderDate)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
                 cmd.ExecuteNonQuery()
                 con.Close()
-
-                AmbientalProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-
+                AmbientalProvisorioDATAMaskedTextBox.Text = ""
                 AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
-            End If
+                MsgBox("Data do Meio Ambiente - Provisório foi apagada com sucesso!")
+            Catch ex As Exception
+                MsgBox("Erro ao apagar data do Meio Ambiente - Provisório!" & vbCrLf & ex.Message)
+            End Try
         End If
 
     End Sub
 
     'Apagar Data Provisório Viabilidade
     Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
-        'perguntar antes 
-        If MsgBox("Deseja Alterar a data provisório do Viabilidade?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-            'limpar
-            ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            If MsgBox("Deseja apagar a data de viabilidade provisório?", MsgBoxStyle.YesNo, "Apagar Viabilidade Provisório") = MsgBoxResult.Yes Then
-                'Deixa dateTime NULL
-                Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
-                ViabilidadeProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-                'salvar
-                Dim con As SqlConnection
-                con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        If MsgBox("Deseja apagar a data de Viabilidade provisório?", MsgBoxStyle.YesNo, "Apagar Viabilidade Provisório") = MsgBoxResult.Yes Then
+            Try
+                Dim sql As String = "UPDATE Laudos SET ViabilidadeProvisorioData = NULL where RazaoSocial=@RazaoSocial"
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
+                Dim con As New SqlConnection(str)
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
                 con.Open()
-                Dim cmd As New SqlCommand With {
-                    .Connection = con,
-                    .CommandText = "UPDATE Laudos SET ViabilidadeProvisorioData = @ViabilidadeProvisorioData WHERE RazaoSocial = @RazaoSocial"
-                }
-                cmd.Parameters.AddWithValue("@ViabilidadeProvisorioData", OrderDate)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
                 cmd.ExecuteNonQuery()
                 con.Close()
-
-                ViabilidadeProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-
+                ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
                 ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = True
-
-            End If
+                MsgBox("Data da Viabilidade - Provisório foi apagada com sucesso!")
+            Catch ex As Exception
+                MsgBox("Erro ao apagar data da Viabilidade - Provisório!" & vbCrLf & ex.Message)
+            End Try
         End If
     End Sub
 
     'Apagar Data Provisório Sanitario
     Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
-        'perguntar antes 
-        If MsgBox("Deseja Alterar a data provisório do Sanitário?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-            'limpar
-            SanitarioProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            If MsgBox("Deseja apagar a data de sanitário provisório?", MsgBoxStyle.YesNo, "Apagar Sanitário Provisório") = MsgBoxResult.Yes Then
-                'Deixa dateTime NULL
-                Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
-                SanitarioProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-                'salvar
-                Dim con As SqlConnection
-                con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        If MsgBox("Deseja apagar a data do Sanitário provisório?", MsgBoxStyle.YesNo, "Apagar Sanitario Provisório") = MsgBoxResult.Yes Then
+            Try
+                Dim sql As String = "UPDATE Laudos SET SanitarioProvisorioData = NULL where RazaoSocial=@RazaoSocial"
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
+                Dim con As New SqlConnection(str)
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
                 con.Open()
-                Dim cmd As New SqlCommand With {
-                    .Connection = con,
-                    .CommandText = "UPDATE Laudos SET SanitarioProvisorioData = @SanitarioProvisorioData WHERE RazaoSocial = @RazaoSocial"
-                }
-                cmd.Parameters.AddWithValue("@SanitarioProvisorioData", OrderDate)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
                 cmd.ExecuteNonQuery()
                 con.Close()
-
-                SanitarioProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-
+                SanitarioProvisorioDATAMaskedTextBox.Text = ""
                 SanitarioProvisorioDATAMaskedTextBox.ReadOnly = True
-            End If
+                MsgBox("Data do Sanitário - Provisório foi apagada com sucesso!")
+            Catch ex As Exception
+                MsgBox("Erro ao apagar data do Sanitário - Provisório!" & vbCrLf & ex.Message)
+            End Try
         End If
     End Sub
 
     'Apagar Data Provisório Setran
     Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
-        'perguntar antes 
-        If MsgBox("Deseja Alterar a data provisório do Setran?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
-            'limpar
-            SetranProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            If MsgBox("Deseja apagar a data de setran provisório?", MsgBoxStyle.YesNo, "Apagar Setran Provisório") = MsgBoxResult.Yes Then
-                'Deixa dateTime NULL
-                Dim OrderDate As SqlTypes.SqlDateTime = SqlTypes.SqlDateTime.Null
-                SetranProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-                'salvar
-                Dim con As SqlConnection
-                con = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        If MsgBox("Deseja apagar a data do Setran/Detran/Mobilidade provisório?", MsgBoxStyle.YesNo, "Apagar Setran Provisório") = MsgBoxResult.Yes Then
+            Try
+                Dim sql As String = "UPDATE Laudos SET SetranProvisorioData = NULL where RazaoSocial=@RazaoSocial"
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
+                Dim con As New SqlConnection(str)
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
                 con.Open()
-                Dim cmd As New SqlCommand With {
-                    .Connection = con,
-                    .CommandText = "UPDATE Laudos SET SetranProvisorioData = @SetranProvisorioData WHERE RazaoSocial = @RazaoSocial"
-                }
-                cmd.Parameters.AddWithValue("@SetranProvisorioData", OrderDate)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
                 cmd.ExecuteNonQuery()
                 con.Close()
-
-                SetranProvisorioDATAMaskedTextBox.Text = OrderDate.ToString()
-
+                SetranProvisorioDATAMaskedTextBox.Text = ""
                 SetranProvisorioDATAMaskedTextBox.ReadOnly = True
-            End If
+                MsgBox("Data do Setran/Detran/Mobilidade - Provisório foi apagada com sucesso!")
+            Catch ex As Exception
+                MsgBox("Erro ao apagar data do Setran/Detran/Mobilidade - Provisório!" & vbCrLf & ex.Message)
+            End Try
         End If
-
-
     End Sub
 
     Private Sub ButtonAddDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonAddDataBombeiro.Click

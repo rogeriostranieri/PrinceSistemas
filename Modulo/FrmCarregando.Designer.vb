@@ -32,7 +32,7 @@ Partial Class FrmCarregando
         Me.PictureBox1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.ring64
+        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Aguarde
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(320, 134)

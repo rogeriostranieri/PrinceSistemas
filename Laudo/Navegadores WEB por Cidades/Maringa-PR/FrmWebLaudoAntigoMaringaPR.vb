@@ -44,7 +44,8 @@ Public Class FrmWebLaudoAntigoMaringaPR
 
 
         'javascript ExecuteScriptAsync
-        WebView21.ExecuteScriptAsync("document.getElementByName('razao').value = '" & FrmAlvara.RazaoSocialTextBox.Text & "';")
+        Dim RazaoSocial As String = FrmAlvara.RazaoSocialTextBox.Text
+        WebView21.ExecuteScriptAsync("document.getElementByName('razao').value = '" & RazaoSocial & "';")
 
         'FrmAlvara.RazaoSocialTextBox.Text
 
@@ -127,12 +128,13 @@ Public Class FrmWebLaudoAntigoMaringaPR
 
     'Private Async Sub 
     Private Sub CNPJToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem.Click
-        'selecioanr o campo name="cnpj_empresa" 
         Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
-
-        WebView21.ExecuteScriptAsync("document.getElementsByClassName('cnpj_empresa').click();")
-        'CNPJ
-        WebView21.ExecuteScriptAsync("document.getElementByName('cnpj_empresa').value = '" & CNPJ & "'")
+        'replace
+        CNPJ = CNPJ.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "")
+        'apenasnumero
+        Dim unused As String = ApenasNumeros(CNPJ)
+        'getElementByName('razao') outerHTML, colocar dentro do campo o Numero do CNPJ
+        ' WebView21.ExecuteScriptAsync("document.getElementById('razao').value = '" & CNPJ & "'")
 
     End Sub
 

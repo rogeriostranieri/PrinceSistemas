@@ -118,62 +118,86 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>@AntigaRazaoSocial
-@NovaRazaoSocial
-@CNPJ
-@RUA
-@Numero
-@Bairro
-@CEP
-@Cidade
-@UF
-@InicioDeAtividade
-@DataAssinatura
-@RamoDeAtividade
-@CapitalSocialExtenso
-@CapitalSocialNumero
-@Nire = Nº do NIRE da junta Comercial
-@AltAbertBaixa = Tipo de Abertura, alteração ou baixa
-@NAlteracao = Nº da Alteração</value>
+    <value>@EmpresaRazaoSocialNormal = " Nome atual da razão social "
+@EmpresaNovaRazaoSocial = " Novo nome da razao  social "
+@EmpresaCNPJ = " Numero do CNPJ "
+
+
+'local da empresa&gt;
+@EmpresaRua = "  nome da rua apenas  "
+@EmpresaNumero = " numero "
+@EmpresaComplemento = " complemento "
+@EmpresaBairro = "  bairro "
+@EmpresaCEP = " CEP "
+@EmpresaCidade = " cidade "
+@EmpresaUF = " estado "
+
+@EmpresaInicioDeAtividade = " inicio das atividades da empresa "
+@EmpresaDataAssinatura = " Data de assinatura Hoje "
+@EmpresaRamoDeAtividade = " Ramo de atividade "
+@EmpresaCapitalSocialExtenso = " Capital social em extenso "
+@EmpresaCapitalSocialNumero = " Capital social em numeros R$ "
+@EmpresaNire = " numero do NIRE "
+@EmpresaDataNire = " data do NIRE "
+@EmpresaAltAbertBaixa = " Abertura, alteração, baixa e outros "
+@EmpresaNAlteracao = " Numero da alteração "
+
+'referente ao quadro de capital social&gt;
+@EmpresaTabelaSocio = "ATENÇÃO neste caso&gt;  "usar o @ arroba + Numero do Socio + EmpresaTabelaSocio
+por exemplo = "@3EmpresaTabelaSocio" ou "@1EmpresaTabelaSocio"</value>
   </data>
   <data name="RichTextBox2.Text" xml:space="preserve">
-    <value>@CPF
-@Socio
-@DataDeNascimento
-@RG
-@OrgaoRG
-@EstadoRG
-@EstadoCivil
-@Genero
-@Empresario
-@domiciliado
-@Portador
-@Brasileiro
-@Nascido
-@Rua
-@Numero
-@Complemento
-@Bairro
-@Cidade
-@Estado
-@CEP
-@NomeCompleto
-@Genero1 = "Sócio"
-@Genero1P = "Os sócios"
-@Genero2P = "os sócios"
-@Genero2 = "o sócio"
-@AdministradorMaiuscula = "Administrador"
-@OAdministradorMaiuscula = "O administrador"
-@AdministradorMinuscula = "administrador"
-@OAdministradorMinuscula = "o administrador"
-@AdministradoresMaiuscula = "Administradores"
-@OAdministradoresMinuscula = "Os administradores"
-@AdministradoresMinuscula = "administradores"
-@OAdministradoresMaiuscula = "os administradores"
-@SocioTabela
-@CapitalSocialTabela
-@CapitalQuotaTabela
-@TotalCapitalSocial
-@TotalCapitalSocialQuotas</value>
+    <value>ATENÇÃO&gt;  "usar o @ arroba + Numero do Socio + CAMPO"
+por exemplo = "@3SocioCPF" ou "@1SocioCPF"
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+@SocioCPF = " Numero do CPF "
+@SocioNomeCompleto = " Nome Completo MAIUSCULO "
+@SocioNomePequeno = " Nome Completo Minusculo "
+@SocioDataDeNascimento = " Data de nascimento extenso "
+@SocioRG = " Numero do RG "
+@SocioOrgaoRG = " Orgão Emissor ex. SESP "
+@SocioEstadoRG = " Estado do RG "
+
+'Endereço residencial&gt;
+@SocioRua = " rua completa "
+@SocioNumero = " numero da casa "
+@Complemento = " complemento se tiver e com "," automatica ou fica em branco "
+@SocioBairro = " bairro da casa "
+@SocioCidade = " cidade do socio "
+@SocioEstado = "estado do socio "
+@SocioCEP = " CEP da residencia "
+
+
+'GENEROS A e O exemplos:
+
+@SocioEmpresario = " empresario o outros "
+@SocioEstadoCivil = " casado, solteiro e etc "
+@SocioGenero = " Masculino, feminino e outros "
+@Sociodomiciliado = " domicilado ou domicilada "
+@SocioPortador = " portador ou portadora "
+@SocioBrasileiro = " brasileiro ou brasileira "
+@SocioNascido = " nascido ou nascida "
+
+@SocioGenero = " sócio "
+@OsocioGenero = " o sócio "
+@SociosGenero = "Sócios "
+@OssociosGenero = "Os sócios"
+@ZOsocioGeneroInicio = "O sócio"
+@AoSocioGrande = "Ao sócio"
+@AoSocioMinusculo = "ao sócio"
+
+@OtitularGrande = "O titular"
+@OtitularMinusculo = "o titular"
+
+@ADMINISTRADORGrande = "ADMINISTRADOR"
+@Socio1AdministradorMaiuscula = " Administrador "
+@Socio2OAdministradorMaiuscula = " O administrador "
+@Socio3AdministradorMinuscula = " administrador "
+@Socio4OAdministradorMinuscula = " o administrador "
+@Socio5AdministradoresMaiuscula = " Administradores "
+@Socio6OAdministradoresMinuscula = " Os administradores "
+@Socio7AdministradoresMinuscula = " administradores "
+@Socio8OAdministradoresMaiuscula = " os administradores "</value>
   </data>
 </root>

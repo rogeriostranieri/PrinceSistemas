@@ -37,6 +37,7 @@ Partial Class DadosExportacaoLaudos
         '
         Me.TableLayoutPanel2.AutoScroll = True
         Me.TableLayoutPanel2.AutoSize = True
+        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.14286!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 1)
@@ -130,9 +131,12 @@ Partial Class DadosExportacaoLaudos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(450, 444)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "DadosExportacaoLaudos"

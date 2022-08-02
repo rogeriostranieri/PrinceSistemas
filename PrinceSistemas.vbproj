@@ -334,10 +334,10 @@
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegadores Unificados\Procuracao\FrmProcuracao.Designer.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.Designer.vb">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </Compile>
-    <Compile Include="Navegadores Unificados\Procuracao\FrmProcuracao.vb">
+    <Compile Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.Designer.vb">
@@ -731,7 +731,7 @@
     <EmbeddedResource Include="Navegadores Unificados\FrmConsultaCNPJImportar.resx">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Procuracao\FrmProcuracao.resx">
+    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.resx">
       <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Administracao\FrmControleSituacaoAlvara.resx">

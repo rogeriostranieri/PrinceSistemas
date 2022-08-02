@@ -143,6 +143,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Aguarde() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Aguarde", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property aguarde_carregando() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("aguarde_carregando", resourceCulture)
@@ -1146,16 +1156,6 @@ Namespace My.Resources
         Friend ReadOnly Property RF3() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("RF3", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property ring64() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ring64", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

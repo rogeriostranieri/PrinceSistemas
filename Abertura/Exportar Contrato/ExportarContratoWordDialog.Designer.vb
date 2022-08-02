@@ -35,8 +35,10 @@ Partial Class ExportarContratoWordDialog
         Me.BtnAbrir = New System.Windows.Forms.Button()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.PictureBoxAguarde = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBoxAguarde, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -183,6 +185,16 @@ Partial Class ExportarContratoWordDialog
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
+        'PictureBoxAguarde
+        '
+        Me.PictureBoxAguarde.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBoxAguarde.Location = New System.Drawing.Point(8, 216)
+        Me.PictureBoxAguarde.Name = "PictureBoxAguarde"
+        Me.PictureBoxAguarde.Size = New System.Drawing.Size(224, 58)
+        Me.PictureBoxAguarde.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxAguarde.TabIndex = 22
+        Me.PictureBoxAguarde.TabStop = False
+        '
         'ExportarContratoWordDialog
         '
         Me.AcceptButton = Me.OK_Button
@@ -192,6 +204,7 @@ Partial Class ExportarContratoWordDialog
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(578, 279)
+        Me.Controls.Add(Me.PictureBoxAguarde)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBoxCaminho)
@@ -207,6 +220,7 @@ Partial Class ExportarContratoWordDialog
         Me.Text = "Form1"
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBoxAguarde, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -224,4 +238,5 @@ Partial Class ExportarContratoWordDialog
     Friend WithEvents BtnAbrir As Button
     Friend WithEvents OK_Button As Button
     Friend WithEvents Cancel_Button As Button
+    Friend WithEvents PictureBoxAguarde As PictureBox
 End Class

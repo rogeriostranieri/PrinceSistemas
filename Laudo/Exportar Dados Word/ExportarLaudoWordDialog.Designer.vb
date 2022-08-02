@@ -34,8 +34,10 @@ Partial Class ExportarLaudoWordDialog
         Me.BtnAbrir = New System.Windows.Forms.Button()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.PictureBoxAguarde = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBoxAguarde, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -125,12 +127,12 @@ Partial Class ExportarLaudoWordDialog
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.93458!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.06542!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.BtnAbrir, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(266, 279)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(266, 251)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -144,7 +146,7 @@ Partial Class ExportarLaudoWordDialog
         Me.BtnAbrir.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BtnAbrir.Location = New System.Drawing.Point(3, 3)
         Me.BtnAbrir.Name = "BtnAbrir"
-        Me.BtnAbrir.Size = New System.Drawing.Size(102, 39)
+        Me.BtnAbrir.Size = New System.Drawing.Size(101, 39)
         Me.BtnAbrir.TabIndex = 2
         Me.BtnAbrir.Text = "Abrir"
         Me.BtnAbrir.UseVisualStyleBackColor = False
@@ -152,7 +154,7 @@ Partial Class ExportarLaudoWordDialog
         'OK_Button
         '
         Me.OK_Button.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OK_Button.Location = New System.Drawing.Point(111, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(110, 3)
         Me.OK_Button.Name = "OK_Button"
         Me.OK_Button.Size = New System.Drawing.Size(98, 39)
         Me.OK_Button.TabIndex = 0
@@ -162,11 +164,21 @@ Partial Class ExportarLaudoWordDialog
         '
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cancel_Button.Location = New System.Drawing.Point(215, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(214, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(113, 39)
+        Me.Cancel_Button.Size = New System.Drawing.Size(114, 39)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
+        '
+        'PictureBoxAguarde
+        '
+        Me.PictureBoxAguarde.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBoxAguarde.Location = New System.Drawing.Point(12, 239)
+        Me.PictureBoxAguarde.Name = "PictureBoxAguarde"
+        Me.PictureBoxAguarde.Size = New System.Drawing.Size(248, 57)
+        Me.PictureBoxAguarde.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxAguarde.TabIndex = 21
+        Me.PictureBoxAguarde.TabStop = False
         '
         'ExportarLaudoWordDialog
         '
@@ -174,7 +186,8 @@ Partial Class ExportarLaudoWordDialog
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(597, 328)
+        Me.ClientSize = New System.Drawing.Size(597, 300)
+        Me.Controls.Add(Me.PictureBoxAguarde)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBoxCaminho)
@@ -182,6 +195,7 @@ Partial Class ExportarLaudoWordDialog
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ExportarLaudoWordDialog"
@@ -190,6 +204,7 @@ Partial Class ExportarLaudoWordDialog
         Me.Text = "Exportação Word / Laudos"
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBoxAguarde, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -206,4 +221,5 @@ Partial Class ExportarLaudoWordDialog
     Friend WithEvents BtnAbrir As Button
     Friend WithEvents OK_Button As Button
     Friend WithEvents Cancel_Button As Button
+    Friend WithEvents PictureBoxAguarde As PictureBox
 End Class

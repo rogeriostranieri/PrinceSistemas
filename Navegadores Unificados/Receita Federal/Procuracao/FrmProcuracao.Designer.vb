@@ -22,6 +22,7 @@ Partial Class FrmProcuracao
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmProcuracao))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -31,6 +32,7 @@ Partial Class FrmProcuracao
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -85,7 +87,7 @@ Partial Class FrmProcuracao
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripSeparator1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripSeparator1, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(581, 25)
@@ -120,6 +122,14 @@ Partial Class FrmProcuracao
         Me.WebView21.TabIndex = 2
         Me.WebView21.ZoomFactor = 1.0R
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(116, 22)
+        Me.ToolStripButton1.Text = "TESTE IMPORTAR"
+        '
         'FrmProcuracao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -151,4 +161,5 @@ Partial Class FrmProcuracao
     Friend WithEvents ProgressBar1 As ToolStripProgressBar
     Friend WithEvents LblStatusCarregamento As ToolStripStatusLabel
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class

@@ -278,10 +278,10 @@ Partial Class FrmAlvara
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.BtnExportarWord = New System.Windows.Forms.Button()
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnExportarWord = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -811,7 +811,7 @@ Partial Class FrmAlvara
         '
         EndCidadeLabel1.AutoSize = True
         EndCidadeLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndCidadeLabel1.Location = New System.Drawing.Point(252, 112)
+        EndCidadeLabel1.Location = New System.Drawing.Point(298, 112)
         EndCidadeLabel1.Name = "EndCidadeLabel1"
         EndCidadeLabel1.Size = New System.Drawing.Size(54, 16)
         EndCidadeLabel1.TabIndex = 75
@@ -821,7 +821,7 @@ Partial Class FrmAlvara
         '
         EndEstadoLabel1.AutoSize = True
         EndEstadoLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndEstadoLabel1.Location = New System.Drawing.Point(252, 133)
+        EndEstadoLabel1.Location = New System.Drawing.Point(298, 133)
         EndEstadoLabel1.Name = "EndEstadoLabel1"
         EndEstadoLabel1.Size = New System.Drawing.Size(53, 16)
         EndEstadoLabel1.TabIndex = 76
@@ -2981,16 +2981,16 @@ Partial Class FrmAlvara
         Me.GroupBox9.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox9.Location = New System.Drawing.Point(6, 10)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(484, 153)
+        Me.GroupBox9.Size = New System.Drawing.Size(485, 153)
         Me.GroupBox9.TabIndex = 78
         Me.GroupBox9.TabStop = False
         '
         'BtnMgsBoxAvisarDia
         '
         Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(156, 133)
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(202, 111)
         Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
-        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
+        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(80, 20)
         Me.BtnMgsBoxAvisarDia.TabIndex = 82
         Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
         Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
@@ -2998,7 +2998,7 @@ Partial Class FrmAlvara
         'LembreteCheckBox
         '
         Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 133)
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 132)
         Me.LembreteCheckBox.Name = "LembreteCheckBox"
         Me.LembreteCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.LembreteCheckBox.TabIndex = 81
@@ -3027,9 +3027,9 @@ Partial Class FrmAlvara
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndEstado", True))
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndEstadoLabel2.Location = New System.Drawing.Point(302, 133)
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(348, 133)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
-        Me.EndEstadoLabel2.Size = New System.Drawing.Size(182, 15)
+        Me.EndEstadoLabel2.Size = New System.Drawing.Size(136, 15)
         Me.EndEstadoLabel2.TabIndex = 77
         '
         'EndCidadeLabel2
@@ -3038,9 +3038,9 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.EndCidadeLabel2.Location = New System.Drawing.Point(303, 112)
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(349, 112)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
-        Me.EndCidadeLabel2.Size = New System.Drawing.Size(181, 18)
+        Me.EndCidadeLabel2.Size = New System.Drawing.Size(135, 18)
         Me.EndCidadeLabel2.TabIndex = 76
         '
         'BtnData1
@@ -3120,6 +3120,18 @@ Partial Class FrmAlvara
         Me.GroupBox10.TabIndex = 58
         Me.GroupBox10.TabStop = False
         '
+        'BtnExportarWord
+        '
+        Me.BtnExportarWord.BackgroundImage = CType(resources.GetObject("BtnExportarWord.BackgroundImage"), System.Drawing.Image)
+        Me.BtnExportarWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExportarWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 206)
+        Me.BtnExportarWord.Name = "BtnExportarWord"
+        Me.BtnExportarWord.Size = New System.Drawing.Size(69, 23)
+        Me.BtnExportarWord.TabIndex = 81
+        Me.BtnExportarWord.Text = "WORD"
+        Me.BtnExportarWord.UseVisualStyleBackColor = True
+        '
         'GroupBoxCima
         '
         Me.GroupBoxCima.Controls.Add(Me.GroupBox9)
@@ -3141,18 +3153,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'BtnExportarWord
-        '
-        Me.BtnExportarWord.BackgroundImage = CType(resources.GetObject("BtnExportarWord.BackgroundImage"), System.Drawing.Image)
-        Me.BtnExportarWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnExportarWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 206)
-        Me.BtnExportarWord.Name = "BtnExportarWord"
-        Me.BtnExportarWord.Size = New System.Drawing.Size(69, 23)
-        Me.BtnExportarWord.TabIndex = 81
-        Me.BtnExportarWord.Text = "WORD"
-        Me.BtnExportarWord.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '

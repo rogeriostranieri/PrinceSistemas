@@ -231,6 +231,8 @@ Public Class BoxConsultaCNPJLaudo
         Catch ex As Exception
             'mostrar mgs de erro
             MsgBox("Erro ao importar: " + ex.Message, MsgBoxStyle.Critical, "Erro")
+            MsgBox("O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias", MsgBoxStyle.Information, "Importação")
+
         End Try
         Me.Close()
     End Sub
