@@ -246,7 +246,8 @@ Public Class FrmSocios
         FrmLegalizacao.RespPaiTextBox.Text = NomePaiTextBox.Text
         FrmLegalizacao.RespDataNascMaskedTextBox.Text = DatadeNascMaskedTextBox.Text
         FrmLegalizacao.RespRGTextBox.Text = RGTextBox.Text
-        FrmLegalizacao.RespRgSiglaTextBox.Text = OrgaoRGTextBox.Text + " " + EstadoRGTextBox.Text
+        FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text = OrgaoRGTextBox.Text
+        FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text = EstadoRGTextBox.Text
         FrmLegalizacao.SenhaGovTextBox.Text = SenhaGOVTextBox.Text
         FrmLegalizacao.TituloeleitorTextBox.Text = TituloDeEleitorTextBox.Text
         FrmLegalizacao.CNHnumeroTextBox.Text = CNHTextBox.Text

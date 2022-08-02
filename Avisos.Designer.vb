@@ -151,7 +151,8 @@ Partial Class Avisos
         Me.EmpresasDataGridView.AllowUserToAddRows = False
         Me.EmpresasDataGridView.AllowUserToDeleteRows = False
         Me.EmpresasDataGridView.AutoGenerateColumns = False
-        Me.EmpresasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.EmpresasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.EmpresasDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.EmpresasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn68, Me.Processo, Me.DataGridViewTextBoxColumn89})
         Me.EmpresasDataGridView.DataSource = Me.EmpresasBindingSource

@@ -188,6 +188,9 @@ Public Class ExportarLaudoWordDialog
 
             Dim Requerente As String = FrmAlvara.RequerenteTextBox.Text
             Dim CPF As String = FrmAlvara.CPFRequerenteMaskedTextBox.Text
+            Dim RG As String = FrmAlvara.RGRequerenteTextBox.Text
+            Dim OrgaoRG As String = FrmAlvara.OrgaoRGRequerenteTextBox.Text
+            Dim EstadoRG As String = FrmAlvara.EstadoOrgaoRGRequerenteTextBox.Text
 
             Dim EnderecoRequerente As String = FrmAlvara.EndRequerenteTextBox.Text
 
@@ -301,6 +304,18 @@ Public Class ExportarLaudoWordDialog
             rng.Find.Text = "@Ano"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = DataHojeAno
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            '@OrgaoRG
+            rng.Find.Text = "@OrgaoRG"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = OrgaoRG
+            rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
+
+            '@EstadoRG
+            rng.Find.Text = "@EstadoRG"
+            rng.Find.Replacement.ClearFormatting()
+            rng.Find.Replacement.Text = EstadoRG
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             '/////////////////////////////// FIM CODIGO /////////////////////////////////

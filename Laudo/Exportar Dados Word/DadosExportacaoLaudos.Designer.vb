@@ -88,8 +88,8 @@ Partial Class DadosExportacaoLaudos
         Me.RichTextBox1.Size = New System.Drawing.Size(444, 264)
         Me.RichTextBox1.TabIndex = 1
         Me.RichTextBox1.Text = "@RazaoSocial" & Global.Microsoft.VisualBasic.ChrW(10) & "@CNPJ" & Global.Microsoft.VisualBasic.ChrW(10) & "@Endereco" & Global.Microsoft.VisualBasic.ChrW(10) & "@Complemento" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndNum" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndData" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndQuadra" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndZona" & Global.Microsoft.VisualBasic.ChrW(10) & "@E" &
-    "ndCEP" & Global.Microsoft.VisualBasic.ChrW(10) & "@RamodeatividadeRich" & Global.Microsoft.VisualBasic.ChrW(10) & "@Requerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@CPFRequerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndRequerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@Dia" & Global.Microsoft.VisualBasic.ChrW(10) & "@Mes" & Global.Microsoft.VisualBasic.ChrW(10) & "@" &
-    "Ano"
+    "ndCEP" & Global.Microsoft.VisualBasic.ChrW(10) & "@RamodeatividadeRich" & Global.Microsoft.VisualBasic.ChrW(10) & "@Requerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@CPFRequerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@OrgaoRG" & Global.Microsoft.VisualBasic.ChrW(10) & "@EstadoRG" & Global.Microsoft.VisualBasic.ChrW(10) & "@EndReq" &
+    "uerente" & Global.Microsoft.VisualBasic.ChrW(10) & "@Dia" & Global.Microsoft.VisualBasic.ChrW(10) & "@Mes" & Global.Microsoft.VisualBasic.ChrW(10) & "@Ano"
         '
         'TableLayoutPanel1
         '

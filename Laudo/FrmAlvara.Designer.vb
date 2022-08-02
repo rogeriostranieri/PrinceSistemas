@@ -72,6 +72,8 @@ Partial Class FrmAlvara
         Dim EndCidadeLabel1 As System.Windows.Forms.Label
         Dim EndEstadoLabel1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
+        Dim OrgaoRGRequerenteLabel As System.Windows.Forms.Label
+        Dim EstadoOrgaoRGRequerenteLabel As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -282,6 +284,8 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.OrgaoRGRequerenteTextBox = New System.Windows.Forms.TextBox()
+        Me.EstadoOrgaoRGRequerenteTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -330,6 +334,8 @@ Partial Class FrmAlvara
         BombeiroSituacaoLabel = New System.Windows.Forms.Label()
         EndCidadeLabel1 = New System.Windows.Forms.Label()
         EndEstadoLabel1 = New System.Windows.Forms.Label()
+        OrgaoRGRequerenteLabel = New System.Windows.Forms.Label()
+        EstadoOrgaoRGRequerenteLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -522,7 +528,7 @@ Partial Class FrmAlvara
         'RequerenteLabel
         '
         RequerenteLabel.AutoSize = True
-        RequerenteLabel.Location = New System.Drawing.Point(39, 33)
+        RequerenteLabel.Location = New System.Drawing.Point(21, 24)
         RequerenteLabel.Name = "RequerenteLabel"
         RequerenteLabel.Size = New System.Drawing.Size(38, 13)
         RequerenteLabel.TabIndex = 24
@@ -531,7 +537,7 @@ Partial Class FrmAlvara
         'EndRequerenteLabel
         '
         EndRequerenteLabel.AutoSize = True
-        EndRequerenteLabel.Location = New System.Drawing.Point(21, 107)
+        EndRequerenteLabel.Location = New System.Drawing.Point(3, 140)
         EndRequerenteLabel.Name = "EndRequerenteLabel"
         EndRequerenteLabel.Size = New System.Drawing.Size(56, 13)
         EndRequerenteLabel.TabIndex = 26
@@ -540,7 +546,7 @@ Partial Class FrmAlvara
         'FoneRequerenteLabel
         '
         FoneRequerenteLabel.AutoSize = True
-        FoneRequerenteLabel.Location = New System.Drawing.Point(25, 133)
+        FoneRequerenteLabel.Location = New System.Drawing.Point(7, 166)
         FoneRequerenteLabel.Name = "FoneRequerenteLabel"
         FoneRequerenteLabel.Size = New System.Drawing.Size(52, 13)
         FoneRequerenteLabel.TabIndex = 27
@@ -549,7 +555,7 @@ Partial Class FrmAlvara
         'EmailRequerenteLabel
         '
         EmailRequerenteLabel.AutoSize = True
-        EmailRequerenteLabel.Location = New System.Drawing.Point(214, 133)
+        EmailRequerenteLabel.Location = New System.Drawing.Point(196, 166)
         EmailRequerenteLabel.Name = "EmailRequerenteLabel"
         EmailRequerenteLabel.Size = New System.Drawing.Size(38, 13)
         EmailRequerenteLabel.TabIndex = 28
@@ -558,7 +564,7 @@ Partial Class FrmAlvara
         'CPFRequerenteLabel
         '
         CPFRequerenteLabel.AutoSize = True
-        CPFRequerenteLabel.Location = New System.Drawing.Point(47, 59)
+        CPFRequerenteLabel.Location = New System.Drawing.Point(29, 50)
         CPFRequerenteLabel.Name = "CPFRequerenteLabel"
         CPFRequerenteLabel.Size = New System.Drawing.Size(30, 13)
         CPFRequerenteLabel.TabIndex = 31
@@ -567,7 +573,7 @@ Partial Class FrmAlvara
         'RGRequerenteLabel
         '
         RGRequerenteLabel.AutoSize = True
-        RGRequerenteLabel.Location = New System.Drawing.Point(185, 59)
+        RGRequerenteLabel.Location = New System.Drawing.Point(161, 50)
         RGRequerenteLabel.Name = "RGRequerenteLabel"
         RGRequerenteLabel.Size = New System.Drawing.Size(26, 13)
         RGRequerenteLabel.TabIndex = 32
@@ -576,7 +582,7 @@ Partial Class FrmAlvara
         'CNPJRequerenteLabel
         '
         CNPJRequerenteLabel.AutoSize = True
-        CNPJRequerenteLabel.Location = New System.Drawing.Point(340, 59)
+        CNPJRequerenteLabel.Location = New System.Drawing.Point(22, 76)
         CNPJRequerenteLabel.Name = "CNPJRequerenteLabel"
         CNPJRequerenteLabel.Size = New System.Drawing.Size(37, 13)
         CNPJRequerenteLabel.TabIndex = 33
@@ -2395,9 +2401,13 @@ Partial Class FrmAlvara
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(EstadoOrgaoRGRequerenteLabel)
         Me.GroupBox8.Controls.Add(Me.Button23)
+        Me.GroupBox8.Controls.Add(Me.EstadoOrgaoRGRequerenteTextBox)
         Me.GroupBox8.Controls.Add(CNPJRequerenteLabel)
+        Me.GroupBox8.Controls.Add(OrgaoRGRequerenteLabel)
         Me.GroupBox8.Controls.Add(Me.CNPJRequerenteMaskedTextBox)
+        Me.GroupBox8.Controls.Add(Me.OrgaoRGRequerenteTextBox)
         Me.GroupBox8.Controls.Add(RGRequerenteLabel)
         Me.GroupBox8.Controls.Add(Me.RGRequerenteTextBox)
         Me.GroupBox8.Controls.Add(CPFRequerenteLabel)
@@ -2410,16 +2420,16 @@ Partial Class FrmAlvara
         Me.GroupBox8.Controls.Add(Me.EndRequerenteTextBox)
         Me.GroupBox8.Controls.Add(RequerenteLabel)
         Me.GroupBox8.Controls.Add(Me.RequerenteTextBox)
-        Me.GroupBox8.Location = New System.Drawing.Point(15, 18)
+        Me.GroupBox8.Location = New System.Drawing.Point(15, 6)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(503, 167)
+        Me.GroupBox8.Size = New System.Drawing.Size(503, 195)
         Me.GroupBox8.TabIndex = 32
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Requerente do Laudo"
         '
         'Button23
         '
-        Me.Button23.Location = New System.Drawing.Point(82, 80)
+        Me.Button23.Location = New System.Drawing.Point(64, 113)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(87, 23)
         Me.Button23.TabIndex = 46
@@ -2429,7 +2439,7 @@ Partial Class FrmAlvara
         'CNPJRequerenteMaskedTextBox
         '
         Me.CNPJRequerenteMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNPJRequerente", True))
-        Me.CNPJRequerenteMaskedTextBox.Location = New System.Drawing.Point(383, 56)
+        Me.CNPJRequerenteMaskedTextBox.Location = New System.Drawing.Point(65, 73)
         Me.CNPJRequerenteMaskedTextBox.Mask = "00,000,000/0000-00"
         Me.CNPJRequerenteMaskedTextBox.Name = "CNPJRequerenteMaskedTextBox"
         Me.CNPJRequerenteMaskedTextBox.Size = New System.Drawing.Size(107, 20)
@@ -2438,15 +2448,15 @@ Partial Class FrmAlvara
         'RGRequerenteTextBox
         '
         Me.RGRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "RGRequerente", True))
-        Me.RGRequerenteTextBox.Location = New System.Drawing.Point(217, 56)
+        Me.RGRequerenteTextBox.Location = New System.Drawing.Point(193, 47)
         Me.RGRequerenteTextBox.Name = "RGRequerenteTextBox"
-        Me.RGRequerenteTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.RGRequerenteTextBox.Size = New System.Drawing.Size(88, 20)
         Me.RGRequerenteTextBox.TabIndex = 33
         '
         'CPFRequerenteMaskedTextBox
         '
         Me.CPFRequerenteMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CPFRequerente", True))
-        Me.CPFRequerenteMaskedTextBox.Location = New System.Drawing.Point(83, 56)
+        Me.CPFRequerenteMaskedTextBox.Location = New System.Drawing.Point(65, 47)
         Me.CPFRequerenteMaskedTextBox.Mask = "000,000,000-00"
         Me.CPFRequerenteMaskedTextBox.Name = "CPFRequerenteMaskedTextBox"
         Me.CPFRequerenteMaskedTextBox.Size = New System.Drawing.Size(86, 20)
@@ -2455,7 +2465,7 @@ Partial Class FrmAlvara
         'EmailRequerenteTextBox
         '
         Me.EmailRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EmailRequerente", True))
-        Me.EmailRequerenteTextBox.Location = New System.Drawing.Point(258, 130)
+        Me.EmailRequerenteTextBox.Location = New System.Drawing.Point(240, 163)
         Me.EmailRequerenteTextBox.MaxLength = 1000
         Me.EmailRequerenteTextBox.Name = "EmailRequerenteTextBox"
         Me.EmailRequerenteTextBox.Size = New System.Drawing.Size(232, 20)
@@ -2464,7 +2474,7 @@ Partial Class FrmAlvara
         'FoneRequerenteTextBox
         '
         Me.FoneRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "FoneRequerente", True))
-        Me.FoneRequerenteTextBox.Location = New System.Drawing.Point(83, 130)
+        Me.FoneRequerenteTextBox.Location = New System.Drawing.Point(65, 163)
         Me.FoneRequerenteTextBox.Name = "FoneRequerenteTextBox"
         Me.FoneRequerenteTextBox.Size = New System.Drawing.Size(100, 20)
         Me.FoneRequerenteTextBox.TabIndex = 28
@@ -2472,7 +2482,7 @@ Partial Class FrmAlvara
         'EndRequerenteTextBox
         '
         Me.EndRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndRequerente", True))
-        Me.EndRequerenteTextBox.Location = New System.Drawing.Point(83, 104)
+        Me.EndRequerenteTextBox.Location = New System.Drawing.Point(65, 137)
         Me.EndRequerenteTextBox.MaxLength = 1000
         Me.EndRequerenteTextBox.Name = "EndRequerenteTextBox"
         Me.EndRequerenteTextBox.Size = New System.Drawing.Size(407, 20)
@@ -2481,7 +2491,7 @@ Partial Class FrmAlvara
         'RequerenteTextBox
         '
         Me.RequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Requerente", True))
-        Me.RequerenteTextBox.Location = New System.Drawing.Point(83, 30)
+        Me.RequerenteTextBox.Location = New System.Drawing.Point(65, 21)
         Me.RequerenteTextBox.Name = "RequerenteTextBox"
         Me.RequerenteTextBox.Size = New System.Drawing.Size(407, 20)
         Me.RequerenteTextBox.TabIndex = 25
@@ -3154,6 +3164,40 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'OrgaoRGRequerenteLabel
+        '
+        OrgaoRGRequerenteLabel.AutoSize = True
+        OrgaoRGRequerenteLabel.Location = New System.Drawing.Point(286, 50)
+        OrgaoRGRequerenteLabel.Name = "OrgaoRGRequerenteLabel"
+        OrgaoRGRequerenteLabel.Size = New System.Drawing.Size(39, 13)
+        OrgaoRGRequerenteLabel.TabIndex = 57
+        OrgaoRGRequerenteLabel.Text = "Orgão:"
+        '
+        'OrgaoRGRequerenteTextBox
+        '
+        Me.OrgaoRGRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "OrgaoRGRequerente", True))
+        Me.OrgaoRGRequerenteTextBox.Location = New System.Drawing.Point(325, 47)
+        Me.OrgaoRGRequerenteTextBox.Name = "OrgaoRGRequerenteTextBox"
+        Me.OrgaoRGRequerenteTextBox.Size = New System.Drawing.Size(56, 20)
+        Me.OrgaoRGRequerenteTextBox.TabIndex = 58
+        '
+        'EstadoOrgaoRGRequerenteLabel
+        '
+        EstadoOrgaoRGRequerenteLabel.AutoSize = True
+        EstadoOrgaoRGRequerenteLabel.Location = New System.Drawing.Point(387, 50)
+        EstadoOrgaoRGRequerenteLabel.Name = "EstadoOrgaoRGRequerenteLabel"
+        EstadoOrgaoRGRequerenteLabel.Size = New System.Drawing.Size(43, 13)
+        EstadoOrgaoRGRequerenteLabel.TabIndex = 58
+        EstadoOrgaoRGRequerenteLabel.Text = "Estado:"
+        '
+        'EstadoOrgaoRGRequerenteTextBox
+        '
+        Me.EstadoOrgaoRGRequerenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EstadoOrgaoRGRequerente", True))
+        Me.EstadoOrgaoRGRequerenteTextBox.Location = New System.Drawing.Point(430, 47)
+        Me.EstadoOrgaoRGRequerenteTextBox.Name = "EstadoOrgaoRGRequerenteTextBox"
+        Me.EstadoOrgaoRGRequerenteTextBox.Size = New System.Drawing.Size(42, 20)
+        Me.EstadoOrgaoRGRequerenteTextBox.TabIndex = 59
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3471,4 +3515,6 @@ Partial Class FrmAlvara
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents BtnMgsBoxAvisarDia As Button
     Friend WithEvents BtnExportarWord As Button
+    Friend WithEvents EstadoOrgaoRGRequerenteTextBox As TextBox
+    Friend WithEvents OrgaoRGRequerenteTextBox As TextBox
 End Class

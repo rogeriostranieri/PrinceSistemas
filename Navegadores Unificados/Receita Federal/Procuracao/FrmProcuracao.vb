@@ -54,7 +54,7 @@
             'mudar para WebView21 .Document.GetElementById("delegRg").SetAttribute("value", RG)
             WebView21.ExecuteScriptAsync("document.getElementById('delegRg').value = '" & RG & "'")
             'mudar para WebView21 .Document.GetElementById("delegOrgaoExpedidor").SetAttribute("value", FrmLegalizacao.RespRgSiglaTextBox.Text)
-            WebView21.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & FrmLegalizacao.RespRgSiglaTextBox.Text & "'")
+            WebView21.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text + FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text & "'")
 
 
             'Form Contador

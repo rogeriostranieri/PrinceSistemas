@@ -5,7 +5,7 @@ Imports System.Globalization
 Imports System.Configuration
 
 Public Class FrmAlvara
-    Dim str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -508,12 +508,17 @@ Public Class FrmAlvara
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
             If Application.OpenForms.OfType(Of FrmWebLaudoNovoMaringaPR)().Count() > 0 Then
                 FrmWebLaudoNovoMaringaPR.Focus()
-                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
-                'copiar cnpj sem / e - e .
+                'verificar se EndCidadeLabel2 contenha "Maringá") Then
             Else
                 FrmWebLaudoNovoMaringaPR.Show()
+                ' FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
+            End If
+            If EndCidadeLabel2.Text.Contains("Maring") Then
                 FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
-
+                FrmWebLaudoNovoMaringaPR.ToolStripLabel2.Text = "PREFEITURA DO MUNICIPIO DE MARINGÁ"
+            ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
+                FrmWebLaudoNovoMaringaPR.WebView21.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e3s1")
+                FrmWebLaudoNovoMaringaPR.ToolStripLabel2.Text = "PREFEITURA DO MUNICIPIO DE SARANDI"
             End If
 
 

@@ -110,6 +110,8 @@ Partial Class FrmLegalizacao
         Dim DivisaoCapitalSociosLabel As System.Windows.Forms.Label
         Dim CapitalQuotaValorLabel As System.Windows.Forms.Label
         Dim CapitaQuotaTotalLabel As System.Windows.Forms.Label
+        Dim ResponsavelOrgaoRGLabel As System.Windows.Forms.Label
+        Dim ResponsavelEstadoOrgaoRGLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -139,12 +141,13 @@ Partial Class FrmLegalizacao
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.ResponsavelEstadoOrgaoRGTextBox = New System.Windows.Forms.TextBox()
+        Me.ResponsavelOrgaoRGTextBox = New System.Windows.Forms.TextBox()
         Me.BtnImportarSocioAdm = New System.Windows.Forms.Button()
         Me.BtnCopiarSenhaGov = New System.Windows.Forms.Button()
         Me.SenhaGovLabel = New System.Windows.Forms.Label()
         Me.SenhaGovTextBox = New System.Windows.Forms.TextBox()
         Me.RespPaiTextBox = New System.Windows.Forms.TextBox()
-        Me.RespRgSiglaTextBox = New System.Windows.Forms.TextBox()
         Me.Button44 = New System.Windows.Forms.Button()
         Me.CNHdataexpMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.CNHexpTextBox = New System.Windows.Forms.TextBox()
@@ -507,6 +510,8 @@ Partial Class FrmLegalizacao
         DivisaoCapitalSociosLabel = New System.Windows.Forms.Label()
         CapitalQuotaValorLabel = New System.Windows.Forms.Label()
         CapitaQuotaTotalLabel = New System.Windows.Forms.Label()
+        ResponsavelOrgaoRGLabel = New System.Windows.Forms.Label()
+        ResponsavelEstadoOrgaoRGLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -989,7 +994,7 @@ Partial Class FrmLegalizacao
         'TituloeleitorLabel
         '
         TituloeleitorLabel.AutoSize = True
-        TituloeleitorLabel.Location = New System.Drawing.Point(252, 102)
+        TituloeleitorLabel.Location = New System.Drawing.Point(348, 103)
         TituloeleitorLabel.Name = "TituloeleitorLabel"
         TituloeleitorLabel.Size = New System.Drawing.Size(85, 13)
         TituloeleitorLabel.TabIndex = 37
@@ -1346,6 +1351,24 @@ Partial Class FrmLegalizacao
         CapitaQuotaTotalLabel.TabIndex = 62
         CapitaQuotaTotalLabel.Text = "Total das Quotas:"
         '
+        'ResponsavelOrgaoRGLabel
+        '
+        ResponsavelOrgaoRGLabel.AutoSize = True
+        ResponsavelOrgaoRGLabel.Location = New System.Drawing.Point(159, 103)
+        ResponsavelOrgaoRGLabel.Name = "ResponsavelOrgaoRGLabel"
+        ResponsavelOrgaoRGLabel.Size = New System.Drawing.Size(39, 13)
+        ResponsavelOrgaoRGLabel.TabIndex = 68
+        ResponsavelOrgaoRGLabel.Text = "Orgão:"
+        '
+        'ResponsavelEstadoOrgaoRGLabel
+        '
+        ResponsavelEstadoOrgaoRGLabel.AutoSize = True
+        ResponsavelEstadoOrgaoRGLabel.Location = New System.Drawing.Point(257, 103)
+        ResponsavelEstadoOrgaoRGLabel.Name = "ResponsavelEstadoOrgaoRGLabel"
+        ResponsavelEstadoOrgaoRGLabel.Size = New System.Drawing.Size(43, 13)
+        ResponsavelEstadoOrgaoRGLabel.TabIndex = 69
+        ResponsavelEstadoOrgaoRGLabel.Text = "Estado:"
+        '
         'EmpresasBindingNavigator
         '
         Me.EmpresasBindingNavigator.AddNewItem = Nothing
@@ -1599,13 +1622,16 @@ Partial Class FrmLegalizacao
         'TabPage12
         '
         Me.TabPage12.AutoScroll = True
+        Me.TabPage12.Controls.Add(ResponsavelEstadoOrgaoRGLabel)
+        Me.TabPage12.Controls.Add(Me.ResponsavelEstadoOrgaoRGTextBox)
+        Me.TabPage12.Controls.Add(ResponsavelOrgaoRGLabel)
+        Me.TabPage12.Controls.Add(Me.ResponsavelOrgaoRGTextBox)
         Me.TabPage12.Controls.Add(Me.BtnImportarSocioAdm)
         Me.TabPage12.Controls.Add(Me.BtnCopiarSenhaGov)
         Me.TabPage12.Controls.Add(RespPaiLabel)
         Me.TabPage12.Controls.Add(Me.SenhaGovLabel)
         Me.TabPage12.Controls.Add(Me.SenhaGovTextBox)
         Me.TabPage12.Controls.Add(Me.RespPaiTextBox)
-        Me.TabPage12.Controls.Add(Me.RespRgSiglaTextBox)
         Me.TabPage12.Controls.Add(Me.Button44)
         Me.TabPage12.Controls.Add(Me.CNHdataexpMaskedTextBox)
         Me.TabPage12.Controls.Add(Me.CNHexpTextBox)
@@ -1634,10 +1660,26 @@ Partial Class FrmLegalizacao
         Me.TabPage12.Text = "Responsável"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
+        'ResponsavelEstadoOrgaoRGTextBox
+        '
+        Me.ResponsavelEstadoOrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ResponsavelEstadoOrgaoRG", True))
+        Me.ResponsavelEstadoOrgaoRGTextBox.Location = New System.Drawing.Point(300, 100)
+        Me.ResponsavelEstadoOrgaoRGTextBox.Name = "ResponsavelEstadoOrgaoRGTextBox"
+        Me.ResponsavelEstadoOrgaoRGTextBox.Size = New System.Drawing.Size(41, 20)
+        Me.ResponsavelEstadoOrgaoRGTextBox.TabIndex = 70
+        '
+        'ResponsavelOrgaoRGTextBox
+        '
+        Me.ResponsavelOrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ResponsavelOrgaoRG", True))
+        Me.ResponsavelOrgaoRGTextBox.Location = New System.Drawing.Point(198, 100)
+        Me.ResponsavelOrgaoRGTextBox.Name = "ResponsavelOrgaoRGTextBox"
+        Me.ResponsavelOrgaoRGTextBox.Size = New System.Drawing.Size(53, 20)
+        Me.ResponsavelOrgaoRGTextBox.TabIndex = 69
+        '
         'BtnImportarSocioAdm
         '
         Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.Green
-        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(483, 70)
+        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(480, 12)
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
         Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(75, 49)
         Me.BtnImportarSocioAdm.TabIndex = 7
@@ -1681,14 +1723,6 @@ Partial Class FrmLegalizacao
         Me.RespPaiTextBox.Name = "RespPaiTextBox"
         Me.RespPaiTextBox.Size = New System.Drawing.Size(225, 20)
         Me.RespPaiTextBox.TabIndex = 67
-        '
-        'RespRgSiglaTextBox
-        '
-        Me.RespRgSiglaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespRgSigla", True))
-        Me.RespRgSiglaTextBox.Location = New System.Drawing.Point(160, 100)
-        Me.RespRgSiglaTextBox.Name = "RespRgSiglaTextBox"
-        Me.RespRgSiglaTextBox.Size = New System.Drawing.Size(64, 20)
-        Me.RespRgSiglaTextBox.TabIndex = 64
         '
         'Button44
         '
@@ -1751,9 +1785,9 @@ Partial Class FrmLegalizacao
         '
         Me.Button39.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.Button39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button39.Location = New System.Drawing.Point(421, 98)
+        Me.Button39.Location = New System.Drawing.Point(519, 100)
         Me.Button39.Name = "Button39"
-        Me.Button39.Size = New System.Drawing.Size(42, 22)
+        Me.Button39.Size = New System.Drawing.Size(42, 21)
         Me.Button39.TabIndex = 40
         Me.Button39.Text = "TSE"
         Me.Button39.UseVisualStyleBackColor = True
@@ -1777,7 +1811,7 @@ Partial Class FrmLegalizacao
         'TituloeleitorTextBox
         '
         Me.TituloeleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Tituloeleitor", True))
-        Me.TituloeleitorTextBox.Location = New System.Drawing.Point(334, 99)
+        Me.TituloeleitorTextBox.Location = New System.Drawing.Point(430, 100)
         Me.TituloeleitorTextBox.Name = "TituloeleitorTextBox"
         Me.TituloeleitorTextBox.Size = New System.Drawing.Size(86, 20)
         Me.TituloeleitorTextBox.TabIndex = 38
@@ -4971,7 +5005,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents Button44 As Button
     Friend WithEvents TabPage17 As TabPage
     Friend WithEvents Button45 As Button
-    Friend WithEvents RespRgSiglaTextBox As TextBox
     Friend WithEvents ProcuracaoDataMaskedTextBox As MaskedTextBox
     Friend WithEvents ProcuracaoNMaskedTextBox As MaskedTextBox
     Friend WithEvents ProcuracaoComboBox As ComboBox
@@ -5078,4 +5111,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnMgsBoxAvisarDia As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label8 As Label
+    Friend WithEvents ResponsavelEstadoOrgaoRGTextBox As TextBox
+    Friend WithEvents ResponsavelOrgaoRGTextBox As TextBox
 End Class

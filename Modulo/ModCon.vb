@@ -92,6 +92,8 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                             FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
                             FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
                             FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+                            FrmAlvara.OrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text
+                            FrmAlvara.EstadoOrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
                             FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
                             FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
 
@@ -379,6 +381,8 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                                     FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
                                     FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
                                     FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+                                    FrmAlvara.OrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text
+                                    FrmAlvara.EstadoOrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
                                     FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
                                     FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
 
@@ -677,6 +681,8 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             FrmAlvara.RequerenteTextBox.Text = FrmLegalizacao.NomeResponsavelTextBox.Text
             FrmAlvara.CPFRequerenteMaskedTextBox.Text = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
             FrmAlvara.RGRequerenteTextBox.Text = FrmLegalizacao.RespRGTextBox.Text
+            FrmAlvara.OrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text
+            FrmAlvara.EstadoOrgaoRGRequerenteTextBox.Text = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
             FrmAlvara.FoneRequerenteTextBox.Text = FrmLegalizacao.EmpTel1TextBox.Text
             FrmAlvara.EmailRequerenteTextBox.Text = FrmLegalizacao.EmpEmailTextBox.Text
 
