@@ -70,9 +70,11 @@ Public Class ExportarContratoWordDialog
             Dim Domiciliado As String
 
             'endereço
-            Dim RUA As String = FrmSocios.RUATextBox.Text
+            Dim Rua As String = FrmSocios.RUATextBox.Text
             'primeira letra da RUA em minusculo
-            Dim Rua1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Rua = Strings.StrConv(Rua, VbStrConv.ProperCase)
+            Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
+
             Dim N As String = FrmSocios.NumTextBox.Text
 
             'For Each next
@@ -276,7 +278,7 @@ Public Class ExportarContratoWordDialog
             'RUA
             rng.Find.Text = "@" & NumeroSocio & "SocioRua"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Rua1
+            rng.Find.Replacement.Text = RUA
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Numero
@@ -357,9 +359,8 @@ Public Class ExportarContratoWordDialog
             'com a 1 letra ToUpper e o resto ToLower
             'e depois @NomeCompleto
             Dim NomePequeno As String = FrmSocios.NomeCompletoTextBox.Text
-            'deixar cada letra maiscula e o resto minuscula
-            NomePequeno = NomePequeno.ToUpper
-            NomePequeno = NomePequeno.ToLower
+            NomePequeno = Strings.StrConv(NomePequeno, VbStrConv.ProperCase)
+
             'substituir @NomeCompleto pelo nome pequeno do socio
             rng.Find.Text = "@" & NumeroSocio & "SocioNomePequeno"
             rng.Find.Replacement.ClearFormatting()
@@ -624,9 +625,11 @@ Public Class ExportarContratoWordDialog
             Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
 
             'endereço
-            Dim RUA As String = FrmLegalizacao.EnderecoTextBox.Text
+            Dim Rua As String = FrmLegalizacao.EnderecoTextBox.Text
             'primeira letra da RUA em minusculo
-            Dim Rua1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Rua = Strings.StrConv(Rua, VbStrConv.ProperCase)
+            Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
+
             Dim Numero As String = FrmLegalizacao.EndNumeroTextBox.Text
             'verificar se tem complemento EndComplementoTextBox
             'For Each next
@@ -701,7 +704,7 @@ Public Class ExportarContratoWordDialog
             'RUA
             rng.Find.Text = "@EmpresaRua"
             rng.Find.Replacement.ClearFormatting()
-            rng.Find.Replacement.Text = Rua1
+            rng.Find.Replacement.Text = Rua
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             'Numero

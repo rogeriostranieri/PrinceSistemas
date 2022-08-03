@@ -123,12 +123,10 @@ Public Class FrmSocios
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         'perguntar, editar ou não
-        If MessageBox.Show("Deseja editar o registro?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            LiberarEdicao()
-            TextBoxExtensoDN.Visible = False
-        End If
-
-
+        ' If MessageBox.Show("Deseja editar o registro?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+        LiberarEdicao()
+        TextBoxExtensoDN.Visible = False
+        ' End If
     End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
@@ -483,9 +481,14 @@ Novos dados:" + "
 
             If ExportarContratoWordDialog.Visible = True Then
                 ExportarContratoWordDialog.Focus()
+            ElseIf ExportarLaudoWordDialog.Visible = True Then
+                ExportarContratoWordDialog.Focus()
             Else
-                ExportarContratoWordDialog.ShowDialog()
+                MsgBox("Favor, abrir o formulário para exportação empresas ou alvará!")
             End If
+
+
+            'ExportarLaudoWordDialog
         End If
 
     End Sub

@@ -1633,4 +1633,5 @@ Public Class FrmAlvara
             ExportarLaudoWordDialog.Show()
         End If
     End Sub
+
 End Class

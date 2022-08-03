@@ -14,7 +14,8 @@ Public Class DadosExportacaoLaudos
         Me.Close()
     End Sub
 
-    Private Sub DadosExportacaoLaudos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'quando Crt C o RichTextBox1 tirar toda formatação
 
-    End Sub
+
+
 End Class

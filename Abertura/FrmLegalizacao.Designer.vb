@@ -3730,6 +3730,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button32.FlatAppearance.BorderSize = 2
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button32.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button32.Location = New System.Drawing.Point(325, 11)
         Me.Button32.Name = "Button32"
         Me.Button32.Size = New System.Drawing.Size(153, 39)

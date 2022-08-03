@@ -1131,6 +1131,7 @@
     <None Include="Resources\login.jpg" />
     <None Include="Resources\aviso.jpg" />
     <None Include="Resources\email.png" />
+    <Content Include="AnotacoesHELP.txt" />
     <Content Include="Atualizacao.txt" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>

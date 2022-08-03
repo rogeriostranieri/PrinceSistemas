@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>@RazaoSocial
+@RazaoPequeno
+@CNPJ
+@CMC
+@Endereco
+@Complemento
+@EndNum
+@EndBairro
+@EndCEP
+@EndCidade
+@EndEstado
+@EndData
+@EndQuadra
+@EndZona
+@RamodeatividadeRich
+@Requerente
+@ReqPequeno
+@CPFRequerente
+@RGRequerente
+@OrgaoRGRequerente
+@EstadoRGRequerente
+@EndRequerente
+@Dia
+@Mes
+@Ano
+@EndCadImob</value>
+  </data>
+  <data name="RichTextBox2.Text" xml:space="preserve">
+    <value>ATENÇÃO&gt;  "usar o @ arroba + Numero do Socio + CAMPO"
+por exemplo = "@3SocioCPF" ou "@1SocioCPF"
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+@SocioCPF = " Numero do CPF "
+@SocioNomeCompleto = " Nome Completo MAIUSCULO "
+@SocioNomePequeno = " Nome Completo Minusculo "
+@SocioDataDeNascimento = " Data de nascimento extenso "
+@SocioRG = " Numero do RG "
+@SocioOrgaoRG = " Orgão Emissor ex. SESP "
+@SocioEstadoRG = " Estado do RG "
+
+'Endereço residencial&gt;
+@SocioRua = " rua completa "
+@SocioNumero = " numero da casa "
+@Complemento = " complemento se tiver e com "," automatica ou fica em branco "
+@SocioBairro = " bairro da casa "
+@SocioCidade = " cidade do socio "
+@SocioEstado = "estado do socio "
+@SocioCEP = " CEP da residencia "
+
+
+'GENEROS A e O exemplos:
+
+@SocioEmpresario = " empresario o outros "
+@SocioEstadoCivil = " casado, solteiro e etc "
+@SocioGenero = " Masculino, feminino e outros "
+@Sociodomiciliado = " domicilado ou domicilada "
+@SocioPortador = " portador ou portadora "
+@SocioBrasileiro = " brasileiro ou brasileira "
+@SocioNascido = " nascido ou nascida "
+
+@SocioGenero = " sócio "
+@MaiuSocio = "Sócio"
+@SociosGenero = "Sócios "
+@OsocioGenero = " o sócio "
+@OssociosGenero = "Os sócios"
+@ZOsocioGeneroInicio = "O sócio"
+@AoSocioGrande = "Ao sócio"
+@AoSocioMinusculo = "ao sócio"
+
+
+@OtitularGrande = "O titular"
+@OtitularMinusculo = "o titular"
+
+@ADMINISTRADORGrande = "ADMINISTRADOR"
+@Socio1AdministradorMaiuscula = " Administrador "
+@Socio2OAdministradorMaiuscula = " O administrador "
+@Socio3AdministradorMinuscula = " administrador "
+@Socio4OAdministradorMinuscula = " o administrador "
+@Socio5AdministradoresMaiuscula = " Administradores "
+@Socio6OAdministradoresMinuscula = " Os administradores "
+@Socio7AdministradoresMinuscula = " administradores "
+@Socio8OAdministradoresMaiuscula = " os administradores "</value>
+  </data>
 </root>

@@ -1,0 +1,11 @@
+﻿ 
+ /////////////////  AJUDA COM CODIGOS ////////////////////// 
+ 
+ 
+
+ ////////////// tratamento de letras MAISUCULAS E MINUSCULAS ///////////////
+ 'Apenas primeira letra maiuscula e resto da palabra minuscula, cada uma
+ Rua = Strings.StrConv(Rua, VbStrConv.ProperCase)
+
+'pega o anterior e deixa apenas primeira palavra minuscula
+ Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
