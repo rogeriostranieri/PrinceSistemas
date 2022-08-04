@@ -2857,4 +2857,12 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         End Try
     End Sub
 
+    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
+        'usar ModTexto Function TirarCaracteres sText dentro do RamoDeAtividadeRichTextBox
+        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaTexto(RamoDeAtividadeRichTextBox.Text)
+        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaEnter(RamoDeAtividadeRichTextBox.Text)
+        'LimpaCaracteres
+        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaCaracteres(RamoDeAtividadeRichTextBox.Text)
+
+    End Sub
 End Class

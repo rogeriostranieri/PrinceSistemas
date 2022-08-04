@@ -423,6 +423,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnRemovCaract = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1921,6 +1922,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
         Me.GroupBox1.Controls.Add(Me.CnaeSimples)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label6)
@@ -4695,6 +4697,18 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnRemovCaract
+        '
+        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(457, 112)
+        Me.BtnRemovCaract.Name = "BtnRemovCaract"
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(82, 37)
+        Me.BtnRemovCaract.TabIndex = 49
+        Me.BtnRemovCaract.Text = "Remove Caraceteres"
+        Me.BtnRemovCaract.UseVisualStyleBackColor = False
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5114,4 +5128,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents Label8 As Label
     Friend WithEvents ResponsavelEstadoOrgaoRGTextBox As TextBox
     Friend WithEvents ResponsavelOrgaoRGTextBox As TextBox
+    Friend WithEvents BtnRemovCaract As Button
 End Class
