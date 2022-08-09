@@ -1169,14 +1169,6 @@ Novos dados:" + "
         ListBoxEstadoCivil.Visible = False
     End Sub
 
-    Private Sub CivilTextBox_TextChanged(sender As Object, e As EventArgs) Handles CivilTextBox.TextChanged
-        'aumentar tamanho CivilTextBox conforme tamanho do texto
-        If CivilTextBox.Text = "" Then
-            CivilTextBox.Width = 118
-        Else
-            CivilTextBox.Width = CivilTextBox.Text.Length * 6
-        End If
-    End Sub
 
     Private Sub ListBoxEstadoCivil_Leave(sender As Object, e As EventArgs) Handles ListBoxEstadoCivil.Leave
         ListBoxEstadoCivil.Visible = False
@@ -1198,29 +1190,6 @@ Novos dados:" + "
         LimpaTexto(EstadoRGTextBox.Text)
     End Sub
 
-    Private Sub NomeCompletoTextBox_TextChanged(sender As Object, e As EventArgs)
-        '   ModTexto.TodoMaiusculo
-        NomeCompletoTextBox.Text = NomeCompletoTextBox.Text.ToUpper()
-        'tirar todos caraceteres especiais
-        LimpaTexto(NomeCompletoTextBox.Text)
-        'aumentar tamanho NomeCompletoTextBox conforme tamanho do texto
-
-    End Sub
-
-    Private Sub NomeMaeTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomeMaeTextBox.TextChanged
-        'ToUpper
-        NomeMaeTextBox.Text = NomeMaeTextBox.Text.ToUpper()
-        'LimpaTexto
-        LimpaTexto(NomeMaeTextBox.Text)
-    End Sub
-
-    Private Sub NomePaiTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomePaiTextBox.TextChanged
-        'ToUpper
-        NomePaiTextBox.Text = NomePaiTextBox.Text.ToUpper()
-        'LimpaTexto
-        LimpaTexto(NomePaiTextBox.Text)
-    End Sub
-
     Private Sub BtnConsultarTituloDeEleitor_Click(sender As Object, e As EventArgs) Handles BtnConsultarTituloDeEleitor.Click
         'verificar se o WebConsultaTituloDeEleitor está aberto
         Dim Form As New WebConsultaTituloDeEleitor()
@@ -1236,4 +1205,33 @@ Novos dados:" + "
         End If
     End Sub
 
+    Private Sub NomeCompletoTextBox_Validated(sender As Object, e As EventArgs) Handles NomeCompletoTextBox.Validated
+        '   ModTexto.TodoMaiusculo
+        NomeCompletoTextBox.Text = NomeCompletoTextBox.Text.ToUpper()
+        'tirar todos caraceteres especiais
+        LimpaTexto(NomeCompletoTextBox.Text)
+    End Sub
+
+    Private Sub NomeMaeTextBox_Validated(sender As Object, e As EventArgs) Handles NomeMaeTextBox.Validated
+        'ToUpper
+        NomeMaeTextBox.Text = NomeMaeTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(NomeMaeTextBox.Text)
+    End Sub
+
+    Private Sub NomePaiTextBox_Validated(sender As Object, e As EventArgs) Handles NomePaiTextBox.Validated
+        'ToUpper
+        NomePaiTextBox.Text = NomePaiTextBox.Text.ToUpper()
+        'LimpaTexto
+        LimpaTexto(NomePaiTextBox.Text)
+    End Sub
+
+    Private Sub CivilTextBox_Validated(sender As Object, e As EventArgs) Handles CivilTextBox.Validated
+        'aumentar tamanho CivilTextBox conforme tamanho do texto
+        If CivilTextBox.Text = "" Then
+            CivilTextBox.Width = 118
+        Else
+            CivilTextBox.Width = CivilTextBox.Text.Length * 6
+        End If
+    End Sub
 End Class

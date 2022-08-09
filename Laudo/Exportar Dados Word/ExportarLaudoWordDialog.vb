@@ -308,7 +308,7 @@ Public Class ExportarLaudoWordDialog
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)
 
             '@RamodeatividadeRich
-            rng.Find.Text = "@RamodeatividadeRich"
+            rng.Find.Text = "@Ramodeatividade"
             rng.Find.Replacement.ClearFormatting()
             rng.Find.Replacement.Text = RamoDeAtividade
             rng.Find.Execute(Replace:=WdReplace.wdReplaceAll)

@@ -81,6 +81,7 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         Me.CivilTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultarTituloDeEleitor = New System.Windows.Forms.Button()
         Me.CNHDataExpMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -152,7 +153,6 @@ Partial Class FrmSocios
         Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -706,7 +706,7 @@ Partial Class FrmSocios
         Me.TabControl1.Location = New System.Drawing.Point(3, 105)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 341)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 339)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -715,7 +715,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 315)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 313)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -765,10 +765,18 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 309)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 307)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'NomeCompletoTextBox
+        '
+        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
+        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
+        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
+        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
+        Me.NomeCompletoTextBox.TabIndex = 63
         '
         'CivilTextBox
         '
@@ -974,7 +982,7 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 316)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 314)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1010,7 +1018,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 310)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 308)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1143,7 +1151,7 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.Button2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 316)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 314)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Contato"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1175,7 +1183,7 @@ Partial Class FrmSocios
         Me.TabPage4.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(583, 316)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 314)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Cônjuge"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1217,7 +1225,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 452)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 450)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(587, 66)
         Me.GroupBox2.TabIndex = 58
@@ -1350,7 +1358,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 524)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 522)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1410,9 +1418,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 524)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 522)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 251)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 253)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1508,14 +1516,6 @@ Partial Class FrmSocios
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "DADOS CADASTRAIS DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'NomeCompletoTextBox
-        '
-        Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(114, 50)
-        Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
-        Me.NomeCompletoTextBox.Size = New System.Drawing.Size(355, 20)
-        Me.NomeCompletoTextBox.TabIndex = 63
         '
         'FrmSocios
         '
