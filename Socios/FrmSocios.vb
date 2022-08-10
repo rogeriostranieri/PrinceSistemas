@@ -225,7 +225,7 @@ Public Class FrmSocios
         DataDeNascExtenso()
     End Sub
 
-    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click, BtnFecharMenu.Click
         Me.Close()
     End Sub
 

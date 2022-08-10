@@ -142,6 +142,7 @@ Partial Class FrmSocios
         Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnFecharMenu = New System.Windows.Forms.Button()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -532,6 +533,7 @@ Partial Class FrmSocios
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.BtnFecharMenu)
         Me.GroupBox1.Controls.Add(Me.BtnNovo)
         Me.GroupBox1.Controls.Add(Me.BtnEditar)
         Me.GroupBox1.Controls.Add(Me.BtnSalvar)
@@ -541,7 +543,7 @@ Partial Class FrmSocios
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(602, 104)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 338)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 336)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -608,7 +610,7 @@ Partial Class FrmSocios
         Me.TabControl1.Location = New System.Drawing.Point(3, 104)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 338)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 336)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -617,7 +619,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 312)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 310)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -667,7 +669,7 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 306)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 304)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -1127,7 +1129,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 448)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 446)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(587, 65)
         Me.GroupBox2.TabIndex = 58
@@ -1260,7 +1262,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 519)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 517)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1320,9 +1322,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 519)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 517)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 256)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 258)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1417,6 +1419,16 @@ Partial Class FrmSocios
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'BtnFecharMenu
+        '
+        Me.BtnFecharMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnFecharMenu.Location = New System.Drawing.Point(7, 152)
+        Me.BtnFecharMenu.Name = "BtnFecharMenu"
+        Me.BtnFecharMenu.Size = New System.Drawing.Size(75, 23)
+        Me.BtnFecharMenu.TabIndex = 10
+        Me.BtnFecharMenu.Text = "Fechar"
+        Me.BtnFecharMenu.UseVisualStyleBackColor = True
         '
         'FrmSocios
         '
@@ -1553,4 +1565,5 @@ Partial Class FrmSocios
     Friend WithEvents BtnConsultarTituloDeEleitor As Button
     Friend WithEvents CivilTextBox As TextBox
     Friend WithEvents NomeCompletoTextBox As TextBox
+    Friend WithEvents BtnFecharMenu As Button
 End Class

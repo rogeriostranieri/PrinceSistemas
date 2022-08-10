@@ -873,13 +873,13 @@ Public Class MDIPrincipal
             Dim URLsite As String = WebSiteGeral.TxtURL.Text
 
             'abrir o WebSiteGERAL
-            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                WebSiteGeral.Focus()
-                WebSiteGeral.MdiParent = Me
+            If WebSiteGERAL.Visible = True Then
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = Me
                 'site WebView com site
                 WebSiteGERAL.WebsiteNavigate(site)
             Else
-                WebSiteGeral.Show()
+                WebSiteGERAL.Show()
                 WebSiteGeral.MdiParent = Me
                 WebSiteGERAL.WebsiteNavigate(site)
             End If

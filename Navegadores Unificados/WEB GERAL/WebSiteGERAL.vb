@@ -33,6 +33,9 @@ Public Class WebSiteGERAL
 
     '//////////////////////////////////////////////////////////////////////////////
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'abrir sempre como MDI FIlho
+        Me.MdiParent = MDIPrincipal
+
         LogMsg("MS Edge Version: " + CoreWebView2Environment.GetAvailableBrowserVersionString())
 
         If Not String.IsNullOrEmpty(TxtURL.Text) Then
@@ -1056,5 +1059,25 @@ Public Class WebSiteGERAL
             MsgBox("Importação Completa", MsgBoxStyle.Information, "Prince Sistemas Informa!")
         End If
 
+    End Sub
+
+    Private Sub AcompanhamentoDaSolicitaçãoToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Click
+        If WebView.Source.ToString.Contains("venus.maringa") Then
+            WebView.Focus()
+            Try
+                Dim NLaudo As String = FrmAlvara.NlaudoTextBox.Text
+                'imput no id  "form:numeroSolicitacao"  com os dados do FrmAlvara.NlaudoTextBox.Text
+                WebView.ExecuteScriptAsync("document.getElementById('form:numeroSolicitacao').value = '" & NLaudo & "'")
+                'clicar no botao form:btnPesquisar
+                WebView.ExecuteScriptAsync("document.getElementById('form:btnPesquisar').click()")
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e2s1")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
     End Sub
 End Class

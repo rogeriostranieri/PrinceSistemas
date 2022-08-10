@@ -1809,15 +1809,25 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub BtnConsultaeProcessoEstado_Click(sender As Object, e As EventArgs) Handles BtnConsultaeProcessoEstado.Click
+        Dim Navegador As New WebSiteGERAL
+        Dim IE As String = IEeProcNumTextBox.Text
 
         If Trim(IEeProcNumTextBox.Text) = "" Then
-            MsgBox("abrindo site para solicitação...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-            System.Diagnostics.Process.Start("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
-
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                Navegador.Focus()
+                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+            Else
+                Navegador.Show()
+                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+            End If
         Else
-            System.Diagnostics.Process.Start("https://www.eprotocolo.pr.gov.br/spiweb/consultarProtocoloDigital.do?action=pesquisar&numeroProtocolo=" + IEeProcNumTextBox.Text)
-
-
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                Navegador.Focus()
+                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+            Else
+                Navegador.Show()
+                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/consultarProtocoloDigital.do?action=pesquisar&numeroProtocolo=" + IE)
+            End If
         End If
     End Sub
 
