@@ -549,17 +549,14 @@ Public Class FrmLegalizacao
     End Sub
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
-        'System.Diagnostics.Process.Start("https://concla.ibge.gov.br/busca-online-cnae.html")
-        'BuscaCNAE.Show() mto problema com site
-        'verificar se esta aberto e abrir form BuscaCNAE
-        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
-            BuscaCNAE.Focus()
-            BuscaCNAE.WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
 
         Else
-            BuscaCNAE.Show()
-            BuscaCNAE.WebView21.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
-
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
         End If
 
     End Sub
@@ -1063,14 +1060,14 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
-        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
-            BuscaCNAE.Focus()
-            BuscaCNAE.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
 
         Else
-            BuscaCNAE.Show()
-            BuscaCNAE.WebView21.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
 
         End If
     End Sub
@@ -1166,7 +1163,7 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
     End Sub
 
-    Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click
+    Private Sub Button34_Click(sender As Object, e As EventArgs)
         Try
 
             If Trim(CNPJMaskedTextBox.Text) = "" Then
@@ -1187,7 +1184,7 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
     End Sub
 
-    Private Sub Button35_Click(sender As Object, e As EventArgs) Handles Button35.Click
+    Private Sub Button35_Click(sender As Object, e As EventArgs)
         Try
             TabControle.SelectTab(1)
             TabControl2.SelectTab(0)
@@ -1210,7 +1207,7 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
         End Try
     End Sub
 
-    Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
+    Private Sub Button36_Click(sender As Object, e As EventArgs)
         Try
 
             If Trim(CodigoSimplesTextBox.Text) = "" Then
@@ -1231,7 +1228,7 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
         End Try
 
     End Sub
-    Private Sub BtnCopiaDataDeNasc_Click(sender As Object, e As EventArgs) Handles BtnCopiaDataDeNasc.Click
+    Private Sub BtnCopiaDataDeNasc_Click(sender As Object, e As EventArgs)
         Try
             TabControle.SelectTab(1)
             TabControl2.SelectTab(0)
@@ -1255,7 +1252,7 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
 
-    Private Sub Button37_Click(sender As Object, e As EventArgs) Handles Button37.Click
+    Private Sub Button37_Click(sender As Object, e As EventArgs)
         Try
 
             TabControle.SelectTab(1)
@@ -1437,8 +1434,16 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub Button39_Click(sender As Object, e As EventArgs) Handles Button39.Click
-        System.Diagnostics.Process.Start("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
-
+        'http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome
+        'verificar se form WebSiteGERAL está aberto ou abrir
+        If WebSiteGERAL.Visible = False Then
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
+        Else
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
+        End If
     End Sub
 
     Private Sub Button41_Click(sender As Object, e As EventArgs) Handles Button41.Click
@@ -1765,14 +1770,14 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub CnaeSimples_Click(sender As Object, e As EventArgs) Handles CnaeSimples.Click
-        'System.Diagnostics.Process.Start("https://www.contabeis.com.br/ferramentas/simples-nacional/")
-        If Application.OpenForms.OfType(Of BuscaCNAE)().Count() > 0 Then
-            BuscaCNAE.Focus()
-            BuscaCNAE.WebView21.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
 
         Else
-            BuscaCNAE.Show()
-            BuscaCNAE.WebView21.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
 
         End If
 
@@ -2801,18 +2806,14 @@ Protocolo RedeSim= " & G & ".
 
     Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
         'vers e WebCorreios esta aberto
-        If WebCorreios.Visible = True Then
-            'fechar
-            WebCorreios.Close()
-            WebCorreios.Show()
-            WebCorreios.Focus()
-            WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
         Else
-            'abrir
-            WebCorreios.Show()
-            WebCorreios.Focus()
-            WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
         End If
 

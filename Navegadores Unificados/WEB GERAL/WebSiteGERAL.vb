@@ -830,4 +830,144 @@ Public Class WebSiteGERAL
         End If
 
     End Sub
+
+    Private Sub CNPJToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem1.Click
+
+    End Sub
+
+    Private Sub DadosSolicitanteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DadosSolicitanteToolStripMenuItem.Click
+        If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
+            WebView.Focus()
+            Try
+                'abrir Contador escondido   
+                Contador.Show()
+                Contador.WindowState = FormWindowState.Minimized
+                Contador.WindowState = FormWindowState.Normal
+                Contador.Focus()
+                Contador.BringToFront()
+
+                'procura o txt_rg e coloca dados do RG do form Contador na RGTextBox.text
+                Dim RG As String = Contador.RGTextBox.Text
+                Dim CPF As String = Contador.CPFMaskedTextBox.Text
+                Dim Nome As String = Contador.NomeTextBox.Text
+                Dim Email As String = Contador.EmailTextBox.Text
+                'telefone pegar o numero dentro do "(44)" e colocar na string DDDTELEFONE os dois digitos
+                Dim DDDTELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(1, 2)
+                'telefone pegar o numero depois do "(44)" e do espaço, e colocar na string TELEFONE depois dos dois digitos 3228-8785
+                Dim TELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(Contador.TelefoneMaskedTextBox.Text.IndexOf("(44)") + 4, 9).Replace(" ", "").Replace("-", "")
+
+
+                'procura a id=txt_rg no site 
+                '  Id('txt_rg') usar RG
+                WebView.ExecuteScriptAsync("document.getElementById('txt_rg').value = '" & RG & "'")
+                'procura o name=edicao.solicitante.cpf e coloca o CPF
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.cpf')[0].value = '" & CPF & "'")
+                'name="edicao.solicitante.nome" com nome completo
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.nome')[0].value = '" & Nome & "'")
+                'DDD do telefone name="edicao.solicitante.dddTelefone"
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.dddTelefone')[0].value = '" & DDDTELEFONE & "'")
+                'telefone name="edicao.solicitante.telefone"
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.telefone')[0].value = '" & TELEFONE & "'")
+                'name="edicao.solicitante.email"
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.email')[0].value = '" & Email & "'")
+                'fechar Contador
+                Contador.Close()
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub ÁreaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ÁreaToolStripMenuItem1.Click
+        If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
+            WebView.Focus()
+            Try
+                'ativar FrmAlvara TabAlvara
+                FrmAlvara.TabAlvara.SelectTab(0)
+                'TabControl2
+                FrmAlvara.TabControl2.SelectTab(1)
+
+
+                'pegar areas total =  Area2TextBox.text
+                Dim areas As String = FrmAlvara.Area2TextBox.Text
+                'pegar areas Estabelecimento =  AreaTextBox.text  
+                Dim areas2 As String = FrmAlvara.AreaTextBox.Text
+
+                'pegar areas total=  name="edicao.areaTotalVistoria"
+                Dim script = "document.getElementsByName('edicao.areaTotalVistoria')[0].value = '" & areas & "';"
+                WebView.ExecuteScriptAsync(script)
+
+                'pegar areas Estabelecimento=  name="edicao.areaTotalEdificacao"
+                script = "document.getElementsByName('edicao.areaTotalEdificacao')[0].value = '" & areas2 & "';"
+                WebView.ExecuteScriptAsync(script)
+
+                'voltar TabAlvara 1
+                FrmAlvara.TabAlvara.SelectTab(1)
+                Me.Focus()
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub ConsultaPorNomeEPreencherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaPorNomeEPreencherToolStripMenuItem.Click
+        If WebView.Source.ToString.Contains("tse.jus.br") Then
+            WebView.Focus()
+            'id="LV_NomeTituloCPF"
+            'id="LV_DataNascimento"
+            'id="LV_NomeMae"
+            'click id="consultar-local-votacao-form-submit"
+            Try
+                If FrmLegalizacao.Visible = True Then
+                    Dim NomeCompleto As String = FrmLegalizacao.NomeResponsavelTextBox.Text
+                    Dim DataNascimento As String = FrmLegalizacao.RespDataNascMaskedTextBox.Text
+                    Dim NomeDaMae As String = FrmLegalizacao.RespMaeTextBox.Text
+
+                    'id="LV_NomeTituloCPF"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
+                    'id="LV_DataNascimento"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
+                    'id="LV_NomeMae"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
+                    'click id="consultar-local-votacao-form-submit"
+                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
+
+                ElseIf FrmSocios.Visible = True Then
+                    Dim NomeCompleto As String = FrmSocios.NomeCompletoTextBox.Text
+                    Dim DataNascimento As String = FrmSocios.DatadeNascMaskedTextBox.Text
+                    Dim NomeDaMae As String = FrmSocios.NomeMaeTextBox.Text
+
+                    'id="LV_NomeTituloCPF"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
+                    'id="LV_DataNascimento"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
+                    'id="LV_NomeMae"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
+                    'click id="consultar-local-votacao-form-submit"
+                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
+
+                End If
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
 End Class

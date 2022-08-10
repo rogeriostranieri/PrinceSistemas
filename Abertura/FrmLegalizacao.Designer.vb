@@ -169,6 +169,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -310,12 +311,6 @@ Partial Class FrmLegalizacao
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.BtnMgsBoxDataSimples = New System.Windows.Forms.Button()
         Me.BtnAnotacoesSimples = New System.Windows.Forms.Button()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.Button36 = New System.Windows.Forms.Button()
-        Me.BtnCopiaDataDeNasc = New System.Windows.Forms.Button()
-        Me.Button35 = New System.Windows.Forms.Button()
-        Me.Button34 = New System.Windows.Forms.Button()
-        Me.Button37 = New System.Windows.Forms.Button()
         Me.OrgãoPedSimplesComboBox = New System.Windows.Forms.ComboBox()
         Me.DataUltdefSimplesMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.DataSimplesMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -423,7 +418,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnRemovCaract = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -547,7 +541,6 @@ Partial Class FrmLegalizacao
         Me.TabPage5.SuspendLayout()
         Me.GroupBox12.SuspendLayout()
         Me.TabPage7.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.TabPage6.SuspendLayout()
@@ -878,7 +871,7 @@ Partial Class FrmLegalizacao
         'PrefeituraObsLabel
         '
         PrefeituraObsLabel.AutoSize = True
-        PrefeituraObsLabel.Location = New System.Drawing.Point(28, 53)
+        PrefeituraObsLabel.Location = New System.Drawing.Point(14, 101)
         PrefeituraObsLabel.Name = "PrefeituraObsLabel"
         PrefeituraObsLabel.Size = New System.Drawing.Size(29, 13)
         PrefeituraObsLabel.TabIndex = 39
@@ -977,7 +970,7 @@ Partial Class FrmLegalizacao
         'BombeiroJuntaLabel
         '
         BombeiroJuntaLabel.AutoSize = True
-        BombeiroJuntaLabel.Location = New System.Drawing.Point(24, 24)
+        BombeiroJuntaLabel.Location = New System.Drawing.Point(9, 42)
         BombeiroJuntaLabel.Name = "BombeiroJuntaLabel"
         BombeiroJuntaLabel.Size = New System.Drawing.Size(115, 13)
         BombeiroJuntaLabel.TabIndex = 40
@@ -1551,18 +1544,22 @@ Partial Class FrmLegalizacao
         '
         'Button46
         '
-        Me.Button46.Location = New System.Drawing.Point(166, 195)
+        Me.Button46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button46.ForeColor = System.Drawing.Color.Crimson
+        Me.Button46.Location = New System.Drawing.Point(191, 195)
         Me.Button46.Name = "Button46"
-        Me.Button46.Size = New System.Drawing.Size(70, 38)
+        Me.Button46.Size = New System.Drawing.Size(121, 38)
         Me.Button46.TabIndex = 42
-        Me.Button46.Text = "Limpar de Eventos"
+        Me.Button46.Text = "Limpar Eventos"
         Me.Button46.UseVisualStyleBackColor = True
         '
         'BtnListaEventos
         '
-        Me.BtnListaEventos.Location = New System.Drawing.Point(242, 195)
+        Me.BtnListaEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnListaEventos.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnListaEventos.Location = New System.Drawing.Point(6, 195)
         Me.BtnListaEventos.Name = "BtnListaEventos"
-        Me.BtnListaEventos.Size = New System.Drawing.Size(70, 38)
+        Me.BtnListaEventos.Size = New System.Drawing.Size(121, 38)
         Me.BtnListaEventos.TabIndex = 41
         Me.BtnListaEventos.Text = "Lista de Eventos"
         Me.BtnListaEventos.UseVisualStyleBackColor = True
@@ -1679,7 +1676,7 @@ Partial Class FrmLegalizacao
         '
         'BtnImportarSocioAdm
         '
-        Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.Green
+        Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(480, 12)
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
         Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(75, 49)
@@ -1941,10 +1938,22 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
         '
+        'BtnRemovCaract
+        '
+        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(457, 112)
+        Me.BtnRemovCaract.Name = "BtnRemovCaract"
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(82, 37)
+        Me.BtnRemovCaract.TabIndex = 49
+        Me.BtnRemovCaract.Text = "Remove Caraceteres"
+        Me.BtnRemovCaract.UseVisualStyleBackColor = False
+        '
         'CnaeSimples
         '
-        Me.CnaeSimples.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
         Me.CnaeSimples.Location = New System.Drawing.Point(29, 124)
         Me.CnaeSimples.Name = "CnaeSimples"
         Me.CnaeSimples.Size = New System.Drawing.Size(107, 37)
@@ -1972,8 +1981,8 @@ Partial Class FrmLegalizacao
         '
         'Button25
         '
-        Me.Button25.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button25.Location = New System.Drawing.Point(457, 82)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(82, 24)
@@ -2009,8 +2018,8 @@ Partial Class FrmLegalizacao
         '
         'Button4
         '
-        Me.Button4.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button4.Location = New System.Drawing.Point(457, 52)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(82, 24)
@@ -2061,6 +2070,7 @@ Partial Class FrmLegalizacao
         'BtnCorreios
         '
         Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorreios.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnCorreios.Location = New System.Drawing.Point(210, 23)
         Me.BtnCorreios.Name = "BtnCorreios"
         Me.BtnCorreios.Size = New System.Drawing.Size(62, 21)
@@ -2184,6 +2194,7 @@ Partial Class FrmLegalizacao
         'Button3
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button3.Location = New System.Drawing.Point(135, 23)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(69, 21)
@@ -2434,6 +2445,7 @@ Partial Class FrmLegalizacao
         'BtnImportarRazaoSocial
         '
         Me.BtnImportarRazaoSocial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportarRazaoSocial.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(477, 14)
         Me.BtnImportarRazaoSocial.Name = "BtnImportarRazaoSocial"
         Me.BtnImportarRazaoSocial.Size = New System.Drawing.Size(62, 23)
@@ -2515,9 +2527,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesLEgalizacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(536, 11)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
-        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(73, 23)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 71
         Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
         Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
@@ -2573,6 +2586,7 @@ Partial Class FrmLegalizacao
         'Button48
         '
         Me.Button48.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button48.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button48.Location = New System.Drawing.Point(320, 10)
         Me.Button48.Name = "Button48"
         Me.Button48.Size = New System.Drawing.Size(60, 24)
@@ -2621,6 +2635,7 @@ Partial Class FrmLegalizacao
         'Button22
         '
         Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button22.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button22.Location = New System.Drawing.Point(154, 16)
         Me.Button22.Name = "Button22"
         Me.Button22.Size = New System.Drawing.Size(62, 38)
@@ -2926,6 +2941,7 @@ Partial Class FrmLegalizacao
         'Button12
         '
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button12.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button12.Location = New System.Drawing.Point(386, 10)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(145, 24)
@@ -2975,6 +2991,7 @@ Partial Class FrmLegalizacao
         'BtnConsultaJunta
         '
         Me.BtnConsultaJunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnConsultaJunta.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnConsultaJunta.Location = New System.Drawing.Point(196, 35)
         Me.BtnConsultaJunta.Name = "BtnConsultaJunta"
         Me.BtnConsultaJunta.Size = New System.Drawing.Size(65, 22)
@@ -3185,6 +3202,7 @@ Partial Class FrmLegalizacao
         'BtnConsultaRedeSim
         '
         Me.BtnConsultaRedeSim.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnConsultaRedeSim.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnConsultaRedeSim.Location = New System.Drawing.Point(196, 35)
         Me.BtnConsultaRedeSim.Name = "BtnConsultaRedeSim"
         Me.BtnConsultaRedeSim.Size = New System.Drawing.Size(65, 22)
@@ -3408,6 +3426,7 @@ Partial Class FrmLegalizacao
         'Button11
         '
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button11.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button11.Location = New System.Drawing.Point(515, 13)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(82, 21)
@@ -3420,7 +3439,6 @@ Partial Class FrmLegalizacao
         Me.TabPage7.AutoScroll = True
         Me.TabPage7.Controls.Add(Me.BtnMgsBoxDataSimples)
         Me.TabPage7.Controls.Add(Me.BtnAnotacoesSimples)
-        Me.TabPage7.Controls.Add(Me.GroupBox13)
         Me.TabPage7.Controls.Add(OrgãoPedSimplesLabel)
         Me.TabPage7.Controls.Add(Me.OrgãoPedSimplesComboBox)
         Me.TabPage7.Controls.Add(DataUltdefSimplesLabel)
@@ -3455,76 +3473,12 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesSimples.BackgroundImage = CType(resources.GetObject("BtnAnotacoesSimples.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesSimples.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(11, 80)
+        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(274, 102)
         Me.BtnAnotacoesSimples.Name = "BtnAnotacoesSimples"
         Me.BtnAnotacoesSimples.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesSimples.TabIndex = 76
         Me.BtnAnotacoesSimples.Text = "Anotações"
         Me.BtnAnotacoesSimples.UseVisualStyleBackColor = True
-        '
-        'GroupBox13
-        '
-        Me.GroupBox13.Controls.Add(Me.Button36)
-        Me.GroupBox13.Controls.Add(Me.BtnCopiaDataDeNasc)
-        Me.GroupBox13.Controls.Add(Me.Button35)
-        Me.GroupBox13.Controls.Add(Me.Button34)
-        Me.GroupBox13.Controls.Add(Me.Button37)
-        Me.GroupBox13.Location = New System.Drawing.Point(165, 102)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(200, 131)
-        Me.GroupBox13.TabIndex = 54
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Copia rápida"
-        '
-        'Button36
-        '
-        Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button36.Location = New System.Drawing.Point(4, 99)
-        Me.Button36.Name = "Button36"
-        Me.Button36.Size = New System.Drawing.Size(114, 25)
-        Me.Button36.TabIndex = 48
-        Me.Button36.Text = "Código do Simples"
-        Me.Button36.UseVisualStyleBackColor = True
-        '
-        'BtnCopiaDataDeNasc
-        '
-        Me.BtnCopiaDataDeNasc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiaDataDeNasc.Location = New System.Drawing.Point(4, 71)
-        Me.BtnCopiaDataDeNasc.Name = "BtnCopiaDataDeNasc"
-        Me.BtnCopiaDataDeNasc.Size = New System.Drawing.Size(114, 25)
-        Me.BtnCopiaDataDeNasc.TabIndex = 55
-        Me.BtnCopiaDataDeNasc.Text = "Data de Nascimento"
-        Me.BtnCopiaDataDeNasc.UseVisualStyleBackColor = True
-        '
-        'Button35
-        '
-        Me.Button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button35.Location = New System.Drawing.Point(4, 15)
-        Me.Button35.Name = "Button35"
-        Me.Button35.Size = New System.Drawing.Size(76, 25)
-        Me.Button35.TabIndex = 47
-        Me.Button35.Text = "CPF"
-        Me.Button35.UseVisualStyleBackColor = True
-        '
-        'Button34
-        '
-        Me.Button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button34.Location = New System.Drawing.Point(82, 15)
-        Me.Button34.Name = "Button34"
-        Me.Button34.Size = New System.Drawing.Size(84, 25)
-        Me.Button34.TabIndex = 46
-        Me.Button34.Text = "CNPJ"
-        Me.Button34.UseVisualStyleBackColor = True
-        '
-        'Button37
-        '
-        Me.Button37.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button37.Location = New System.Drawing.Point(4, 43)
-        Me.Button37.Name = "Button37"
-        Me.Button37.Size = New System.Drawing.Size(114, 25)
-        Me.Button37.TabIndex = 51
-        Me.Button37.Text = "Título de Eleitor"
-        Me.Button37.UseVisualStyleBackColor = True
         '
         'OrgãoPedSimplesComboBox
         '
@@ -3563,7 +3517,7 @@ Partial Class FrmLegalizacao
         Me.ObsSimplesRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ObsSimples", True))
         Me.ObsSimplesRichTextBox.Location = New System.Drawing.Point(9, 141)
         Me.ObsSimplesRichTextBox.Name = "ObsSimplesRichTextBox"
-        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(150, 84)
+        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(359, 84)
         Me.ObsSimplesRichTextBox.TabIndex = 49
         Me.ObsSimplesRichTextBox.Text = ""
         '
@@ -3606,6 +3560,7 @@ Partial Class FrmLegalizacao
         'Button8
         '
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button8.Location = New System.Drawing.Point(12, 22)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(103, 23)
@@ -3721,7 +3676,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesPrefeitura.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPrefeitura.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesPrefeitura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(250, 176)
+        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(519, 14)
         Me.BtnAnotacoesPrefeitura.Name = "BtnAnotacoesPrefeitura"
         Me.BtnAnotacoesPrefeitura.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesPrefeitura.TabIndex = 74
@@ -3732,12 +3687,13 @@ Partial Class FrmLegalizacao
         '
         Me.Button32.FlatAppearance.BorderSize = 2
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button32.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button32.Location = New System.Drawing.Point(325, 11)
+        Me.Button32.Location = New System.Drawing.Point(310, 28)
         Me.Button32.Name = "Button32"
-        Me.Button32.Size = New System.Drawing.Size(153, 39)
+        Me.Button32.Size = New System.Drawing.Size(119, 39)
         Me.Button32.TabIndex = 42
-        Me.Button32.Text = "Sistema de Laudo / Alvará"
+        Me.Button32.Text = "Laudo / Alvará"
         Me.Button32.UseVisualStyleBackColor = True
         '
         'BombeiroJuntaComboBox
@@ -3745,7 +3701,7 @@ Partial Class FrmLegalizacao
         Me.BombeiroJuntaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroJunta", True))
         Me.BombeiroJuntaComboBox.FormattingEnabled = True
         Me.BombeiroJuntaComboBox.Items.AddRange(New Object() {"Vinculado na Junta Comercial", "Manualmente o Pedido"})
-        Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(141, 21)
+        Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(126, 39)
         Me.BombeiroJuntaComboBox.Name = "BombeiroJuntaComboBox"
         Me.BombeiroJuntaComboBox.Size = New System.Drawing.Size(178, 21)
         Me.BombeiroJuntaComboBox.TabIndex = 41
@@ -3753,9 +3709,9 @@ Partial Class FrmLegalizacao
         'PrefeituraObsRichTextBox
         '
         Me.PrefeituraObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PrefeituraObs", True))
-        Me.PrefeituraObsRichTextBox.Location = New System.Drawing.Point(27, 71)
+        Me.PrefeituraObsRichTextBox.Location = New System.Drawing.Point(13, 119)
         Me.PrefeituraObsRichTextBox.Name = "PrefeituraObsRichTextBox"
-        Me.PrefeituraObsRichTextBox.Size = New System.Drawing.Size(292, 99)
+        Me.PrefeituraObsRichTextBox.Size = New System.Drawing.Size(575, 99)
         Me.PrefeituraObsRichTextBox.TabIndex = 40
         Me.PrefeituraObsRichTextBox.Text = ""
         '
@@ -3776,9 +3732,9 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesDemais.BackgroundImage = CType(resources.GetObject("BtnAnotacoesDemais.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesDemais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(510, 79)
+        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(492, 79)
         Me.BtnAnotacoesDemais.Name = "BtnAnotacoesDemais"
-        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(108, 23)
         Me.BtnAnotacoesDemais.TabIndex = 75
         Me.BtnAnotacoesDemais.Text = "Anotações"
         Me.BtnAnotacoesDemais.UseVisualStyleBackColor = True
@@ -3850,6 +3806,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button45.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.Button45.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button45.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button45.Location = New System.Drawing.Point(348, 59)
         Me.Button45.Name = "Button45"
         Me.Button45.Size = New System.Drawing.Size(70, 38)
@@ -4697,18 +4654,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnRemovCaract
-        '
-        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnRemovCaract.Location = New System.Drawing.Point(457, 112)
-        Me.BtnRemovCaract.Name = "BtnRemovCaract"
-        Me.BtnRemovCaract.Size = New System.Drawing.Size(82, 37)
-        Me.BtnRemovCaract.TabIndex = 49
-        Me.BtnRemovCaract.Text = "Remove Caraceteres"
-        Me.BtnRemovCaract.UseVisualStyleBackColor = False
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4784,7 +4729,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox12.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
-        Me.GroupBox13.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
@@ -4959,14 +4903,10 @@ Partial Class FrmLegalizacao
     Friend WithEvents TituloeleitorTextBox As TextBox
     Friend WithEvents Button32 As Button
     Friend WithEvents Button33 As Button
-    Friend WithEvents Button36 As Button
-    Friend WithEvents Button35 As Button
-    Friend WithEvents Button34 As Button
     Friend WithEvents ObsSimplesRichTextBox As RichTextBox
     Friend WithEvents Area2TextBox As TextBox
     Friend WithEvents AreaTextBox As TextBox
     Friend WithEvents DataSimplesMaskedTextBox As MaskedTextBox
-    Friend WithEvents Button37 As Button
     Friend WithEvents LinkLabel11 As LinkLabel
     Friend WithEvents OrgãoPedSimplesComboBox As ComboBox
     Friend WithEvents DataUltdefSimplesMaskedTextBox As MaskedTextBox
@@ -5013,7 +4953,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents LinkLabel13 As LinkLabel
     Friend WithEvents LinkLabel14 As LinkLabel
     Friend WithEvents LinkLabel15 As LinkLabel
-    Friend WithEvents GroupBox13 As GroupBox
     Friend WithEvents EndZonaTextBox As TextBox
     Friend WithEvents EndDataTextBox As TextBox
     Friend WithEvents EndQuadraTextBox As TextBox
@@ -5069,7 +5008,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents LblQuantidadeSocios As Label
     Friend WithEvents BtnLimparSocio As Button
     Friend WithEvents BtnLimparSocios As Button
-    Friend WithEvents BtnCopiaDataDeNasc As Button
     Friend WithEvents SistemaExternoLabel As Label
     Friend WithEvents LinkLabel18 As LinkLabel
     Friend WithEvents BtnLocalizar As Button

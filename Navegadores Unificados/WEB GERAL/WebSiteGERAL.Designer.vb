@@ -85,15 +85,22 @@ Partial Class WebSiteGERAL
         Me.ProtocoloMaringaPRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaringaProtocoloPaginaInicialToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProtocoloImportarParaConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaginaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcompanharToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SolicitaçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CNPJToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DadosSolicitanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÁreaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnSobre = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnFavoritos = New System.Windows.Forms.ToolStripSplitButton()
-        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PaginaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AcompanharToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnTSE = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.BtnIR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnVoltar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -300,7 +307,7 @@ Partial Class WebSiteGERAL
         'ToolStrip3
         '
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnArquivo, Me.ToolStripSeparator7, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonAlvara, Me.ToolStripSeparator8, Me.BtnSobre})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnArquivo, Me.ToolStripSeparator7, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonAlvara, Me.ToolStripSeparator8, Me.BtnTSE, Me.ToolStripSeparator9, Me.BtnSobre})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(788, 26)
@@ -468,7 +475,7 @@ Partial Class WebSiteGERAL
         '
         Me.AlvaraMaringaPRToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlvaraMaringaPRSistemaAntigoToolStripMenuItem, Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem, Me.ProtocoloMaringaPRToolStripMenuItem})
         Me.AlvaraMaringaPRToolStripMenuItem.Name = "AlvaraMaringaPRToolStripMenuItem"
-        Me.AlvaraMaringaPRToolStripMenuItem.Size = New System.Drawing.Size(330, 22)
+        Me.AlvaraMaringaPRToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
         Me.AlvaraMaringaPRToolStripMenuItem.Text = "Maringá-PR"
         '
         'AlvaraMaringaPRSistemaAntigoToolStripMenuItem
@@ -481,15 +488,15 @@ Partial Class WebSiteGERAL
         'AlvaraAntigoPaginaInicialToolStripMenuItem
         '
         Me.AlvaraAntigoPaginaInicialToolStripMenuItem.Name = "AlvaraAntigoPaginaInicialToolStripMenuItem"
-        Me.AlvaraAntigoPaginaInicialToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.AlvaraAntigoPaginaInicialToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
         Me.AlvaraAntigoPaginaInicialToolStripMenuItem.Text = "Pagina Inicial"
         '
         'AcompanhamentoDaSolicitaçãoToolStripMenuItem
         '
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarDadosToolStripMenuItem1})
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.Name = "AcompanhamentoDaSolicitaçãoToolStripMenuItem"
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.Text = "Solicitação do Alvará"
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem.Text = "Solicitação do Alvará e preencher"
         '
         'ImportarDadosToolStripMenuItem1
         '
@@ -501,8 +508,8 @@ Partial Class WebSiteGERAL
         '
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NúmeroDoLaudoToolStripMenuItem})
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.Name = "AcompanhamentoDaSolicitaçãoToolStripMenuItem1"
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.Size = New System.Drawing.Size(250, 22)
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.Text = "Acompanhamento da Solicitação"
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.Size = New System.Drawing.Size(315, 22)
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem1.Text = "Acompanhamento da Solicitação e preencher"
         '
         'NúmeroDoLaudoToolStripMenuItem
         '
@@ -520,14 +527,14 @@ Partial Class WebSiteGERAL
         'ALvaraOnlinePaginaInicialToolStripMenuItem1
         '
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Name = "ALvaraOnlinePaginaInicialToolStripMenuItem1"
-        Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(250, 22)
+        Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(315, 22)
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Text = "Pagina Inicial"
         '
         'ConsultaPréviaToolStripMenuItem
         '
         Me.ConsultaPréviaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CNPJToolStripMenuItem, Me.CadastroImobiliarioToolStripMenuItem, Me.OuEndereçoToolStripMenuItem, Me.ÁreaToolStripMenuItem, Me.CnaeToolStripMenuItem})
         Me.ConsultaPréviaToolStripMenuItem.Name = "ConsultaPréviaToolStripMenuItem"
-        Me.ConsultaPréviaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.ConsultaPréviaToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
         Me.ConsultaPréviaToolStripMenuItem.Text = "Consulta Prévia"
         '
         'CNPJToolStripMenuItem
@@ -564,7 +571,7 @@ Partial Class WebSiteGERAL
         '
         Me.SolicitaçãoDoAlvaráToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarNºDoLaudoToolStripMenuItem})
         Me.SolicitaçãoDoAlvaráToolStripMenuItem.Name = "SolicitaçãoDoAlvaráToolStripMenuItem"
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
         Me.SolicitaçãoDoAlvaráToolStripMenuItem.Text = "Solicitação do Alvará"
         '
         'ImportarNºDoLaudoToolStripMenuItem
@@ -576,8 +583,8 @@ Partial Class WebSiteGERAL
         'AcompanhamentoDaSolicitaçãoToolStripMenuItem2
         '
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Name = "AcompanhamentoDaSolicitaçãoToolStripMenuItem2"
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Size = New System.Drawing.Size(250, 22)
-        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Text = "Acompanhamento da Solicitação"
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Size = New System.Drawing.Size(315, 22)
+        Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2.Text = "Acompanhamento da Solicitação e preencher"
         '
         'ProtocoloMaringaPRToolStripMenuItem
         '
@@ -597,6 +604,50 @@ Partial Class WebSiteGERAL
         Me.ProtocoloImportarParaConsultaToolStripMenuItem.Name = "ProtocoloImportarParaConsultaToolStripMenuItem"
         Me.ProtocoloImportarParaConsultaToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.ProtocoloImportarParaConsultaToolStripMenuItem.Text = "Importar para consulta"
+        '
+        'CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem
+        '
+        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaginaInicialToolStripMenuItem, Me.AcompanharToolStripMenuItem, Me.SolicitaçãoToolStripMenuItem})
+        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Name = "CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem"
+        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Text = "Corpo de Bombeiros do Paraná"
+        '
+        'PaginaInicialToolStripMenuItem
+        '
+        Me.PaginaInicialToolStripMenuItem.Name = "PaginaInicialToolStripMenuItem"
+        Me.PaginaInicialToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.PaginaInicialToolStripMenuItem.Text = "Pagina Inicial"
+        '
+        'AcompanharToolStripMenuItem
+        '
+        Me.AcompanharToolStripMenuItem.Name = "AcompanharToolStripMenuItem"
+        Me.AcompanharToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.AcompanharToolStripMenuItem.Text = "Acompanhar e Preencher"
+        '
+        'SolicitaçãoToolStripMenuItem
+        '
+        Me.SolicitaçãoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CNPJToolStripMenuItem1, Me.DadosSolicitanteToolStripMenuItem, Me.ÁreaToolStripMenuItem1})
+        Me.SolicitaçãoToolStripMenuItem.Name = "SolicitaçãoToolStripMenuItem"
+        Me.SolicitaçãoToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.SolicitaçãoToolStripMenuItem.Text = "Solicitação"
+        '
+        'CNPJToolStripMenuItem1
+        '
+        Me.CNPJToolStripMenuItem1.Name = "CNPJToolStripMenuItem1"
+        Me.CNPJToolStripMenuItem1.Size = New System.Drawing.Size(165, 22)
+        Me.CNPJToolStripMenuItem1.Text = "CNPJ"
+        '
+        'DadosSolicitanteToolStripMenuItem
+        '
+        Me.DadosSolicitanteToolStripMenuItem.Name = "DadosSolicitanteToolStripMenuItem"
+        Me.DadosSolicitanteToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.DadosSolicitanteToolStripMenuItem.Text = "Dados Solicitante"
+        '
+        'ÁreaToolStripMenuItem1
+        '
+        Me.ÁreaToolStripMenuItem1.Name = "ÁreaToolStripMenuItem1"
+        Me.ÁreaToolStripMenuItem1.Size = New System.Drawing.Size(165, 22)
+        Me.ÁreaToolStripMenuItem1.Text = "Área"
         '
         'ToolStripSeparator8
         '
@@ -644,24 +695,26 @@ Partial Class WebSiteGERAL
         Me.BtnFavoritos.Size = New System.Drawing.Size(87, 24)
         Me.BtnFavoritos.Text = "Favoritos"
         '
-        'CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem
+        'ToolStripSeparator9
         '
-        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaginaInicialToolStripMenuItem, Me.AcompanharToolStripMenuItem})
-        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Name = "CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem"
-        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Size = New System.Drawing.Size(330, 22)
-        Me.CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem.Text = "Corpo de Bombeiros da Polícia Militar do Paraná"
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 26)
         '
-        'PaginaInicialToolStripMenuItem
+        'BtnTSE
         '
-        Me.PaginaInicialToolStripMenuItem.Name = "PaginaInicialToolStripMenuItem"
-        Me.PaginaInicialToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PaginaInicialToolStripMenuItem.Text = "Pagina Inicial"
+        Me.BtnTSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnTSE.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultaPorNomeEPreencherToolStripMenuItem})
+        Me.BtnTSE.Image = CType(resources.GetObject("BtnTSE.Image"), System.Drawing.Image)
+        Me.BtnTSE.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnTSE.Name = "BtnTSE"
+        Me.BtnTSE.Size = New System.Drawing.Size(102, 23)
+        Me.BtnTSE.Text = "Título de eleitor"
         '
-        'AcompanharToolStripMenuItem
+        'ConsultaPorNomeEPreencherToolStripMenuItem
         '
-        Me.AcompanharToolStripMenuItem.Name = "AcompanharToolStripMenuItem"
-        Me.AcompanharToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
-        Me.AcompanharToolStripMenuItem.Text = "Acompanhar e Preencher"
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Name = "ConsultaPorNomeEPreencherToolStripMenuItem"
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Text = "Consulta por nome e preencher"
         '
         'WebSiteGERAL
         '
@@ -770,4 +823,11 @@ Partial Class WebSiteGERAL
     Friend WithEvents CorpoDeBombeirosDaPolíciaMilitarDoParanáToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PaginaInicialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcompanharToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SolicitaçãoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CNPJToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DadosSolicitanteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ÁreaToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BtnTSE As ToolStripDropDownButton
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents ConsultaPorNomeEPreencherToolStripMenuItem As ToolStripMenuItem
 End Class

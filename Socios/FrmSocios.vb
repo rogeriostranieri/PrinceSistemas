@@ -1191,17 +1191,15 @@ Novos dados:" + "
     End Sub
 
     Private Sub BtnConsultarTituloDeEleitor_Click(sender As Object, e As EventArgs) Handles BtnConsultarTituloDeEleitor.Click
-        'verificar se o WebConsultaTituloDeEleitor está aberto
-        Dim Form As New WebConsultaTituloDeEleitor()
-        Dim Site As String = "https://www.tre-pr.jus.br/eleitor/servicos-ao-eleitor/titulo-e-local-de-votacao/titulo-e-local-de-votacao-consulta-por-nome"
-        If Form.Visible = True Then
-            Form.Focus()
-            Form.WebView21.Source = New Uri(Site)
+        'http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome
+        'verificar se form WebSiteGERAL está aberto ou abrir
+        If WebSiteGERAL.Visible = False Then
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
         Else
-            Form.Show()
-            Form.Focus()
-            Form.WebView21.Source = New Uri(Site)
-
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
         End If
     End Sub
 
