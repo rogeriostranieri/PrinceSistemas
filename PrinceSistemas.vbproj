@@ -1136,7 +1136,6 @@
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modulo\WORD\" />
     <Folder Include="Navegadores Unificados\WebConsulta Federal\" />
   </ItemGroup>
   <ItemGroup>

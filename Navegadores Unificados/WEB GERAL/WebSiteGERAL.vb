@@ -39,8 +39,6 @@ Public Class WebSiteGERAL
             'navigate to URL
             'WebView.Source = New Uri(TxtURL.Text)
             WebsiteNavigate(TxtURL.Text)
-            'click no botao
-
         End If
 
         'ao altera o site salvar no txt da primeira linha inciando com "pagina_inicial:" e site depois
@@ -53,23 +51,12 @@ Public Class WebSiteGERAL
             Dim site As String = line.Substring(15)
             ToolStripTextBox1.Text = site
         End If
-
-
-        '//////////////////////////////////////////////////////////////////////////////
-        'abrir uma nova aba no TabControl1, ao clicar no botao TabPage2 + 
-
-
-
-
-
     End Sub
 
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         'unsubscribe from CoreWebView2 event(s) (remove event handlers) 
         'verificar antes se o WebView está vazio
         If WebView.CoreWebView2 IsNot Nothing Then
-
-
             RemoveHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
         End If
 
@@ -146,11 +133,7 @@ Public Class WebSiteGERAL
 
             'update address bar
             UpdateAddressBar()
-
         End If
-
-
-
     End Sub
 
     Private Sub TxtURL_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtURL.KeyDown
@@ -177,7 +160,8 @@ Public Class WebSiteGERAL
 
     Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
         If WebView IsNot Nothing Then
-            WebView.Refresh()
+            'atualizar pagina
+            WebView.Reload()
         End If
     End Sub
 
@@ -213,8 +197,8 @@ Public Class WebSiteGERAL
         LogMsg("WebView_WebMessageReceived")
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        'fechar
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click, SairToolStripMenuItem.Click
+        WebView.Dispose()
         Me.Close()
     End Sub
 
@@ -251,52 +235,57 @@ Public Class WebSiteGERAL
 
     End Sub
 
-
+    '//////////////////////////////////////////////////////////////////////
     Private Sub AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcompanhamentoDaFormalizaçãoDaOpçãoPeloSimplesNacionalToolStripMenuItem.Click
-        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40") Then
-        Else
-            'abrir o site do google no lugar
-            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
-            'mgsbox esperar carrega site
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
-            Exit Sub
-        End If
+        Try
+            If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40") Then
+            Else
+                'abrir o site do google no lugar
+                WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+                'mgsbox esperar carrega site
+                MsgBox("Aguarde o carregamento do site e tente novamente!")
+                Exit Sub
+            End If
 
 
-        'verificar se o frmlegalizacao está aberto
-        If FrmLegalizacao Is Nothing Then
-            FrmLegalizacao = New FrmLegalizacao
-            FrmLegalizacao.Show()
-            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
-            Exit Sub
-        Else
-            'ativa TabControle 0
-            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
-            FrmLegalizacao.TabControle.SelectedIndex = 1
-            FrmLegalizacao.TabControl2.SelectedIndex = 0
-            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+            'verificar se o frmlegalizacao está aberto
+            If FrmLegalizacao Is Nothing Then
+                FrmLegalizacao = New FrmLegalizacao
+                FrmLegalizacao.Show()
+                MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                Exit Sub
+            Else
+                'ativa TabControle 0
+                Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+                FrmLegalizacao.TabControle.SelectedIndex = 1
+                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
-            FrmLegalizacao.TabControle.SelectedIndex = 5
-            Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
+                FrmLegalizacao.TabControle.SelectedIndex = 5
+                Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
 
-            FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = 0
 
-            'procurar no webviewl o texto e colocar no campo
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
+                'procurar no webviewl o texto e colocar no campo
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
 
-            Me.Focus()
+                Me.Focus()
 
-        End If
+            End If
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
     Private Sub BtnSimplesNacionalPrimeiraParteInício_Click(sender As Object, e As EventArgs) Handles BtnSimplesNacionalPrimeiraParteInício.Click
-        'WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
-        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39") Then
-        Else
-            'abrir o site do google no lugar
-            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+        Try
+            If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39") Then
+            Else
+                'abrir o site do google no lugar
+                WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
             MsgBox("Aguarde o carregamento do site e tente novamente!")
 
             Exit Sub
@@ -329,6 +318,10 @@ Public Class WebSiteGERAL
             Me.Focus()
 
         End If
+        Catch ex As Exception
+        'MsgBox formulario nao esta aberto + a Message
+        MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
 
@@ -339,107 +332,118 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub BtnREDESIMAlteracao_Click(sender As Object, e As EventArgs) Handles BtnREDESIMAlteracao.Click
-        If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral") Then
-        Else
-            'abrir o site do google no lugar
-            WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
-            Exit Sub
-
-        End If
-
-        'verificar se o frmlegalizacao está aberto
-        If FrmLegalizacao Is Nothing Then
-            FrmLegalizacao = New FrmLegalizacao
-            FrmLegalizacao.Show()
-            'mgsbox abrir na empresa
-            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
-            Exit Sub
-        Else
-            'ativa TabControle 0
-
-            FrmLegalizacao.TabControle.SelectedIndex = 2
-            FrmLegalizacao.TabControle.SelectedIndex = 3
-
-            'ProtocoloREDESIMTextBox
-            'ProtocoloJuntaComercialTextBox
-            'verificar se os dois estão preenchidos
-            If FrmLegalizacao.ProtocoloREDESIMTextBox.Text = "" Or FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text = "" Then
-                MsgBox("Favor, preencher os dois protocolos!")
-                Exit Sub
+        Try
+            If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral") Then
             Else
-                If FrmLegalizacao.ProtocoloREDESIMTextBox.Text <> "" Then
-                    Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloREDESIMTextBox.Text
-                    WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
-                    Me.Focus()
-                    Exit Sub
-                Else
-                    ' FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text <> "" 
-                    Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
-                    'procurar no webviewl o texto e colocar no campo
-                    WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
-                    Me.Focus()
-                    Exit Sub
-                End If
+                'abrir o site do google no lugar
+                WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+                MsgBox("Aguarde o carregamento do site e tente novamente!")
+                Exit Sub
+
             End If
 
+            'verificar se o frmlegalizacao está aberto
+            If FrmLegalizacao Is Nothing Then
+                FrmLegalizacao = New FrmLegalizacao
+                FrmLegalizacao.Show()
+                'mgsbox abrir na empresa
+                MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                Exit Sub
+            Else
+                'ativa TabControle 0
 
+                FrmLegalizacao.TabControle.SelectedIndex = 2
+                FrmLegalizacao.TabControle.SelectedIndex = 3
 
-        End If
+                'ProtocoloREDESIMTextBox
+                'ProtocoloJuntaComercialTextBox
+                'verificar se os dois estão preenchidos
+                If FrmLegalizacao.ProtocoloREDESIMTextBox.Text = "" Or FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text = "" Then
+                    MsgBox("Favor, preencher os dois protocolos!")
+                    Exit Sub
+                Else
+                    If FrmLegalizacao.ProtocoloREDESIMTextBox.Text <> "" Then
+                        Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloREDESIMTextBox.Text
+                        WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
+                        Me.Focus()
+                        Exit Sub
+                    Else
+                        ' FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text <> "" 
+                        Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
+                        'procurar no webviewl o texto e colocar no campo
+                        WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
+                        Me.Focus()
+                        Exit Sub
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
     Private Sub BtnREDESIMBaixa_Click(sender As Object, e As EventArgs) Handles BtnREDESIMBaixa.Click
-        If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa") Then
-        Else
-            'abrir o site do google no lugar
-            WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
-            Exit Sub
-        End If
-
-        'verificar se o frmlegalizacao está aberto
-        If FrmLegalizacao Is Nothing Then
-            FrmLegalizacao = New FrmLegalizacao
-            FrmLegalizacao.Show()
-            'mgsbox abrir na empresa
-            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
-            Exit Sub
-        Else
-            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
-
-            If FrmLegalizacao.CNPJMaskedTextBox.Text = "" Then
-                MsgBox("CNPJ vazio!")
+        Try
+            If WebView.Source.ToString.Contains("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa") Then
+            Else
+                'abrir o site do google no lugar
+                WebsiteNavigate("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+                MsgBox("Aguarde o carregamento do site e tente novamente!")
                 Exit Sub
             End If
 
-            'procurar no webviewl o texto e colocar no campo id="cpfCnpj"
-            WebView.ExecuteScriptAsync("document.getElementById('id='cpfCnpj').value = '" & CNPJ & "'")
-            Me.Focus()
-        End If
+            'verificar se o frmlegalizacao está aberto
+            If FrmLegalizacao Is Nothing Then
+                FrmLegalizacao = New FrmLegalizacao
+                FrmLegalizacao.Show()
+                'mgsbox abrir na empresa
+                MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                Exit Sub
+            Else
+                Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+                If FrmLegalizacao.CNPJMaskedTextBox.Text = "" Then
+                    MsgBox("CNPJ vazio!")
+                    Exit Sub
+                End If
+
+                'procurar no webviewl o texto e colocar no campo id="cpfCnpj"
+                WebView.ExecuteScriptAsync("document.getElementById('id='cpfCnpj').value = '" & CNPJ & "'")
+                Me.Focus()
+            End If
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
 
-    Private Sub BtnSimplesNacionalSegundasParteDados_Click(sender As Object, e As EventArgs) Handles BtnSimplesNacionalSegundasParteDados.Click
-        'pegar a data dentro doid="ctl00_ContentPlaceHolder1_pnlMensagem_lblMensagem"
-        Dim DataSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder1_pnlMensagem_lblMensagem')").ToString
-        'pegar apenas os numeros "consultado a partir do dia " e antes ", no Portal do Simples Nacional "...
-        'frmlegalizacao.DataSimplesMaskedTextBox.text
-        Dim DataSimples2 As String = DataSimples.Substring(DataSimples.IndexOf("consultado a partir do dia ") + "consultado a partir do dia ".Length, DataSimples.IndexOf(", no Portal do Simples Nacional ...") - DataSimples.IndexOf("consultado a partir do dia ") - "consultado a partir do dia ".Length)
-        FrmLegalizacao.TabControle.SelectedIndex = 5
-        FrmLegalizacao.DataSimplesMaskedTextBox.Text = DataSimples2
-        FrmLegalizacao.AvisarDiaMaskedTextBox.Text = DataSimples2
-        'DataSimples2 em formato extenso dd, de mmmm de yyyy
-        Dim DataSimples3 As String = DataSimples2.Substring(0, 2) & " de " & DataSimples2.Substring(3, 3) & " de " & DataSimples2.Substring(7, 4)
-        MsgBox("Data Final finaliza em: " & DataSimples3)
-        FrmLegalizacao.Focus()
+    Private Sub BtnSimplesNacionalSegundasParteDados_Click(sender As Object, e As EventArgs)
+        Try
+            Dim DataSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder1_pnlMensagem_lblMensagem')").ToString
+            'pegar apenas os numeros "consultado a partir do dia " e antes ", no Portal do Simples Nacional "...
+            'frmlegalizacao.DataSimplesMaskedTextBox.text
+            Dim DataSimples2 As String = DataSimples.Substring(DataSimples.IndexOf("consultado a partir do dia ") + "consultado a partir do dia ".Length, DataSimples.IndexOf(", no Portal do Simples Nacional ...") - DataSimples.IndexOf("consultado a partir do dia ") - "consultado a partir do dia ".Length)
+            FrmLegalizacao.TabControle.SelectedIndex = 5
+            FrmLegalizacao.DataSimplesMaskedTextBox.Text = DataSimples2
+            FrmLegalizacao.AvisarDiaMaskedTextBox.Text = DataSimples2
+            'DataSimples2 em formato extenso dd, de mmmm de yyyy
+            Dim DataSimples3 As String = DataSimples2.Substring(0, 2) & " de " & DataSimples2.Substring(3, 3) & " de " & DataSimples2.Substring(7, 4)
+            MsgBox("Data Final finaliza em: " & DataSimples3)
+            FrmLegalizacao.Focus()
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
     Private Sub ImportarDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarDadosToolStripMenuItem.Click
-        'verificar se o site é  "https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx"
-        If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx") Then
-        Else
-            'abrir o site do google no lugar
-            WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+        Try
+            If WebView.Source.ToString.Contains("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx") Then
+            Else
+                'abrir o site do google no lugar
+                WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
             MsgBox("Aguarde o carregamento do site e tente novamente!")
 
             Exit Sub
@@ -469,24 +473,361 @@ Public Class WebSiteGERAL
             Me.Focus()
 
         End If
+        Catch ex As Exception
+        'MsgBox formulario nao esta aberto + a Message
+        MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
-    Private Sub ExportarCódigoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarCódigoToolStripMenuItem.Click
-        'pegar numeros da id=ctl00_ContentPlaceHolder_lblResultado
-        Dim CodigoSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder_lblResultado')").ToString
-        '<span id="ctl00_ContentPlaceHolder_lblResultado" class="label resultado">Código de acesso gerado com sucesso. Seu código é: <span style="color:Red;font-size:13px;">788566192115</span>.<br>Esse código é uma senha, portanto é sigiloso. Anote-o e guarde-o em lugar seguro e de fácil recuperação para futuros acessos.</span>
-        'pegar apenas os numeros "apos Seu código é: "
-        Dim CodigoSimples2 As String = CodigoSimples.Substring(CodigoSimples.IndexOf("Seu código é: ") + 14)
-        'pegar apenas os numeros "apos <span style="color:Red;font-size:13px;">"
-        'Dim CodigoSimples3 As String = CodigoSimples2.Substring(CodigoSimples2.IndexOf("<span style=") + 15)
+    Private Sub ExportarCódigoToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        Try
+            Dim CodigoSimples As String = WebView.ExecuteScriptAsync("GetElementById('ctl00_ContentPlaceHolder_lblResultado')").ToString
+            '<span id="ctl00_ContentPlaceHolder_lblResultado" class="label resultado">Código de acesso gerado com sucesso. Seu código é: <span style="color:Red;font-size:13px;">788566192115</span>.<br>Esse código é uma senha, portanto é sigiloso. Anote-o e guarde-o em lugar seguro e de fácil recuperação para futuros acessos.</span>
+            'pegar apenas os numeros "apos Seu código é: "
+            Dim CodigoSimples2 As String = CodigoSimples.Substring(CodigoSimples.IndexOf("Seu código é: ") + 14)
+            'pegar apenas os numeros "apos <span style="color:Red;font-size:13px;">"
+            'Dim CodigoSimples3 As String = CodigoSimples2.Substring(CodigoSimples2.IndexOf("<span style=") + 15)
 
-        FrmLegalizacao.TabControle.SelectedIndex = 5
-        FrmLegalizacao.CodigoSimplesTextBox.Text = CodigoSimples2
-        FrmLegalizacao.Focus()
+            FrmLegalizacao.TabControle.SelectedIndex = 5
+            FrmLegalizacao.CodigoSimplesTextBox.Text = CodigoSimples2
+            FrmLegalizacao.Focus()
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
     End Sub
 
     Private Sub ImportarPRNToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarPRNToolStripMenuItem.Click
         'mgs box "teste"
         MsgBox("Em Desenvolvimento")
+    End Sub
+
+    Private Sub PaginaInicialToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MaringaProtocoloPaginaInicialToolStripMenuItem2.Click
+        'abrir o site http://venus.maringa.pr.gov.br:9900/protocolo/
+        WebsiteNavigate("http://venus.maringa.pr.gov.br:9900/protocolo/")
+    End Sub
+
+    Private Sub ALvaraOnlinePaginaInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ALvaraOnlinePaginaInicialToolStripMenuItem1.Click
+        'venus.maringa.pr.gov.br:9900/fazendaonline/
+        WebsiteNavigate("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
+    End Sub
+
+    Private Sub AlvaraAntigoPaginaInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlvaraAntigoPaginaInicialToolStripMenuItem.Click
+        'https://venus.maringa.pr.gov.br/laudosnew/
+        WebsiteNavigate("https://venus.maringa.pr.gov.br/laudosnew/")
+    End Sub
+
+    Private Sub ProtocoloImportarParaConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProtocoloImportarParaConsultaToolStripMenuItem.Click
+        'ver se o site aberto é http://venus.maringa.pr.gov.br:9900/protocolo/ ou abrir
+        If WebView.Source.ToString.Contains("http://venus.maringa.pr.gov.br:9900/protocolo/") Then
+            Try
+                If FrmAlvara Is Nothing Then
+                    FrmAlvara = New FrmAlvara
+                    FrmAlvara.Show()
+                    MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                    Exit Sub
+                Else
+                    ' FrmAlvara.Focus()
+                    'ativa TabAlvara 3
+                    FrmAlvara.TabAlvara.SelectedIndex = 3
+                    Dim Tipo As String = FrmAlvara.ProtocoloTipoTextBox.Text
+                    Dim Numero As String = FrmAlvara.ProtocoloNTextBox.Text
+                    Dim Ano As String = FrmAlvara.ProtocoloAnoTextBox.Text
+                    Dim Senha As String = FrmAlvara.ProtocoloSenhaTextBox.Text
+                    'procurar campo id="tipo" e id="numero"  e id="ano" e id="senha" e colocar no campo
+                    WebView.ExecuteScriptAsync("document.getElementById('tipo').value = '" & Tipo & "'")
+                    WebView.ExecuteScriptAsync("document.getElementById('numero').value = '" & Numero & "'")
+                    WebView.ExecuteScriptAsync("document.getElementById('ano').value = '" & Ano & "'")
+                    WebView.ExecuteScriptAsync("document.getElementById('senha').value = '" & Senha & "'")
+                End If
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            'abrir o site http://venus.maringa.pr.gov.br:9900/protocolo/
+            WebsiteNavigate("http://venus.maringa.pr.gov.br:9900/protocolo/")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub ImportarNºDoLaudoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarNºDoLaudoToolStripMenuItem.Click
+        Try
+            Dim Nlaudo As String = FrmAlvara.NlaudoTextBox.Text
+            WebView.ExecuteScriptAsync("document.getElementById('form:numeroSolicitacao').value = '" & Nlaudo & "'")
+            'clicar no botao form:btnPesquisar
+            WebView.ExecuteScriptAsync("document.getElementById('form:btnPesquisar').click()")
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CNPJToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem.Click
+        Try
+            Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(".", "").Replace("-", "") & "'"
+            WebView.ExecuteScriptAsync("document.getElementById('form:maskCpfResp:maskCpfResp').value = '" & CNPJ)
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CadastroImobiliarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroImobiliarioToolStripMenuItem.Click
+        Try
+            FrmAlvara.TabAlvara.SelectedIndex = 0
+            'TabControl2
+            FrmAlvara.TabControl2.SelectedIndex = 1
+            Dim CADIMOB As String = FrmAlvara.CadImobTextBox.Text
+            Me.Focus()
+            'WebView21 Id('formCadastroImobiliario:codImobiliario') 
+            WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:codImobiliario').value = '" & CADIMOB & "'")
+            'clicar em id=formCadastroImobiliario:btnConsultaCadastro
+            WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:btnConsultaCadastro').click()")
+            End
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub OuEndereçoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuEndereçoToolStripMenuItem.Click
+        Try
+            Dim Rua As String = FrmAlvara.EnderecoTextBox.Text
+            Dim N As String = FrmAlvara.EndNumTextBox.Text
+            'selecionar TabAlvara, TabControl2 do  FrmAlvara
+            FrmAlvara.TabAlvara.SelectTab(0)
+            FrmAlvara.TabControl2.SelectTab(0)
+            'selecionar aba FrmAlvara.TabControl2 1
+            FrmAlvara.TabControl2.SelectTab(1)
+            'voltar
+            Me.Focus()
+            WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:pesqEndereco_input').value = '" & Rua & ", " & N & "'")
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ÁreaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ÁreaToolStripMenuItem.Click
+        Try
+            FrmAlvara.TabAlvara.SelectTab(0)
+            FrmAlvara.TabControl2.SelectTab(0)
+            'selecionar aba FrmAlvara.TabControl2 1
+            FrmAlvara.TabControl2.SelectTab(1)
+
+            Dim Area1 As String = FrmAlvara.AreaTextBox.Text
+            Dim Area2 As String = FrmAlvara.Area2TextBox.Text
+
+
+            Me.Focus()
+            'id="form:areaConstruida_input"
+            'AreaTextBox
+            WebView.ExecuteScriptAsync("document.getElementById('form:areaConstruida_input').value = '" & Area1 & "'")
+            'id="form:areaPatio_input"
+            'Area2TextBox
+            WebView.ExecuteScriptAsync("document.getElementById('form:areaPatio_input').value = '" & Area2 & "'")
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CnaeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CnaeToolStripMenuItem.Click
+        Try
+            'selecionar TabAlvara, TabControl2 do  FrmAlvara
+            FrmAlvara.TabAlvara.SelectTab(0)
+            FrmAlvara.TabControl2.SelectTab(0)
+            'selecionar aba FrmAlvara.TabControl2 1
+            FrmAlvara.TabControl2.SelectTab(3)
+
+            'mostar form
+            FrmAlvara.Focus()
+        Catch ex As Exception
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub NúmeroDoLaudoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NúmeroDoLaudoToolStripMenuItem.Click
+        'verificar se a pagina é  https://venus.maringa.pr.gov.br/laudosnew/consultar.php ou abrir
+        If WebView.Source.ToString.Contains("https://venus.maringa.pr.gov.br/laudosnew/consultar.php") Then
+            Try
+                Dim NLaudo As String = FrmAlvara.NlaudoTextBox.Text.Replace(" ", "")
+                'procura o name="protocolo"
+                WebView.ExecuteScriptAsync("document.getElementsByName('protocolo')[0].value = '" & NLaudo & "'")
+                'procura name="next01" e clicar
+                WebView.ExecuteScriptAsync("document.getElementsByName('next01')[0].click()")
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            'abrir o site https://venus.maringa.pr.gov.br/laudosnew/consultar.php
+            WebsiteNavigate("https://venus.maringa.pr.gov.br/laudosnew/consultar.php")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub ImportarDadosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImportarDadosToolStripMenuItem1.Click
+        If WebView.Source.ToString.Contains("https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php") Then
+            'perguntar se foi "alterado TIPO PESSOA para jurídico"
+            If MsgBox("Deseja alterar o tipo de pessoa para jurídica?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Try
+                    ImportarDadosLaudoAntigoMaringaPR()
+                Catch ex As Exception
+                    'MsgBox formulario nao esta aberto + a Message
+                    MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+                End Try
+            Else
+                'mgsBox
+                MsgBox("Mudar o campo antes de importar os dados!")
+            End If
+        Else
+            'abrir o site https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php
+            WebsiteNavigate("https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+
+    End Sub
+
+    Private Sub ImportarDadosLaudoAntigoMaringaPR()
+        'Form carregamento
+        FrmAlvara.TabAlvara.SelectTab(0)
+        FrmAlvara.TabControl2.SelectTab(0)
+        FrmAlvara.TabControl2.SelectTab(1)
+        FrmAlvara.TabControl2.SelectTab(2)
+        FrmAlvara.TabControl2.SelectTab(3)
+        FrmAlvara.TabControl2.SelectTab(4)
+        FrmAlvara.TabControl2.SelectTab(5)
+
+        Dim RazaoSocial As String = FrmAlvara.RazaoSocialTextBox.Text
+        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
+        Dim EndNum As String = FrmAlvara.EndNumTextBox.Text
+        Dim EndCEP As String = FrmAlvara.EndCEPMaskedTextBox.Text
+        Dim EndComp As String = FrmAlvara.EndCompTextBox.Text
+        Dim EndZona As String = FrmAlvara.EndZonaTextBox.Text
+        Dim EndQuadra As String = FrmAlvara.EndQuadraTextBox.Text
+        Dim EndData As String = FrmAlvara.EndDataTextBox.Text
+        Dim CadImob As String = FrmAlvara.CadImobTextBox.Text
+        Dim EndBairro As String = FrmAlvara.EndBairroTextBox.Text
+        Dim FoneRequerente As String = FrmAlvara.FoneRequerenteTextBox.Text
+        Dim Resptecnico As String = FrmAlvara.ResptecnicoTextBox.Text
+        Dim ResptecnicoNumero As String = FrmAlvara.ResptecnicoNumeroTextBox.Text
+        Dim NaturezaDoPedido As String = FrmAlvara.NaturezaDoPedidoOBSRichTextBox.Text
+        Dim Ramodeatividade As String = FrmAlvara.RamodeatividadeRichTextBox.Text
+        Dim Area As String = FrmAlvara.AreaTextBox.Text
+
+        Dim RequerenteNome As String = FrmAlvara.RequerenteTextBox.Text
+        Dim RequerenteFone As String = FrmAlvara.FoneRequerenteTextBox.Text
+        Dim RequerenteCNPJ As String = FrmAlvara.CNPJRequerenteMaskedTextBox.Text
+        Dim RequerenteCPF As String = FrmAlvara.CPFRequerenteMaskedTextBox.Text
+        Dim RequerenteRG As String = FrmAlvara.RGRequerenteTextBox.Text
+        Dim RequerenteEmail As String = FrmAlvara.EmailRequerenteTextBox.Text
+        Dim RequerenteEnd As String = FrmAlvara.EndRequerenteTextBox.Text
+
+        WebView.ExecuteScriptAsync("document.getElementsByName('razao')[0].value = '" & RazaoSocial & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('cnpj_empresa')[0].value = '" & CNPJ & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('num')[0].value = '" & EndNum & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('cep')[0].value = '" & EndCEP & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('complemento')[0].value = '" & EndComp & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('zona')[0].value = '" & EndZona & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('quadra')[0].value = '" & EndQuadra & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('data_data')[0].value = '" & EndData & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('lote')[0].value = '" & EndData & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('cad_imobiliario')[0].value = '" & CadImob & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('bairro')[0].value = '" & EndBairro & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('telefone')[0].value = '" & FoneRequerente & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('resp_tec')[0].value = '" & Resptecnico & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('cons_classe')[0].value = '" & ResptecnicoNumero & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('obs')[0].value = '" & NaturezaDoPedido & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('ramo')[0].value = '" & Ramodeatividade & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('area')[0].value = '" & Area & "'")
+
+        If FrmAlvara.EndRequerenteTextBox.Text = "" Then
+            FrmAlvara.Button23.PerformClick()
+            WebView.ExecuteScriptAsync("document.getElementsByName('razao_requerente')[0].value = '" & RequerenteNome & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('telefone_requerente')[0].value = '" & RequerenteFone & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('cnpj_requerente')[0].value = '" & RequerenteCNPJ & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('cpf_requerente')[0].value = '" & RequerenteCPF & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('rg_requerente')[0].value = '" & RequerenteRG & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('email_requerente')[0].value = '" & RequerenteEmail & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('endereco_requerente')[0].value = '" & RequerenteEnd & "'")
+        Else
+            WebView.ExecuteScriptAsync("document.getElementsByName('razao_requerente')[0].value = '" & RequerenteNome & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('telefone_requerente')[0].value = '" & RequerenteFone & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('cnpj_requerente')[0].value = '" & RequerenteCNPJ & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('cpf_requerente')[0].value = '" & RequerenteCPF & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('rg_requerente')[0].value = '" & RequerenteRG & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('email_requerente')[0].value = '" & RequerenteEmail & "'")
+            WebView.ExecuteScriptAsync("document.getElementsByName('endereco_requerente')[0].value = '" & RequerenteEnd & "'")
+        End If
+
+        'parte do contador 1 cadastro apenas
+        Contador.Show()
+        Dim ContadorRazaoSocial As String = Contador.RazaoSocialTextBox.Text
+        Dim ContadorTelefone As String = Contador.TelefoneMaskedTextBox.Text
+        Dim ContadorEmail As String = Contador.EmailTextBox.Text
+        Dim ContadorCNPJ As String = Contador.CNPJMaskedTextBox.Text
+        Dim ContadorRG As String = Contador.RGTextBox.Text
+
+        WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_nome')[0].value = '" & ContadorRazaoSocial & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_fone')[0].value = '" & ContadorTelefone & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_email')[0].value = '" & ContadorEmail & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_cpfcnpj')[0].value = '" & ContadorCNPJ & "'")
+        WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_rg')[0].value = '" & ContadorRG & "'")
+        Contador.Close()
+
+
+        Me.Focus()
+        WebView.Focus()
+    End Sub
+
+    Private Sub BtnSobre_Click(sender As Object, e As EventArgs) Handles BtnSobre.Click
+        AboutBox.ShowDialog()
+    End Sub
+
+    Private Sub PaginaInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaginaInicialToolStripMenuItem.Click
+        'abrir http://www.prevfogo.pr.gov.br/
+        WebView.Source = New Uri("http://www.prevfogo.pr.gov.br/")
+    End Sub
+
+    Private Sub AcompanharToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcompanharToolStripMenuItem.Click
+        'verificar se esta aberto o site contenha "prevfogo.sesp.pr.gov.br" ou abrir "https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso" Then
+
+        If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
+            WebView.Focus()
+            Try
+                FrmAlvara.TabAlvara.SelectTab(1)
+                Dim NProcesso As String = FrmAlvara.BombeiroNProcessoMaskedTextBox.Text.Replace(".", "").Replace("-", "")
+                'name="edicao.numeroProcesso"
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.numeroProcesso').click()")
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.numeroProcesso')[0].value = '" & NProcesso & "'")
+                WebView.ExecuteScriptAsync("document.getElementsByName('edicao.numeroProcesso').click()")
+
+                Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "")
+                WebView.ExecuteScriptAsync("document.getElementById('documento').click()")
+                WebView.ExecuteScriptAsync("document.getElementById('documento').value = '" & CNPJ & "'")
+
+                'Dim MudarCNPJ As String = "w-150 cpfCnpj validate[required, custom[cnpj]]"
+                'Dim MudarCPF As String = "w-150 cpfCnpj validate[required, custom[cpf]]"
+                'procurar campo class= "w-150 cpfCnpj validate[required]"
+                'WebView.ExecuteScriptAsync("document.getElementsByClassName('" & MudarCNPJ & "')[0].click()")
+
+                MsgBox("Clicar nos campos e usar espaço para validar os caratecteres")
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+
     End Sub
 End Class

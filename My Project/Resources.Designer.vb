@@ -243,6 +243,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property AvancarNavegador() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("AvancarNavegador", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property aviso() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("aviso", resourceCulture)
@@ -1246,6 +1256,16 @@ Namespace My.Resources
         Friend ReadOnly Property voltar() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("voltar", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property VoltarNavegador() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VoltarNavegador", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
