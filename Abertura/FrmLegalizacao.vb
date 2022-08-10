@@ -1552,20 +1552,19 @@ Protocolo RedeSim= " & G & ".
 
     Private Sub Button45_Click(sender As Object, e As EventArgs) Handles Button45.Click
         Try
-            If Application.OpenForms.OfType(Of FrmProcuracao)().Count() > 0 Then
 
-                FrmProcuracao.Focus()
-                FrmProcuracao.Close()
-                FrmProcuracao.Show()
-
+            If WebSiteGERAL.Visible = False Then
+                WebSiteGERAL.Show()
+                WebSiteGERAL.BringToFront()
+                WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/Aplicacoes/ATSDR/procuracoesrfb/controlador/controlePrincipal.asp?acao=telaInicial")
             Else
-
-                FrmProcuracao.Show()
-
+                WebSiteGERAL.BringToFront()
+                WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/Aplicacoes/ATSDR/procuracoesrfb/controlador/controlePrincipal.asp?acao=telaInicial")
             End If
 
+
         Catch ex As Exception
-            MessageBox.Show("Erro ao abrir formulário" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Erro ao abrir o navegador" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         End Try
     End Sub

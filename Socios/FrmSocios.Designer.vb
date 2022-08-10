@@ -52,19 +52,8 @@ Partial Class FrmSocios
         Dim CPFdoCONJUGELabel As System.Windows.Forms.Label
         Dim NOMEdoCONJUGELabel As System.Windows.Forms.Label
         Dim ProfissãoLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
-        Me.SociosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.CPFComboBox = New System.Windows.Forms.ComboBox()
         Me.NomeCompletoComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -182,8 +171,6 @@ Partial Class FrmSocios
         CPFdoCONJUGELabel = New System.Windows.Forms.Label()
         NOMEdoCONJUGELabel = New System.Windows.Forms.Label()
         ProfissãoLabel = New System.Windows.Forms.Label()
-        CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SociosBindingNavigator.SuspendLayout()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -464,24 +451,6 @@ Partial Class FrmSocios
         ProfissãoLabel.TabIndex = 56
         ProfissãoLabel.Text = "Profissão:"
         '
-        'SociosBindingNavigator
-        '
-        Me.SociosBindingNavigator.AddNewItem = Nothing
-        Me.SociosBindingNavigator.BindingSource = Me.SociosBindingSource
-        Me.SociosBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.SociosBindingNavigator.DeleteItem = Nothing
-        Me.SociosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
-        Me.SociosBindingNavigator.Location = New System.Drawing.Point(3, 16)
-        Me.SociosBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
-        Me.SociosBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
-        Me.SociosBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
-        Me.SociosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
-        Me.SociosBindingNavigator.Name = "SociosBindingNavigator"
-        Me.SociosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.SociosBindingNavigator.Size = New System.Drawing.Size(587, 25)
-        Me.SociosBindingNavigator.TabIndex = 0
-        Me.SociosBindingNavigator.Text = "BindingNavigator1"
-        '
         'SociosBindingSource
         '
         Me.SociosBindingSource.DataMember = "Socios"
@@ -492,74 +461,6 @@ Partial Class FrmSocios
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
         Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
-        Me.BindingNavigatorCountItem.Text = "de {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Número total de itens"
-        '
-        'BindingNavigatorMoveFirstItem
-        '
-        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
-        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveFirstItem.Text = "Mover primeiro"
-        '
-        'BindingNavigatorMovePreviousItem
-        '
-        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
-        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMovePreviousItem.Text = "Mover anterior"
-        '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorPositionItem
-        '
-        Me.BindingNavigatorPositionItem.AccessibleName = "Posição"
-        Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
-        Me.BindingNavigatorPositionItem.Text = "0"
-        Me.BindingNavigatorPositionItem.ToolTipText = "Posição atual"
-        '
-        'BindingNavigatorSeparator1
-        '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorMoveNextItem
-        '
-        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
-        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveNextItem.Text = "Mover próximo"
-        '
-        'BindingNavigatorMoveLastItem
-        '
-        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
-        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveLastItem.Text = "Mover último"
-        '
-        'BindingNavigatorSeparator2
-        '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
         'CPFComboBox
         '
         Me.CPFComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -567,7 +468,7 @@ Partial Class FrmSocios
         Me.CPFComboBox.DataSource = Me.SociosBindingSource
         Me.CPFComboBox.DisplayMember = "CPF"
         Me.CPFComboBox.FormattingEnabled = True
-        Me.CPFComboBox.Location = New System.Drawing.Point(281, 77)
+        Me.CPFComboBox.Location = New System.Drawing.Point(281, 67)
         Me.CPFComboBox.Name = "CPFComboBox"
         Me.CPFComboBox.Size = New System.Drawing.Size(116, 21)
         Me.CPFComboBox.TabIndex = 8
@@ -580,7 +481,7 @@ Partial Class FrmSocios
         Me.NomeCompletoComboBox.DataSource = Me.SociosBindingSource
         Me.NomeCompletoComboBox.DisplayMember = "NomeCompleto"
         Me.NomeCompletoComboBox.FormattingEnabled = True
-        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(42, 77)
+        Me.NomeCompletoComboBox.Location = New System.Drawing.Point(42, 67)
         Me.NomeCompletoComboBox.Name = "NomeCompletoComboBox"
         Me.NomeCompletoComboBox.Size = New System.Drawing.Size(200, 21)
         Me.NomeCompletoComboBox.TabIndex = 7
@@ -589,7 +490,7 @@ Partial Class FrmSocios
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(246, 80)
+        Me.Label3.Location = New System.Drawing.Point(246, 70)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 1
@@ -598,7 +499,7 @@ Partial Class FrmSocios
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1, 80)
+        Me.Label2.Location = New System.Drawing.Point(1, 70)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
         Me.Label2.TabIndex = 0
@@ -636,10 +537,11 @@ Partial Class FrmSocios
         Me.GroupBox1.Controls.Add(Me.BtnSalvar)
         Me.GroupBox1.Controls.Add(Me.BtnCancelar)
         Me.GroupBox1.Controls.Add(Me.BtnExcluir)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(602, 105)
+        Me.GroupBox1.Location = New System.Drawing.Point(602, 104)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 168)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 338)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -703,10 +605,10 @@ Partial Class FrmSocios
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 105)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 104)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 339)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 338)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -715,7 +617,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 313)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 312)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -765,7 +667,7 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 307)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 306)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -982,7 +884,7 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 314)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 312)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1018,7 +920,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 308)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 306)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1151,7 +1053,7 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.Button2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 314)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 312)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Contato"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1183,7 +1085,7 @@ Partial Class FrmSocios
         Me.TabPage4.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(583, 314)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 312)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Cônjuge"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1225,9 +1127,9 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 450)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 448)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(587, 66)
+        Me.GroupBox2.Size = New System.Drawing.Size(587, 65)
         Me.GroupBox2.TabIndex = 58
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Exportação"
@@ -1319,7 +1221,7 @@ Partial Class FrmSocios
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFechar.Location = New System.Drawing.Point(602, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(93, 51)
+        Me.BtnFechar.Size = New System.Drawing.Size(93, 52)
         Me.BtnFechar.TabIndex = 57
         Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BtnFechar.UseVisualStyleBackColor = True
@@ -1358,7 +1260,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 522)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 519)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1418,9 +1320,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 522)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 519)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 253)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 256)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1442,7 +1344,7 @@ Partial Class FrmSocios
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnSocio, Me.ColumnPorcentagem, Me.ColumnAntigo, Me.ColumnNovo, Me.GanhaEPerca})
         Me.DataGridView1.Location = New System.Drawing.Point(14, 68)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(553, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(553, 179)
         Me.DataGridView1.TabIndex = 38
         '
         'ColumnSocio
@@ -1495,13 +1397,12 @@ Partial Class FrmSocios
         Me.GroupBox3.Controls.Add(Me.CPFComboBox)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Controls.Add(Me.SociosBindingNavigator)
         Me.GroupBox3.Controls.Add(Me.NomeCompletoComboBox)
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(593, 96)
+        Me.GroupBox3.Size = New System.Drawing.Size(593, 95)
         Me.GroupBox3.TabIndex = 65
         Me.GroupBox3.TabStop = False
         '
@@ -1510,11 +1411,11 @@ Partial Class FrmSocios
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Blue
-        Me.Label1.Location = New System.Drawing.Point(3, 46)
+        Me.Label1.Location = New System.Drawing.Point(2, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(389, 25)
+        Me.Label1.Size = New System.Drawing.Size(284, 25)
         Me.Label1.TabIndex = 55
-        Me.Label1.Text = "DADOS CADASTRAIS DOS SOCIOS"
+        Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FrmSocios
@@ -1534,9 +1435,6 @@ Partial Class FrmSocios
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sócios"
-        CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SociosBindingNavigator.ResumeLayout(False)
-        Me.SociosBindingNavigator.PerformLayout()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -1569,16 +1467,6 @@ Partial Class FrmSocios
     Friend WithEvents SociosBindingSource As BindingSource
     Friend WithEvents SociosTableAdapter As PrinceDBDataSetTableAdapters.SociosTableAdapter
     Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents SociosBindingNavigator As BindingNavigator
-    Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
-    Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
-    Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
-    Friend WithEvents BindingNavigatorPositionItem As ToolStripTextBox
-    Friend WithEvents BindingNavigatorSeparator1 As ToolStripSeparator
-    Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
-    Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents ToolTip1 As ToolTip

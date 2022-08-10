@@ -1,19 +1,29 @@
 ﻿Public Class BoxConsultaIEEmpresa
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
         Dim IE As String = FrmLegalizacao.IETextBox.Text
+        Dim Navegador As New WebSiteGERAL
+        Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
 
         If IE = "" Then
-            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
-            ConsultaIE.Show()
-            ConsultaIE.WebView21.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
-            'copar no clipboard o CNPJ e mostra mgs que foi copiado
-            My.Computer.Clipboard.SetText(CNPJ)
-            MsgBox("CNPJ copiado, use o CTRL+V para colar no campo do CNPJ")
-
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                Navegador.Focus()
+                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+                Me.Close()
+            Else
+                Navegador.Show()
+                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+                Me.Close()
+            End If
         Else
-            ConsultaIE.Show()
-            ConsultaIE.WebView21.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
-
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                Navegador.Focus()
+                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
+                Me.Close()
+            Else
+                Navegador.Show()
+                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
+                Me.Close()
+            End If
         End If
 
         Me.Close()

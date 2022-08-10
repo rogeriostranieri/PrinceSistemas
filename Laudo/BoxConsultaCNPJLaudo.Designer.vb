@@ -89,7 +89,7 @@ Partial Class BoxConsultaCNPJLaudo
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnInterno.TabIndex = 5
-        Me.BtnInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Consulta)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.BtnInterno.Text = "Abrir Interno"
         Me.BtnInterno.UseVisualStyleBackColor = False
         '
         'BtnExterno

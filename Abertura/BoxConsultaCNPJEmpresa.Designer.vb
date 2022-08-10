@@ -91,7 +91,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnInterno.TabIndex = 2
-        Me.BtnInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Consulta)"
+        Me.BtnInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.BtnInterno.UseVisualStyleBackColor = False
         '
         'Label1

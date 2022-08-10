@@ -833,6 +833,24 @@ Public Class WebSiteGERAL
 
     Private Sub CNPJToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CNPJToolStripMenuItem1.Click
 
+        If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
+            WebView.Focus()
+            Try
+                'procura o txt_rg e coloca dados do RG do form Contador na RGTextBox.text
+                Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
+                'id="documento"
+                WebView.ExecuteScriptAsync("document.getElementById('documento').click()")
+                WebView.ExecuteScriptAsync("document.getElementById('documento').value = '" & CNPJ & "'")
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
     End Sub
 
     Private Sub DadosSolicitanteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DadosSolicitanteToolStripMenuItem.Click
@@ -969,5 +987,74 @@ Public Class WebSiteGERAL
             MsgBox("Aguarde o carregamento do site e tente novamente!")
             Exit Sub
         End If
+    End Sub
+
+    Private Sub PaginaInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaginaInicialToolStripMenuItem1.Click
+        WebView.Source = New Uri("http://www.receita.fazenda.gov.br/Aplicacoes/ATSDR/procuracoesrfb/controlador/controlePrincipal.asp?acao=telaInicial")
+    End Sub
+
+    Private Sub PreencherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreencherToolStripMenuItem.Click
+        If MsgBox("Alterou o tipo de CPF ou CNPJ em Dados do Outorgante?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+            CNPJ = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            WebView.ExecuteScriptAsync("document.getElementById('delegID').value = '" & CNPJ & "'")
+
+            'Carrega dados do formulario empresas
+            FrmLegalizacao.TabControle.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
+            FrmLegalizacao.TabControl2.SelectTab(0)
+            FrmLegalizacao.TabControle.SelectTab(8)
+
+            WebView.ExecuteScriptAsync("document.getElementById('delegEnderecoLogradouro').value = '" & FrmLegalizacao.EnderecoTextBox.Text & ", " & FrmLegalizacao.EndNumeroTextBox.Text & ", " & FrmLegalizacao.EndBairroTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('delegEnderecoCidade').value = '" & FrmLegalizacao.EndCidadeTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('delegEnderecoEstado').value = 'PR'")
+
+            Dim TEL As String = FrmLegalizacao.EmpTel1TextBox.Text
+            TEL = TEL.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(" ", "").Replace("(", "").Replace(")", "")
+            TEL = ApenasNumeros(TEL)
+            WebView.ExecuteScriptAsync("document.getElementById('delegTelefone').value = '" & TEL & "'")
+
+            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+            Dim CPF1 As String = CPF.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            CPF1 = ApenasNumeros(CPF1)
+            WebView.ExecuteScriptAsync("document.getElementById('cpfRespLegalDelegante').value = '" & CPF1 & "'")
+
+            Dim RG As String = FrmLegalizacao.RespRGTextBox.Text
+            RG = RG.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            RG = ApenasNumeros(RG)
+            WebView.ExecuteScriptAsync("document.getElementById('delegRg').value = '" & RG & "'")
+            Dim OrgaoRG As String = FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text
+            Dim EstadoRG As String = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
+            WebView.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & OrgaoRG + "/" & EstadoRG & "'")
+
+            'Form Contador
+            Contador.Show()
+            Dim CPF2 As String = Contador.CPFMaskedTextBox.Text
+            Dim CPF3 As String = CPF2.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(",", "")
+            Dim unused As String = ApenasNumeros(CPF3)
+            WebView.ExecuteScriptAsync("document.getElementById('procID').value = '" & CPF1 & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoLogradouro').value = '" & Contador.EnderecoTextBox.Text & ", " & Contador.EndNumTextBox.Text & ", " & Contador.EndBairroTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoCidade').value = '" & Contador.EndCidadeTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoEstado').value = 'PR'")
+
+            Dim TEL1 As String = Contador.TelefoneMaskedTextBox.Text
+            TEL1 = TEL1.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(" ", "").Replace("(", "").Replace(")", "")
+            WebView.ExecuteScriptAsync("document.getElementById('procTelefone').value = '" & TEL1 & "'")
+
+            Dim RG1 As String = Contador.RGTextBox.Text
+            RG1 = RG1.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            RG1 = ApenasNumeros(RG1)
+            WebView.ExecuteScriptAsync("document.getElementById('procRg').value = '" & RG1 & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procOrgaoExpedidor').value = '" & Contador.RGSiglaTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('nacionalidadeProcurador').value = 'Brasileiro'")
+
+            Contador.Close()
+            'focus
+            Me.Focus()
+            MsgBox("Importação Completa", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+        End If
+
     End Sub
 End Class

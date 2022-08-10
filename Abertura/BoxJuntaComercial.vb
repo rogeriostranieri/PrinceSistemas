@@ -20,21 +20,16 @@ Public Class BoxJuntaComercial
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
 
-        'verificar FrmWBEmpresaFacilPR está aberto ou abrir
-        Dim frm As New FrmWBEmpresaFacilPR
-        '            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
-
-        If frm.Visible = True Then
-            'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            Me.Close()
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            Me.Close()
         End If
-        Me.Close()
     End Sub
 
     Private Sub BoxJuntaComercial_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown

@@ -23,12 +23,17 @@ Public Class BoxConsultaCNPJLaudo
     End Sub
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
-        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-
-        ConsultaCNPJ.Show()
-        ConsultaCNPJ.WebView21.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        Me.Close()
+        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            Me.Close()
+        Else
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            Me.Close()
+        End If
     End Sub
 
     Private Async Sub BtnImportar_Click(sender As Object, e As EventArgs) Handles BtnImportar.Click

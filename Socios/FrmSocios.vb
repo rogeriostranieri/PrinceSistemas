@@ -267,8 +267,9 @@ Public Class FrmSocios
                     Me.Close()
                 Else
                     FrmLegalizacao.Show()
-                    ExportarDados()
-                    Me.Close()
+                    ' ExportarDados()
+                    'mgsbox abrir a empresa onde deseja exportar
+                    MsgBox("Abrir a empresa onde deseja exportar!")
                 End If
             End If
 
@@ -418,11 +419,27 @@ Novos dados:" + "
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
         Dim NomeSocio As String = NomeCompletoTextBox.Text
+        Try
+            'perguntar antes
+            'mgsbox em negrito
+            If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                AtivarTab()
 
-        If MsgBox("Deseja exportar os dados do sócio " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-            AtivarTab()
-            AddSocios()
-        End If
+                If FrmLegalizacao.Visible = True Then
+                    AtivarTab()
+                    AddSocios()
+
+                Else
+                    FrmLegalizacao.Show()
+                    ' ExportarDados()
+                    'mgsbox abrir a empresa onde deseja exportar
+                    MsgBox("Abrir a empresa onde deseja exportar!")
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
     End Sub
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -1225,6 +1242,20 @@ Novos dados:" + "
     End Sub
 
     Private Sub CivilTextBox_Validated(sender As Object, e As EventArgs) Handles CivilTextBox.Validated
+        'aumentar tamanho CivilTextBox conforme tamanho do texto
+        If CivilTextBox.Text = "" Then
+            CivilTextBox.Width = 118
+        Else
+            CivilTextBox.Width = CivilTextBox.Text.Length * 6
+        End If
+    End Sub
+
+    Private Sub TituloDeEleitorTextBox_Validated(sender As Object, e As EventArgs) Handles TituloDeEleitorTextBox.Validated
+        TituloDeEleitorTextBox.Text = ApenasNumeros(TituloDeEleitorTextBox.Text)
+
+    End Sub
+
+    Private Sub CivilTextBox_TextChanged(sender As Object, e As EventArgs) Handles CivilTextBox.TextChanged
         'aumentar tamanho CivilTextBox conforme tamanho do texto
         If CivilTextBox.Text = "" Then
             CivilTextBox.Width = 118

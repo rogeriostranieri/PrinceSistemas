@@ -93,14 +93,19 @@ Partial Class WebSiteGERAL
         Me.DadosSolicitanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ÁreaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnTSE = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnProcuracao = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ReceitaFederalDoBrasilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaginaInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnSobre = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnFavoritos = New System.Windows.Forms.ToolStripSplitButton()
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnTSE = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ConsultaPorNomeEPreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.BtnIR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnVoltar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -307,7 +312,7 @@ Partial Class WebSiteGERAL
         'ToolStrip3
         '
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnArquivo, Me.ToolStripSeparator7, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonAlvara, Me.ToolStripSeparator8, Me.BtnTSE, Me.ToolStripSeparator9, Me.BtnSobre})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnArquivo, Me.ToolStripSeparator7, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonAlvara, Me.ToolStripSeparator8, Me.BtnTSE, Me.ToolStripSeparator9, Me.BtnProcuracao, Me.ToolStripSeparator10, Me.BtnSobre})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(788, 26)
@@ -654,6 +659,62 @@ Partial Class WebSiteGERAL
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
         Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 26)
         '
+        'BtnTSE
+        '
+        Me.BtnTSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnTSE.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultaPorNomeEPreencherToolStripMenuItem})
+        Me.BtnTSE.Image = CType(resources.GetObject("BtnTSE.Image"), System.Drawing.Image)
+        Me.BtnTSE.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnTSE.Name = "BtnTSE"
+        Me.BtnTSE.Size = New System.Drawing.Size(102, 23)
+        Me.BtnTSE.Text = "Título de eleitor"
+        '
+        'ConsultaPorNomeEPreencherToolStripMenuItem
+        '
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Name = "ConsultaPorNomeEPreencherToolStripMenuItem"
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Text = "Consulta por nome e preencher"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 26)
+        '
+        'BtnProcuracao
+        '
+        Me.BtnProcuracao.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnProcuracao.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReceitaFederalDoBrasilToolStripMenuItem})
+        Me.BtnProcuracao.Image = CType(resources.GetObject("BtnProcuracao.Image"), System.Drawing.Image)
+        Me.BtnProcuracao.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnProcuracao.Name = "BtnProcuracao"
+        Me.BtnProcuracao.Size = New System.Drawing.Size(80, 23)
+        Me.BtnProcuracao.Text = "Procuração"
+        Me.BtnProcuracao.ToolTipText = "Procuração"
+        '
+        'ReceitaFederalDoBrasilToolStripMenuItem
+        '
+        Me.ReceitaFederalDoBrasilToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaginaInicialToolStripMenuItem1, Me.PreencherToolStripMenuItem})
+        Me.ReceitaFederalDoBrasilToolStripMenuItem.Name = "ReceitaFederalDoBrasilToolStripMenuItem"
+        Me.ReceitaFederalDoBrasilToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.ReceitaFederalDoBrasilToolStripMenuItem.Text = "Receita Federal do Brasil"
+        '
+        'PaginaInicialToolStripMenuItem1
+        '
+        Me.PaginaInicialToolStripMenuItem1.Name = "PaginaInicialToolStripMenuItem1"
+        Me.PaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.PaginaInicialToolStripMenuItem1.Text = "Pagina Inicial"
+        '
+        'PreencherToolStripMenuItem
+        '
+        Me.PreencherToolStripMenuItem.Name = "PreencherToolStripMenuItem"
+        Me.PreencherToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PreencherToolStripMenuItem.Text = "Preencher"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 26)
+        '
         'BtnSobre
         '
         Me.BtnSobre.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -694,27 +755,6 @@ Partial Class WebSiteGERAL
         Me.BtnFavoritos.Name = "BtnFavoritos"
         Me.BtnFavoritos.Size = New System.Drawing.Size(87, 24)
         Me.BtnFavoritos.Text = "Favoritos"
-        '
-        'ToolStripSeparator9
-        '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 26)
-        '
-        'BtnTSE
-        '
-        Me.BtnTSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnTSE.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultaPorNomeEPreencherToolStripMenuItem})
-        Me.BtnTSE.Image = CType(resources.GetObject("BtnTSE.Image"), System.Drawing.Image)
-        Me.BtnTSE.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnTSE.Name = "BtnTSE"
-        Me.BtnTSE.Size = New System.Drawing.Size(102, 23)
-        Me.BtnTSE.Text = "Título de eleitor"
-        '
-        'ConsultaPorNomeEPreencherToolStripMenuItem
-        '
-        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Name = "ConsultaPorNomeEPreencherToolStripMenuItem"
-        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
-        Me.ConsultaPorNomeEPreencherToolStripMenuItem.Text = "Consulta por nome e preencher"
         '
         'WebSiteGERAL
         '
@@ -830,4 +870,9 @@ Partial Class WebSiteGERAL
     Friend WithEvents BtnTSE As ToolStripDropDownButton
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ConsultaPorNomeEPreencherToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnProcuracao As ToolStripDropDownButton
+    Friend WithEvents ReceitaFederalDoBrasilToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaginaInicialToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents PreencherToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
 End Class
