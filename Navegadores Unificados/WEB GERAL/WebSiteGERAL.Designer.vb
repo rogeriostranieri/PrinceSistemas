@@ -355,8 +355,8 @@ Partial Class WebSiteGERAL
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
-        Me.ToolStripMenuItem1.Text = "Pagina Inicial"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
+        Me.ToolStripMenuItem1.Text = "Pagina Inicial Navegador"
         '
         'ToolStripTextBox1
         '

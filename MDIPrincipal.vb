@@ -889,4 +889,36 @@ Public Class MDIPrincipal
             WebSiteGERAL.WebsiteNavigate("https://www.google.com.br/")
         End Try
     End Sub
+
+    Private Sub MDIPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'nao permitir fechar o form quando os outros estiver abertos
+        'FrmLegalizacao e FrmAlvara
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+            e.Cancel = True
+            'mgsbox e focus
+            MsgBox("Feche o formulário de Legalização Empresas antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
+            FrmLegalizacao.Focus()
+        ElseIf Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+            e.Cancel = True
+            'mgsbox e focus
+            MsgBox("Feche o formulário de Alvara antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
+            FrmAlvara.Focus()
+
+        ElseIf Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+            e.Cancel = True
+            'mgsbox e focus
+            MsgBox("Feche o formulário de Sócios antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
+            FrmSocios.Focus()
+        ElseIf Application.OpenForms.OfType(Of FrmAnotacoes)().Count() > 0 Then
+            e.Cancel = True
+            'mgsbox e focus
+            MsgBox("Feche o formulário de Anotações antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
+            FrmAnotacoes.Focus()
+        ElseIf Application.OpenForms.OfType(Of FrmAdmPrincipal)().Count() > 0 Then
+            e.Cancel = True
+            'mgsbox e focus
+            MsgBox("Feche o formulário de Administrador antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
+            FrmAdmPrincipal.Focus()
+        End If
+    End Sub
 End Class

@@ -64,13 +64,13 @@ Partial Class MDIPrincipal
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TributáriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BackupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiversosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculadoraDeCapitalSocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WebSiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -374,30 +374,6 @@ Partial Class MDIPrincipal
         Me.TributáriaToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.TributáriaToolStripMenuItem.Text = "Tributária Federal"
         '
-        'HelpMenu
-        '
-        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.BackupToolStripMenuItem})
-        Me.HelpMenu.ForeColor = System.Drawing.Color.Black
-        Me.HelpMenu.ImageTransparentColor = System.Drawing.Color.Black
-        Me.HelpMenu.Name = "HelpMenu"
-        Me.HelpMenu.Size = New System.Drawing.Size(55, 21)
-        Me.HelpMenu.Text = "&Ajuda"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.Black
-        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.AboutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.AboutToolStripMenuItem.Text = "&Sobre ..."
-        '
-        'BackupToolStripMenuItem
-        '
-        Me.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem"
-        Me.BackupToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.BackupToolStripMenuItem.Text = "Backup e Restaurar"
-        '
         'EMailToolStripMenuItem
         '
         Me.EMailToolStripMenuItem.Name = "EMailToolStripMenuItem"
@@ -422,6 +398,30 @@ Partial Class MDIPrincipal
         Me.WebSiteToolStripMenuItem.Name = "WebSiteToolStripMenuItem"
         Me.WebSiteToolStripMenuItem.Size = New System.Drawing.Size(119, 21)
         Me.WebSiteToolStripMenuItem.Text = "Navegador Web"
+        '
+        'HelpMenu
+        '
+        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.BackupToolStripMenuItem})
+        Me.HelpMenu.ForeColor = System.Drawing.Color.Black
+        Me.HelpMenu.ImageTransparentColor = System.Drawing.Color.Black
+        Me.HelpMenu.Name = "HelpMenu"
+        Me.HelpMenu.Size = New System.Drawing.Size(55, 21)
+        Me.HelpMenu.Text = "&Ajuda"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.Black
+        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.AboutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.AboutToolStripMenuItem.Text = "&Sobre ..."
+        '
+        'BackupToolStripMenuItem
+        '
+        Me.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem"
+        Me.BackupToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.BackupToolStripMenuItem.Text = "Backup e Restaurar"
         '
         'ToolStrip
         '

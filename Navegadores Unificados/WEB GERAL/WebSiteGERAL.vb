@@ -212,8 +212,7 @@ Public Class WebSiteGERAL
         Dim sw As New StreamWriter(path)
         sw.WriteLine("pagina_inicial:" & ToolStripTextBox1.Text)
         sw.Close()
-
-
+        'mgsbox
     End Sub
     Private Sub BtnHome_Click(sender As Object, e As EventArgs) Handles BtnHome.Click
         Try

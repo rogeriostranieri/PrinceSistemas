@@ -1039,8 +1039,16 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
-        System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+        Dim Navegador As New WebSiteGERAL
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+            Navegador.Focus()
+            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
 
+        Else
+            Navegador.Show()
+            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+
+        End If
     End Sub
 
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
