@@ -20,14 +20,16 @@ Public Class BoxJuntaComercial
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
 
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
             Me.Close()
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
             Me.Close()
         End If
     End Sub

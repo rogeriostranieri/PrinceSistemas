@@ -15,20 +15,16 @@ Module ModCon
             Cmd.Parameters.Add("@CNPJEMPRESAS", SqlDbType.VarChar).Value = CNPJEMPRESAS
             Dim Cont As Integer = Cmd.ExecuteScalar
             Cn.Close()
+
             If Cont = 0 Then
                 '////////////////////// QUANDO ENCOTRAR O CNPJ ////////////////////////////////////
                 MsgBox("CNPJ não encontrado no Laudos")
                 If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-
-
-                    MessageBox.Show("Controle de laudos está aberto! Fechando o formulário .....
+                    MessageBox.Show("Controle de laudos está aberto! Fechando o formulário ....." + vbCrLf + "
 Tente novamente!", "Prince Ajuda")
                     FrmAlvara.Close()
-
-
                 Else
-                    If MsgBox("Registro não encontrado.
-Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Sistemas") = MsgBoxResult.Yes Then
+                    If MsgBox("Registro não encontrado." + vbCrLf + "Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Sistemas") = MsgBoxResult.Yes Then
                         If MsgBox(" Deseja importar o registro atual como novo registro de laudo?", MsgBoxStyle.YesNoCancel, "Novo Laudo/Alvará") = MsgBoxResult.Yes Then
 
                             'TAB PRINCIPAL
@@ -188,6 +184,10 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
 
                         End If
+
+                    ElseIf MsgBoxResult.No Then
+                        'e cancel
+                        Exit Sub
                     Else
                         'Abrir FORM
                         FrmAlvara.Show()

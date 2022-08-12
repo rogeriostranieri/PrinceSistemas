@@ -109,6 +109,7 @@ Partial Class VbAvisoPrincipal
         Me.LaudosDataGridView1.AllowUserToOrderColumns = True
         Me.LaudosDataGridView1.AutoGenerateColumns = False
         Me.LaudosDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.LaudosDataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.LaudosDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         Me.LaudosDataGridView1.DataSource = Me.LaudosBindingSource

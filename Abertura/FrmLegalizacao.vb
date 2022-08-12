@@ -549,14 +549,16 @@ Public Class FrmLegalizacao
     End Sub
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
 
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
         End If
 
     End Sub
@@ -1039,14 +1041,16 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
 
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
 
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
 
         End If
     End Sub
@@ -1068,14 +1072,16 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
 
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas")
 
         End If
     End Sub
@@ -1777,14 +1783,16 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub CnaeSimples_Click(sender As Object, e As EventArgs) Handles CnaeSimples.Click
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
 
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://www.contabeis.com.br/ferramentas/simples-nacional/")
 
         End If
 
@@ -1817,26 +1825,31 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub BtnConsultaeProcessoEstado_Click(sender As Object, e As EventArgs) Handles BtnConsultaeProcessoEstado.Click
-        Dim Navegador As New WebSiteGERAL
+
         Dim IE As String = IEeProcNumTextBox.Text
 
         If Trim(IEeProcNumTextBox.Text) = "" Then
             If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                Navegador.Focus()
-                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
             Else
-                Navegador.Show()
-                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
             End If
         Else
             If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                Navegador.Focus()
-                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/telaInicial.do?action=iniciarProcesso")
             Else
-                Navegador.Show()
-                Navegador.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/consultarProtocoloDigital.do?action=pesquisar&numeroProtocolo=" + IE)
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.eprotocolo.pr.gov.br/spiweb/consultarProtocoloDigital.do?action=pesquisar&numeroProtocolo=" + IE)
             End If
         End If
+
     End Sub
 
     Private Sub IEeProcNumTextBox_TextChanged(sender As Object, e As EventArgs) Handles IEeProcNumTextBox.TextChanged
@@ -2823,14 +2836,16 @@ Protocolo RedeSim= " & G & ".
 
     Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
         'vers e WebCorreios esta aberto
-        Dim Navegador As New WebSiteGERAL
+
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            Navegador.Focus()
-            Navegador.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
         Else
-            Navegador.Show()
-            Navegador.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
         End If
 

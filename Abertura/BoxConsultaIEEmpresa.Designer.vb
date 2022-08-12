@@ -63,9 +63,9 @@ Partial Class BoxConsultaIEEmpresa
         Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(14, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(216, 19)
+        Me.Label1.Size = New System.Drawing.Size(280, 19)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Deseja abrir a consulta CNPJ..."
+        Me.Label1.Text = "Deseja abrir a consulta Inscrição Estadual"
         '
         'BtnInterno
         '

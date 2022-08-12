@@ -1,27 +1,31 @@
 ﻿Public Class BoxConsultaIEEmpresa
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
         Dim IE As String = FrmLegalizacao.IETextBox.Text
-        Dim Navegador As New WebSiteGERAL
+
         Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
 
         If IE = "" Then
             If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                Navegador.Focus()
-                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
                 Me.Close()
             Else
-                Navegador.Show()
-                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
                 Me.Close()
             End If
         Else
             If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                Navegador.Focus()
-                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
                 Me.Close()
             Else
-                Navegador.Show()
-                Navegador.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.WebView.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
                 Me.Close()
             End If
         End If
@@ -44,13 +48,10 @@
             Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             My.Computer.Clipboard.SetText(CNPJ)
             MsgBox("CNPJ copiado, use o CTRL+V para colar no campo do CNPJ")
-            'abrir site externo https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=
             Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
             Me.Close()
         Else
-            ConsultaIE.Show()
-            ConsultaIE.WebView21.Source = New Uri("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
-            Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+            Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
             Me.Close()
         End If
         Me.Close()

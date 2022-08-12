@@ -48,7 +48,7 @@ Partial Class Login
         Me.UsernameLabel.BackColor = System.Drawing.Color.Transparent
         Me.UsernameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UsernameLabel.ForeColor = System.Drawing.Color.White
-        Me.UsernameLabel.Location = New System.Drawing.Point(150, 90)
+        Me.UsernameLabel.Location = New System.Drawing.Point(133, 85)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(129, 23)
         Me.UsernameLabel.TabIndex = 0
@@ -60,7 +60,7 @@ Partial Class Login
         Me.PasswordLabel.BackColor = System.Drawing.Color.Transparent
         Me.PasswordLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PasswordLabel.ForeColor = System.Drawing.Color.White
-        Me.PasswordLabel.Location = New System.Drawing.Point(149, 134)
+        Me.PasswordLabel.Location = New System.Drawing.Point(132, 129)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(129, 23)
         Me.PasswordLabel.TabIndex = 2
@@ -70,7 +70,7 @@ Partial Class Login
         'txtUsername
         '
         Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(152, 110)
+        Me.txtUsername.Location = New System.Drawing.Point(135, 105)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(127, 21)
         Me.txtUsername.TabIndex = 1
@@ -78,7 +78,7 @@ Partial Class Login
         'txtPassword
         '
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(151, 154)
+        Me.txtPassword.Location = New System.Drawing.Point(134, 149)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(127, 21)
@@ -88,9 +88,10 @@ Partial Class Login
         '
         Me.OK.BackColor = System.Drawing.Color.LimeGreen
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.OK.Location = New System.Drawing.Point(150, 190)
+        Me.OK.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OK.Location = New System.Drawing.Point(299, 96)
         Me.OK.Name = "OK"
-        Me.OK.Size = New System.Drawing.Size(60, 30)
+        Me.OK.Size = New System.Drawing.Size(83, 30)
         Me.OK.TabIndex = 4
         Me.OK.Text = "&OK"
         Me.OK.UseVisualStyleBackColor = False
@@ -100,10 +101,11 @@ Partial Class Login
         Me.Cancel.BackColor = System.Drawing.Color.Red
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.Color.Black
-        Me.Cancel.Location = New System.Drawing.Point(218, 190)
+        Me.Cancel.Location = New System.Drawing.Point(299, 140)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(60, 30)
+        Me.Cancel.Size = New System.Drawing.Size(83, 30)
         Me.Cancel.TabIndex = 5
         Me.Cancel.Text = "&Cancelar"
         Me.Cancel.UseVisualStyleBackColor = False
@@ -116,7 +118,7 @@ Partial Class Login
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(346, 12)
+        Me.Button1.Location = New System.Drawing.Point(331, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(55, 26)
         Me.Button1.TabIndex = 6
@@ -129,7 +131,7 @@ Partial Class Login
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Bauhaus 93", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(107, 38)
+        Me.Label1.Location = New System.Drawing.Point(94, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(226, 33)
         Me.Label1.TabIndex = 7
@@ -154,9 +156,9 @@ Partial Class Login
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Area_de_Membros
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 62)
+        Me.PictureBox1.Location = New System.Drawing.Point(1, 44)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(180, 186)
+        Me.PictureBox1.Size = New System.Drawing.Size(151, 143)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
@@ -169,17 +171,17 @@ Partial Class Login
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(400, 249)
+        Me.ClientSize = New System.Drawing.Size(394, 197)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.OK)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.PasswordLabel)
         Me.Controls.Add(Me.UsernameLabel)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
