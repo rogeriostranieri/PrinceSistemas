@@ -36,6 +36,7 @@
         End If
     End Sub
 
+    Private Sub FrmAtalhoBuscadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
+    End Sub
 End Class

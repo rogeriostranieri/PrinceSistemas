@@ -39,8 +39,6 @@ Partial Class Login
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UsernameLabel
@@ -89,7 +87,7 @@ Partial Class Login
         Me.OK.BackColor = System.Drawing.Color.LimeGreen
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.OK.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OK.Location = New System.Drawing.Point(299, 96)
+        Me.OK.Location = New System.Drawing.Point(108, 188)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(83, 30)
         Me.OK.TabIndex = 4
@@ -103,7 +101,7 @@ Partial Class Login
         Me.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.Color.Black
-        Me.Cancel.Location = New System.Drawing.Point(299, 140)
+        Me.Cancel.Location = New System.Drawing.Point(197, 188)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(83, 30)
         Me.Cancel.TabIndex = 5
@@ -152,17 +150,6 @@ Partial Class Login
         Me.Button2.Text = "Conectar"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Area_de_Membros
-        Me.PictureBox1.Location = New System.Drawing.Point(1, 44)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(151, 143)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
-        '
         'Login
         '
         Me.AcceptButton = Me.OK
@@ -171,7 +158,7 @@ Partial Class Login
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(394, 197)
+        Me.ClientSize = New System.Drawing.Size(394, 245)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.OK)
@@ -180,7 +167,6 @@ Partial Class Login
         Me.Controls.Add(Me.PasswordLabel)
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -190,7 +176,6 @@ Partial Class Login
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Acesso ao Prince Sistemas"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -199,5 +184,4 @@ Partial Class Login
     Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
-    Friend WithEvents PictureBox1 As PictureBox
 End Class

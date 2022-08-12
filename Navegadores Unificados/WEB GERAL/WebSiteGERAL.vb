@@ -159,6 +159,8 @@ Public Class WebSiteGERAL
 
     Private Sub BtnIR_Click(sender As Object, e As EventArgs) Handles BtnIR.Click
         WebsiteNavigate(TxtURL.Text)
+        'atualizar pagina
+        ' WebView.Refresh()
     End Sub
 
     Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click

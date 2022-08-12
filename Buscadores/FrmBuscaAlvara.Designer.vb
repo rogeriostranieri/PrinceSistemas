@@ -87,6 +87,7 @@ Partial Class FrmBuscaAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -215,7 +216,7 @@ Partial Class FrmBuscaAlvara
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(431, 262)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(415, 247)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(78, 32)
         Me.ButtonLimpar.TabIndex = 33
@@ -236,7 +237,7 @@ Partial Class FrmBuscaAlvara
         'TextBoxRequerente
         '
         Me.TextBoxRequerente.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxRequerente.Location = New System.Drawing.Point(156, 86)
+        Me.TextBoxRequerente.Location = New System.Drawing.Point(120, 86)
         Me.TextBoxRequerente.Name = "TextBoxRequerente"
         Me.TextBoxRequerente.Size = New System.Drawing.Size(353, 24)
         Me.TextBoxRequerente.TabIndex = 26
@@ -244,7 +245,7 @@ Partial Class FrmBuscaAlvara
         'TxtNumLaudo
         '
         Me.TxtNumLaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumLaudo.Location = New System.Drawing.Point(209, 186)
+        Me.TxtNumLaudo.Location = New System.Drawing.Point(92, 186)
         Me.TxtNumLaudo.Name = "TxtNumLaudo"
         Me.TxtNumLaudo.Size = New System.Drawing.Size(300, 24)
         Me.TxtNumLaudo.TabIndex = 21
@@ -263,7 +264,7 @@ Partial Class FrmBuscaAlvara
         'TxtCMC
         '
         Me.TxtCMC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCMC.Location = New System.Drawing.Point(209, 156)
+        Me.TxtCMC.Location = New System.Drawing.Point(92, 156)
         Me.TxtCMC.Name = "TxtCMC"
         Me.TxtCMC.Size = New System.Drawing.Size(300, 24)
         Me.TxtCMC.TabIndex = 19
@@ -293,7 +294,7 @@ Partial Class FrmBuscaAlvara
         'TxtPesquisaCNPJ
         '
         Me.TxtPesquisaCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaCNPJ.Location = New System.Drawing.Point(156, 56)
+        Me.TxtPesquisaCNPJ.Location = New System.Drawing.Point(120, 56)
         Me.TxtPesquisaCNPJ.Name = "TxtPesquisaCNPJ"
         Me.TxtPesquisaCNPJ.Size = New System.Drawing.Size(353, 24)
         Me.TxtPesquisaCNPJ.TabIndex = 16
@@ -312,7 +313,7 @@ Partial Class FrmBuscaAlvara
         'TxtPesquisaRazaoSocial
         '
         Me.TxtPesquisaRazaoSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaRazaoSocial.Location = New System.Drawing.Point(156, 26)
+        Me.TxtPesquisaRazaoSocial.Location = New System.Drawing.Point(120, 26)
         Me.TxtPesquisaRazaoSocial.Name = "TxtPesquisaRazaoSocial"
         Me.TxtPesquisaRazaoSocial.Size = New System.Drawing.Size(353, 24)
         Me.TxtPesquisaRazaoSocial.TabIndex = 2
@@ -326,6 +327,7 @@ Partial Class FrmBuscaAlvara
         Me.ClientSize = New System.Drawing.Size(1022, 373)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmBuscaAlvara"

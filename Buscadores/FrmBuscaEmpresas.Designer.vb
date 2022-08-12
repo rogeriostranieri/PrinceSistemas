@@ -93,6 +93,7 @@ Partial Class FrmBuscaEmpresas
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -108,10 +109,10 @@ Partial Class FrmBuscaEmpresas
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.ResponsavelNome, Me.ProtocoloJuntaComercial, Me.ProtocoloREDESIM, Me.IEComprovante, Me.IEeProcNum})
         Me.EmpresasDataGridView.DataSource = Me.EmpresasBindingSource
         Me.EmpresasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmpresasDataGridView.Location = New System.Drawing.Point(561, 66)
+        Me.EmpresasDataGridView.Location = New System.Drawing.Point(561, 65)
         Me.EmpresasDataGridView.Name = "EmpresasDataGridView"
         Me.EmpresasDataGridView.ReadOnly = True
-        Me.EmpresasDataGridView.Size = New System.Drawing.Size(552, 330)
+        Me.EmpresasDataGridView.Size = New System.Drawing.Size(552, 331)
         Me.EmpresasDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn2
@@ -210,7 +211,7 @@ Partial Class FrmBuscaEmpresas
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
         Me.PictureBox2.Location = New System.Drawing.Point(984, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(129, 57)
+        Me.PictureBox2.Size = New System.Drawing.Size(129, 56)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 15
         Me.PictureBox2.TabStop = False
@@ -328,9 +329,9 @@ Partial Class FrmBuscaEmpresas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TxtPesquisaRazaoSocial)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 66)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 65)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(552, 330)
+        Me.GroupBox1.Size = New System.Drawing.Size(552, 331)
         Me.GroupBox1.TabIndex = 26
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Digite aonde deseja localizar"
@@ -396,6 +397,7 @@ Partial Class FrmBuscaEmpresas
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1116, 399)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.KeyPreview = True
         Me.Name = "FrmBuscaEmpresas"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
