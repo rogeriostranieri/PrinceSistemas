@@ -102,13 +102,6 @@ Partial Class WebSiteGERAL
         Me.PaginaInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnSobre = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnFavoritos = New System.Windows.Forms.ToolStripSplitButton()
-        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ConsultaCPFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaginaInicialToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -116,6 +109,13 @@ Partial Class WebSiteGERAL
         Me.ConsultaCNPJToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PáginaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreencherToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnSobre = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.BtnAddFavoritos = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnFavoritos = New System.Windows.Forms.ToolStripSplitButton()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.BtnIR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnVoltar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -741,6 +741,59 @@ Partial Class WebSiteGERAL
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 26)
         '
+        'ToolStripDropDownButton4
+        '
+        Me.ToolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultaCPFToolStripMenuItem, Me.ConsultaCNPJToolStripMenuItem})
+        Me.ToolStripDropDownButton4.Image = CType(resources.GetObject("ToolStripDropDownButton4.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton4.Name = "ToolStripDropDownButton4"
+        Me.ToolStripDropDownButton4.Size = New System.Drawing.Size(99, 23)
+        Me.ToolStripDropDownButton4.Text = "Receita Federal"
+        '
+        'ConsultaCPFToolStripMenuItem
+        '
+        Me.ConsultaCPFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaginaInicialToolStripMenuItem2, Me.PreencherToolStripMenuItem1})
+        Me.ConsultaCPFToolStripMenuItem.Name = "ConsultaCPFToolStripMenuItem"
+        Me.ConsultaCPFToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ConsultaCPFToolStripMenuItem.Text = "Consulta CPF"
+        '
+        'PaginaInicialToolStripMenuItem2
+        '
+        Me.PaginaInicialToolStripMenuItem2.Name = "PaginaInicialToolStripMenuItem2"
+        Me.PaginaInicialToolStripMenuItem2.Size = New System.Drawing.Size(144, 22)
+        Me.PaginaInicialToolStripMenuItem2.Text = "Pagina Inicial"
+        '
+        'PreencherToolStripMenuItem1
+        '
+        Me.PreencherToolStripMenuItem1.Name = "PreencherToolStripMenuItem1"
+        Me.PreencherToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
+        Me.PreencherToolStripMenuItem1.Text = "Preencher"
+        '
+        'ConsultaCNPJToolStripMenuItem
+        '
+        Me.ConsultaCNPJToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PáginaInicialToolStripMenuItem, Me.PreencherToolStripMenuItem2})
+        Me.ConsultaCNPJToolStripMenuItem.Name = "ConsultaCNPJToolStripMenuItem"
+        Me.ConsultaCNPJToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ConsultaCNPJToolStripMenuItem.Text = "Consulta CNPJ"
+        '
+        'PáginaInicialToolStripMenuItem
+        '
+        Me.PáginaInicialToolStripMenuItem.Name = "PáginaInicialToolStripMenuItem"
+        Me.PáginaInicialToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.PáginaInicialToolStripMenuItem.Text = "Página Inicial"
+        '
+        'PreencherToolStripMenuItem2
+        '
+        Me.PreencherToolStripMenuItem2.Name = "PreencherToolStripMenuItem2"
+        Me.PreencherToolStripMenuItem2.Size = New System.Drawing.Size(144, 22)
+        Me.PreencherToolStripMenuItem2.Text = "Preencher"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 26)
+        '
         'BtnSobre
         '
         Me.BtnSobre.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -786,59 +839,6 @@ Partial Class WebSiteGERAL
         '
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
         Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 27)
-        '
-        'ToolStripSeparator12
-        '
-        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
-        Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 26)
-        '
-        'ToolStripDropDownButton4
-        '
-        Me.ToolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultaCPFToolStripMenuItem, Me.ConsultaCNPJToolStripMenuItem})
-        Me.ToolStripDropDownButton4.Image = CType(resources.GetObject("ToolStripDropDownButton4.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton4.Name = "ToolStripDropDownButton4"
-        Me.ToolStripDropDownButton4.Size = New System.Drawing.Size(99, 23)
-        Me.ToolStripDropDownButton4.Text = "Receita Federal"
-        '
-        'ConsultaCPFToolStripMenuItem
-        '
-        Me.ConsultaCPFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaginaInicialToolStripMenuItem2, Me.PreencherToolStripMenuItem1})
-        Me.ConsultaCPFToolStripMenuItem.Name = "ConsultaCPFToolStripMenuItem"
-        Me.ConsultaCPFToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ConsultaCPFToolStripMenuItem.Text = "Consulta CPF"
-        '
-        'PaginaInicialToolStripMenuItem2
-        '
-        Me.PaginaInicialToolStripMenuItem2.Name = "PaginaInicialToolStripMenuItem2"
-        Me.PaginaInicialToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
-        Me.PaginaInicialToolStripMenuItem2.Text = "Pagina Inicial"
-        '
-        'PreencherToolStripMenuItem1
-        '
-        Me.PreencherToolStripMenuItem1.Name = "PreencherToolStripMenuItem1"
-        Me.PreencherToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.PreencherToolStripMenuItem1.Text = "Preencher"
-        '
-        'ConsultaCNPJToolStripMenuItem
-        '
-        Me.ConsultaCNPJToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PáginaInicialToolStripMenuItem, Me.PreencherToolStripMenuItem2})
-        Me.ConsultaCNPJToolStripMenuItem.Name = "ConsultaCNPJToolStripMenuItem"
-        Me.ConsultaCNPJToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ConsultaCNPJToolStripMenuItem.Text = "Consulta CNPJ"
-        '
-        'PáginaInicialToolStripMenuItem
-        '
-        Me.PáginaInicialToolStripMenuItem.Name = "PáginaInicialToolStripMenuItem"
-        Me.PáginaInicialToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PáginaInicialToolStripMenuItem.Text = "Página Inicial"
-        '
-        'PreencherToolStripMenuItem2
-        '
-        Me.PreencherToolStripMenuItem2.Name = "PreencherToolStripMenuItem2"
-        Me.PreencherToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
-        Me.PreencherToolStripMenuItem2.Text = "Preencher"
         '
         'WebSiteGERAL
         '

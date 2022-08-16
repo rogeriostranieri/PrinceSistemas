@@ -1086,10 +1086,12 @@ Public Class WebSiteGERAL
         For Each child In MDIPrincipal.MdiChildren
             If TypeOf child Is WebSiteGERAL Then
                 Me.MdiParent = Nothing
-                child.WindowState = FormWindowState.Maximized
+                ' child.WindowState = FormWindowState.Maximized
+                Me.WindowState = FormWindowState.Maximized
             Else
                 Me.MdiParent = MDIPrincipal
-                child.WindowState = FormWindowState.Maximized
+                'maximizar child
+                Me.WindowState = FormWindowState.Maximized
             End If
         Next
     End Sub

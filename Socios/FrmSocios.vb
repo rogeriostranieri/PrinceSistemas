@@ -342,6 +342,11 @@ Public Class FrmSocios
                 Nascido = "nascida em"
             End If
 
+            If EstadoCivil = "solteira" Then
+                EstadoCivil = "maior, solteira"
+            ElseIf EstadoCivil = "solteiro" Then
+                EstadoCivil = "maior, solteiro"
+            End If
 
             'se Compl está vazio ou não, então não adicionar o complemento
             If Compl = "" Then

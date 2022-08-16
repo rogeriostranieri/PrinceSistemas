@@ -1555,7 +1555,7 @@ Protocolo RedeSim= " & G & ".
 
     End Sub
 
-    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox.TextChanged
+    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs) 
         Try
             NomeFantasiaTextBox1.Text = NomeFantasiaTextBox.Text
 

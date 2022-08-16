@@ -126,7 +126,6 @@ Partial Class FrmLegalizacao
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.RazaoSocialTextBox = New System.Windows.Forms.TextBox()
-        Me.NomeFantasiaTextBox = New System.Windows.Forms.TextBox()
         Me.CNPJMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.CADstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -418,6 +417,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.NomeFantasiaTextBox = New System.Windows.Forms.TextBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1470,14 +1470,6 @@ Partial Class FrmLegalizacao
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
         Me.RazaoSocialTextBox.Size = New System.Drawing.Size(528, 20)
         Me.RazaoSocialTextBox.TabIndex = 2
-        '
-        'NomeFantasiaTextBox
-        '
-        Me.NomeFantasiaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
-        Me.NomeFantasiaTextBox.Location = New System.Drawing.Point(99, 95)
-        Me.NomeFantasiaTextBox.Name = "NomeFantasiaTextBox"
-        Me.NomeFantasiaTextBox.Size = New System.Drawing.Size(318, 20)
-        Me.NomeFantasiaTextBox.TabIndex = 4
         '
         'CNPJMaskedTextBox
         '
@@ -4016,6 +4008,7 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.NomeFantasiaTextBox)
         Me.GroupBox2.Controls.Add(SituacaoCadastralLabel)
         Me.GroupBox2.Controls.Add(Me.SituacaoCadastralComboBox)
         Me.GroupBox2.Controls.Add(Me.LinkLabel18)
@@ -4040,7 +4033,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Controls.Add(NomeFantasiaLabel)
         Me.GroupBox2.Controls.Add(CNPJLabel)
         Me.GroupBox2.Controls.Add(Me.CNPJMaskedTextBox)
-        Me.GroupBox2.Controls.Add(Me.NomeFantasiaTextBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(3, 55)
@@ -4658,6 +4650,14 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'NomeFantasiaTextBox
+        '
+        Me.NomeFantasiaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
+        Me.NomeFantasiaTextBox.Location = New System.Drawing.Point(99, 95)
+        Me.NomeFantasiaTextBox.Name = "NomeFantasiaTextBox"
+        Me.NomeFantasiaTextBox.Size = New System.Drawing.Size(318, 20)
+        Me.NomeFantasiaTextBox.TabIndex = 67
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4781,7 +4781,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents RazaoSocialTextBox As TextBox
-    Friend WithEvents NomeFantasiaTextBox As TextBox
     Friend WithEvents CNPJMaskedTextBox As MaskedTextBox
     Friend WithEvents TabControle As TabControl
     Friend WithEvents TabPage1 As TabPage
@@ -5071,4 +5070,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents ResponsavelEstadoOrgaoRGTextBox As TextBox
     Friend WithEvents ResponsavelOrgaoRGTextBox As TextBox
     Friend WithEvents BtnRemovCaract As Button
+    Friend WithEvents NomeFantasiaTextBox As TextBox
 End Class
