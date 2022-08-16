@@ -49,16 +49,22 @@ Partial Class FrmMail
         Me.EMailBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBoxBuscaCaixaSaida = New System.Windows.Forms.TextBox()
+        Me.ComboBoxCaixaSaida = New System.Windows.Forms.ComboBox()
         Me.ButtonExcluirSaida = New System.Windows.Forms.Button()
         Me.EMailCaixaDeSaidaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EMailCaixaDeSaidaBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.LinkLabelGmail = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CredencialComboBox = New System.Windows.Forms.ComboBox()
@@ -86,7 +92,6 @@ Partial Class FrmMail
         Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.LinkLabelGmail = New System.Windows.Forms.LinkLabel()
         EMailLabel = New System.Windows.Forms.Label()
         SenhaEmailLabel = New System.Windows.Forms.Label()
         SmtpClientLabel = New System.Windows.Forms.Label()
@@ -357,6 +362,12 @@ Partial Class FrmMail
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
+        Me.TabPage2.Controls.Add(Me.Label5)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Controls.Add(Me.DateTimePicker2)
+        Me.TabPage2.Controls.Add(Me.DateTimePicker1)
+        Me.TabPage2.Controls.Add(Me.TextBoxBuscaCaixaSaida)
+        Me.TabPage2.Controls.Add(Me.ComboBoxCaixaSaida)
         Me.TabPage2.Controls.Add(Me.ButtonExcluirSaida)
         Me.TabPage2.Controls.Add(Me.EMailCaixaDeSaidaDataGridView)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
@@ -366,6 +377,57 @@ Partial Class FrmMail
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Caixa de Saída"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(9, 21)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(161, 16)
+        Me.Label5.TabIndex = 55
+        Me.Label5.Text = "Localizar e-mail enviado:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(267, 70)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(13, 13)
+        Me.Label1.TabIndex = 54
+        Me.Label1.Text = "a"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(282, 66)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(252, 20)
+        Me.DateTimePicker2.TabIndex = 53
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(12, 66)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(252, 20)
+        Me.DateTimePicker1.TabIndex = 52
+        '
+        'TextBoxBuscaCaixaSaida
+        '
+        Me.TextBoxBuscaCaixaSaida.Location = New System.Drawing.Point(139, 39)
+        Me.TextBoxBuscaCaixaSaida.Name = "TextBoxBuscaCaixaSaida"
+        Me.TextBoxBuscaCaixaSaida.Size = New System.Drawing.Size(395, 20)
+        Me.TextBoxBuscaCaixaSaida.TabIndex = 51
+        '
+        'ComboBoxCaixaSaida
+        '
+        Me.ComboBoxCaixaSaida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxCaixaSaida.FormattingEnabled = True
+        Me.ComboBoxCaixaSaida.Items.AddRange(New Object() {"Clique Aqui", "Data de Envio", "Assunto", "Texto", "Destino", "eMail"})
+        Me.ComboBoxCaixaSaida.Location = New System.Drawing.Point(12, 39)
+        Me.ComboBoxCaixaSaida.Name = "ComboBoxCaixaSaida"
+        Me.ComboBoxCaixaSaida.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxCaixaSaida.TabIndex = 50
         '
         'ButtonExcluirSaida
         '
@@ -384,37 +446,21 @@ Partial Class FrmMail
         Me.EMailCaixaDeSaidaDataGridView.AllowUserToAddRows = False
         Me.EMailCaixaDeSaidaDataGridView.AutoGenerateColumns = False
         Me.EMailCaixaDeSaidaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.EMailCaixaDeSaidaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.EMailCaixaDeSaidaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn3})
         Me.EMailCaixaDeSaidaDataGridView.DataSource = Me.EMailCaixaDeSaidaBindingSource1
-        Me.EMailCaixaDeSaidaDataGridView.Location = New System.Drawing.Point(12, 25)
+        Me.EMailCaixaDeSaidaDataGridView.Location = New System.Drawing.Point(12, 91)
         Me.EMailCaixaDeSaidaDataGridView.MultiSelect = False
         Me.EMailCaixaDeSaidaDataGridView.Name = "EMailCaixaDeSaidaDataGridView"
         Me.EMailCaixaDeSaidaDataGridView.ReadOnly = True
-        Me.EMailCaixaDeSaidaDataGridView.Size = New System.Drawing.Size(522, 287)
+        Me.EMailCaixaDeSaidaDataGridView.Size = New System.Drawing.Size(522, 221)
         Me.EMailCaixaDeSaidaDataGridView.TabIndex = 0
         '
-        'Column1
+        'DataGridViewTextBoxColumn7
         '
-        Me.Column1.DataPropertyName = "ID_eMailCaixaDeSaida"
-        Me.Column1.HeaderText = "ID"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "eMailPrincipal"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "eMail"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "eMailDestino"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Destino"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "DataEnviado"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Data de Envio"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
         'DataGridViewTextBoxColumn5
         '
@@ -429,13 +475,22 @@ Partial Class FrmMail
         Me.DataGridViewTextBoxColumn6.HeaderText = "Texto"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 200
         '
-        'DataGridViewTextBoxColumn7
+        'DataGridViewTextBoxColumn4
         '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "DataEnviado"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Data de Envio"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "eMailDestino"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Destino"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "eMailPrincipal"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "eMail"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
         '
         'EMailCaixaDeSaidaBindingSource1
         '
@@ -475,6 +530,16 @@ Partial Class FrmMail
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Configurações"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'LinkLabelGmail
+        '
+        Me.LinkLabelGmail.AutoSize = True
+        Me.LinkLabelGmail.Location = New System.Drawing.Point(377, 43)
+        Me.LinkLabelGmail.Name = "LinkLabelGmail"
+        Me.LinkLabelGmail.Size = New System.Drawing.Size(39, 13)
+        Me.LinkLabelGmail.TabIndex = 57
+        Me.LinkLabelGmail.TabStop = True
+        Me.LinkLabelGmail.Text = "Gmail?"
         '
         'Label4
         '
@@ -720,16 +785,6 @@ Partial Class FrmMail
         Me.BtnFechar.TabIndex = 17
         Me.BtnFechar.TabStop = False
         '
-        'LinkLabelGmail
-        '
-        Me.LinkLabelGmail.AutoSize = True
-        Me.LinkLabelGmail.Location = New System.Drawing.Point(377, 43)
-        Me.LinkLabelGmail.Name = "LinkLabelGmail"
-        Me.LinkLabelGmail.Size = New System.Drawing.Size(39, 13)
-        Me.LinkLabelGmail.TabIndex = 57
-        Me.LinkLabelGmail.TabStop = True
-        Me.LinkLabelGmail.Text = "Gmail?"
-        '
         'FrmMail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -738,7 +793,7 @@ Partial Class FrmMail
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(567, 470)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -751,6 +806,7 @@ Partial Class FrmMail
         CType(Me.EMailBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.EMailCaixaDeSaidaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EMailCaixaDeSaidaBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
@@ -789,12 +845,6 @@ Partial Class FrmMail
     Friend WithEvents ButtonExcluirSaida As Button
     Friend WithEvents ButtonNovoConfig As Button
     Friend WithEvents ButtonSalvarConfig As Button
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonExcluirConfig As Button
     Friend WithEvents ButtonLimpar As Button
     Friend WithEvents ButtonContatos As Button
@@ -818,4 +868,15 @@ Partial Class FrmMail
     Friend WithEvents BtnFechar As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LinkLabelGmail As LinkLabel
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBoxCaixaSaida As ComboBox
+    Friend WithEvents TextBoxBuscaCaixaSaida As TextBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label5 As Label
 End Class

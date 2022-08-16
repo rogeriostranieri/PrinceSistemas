@@ -703,6 +703,7 @@ Partial Class FrmContatos
         Me.Controls.Add(Me.BtnNovo)
         Me.Controls.Add(Me.GroupoContato)
         Me.Controls.Add(Me.ContatosBindingNavigator)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "FrmContatos"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

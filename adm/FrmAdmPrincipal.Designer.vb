@@ -129,7 +129,6 @@ Partial Class FrmAdmPrincipal
         '
         'PictureBox1
         '
-        'Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.Pessoais
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(42, 36)
@@ -163,7 +162,9 @@ Partial Class FrmAdmPrincipal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(639, 479)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "FrmAdmPrincipal"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Painel do Administrador"
         Me.TableLayoutPanel1.ResumeLayout(False)

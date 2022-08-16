@@ -15,7 +15,8 @@ Public Class FrmMail
 
         ProgressBar1.Value = 0
         ProgressBar1.BackColor = Color.Green
-
+        'inicia selecionando ComboBoxCaixaSaida primeiro item
+        ComboBoxCaixaSaida.SelectedIndex = 0
 
     End Sub
 
@@ -173,28 +174,28 @@ Public Class FrmMail
     End Sub
 
     Private Sub EMailCaixaDeSaidaDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EMailCaixaDeSaidaDataGridView.CellContentDoubleClick
-        'ao clicar na linha precisa ir por id
-        '  Dim id As Integer = e.RowIndex
+        'nao importa onde clicar na coluna,sempre usar a coluna DataGridViewTextBoxColumn7
+        'sempre usar a coluna DataGridViewTextBoxColumn7
+        If e.RowIndex >= 0 Then
+            'seleciona o registro que foi clicado
+            Dim row As DataGridViewRow = EMailCaixaDeSaidaDataGridView.CurrentRow
+            'pega o valor da coluna
+            Dim valor As String = row.Cells(DataGridViewTextBoxColumn7.Index).Value.ToString
+            'abre o form de visualização
+            Dim frm As New FrmEmailCaixaDeSaida
+            'converter em datatime
+            'filter "DataEnviado
+            Dim data As DateTime = Convert.ToDateTime(valor)
+            'filter "DataEnviado
+            frm.EMailCaixaDeSaidaBindingSource.Filter = "DataEnviado = '" & data & "'"
+            'mostra o form de visualização
+            frm.ShowDialog()
 
-        If Application.OpenForms.OfType(Of FrmEmailCaixaDeSaida)().Count() > 0 Then
-            Dim Sair As String
-            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-            'amostrar como html o FrmEmailCaixaDeSaida.CaixaDeSaidaTextoRichTextBox
 
-            FrmEmailCaixaDeSaida.Focus()
-            'FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.CurrentRow.Cells(0).Value.ToString()
-            FrmEmailCaixaDeSaida.ComboBoxBusca.Focus()
-
-
-        Else
-
-            FrmEmailCaixaDeSaida.MdiParent = MDIPrincipal
-            FrmEmailCaixaDeSaida.Show()
-            'FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmEmailCaixaDeSaida.ComboBoxBusca.Text = EMailCaixaDeSaidaDataGridView.CurrentRow.Cells(0).Value.ToString()
-            FrmEmailCaixaDeSaida.ComboBoxBusca.Focus()
         End If
+
+
+
     End Sub
 
     Private Sub ButtonExcluirSaida_Click(sender As Object, e As EventArgs) Handles ButtonExcluirSaida.Click
@@ -390,4 +391,69 @@ Public Class FrmMail
         'mgsbox 
         MsgBox("A partir de 30 de maio de 2022, o Google não autorizará mais o uso de apps ou dispositivos de terceiros que exigem apenas nome de usuário e senha para fazer login na Conta do Google . Essa mudança tem como objetivo proteger sua conta.")
     End Sub
+    '//////////////////////// FILTRO CAIXA DE SAIDA ////////////////////////////////
+
+    Private Sub FiltroSaida()
+        If ComboBoxCaixaSaida.Text = "Data de Envio" Then
+            DateTimePicker1.Visible = True
+            DateTimePicker2.Visible = True
+            Label1.Visible = True
+            TextBoxBuscaCaixaSaida.Visible = False
+        ElseIf ComboBoxCaixaSaida.Text = "Assunto" Then
+            DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
+            Label1.Visible = False
+            TextBoxBuscaCaixaSaida.Visible = True
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "Assunto LIKE '%" + TextBoxBuscaCaixaSaida.Text + "%'"
+        ElseIf ComboBoxCaixaSaida.Text = "Texto" Then
+            DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
+            Label1.Visible = False
+            TextBoxBuscaCaixaSaida.Visible = True
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "CaixaDeSaidaTexto LIKE '%" + TextBoxBuscaCaixaSaida.Text + "%'"
+        ElseIf ComboBoxCaixaSaida.Text = "Destino" Then
+            DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
+            Label1.Visible = False
+            TextBoxBuscaCaixaSaida.Visible = True
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "eMailDestino LIKE '%" + TextBoxBuscaCaixaSaida.Text + "%'"
+        ElseIf ComboBoxCaixaSaida.Text = "eMail" Then
+            DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
+            Label1.Visible = False
+            TextBoxBuscaCaixaSaida.Visible = True
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "eMailPrincipal LIKE '%" + TextBoxBuscaCaixaSaida.Text + "%'"
+        Else
+            DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
+            Label1.Visible = False
+            TextBoxBuscaCaixaSaida.Visible = False
+        End If
+    End Sub
+    Private Sub TextBoxBuscaCaixaSaida_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuscaCaixaSaida.TextChanged
+        FiltroSaida()
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        If ComboBoxCaixaSaida.Text = "Data de Envio" Then
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "DataEnviado >= '" + DateTimePicker1.Value + "' AND DataEnviado <= '" + DateTimePicker2.Value + "'"
+        End If
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        If ComboBoxCaixaSaida.Text = "Data de Envio" Then
+            EMailCaixaDeSaidaBindingSource1.RemoveFilter()
+            EMailCaixaDeSaidaBindingSource1.Filter = "DataEnviado >= '" + DateTimePicker1.Value + "' AND DataEnviado <= '" + DateTimePicker2.Value + "'"
+        End If
+    End Sub
+
+    Private Sub ComboBoxCaixaSaida_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCaixaSaida.SelectedIndexChanged
+        FiltroSaida()
+    End Sub
+
 End Class
