@@ -56,9 +56,9 @@ Partial Class BackupERestore
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(275, 12)
+        Me.PictureBox2.Location = New System.Drawing.Point(237, 12)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(87, 52)
+        Me.PictureBox2.Size = New System.Drawing.Size(125, 63)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 26
         Me.PictureBox2.TabStop = False
@@ -87,6 +87,8 @@ Partial Class BackupERestore
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "BackupERestore"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

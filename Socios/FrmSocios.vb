@@ -1143,13 +1143,13 @@ Novos dados:" + "
         If CPFMaskedTextBox.Text <> "   .   .   -" And DatadeNascMaskedTextBox.Text <> "  /  /" Then
             'verificar se o CPF é valido
             'verificar se o WEBConsultaCPF está aberto
-            If WEBConsultaCPF.Visible = True Then
-                WEBConsultaCPF.Focus()
-                WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+            If WebSiteGERAL.Visible = True Then
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.WebView.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
             Else
-                WEBConsultaCPF.Show()
-                WEBConsultaCPF.Focus()
-                WEBConsultaCPF.WebView21.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+                WebSiteGERAL.Show()
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.WebView.Source = New Uri("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
 
             End If
         Else

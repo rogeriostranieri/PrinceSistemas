@@ -132,7 +132,7 @@ Partial Class ExportarLaudoWordDialog
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.93458!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.06542!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.BtnAbrir, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
@@ -151,7 +151,7 @@ Partial Class ExportarLaudoWordDialog
         Me.BtnAbrir.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BtnAbrir.Location = New System.Drawing.Point(3, 3)
         Me.BtnAbrir.Name = "BtnAbrir"
-        Me.BtnAbrir.Size = New System.Drawing.Size(101, 39)
+        Me.BtnAbrir.Size = New System.Drawing.Size(100, 39)
         Me.BtnAbrir.TabIndex = 2
         Me.BtnAbrir.Text = "Abrir"
         Me.BtnAbrir.UseVisualStyleBackColor = False
@@ -159,7 +159,7 @@ Partial Class ExportarLaudoWordDialog
         'OK_Button
         '
         Me.OK_Button.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OK_Button.Location = New System.Drawing.Point(110, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(109, 3)
         Me.OK_Button.Name = "OK_Button"
         Me.OK_Button.Size = New System.Drawing.Size(97, 39)
         Me.OK_Button.TabIndex = 0
@@ -169,9 +169,9 @@ Partial Class ExportarLaudoWordDialog
         '
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cancel_Button.Location = New System.Drawing.Point(213, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(212, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(115, 39)
+        Me.Cancel_Button.Size = New System.Drawing.Size(116, 39)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
@@ -260,12 +260,12 @@ Partial Class ExportarLaudoWordDialog
         Me.Controls.Add(Me.BtnAdicionar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ExportarLaudoWordDialog"
-        Me.ShowInTaskbar = False
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Exportação Word / Laudos"
         Me.GroupBox1.ResumeLayout(False)

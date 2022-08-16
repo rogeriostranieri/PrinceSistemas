@@ -359,7 +359,10 @@ Partial Class VencimentoAlvara
         Me.Controls.Add(Me.PictureBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "VencimentoAlvara"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Vencimentos de Alvara de localização"
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()

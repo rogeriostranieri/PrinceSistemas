@@ -142,12 +142,12 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "BoxConsultaCNPJEmpresa"
-        Me.ShowInTaskbar = False
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta CNPJ - Prince Sistemas"
         Me.TableLayoutPanel1.ResumeLayout(False)

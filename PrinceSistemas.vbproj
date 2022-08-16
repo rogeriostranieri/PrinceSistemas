@@ -154,12 +154,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abertura\Favoritos.vb" />
-    <Compile Include="Abertura\WEB\FrmWBEmpresaFacilPR.Designer.vb">
-      <DependentUpon>FrmWBEmpresaFacilPR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Abertura\WEB\FrmWBEmpresaFacilPR.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Administração Controle\FrmControleEmpresas.Designer.vb">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </Compile>
@@ -195,12 +189,6 @@
       <DependentUpon>FrmProtocolados.vb</DependentUpon>
     </Compile>
     <Compile Include="Abertura\FrmProtocolados.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abertura\FrmTeste.Designer.vb">
-      <DependentUpon>FrmTeste.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Abertura\FrmTeste.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abertura\MudaCorTexto.vb">
@@ -303,41 +291,11 @@
     <Compile Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.Designer.vb">
-      <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.Designer.vb">
-      <DependentUpon>FrmWebLaudoNovoMaringaPR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.Designer.vb">
-      <DependentUpon>FrmBombeiroPR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulo\ModNumeroExtenso.vb" />
-    <Compile Include="Navegadores Unificados\ConsultaIE.Designer.vb">
-      <DependentUpon>ConsultaIE.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\ConsultaIE.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.Designer.vb">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </Compile>
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.Designer.vb">
-      <DependentUpon>FrmProcuracao.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\Administracao\FrmControleSituacaoAlvara.Designer.vb">
@@ -350,12 +308,6 @@
       <DependentUpon>BoxConsultaCNPJLaudo.vb</DependentUpon>
     </Compile>
     <Compile Include="Laudo\BoxConsultaCNPJLaudo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoAntigoMaringaPR.Designer.vb">
-      <DependentUpon>FrmWebLaudoAntigoMaringaPR.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoAntigoMaringaPR.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laudo\DialogCalendarioAlvara.Designer.vb">
@@ -392,34 +344,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.Designer.vb">
-      <DependentUpon>WEBConsultaCPF.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.Designer.vb">
-      <DependentUpon>WebConsultaTituloDeEleitor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.Designer.vb">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegadores Unificados\WebCorreios.Designer.vb">
-      <DependentUpon>WebCorreios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\WebCorreios.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegadores Unificados\WebREDESIM.Designer.vb">
-      <DependentUpon>WebREDESIM.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\WebREDESIM.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrinceDBDataSet.Designer.vb">
@@ -452,12 +380,6 @@
     <Compile Include="BackupERestore.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.Designer.vb">
-      <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Connected Services\WSCorreios\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -467,12 +389,6 @@
       <DependentUpon>Contador.vb</DependentUpon>
     </Compile>
     <Compile Include="Contador\Contador.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Laudo\LaudosCadastro.Designer.vb">
-      <DependentUpon>LaudosCadastro.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Laudo\LaudosCadastro.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abertura\FrmLegalizacao.vb">
@@ -542,12 +458,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\BuscaCNAE.Designer.vb">
-      <DependentUpon>BuscaCNAE.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Navegadores Unificados\Receita Federal\BuscaCNAE.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrinceDBDataSet.vb">
       <DependentUpon>PrinceDBDataSet.xsd</DependentUpon>
@@ -644,9 +554,6 @@
     <EmbeddedResource Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.resx">
       <DependentUpon>ExportarContratoWordDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abertura\WEB\FrmWBEmpresaFacilPR.resx">
-      <DependentUpon>FrmWBEmpresaFacilPR.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmControleEmpresas.resx">
       <DependentUpon>FrmControleEmpresas.vb</DependentUpon>
     </EmbeddedResource>
@@ -664,9 +571,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\FrmProtocolados.resx">
       <DependentUpon>FrmProtocolados.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abertura\FrmTeste.resx">
-      <DependentUpon>FrmTeste.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.vb</DependentUpon>
@@ -716,32 +620,14 @@
     <EmbeddedResource Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.resx">
       <DependentUpon>ExportarLaudoWordDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebAlvaráMEI2.resx">
-      <DependentUpon>FrmWebAlvaráMEI2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoNovoMaringaPR.resx">
-      <DependentUpon>FrmWebLaudoNovoMaringaPR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Paraná\FrmBombeiroPR.resx">
-      <DependentUpon>FrmBombeiroPR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\ConsultaIE.resx">
-      <DependentUpon>ConsultaIE.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\FrmConsultaCNPJImportar.resx">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\Procuracao\FrmProcuracao.resx">
-      <DependentUpon>FrmProcuracao.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\Administracao\FrmControleSituacaoAlvara.resx">
       <DependentUpon>FrmControleSituacaoAlvara.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\BoxConsultaCNPJLaudo.resx">
       <DependentUpon>BoxConsultaCNPJLaudo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Laudo\Navegadores WEB por Cidades\Maringa-PR\FrmWebLaudoAntigoMaringaPR.resx">
-      <DependentUpon>FrmWebLaudoAntigoMaringaPR.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\DialogCalendarioAlvara.resx">
       <DependentUpon>DialogCalendarioAlvara.vb</DependentUpon>
@@ -755,20 +641,8 @@
     <EmbeddedResource Include="Modulo\LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\WEBConsultaCPF.resx">
-      <DependentUpon>WEBConsultaCPF.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\WebConsultaTituloDeEleitor.resx">
-      <DependentUpon>WebConsultaTituloDeEleitor.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\WebCorreios.resx">
-      <DependentUpon>WebCorreios.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\WebREDESIM.resx">
-      <DependentUpon>WebREDESIM.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>
@@ -782,14 +656,8 @@
     <EmbeddedResource Include="BackupERestore.resx">
       <DependentUpon>BackupERestore.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\ConsultaCNPJ.resx">
-      <DependentUpon>ConsultaCNPJ.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contador\Contador.resx">
       <DependentUpon>Contador.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Laudo\LaudosCadastro.resx">
-      <DependentUpon>LaudosCadastro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\FrmLegalizacao.resx">
       <DependentUpon>FrmLegalizacao.vb</DependentUpon>
@@ -823,9 +691,6 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegadores Unificados\Receita Federal\BuscaCNAE.resx">
-      <DependentUpon>BuscaCNAE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrioridadeAviso.resx">
       <DependentUpon>PrioridadeAviso.vb</DependentUpon>

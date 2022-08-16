@@ -42,6 +42,8 @@ Partial Class Contador
         Dim EndEstadoLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Contador))
         Me.NomeTextBox = New System.Windows.Forms.TextBox()
+        Me.ContadorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.CRCTextBox = New System.Windows.Forms.TextBox()
         Me.ExpedicaoCRCMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -68,8 +70,6 @@ Partial Class Contador
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
-        Me.ContadorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.ContadorTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ContadorTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.RGSiglaTextBox = New System.Windows.Forms.TextBox()
@@ -90,11 +90,11 @@ Partial Class Contador
         EndBairroLabel = New System.Windows.Forms.Label()
         EndCidadeLabel = New System.Windows.Forms.Label()
         EndEstadoLabel = New System.Windows.Forms.Label()
+        CType(Me.ContadorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.ContadorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NomeLabel
@@ -273,6 +273,16 @@ Partial Class Contador
         Me.NomeTextBox.Name = "NomeTextBox"
         Me.NomeTextBox.Size = New System.Drawing.Size(334, 20)
         Me.NomeTextBox.TabIndex = 2
+        '
+        'ContadorBindingSource
+        '
+        Me.ContadorBindingSource.DataMember = "Contador"
+        Me.ContadorBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CPFMaskedTextBox
         '
@@ -500,30 +510,27 @@ Partial Class Contador
         Me.Button19.Text = "Fechar"
         Me.Button19.UseVisualStyleBackColor = True
         '
-        'ContadorBindingSource
-        '
-        Me.ContadorBindingSource.DataMember = "Contador"
-        Me.ContadorBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'PrinceDBDataSet
-        '
-        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
-        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'ContadorTableAdapter
         '
         Me.ContadorTableAdapter.ClearBeforeFill = True
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Me.ContadorTableAdapter
+        Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -581,18 +588,20 @@ Partial Class Contador
         Me.Controls.Add(Me.CPFMaskedTextBox)
         Me.Controls.Add(NomeLabel)
         Me.Controls.Add(Me.NomeTextBox)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Contador"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Contadores"
+        CType(Me.ContadorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
-        CType(Me.ContadorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

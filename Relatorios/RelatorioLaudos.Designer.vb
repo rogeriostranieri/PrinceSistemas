@@ -38,11 +38,11 @@ Partial Class RelatorioLaudos
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
         CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,17 +144,21 @@ Partial Class RelatorioLaudos
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Me.LaudosTableAdapter
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -171,10 +175,6 @@ Partial Class RelatorioLaudos
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(651, 300)
         Me.LaudosDataGridView.TabIndex = 40
-        '
-        'CADSituacaoAlvaraTableAdapter
-        '
-        Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -205,6 +205,10 @@ Partial Class RelatorioLaudos
         Me.Situacao.Name = "Situacao"
         Me.Situacao.ReadOnly = True
         '
+        'CADSituacaoAlvaraTableAdapter
+        '
+        Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
+        '
         'RelatorioLaudos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,7 +221,10 @@ Partial Class RelatorioLaudos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.BbtnPrint)
         Me.Controls.Add(Me.Button2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "RelatorioLaudos"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -37,6 +37,7 @@ Partial Class RelatorioEmpresas
         Me.BbtnPrint = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.StatusComboBox = New System.Windows.Forms.ComboBox()
+        Me.CADstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,7 +46,6 @@ Partial Class RelatorioEmpresas
         Me.ProcessoComboBox = New System.Windows.Forms.ComboBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CADstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CADstatusTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADstatusTableAdapter()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,16 +69,21 @@ Partial Class RelatorioEmpresas
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Me.EmpresasTableAdapter
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -167,6 +172,11 @@ Partial Class RelatorioEmpresas
         Me.StatusComboBox.Size = New System.Drawing.Size(172, 21)
         Me.StatusComboBox.TabIndex = 31
         '
+        'CADstatusBindingSource
+        '
+        Me.CADstatusBindingSource.DataMember = "CADstatus"
+        Me.CADstatusBindingSource.DataSource = Me.PrinceDBDataSet
+        '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -238,11 +248,6 @@ Partial Class RelatorioEmpresas
         Me.Label2.TabIndex = 35
         Me.Label2.Text = "Tipo:"
         '
-        'CADstatusBindingSource
-        '
-        Me.CADstatusBindingSource.DataMember = "CADstatus"
-        Me.CADstatusBindingSource.DataSource = Me.PrinceDBDataSet
-        '
         'CADstatusTableAdapter
         '
         Me.CADstatusTableAdapter.ClearBeforeFill = True
@@ -262,7 +267,10 @@ Partial Class RelatorioEmpresas
         Me.Controls.Add(Me.BbtnPrint)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.EmpresasDataGridView)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "RelatorioEmpresas"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

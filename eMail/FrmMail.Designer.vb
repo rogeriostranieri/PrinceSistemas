@@ -800,6 +800,7 @@ Partial Class FrmMail
         Me.Name = "FrmMail"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "e-Mail"
         Me.TabControle.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()

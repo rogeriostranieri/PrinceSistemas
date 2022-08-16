@@ -140,7 +140,7 @@ Partial Class BoxConsultaCNPJLaudo
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False

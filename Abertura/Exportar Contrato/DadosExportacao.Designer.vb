@@ -162,12 +162,12 @@ Partial Class DadosExportacao
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(998, 481)
         Me.Controls.Add(Me.TableLayoutPanel2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "DadosExportacao"
-        Me.ShowInTaskbar = False
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "WORD - Dados para criar o contrato"
         Me.TableLayoutPanel2.ResumeLayout(False)

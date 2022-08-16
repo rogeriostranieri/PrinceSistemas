@@ -111,6 +111,9 @@ Partial Class FrmEventos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CheckedListBoxEventosJunta)
         Me.Controls.Add(EventosLabel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmEventos"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

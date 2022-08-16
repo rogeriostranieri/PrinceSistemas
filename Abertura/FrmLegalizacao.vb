@@ -446,18 +446,15 @@ Public Class FrmLegalizacao
                 ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
 
                 If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
-                    If WebCorreios.Visible = True Then
-                        'fechar
-                        WebCorreios.Close()
-                        WebCorreios.Show()
-                        WebCorreios.Focus()
-                        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+                    If WebSiteGERAL.Visible = True Then
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
                     Else
                         'abrir
-                        WebCorreios.Show()
-                        WebCorreios.Focus()
-                        WebCorreios.WebView21.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
+                        WebSiteGERAL.Show()
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
 
                     End If
                 End If
@@ -466,37 +463,6 @@ Public Class FrmLegalizacao
         End Using
 
     End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-        Me.WindowState = FormWindowState.Maximized
-
-        '  Dim CNAEWEB As New CNAEWEB()
-        'Set the Parent Form of the Child window.
-        BuscaCNAE.MdiParent = MDIPrincipal
-        'Display the new form.
-        BuscaCNAE.Show()
-    End Sub
-
-
-
-
-    '  Private Sub Legalizacao_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-    '   If MsgBox("Tem certeza que deseja salvar e sair?", vbYesNo, "Confirmação") = vbYes Then
-
-    '      Me.Validate()
-    '      Me.EmpresasBindingSource.EndEdit()
-    '     Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
-    ' Me.Close()
-    '  Else
-    'Me.Close()
-    ' End If
-
-
-
-    ' End Sub
-
-
-
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Try
@@ -662,55 +628,56 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles BtnConsultaRedeSim.Click
         Dim frm As New WebSiteGERAL
-        TabControle.SelectTab(2)
-        TabControle.SelectTab(3)
+
         Try
 
             If BtnConsultaRedeSim.Text = "Solicitar" Then
-                If frm.Visible = True Then
+                If WebSiteGERAL.Visible = True Then
                     'coloca focus e frente
-                    frm.Focus()
-                    frm.BringToFront()
-                    frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
+                    WebSiteGERAL.Focus()
+                    WebSiteGERAL.BringToFront()
+                    WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
                 Else
-                    frm.Show()
-                    frm.BringToFront()
-                    frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
+                    WebSiteGERAL.Show()
+                    WebSiteGERAL.BringToFront()
+                    WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
                 End If
 
             ElseIf BtnConsultaRedeSim.Text = "Consultar" Then
-                If frm.Visible = True Then
-                    If ProtocoloREDESIMTextBox.Text <> "" Then
+                If WebSiteGERAL.Visible = True Then
+                    If ProtocoloREDESIMTextBox.Text = "" Then
+                        TabControle.SelectTab(2)
+                        TabControle.SelectTab(3)
+                    End If
 
-                        frm.Focus()
-                        frm.BringToFront()
+                    If ProtocoloREDESIMTextBox.Text <> "" Then
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
                         Exit Sub
                     ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
-
-                        frm.Focus()
-                        frm.BringToFront()
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
                         Exit Sub
                     End If
                 Else
                     If ProtocoloREDESIMTextBox.Text <> "" Then
-
-                        frm.Show()
-                        frm.Focus()
-                        frm.BringToFront()
+                        WebSiteGERAL.Show()
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
                         Exit Sub
                     ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
 
-                        frm.Show()
-                        frm.Focus()
-                        frm.BringToFront()
+                        WebSiteGERAL.Show()
+                        WebSiteGERAL.Focus()
+                        WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        frm.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
                         Exit Sub
                     End If
                 End If
@@ -720,8 +687,6 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
         Catch ex As Exception
             MessageBox.Show("Erro ao abrir o site, verifique se o protocolo está correto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-
 
     End Sub
 
@@ -762,50 +727,47 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
     Private Sub LinkLabel6_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel6.LinkClicked
         'System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
-        Dim frm As New WebSiteGERAL
 
-        If frm.Visible = True Then
+
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=40")
         End If
     End Sub
 
     Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
         '  System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
-        Dim frm As New WebSiteGERAL
 
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
         End If
     End Sub
 
     Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel5.LinkClicked
 
-        'System.Diagnostics.Process.Start("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
-        Dim frm As New WebSiteGERAL
 
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www8.receita.fazenda.gov.br/SimplesNacional/Servicos/Grupo.aspx?grp=t&area=1")
         End If
     End Sub
 
@@ -1291,18 +1253,16 @@ Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
     End Sub
 
     Private Sub LinkLabel11_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel11.LinkClicked
-        'System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
-        Dim frm As New WebSiteGERAL
 
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
         End If
 
     End Sub
@@ -1481,79 +1441,69 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub LinkLabel12_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel12.LinkClicked
-        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
-        Dim frm As New WebSiteGERAL
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/alteracao-cadastral")
         End If
     End Sub
 
     Private Sub LinkLabel8_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel8.LinkClicked
-        'System.Diagnostics.Process.Start("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
-        Dim frm As New WebSiteGERAL
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/abra-sua-pessoa-juridica")
         End If
     End Sub
 
     Private Sub LinkLabel13_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel13.LinkClicked
-        System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
-        Dim frm As New WebREDESIM
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
         End If
     End Sub
 
     Private Sub LinkLabel14_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel14.LinkClicked
         ' System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
-        Dim frm As New WebREDESIM
-        If frm.Visible = True Then
+
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView21.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
         End If
     End Sub
 
     Private Sub LinkLabel15_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel15.LinkClicked
-        ' System.Diagnostics.Process.Start("")
-
-        'verificar FrmWBEmpresaFacilPR está aberto ou abrir
-        Dim frm As New WebSiteGERAL
-        If frm.Visible = True Then
+        If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
-            frm.Focus()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
         Else
-            frm.Show()
-            frm.BringToFront()
-            frm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
+            WebSiteGERAL.Show()
+            WebSiteGERAL.BringToFront()
+            WebSiteGERAL.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/ja-possuo-pessoa-juridica/baixa")
         End If
     End Sub
 
@@ -2002,14 +1952,17 @@ Protocolo RedeSim= " & G & ".
         ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
         Dim CNPJ As String = CNPJMaskedTextBox.Text
         Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        If WebSiteGERAL.Visible = True Then
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        Else
+            WebSiteGERAL.Show()
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        End If
 
-        ConsultaCNPJ.Show()
-        ConsultaCNPJ.ToolStripLabel2.Text = "Consulta Optantes do Simples Nacional"
-        ConsultaCNPJ.ToolStripLabel3.Text = "RECEITA FEDERAL DO BRASIL"
-        ConsultaCNPJ.WebView21.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-        'esperar carregar toda pagina WebView21 Script Async
-        'mostra mgs copiado o  CNPJ 
-        MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
     End Sub
 
     Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click

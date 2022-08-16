@@ -140,10 +140,14 @@ Partial Class BoxConsultaIEEmpresa
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "BoxConsultaIEEmpresa"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BoxConsultaIEEmpresa"
+        Me.Text = "Box Consulta Inscrição Estadual Empresa"
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)

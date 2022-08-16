@@ -37,9 +37,9 @@ Partial Class LaudosPendentes
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,17 +63,21 @@ Partial Class LaudosPendentes
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Me.LaudosTableAdapter
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -161,6 +165,11 @@ Partial Class LaudosPendentes
         Me.ComboBox1.Size = New System.Drawing.Size(275, 21)
         Me.ComboBox1.TabIndex = 24
         '
+        'CADSituacaoAlvaraBindingSource
+        '
+        Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
+        Me.CADSituacaoAlvaraBindingSource.DataSource = Me.PrinceDBDataSet
+        '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -180,11 +189,6 @@ Partial Class LaudosPendentes
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Situação:"
         '
-        'CADSituacaoAlvaraBindingSource
-        '
-        Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
-        Me.CADSituacaoAlvaraBindingSource.DataSource = Me.PrinceDBDataSet
-        '
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
@@ -201,11 +205,14 @@ Partial Class LaudosPendentes
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.LaudosDataGridView)
         Me.Controls.Add(Me.Label1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "LaudosPendentes"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = " "
+        Me.Text = " Alvarás em Andamento"
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
