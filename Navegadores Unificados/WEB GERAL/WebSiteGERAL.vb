@@ -1081,4 +1081,54 @@ Public Class WebSiteGERAL
             Exit Sub
         End If
     End Sub
+
+    Private Sub BtnSoltar_Click(sender As Object, e As EventArgs) Handles BtnSoltar.Click
+        For Each child In MDIPrincipal.MdiChildren
+            If TypeOf child Is WebSiteGERAL Then
+                Me.MdiParent = Nothing
+                child.WindowState = FormWindowState.Maximized
+            Else
+                Me.MdiParent = MDIPrincipal
+                child.WindowState = FormWindowState.Maximized
+            End If
+        Next
+    End Sub
+
+    Private Sub PaginaInicialToolStripMenuItem2_Click_1(sender As Object, e As EventArgs) Handles PaginaInicialToolStripMenuItem2.Click
+        WebsiteNavigate("https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp")
+    End Sub
+
+    Private Sub PáginaInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PáginaInicialToolStripMenuItem.Click
+        WebsiteNavigate("https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp")
+    End Sub
+
+    Private Sub PreencherToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PreencherToolStripMenuItem1.Click
+        If FrmSocios.Visible = True Then
+            Dim CPF As String = FrmSocios.CPFMaskedTextBox.Text
+            Dim DataNascimento As String = FrmSocios.DatadeNascMaskedTextBox.Text
+
+            'id="txtCPF"
+            WebView.ExecuteScriptAsync("document.getElementById('txtCPF').value = '" & CPF & "'")
+            'id="txtDataNascimento"
+            WebView.ExecuteScriptAsync("document.getElementById('txtDataNascimento').value = '" & DataNascimento & "'")
+        Else
+            'mgsbox Form nao aberto
+            MsgBox("Formulario Sócios, não está aberto")
+        End If
+    End Sub
+
+    Private Sub PreencherToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles PreencherToolStripMenuItem2.Click
+        If FrmLegalizacao.Visible = True Then
+            Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+            'id="cnpj"
+            WebView.ExecuteScriptAsync("document.getElementById('cnpj').value = '" & CNPJ & "'")
+        ElseIf FrmAlvara.Visible = True Then
+            Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
+            'id="cnpj"
+            WebView.ExecuteScriptAsync("document.getElementById('cnpj').value = '" & CNPJ & "'")
+        Else
+            'mgsbox Form nao aberto
+            MsgBox("Formulario Empresas ou Alvará, não está aberto")
+        End If
+    End Sub
 End Class

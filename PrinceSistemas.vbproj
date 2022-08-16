@@ -998,6 +998,7 @@
     <None Include="Resources\email.png" />
     <Content Include="AnotacoesHELP.txt" />
     <Content Include="Atualizacao.txt" />
+    <None Include="Resources\expandirpagina.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup />

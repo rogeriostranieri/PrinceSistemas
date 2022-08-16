@@ -28,11 +28,6 @@
         'sem borda 
         FormBorderStyle = FormBorderStyle.FixedSingle
 
-
-
-
-
-
     End Sub
 
 
@@ -106,6 +101,13 @@
             VencimentoAlvara.MdiParent = MDIPrincipal
             VencimentoAlvara.Show()
             VencimentoAlvara.Focus()
+        End If
+    End Sub
+
+    'se for maximizado voltar ao normal
+    Private Sub VbAvisoPrincipal_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        If Me.WindowState = FormWindowState.Maximized Then
+            Me.WindowState = FormWindowState.Normal
         End If
     End Sub
 End Class

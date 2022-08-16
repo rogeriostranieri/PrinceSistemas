@@ -1538,12 +1538,14 @@ Partial Class FrmLegalizacao
         Me.MotivoLabel.AutoSize = True
         Me.MotivoLabel.Location = New System.Drawing.Point(6, 20)
         Me.MotivoLabel.Name = "MotivoLabel"
-        Me.MotivoLabel.Size = New System.Drawing.Size(42, 13)
+        Me.MotivoLabel.Size = New System.Drawing.Size(93, 13)
         Me.MotivoLabel.TabIndex = 41
-        Me.MotivoLabel.Text = "Motivo:"
+        Me.MotivoLabel.Text = "Eventos e Motivo:"
         '
         'Button46
         '
+        Me.Button46.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.Button46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button46.ForeColor = System.Drawing.Color.Crimson
         Me.Button46.Location = New System.Drawing.Point(191, 195)
@@ -1555,6 +1557,8 @@ Partial Class FrmLegalizacao
         '
         'BtnListaEventos
         '
+        Me.BtnListaEventos.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnListaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnListaEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnListaEventos.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnListaEventos.Location = New System.Drawing.Point(6, 195)
