@@ -49,12 +49,14 @@
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             FrmAlvara.Focus()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.CurrentRow.Cells(0).Value.ToString
+            'FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.SelectedCells.Item(0).Value.ToString
             FrmAlvara.ComboBoxBuscaAlvara.Focus()
         Else
             ' novoEmpresa.MdiParent = MDIPrincipal
             FrmAlvara.Show()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.CurrentRow.Cells(0).Value.ToString
+            ' FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView1.SelectedCells.Item(0).Value.ToString
             FrmAlvara.ComboBoxBuscaAlvara.Focus()
         End If
     End Sub

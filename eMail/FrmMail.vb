@@ -180,6 +180,7 @@ Public Class FrmMail
             'seleciona o registro que foi clicado
             Dim row As DataGridViewRow = EMailCaixaDeSaidaDataGridView.CurrentRow
             'pega o valor da coluna
+            'Dim valor As String = row.Cells(DataGridViewTextBoxColumn7.Index).Value.ToString
             Dim valor As String = row.Cells(DataGridViewTextBoxColumn7.Index).Value.ToString
             'abre o form de visualização
             Dim frm As New FrmEmailCaixaDeSaida
@@ -190,12 +191,7 @@ Public Class FrmMail
             frm.EMailCaixaDeSaidaBindingSource.Filter = "DataEnviado = '" & data & "'"
             'mostra o form de visualização
             frm.ShowDialog()
-
-
         End If
-
-
-
     End Sub
 
     Private Sub ButtonExcluirSaida_Click(sender As Object, e As EventArgs) Handles ButtonExcluirSaida.Click

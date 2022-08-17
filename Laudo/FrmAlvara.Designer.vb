@@ -2128,9 +2128,11 @@ Partial Class FrmAlvara
         '
         Me.BtnAtualizarDados.BackgroundImage = CType(resources.GetObject("BtnAtualizarDados.BackgroundImage"), System.Drawing.Image)
         Me.BtnAtualizarDados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAtualizarDados.Location = New System.Drawing.Point(721, 6)
+        Me.BtnAtualizarDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAtualizarDados.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnAtualizarDados.Location = New System.Drawing.Point(695, 6)
         Me.BtnAtualizarDados.Name = "BtnAtualizarDados"
-        Me.BtnAtualizarDados.Size = New System.Drawing.Size(95, 40)
+        Me.BtnAtualizarDados.Size = New System.Drawing.Size(121, 47)
         Me.BtnAtualizarDados.TabIndex = 57
         Me.BtnAtualizarDados.Text = "Atualizar Dados Cadastrais"
         Me.BtnAtualizarDados.UseVisualStyleBackColor = True
@@ -2143,7 +2145,7 @@ Partial Class FrmAlvara
         Me.TabControl2.Controls.Add(Me.TabPage10)
         Me.TabControl2.Controls.Add(Me.TabPage9)
         Me.TabControl2.Controls.Add(Me.TabPage11)
-        Me.TabControl2.Location = New System.Drawing.Point(8, 18)
+        Me.TabControl2.Location = New System.Drawing.Point(17, 13)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(557, 233)
@@ -2820,6 +2822,7 @@ Partial Class FrmAlvara
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoesLEgalizacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAnotacoesLEgalizacao.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 160)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
         Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
@@ -2840,6 +2843,7 @@ Partial Class FrmAlvara
         Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button14.Location = New System.Drawing.Point(13, 51)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(69, 23)
@@ -2852,6 +2856,7 @@ Partial Class FrmAlvara
         Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button13.ForeColor = System.Drawing.Color.MediumBlue
         Me.Button13.Location = New System.Drawing.Point(13, 80)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(69, 23)
@@ -2894,6 +2899,7 @@ Partial Class FrmAlvara
         Me.BtnNovaAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnNovaAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNovaAlteracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovaAlteracao.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 109)
         Me.BtnNovaAlteracao.Name = "BtnNovaAlteracao"
         Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 45)
@@ -2906,6 +2912,7 @@ Partial Class FrmAlvara
         Me.Btnempresa.BackgroundImage = CType(resources.GetObject("Btnempresa.BackgroundImage"), System.Drawing.Image)
         Me.Btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Btnempresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btnempresa.ForeColor = System.Drawing.Color.MediumBlue
         Me.Btnempresa.Location = New System.Drawing.Point(13, 22)
         Me.Btnempresa.Name = "Btnempresa"
         Me.Btnempresa.Size = New System.Drawing.Size(69, 23)
@@ -3174,7 +3181,8 @@ Partial Class FrmAlvara
         Me.BtnExportarWord.BackgroundImage = CType(resources.GetObject("BtnExportarWord.BackgroundImage"), System.Drawing.Image)
         Me.BtnExportarWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExportarWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 206)
+        Me.BtnExportarWord.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 189)
         Me.BtnExportarWord.Name = "BtnExportarWord"
         Me.BtnExportarWord.Size = New System.Drawing.Size(69, 23)
         Me.BtnExportarWord.TabIndex = 81

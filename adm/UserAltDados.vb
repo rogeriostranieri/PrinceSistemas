@@ -107,7 +107,7 @@ Public Class UserAltDados
                 'pegar pnd da pasta \Imagens\Plano de Fundo\ e coloca como plano de fundo
                 'BackgroundImage = Image.FromFile("\Imagens\Plano de Fundo\" & dr("Tema")) '& ".png")
 
-                For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo")
+                For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo\")
                     Dim imgName As String = IO.Path.GetFileName(img)
                     If imgName.StartsWith(dr("Tema")) Then
                         MDIPrincipal.BackgroundImage = Image.FromFile(img)

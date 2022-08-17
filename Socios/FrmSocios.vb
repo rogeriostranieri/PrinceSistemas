@@ -1118,20 +1118,6 @@ Novos dados:" + "
 
     End Sub
 
-    Private Sub BtnAtalhoEndereco_Click(sender As Object, e As EventArgs) Handles BtnAtalhoEndereco.Click, BtnAtalhoEndereco2.Click
-        'ativar TabControl1 1
-        TabControl1.SelectedIndex = 1
-    End Sub
-
-    Private Sub BtnAtalhoContato_Click(sender As Object, e As EventArgs) Handles BtnAtalhoContato.Click, BtnAtalhoContato2.Click
-        TabControl1.SelectedIndex = 2
-    End Sub
-
-    Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, Button2.Click
-        TabControl1.SelectedIndex = 0
-
-    End Sub
-
     Private Sub GeneroComboBox_TextUpdate(sender As Object, e As EventArgs) Handles GeneroComboBox.TextUpdate
         EstadoCivil()
     End Sub
@@ -1267,5 +1253,17 @@ Novos dados:" + "
         Else
             CivilTextBox.Width = CivilTextBox.Text.Length * 6
         End If
+    End Sub
+
+    Private Sub BtnAtalhoEndereco_Click(sender As Object, e As EventArgs) Handles BtnAtalhoEndereco.Click, BtnAtalhoEndereco3.Click
+        TabControl1.SelectedIndex = 1
+    End Sub
+
+    Private Sub BtnAtalhoConjuge_Click(sender As Object, e As EventArgs) Handles BtnAtalhoConjuge.Click, BtnAtalhoConjuge2.Click
+        TabControl1.SelectedIndex = 2
+    End Sub
+
+    Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, BtnAtablhoSocio3.Click
+        TabControl1.SelectedIndex = 0
     End Sub
 End Class

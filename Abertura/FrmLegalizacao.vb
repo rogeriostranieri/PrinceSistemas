@@ -1407,7 +1407,7 @@ Protocolo RedeSim= " & G & ".
         TabControle.SelectTab(0)
     End Sub
 
-    Private Sub Button39_Click(sender As Object, e As EventArgs) Handles Button39.Click
+    Private Sub Button39_Click(sender As Object, e As EventArgs)
         'http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome
         'verificar se form WebSiteGERAL está aberto ou abrir
         If WebSiteGERAL.Visible = False Then

@@ -62,6 +62,7 @@ Partial Class FrmSocios
         Me.SociosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SociosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnFecharMenu = New System.Windows.Forms.Button()
         Me.BtnNovo = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
@@ -70,6 +71,7 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.BtnAtalhoConjuge = New System.Windows.Forms.Button()
         Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         Me.CivilTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultarTituloDeEleitor = New System.Windows.Forms.Button()
@@ -77,7 +79,6 @@ Partial Class FrmSocios
         Me.ListBoxEstadoCivil = New System.Windows.Forms.ListBox()
         Me.ProfissãoTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultaCPF = New System.Windows.Forms.Button()
-        Me.BtnAtalhoContato = New System.Windows.Forms.Button()
         Me.BtnAtalhoEndereco = New System.Windows.Forms.Button()
         Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
         Me.BtnExtensoDN = New System.Windows.Forms.Button()
@@ -95,7 +96,7 @@ Partial Class FrmSocios
         Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
-        Me.BtnAtalhoContato2 = New System.Windows.Forms.Button()
+        Me.BtnAtalhoConjuge2 = New System.Windows.Forms.Button()
         Me.BtnAtablhoSocio = New System.Windows.Forms.Button()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.EMailTextBox = New System.Windows.Forms.TextBox()
@@ -110,9 +111,8 @@ Partial Class FrmSocios
         Me.RUATextBox = New System.Windows.Forms.TextBox()
         Me.CEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.BtnAtalhoEndereco2 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnAtalhoEndereco3 = New System.Windows.Forms.Button()
+        Me.BtnAtablhoSocio3 = New System.Windows.Forms.Button()
         Me.GroupBoxConjuge = New System.Windows.Forms.GroupBox()
         Me.NOMEdoCONJUGETextBox = New System.Windows.Forms.TextBox()
         Me.CPFdoCONJUGEMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -142,7 +142,6 @@ Partial Class FrmSocios
         Me.TextBoxCapitalSocial = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnFecharMenu = New System.Windows.Forms.Button()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -181,7 +180,6 @@ Partial Class FrmSocios
         Me.TabPage2.SuspendLayout()
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
         Me.GroupBoxConjuge.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -541,11 +539,21 @@ Partial Class FrmSocios
         Me.GroupBox1.Controls.Add(Me.BtnExcluir)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(602, 104)
+        Me.GroupBox1.Location = New System.Drawing.Point(602, 103)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 336)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 333)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
+        '
+        'BtnFecharMenu
+        '
+        Me.BtnFecharMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnFecharMenu.Location = New System.Drawing.Point(7, 152)
+        Me.BtnFecharMenu.Name = "BtnFecharMenu"
+        Me.BtnFecharMenu.Size = New System.Drawing.Size(75, 23)
+        Me.BtnFecharMenu.TabIndex = 10
+        Me.BtnFecharMenu.Text = "Fechar"
+        Me.BtnFecharMenu.UseVisualStyleBackColor = True
         '
         'BtnNovo
         '
@@ -606,11 +614,10 @@ Partial Class FrmSocios
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 104)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 103)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 336)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 333)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -619,13 +626,14 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 310)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 307)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'GroupBoxDadosPessoais
         '
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnAtalhoConjuge)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.NomeCompletoTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.CivilTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnConsultarTituloDeEleitor)
@@ -634,7 +642,6 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Controls.Add(ProfissãoLabel)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.ProfissãoTextBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnConsultaCPF)
-        Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnAtalhoContato)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnAtalhoEndereco)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.TextBoxExtensoDN)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnExtensoDN)
@@ -669,10 +676,21 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 304)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 301)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'BtnAtalhoConjuge
+        '
+        Me.BtnAtalhoConjuge.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BtnAtalhoConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAtalhoConjuge.Location = New System.Drawing.Point(485, 260)
+        Me.BtnAtalhoConjuge.Name = "BtnAtalhoConjuge"
+        Me.BtnAtalhoConjuge.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtalhoConjuge.TabIndex = 64
+        Me.BtnAtalhoConjuge.Text = "Cônjuge"
+        Me.BtnAtalhoConjuge.UseVisualStyleBackColor = False
         '
         'NomeCompletoTextBox
         '
@@ -739,22 +757,11 @@ Partial Class FrmSocios
         Me.BtnConsultaCPF.Text = "Consultar"
         Me.BtnConsultaCPF.UseVisualStyleBackColor = False
         '
-        'BtnAtalhoContato
-        '
-        Me.BtnAtalhoContato.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.BtnAtalhoContato.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAtalhoContato.Location = New System.Drawing.Point(492, 282)
-        Me.BtnAtalhoContato.Name = "BtnAtalhoContato"
-        Me.BtnAtalhoContato.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAtalhoContato.TabIndex = 55
-        Me.BtnAtalhoContato.Text = "Contato"
-        Me.BtnAtalhoContato.UseVisualStyleBackColor = False
-        '
         'BtnAtalhoEndereco
         '
         Me.BtnAtalhoEndereco.BackColor = System.Drawing.Color.PaleTurquoise
         Me.BtnAtalhoEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAtalhoEndereco.Location = New System.Drawing.Point(492, 256)
+        Me.BtnAtalhoEndereco.Location = New System.Drawing.Point(485, 231)
         Me.BtnAtalhoEndereco.Name = "BtnAtalhoEndereco"
         Me.BtnAtalhoEndereco.Size = New System.Drawing.Size(75, 23)
         Me.BtnAtalhoEndereco.TabIndex = 54
@@ -886,14 +893,14 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 312)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 307)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'GroupBoxOutrosDados
         '
-        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtalhoContato2)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtalhoConjuge2)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtablhoSocio)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
         Me.GroupBoxOutrosDados.Controls.Add(EMailLabel)
@@ -922,27 +929,27 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 306)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 301)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
         '
-        'BtnAtalhoContato2
+        'BtnAtalhoConjuge2
         '
-        Me.BtnAtalhoContato2.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.BtnAtalhoContato2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAtalhoContato2.Location = New System.Drawing.Point(495, 282)
-        Me.BtnAtalhoContato2.Name = "BtnAtalhoContato2"
-        Me.BtnAtalhoContato2.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAtalhoContato2.TabIndex = 57
-        Me.BtnAtalhoContato2.Text = "Contato"
-        Me.BtnAtalhoContato2.UseVisualStyleBackColor = False
+        Me.BtnAtalhoConjuge2.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BtnAtalhoConjuge2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAtalhoConjuge2.Location = New System.Drawing.Point(485, 260)
+        Me.BtnAtalhoConjuge2.Name = "BtnAtalhoConjuge2"
+        Me.BtnAtalhoConjuge2.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtalhoConjuge2.TabIndex = 65
+        Me.BtnAtalhoConjuge2.Text = "Cônjuge"
+        Me.BtnAtalhoConjuge2.UseVisualStyleBackColor = False
         '
         'BtnAtablhoSocio
         '
         Me.BtnAtablhoSocio.BackColor = System.Drawing.Color.PaleTurquoise
         Me.BtnAtablhoSocio.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAtablhoSocio.Location = New System.Drawing.Point(495, 256)
+        Me.BtnAtablhoSocio.Location = New System.Drawing.Point(485, 231)
         Me.BtnAtablhoSocio.Name = "BtnAtablhoSocio"
         Me.BtnAtablhoSocio.Size = New System.Drawing.Size(75, 23)
         Me.BtnAtablhoSocio.TabIndex = 56
@@ -1051,46 +1058,37 @@ Partial Class FrmSocios
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.BtnAtalhoEndereco2)
-        Me.TabPage3.Controls.Add(Me.Button2)
+        Me.TabPage3.Controls.Add(Me.BtnAtalhoEndereco3)
+        Me.TabPage3.Controls.Add(Me.BtnAtablhoSocio3)
+        Me.TabPage3.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 312)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Contato"
+        Me.TabPage3.Size = New System.Drawing.Size(583, 307)
+        Me.TabPage3.TabIndex = 3
+        Me.TabPage3.Text = "Cônjuge"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'BtnAtalhoEndereco2
+        'BtnAtalhoEndereco3
         '
-        Me.BtnAtalhoEndereco2.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.BtnAtalhoEndereco2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnAtalhoEndereco2.Location = New System.Drawing.Point(495, 282)
-        Me.BtnAtalhoEndereco2.Name = "BtnAtalhoEndereco2"
-        Me.BtnAtalhoEndereco2.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAtalhoEndereco2.TabIndex = 59
-        Me.BtnAtalhoEndereco2.Text = "Endereço"
-        Me.BtnAtalhoEndereco2.UseVisualStyleBackColor = False
+        Me.BtnAtalhoEndereco3.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BtnAtalhoEndereco3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAtalhoEndereco3.Location = New System.Drawing.Point(485, 260)
+        Me.BtnAtalhoEndereco3.Name = "BtnAtalhoEndereco3"
+        Me.BtnAtalhoEndereco3.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtalhoEndereco3.TabIndex = 67
+        Me.BtnAtalhoEndereco3.Text = "Endereço"
+        Me.BtnAtalhoEndereco3.UseVisualStyleBackColor = False
         '
-        'Button2
+        'BtnAtablhoSocio3
         '
-        Me.Button2.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(495, 256)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 58
-        Me.Button2.Text = "Dados"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Controls.Add(Me.GroupBoxConjuge)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(583, 312)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Cônjuge"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.BtnAtablhoSocio3.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BtnAtablhoSocio3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAtablhoSocio3.Location = New System.Drawing.Point(485, 231)
+        Me.BtnAtablhoSocio3.Name = "BtnAtablhoSocio3"
+        Me.BtnAtablhoSocio3.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtablhoSocio3.TabIndex = 66
+        Me.BtnAtablhoSocio3.Text = "Dados"
+        Me.BtnAtablhoSocio3.UseVisualStyleBackColor = False
         '
         'GroupBoxConjuge
         '
@@ -1129,9 +1127,9 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 446)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 442)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(587, 65)
+        Me.GroupBox2.Size = New System.Drawing.Size(587, 64)
         Me.GroupBox2.TabIndex = 58
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Exportação"
@@ -1262,7 +1260,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 517)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 512)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1322,9 +1320,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 517)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 512)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 258)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 263)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1404,7 +1402,7 @@ Partial Class FrmSocios
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(593, 95)
+        Me.GroupBox3.Size = New System.Drawing.Size(593, 94)
         Me.GroupBox3.TabIndex = 65
         Me.GroupBox3.TabStop = False
         '
@@ -1419,16 +1417,6 @@ Partial Class FrmSocios
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'BtnFecharMenu
-        '
-        Me.BtnFecharMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnFecharMenu.Location = New System.Drawing.Point(7, 152)
-        Me.BtnFecharMenu.Name = "BtnFecharMenu"
-        Me.BtnFecharMenu.Size = New System.Drawing.Size(75, 23)
-        Me.BtnFecharMenu.TabIndex = 10
-        Me.BtnFecharMenu.Text = "Fechar"
-        Me.BtnFecharMenu.UseVisualStyleBackColor = True
         '
         'FrmSocios
         '
@@ -1458,7 +1446,6 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.ResumeLayout(False)
         Me.GroupBoxOutrosDados.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
         Me.GroupBoxConjuge.ResumeLayout(False)
         Me.GroupBoxConjuge.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -1521,7 +1508,6 @@ Partial Class FrmSocios
     Friend WithEvents NumTextBox As TextBox
     Friend WithEvents RUATextBox As TextBox
     Friend WithEvents CEPMaskedTextBox As MaskedTextBox
-    Friend WithEvents TabPage3 As TabPage
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label4 As Label
     Friend WithEvents BtnCapitalSocial As Button
@@ -1546,16 +1532,12 @@ Partial Class FrmSocios
     Friend WithEvents LblCapTotal As Label
     Friend WithEvents TextBoxCapitalSocial As TextBox
     Friend WithEvents BtnCapitalEmpresas As Button
-    Friend WithEvents BtnAtalhoContato As Button
     Friend WithEvents BtnAtalhoEndereco As Button
-    Friend WithEvents BtnAtalhoContato2 As Button
     Friend WithEvents BtnAtablhoSocio As Button
-    Friend WithEvents BtnAtalhoEndereco2 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents BtnConsultaCPF As Button
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabPage3 As TabPage
     Friend WithEvents NOMEdoCONJUGETextBox As TextBox
     Friend WithEvents CPFdoCONJUGEMaskedTextBox As MaskedTextBox
     Friend WithEvents ProfissãoTextBox As TextBox
@@ -1566,4 +1548,8 @@ Partial Class FrmSocios
     Friend WithEvents CivilTextBox As TextBox
     Friend WithEvents NomeCompletoTextBox As TextBox
     Friend WithEvents BtnFecharMenu As Button
+    Friend WithEvents BtnAtalhoConjuge As Button
+    Friend WithEvents BtnAtalhoConjuge2 As Button
+    Friend WithEvents BtnAtalhoEndereco3 As Button
+    Friend WithEvents BtnAtablhoSocio3 As Button
 End Class

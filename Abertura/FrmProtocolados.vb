@@ -17,13 +17,13 @@
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
             FrmLegalizacao.Focus()
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
             FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         Else
 
             ' novoEmpresa.MdiParent = MDIPrincipal
             FrmLegalizacao.Show()
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
             FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         End If
     End Sub

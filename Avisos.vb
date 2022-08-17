@@ -71,15 +71,16 @@
         If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
             FrmLegalizacao.Focus()
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            'se clicar em outra coluna EmpresasDataGridView sempre pegar o texto da coluna 0 cell 0
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
+            'FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
             FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         Else
 
             ' novoEmpresa.MdiParent = MDIPrincipal
             FrmLegalizacao.Show()
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
             FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
         End If
     End Sub
@@ -91,12 +92,13 @@
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             FrmAlvara.Focus()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.CurrentRow.Cells(0).Value.ToString
+            ' FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
             FrmAlvara.ComboBoxBuscaAlvara.Focus()
         Else
             ' novoEmpresa.MdiParent = MDIPrincipal
             FrmAlvara.Show()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.CurrentRow.Cells(0).Value.ToString
             FrmAlvara.ComboBoxBuscaAlvara.Focus()
         End If
     End Sub
@@ -108,25 +110,14 @@
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
         Try
-
-
-
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
             'Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
             'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
             Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-            '  Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-
-
             'reload TableAdapter do vbAvisoPrincipal
             VbAvisoPrincipal.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-
         Finally
-
-
-
         End Try
 
     End Sub
