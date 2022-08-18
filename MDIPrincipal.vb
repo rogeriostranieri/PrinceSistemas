@@ -436,20 +436,10 @@ Public Class MDIPrincipal
 
     Private Sub TributáriaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TributáriaToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of WebAgenda)().Count() > 0 Then
-
-            WebAgenda.Focus()
             WebAgenda.Close()
-            WebAgenda.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
             WebAgenda.Show()
-
-
         Else
-
-            WebAgenda.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
             WebAgenda.Show()
-
         End If
     End Sub
 
@@ -883,6 +873,8 @@ Public Class MDIPrincipal
                 WebSiteGeral.MdiParent = Me
                 WebSiteGERAL.WebsiteNavigate(site)
             End If
+            'maximizar
+            WebSiteGERAL.WindowState = FormWindowState.Maximized
 
         Catch ex As Exception
             'abrir o site do google no lugar

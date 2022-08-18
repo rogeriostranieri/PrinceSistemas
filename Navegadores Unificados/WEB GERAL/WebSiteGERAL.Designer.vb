@@ -727,14 +727,14 @@ Partial Class WebSiteGERAL
         'PaginaInicialToolStripMenuItem1
         '
         Me.PaginaInicialToolStripMenuItem1.Name = "PaginaInicialToolStripMenuItem1"
-        Me.PaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
+        Me.PaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(175, 22)
         Me.PaginaInicialToolStripMenuItem1.Text = "Pagina Inicial"
         '
         'PreencherToolStripMenuItem
         '
         Me.PreencherToolStripMenuItem.Name = "PreencherToolStripMenuItem"
-        Me.PreencherToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.PreencherToolStripMenuItem.Text = "Preencher"
+        Me.PreencherToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.PreencherToolStripMenuItem.Text = "Preencher Empresa"
         '
         'ToolStripSeparator10
         '

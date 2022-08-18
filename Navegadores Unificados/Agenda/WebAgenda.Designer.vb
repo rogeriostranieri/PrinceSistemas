@@ -30,17 +30,18 @@ Partial Class WebAgenda
         Me.MesBox = New System.Windows.Forms.TextBox()
         Me.AnoBox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnAtualizar = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.LblStatusCarregamento = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.WebView2 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.LblStatusCarregamento = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -113,16 +114,6 @@ Partial Class WebAgenda
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "/"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(74, 21)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(11, 16)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "/"
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.BtnAtualizar)
@@ -149,6 +140,16 @@ Partial Class WebAgenda
         Me.BtnAtualizar.Text = "Mudar"
         Me.BtnAtualizar.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(74, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(11, 16)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "/"
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ProgressBar1, Me.LblStatusCarregamento})
@@ -171,10 +172,18 @@ Partial Class WebAgenda
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(100, 19)
         '
+        'LblStatusCarregamento
+        '
+        Me.LblStatusCarregamento.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblStatusCarregamento.Name = "LblStatusCarregamento"
+        Me.LblStatusCarregamento.Size = New System.Drawing.Size(153, 20)
+        Me.LblStatusCarregamento.Text = "ToolStripStatusLabel2"
+        '
         'Panel1
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -223,12 +232,18 @@ Partial Class WebAgenda
         Me.WebView2.TabIndex = 16
         Me.WebView2.ZoomFactor = 1.0R
         '
-        'LblStatusCarregamento
+        'Button2
         '
-        Me.LblStatusCarregamento.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblStatusCarregamento.Name = "LblStatusCarregamento"
-        Me.LblStatusCarregamento.Size = New System.Drawing.Size(153, 20)
-        Me.LblStatusCarregamento.Text = "ToolStripStatusLabel2"
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.icone_questao
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(304, 55)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(62, 66)
+        Me.Button2.TabIndex = 15
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'WebAgenda
         '
@@ -262,7 +277,6 @@ Partial Class WebAgenda
     Friend WithEvents MesBox As TextBox
     Friend WithEvents AnoBox As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
@@ -273,4 +287,6 @@ Partial Class WebAgenda
     Friend WithEvents Button1 As Button
     Friend WithEvents WebView2 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents LblStatusCarregamento As ToolStripStatusLabel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Button2 As Button
 End Class

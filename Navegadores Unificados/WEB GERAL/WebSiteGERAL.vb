@@ -34,7 +34,7 @@ Public Class WebSiteGERAL
     '//////////////////////////////////////////////////////////////////////////////
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'abrir sempre como MDI FIlho
-        Me.MdiParent = MDIPrincipal
+        MdiParent = MDIPrincipal
 
         LogMsg("MS Edge Version: " + CoreWebView2Environment.GetAvailableBrowserVersionString())
 
@@ -999,6 +999,8 @@ Public Class WebSiteGERAL
 
     Private Sub PreencherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreencherToolStripMenuItem.Click
         If MsgBox("Alterou o tipo de CPF ou CNPJ em Dados do Outorgante?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+            'id="tipoDelegante" click  value=2
+
             Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
             CNPJ = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             WebView.ExecuteScriptAsync("document.getElementById('delegID').value = '" & CNPJ & "'")
@@ -1031,14 +1033,14 @@ Public Class WebSiteGERAL
             WebView.ExecuteScriptAsync("document.getElementById('delegRg').value = '" & RG & "'")
             Dim OrgaoRG As String = FrmLegalizacao.ResponsavelOrgaoRGTextBox.Text
             Dim EstadoRG As String = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
-            WebView.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & OrgaoRG + "/" & EstadoRG & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & OrgaoRG + " " & EstadoRG & "'")
 
             'Form Contador
             Contador.Show()
             Dim CPF2 As String = Contador.CPFMaskedTextBox.Text
             Dim CPF3 As String = CPF2.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(",", "")
             Dim unused As String = ApenasNumeros(CPF3)
-            WebView.ExecuteScriptAsync("document.getElementById('procID').value = '" & CPF1 & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procID').value = '" & CPF3 & "'")
             WebView.ExecuteScriptAsync("document.getElementById('procEnderecoLogradouro').value = '" & Contador.EnderecoTextBox.Text & ", " & Contador.EndNumTextBox.Text & ", " & Contador.EndBairroTextBox.Text & "'")
             WebView.ExecuteScriptAsync("document.getElementById('procEnderecoCidade').value = '" & Contador.EndCidadeTextBox.Text & "'")
             WebView.ExecuteScriptAsync("document.getElementById('procEnderecoEstado').value = 'PR'")
@@ -1055,9 +1057,31 @@ Public Class WebSiteGERAL
             WebView.ExecuteScriptAsync("document.getElementById('nacionalidadeProcurador').value = 'Brasileiro'")
 
             Contador.Close()
+
+            'id="dataVigenciaInicio"
+            'Data de hoje dd/mm/yyyy
+            Dim data As String = DateTime.Now.ToString("dd/MM/yyyy")
+            WebView.ExecuteScriptAsync("document.getElementById('dataVigenciaInicio').value = '" & data & "'")
+
+            'id="dataVigenciaFim"
+            'Data de hoje dd/mm/yyyy + 5 anos e - 1 mês
+            Dim data1 As String = DateTime.Now.AddYears(5).AddMonths(-1).ToString("dd/MM/yyyy")
+            WebView.ExecuteScriptAsync("document.getElementById('dataVigenciaFim').value = '" & data1 & "'")
+
+            'clicar no id="opcoesAtendimento"
+            WebView.ExecuteScriptAsync("document.getElementById('opcoesAtendimento').click()")
+
+            'inputbox perguntando senha
+            'id="codigoAcesso" e no id="codigoAcessoRepeticao" iguais
+            Dim senha As String = InputBox("Digite a Senha", "Senha")
+            WebView.ExecuteScriptAsync("document.getElementById('codigoAcesso').value = '" & senha & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('codigoAcessoRepeticao').value = '" & senha & "'")
+
             'focus
-            Me.Focus()
             MsgBox("Importação Completa", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+
+            'focar no form
+            WebView.Focus()
         End If
 
     End Sub
