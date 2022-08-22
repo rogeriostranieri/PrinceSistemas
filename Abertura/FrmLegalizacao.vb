@@ -896,11 +896,13 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles BtnExcluir.Click
         If MsgBox(" Deseja apagar o registo ?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
-            Me.Validate()
-            Me.EmpresasBindingSource.RemoveCurrent()
-            Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
-            Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
-            MessageBox.Show("Voltando ao início dos registros !", "Informativo - Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            If MsgBox("Tem certeza que deseja apagar o registo ?", MsgBoxStyle.YesNo, "A T E N Ç Ã O") = MsgBoxResult.Yes Then
+                Me.Validate()
+                Me.EmpresasBindingSource.RemoveCurrent()
+                Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+                Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+                MessageBox.Show("Voltando ao início dos registros !", "Informativo - Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
         End If
     End Sub
 

@@ -24,16 +24,12 @@ Partial Class FrmBuscaAlvara
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
+        Dim EndCidadeLabel As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Requerente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CMC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -49,6 +45,15 @@ Partial Class FrmBuscaAlvara
         Me.TxtPesquisaCNPJ = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtPesquisaRazaoSocial = New System.Windows.Forms.TextBox()
+        Me.TxtCidade = New System.Windows.Forms.TextBox()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Requerente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CMC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EndCidade = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EndEstado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        EndCidadeLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,7 +103,7 @@ Partial Class FrmBuscaAlvara
         Me.LaudosDataGridView.AllowUserToOrderColumns = True
         Me.LaudosDataGridView.AutoGenerateColumns = False
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo})
+        Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo, Me.EndCidade, Me.EndEstado})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
         Me.LaudosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LaudosDataGridView.Location = New System.Drawing.Point(518, 67)
@@ -106,43 +111,6 @@ Partial Class FrmBuscaAlvara
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(501, 303)
         Me.LaudosDataGridView.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 400
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'Requerente
-        '
-        Me.Requerente.DataPropertyName = "Requerente"
-        Me.Requerente.HeaderText = "Responsável"
-        Me.Requerente.Name = "Requerente"
-        Me.Requerente.ReadOnly = True
-        '
-        'CMC
-        '
-        Me.CMC.DataPropertyName = "CMC"
-        Me.CMC.HeaderText = "Cadastro Mobiliário"
-        Me.CMC.Name = "CMC"
-        Me.CMC.ReadOnly = True
-        '
-        'Nlaudo
-        '
-        Me.Nlaudo.DataPropertyName = "Nlaudo"
-        Me.Nlaudo.HeaderText = "Nº do laudo"
-        Me.Nlaudo.Name = "Nlaudo"
-        Me.Nlaudo.ReadOnly = True
         '
         'PictureBox2
         '
@@ -192,6 +160,8 @@ Partial Class FrmBuscaAlvara
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtCidade)
+        Me.GroupBox1.Controls.Add(EndCidadeLabel)
         Me.GroupBox1.Controls.Add(Me.ButtonLimpar)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.TextBoxRequerente)
@@ -216,7 +186,7 @@ Partial Class FrmBuscaAlvara
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(415, 247)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(415, 263)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(78, 32)
         Me.ButtonLimpar.TabIndex = 33
@@ -245,7 +215,7 @@ Partial Class FrmBuscaAlvara
         'TxtNumLaudo
         '
         Me.TxtNumLaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumLaudo.Location = New System.Drawing.Point(92, 186)
+        Me.TxtNumLaudo.Location = New System.Drawing.Point(92, 179)
         Me.TxtNumLaudo.Name = "TxtNumLaudo"
         Me.TxtNumLaudo.Size = New System.Drawing.Size(300, 24)
         Me.TxtNumLaudo.TabIndex = 21
@@ -255,7 +225,7 @@ Partial Class FrmBuscaAlvara
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(9, 189)
+        Me.Label5.Location = New System.Drawing.Point(9, 182)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 18)
         Me.Label5.TabIndex = 20
@@ -264,7 +234,7 @@ Partial Class FrmBuscaAlvara
         'TxtCMC
         '
         Me.TxtCMC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCMC.Location = New System.Drawing.Point(92, 156)
+        Me.TxtCMC.Location = New System.Drawing.Point(92, 149)
         Me.TxtCMC.Name = "TxtCMC"
         Me.TxtCMC.Size = New System.Drawing.Size(300, 24)
         Me.TxtCMC.TabIndex = 19
@@ -274,7 +244,7 @@ Partial Class FrmBuscaAlvara
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 159)
+        Me.Label4.Location = New System.Drawing.Point(9, 152)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(77, 18)
         Me.Label4.TabIndex = 18
@@ -317,6 +287,76 @@ Partial Class FrmBuscaAlvara
         Me.TxtPesquisaRazaoSocial.Name = "TxtPesquisaRazaoSocial"
         Me.TxtPesquisaRazaoSocial.Size = New System.Drawing.Size(353, 24)
         Me.TxtPesquisaRazaoSocial.TabIndex = 2
+        '
+        'EndCidadeLabel
+        '
+        EndCidadeLabel.AutoSize = True
+        EndCidadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EndCidadeLabel.Location = New System.Drawing.Point(23, 212)
+        EndCidadeLabel.Name = "EndCidadeLabel"
+        EndCidadeLabel.Size = New System.Drawing.Size(63, 20)
+        EndCidadeLabel.TabIndex = 33
+        EndCidadeLabel.Text = "Cidade:"
+        '
+        'TxtCidade
+        '
+        Me.TxtCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCidade.Location = New System.Drawing.Point(92, 209)
+        Me.TxtCidade.Name = "TxtCidade"
+        Me.TxtCidade.Size = New System.Drawing.Size(300, 24)
+        Me.TxtCidade.TabIndex = 34
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 400
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 150
+        '
+        'Requerente
+        '
+        Me.Requerente.DataPropertyName = "Requerente"
+        Me.Requerente.HeaderText = "Responsável"
+        Me.Requerente.Name = "Requerente"
+        Me.Requerente.ReadOnly = True
+        '
+        'CMC
+        '
+        Me.CMC.DataPropertyName = "CMC"
+        Me.CMC.HeaderText = "Cadastro Mobiliário"
+        Me.CMC.Name = "CMC"
+        Me.CMC.ReadOnly = True
+        '
+        'Nlaudo
+        '
+        Me.Nlaudo.DataPropertyName = "Nlaudo"
+        Me.Nlaudo.HeaderText = "Nº do laudo"
+        Me.Nlaudo.Name = "Nlaudo"
+        Me.Nlaudo.ReadOnly = True
+        '
+        'EndCidade
+        '
+        Me.EndCidade.DataPropertyName = "EndCidade"
+        Me.EndCidade.HeaderText = "Cidade"
+        Me.EndCidade.Name = "EndCidade"
+        Me.EndCidade.ReadOnly = True
+        '
+        'EndEstado
+        '
+        Me.EndEstado.DataPropertyName = "EndEstado"
+        Me.EndEstado.HeaderText = "Estado"
+        Me.EndEstado.Name = "EndEstado"
+        Me.EndEstado.ReadOnly = True
+        Me.EndEstado.Width = 50
         '
         'FrmBuscaAlvara
         '
@@ -366,9 +406,12 @@ Partial Class FrmBuscaAlvara
     Friend WithEvents TxtPesquisaCNPJ As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtPesquisaRazaoSocial As TextBox
+    Friend WithEvents TxtCidade As TextBox
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents Requerente As DataGridViewTextBoxColumn
     Friend WithEvents CMC As DataGridViewTextBoxColumn
     Friend WithEvents Nlaudo As DataGridViewTextBoxColumn
+    Friend WithEvents EndCidade As DataGridViewTextBoxColumn
+    Friend WithEvents EndEstado As DataGridViewTextBoxColumn
 End Class

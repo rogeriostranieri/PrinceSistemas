@@ -599,6 +599,7 @@ Partial Class FrmContatos
         '
         'BtnNovo
         '
+        Me.BtnNovo.ForeColor = System.Drawing.Color.Green
         Me.BtnNovo.Location = New System.Drawing.Point(539, 40)
         Me.BtnNovo.Name = "BtnNovo"
         Me.BtnNovo.Size = New System.Drawing.Size(92, 25)
@@ -626,6 +627,7 @@ Partial Class FrmContatos
         '
         'BtnExcluir
         '
+        Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.BtnExcluir.Location = New System.Drawing.Point(539, 164)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(92, 25)

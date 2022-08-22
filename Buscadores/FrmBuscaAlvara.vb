@@ -38,6 +38,8 @@
         LaudosDataGridView.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         LaudosDataGridView.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         LaudosDataGridView.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        LaudosDataGridView.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        LaudosDataGridView.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
     End Sub
 
     Private Sub ButtonLimpar_Click(sender As Object, e As EventArgs) Handles ButtonLimpar.Click
@@ -50,6 +52,8 @@
         LaudosDataGridView.Columns(2).Visible = True
         LaudosDataGridView.Columns(3).Visible = True
         LaudosDataGridView.Columns(4).Visible = True
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
         '        limpar todas txtbox
         TxtPesquisaRazaoSocial.Clear()
         TxtPesquisaCNPJ.Clear()
@@ -71,6 +75,8 @@
         LaudosDataGridView.Columns(2).Visible = False
         LaudosDataGridView.Columns(3).Visible = False
         LaudosDataGridView.Columns(4).Visible = False
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
 
         'auto organizar tamanho da coluna
         Organizar()
@@ -87,6 +93,8 @@
         LaudosDataGridView.Columns(2).Visible = False
         LaudosDataGridView.Columns(3).Visible = False
         LaudosDataGridView.Columns(4).Visible = False
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
 
         'auto organizar tamanho da coluna
         Organizar()
@@ -103,6 +111,8 @@
         LaudosDataGridView.Columns(2).Visible = True
         LaudosDataGridView.Columns(3).Visible = False
         LaudosDataGridView.Columns(4).Visible = False
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
 
         'auto organizar tamanho da coluna
         Organizar()
@@ -119,6 +129,8 @@
         LaudosDataGridView.Columns(2).Visible = False
         LaudosDataGridView.Columns(3).Visible = True
         LaudosDataGridView.Columns(4).Visible = False
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
 
         'auto organizar tamanho da coluna
         Organizar()
@@ -135,6 +147,26 @@
         LaudosDataGridView.Columns(2).Visible = False
         LaudosDataGridView.Columns(3).Visible = False
         LaudosDataGridView.Columns(4).Visible = True
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
+
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+    Private Sub TxtCidade_TextChanged(sender As Object, e As EventArgs) Handles TxtCidade.TextChanged
+        'Limpar Antes e reinicia o filtro
+        LaudosBindingSource.RemoveFilter()
+        'Filtra o DataGridView
+        LaudosBindingSource.Filter = "EndCidade like '%" & TxtCidade.Text & "%'"
+        'esconder aa coluna 
+        LaudosDataGridView.Columns(0).Visible = True
+        LaudosDataGridView.Columns(1).Visible = True
+        LaudosDataGridView.Columns(2).Visible = False
+        LaudosDataGridView.Columns(3).Visible = False
+        LaudosDataGridView.Columns(4).Visible = True
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
 
         'auto organizar tamanho da coluna
         Organizar()

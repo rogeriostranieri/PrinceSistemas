@@ -73,6 +73,7 @@ Public Class FrmSocios
             ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
             ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
             ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
+            ListBoxEstadoCivil.Items.Add("viúvo")
             If ProfissãoTextBox.Text = "" Then
                 ProfissãoTextBox.Text = "empresário"
             End If
@@ -86,6 +87,7 @@ Public Class FrmSocios
             ListBoxEstadoCivil.Items.Add("casada em regime de comunhão universal de bens")
             ListBoxEstadoCivil.Items.Add("casada em regime de separação obrigatória de bens")
             ListBoxEstadoCivil.Items.Add("casada em regime de participação final nos aquestos")
+            ListBoxEstadoCivil.Items.Add("viúva")
             If ProfissãoTextBox.Text = "" Then
                 ProfissãoTextBox.Text = "empresária"
             End If
@@ -98,6 +100,7 @@ Public Class FrmSocios
             ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
             ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
             ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
+            ListBoxEstadoCivil.Items.Add("viúvo")
             If ProfissãoTextBox.Text = "" Then
                 ProfissãoTextBox.Text = "empresário"
             End If
@@ -157,12 +160,15 @@ Public Class FrmSocios
         'perguntar, e excluir dados
         If MsgBox("Deseja excluir os dados?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
             'excluir dados
-            Me.SociosBindingSource.RemoveCurrent()
-            Me.Validate()
-            Me.SociosBindingSource.EndEdit()
-            Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
-            BloquearEdicao()
-            TextBoxExtensoDN.Visible = False
+            If MsgBox("Tem certeza que deseja excluir os dados?", MsgBoxStyle.YesNo, "A T E N Ç Ã O") = MsgBoxResult.Yes Then
+
+                Me.SociosBindingSource.RemoveCurrent()
+                Me.Validate()
+                Me.SociosBindingSource.EndEdit()
+                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+                BloquearEdicao()
+                TextBoxExtensoDN.Visible = False
+            End If
         End If
     End Sub
 

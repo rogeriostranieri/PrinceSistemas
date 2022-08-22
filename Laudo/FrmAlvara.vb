@@ -618,11 +618,13 @@ Public Class FrmAlvara
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
         If MsgBox(" Deseja apagar o registo ?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
-            Me.Validate()
-            Me.LaudosBindingSource.RemoveCurrent()
-            Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-            MessageBox.Show("Voltando ao início dos registros !", "Informativo - Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            If MsgBox("Tem certeza que deseja apagar o registo ?", MsgBoxStyle.YesNo, "A T E N Ç Ã O") = MsgBoxResult.Yes Then
+                Me.Validate()
+                Me.LaudosBindingSource.RemoveCurrent()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                MessageBox.Show("Voltando ao início dos registros !", "Informativo - Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
         End If
     End Sub
 

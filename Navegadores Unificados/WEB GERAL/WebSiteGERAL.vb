@@ -1107,16 +1107,31 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub BtnSoltar_Click(sender As Object, e As EventArgs) Handles BtnSoltar.Click
+        'verificar se está maximizado
+        If Me.WindowState = FormWindowState.Maximized Then
+            AbrirFora()
+            Me.WindowState = FormWindowState.Maximized
+        ElseIf Me.WindowState = FormWindowState.Normal Then
+            AbrirFora()
+            Me.WindowState = FormWindowState.Maximized
+        End If
+
+
+
+    End Sub
+
+    Private Sub AbrirFora()
         For Each child In MDIPrincipal.MdiChildren
+            Dim webSiteGERAL As WebSiteGERAL = Me
+
             If TypeOf child Is WebSiteGERAL Then
-                Me.MdiParent = Nothing
-                ' child.WindowState = FormWindowState.Maximized
-                Me.WindowState = FormWindowState.Maximized
+                webSiteGERAL.MdiParent = Nothing
+                'webSiteGERAL.WindowState = FormWindowState.Maximized
             Else
-                Me.MdiParent = MDIPrincipal
-                'maximizar child
-                Me.WindowState = FormWindowState.Maximized
+                webSiteGERAL.MdiParent = MDIPrincipal
+                ' webSiteGERAL.WindowState = FormWindowState.Maximized
             End If
+            webSiteGERAL.WindowState = FormWindowState.Maximized
         Next
     End Sub
 
