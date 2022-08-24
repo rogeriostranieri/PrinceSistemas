@@ -1,6 +1,4 @@
 ﻿Public Class WebAgenda
-    'Mes do ano etenso
-    Dim Mes As String
 
     'ao fechar form tambem fechar WebView2
     Private Sub WebAgenda_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
@@ -89,9 +87,10 @@
     End Sub
 
     Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
-
+        Dim Mes As String
         'exteve no label por extenso
         Label2.Text = (DiaBox.Text & " de " & MonthName(MesBox.Text) & " de " & AnoBox.Text)
+
         Mes = MonthName(MesBox.Text)
 
 

@@ -1519,7 +1519,7 @@ Partial Class FrmLegalizacao
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage1.Size = New System.Drawing.Size(637, 239)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Geral"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1823,7 +1823,7 @@ Partial Class FrmLegalizacao
         Me.TabPage19.Location = New System.Drawing.Point(4, 25)
         Me.TabPage19.Name = "TabPage19"
         Me.TabPage19.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage19.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage19.Size = New System.Drawing.Size(622, 198)
         Me.TabPage19.TabIndex = 6
         Me.TabPage19.Text = "Dados dos Sócios"
         Me.TabPage19.UseVisualStyleBackColor = True
@@ -1902,7 +1902,7 @@ Partial Class FrmLegalizacao
         Me.TabPage13.Location = New System.Drawing.Point(4, 25)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage13.Size = New System.Drawing.Size(622, 198)
         Me.TabPage13.TabIndex = 1
         Me.TabPage13.Text = "Ramo/CNAE"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -2052,7 +2052,7 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Controls.Add(CadImobLabel)
         Me.TabPage14.Location = New System.Drawing.Point(4, 25)
         Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage14.Size = New System.Drawing.Size(622, 198)
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -2204,7 +2204,7 @@ Partial Class FrmLegalizacao
         Me.TabPage15.Controls.Add(EmpEmailLabel)
         Me.TabPage15.Location = New System.Drawing.Point(4, 25)
         Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage15.Size = New System.Drawing.Size(622, 198)
         Me.TabPage15.TabIndex = 3
         Me.TabPage15.Text = "Telefone/Outros"
         Me.TabPage15.UseVisualStyleBackColor = True
@@ -2264,7 +2264,7 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Location = New System.Drawing.Point(4, 25)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage16.Size = New System.Drawing.Size(622, 198)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -2378,7 +2378,7 @@ Partial Class FrmLegalizacao
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial1TextBox)
         Me.TabPage18.Location = New System.Drawing.Point(4, 25)
         Me.TabPage18.Name = "TabPage18"
-        Me.TabPage18.Size = New System.Drawing.Size(602, 198)
+        Me.TabPage18.Size = New System.Drawing.Size(622, 198)
         Me.TabPage18.TabIndex = 5
         Me.TabPage18.Text = "Busca de Nome"
         Me.TabPage18.UseVisualStyleBackColor = True
@@ -2508,7 +2508,7 @@ Partial Class FrmLegalizacao
         Me.TabPage3.Controls.Add(Me.ProtocoloJuntaComercialTextBox)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage3.Size = New System.Drawing.Size(637, 239)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Junta Comercial"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3016,7 +3016,7 @@ Partial Class FrmLegalizacao
         Me.TabPage4.Controls.Add(Me.ProtocoloREDESIMTextBox)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage4.Size = New System.Drawing.Size(637, 239)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Receita Federal"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -3238,7 +3238,7 @@ Partial Class FrmLegalizacao
         Me.TabPage5.Controls.Add(Me.Button11)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage5.Size = New System.Drawing.Size(637, 239)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Receita Estadual"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -3293,7 +3293,7 @@ Partial Class FrmLegalizacao
         'BtnConsultaeProcessoEstado
         '
         Me.BtnConsultaeProcessoEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnConsultaeProcessoEstado.Location = New System.Drawing.Point(182, 148)
+        Me.BtnConsultaeProcessoEstado.Location = New System.Drawing.Point(214, 148)
         Me.BtnConsultaeProcessoEstado.Name = "BtnConsultaeProcessoEstado"
         Me.BtnConsultaeProcessoEstado.Size = New System.Drawing.Size(65, 22)
         Me.BtnConsultaeProcessoEstado.TabIndex = 43
@@ -3314,7 +3314,7 @@ Partial Class FrmLegalizacao
         Me.IEeProcNumTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEeProcNum", True))
         Me.IEeProcNumTextBox.Location = New System.Drawing.Point(108, 150)
         Me.IEeProcNumTextBox.Name = "IEeProcNumTextBox"
-        Me.IEeProcNumTextBox.Size = New System.Drawing.Size(70, 20)
+        Me.IEeProcNumTextBox.Size = New System.Drawing.Size(100, 20)
         Me.IEeProcNumTextBox.TabIndex = 41
         '
         'IETipoComboBox
@@ -3370,7 +3370,7 @@ Partial Class FrmLegalizacao
         '
         Me.IEInicioAtividadeMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEInicioAtividade", True))
         Me.IEInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(108, 41)
-        Me.IEInicioAtividadeMaskedTextBox.Mask = "00/00/0000"
+        Me.IEInicioAtividadeMaskedTextBox.Mask = "00/0000"
         Me.IEInicioAtividadeMaskedTextBox.Name = "IEInicioAtividadeMaskedTextBox"
         Me.IEInicioAtividadeMaskedTextBox.Size = New System.Drawing.Size(66, 20)
         Me.IEInicioAtividadeMaskedTextBox.TabIndex = 26
@@ -3444,7 +3444,7 @@ Partial Class FrmLegalizacao
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage7.Size = New System.Drawing.Size(637, 239)
         Me.TabPage7.TabIndex = 7
         Me.TabPage7.Text = "Simples Nacional"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -3657,7 +3657,7 @@ Partial Class FrmLegalizacao
         Me.TabPage6.Controls.Add(Me.PrefeituraObsRichTextBox)
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage6.Size = New System.Drawing.Size(637, 239)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Prefeitura"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -3713,7 +3713,7 @@ Partial Class FrmLegalizacao
         Me.TabPage2.Controls.Add(Me.HistoricoRichTextBox)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage2.Size = New System.Drawing.Size(637, 239)
         Me.TabPage2.TabIndex = 8
         Me.TabPage2.Text = "Histórico"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3760,7 +3760,7 @@ Partial Class FrmLegalizacao
         Me.TabPage17.Location = New System.Drawing.Point(4, 22)
         Me.TabPage17.Name = "TabPage17"
         Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(617, 239)
+        Me.TabPage17.Size = New System.Drawing.Size(637, 239)
         Me.TabPage17.TabIndex = 9
         Me.TabPage17.Text = "Procuração"
         Me.TabPage17.UseVisualStyleBackColor = True
