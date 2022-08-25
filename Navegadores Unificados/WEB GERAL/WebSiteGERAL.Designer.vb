@@ -96,6 +96,8 @@ Partial Class WebSiteGERAL
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnTSE = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ConsultaPorNomeEPreencherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SociosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnProcuracao = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ReceitaFederalDoBrasilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -697,9 +699,22 @@ Partial Class WebSiteGERAL
         '
         'ConsultaPorNomeEPreencherToolStripMenuItem
         '
+        Me.ConsultaPorNomeEPreencherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpresasToolStripMenuItem, Me.SociosToolStripMenuItem})
         Me.ConsultaPorNomeEPreencherToolStripMenuItem.Name = "ConsultaPorNomeEPreencherToolStripMenuItem"
         Me.ConsultaPorNomeEPreencherToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ConsultaPorNomeEPreencherToolStripMenuItem.Text = "Consulta por nome e preencher"
+        '
+        'EmpresasToolStripMenuItem
+        '
+        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EmpresasToolStripMenuItem.Text = "Empresas"
+        '
+        'SociosToolStripMenuItem
+        '
+        Me.SociosToolStripMenuItem.Name = "SociosToolStripMenuItem"
+        Me.SociosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SociosToolStripMenuItem.Text = "Socios"
         '
         'ToolStripSeparator9
         '
@@ -970,4 +985,6 @@ Partial Class WebSiteGERAL
     Friend WithEvents PáginaInicialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PreencherToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents EmpresasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SociosToolStripMenuItem As ToolStripMenuItem
 End Class

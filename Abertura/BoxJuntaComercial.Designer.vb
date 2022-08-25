@@ -133,7 +133,7 @@ Partial Class BoxJuntaComercial
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BoxJuntaComercial"
+        Me.Text = "Box Junta Comercial"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()

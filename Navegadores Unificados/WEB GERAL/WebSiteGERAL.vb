@@ -944,54 +944,7 @@ Public Class WebSiteGERAL
         End If
     End Sub
 
-    Private Sub ConsultaPorNomeEPreencherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaPorNomeEPreencherToolStripMenuItem.Click
-        If WebView.Source.ToString.Contains("tse.jus.br") Then
-            WebView.Focus()
-            'id="LV_NomeTituloCPF"
-            'id="LV_DataNascimento"
-            'id="LV_NomeMae"
-            'click id="consultar-local-votacao-form-submit"
-            Try
-                If FrmLegalizacao.Visible = True Then
-                    Dim NomeCompleto As String = FrmLegalizacao.NomeResponsavelTextBox.Text
-                    Dim DataNascimento As String = FrmLegalizacao.RespDataNascMaskedTextBox.Text
-                    Dim NomeDaMae As String = FrmLegalizacao.RespMaeTextBox.Text
 
-                    'id="LV_NomeTituloCPF"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
-                    'id="LV_DataNascimento"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
-                    'id="LV_NomeMae"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
-                    'click id="consultar-local-votacao-form-submit"
-                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
-
-                ElseIf FrmSocios.Visible = True Then
-                    Dim NomeCompleto As String = FrmSocios.NomeCompletoTextBox.Text
-                    Dim DataNascimento As String = FrmSocios.DatadeNascMaskedTextBox.Text
-                    Dim NomeDaMae As String = FrmSocios.NomeMaeTextBox.Text
-
-                    'id="LV_NomeTituloCPF"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
-                    'id="LV_DataNascimento"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
-                    'id="LV_NomeMae"
-                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
-                    'click id="consultar-local-votacao-form-submit"
-                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
-
-                End If
-
-            Catch ex As Exception
-                'MsgBox formulario nao esta aberto + a Message
-                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
-            End Try
-        Else
-            WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
-            Exit Sub
-        End If
-    End Sub
 
     Private Sub PaginaInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaginaInicialToolStripMenuItem1.Click
         WebView.Source = New Uri("http://www.receita.fazenda.gov.br/Aplicacoes/ATSDR/procuracoesrfb/controlador/controlePrincipal.asp?acao=telaInicial")
@@ -1170,6 +1123,76 @@ Public Class WebSiteGERAL
         Else
             'mgsbox Form nao aberto
             MsgBox("Formulario Empresas ou Alvará, não está aberto")
+        End If
+    End Sub
+
+    Private Sub EmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem.Click
+        If WebView.Source.ToString.Contains("tse.jus.br") Then
+            WebView.Focus()
+            'id="LV_NomeTituloCPF"
+            'id="LV_DataNascimento"
+            'id="LV_NomeMae"
+            'click id="consultar-local-votacao-form-submit"
+            Try
+                If FrmLegalizacao.Visible = True Then
+                    Dim NomeCompleto As String = FrmLegalizacao.NomeResponsavelTextBox.Text
+                    Dim DataNascimento As String = FrmLegalizacao.RespDataNascMaskedTextBox.Text
+                    Dim NomeDaMae As String = FrmLegalizacao.RespMaeTextBox.Text
+
+                    'id="LV_NomeTituloCPF"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
+                    'id="LV_DataNascimento"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
+                    'id="LV_NomeMae"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
+                    'click id="consultar-local-votacao-form-submit"
+                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
+
+                End If
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub SociosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SociosToolStripMenuItem.Click
+        If WebView.Source.ToString.Contains("tse.jus.br") Then
+            WebView.Focus()
+            'id="LV_NomeTituloCPF"
+            'id="LV_DataNascimento"
+            'id="LV_NomeMae"
+            'click id="consultar-local-votacao-form-submit"
+            Try
+                If FrmSocios.Visible = True Then
+                    Dim NomeCompleto As String = FrmSocios.NomeCompletoTextBox.Text
+                    Dim DataNascimento As String = FrmSocios.DatadeNascMaskedTextBox.Text
+                    Dim NomeDaMae As String = FrmSocios.NomeMaeTextBox.Text
+
+                    'id="LV_NomeTituloCPF"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeTituloCPF').value = '" & NomeCompleto & "'")
+                    'id="LV_DataNascimento"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_DataNascimento').value = '" & DataNascimento & "'")
+                    'id="LV_NomeMae"
+                    WebView.ExecuteScriptAsync("document.getElementById('LV_NomeMae').value = '" & NomeDaMae & "'")
+                    'click id="consultar-local-votacao-form-submit"
+                    WebView.ExecuteScriptAsync("document.getElementById('consultar-local-votacao-form-submit').click()")
+
+                End If
+
+            Catch ex As Exception
+                'MsgBox formulario nao esta aberto + a Message
+                MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            End Try
+        Else
+            WebView.Source = New Uri("http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome")
+            MsgBox("Aguarde o carregamento do site e tente novamente!")
+            Exit Sub
         End If
     End Sub
 End Class
