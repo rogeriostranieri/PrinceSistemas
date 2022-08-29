@@ -74,14 +74,14 @@ Partial Class WebSiteGERAL
         Me.NúmeroDoLaudoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarNºDoLaudoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultaPréviaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CNPJToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CadastroImobiliarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OuEndereçoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ÁreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CnaeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportarNºDoLaudoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProtocoloMaringaPRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaringaProtocoloPaginaInicialToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -463,30 +463,30 @@ Partial Class WebSiteGERAL
         'BtnRedeSimAbertura
         '
         Me.BtnRedeSimAbertura.Name = "BtnRedeSimAbertura"
-        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(146, 22)
+        Me.BtnRedeSimAbertura.Size = New System.Drawing.Size(180, 22)
         Me.BtnRedeSimAbertura.Text = "Abertura"
         '
         'BtnREDESIMAlteracao
         '
         Me.BtnREDESIMAlteracao.Name = "BtnREDESIMAlteracao"
-        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(146, 22)
+        Me.BtnREDESIMAlteracao.Size = New System.Drawing.Size(180, 22)
         Me.BtnREDESIMAlteracao.Text = "Alteração"
         '
         'BtnREDESIMBaixa
         '
         Me.BtnREDESIMBaixa.Name = "BtnREDESIMBaixa"
-        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(146, 22)
+        Me.BtnREDESIMBaixa.Size = New System.Drawing.Size(180, 22)
         Me.BtnREDESIMBaixa.Text = "Baixa"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(143, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(177, 6)
         '
         'ImportarPRNToolStripMenuItem
         '
         Me.ImportarPRNToolStripMenuItem.Name = "ImportarPRNToolStripMenuItem"
-        Me.ImportarPRNToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.ImportarPRNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImportarPRNToolStripMenuItem.Text = "Importar PRN"
         '
         'ToolStripSeparator6
@@ -552,7 +552,7 @@ Partial Class WebSiteGERAL
         '
         'AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem
         '
-        Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ALvaraOnlinePaginaInicialToolStripMenuItem1, Me.ConsultaPréviaToolStripMenuItem, Me.SolicitaçãoDoAlvaráToolStripMenuItem, Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2})
+        Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ALvaraOnlinePaginaInicialToolStripMenuItem1, Me.SolicitaçãoDoAlvaráToolStripMenuItem, Me.ConsultaPréviaToolStripMenuItem, Me.AcompanhamentoDaSolicitaçãoToolStripMenuItem2})
         Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem.Name = "AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem"
         Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem.Text = "Alvará - Sistema Online"
@@ -562,6 +562,19 @@ Partial Class WebSiteGERAL
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Name = "ALvaraOnlinePaginaInicialToolStripMenuItem1"
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Size = New System.Drawing.Size(315, 22)
         Me.ALvaraOnlinePaginaInicialToolStripMenuItem1.Text = "Pagina Inicial"
+        '
+        'SolicitaçãoDoAlvaráToolStripMenuItem
+        '
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarNºDoLaudoToolStripMenuItem})
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Name = "SolicitaçãoDoAlvaráToolStripMenuItem"
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Text = "Solicitação do Alvará"
+        '
+        'ImportarNºDoLaudoToolStripMenuItem
+        '
+        Me.ImportarNºDoLaudoToolStripMenuItem.Name = "ImportarNºDoLaudoToolStripMenuItem"
+        Me.ImportarNºDoLaudoToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.ImportarNºDoLaudoToolStripMenuItem.Text = "Importar Nº do Laudo"
         '
         'ConsultaPréviaToolStripMenuItem
         '
@@ -599,19 +612,6 @@ Partial Class WebSiteGERAL
         Me.CnaeToolStripMenuItem.Name = "CnaeToolStripMenuItem"
         Me.CnaeToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.CnaeToolStripMenuItem.Text = "Cnae"
-        '
-        'SolicitaçãoDoAlvaráToolStripMenuItem
-        '
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarNºDoLaudoToolStripMenuItem})
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Name = "SolicitaçãoDoAlvaráToolStripMenuItem"
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.SolicitaçãoDoAlvaráToolStripMenuItem.Text = "Solicitação do Alvará"
-        '
-        'ImportarNºDoLaudoToolStripMenuItem
-        '
-        Me.ImportarNºDoLaudoToolStripMenuItem.Name = "ImportarNºDoLaudoToolStripMenuItem"
-        Me.ImportarNºDoLaudoToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.ImportarNºDoLaudoToolStripMenuItem.Text = "Importar Nº do Laudo"
         '
         'AcompanhamentoDaSolicitaçãoToolStripMenuItem2
         '
@@ -707,13 +707,13 @@ Partial Class WebSiteGERAL
         'EmpresasToolStripMenuItem
         '
         Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.EmpresasToolStripMenuItem.Text = "Empresas"
         '
         'SociosToolStripMenuItem
         '
         Me.SociosToolStripMenuItem.Name = "SociosToolStripMenuItem"
-        Me.SociosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SociosToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.SociosToolStripMenuItem.Text = "Socios"
         '
         'ToolStripSeparator9

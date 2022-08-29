@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("Prince Sistemas")>
 <Assembly: AssemblyDescription("Controle do departamento de legalização de escritorio Contabil")>
 <Assembly: AssemblyCompany("Rogerio Stranieri - Software")>
-<Assembly: AssemblyProduct("Prince Sistemas de Software")>
+<Assembly: AssemblyProduct("Prince Sistemas - Software de Legalização")>
 <Assembly: AssemblyCopyright("Rogerio Stranieri 06937031998")>
 <Assembly: AssemblyTrademark("Rogerio Stranieri - Software")>
 
@@ -31,4 +31,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("3.0.0.0")>
+<Assembly: AssemblyFileVersion("5.0.0.0")>

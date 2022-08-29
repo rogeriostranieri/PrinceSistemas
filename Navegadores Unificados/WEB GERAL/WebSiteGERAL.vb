@@ -171,12 +171,16 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub WebView_CoreWebView2InitializationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs) Handles WebView.CoreWebView2InitializationCompleted
-        LogMsg("WebView_CoreWebView2InitializationCompleted")
-        LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
+        Try
+            LogMsg("WebView_CoreWebView2InitializationCompleted")
+            LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
 
-        'subscribe to CoreWebView2 event(s) (add event handlers) 
-        AddHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
-
+            'subscribe to CoreWebView2 event(s) (add event handlers) 
+            AddHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
+        Catch ex As Exception
+            LogMsg(ex.Message)
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub CoreWebView2_HistoryChanged(sender As Object, e As Object)
@@ -580,13 +584,15 @@ Public Class WebSiteGERAL
 
     Private Sub CadastroImobiliarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroImobiliarioToolStripMenuItem.Click
         Try
+            FrmAlvara.Focus()
             FrmAlvara.TabAlvara.SelectedIndex = 0
             'TabControl2
             FrmAlvara.TabControl2.SelectedIndex = 1
             Dim CADIMOB As String = FrmAlvara.CadImobTextBox.Text
-            Me.Focus()
+            WebView.Focus()
             'WebView21 Id('formCadastroImobiliario:codImobiliario') 
             WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:codImobiliario').value = '" & CADIMOB & "'")
+
             'clicar em id=formCadastroImobiliario:btnConsultaCadastro
             WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:btnConsultaCadastro').click()")
             End

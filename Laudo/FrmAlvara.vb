@@ -863,18 +863,16 @@ Public Class FrmAlvara
             If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
                 WebSiteGERAL.Focus()
                 WebSiteGERAL.MdiParent = MDIPrincipal
-                WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
                 If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php")
+                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
                 ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
                     WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e5s1")
                 End If
             Else
                 WebSiteGERAL.Show()
                 WebSiteGERAL.MdiParent = MDIPrincipal
-                WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
                 If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php")
+                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
                 ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
                     WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e5s1")
                 End If

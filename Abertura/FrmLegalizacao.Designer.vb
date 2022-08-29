@@ -1717,7 +1717,7 @@ Partial Class FrmLegalizacao
         Me.RespPaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespPai", True))
         Me.RespPaiTextBox.Location = New System.Drawing.Point(54, 67)
         Me.RespPaiTextBox.Name = "RespPaiTextBox"
-        Me.RespPaiTextBox.Size = New System.Drawing.Size(287, 20)
+        Me.RespPaiTextBox.Size = New System.Drawing.Size(331, 20)
         Me.RespPaiTextBox.TabIndex = 67
         '
         'Button44
@@ -1774,7 +1774,7 @@ Partial Class FrmLegalizacao
         Me.RespMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespMae", True))
         Me.RespMaeTextBox.Location = New System.Drawing.Point(54, 41)
         Me.RespMaeTextBox.Name = "RespMaeTextBox"
-        Me.RespMaeTextBox.Size = New System.Drawing.Size(287, 20)
+        Me.RespMaeTextBox.Size = New System.Drawing.Size(331, 20)
         Me.RespMaeTextBox.TabIndex = 41
         '
         'NomeResponsavelTextBox
@@ -1782,7 +1782,7 @@ Partial Class FrmLegalizacao
         Me.NomeResponsavelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeResponsavel", True))
         Me.NomeResponsavelTextBox.Location = New System.Drawing.Point(54, 15)
         Me.NomeResponsavelTextBox.Name = "NomeResponsavelTextBox"
-        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(287, 20)
+        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(331, 20)
         Me.NomeResponsavelTextBox.TabIndex = 34
         '
         'RespRGTextBox
@@ -1798,7 +1798,7 @@ Partial Class FrmLegalizacao
         Me.TituloeleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Tituloeleitor", True))
         Me.TituloeleitorTextBox.Location = New System.Drawing.Point(266, 92)
         Me.TituloeleitorTextBox.Name = "TituloeleitorTextBox"
-        Me.TituloeleitorTextBox.Size = New System.Drawing.Size(75, 20)
+        Me.TituloeleitorTextBox.Size = New System.Drawing.Size(119, 20)
         Me.TituloeleitorTextBox.TabIndex = 38
         '
         'CPFResponsavelMaskedTextBox

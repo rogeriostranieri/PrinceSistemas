@@ -141,24 +141,44 @@ Module ModeMail
             Else
                 IE = ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>"
             End If
+
+            'Nome Do usuário
+            Dim Nome As String
+            'apagar "Bem vindo Sr(a). ", do  MDIPrincipal.LblNomeCompleto.Text
+            Nome = MDIPrincipal.LblNomeCompleto.Text.Replace("Bem vindo Sr(a). ", "")
+            'apagar "!"
+            Nome = Nome.Replace("!", "")
+
+            'Nome Do sistema
+            'ApplicationTitle  - ProductName
+            Dim NomeSistema As String = My.Application.Info.ProductName
+
+
             '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
             'assunto
             FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
 
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>A Empresa = </b> " & A & ", <br/>
+"<html><body><b>A Empresa = </b> " & A & ".<br/>
 " & NomeAntigo & "
 <br/>
 <b>Inscrita no CNPJ</b> Nº = " & B & "" & IE & "
 <br/>
-<b>Com o processo de = </b> " & C & ", <br/>
-<b>Teve como objetivo de = </b> " & D & ",<br/>
+<b>Com o processo de = </b> " & C & ".<br/>
+<b>Teve como objetivo de = </b> " & D & ".<br/>
 <br/>
 <b>E no Sistema ja foi atualizado = </b> " & E & ".<br/>
 <br/>
 <br/>            
 //-----------------//-----------------//-----------------//-----------------//<br/>
+<br/>
+<b>" & Nome & " </b><br/>
+<br/>
+<br/>
+<b>Enviado pelo sistema: " & NomeSistema & " </b><br/>
+<br/>
+<br/> 
 </body></html>
 "
 
