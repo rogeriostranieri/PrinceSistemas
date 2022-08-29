@@ -139,7 +139,7 @@ Module ModeMail
             If F = "" Then
                 IE = ""
             Else
-                IE = ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>"
+                IE = ", e <b>inscrita no Estado com Nº = </b>" & F & ". <br/>"
             End If
 
             'Nome Do usuário
@@ -163,7 +163,7 @@ Module ModeMail
 "<html><body><b>A Empresa = </b> " & A & ".<br/>
 " & NomeAntigo & "
 <br/>
-<b>Inscrita no CNPJ</b> Nº = " & B & "" & IE & "
+<b>Inscrita no CNPJ Nº = </b>" & B & "" & IE & "
 <br/>
 <b>Com o processo de = </b> " & C & ".<br/>
 <b>Teve como objetivo de = </b> " & D & ".<br/>

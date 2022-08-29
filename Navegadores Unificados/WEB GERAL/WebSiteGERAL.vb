@@ -595,7 +595,7 @@ Public Class WebSiteGERAL
 
             'clicar em id=formCadastroImobiliario:btnConsultaCadastro
             WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:btnConsultaCadastro').click()")
-            End
+
         Catch ex As Exception
             'MsgBox formulario nao esta aberto + a Message
             MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
