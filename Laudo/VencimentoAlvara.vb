@@ -114,4 +114,10 @@ Class VencimentoAlvara
         DateTimePicker2.Value = DateTime.Now.AddDays(90)
         Filtro()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'atualizar tables
+        LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+        Filtro()
+    End Sub
 End Class

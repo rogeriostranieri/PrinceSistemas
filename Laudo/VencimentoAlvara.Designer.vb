@@ -102,7 +102,7 @@ Partial Class VencimentoAlvara
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55, Me.Situacao, Me.DataGridViewTextBoxColumn51, Me.BombeiroSituacao})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
-        Me.LaudosDataGridView.Location = New System.Drawing.Point(12, 143)
+        Me.LaudosDataGridView.Location = New System.Drawing.Point(12, 146)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(872, 239)
@@ -212,9 +212,9 @@ Partial Class VencimentoAlvara
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button1.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(796, 12)
+        Me.Button1.Location = New System.Drawing.Point(797, 391)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(70, 24)
+        Me.Button1.Size = New System.Drawing.Size(87, 29)
         Me.Button1.TabIndex = 15
         Me.Button1.Text = "Atualizar"
         Me.Button1.UseVisualStyleBackColor = False
@@ -224,24 +224,24 @@ Partial Class VencimentoAlvara
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 77)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 72)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(872, 41)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filtros:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(247, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 16)
+        Me.Label1.Size = New System.Drawing.Size(26, 16)
         Me.Label1.TabIndex = 21
         Me.Label1.Text = "até"
         '
@@ -260,8 +260,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMais7
         '
+        Me.ButtonMais7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMais7.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais7.Location = New System.Drawing.Point(344, 119)
+        Me.ButtonMais7.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMais7.Location = New System.Drawing.Point(344, 117)
         Me.ButtonMais7.Name = "ButtonMais7"
         Me.ButtonMais7.Size = New System.Drawing.Size(71, 24)
         Me.ButtonMais7.TabIndex = 22
@@ -270,8 +272,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMais30
         '
+        Me.ButtonMais30.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMais30.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais30.Location = New System.Drawing.Point(421, 119)
+        Me.ButtonMais30.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMais30.Location = New System.Drawing.Point(421, 117)
         Me.ButtonMais30.Name = "ButtonMais30"
         Me.ButtonMais30.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMais30.TabIndex = 23
@@ -280,8 +284,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMenos7
         '
+        Me.ButtonMenos7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMenos7.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos7.Location = New System.Drawing.Point(267, 119)
+        Me.ButtonMenos7.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMenos7.Location = New System.Drawing.Point(267, 117)
         Me.ButtonMenos7.Name = "ButtonMenos7"
         Me.ButtonMenos7.Size = New System.Drawing.Size(71, 24)
         Me.ButtonMenos7.TabIndex = 25
@@ -290,8 +296,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMenos30
         '
+        Me.ButtonMenos30.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMenos30.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos30.Location = New System.Drawing.Point(182, 119)
+        Me.ButtonMenos30.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMenos30.Location = New System.Drawing.Point(182, 117)
         Me.ButtonMenos30.Name = "ButtonMenos30"
         Me.ButtonMenos30.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMenos30.TabIndex = 24
@@ -300,8 +308,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMenos90
         '
+        Me.ButtonMenos90.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMenos90.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos90.Location = New System.Drawing.Point(12, 119)
+        Me.ButtonMenos90.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMenos90.Location = New System.Drawing.Point(12, 117)
         Me.ButtonMenos90.Name = "ButtonMenos90"
         Me.ButtonMenos90.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMenos90.TabIndex = 26
@@ -310,8 +320,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMenos60
         '
+        Me.ButtonMenos60.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMenos60.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMenos60.Location = New System.Drawing.Point(97, 119)
+        Me.ButtonMenos60.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMenos60.Location = New System.Drawing.Point(97, 117)
         Me.ButtonMenos60.Name = "ButtonMenos60"
         Me.ButtonMenos60.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMenos60.TabIndex = 27
@@ -320,8 +332,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMais60
         '
+        Me.ButtonMais60.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMais60.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais60.Location = New System.Drawing.Point(506, 119)
+        Me.ButtonMais60.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMais60.Location = New System.Drawing.Point(506, 117)
         Me.ButtonMais60.Name = "ButtonMais60"
         Me.ButtonMais60.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMais60.TabIndex = 28
@@ -330,8 +344,10 @@ Partial Class VencimentoAlvara
         '
         'ButtonMais90
         '
+        Me.ButtonMais90.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ButtonMais90.Font = New System.Drawing.Font("Malgun Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonMais90.Location = New System.Drawing.Point(591, 119)
+        Me.ButtonMais90.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonMais90.Location = New System.Drawing.Point(591, 117)
         Me.ButtonMais90.Name = "ButtonMais90"
         Me.ButtonMais90.Size = New System.Drawing.Size(79, 24)
         Me.ButtonMais90.TabIndex = 29
@@ -344,9 +360,10 @@ Partial Class VencimentoAlvara
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(896, 391)
+        Me.ClientSize = New System.Drawing.Size(896, 420)
         Me.Controls.Add(Me.ButtonMais90)
         Me.Controls.Add(Me.ButtonMais60)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ButtonMenos60)
         Me.Controls.Add(Me.ButtonMenos90)
         Me.Controls.Add(Me.ButtonMenos7)

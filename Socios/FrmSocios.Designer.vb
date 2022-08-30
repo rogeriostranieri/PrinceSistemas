@@ -541,7 +541,7 @@ Partial Class FrmSocios
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(602, 103)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 333)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 332)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -617,7 +617,7 @@ Partial Class FrmSocios
         Me.TabControl1.Location = New System.Drawing.Point(3, 103)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 333)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 332)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -626,7 +626,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 307)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 306)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -676,7 +676,7 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 301)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 300)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -1127,7 +1127,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnAddSocios)
         Me.GroupBox2.Controls.Add(Me.BtnWord)
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 442)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 441)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(587, 64)
         Me.GroupBox2.TabIndex = 58
@@ -1260,7 +1260,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 512)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 511)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1320,9 +1320,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 512)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 511)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 263)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 264)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '

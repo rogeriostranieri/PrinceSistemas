@@ -6,6 +6,11 @@
         'PercaGanho
         'Todos
         Try
+            'tirar formato reais TextBoxCapitalSocial.Text
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace("R$", "")
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace(".", "")
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace(" ", "")
+
             'verifica se tem apenas valor na coluna 1 e as outras colunas vazias , e chama Porcentagem
             If DataGridView1.Rows.Count > 0 Then
                 If DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value = "" And DataGridView1.Rows(0).Cells(3).Value = "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
@@ -16,7 +21,7 @@
                 ElseIf DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value <> "" And DataGridView1.Rows(0).Cells(3).Value = "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
                     Todos()
                 ElseIf DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value <> "" And DataGridView1.Rows(0).Cells(3).Value <> "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
-                       DataGridView1.Refresh()
+                    DataGridView1.Refresh()
                     'Todos()
                     'mgs ação nao permitida após calculo feito
                     MsgBox("Não é possivel realizar mais de um calculo, após o calculo ser realizado, não é possivel realizar outro calculo", MsgBoxStyle.Information, "Aviso")
@@ -24,6 +29,10 @@
                 End If
 
             End If
+
+
+            'muda novamente reais
+            TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
 
         Catch ex As Exception
             MsgBox("Um calculo não foi realizado, verifique se todos os campos estão preenchidos corretamente", MsgBoxStyle.Information, "Aviso")
@@ -45,12 +54,12 @@
 
     'conveter TextBoxCapitalSocial em Moeda local ao digitar
     Private Sub TextBoxCapitalSocial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCapitalSocial.KeyPress
-        If e.KeyChar = "," Then
-            e.KeyChar = "."
-        End If
-        If Not (Char.IsDigit(e.KeyChar) OrElse Char.IsControl(e.KeyChar) OrElse e.KeyChar = "." OrElse e.KeyChar = ",") Then
-            e.Handled = True
-        End If
+        ' If e.KeyChar = "," Then
+        '    e.KeyChar = "."
+        ' End If
+        '  If Not (Char.IsDigit(e.KeyChar) OrElse Char.IsControl(e.KeyChar) OrElse e.KeyChar = "." OrElse e.KeyChar = ",") Then
+        '   e.Handled = True
+        '  End If
     End Sub
 
     'conveter TextBoxCapitalSocial em Moeda local ao digitar
@@ -501,5 +510,10 @@
 
     Private Sub FrmCalculadoraCapital_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub TextBoxCapitalSocial_Validated(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.Validated
+        'mudar para reais
+        TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
     End Sub
 End Class

@@ -289,7 +289,6 @@ Public Class FrmSocios
 
     Private Sub AddSocios()
         Try
-
             'ativar TabControle 1
             FrmLegalizacao.TabControl1.SelectedIndex = 1
 
@@ -303,8 +302,16 @@ Public Class FrmSocios
             Dim NomeDaPai As String = NomePaiTextBox.Text
 
             'clicar no BtnExtensoDN
-            DataDeNascExtenso()
+
+            'se tiver vazio DataDeNascExtenso deixar em branco
             Dim DataDeNascimento As String = TextBoxExtensoDN.Text
+
+            If TextBoxExtensoDN.Text = "" Then
+                TextBoxExtensoDN.Text = ""
+            Else
+                DataDeNascExtenso()
+            End If
+
 
 
             Dim RG As String = RGTextBox.Text
@@ -322,8 +329,14 @@ Public Class FrmSocios
 
             'endereço
             Dim RUA As String = RUATextBox.Text
+            If RUA = "" Then
+                RUA = ""
+            Else
+                RUA = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            End If
             'primeira letra da RUA em minusculo
-            Dim RUA1 As String = RUA.Substring(0, 1).ToLower() & RUA.Substring(1)
+            Dim RUA1 As String = RUA
+
             Dim N As String = NumTextBox.Text
             Dim Compl As String = ComplementoTextBox.Text
             Dim Bairro As String = BairroTextBox.Text
@@ -421,8 +434,8 @@ Novos dados:" + "
 
 
         Catch ex As Exception
-            ' MsgBox "Preencha todos os campos obrigatórios" + Message
-            MsgBox("Preencha todos os campos obrigatórios", MsgBoxStyle.Exclamation, "Atenção")
+            'mostra mgs do local do erro + "Preencha todos os campos obrigatórios"
+            MsgBox(ex.Message & "Preencha todos os campos obrigatórios", MsgBoxStyle.Critical, "Atenção")
             Me.Focus()
         End Try
 
@@ -986,6 +999,10 @@ Novos dados:" + "
         'PercaGanho
         'Todos
         Try
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace("R$", "")
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace(".", "")
+            TextBoxCapitalSocial.Text = TextBoxCapitalSocial.Text.Replace(" ", "")
+
             'verifica se tem apenas valor na coluna 1 e as outras colunas vazias , e chama Porcentagem
             If DataGridView1.Rows.Count > 0 Then
                 If DataGridView1.Rows(0).Cells(1).Value <> "" And DataGridView1.Rows(0).Cells(2).Value = "" And DataGridView1.Rows(0).Cells(3).Value = "" And DataGridView1.Rows(0).Cells(4).Value = "" Then
@@ -1005,6 +1022,9 @@ Novos dados:" + "
 
             End If
 
+            'muda novamente reais
+            TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
+
         Catch ex As Exception
             MsgBox("Um calculo não foi realizado, verifique se todos os campos estão preenchidos corretamente", MsgBoxStyle.Information, "Aviso")
             'limpar todas colunas e linhas, menos a primeira coluna 
@@ -1015,6 +1035,7 @@ Novos dados:" + "
             Next
             DataGridView1.Refresh()
         End Try
+
     End Sub
 
     Private Sub ButtonLimpar_Click(sender As Object, e As EventArgs) Handles ButtonLimpar.Click
@@ -1051,13 +1072,13 @@ Novos dados:" + "
 
     'TextBoxCapitalSocial usar mascara em reais
     Private Sub TextBoxCapitalSocial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCapitalSocial.KeyPress
-        If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-        End If
+        ' If Char.IsNumber(e.KeyChar) OrElse e.KeyChar = "," OrElse e.KeyChar = "." Then
+        ' e.Handled = False
+        'ElseIf Char.IsControl(e.KeyChar) Then
+        'e.Handled = False
+        ' Else
+        'e.Handled = True
+        ' End If
     End Sub
     'CapitalSTextBox validar em reais
     Private Sub TextBoxCapitalSocial_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.LostFocus
@@ -1271,5 +1292,10 @@ Novos dados:" + "
 
     Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, BtnAtablhoSocio3.Click
         TabControl1.SelectedIndex = 0
+    End Sub
+
+    Private Sub TextBoxCapitalSocial_Validated(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.Validated
+        'transforma em reais
+        TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
     End Sub
 End Class

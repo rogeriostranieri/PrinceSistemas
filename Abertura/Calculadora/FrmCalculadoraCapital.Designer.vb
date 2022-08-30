@@ -26,14 +26,14 @@ Partial Class FrmCalculadoraCapital
         Me.ButtonPorcentagem = New System.Windows.Forms.Button()
         Me.LblCapTotal = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ButtonLimpar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.ColumnSocio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnPorcentagem = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnAntigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnNovo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GanhaEPerca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ButtonLimpar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -77,6 +77,32 @@ Partial Class FrmCalculadoraCapital
         Me.DataGridView1.Size = New System.Drawing.Size(514, 150)
         Me.DataGridView1.TabIndex = 5
         '
+        'ColumnSocio
+        '
+        Me.ColumnSocio.HeaderText = "Socio"
+        Me.ColumnSocio.Name = "ColumnSocio"
+        '
+        'ColumnPorcentagem
+        '
+        Me.ColumnPorcentagem.HeaderText = "%"
+        Me.ColumnPorcentagem.Name = "ColumnPorcentagem"
+        Me.ColumnPorcentagem.Width = 60
+        '
+        'ColumnAntigo
+        '
+        Me.ColumnAntigo.HeaderText = "Capital Antigo"
+        Me.ColumnAntigo.Name = "ColumnAntigo"
+        '
+        'ColumnNovo
+        '
+        Me.ColumnNovo.HeaderText = "Capital Novo"
+        Me.ColumnNovo.Name = "ColumnNovo"
+        '
+        'GanhaEPerca
+        '
+        Me.GanhaEPerca.HeaderText = "Ganhou/Perdeu"
+        Me.GanhaEPerca.Name = "GanhaEPerca"
+        '
         'ButtonLimpar
         '
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -111,32 +137,6 @@ Partial Class FrmCalculadoraCapital
         Me.BtnFechar.TabIndex = 35
         Me.BtnFechar.TabStop = False
         '
-        'ColumnSocio
-        '
-        Me.ColumnSocio.HeaderText = "Socio"
-        Me.ColumnSocio.Name = "ColumnSocio"
-        '
-        'ColumnPorcentagem
-        '
-        Me.ColumnPorcentagem.HeaderText = "%"
-        Me.ColumnPorcentagem.Name = "ColumnPorcentagem"
-        Me.ColumnPorcentagem.Width = 60
-        '
-        'ColumnAntigo
-        '
-        Me.ColumnAntigo.HeaderText = "Capital Antigo"
-        Me.ColumnAntigo.Name = "ColumnAntigo"
-        '
-        'ColumnNovo
-        '
-        Me.ColumnNovo.HeaderText = "Capital Novo"
-        Me.ColumnNovo.Name = "ColumnNovo"
-        '
-        'GanhaEPerca
-        '
-        Me.GanhaEPerca.HeaderText = "Ganhou/Perdeu"
-        Me.GanhaEPerca.Name = "GanhaEPerca"
-        '
         'FrmCalculadoraCapital
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -151,7 +151,7 @@ Partial Class FrmCalculadoraCapital
         Me.Controls.Add(Me.LblCapTotal)
         Me.Controls.Add(Me.ButtonPorcentagem)
         Me.Controls.Add(Me.TextBoxCapitalSocial)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False

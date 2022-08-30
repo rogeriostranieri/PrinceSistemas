@@ -2823,7 +2823,7 @@ Partial Class FrmAlvara
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoesLEgalizacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAnotacoesLEgalizacao.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 160)
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(13, 80)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
         Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(69, 23)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 80
@@ -2844,7 +2844,7 @@ Partial Class FrmAlvara
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button14.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button14.Location = New System.Drawing.Point(13, 51)
+        Me.Button14.Location = New System.Drawing.Point(13, 176)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(69, 23)
         Me.Button14.TabIndex = 56
@@ -2857,7 +2857,7 @@ Partial Class FrmAlvara
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button13.Location = New System.Drawing.Point(13, 80)
+        Me.Button13.Location = New System.Drawing.Point(13, 205)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(69, 23)
         Me.Button13.TabIndex = 55
@@ -2900,7 +2900,7 @@ Partial Class FrmAlvara
         Me.BtnNovaAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNovaAlteracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNovaAlteracao.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 109)
+        Me.BtnNovaAlteracao.Location = New System.Drawing.Point(13, 12)
         Me.BtnNovaAlteracao.Name = "BtnNovaAlteracao"
         Me.BtnNovaAlteracao.Size = New System.Drawing.Size(69, 45)
         Me.BtnNovaAlteracao.TabIndex = 76
@@ -2913,7 +2913,7 @@ Partial Class FrmAlvara
         Me.Btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Btnempresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnempresa.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Btnempresa.Location = New System.Drawing.Point(13, 22)
+        Me.Btnempresa.Location = New System.Drawing.Point(13, 147)
         Me.Btnempresa.Name = "Btnempresa"
         Me.Btnempresa.Size = New System.Drawing.Size(69, 23)
         Me.Btnempresa.TabIndex = 57
@@ -3182,7 +3182,7 @@ Partial Class FrmAlvara
         Me.BtnExportarWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExportarWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExportarWord.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 189)
+        Me.BtnExportarWord.Location = New System.Drawing.Point(13, 109)
         Me.BtnExportarWord.Name = "BtnExportarWord"
         Me.BtnExportarWord.Size = New System.Drawing.Size(69, 23)
         Me.BtnExportarWord.TabIndex = 81

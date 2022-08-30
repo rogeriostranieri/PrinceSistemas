@@ -40,6 +40,19 @@ Public Class FrmAlvara
         TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
     End Sub
 
+    Private Sub Bloquear()
+        'Modifica bloqueando td novamente
+        BtnEditar.Text = "Editar"
+        GroupBox9.Enabled = False
+        GroupBox4.Enabled = False
+    End Sub
+
+    Private Sub Desbloquear()
+        'Modifica bloqueando td novamente
+        BtnEditar.Text = "Cancelar"
+        GroupBox9.Enabled = True
+        GroupBox4.Enabled = True
+    End Sub
     Private Sub DesativaDataProvisorio()
         BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
         AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
@@ -1297,8 +1310,10 @@ Public Class FrmAlvara
     'fução conexão com o banco de dados
 
     Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
 
-        If MsgBox("Deseja apagar a data de bombeiro provisório?", MsgBoxStyle.YesNo, "Apagar Bombeiro Provisório") = MsgBoxResult.Yes Then
+        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Bombeiro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            PreSalvar()
             Try
                 Dim sql As String = "UPDATE Laudos SET BombeiroProvisorioDATA = NULL where RazaoSocial=@RazaoSocial"
                 Dim RazaoSocial As String = RazaoSocialTextBox.Text
@@ -1310,18 +1325,28 @@ Public Class FrmAlvara
                 con.Close()
                 BombeiroProvisorioDATAMaskedTextBox.Text = ""
                 BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("Data de Bombeiro - Provisório foi apagada com sucesso!")
+                MsgBox("A Data Provisória do orgão: Bombeiro - Foi apagada com sucesso!")
+
+                'retorna para CNPJ empresa que estava  
+                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                Bloquear()
             Catch ex As Exception
-                MsgBox("Erro ao apagar a data de bombeiro provisório!" & vbCrLf & ex.Message)
+                MsgBox("Erro ao apagar a Data Provisória do orgão: Bombeiro!" & vbCrLf & ex.Message)
             End Try
         End If
-
     End Sub
 
 
     'Apagar Data Provisório Ambiental
     Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
-        If MsgBox("Deseja apagar a data de Ambiental provisório?", MsgBoxStyle.YesNo, "Apagar Ambiental Provisório") = MsgBoxResult.Yes Then
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Meio Ambiente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            PreSalvar()
             Try
                 Dim sql As String = "UPDATE Laudos SET AmbientalProvisorioData = NULL where RazaoSocial=@RazaoSocial"
                 Dim RazaoSocial As String = RazaoSocialTextBox.Text
@@ -1333,17 +1358,27 @@ Public Class FrmAlvara
                 con.Close()
                 AmbientalProvisorioDATAMaskedTextBox.Text = ""
                 AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("Data do Meio Ambiente - Provisório foi apagada com sucesso!")
+                MsgBox("A Data Provisória do orgão: Meio Ambiente - Foi apagada com sucesso!")
+
+                'retorna para CNPJ empresa que estava  
+                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                Bloquear()
             Catch ex As Exception
-                MsgBox("Erro ao apagar data do Meio Ambiente - Provisório!" & vbCrLf & ex.Message)
+                MsgBox("Erro ao apagar a Data Provisória do orgão: Meio Ambiente!" & vbCrLf & ex.Message)
             End Try
         End If
-
     End Sub
 
     'Apagar Data Provisório Viabilidade
     Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
-        If MsgBox("Deseja apagar a data de Viabilidade provisório?", MsgBoxStyle.YesNo, "Apagar Viabilidade Provisório") = MsgBoxResult.Yes Then
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Viabilidade?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            PreSalvar()
             Try
                 Dim sql As String = "UPDATE Laudos SET ViabilidadeProvisorioData = NULL where RazaoSocial=@RazaoSocial"
                 Dim RazaoSocial As String = RazaoSocialTextBox.Text
@@ -1355,16 +1390,27 @@ Public Class FrmAlvara
                 con.Close()
                 ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
                 ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("Data da Viabilidade - Provisório foi apagada com sucesso!")
+                MsgBox("A Data Provisória do orgão: Viabilidade - Foi apagada com sucesso!")
+
+                'retorna para CNPJ empresa que estava  
+                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                Bloquear()
             Catch ex As Exception
-                MsgBox("Erro ao apagar data da Viabilidade - Provisório!" & vbCrLf & ex.Message)
+                MsgBox("Erro ao apagar a Data Provisória do orgão: Viabilidade!" & vbCrLf & ex.Message)
             End Try
         End If
     End Sub
 
     'Apagar Data Provisório Sanitario
     Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
-        If MsgBox("Deseja apagar a data do Sanitário provisório?", MsgBoxStyle.YesNo, "Apagar Sanitario Provisório") = MsgBoxResult.Yes Then
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Vigilância Sanitária?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            PreSalvar()
             Try
                 Dim sql As String = "UPDATE Laudos SET SanitarioProvisorioData = NULL where RazaoSocial=@RazaoSocial"
                 Dim RazaoSocial As String = RazaoSocialTextBox.Text
@@ -1376,16 +1422,27 @@ Public Class FrmAlvara
                 con.Close()
                 SanitarioProvisorioDATAMaskedTextBox.Text = ""
                 SanitarioProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("Data do Sanitário - Provisório foi apagada com sucesso!")
+                MsgBox("A Data Provisória do orgão: Vigilância Sanitária - Foi apagada com sucesso!")
+
+                'retorna para CNPJ empresa que estava  
+                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                Bloquear()
             Catch ex As Exception
-                MsgBox("Erro ao apagar data do Sanitário - Provisório!" & vbCrLf & ex.Message)
+                MsgBox("Erro ao apagar a Data Provisória do orgão: Vigilância Sanitária!" & vbCrLf & ex.Message)
             End Try
         End If
     End Sub
 
     'Apagar Data Provisório Setran
     Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
-        If MsgBox("Deseja apagar a data do Setran/Detran/Mobilidade provisório?", MsgBoxStyle.YesNo, "Apagar Setran Provisório") = MsgBoxResult.Yes Then
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Setran/Mobilidade?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            PreSalvar()
             Try
                 Dim sql As String = "UPDATE Laudos SET SetranProvisorioData = NULL where RazaoSocial=@RazaoSocial"
                 Dim RazaoSocial As String = RazaoSocialTextBox.Text
@@ -1397,9 +1454,17 @@ Public Class FrmAlvara
                 con.Close()
                 SetranProvisorioDATAMaskedTextBox.Text = ""
                 SetranProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("Data do Setran/Detran/Mobilidade - Provisório foi apagada com sucesso!")
+                MsgBox("A Data Provisória do orgão: Setran/Mobilidade - Foi apagada com sucesso!")
+
+                'retorna para CNPJ empresa que estava  
+                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                'focar ComboBoxBuscaCNPJ
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                Bloquear()
             Catch ex As Exception
-                MsgBox("Erro ao apagar data do Setran/Detran/Mobilidade - Provisório!" & vbCrLf & ex.Message)
+                MsgBox("Erro ao apagar a Data Provisória do orgão: Setran/Mobilidade!" & vbCrLf & ex.Message)
             End Try
         End If
     End Sub
