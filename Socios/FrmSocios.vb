@@ -257,6 +257,8 @@ Public Class FrmSocios
         FrmLegalizacao.CNHnumeroTextBox.Text = CNHTextBox.Text
         FrmLegalizacao.CNHexpTextBox.Text = CNHExpedicaoTextBox.Text
         FrmLegalizacao.CNHdataexpMaskedTextBox.Text = CNHDataExpMaskedTextBox.Text
+
+
     End Sub
     Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
         Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
@@ -374,14 +376,10 @@ Public Class FrmSocios
                 Compl = ", " & ComplementoTextBox.Text
             End If
 
-
-
+            '///////////////////////////////////////////////////////////////////////////////////
             'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
             If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
                 MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
-
-
-
 
                 If MsgBox("Deseja adicionar o novo cadastro?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                     'procurar o CPF no FrmLegalizacao.DadosSociosRichTextBox
@@ -395,25 +393,16 @@ Novos dados:" + "
 
 " & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", Nº: " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG Nº " & RG & " " & OrgaoRG & "/" & EstadoRG & ", e do CPF Nº " & CPF & "." & vbCrLf & "
 " + vbCrLf)
-
-
                 End If
 
             Else
-
-
-
                 'Contagem de Socios
                 If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
                     FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
                 Else
                     FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
                 End If
-
                 Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
-
-
-
                 'FORMA FINAL
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
@@ -422,17 +411,11 @@ Novos dados:" + "
 //////////////////////////////////////////////////////////////////////
 "
 
-
             End If
-
             'Focar na frente o FrmLegalizacao
             FrmLegalizacao.Focus()
             FrmLegalizacao.DadosSociosRichTextBox.Focus()
-
             Me.Close()
-
-
-
         Catch ex As Exception
             'mostra mgs do local do erro + "Preencha todos os campos obrigatórios"
             MsgBox(ex.Message & "Preencha todos os campos obrigatórios", MsgBoxStyle.Critical, "Atenção")
@@ -1151,9 +1134,18 @@ Novos dados:" + "
 
     Private Sub RGTextBox_Validated(sender As Object, e As EventArgs) Handles RGTextBox.Validated
         'ModTexto usar o  OnlyNumbers
-        RGTextBox.Text = ApenasNumeros(RGTextBox.Text)
-        ' RGTextBox.Text = RGTextBox.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("/", "").Replace(" ", "")
-
+        Dim RG As String = RGTextBox.Text
+        RG = ApenasNumeros(RGTextBox.Text)
+        'mascarar RG com formato "00.000.000-0" <= 9 digitos
+        If RG.Length = 9 Then
+            RG = RG.Insert(3, ".")
+            RG = RG.Insert(7, ".")
+            RG = RG.Insert(11, "-")
+        Else 'mascarar RG com formato "0.000.000-0" <= 8 digitos
+            RG = RG.Insert(2, ".")
+            RG = RG.Insert(6, ".")
+            RG = RG.Insert(10, "-")
+        End If
     End Sub
 
     Private Sub BtnConsultaCPF_Click(sender As Object, e As EventArgs) Handles BtnConsultaCPF.Click
@@ -1298,4 +1290,5 @@ Novos dados:" + "
         'transforma em reais
         TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
     End Sub
+
 End Class
