@@ -1133,19 +1133,18 @@ Novos dados:" + "
     End Sub
 
     Private Sub RGTextBox_Validated(sender As Object, e As EventArgs) Handles RGTextBox.Validated
-        'ModTexto usar o  OnlyNumbers
+        RGTextBox.Text = ApenasNumeros(RGTextBox.Text)
+
         Dim RG As String = RGTextBox.Text
-        RG = ApenasNumeros(RGTextBox.Text)
-        'mascarar RG com formato "00.000.000-0" <= 9 digitos
-        If RG.Length = 9 Then
-            RG = RG.Insert(3, ".")
-            RG = RG.Insert(7, ".")
-            RG = RG.Insert(11, "-")
-        Else 'mascarar RG com formato "0.000.000-0" <= 8 digitos
-            RG = RG.Insert(2, ".")
-            RG = RG.Insert(6, ".")
-            RG = RG.Insert(10, "-")
+        If RGTextBox.Text.Length = 8 Then
+            RG = RG.Substring(0, 1) & "." & RG.Substring(1, 3) & "." & RG.Substring(4, 3) & "-" & RG.Substring(7, 1)
+            RGTextBox.Text = RG
+        ElseIf RGTextBox.Text.Length = 9 Then
+
+            RG = RG.Substring(0, 2) & "." & RG.Substring(2, 3) & "." & RG.Substring(5, 3) & "-" & RG.Substring(8, 1)
+            RGTextBox.Text = RG
         End If
+
     End Sub
 
     Private Sub BtnConsultaCPF_Click(sender As Object, e As EventArgs) Handles BtnConsultaCPF.Click
@@ -1270,7 +1269,7 @@ Novos dados:" + "
         If CivilTextBox.Text = "" Then
             CivilTextBox.Width = 118
         Else
-            CivilTextBox.Width = CivilTextBox.Text.Length * 6
+            CivilTextBox.Width = CivilTextBox.Text.Length * 7
         End If
     End Sub
 
