@@ -43,6 +43,8 @@ Public Class FrmSocios
         ComboBox1.SelectedIndex = 0
 
         BtnDuplicidade.Visible = False
+
+        BtnEditar.Text = "Editar"
     End Sub
 
     Private Sub BloquearEdicao()
@@ -51,6 +53,13 @@ Public Class FrmSocios
         GroupBoxOutrosDados.Enabled = False
         GroupBoxConjuge.Enabled = False
 
+        'nao habilita o botao exlcuir
+        BtnSalvar.Enabled = False
+        BtnExcluir.Enabled = False
+        ' habilitar, botao novo, fechar 
+        BtnNovo.Enabled = True
+        BtnFecharMenu.Enabled = True
+        BtnFechar.Enabled = True
     End Sub
 
     Private Sub LiberarEdicao()
@@ -58,6 +67,14 @@ Public Class FrmSocios
         GroupBoxDadosPessoais.Enabled = True
         GroupBoxOutrosDados.Enabled = True
         GroupBoxConjuge.Enabled = True
+
+        'habilita o botao exlcuir
+        BtnSalvar.Enabled = True
+        BtnExcluir.Enabled = True
+        'nao habilitar, botao novo, fechar 
+        BtnNovo.Enabled = False
+        BtnFecharMenu.Enabled = False
+        BtnFechar.Enabled = False
     End Sub
 
     Private Sub EstadoCivil()
@@ -126,11 +143,24 @@ Public Class FrmSocios
     End Sub
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
-        'perguntar, editar ou não
-        ' If MessageBox.Show("Deseja editar o registro?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-        LiberarEdicao()
-        TextBoxExtensoDN.Visible = False
-        ' End If
+
+        If BtnEditar.Text = "Cancelar" Then
+            'cancelar ediçao
+            If MsgBox("Deseja cancelar a edição?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                'cancelar ediçao
+                Me.SociosBindingSource.CancelEdit()
+                BloquearEdicao()
+                TextBoxExtensoDN.Visible = False
+                BtnDuplicidade.Visible = False
+                BtnEditar.Text = "Editar"
+            End If
+        ElseIf BtnEditar.Text = "Editar" Then
+            LiberarEdicao()
+            TextBoxExtensoDN.Visible = False
+            'muda o nome do botao para "Cancelar"
+            BtnEditar.Text = "Cancelar"
+        End If
+
     End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
@@ -146,7 +176,7 @@ Public Class FrmSocios
         End If
     End Sub
 
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs)
         'cancelar ediçao
         If MsgBox("Deseja cancelar a edição?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
             'cancelar ediçao
@@ -263,25 +293,23 @@ Public Class FrmSocios
 
     End Sub
     Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
-        Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
-        Dim NomeSocio As String = NomeCompletoTextBox.Text
         Try
-            'perguntar antes
-            'mgsbox em negrito
-            If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                AtivarTab()
-
-                If FrmLegalizacao.Visible = True Then
-                    FrmLegalizacao.Focus()
+            If FrmLegalizacao.Visible = True Then
+                FrmLegalizacao.Focus()
+                Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
+                Dim NomeSocio As String = NomeCompletoTextBox.Text
+                If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                    AtivarTab()
                     ExportarDados()
                     Me.Close()
-                Else
-                    FrmLegalizacao.Show()
-                    ' ExportarDados()
-                    'mgsbox abrir a empresa onde deseja exportar
-                    MsgBox("Abrir a empresa onde deseja exportar!")
                 End If
+            Else
+                FrmLegalizacao.Show()
+                ' ExportarDados()
+                'mgsbox abrir a empresa onde deseja exportar
+                MsgBox("Abrir a empresa onde deseja exportar!")
             End If
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -426,26 +454,22 @@ Novos dados:" + "
 
     End Sub
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
-        Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
-        Dim NomeSocio As String = NomeCompletoTextBox.Text
         Try
-            'perguntar antes
-            'mgsbox em negrito
-            If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                AtivarTab()
+            If FrmLegalizacao.Visible = True Then
+                FrmLegalizacao.Focus()
+                Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
+                Dim NomeSocio As String = NomeCompletoTextBox.Text
 
-                If FrmLegalizacao.Visible = True Then
+                If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                     AtivarTab()
                     AddSocios()
-
-                Else
-                    FrmLegalizacao.Show()
-                    ' ExportarDados()
-                    'mgsbox abrir a empresa onde deseja exportar
-                    MsgBox("Abrir a empresa onde deseja exportar!")
                 End If
+            Else
+                FrmLegalizacao.Show()
+                ' ExportarDados()
+                'mgsbox abrir a empresa onde deseja exportar
+                MsgBox("Abrir a empresa onde deseja exportar!")
             End If
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -457,40 +481,47 @@ Novos dados:" + "
 
     'ao fechar PrinceDBDataSet.Socios.GetChanges() verificar se teve alterações
     Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'verificar se teve alterações no formulario atual compadado ao que tem no banco de dados
-        Dim changedRecords As System.Data.DataTable
-        Me.SociosBindingSource.EndEdit()
-        changedRecords = PrinceDBDataSet.Socios.GetChanges()
+        If BtnEditar.Text = "Cancelar" Then
+            'mgsbox "Favor cancelar edição"
+            MsgBox("Favor, cancelar edição", MsgBoxStyle.Exclamation, "Atenção")
+            'nao fechar o form
+            e.Cancel = True
+        Else
+            'verificar se teve alterações no formulario atual compadado ao que tem no banco de dados
+            Dim changedRecords As System.Data.DataTable
+            Me.SociosBindingSource.EndEdit()
+            changedRecords = PrinceDBDataSet.Socios.GetChanges()
 
 
-        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-            Dim message As String
-            'mostrar quantas alterações foram feitas e id
-            message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
+            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+                Dim message As String
+                'mostrar quantas alterações foram feitas e id
+                message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
 
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-                e.Cancel = True
-            ElseIf result = DialogResult.No Then
+                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+                If result = DialogResult.Cancel Then
+                    e.Cancel = True
+                ElseIf result = DialogResult.No Then
 
-            ElseIf result = DialogResult.Yes Then
-                Try
-                    'salvar alterações
-                    Me.Validate()
-                    Me.SociosBindingSource.EndEdit()
-                    Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+                ElseIf result = DialogResult.Yes Then
+                    Try
+                        'salvar alterações
+                        Me.Validate()
+                        Me.SociosBindingSource.EndEdit()
+                        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
 
-                Catch exc As Exception
+                    Catch exc As Exception
 
-                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
-                End Try
+                    End Try
+
+                End If
+
 
             End If
 
-
         End If
-
     End Sub
 
 
