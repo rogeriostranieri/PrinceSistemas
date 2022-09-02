@@ -467,110 +467,151 @@ Public Class FrmAlvara
         TabControlAcompanhamento.SelectTab(4)
     End Sub
 
+    Private Sub ALVARAEsconderAtalhosNavegadorPadrao()
+        'Simples Nacional
+        WebSiteGERAL.ToolStripDropDownButton2.Visible = False
+        'RedeSim
+        WebSiteGERAL.ToolStripDropDownButton3.Visible = False
+        'BtnTSE
+        WebSiteGERAL.BtnTSE.Visible = False
+        'BtnProcuracao
+        WebSiteGERAL.BtnProcuracao.Visible = False
+        'ToolStripDropDownButton4
+        WebSiteGERAL.ToolStripDropDownButton4.Visible = False
+
+
+        'DIVISORIAS
+        'Divisoria Simples e RedeSim 
+        'ToolStripSeparator3
+        WebSiteGERAL.ToolStripSeparator3.Visible = False
+        'RedeSim e Alvara
+        'ToolStripSeparator6
+        WebSiteGERAL.ToolStripSeparator6.Visible = False
+        'Alvará e titulo de eleitor
+        'ToolStripSeparator8
+        WebSiteGERAL.ToolStripSeparator8.Visible = False
+        'titulo de eleitor e procuração
+        'ToolStripSeparator9
+        WebSiteGERAL.ToolStripSeparator9.Visible = False
+        'procuração e receita federal
+        'ToolStripSeparator10
+        WebSiteGERAL.ToolStripSeparator10.Visible = False
+    End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles ButtonConsultar.Click
+        Try
+            'Abrir anotações direto
+            TabAlvara.SelectTab(1)
+            TabControlAcompanhamento.SelectTab(0)
+            Dim NLaudo As String = NlaudoTextBox.Text.Replace(" ", "")
 
-        'Abrir anotações direto
-        TabAlvara.SelectTab(1)
-        TabControlAcompanhamento.SelectTab(0)
 
-        Dim NLaudo As String = NlaudoTextBox.Text.Replace(" ", "")
-
-
-        If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
-            'tirar espaço do textbox laudo
-
-            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                WebSiteGERAL.Focus()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
-                End If
-            Else
-                WebSiteGERAL.Show()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("https://venus.maringa.pr.gov.br/laudosnew/consultar.php")
-                End If
-            End If
-        ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
-            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                WebSiteGERAL.Focus()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e4s1")
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
-                End If
-            Else
-                WebSiteGERAL.Show()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e4s1")
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
-                End If
-            End If
-        ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
-            MessageBox.Show("Ligar ou Comparecer na Prefeitura da cidade onde foi solicitado", "Prince Ajuda")
-        ElseIf ModeloSistemaComboBox.Text = "Consulta Prévia" Then
-            MessageBox.Show("Consulta Prévia solicitada antes do pedido de alvará na Prefeitura", "Prince Ajuda")
-        ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
-            Select Case EndEstadoLabel2.Text.Trim()
-                Case "PR"
-                    If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
-                    Else
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
+            If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
+                If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                    WebSiteGERAL.Focus()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
                     End If
-                Case "SC"
-                    If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
-                    Else
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
+                Else
+                    WebSiteGERAL.Show()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("https://venus.maringa.pr.gov.br/laudosnew/consultar.php")
                     End If
-                Case ""
-                    TabAlvara.SelectTab(0)
-                    TabControl2.SelectTab(1)
-                    If EndEstadoTextBox.Text = "" Then
-                        MessageBox.Show("Preencher o endereço completo e salvar para atualizar o formulário", "Prince Ajuda")
-                    Else
-                        MessageBox.Show("Estado Não cadastrado, favor contatar o administrador do sistema", "Prince Ajuda")
-                    End If
-            End Select
+                End If
+                ALVARAEsconderAtalhosNavegadorPadrao()
 
-        ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
-            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                WebSiteGERAL.Focus()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                WebSiteGERAL.WebView.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
-                If EndCidadeLabel2.Text.Contains("Maring") Then
+            ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
+                If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                    WebSiteGERAL.Focus()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e4s1")
+                    ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
+                    End If
+                Else
+                    WebSiteGERAL.Show()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e4s1")
+                    ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
+                    End If
+                End If
+                ALVARAEsconderAtalhosNavegadorPadrao()
+
+            ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
+                MessageBox.Show("Ligar ou Comparecer na Prefeitura da cidade onde foi solicitado", "Prince Ajuda")
+            ElseIf ModeloSistemaComboBox.Text = "Consulta Prévia" Then
+                MessageBox.Show("Consulta Prévia solicitada antes do pedido de alvará na Prefeitura", "Prince Ajuda")
+            ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
+                Select Case EndEstadoLabel2.Text.Trim()
+                    Case "PR"
+                        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                            WebSiteGERAL.Focus()
+                            WebSiteGERAL.MdiParent = MDIPrincipal
+                            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
+                        Else
+                            WebSiteGERAL.Show()
+                            WebSiteGERAL.MdiParent = MDIPrincipal
+                            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
+                        End If
+                    Case "SC"
+                        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                            WebSiteGERAL.Focus()
+                            WebSiteGERAL.MdiParent = MDIPrincipal
+                            WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
+                        Else
+                            WebSiteGERAL.Show()
+                            WebSiteGERAL.MdiParent = MDIPrincipal
+                            WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
+                        End If
+                    Case ""
+                        TabAlvara.SelectTab(0)
+                        TabControl2.SelectTab(1)
+                        If EndEstadoTextBox.Text = "" Then
+                            MessageBox.Show("Preencher o endereço completo e salvar para atualizar o formulário", "Prince Ajuda")
+                        Else
+                            MessageBox.Show("Estado Não cadastrado, favor contatar o administrador do sistema", "Prince Ajuda")
+                        End If
+                End Select
+
+                ALVARAEsconderAtalhosNavegadorPadrao()
+
+            ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
+                If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                    WebSiteGERAL.Focus()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
                     WebSiteGERAL.WebView.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    MessageBox.Show("Manual na prefeitura com documento assinado!", "Prince Ajuda")
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0")
+                    ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
+                        MessageBox.Show("Manual na prefeitura com documento assinado!", "Prince Ajuda")
+                    End If
                 End If
+                ALVARAEsconderAtalhosNavegadorPadrao()
+
+            ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
+                If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                    WebSiteGERAL.Focus()
+                    WebSiteGERAL.MdiParent = MDIPrincipal
+                    If EndCidadeLabel2.Text.Contains("Maring") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
+                    ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
+                        WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e3s1")
+                    End If
+                End If
+                ALVARAEsconderAtalhosNavegadorPadrao()
+
+            Else
+                MessageBox.Show("Sem sistema para consulta", "Prince Sistemas - Alerta")
             End If
 
-        ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
-            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                WebSiteGERAL.Focus()
-                WebSiteGERAL.MdiParent = MDIPrincipal
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e5s1")
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e3s1")
-                End If
-            End If
-        Else
-            MessageBox.Show("Sem sistema para consulta", "Prince Sistemas - Alerta")
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Prince Sistemas - Alerta")
+        End Try
+
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles BtnCalendarioWindows.Click

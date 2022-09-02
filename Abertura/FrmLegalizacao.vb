@@ -654,13 +654,13 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                         WebSiteGERAL.Focus()
                         WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
                         Exit Sub
                     ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
                         WebSiteGERAL.Focus()
                         WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
                         Exit Sub
                     End If
                 Else
@@ -669,7 +669,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                         WebSiteGERAL.Focus()
                         WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
                         Exit Sub
                     ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
 
@@ -677,7 +677,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                         WebSiteGERAL.Focus()
                         WebSiteGERAL.BringToFront()
                         Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM & "&erro=4")
+                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
                         Exit Sub
                     End If
                 End If
@@ -1469,11 +1469,17 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub LinkLabel13_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel13.LinkClicked
+        Dim Protocolo As String = ProtocoloREDESIMTextBox.Text
+
         If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
             WebSiteGERAL.Focus()
             WebSiteGERAL.BringToFront()
             WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            If WebSiteGERAL.TxtCarregamento.Text = "Carregamento Completo" Then
+                'id="prot"
+                WebSiteGERAL.WebView.ExecuteScriptAsync("document.getElementById('prot').value = '" + Protocolo + "'")
+            End If
         Else
             WebSiteGERAL.Show()
             WebSiteGERAL.BringToFront()
@@ -1482,17 +1488,30 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub LinkLabel14_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel14.LinkClicked
-        ' System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+        Dim Protocolo As String = ProtocoloREDESIMTextBox.Text
 
         If WebSiteGERAL.Visible = True Then
             'coloca focus e frente
             WebSiteGERAL.Focus()
             WebSiteGERAL.BringToFront()
             WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+
+            If WebSiteGERAL.TxtCarregamento.Text = "Carregamento Completo" Then
+                'id="prot"
+                WebSiteGERAL.WebView.ExecuteScriptAsync("document.getElementById('prot').value = '" + Protocolo + "'")
+                'class="btn btn-primary"
+                WebSiteGERAL.WebView.ExecuteScriptAsync("document.getElementsByClassName('btn btn-primary')[0].click()")
+            End If
         Else
             WebSiteGERAL.Show()
             WebSiteGERAL.BringToFront()
             WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/cancela.asp?_ga=2.182421287.1840779760.1611238476-1712582906.1584021811")
+            If WebSiteGERAL.TxtCarregamento.Text = "Carregamento Completo" Then
+                'id="prot"
+                WebSiteGERAL.WebView.ExecuteScriptAsync("document.getElementById('prot').value = '" + Protocolo + "'")
+                'class="btn btn-primary"
+                WebSiteGERAL.WebView.ExecuteScriptAsync("document.getElementsByClassName('btn btn-primary')[0].click()")
+            End If
         End If
     End Sub
 

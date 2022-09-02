@@ -42,7 +42,7 @@ Public Class FrmSocios
         'seleciona o primeiro do ComboBox1
         ComboBox1.SelectedIndex = 0
 
-
+        BtnDuplicidade.Visible = False
     End Sub
 
     Private Sub BloquearEdicao()
@@ -120,6 +120,7 @@ Public Class FrmSocios
             ListBoxEstadoCivil.SelectedIndex = 0
 
             TextBoxExtensoDN.Visible = False
+            BtnDuplicidade.Visible = True
         End If
 
     End Sub
@@ -152,6 +153,7 @@ Public Class FrmSocios
             Me.SociosBindingSource.CancelEdit()
             BloquearEdicao()
             TextBoxExtensoDN.Visible = False
+            BtnDuplicidade.Visible = False
         End If
 
     End Sub
@@ -1290,4 +1292,42 @@ Novos dados:" + "
         TextBoxCapitalSocial.Text = FormatCurrency(TextBoxCapitalSocial.Text)
     End Sub
 
+
+    Private Sub ConsultarCPFNoBanco()
+        'verificar se o CPF contem no banco de dados PrinceDBDataSet.Socios
+        If CPFMaskedTextBox.Text <> "" Then
+            Dim str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+            Dim sql As String = "select count(*) from Socios where CPF=@CPF"
+            Dim con As New SqlConnection(str)
+            Dim cmd As New SqlCommand(sql, con)
+            cmd.Parameters.AddWithValue("@CPF", CPFMaskedTextBox.Text)
+            con.Open()
+            Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+            con.Close()
+            If count > 0 Then
+                'ver duplicidade de cpf
+                MsgBox("CPF já cadastrado no banco de dados", MsgBoxStyle.Critical, "CPF Duplicado")
+                BtnDuplicidade.Visible = False
+                Dim CPF As String = CPFMaskedTextBox.Text
+                ' cancelar
+                Me.SociosBindingSource.CancelEdit()
+                BloquearEdicao()
+                TextBoxExtensoDN.Visible = False
+                'mostrar o CPF que ja tem cadastrado
+                'CPFComboBox
+                CPFComboBox.Text = CPF
+                CPFComboBox.Focus()
+            Else
+                MessageBox.Show("CPF não cadastrado no banco de dados")
+            End If
+        Else
+            MessageBox.Show("CPF está vazio")
+        End If
+
+    End Sub
+
+    Private Sub BtnDuplicidade_Click(sender As Object, e As EventArgs) Handles BtnDuplicidade.Click
+        ConsultarCPFNoBanco()
+
+    End Sub
 End Class
