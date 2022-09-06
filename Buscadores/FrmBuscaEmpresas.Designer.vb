@@ -55,6 +55,10 @@ Partial Class FrmBuscaEmpresas
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxResponsavel = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TxtCidade = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TxtEstado = New System.Windows.Forms.TextBox()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -240,7 +244,7 @@ Partial Class FrmBuscaEmpresas
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 159)
+        Me.Label4.Location = New System.Drawing.Point(9, 179)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(194, 18)
         Me.Label4.TabIndex = 18
@@ -249,7 +253,7 @@ Partial Class FrmBuscaEmpresas
         'TxtPesquisaProtJunta
         '
         Me.TxtPesquisaProtJunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaProtJunta.Location = New System.Drawing.Point(209, 156)
+        Me.TxtPesquisaProtJunta.Location = New System.Drawing.Point(209, 176)
         Me.TxtPesquisaProtJunta.Name = "TxtPesquisaProtJunta"
         Me.TxtPesquisaProtJunta.Size = New System.Drawing.Size(300, 24)
         Me.TxtPesquisaProtJunta.TabIndex = 19
@@ -257,7 +261,7 @@ Partial Class FrmBuscaEmpresas
         'TxtPesquisaProtRedeSim
         '
         Me.TxtPesquisaProtRedeSim.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaProtRedeSim.Location = New System.Drawing.Point(209, 186)
+        Me.TxtPesquisaProtRedeSim.Location = New System.Drawing.Point(209, 206)
         Me.TxtPesquisaProtRedeSim.Name = "TxtPesquisaProtRedeSim"
         Me.TxtPesquisaProtRedeSim.Size = New System.Drawing.Size(300, 24)
         Me.TxtPesquisaProtRedeSim.TabIndex = 21
@@ -267,7 +271,7 @@ Partial Class FrmBuscaEmpresas
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(9, 189)
+        Me.Label5.Location = New System.Drawing.Point(9, 209)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(154, 18)
         Me.Label5.TabIndex = 20
@@ -276,7 +280,7 @@ Partial Class FrmBuscaEmpresas
         'TxtPesquisaCompEstado
         '
         Me.TxtPesquisaCompEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaCompEstado.Location = New System.Drawing.Point(209, 216)
+        Me.TxtPesquisaCompEstado.Location = New System.Drawing.Point(209, 236)
         Me.TxtPesquisaCompEstado.Name = "TxtPesquisaCompEstado"
         Me.TxtPesquisaCompEstado.Size = New System.Drawing.Size(300, 24)
         Me.TxtPesquisaCompEstado.TabIndex = 23
@@ -286,16 +290,16 @@ Partial Class FrmBuscaEmpresas
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(9, 219)
+        Me.Label6.Location = New System.Drawing.Point(9, 239)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(157, 18)
+        Me.Label6.Size = New System.Drawing.Size(204, 18)
         Me.Label6.TabIndex = 22
-        Me.Label6.Text = "Estado Comprovante :"
+        Me.Label6.Text = "Nº do Comprovante Estadual:"
         '
         'TxtPesquisaProtEstado
         '
         Me.TxtPesquisaProtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPesquisaProtEstado.Location = New System.Drawing.Point(209, 246)
+        Me.TxtPesquisaProtEstado.Location = New System.Drawing.Point(209, 266)
         Me.TxtPesquisaProtEstado.Name = "TxtPesquisaProtEstado"
         Me.TxtPesquisaProtEstado.Size = New System.Drawing.Size(300, 24)
         Me.TxtPesquisaProtEstado.TabIndex = 25
@@ -305,14 +309,18 @@ Partial Class FrmBuscaEmpresas
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(9, 249)
+        Me.Label7.Location = New System.Drawing.Point(9, 269)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(141, 18)
+        Me.Label7.Size = New System.Drawing.Size(188, 18)
         Me.Label7.TabIndex = 24
-        Me.Label7.Text = "Estado eProtocolo :"
+        Me.Label7.Text = "Nº do eProtocolo Estadual:"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.TxtEstado)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.TxtCidade)
         Me.GroupBox1.Controls.Add(Me.ButtonLimpar)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.TextBoxResponsavel)
@@ -389,6 +397,44 @@ Partial Class FrmBuscaEmpresas
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1116, 399)
         Me.TableLayoutPanel1.TabIndex = 27
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(9, 119)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(62, 18)
+        Me.Label9.TabIndex = 35
+        Me.Label9.Text = "Cidade :"
+        '
+        'TxtCidade
+        '
+        Me.TxtCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCidade.Location = New System.Drawing.Point(156, 116)
+        Me.TxtCidade.Name = "TxtCidade"
+        Me.TxtCidade.Size = New System.Drawing.Size(353, 24)
+        Me.TxtCidade.TabIndex = 34
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(9, 149)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(120, 18)
+        Me.Label10.TabIndex = 37
+        Me.Label10.Text = "Sigla do Estado :"
+        '
+        'TxtEstado
+        '
+        Me.TxtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEstado.Location = New System.Drawing.Point(156, 146)
+        Me.TxtEstado.Name = "TxtEstado"
+        Me.TxtEstado.Size = New System.Drawing.Size(353, 24)
+        Me.TxtEstado.TabIndex = 36
+        '
         'FrmBuscaEmpresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -449,4 +495,8 @@ Partial Class FrmBuscaEmpresas
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonLimpar As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TxtEstado As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents TxtCidade As TextBox
 End Class

@@ -4,12 +4,28 @@
     End Sub
 
     Private Sub FrmBuscaAlvara_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADSituacaoAlvara'. Você pode movê-la ou removê-la conforme necessário.
+        Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
+
+        'CheckBoxSituacao marcar
+        CheckBoxSituacao.Checked = True
+        'CheckBoxSituacao desmarcar
+        CheckBoxSituacao.Checked = False
+
+        'bloquear LaudosDataGridView para edições
+        LaudosDataGridView.ReadOnly = True
+
+        'combobox1 coloca nos itens "Descricao" do banco de dados CADSituacaoAlvara
+        ComboBox1.DataSource = Me.PrinceDBDataSet.CADSituacaoAlvara
+        ComboBox1.DisplayMember = "Descricao"
+        ComboBox1.ValueMember = "Descricao"
+
     End Sub
 
-    Private Sub LaudosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LaudosDataGridView.CellContentClick
+    Private Sub LaudosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles LaudosDataGridView.CellContentDoubleClick
         If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
@@ -40,11 +56,19 @@
         LaudosDataGridView.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         LaudosDataGridView.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         LaudosDataGridView.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        LaudosDataGridView.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        CheckBoxSituacao.Checked = False
+    End Sub
+
+    Private Sub RemoverFiltro()
+        'atualizar db
+        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+        'Limpar Antes e reinicia o filtro
+        LaudosBindingSource.RemoveFilter()
     End Sub
 
     Private Sub ButtonLimpar_Click(sender As Object, e As EventArgs) Handles ButtonLimpar.Click
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         Organizar()
         'Mostrar colunas
         LaudosDataGridView.Columns(0).Visible = True
@@ -60,13 +84,13 @@
         TextBoxRequerente.Clear()
         TxtCMC.Clear()
         TxtNumLaudo.Clear()
+        TxtCidade.Clear()
 
     End Sub
 
     '/////////////// txt busca ///////////////
     Private Sub TxtPesquisaRazaoSocial_TextChanged(sender As Object, e As EventArgs) Handles TxtPesquisaRazaoSocial.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         'Filtra o DataGridView
         LaudosBindingSource.Filter = "RazaoSocial like '%" & TxtPesquisaRazaoSocial.Text & "%'"
         'esconder aa coluna
@@ -83,8 +107,7 @@
     End Sub
 
     Private Sub TxtPesquisaCNPJ_TextChanged(sender As Object, e As EventArgs) Handles TxtPesquisaCNPJ.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         'Filtra o DataGridView
         LaudosBindingSource.Filter = "CNPJ like '%" & TxtPesquisaCNPJ.Text & "%'"
         'esconder aa coluna 
@@ -101,8 +124,7 @@
     End Sub
 
     Private Sub TextBoxRequerente_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRequerente.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         'Filtra o DataGridView
         LaudosBindingSource.Filter = "Requerente like '%" & TextBoxRequerente.Text & "%'"
         'esconder aa coluna 
@@ -119,8 +141,7 @@
     End Sub
 
     Private Sub TxtCMC_TextChanged(sender As Object, e As EventArgs) Handles TxtCMC.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         'Filtra o DataGridView
         LaudosBindingSource.Filter = "CMC like '%" & TxtCMC.Text & "%'"
         'esconder aa coluna 
@@ -137,8 +158,7 @@
     End Sub
 
     Private Sub TxtNumLaudo_TextChanged(sender As Object, e As EventArgs) Handles TxtNumLaudo.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
+        RemoverFiltro()
         'Filtra o DataGridView
         LaudosBindingSource.Filter = "Nlaudo like '%" & TxtNumLaudo.Text & "%'"
         'esconder aa coluna 
@@ -155,10 +175,65 @@
     End Sub
 
     Private Sub TxtCidade_TextChanged(sender As Object, e As EventArgs) Handles TxtCidade.TextChanged
-        'Limpar Antes e reinicia o filtro
-        LaudosBindingSource.RemoveFilter()
-        'Filtra o DataGridView
+        RemoverFiltro()
         LaudosBindingSource.Filter = "EndCidade like '%" & TxtCidade.Text & "%'"
+
+        'esconder aa coluna 
+        LaudosDataGridView.Columns(0).Visible = True
+        LaudosDataGridView.Columns(1).Visible = True
+        LaudosDataGridView.Columns(2).Visible = False
+        LaudosDataGridView.Columns(3).Visible = False
+        LaudosDataGridView.Columns(4).Visible = True
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
+
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+
+    Private Sub FiltroSituacao()
+        If TxtPesquisaRazaoSocial.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and RazaoSocial like '%" & TxtPesquisaRazaoSocial.Text & "%'"
+        ElseIf TxtPesquisaCNPJ.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and CNPJ like '%" & TxtPesquisaCNPJ.Text & "%'"
+        ElseIf TextBoxRequerente.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and Requerent like '%" & TextBoxRequerente.Text & "%'"
+        ElseIf TxtCMC.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and CMC like '%" & TxtCMC.Text & "%'"
+        ElseIf TxtNumLaudo.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and NumLaudo like '%" & TxtNumLaudo.Text & "%'"
+        ElseIf TxtCidade.Text <> "" Then
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%' and EndCidade like '%" & TxtCidade.Text & "%'"
+        Else
+            LaudosBindingSource.Filter = "Situacao like '%" & ComboBox1.Text & "%'"
+        End If
+    End Sub
+    Private Sub BtnFiltroSituacao_Click(sender As Object, e As EventArgs) Handles BtnFiltroSituacao.Click
+        FiltroSituacao()
+    End Sub
+
+    Private Sub CheckBoxSituacao_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSituacao.CheckedChanged
+        'se CheckBoxSituacao for marcado mostra SituacaoComboBox e o botao BtnFiltroSituacao
+        'se não esconder
+        If CheckBoxSituacao.Checked = True Then
+            ' SituacaoComboBox.Visible = True
+            'BtnFiltroSituacao.Visible = True
+            ' LabelSituacao.Visible = True
+            GroupBox2.Visible = True
+
+        Else
+            GroupBox2.Visible = False
+            ' SituacaoComboBox.Visible = False
+            ' BtnFiltroSituacao.Visible = False
+            ' LabelSituacao.Visible = False
+        End If
+    End Sub
+
+    Private Sub TxtEstado_TextChanged(sender As Object, e As EventArgs) Handles TxtEstado.TextChanged
+        RemoverFiltro()
+        LaudosBindingSource.Filter = "EndEstado like '%" & TxtEstado.Text & "%'"
+
         'esconder aa coluna 
         LaudosDataGridView.Columns(0).Visible = True
         LaudosDataGridView.Columns(1).Visible = True

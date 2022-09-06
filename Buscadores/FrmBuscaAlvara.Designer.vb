@@ -23,8 +23,9 @@ Partial Class FrmBuscaAlvara
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
         Dim EndCidadeLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
+        Dim Label6 As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -34,7 +35,9 @@ Partial Class FrmBuscaAlvara
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtCidade = New System.Windows.Forms.TextBox()
         Me.ButtonLimpar = New System.Windows.Forms.Button()
+        Me.CheckBoxSituacao = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxRequerente = New System.Windows.Forms.TextBox()
         Me.TxtNumLaudo = New System.Windows.Forms.TextBox()
@@ -45,7 +48,13 @@ Partial Class FrmBuscaAlvara
         Me.TxtPesquisaCNPJ = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtPesquisaRazaoSocial = New System.Windows.Forms.TextBox()
-        Me.TxtCidade = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LabelSituacao = New System.Windows.Forms.Label()
+        Me.BtnFiltroSituacao = New System.Windows.Forms.Button()
+        Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Requerente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,14 +62,29 @@ Partial Class FrmBuscaAlvara
         Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EndCidade = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EndEstado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TxtEstado = New System.Windows.Forms.TextBox()
         EndCidadeLabel = New System.Windows.Forms.Label()
+        Label6 = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EndCidadeLabel
+        '
+        EndCidadeLabel.AutoSize = True
+        EndCidadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EndCidadeLabel.Location = New System.Drawing.Point(44, 180)
+        EndCidadeLabel.Name = "EndCidadeLabel"
+        EndCidadeLabel.Size = New System.Drawing.Size(67, 20)
+        EndCidadeLabel.TabIndex = 33
+        EndCidadeLabel.Text = "Cidade :"
         '
         'PrinceDBDataSet
         '
@@ -103,13 +127,13 @@ Partial Class FrmBuscaAlvara
         Me.LaudosDataGridView.AllowUserToOrderColumns = True
         Me.LaudosDataGridView.AutoGenerateColumns = False
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo, Me.EndCidade, Me.EndEstado})
+        Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo, Me.EndCidade, Me.EndEstado, Me.Situacao})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
         Me.LaudosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LaudosDataGridView.Location = New System.Drawing.Point(518, 67)
+        Me.LaudosDataGridView.Location = New System.Drawing.Point(493, 67)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
-        Me.LaudosDataGridView.Size = New System.Drawing.Size(501, 303)
+        Me.LaudosDataGridView.Size = New System.Drawing.Size(526, 301)
         Me.LaudosDataGridView.TabIndex = 1
         '
         'PictureBox2
@@ -135,7 +159,7 @@ Partial Class FrmBuscaAlvara
         Me.Label2.ForeColor = System.Drawing.Color.Blue
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(509, 64)
+        Me.Label2.Size = New System.Drawing.Size(484, 64)
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Busca dados em Alvará"
         '
@@ -143,26 +167,32 @@ Partial Class FrmBuscaAlvara
         '
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.48923!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.51077!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.04305!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.95695!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.PictureBox2, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LaudosDataGridView, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 1, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.36842!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.63158!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 373)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 457)
         Me.TableLayoutPanel1.TabIndex = 20
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtEstado)
+        Me.GroupBox1.Controls.Add(Label6)
         Me.GroupBox1.Controls.Add(Me.TxtCidade)
         Me.GroupBox1.Controls.Add(EndCidadeLabel)
         Me.GroupBox1.Controls.Add(Me.ButtonLimpar)
+        Me.GroupBox1.Controls.Add(Me.CheckBoxSituacao)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.TextBoxRequerente)
         Me.GroupBox1.Controls.Add(Me.TxtNumLaudo)
@@ -176,22 +206,41 @@ Partial Class FrmBuscaAlvara
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 67)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(509, 303)
+        Me.GroupBox1.Size = New System.Drawing.Size(484, 301)
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Digite aonde deseja localizar"
+        '
+        'TxtCidade
+        '
+        Me.TxtCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCidade.Location = New System.Drawing.Point(120, 176)
+        Me.TxtCidade.Name = "TxtCidade"
+        Me.TxtCidade.Size = New System.Drawing.Size(353, 24)
+        Me.TxtCidade.TabIndex = 34
         '
         'ButtonLimpar
         '
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(415, 263)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(395, 263)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(78, 32)
         Me.ButtonLimpar.TabIndex = 33
         Me.ButtonLimpar.Text = "Limpar"
         Me.ButtonLimpar.UseVisualStyleBackColor = True
+        '
+        'CheckBoxSituacao
+        '
+        Me.CheckBoxSituacao.AutoSize = True
+        Me.CheckBoxSituacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBoxSituacao.Location = New System.Drawing.Point(9, 269)
+        Me.CheckBoxSituacao.Name = "CheckBoxSituacao"
+        Me.CheckBoxSituacao.Size = New System.Drawing.Size(146, 22)
+        Me.CheckBoxSituacao.TabIndex = 2
+        Me.CheckBoxSituacao.Text = "Filtro por situação"
+        Me.CheckBoxSituacao.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -215,9 +264,9 @@ Partial Class FrmBuscaAlvara
         'TxtNumLaudo
         '
         Me.TxtNumLaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumLaudo.Location = New System.Drawing.Point(92, 179)
+        Me.TxtNumLaudo.Location = New System.Drawing.Point(120, 146)
         Me.TxtNumLaudo.Name = "TxtNumLaudo"
-        Me.TxtNumLaudo.Size = New System.Drawing.Size(300, 24)
+        Me.TxtNumLaudo.Size = New System.Drawing.Size(353, 24)
         Me.TxtNumLaudo.TabIndex = 21
         '
         'Label5
@@ -225,7 +274,7 @@ Partial Class FrmBuscaAlvara
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(9, 182)
+        Me.Label5.Location = New System.Drawing.Point(34, 149)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 18)
         Me.Label5.TabIndex = 20
@@ -234,9 +283,9 @@ Partial Class FrmBuscaAlvara
         'TxtCMC
         '
         Me.TxtCMC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCMC.Location = New System.Drawing.Point(92, 149)
+        Me.TxtCMC.Location = New System.Drawing.Point(120, 116)
         Me.TxtCMC.Name = "TxtCMC"
-        Me.TxtCMC.Size = New System.Drawing.Size(300, 24)
+        Me.TxtCMC.Size = New System.Drawing.Size(353, 24)
         Me.TxtCMC.TabIndex = 19
         '
         'Label4
@@ -244,7 +293,7 @@ Partial Class FrmBuscaAlvara
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 152)
+        Me.Label4.Location = New System.Drawing.Point(34, 119)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(77, 18)
         Me.Label4.TabIndex = 18
@@ -255,7 +304,7 @@ Partial Class FrmBuscaAlvara
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 62)
+        Me.Label3.Location = New System.Drawing.Point(55, 62)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 18)
         Me.Label3.TabIndex = 17
@@ -288,23 +337,67 @@ Partial Class FrmBuscaAlvara
         Me.TxtPesquisaRazaoSocial.Size = New System.Drawing.Size(353, 24)
         Me.TxtPesquisaRazaoSocial.TabIndex = 2
         '
-        'EndCidadeLabel
+        'GroupBox2
         '
-        EndCidadeLabel.AutoSize = True
-        EndCidadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndCidadeLabel.Location = New System.Drawing.Point(23, 212)
-        EndCidadeLabel.Name = "EndCidadeLabel"
-        EndCidadeLabel.Size = New System.Drawing.Size(63, 20)
-        EndCidadeLabel.TabIndex = 33
-        EndCidadeLabel.Text = "Cidade:"
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.LabelSituacao)
+        Me.GroupBox2.Controls.Add(Me.BtnFiltroSituacao)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 374)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(484, 80)
+        Me.GroupBox2.TabIndex = 28
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Filtro Personalizado"
         '
-        'TxtCidade
+        'LabelSituacao
         '
-        Me.TxtCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCidade.Location = New System.Drawing.Point(92, 209)
-        Me.TxtCidade.Name = "TxtCidade"
-        Me.TxtCidade.Size = New System.Drawing.Size(300, 24)
-        Me.TxtCidade.TabIndex = 34
+        Me.LabelSituacao.AutoSize = True
+        Me.LabelSituacao.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSituacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSituacao.Location = New System.Drawing.Point(16, 43)
+        Me.LabelSituacao.Name = "LabelSituacao"
+        Me.LabelSituacao.Size = New System.Drawing.Size(70, 18)
+        Me.LabelSituacao.TabIndex = 81
+        Me.LabelSituacao.Text = "Situação:"
+        '
+        'BtnFiltroSituacao
+        '
+        Me.BtnFiltroSituacao.BackgroundImage = CType(resources.GetObject("BtnFiltroSituacao.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFiltroSituacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFiltroSituacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFiltroSituacao.Location = New System.Drawing.Point(397, 36)
+        Me.BtnFiltroSituacao.Name = "BtnFiltroSituacao"
+        Me.BtnFiltroSituacao.Size = New System.Drawing.Size(78, 32)
+        Me.BtnFiltroSituacao.TabIndex = 80
+        Me.BtnFiltroSituacao.Text = "Filtrar"
+        Me.BtnFiltroSituacao.UseVisualStyleBackColor = True
+        '
+        'CADSituacaoAlvaraBindingSource
+        '
+        Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
+        Me.CADSituacaoAlvaraBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.Location = New System.Drawing.Point(493, 374)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(526, 80)
+        Me.GroupBox3.TabIndex = 29
+        Me.GroupBox3.TabStop = False
+        '
+        'CADSituacaoAlvaraTableAdapter
+        '
+        Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(92, 43)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(279, 21)
+        Me.ComboBox1.TabIndex = 82
         '
         'DataGridViewTextBoxColumn2
         '
@@ -358,13 +451,38 @@ Partial Class FrmBuscaAlvara
         Me.EndEstado.ReadOnly = True
         Me.EndEstado.Width = 50
         '
+        'Situacao
+        '
+        Me.Situacao.DataPropertyName = "Situacao"
+        Me.Situacao.HeaderText = "Situação"
+        Me.Situacao.Name = "Situacao"
+        Me.Situacao.ReadOnly = True
+        '
+        'TxtEstado
+        '
+        Me.TxtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEstado.Location = New System.Drawing.Point(143, 206)
+        Me.TxtEstado.Name = "TxtEstado"
+        Me.TxtEstado.Size = New System.Drawing.Size(330, 24)
+        Me.TxtEstado.TabIndex = 36
+        '
+        'Label6
+        '
+        Label6.AutoSize = True
+        Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label6.Location = New System.Drawing.Point(8, 208)
+        Label6.Name = "Label6"
+        Label6.Size = New System.Drawing.Size(129, 20)
+        Label6.TabIndex = 35
+        Label6.Text = "Sigla do Estado :"
+        '
         'FrmBuscaAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1022, 373)
+        Me.ClientSize = New System.Drawing.Size(1022, 457)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
@@ -382,6 +500,9 @@ Partial Class FrmBuscaAlvara
         Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -407,6 +528,14 @@ Partial Class FrmBuscaAlvara
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtPesquisaRazaoSocial As TextBox
     Friend WithEvents TxtCidade As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CADSituacaoAlvaraBindingSource As BindingSource
+    Friend WithEvents CADSituacaoAlvaraTableAdapter As PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter
+    Friend WithEvents CheckBoxSituacao As CheckBox
+    Friend WithEvents BtnFiltroSituacao As Button
+    Friend WithEvents LabelSituacao As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents Requerente As DataGridViewTextBoxColumn
@@ -414,4 +543,6 @@ Partial Class FrmBuscaAlvara
     Friend WithEvents Nlaudo As DataGridViewTextBoxColumn
     Friend WithEvents EndCidade As DataGridViewTextBoxColumn
     Friend WithEvents EndEstado As DataGridViewTextBoxColumn
+    Friend WithEvents Situacao As DataGridViewTextBoxColumn
+    Friend WithEvents TxtEstado As TextBox
 End Class

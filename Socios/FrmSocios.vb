@@ -492,12 +492,10 @@ Novos dados:" + "
             Me.SociosBindingSource.EndEdit()
             changedRecords = PrinceDBDataSet.Socios.GetChanges()
 
-
             If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
                 Dim message As String
                 'mostrar quantas alterações foram feitas e id
                 message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
-
                 Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
                 If result = DialogResult.Cancel Then
                     e.Cancel = True
@@ -511,43 +509,31 @@ Novos dados:" + "
                         Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
 
                     Catch exc As Exception
-
                         MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
                     End Try
-
                 End If
-
-
             End If
-
         End If
     End Sub
 
 
     Private Sub BtnWord_Click(sender As Object, e As EventArgs) Handles BtnWord.Click
-        'verificar se foi selecinado o combobox1
         If ComboBox1.SelectedIndex = -1 Then
             MsgBox("Selecione um número de sócio", MsgBoxStyle.Exclamation, "Atenção")
             ComboBox1.Focus()
             Exit Sub
 
         Else
-            'verificar se ExportarContratoWordDialog está aberto e focar
-            AtivarTab()
-
             If ExportarContratoWordDialog.Visible = True Then
+                AtivarTab()
                 ExportarContratoWordDialog.Focus()
             ElseIf ExportarLaudoWordDialog.Visible = True Then
+                AtivarTab()
                 ExportarContratoWordDialog.Focus()
             Else
                 MsgBox("Favor, abrir o formulário para exportação empresas ou alvará!")
             End If
-
-
-            'ExportarLaudoWordDialog
         End If
-
     End Sub
 
     Private Sub BtnCapitalSocial_Click(sender As Object, e As EventArgs) Handles BtnCapitalSocial.Click

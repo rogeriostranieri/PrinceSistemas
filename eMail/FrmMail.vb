@@ -87,7 +87,7 @@ Public Class FrmMail
             Dim destinatarios As String = Destinatario
             Dim Enviar As New System.Net.Mail.MailMessage '= New System.Net.Mail.MailMessage()
 
-            ProgressBar1.Value = 10
+            ProgressBar1.Value = 50
 
             Enviar.From = New System.Net.Mail.MailAddress(UserName)
 
@@ -95,14 +95,12 @@ Public Class FrmMail
                 Enviar.To.Add(New System.Net.Mail.MailAddress(mail))
             Next
 
-            ProgressBar1.Value = 20
-
             Enviar.Subject = TextBoxAssunto.Text
             Enviar.Body = RichTextBoxMensagem.Text
             Enviar.IsBodyHtml = True
             Enviar.Priority = System.Net.Mail.MailPriority.High
 
-            ProgressBar1.Value = 30
+            ProgressBar1.Value = 80
 
             'anexos
             'atribui caminhos dos anexos
@@ -117,7 +115,6 @@ Public Class FrmMail
             'fim codigo de entrada de dados 
             'inicio da confg para envio
 
-            ProgressBar1.Value = 40
 
             Dim client As New SmtpClient With {
                 .Host = SmtpClientTextBox.Text,
@@ -132,10 +129,10 @@ Public Class FrmMail
             client.Credentials = New System.Net.NetworkCredential(UserName, UserSenha)
             client.DeliveryMethod = SmtpDeliveryMethod.Network
 
-            ProgressBar1.Value = 60
+
 
             Try
-                ProgressBar1.Value = 70
+                ProgressBar1.Value = 90
 
                 'envia o email
                 client.Send(Enviar)
@@ -146,7 +143,7 @@ Public Class FrmMail
                 Me.EMailCaixaDeSaidaTableAdapter.Fill(Me.PrinceDBDataSet.eMailCaixaDeSaida)
                 Me.Refresh()
 
-                ProgressBar1.Value = 80
+
 
                 'limpa tudo
                 TextBoxPara.Text = ""
@@ -154,7 +151,7 @@ Public Class FrmMail
                 RichTextBoxMensagem.Text = "Seu texto ...."
                 LblAnexo.Text = "Anexo..."
 
-                ProgressBar1.Value = 90
+
 
                 'finaliza mostrando que está tudo ok
                 '    Timer1.Stop()

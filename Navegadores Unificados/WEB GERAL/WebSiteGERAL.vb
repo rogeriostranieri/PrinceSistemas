@@ -173,12 +173,17 @@ Public Class WebSiteGERAL
     Private Sub WebView_CoreWebView2InitializationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs) Handles WebView.CoreWebView2InitializationCompleted
         Try
             LogMsg("WebView_CoreWebView2InitializationCompleted")
-            LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
 
+            Try
+                LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
+            Catch ex As Exception
+                LogMsg(ex.Message)
+                Me.Close()
+            End Try
             'subscribe to CoreWebView2 event(s) (add event handlers) 
             AddHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
-        Catch ex As Exception
-            LogMsg(ex.Message)
+            Catch ex As Exception
+                LogMsg(ex.Message)
             Me.Close()
         End Try
     End Sub

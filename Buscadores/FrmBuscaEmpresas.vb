@@ -188,4 +188,38 @@ Public Class FrmBuscaEmpresas
         TxtPesquisaProtEstado.Clear()
 
     End Sub
+
+    Private Sub TxtCidade_TextChanged(sender As Object, e As EventArgs) Handles TxtCidade.TextChanged
+        'Limpar Antes e reinicia o filtro
+        EmpresasBindingSource.RemoveFilter()
+
+        'Filtra o DataGridView
+        EmpresasBindingSource.Filter = "EndCidade like '%" & TxtCidade.Text & "%'"
+        'esconder aa coluna 
+        EmpresasDataGridView.Columns(1).Visible = True
+        EmpresasDataGridView.Columns(2).Visible = False
+        EmpresasDataGridView.Columns(3).Visible = False
+        EmpresasDataGridView.Columns(4).Visible = False
+        EmpresasDataGridView.Columns(5).Visible = False
+        EmpresasDataGridView.Columns(6).Visible = True
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+    Private Sub TxtEstado_TextChanged(sender As Object, e As EventArgs) Handles TxtEstado.TextChanged
+        'Limpar Antes e reinicia o filtro
+        EmpresasBindingSource.RemoveFilter()
+
+        'Filtra o DataGridView
+        EmpresasBindingSource.Filter = "EndEstado like '%" & TxtEstado.Text & "%'"
+        'esconder aa coluna 
+        EmpresasDataGridView.Columns(1).Visible = True
+        EmpresasDataGridView.Columns(2).Visible = False
+        EmpresasDataGridView.Columns(3).Visible = False
+        EmpresasDataGridView.Columns(4).Visible = False
+        EmpresasDataGridView.Columns(5).Visible = False
+        EmpresasDataGridView.Columns(6).Visible = True
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
 End Class

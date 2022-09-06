@@ -10,46 +10,37 @@ Public Class BackupERestore
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
 
         Try
-
-
-
-            'dados
             Dim sqlConnectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
-            Dim conn As New SqlConnection(sqlConnectionString)
-            'abre conexao
-            conn.Open()
 
-            'comando para salvar
-            Dim cmd As New SqlCommand With {
-                .CommandType = CommandType.Text,
-                .CommandText = "BACKUP DATABASE PrinceDB TO DISK='D:\PrinceDB.BAK'",
-                .Connection = conn
-            }
-            cmd.ExecuteNonQuery()
-
-            'abrir a barra de progresso
-            '  Timer1.Enabled = True
-            ' ProgressBar1.Visible = True
-
-            'fecha conexao
-            conn.Close()
-
-
-            'todo certinho
-            'cmd.CommandText = "BACKUP DATABASE PrinceDB TO DISK='C:\Users\Betel User\Documents\Rogerio\PRINCEDB\PrinceDB.BAK'"
+            'perguntar se deseja fazer backup
+            'depois perguntar o local no windows para salvar antes savedialog e o nome
+            'depois fazer o backup
+            Dim sqlConnection As New SqlConnection(SqlConnectionString)
+            'escolher o local usando savedialog
+            Dim saveFileDialog1 As New SaveFileDialog
+            saveFileDialog1.Filter = "Backup Files|*.bak"
+            saveFileDialog1.Title = "Salvar o Arquivo de Backup"
+            saveFileDialog1.ShowDialog()
+            'verificar se o usuario escolheu um local
+            If saveFileDialog1.FileName <> "" Then
+                'fazer o backup
+                Dim sqlQuery As String = "BACKUP DATABASE PrinceDB TO DISK='" & saveFileDialog1.FileName & "'"
+                Dim sqlCommand As New SqlCommand(sqlQuery, sqlConnection)
+                sqlConnection.Open()
+                sqlCommand.ExecuteNonQuery()
+                sqlConnection.Close()
+            Else
+                'finalizar sub
+                Exit Sub
+            End If
 
         Catch ex As Exception
 
-            MsgBox("Erro ao fazer cópia de segurança.Tente novamente, se o erro persistir reinicie o sistema.", MsgBoxStyle.Information, "Erro")
+            MsgBox("Erro ao fazer cópia de segurança.Tente novamente salvar em outro local, se o erro persistir contate o administrador do sistema!", MsgBoxStyle.Information, "Erro")
 
         Finally
+            MessageBox.Show("Backup do banco de dados do sistema foi realizado com sucesso!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-
-
-            If MsgBox(" Sucesso! Salvo na Unidade D:/ 
-Deseja abrir o local salvo?", MsgBoxStyle.YesNo, "Backup Completo!") = MsgBoxResult.Yes Then
-                System.Diagnostics.Process.Start("D:/")
-            End If
 
         End Try
 
