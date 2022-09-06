@@ -376,7 +376,6 @@ Partial Class FrmLegalizacao
         Me.RegimeFederalComboBox = New System.Windows.Forms.ComboBox()
         Me.SistemaExternoComboBox = New System.Windows.Forms.ComboBox()
         Me.ButtoneMail = New System.Windows.Forms.Button()
-        Me.LinkLabel9 = New System.Windows.Forms.LinkLabel()
         Me.NAlteracaoLabel = New System.Windows.Forms.Label()
         Me.NAlteracaoComboBox = New System.Windows.Forms.ComboBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -4180,16 +4179,6 @@ Partial Class FrmLegalizacao
         Me.ButtoneMail.Text = "e-Mail"
         Me.ButtoneMail.UseVisualStyleBackColor = True
         '
-        'LinkLabel9
-        '
-        Me.LinkLabel9.AutoSize = True
-        Me.LinkLabel9.Location = New System.Drawing.Point(247, 106)
-        Me.LinkLabel9.Name = "LinkLabel9"
-        Me.LinkLabel9.Size = New System.Drawing.Size(56, 13)
-        Me.LinkLabel9.TabIndex = 34
-        Me.LinkLabel9.TabStop = True
-        Me.LinkLabel9.Text = "Atenção!!!"
-        '
         'NAlteracaoLabel
         '
         Me.NAlteracaoLabel.AutoSize = True
@@ -4378,7 +4367,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.Controls.Add(Me.AvisarDiaMaskedTextBox)
         Me.GroupBox10.Controls.Add(Me.LembreteCheckBox)
         Me.GroupBox10.Controls.Add(AvisarDiaLabel)
-        Me.GroupBox10.Controls.Add(Me.LinkLabel9)
         Me.GroupBox10.Controls.Add(Me.PrioridadeCheckBox)
         Me.GroupBox10.Controls.Add(StatusLabel)
         Me.GroupBox10.Controls.Add(Me.Button5)
@@ -4871,7 +4859,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents Label4 As Label
     Friend WithEvents ComboBoxBuscaEmpresa As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents LinkLabel9 As LinkLabel
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents CPFResponsavelMaskedTextBox As MaskedTextBox
     Friend WithEvents NomeResponsavelTextBox As TextBox

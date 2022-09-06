@@ -158,7 +158,6 @@ Public Class FrmLegalizacao
                 NAlteracaoLabel.Visible = False
                 AltConsolidadaComboBox.Visible = False
                 LabelConsolidar.Visible = False
-                LinkLabel9.Visible = False
                 GroupBox5.Visible = False
 
                 NovaRazaoSocialLabel.Visible = False
@@ -169,7 +168,6 @@ Public Class FrmLegalizacao
                 NAlteracaoLabel.Visible = True
                 AltConsolidadaComboBox.Visible = True
                 LabelConsolidar.Visible = True
-                LinkLabel9.Visible = True
                 GroupBox5.Visible = True
 
 
@@ -184,7 +182,6 @@ Public Class FrmLegalizacao
                 NAlteracaoLabel.Visible = False
                 AltConsolidadaComboBox.Visible = False
                 LabelConsolidar.Visible = False
-                LinkLabel9.Visible = False
                 GroupBox5.Visible = True
 
                 NovaRazaoSocialLabel.Visible = False
@@ -198,7 +195,6 @@ Public Class FrmLegalizacao
                 NAlteracaoLabel.Visible = True
                 AltConsolidadaComboBox.Visible = True
                 LabelConsolidar.Visible = True
-                LinkLabel9.Visible = True
 
                 NovaRazaoSocialLabel.Visible = True
                 NovaRazaoSocialComboBox.Visible = True
@@ -972,28 +968,7 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
 
 
-    Private Sub LinkLabel9_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel9.LinkClicked
-        MessageBox.Show("Verificar se o contrato antigo não está na forma digital.
-
-
-Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
-
-* Nova alteração com consolidação para forma digital, anulando contratos atigos em papel", "ATENÇÃO")
-    End Sub
-
-
     Private Sub ProcessoComboBox_Validated(sender As Object, e As EventArgs) Handles ProcessoComboBox.Validated
-        If ProcessoComboBox.Text = "Alteração" Then
-            MessageBox.Show("Verificar se o contrato antigo não está na forma digital.
-
-
-Caso o contrato não esteja em sua forma digital (antigo), recomenda-se:
-
-* Nova alteração com consolidação para forma digital, anulando contratos atigos em papel", "ATENÇÃO")
-
-        Else
-            'não faz nd
-        End If
 
         If ProcessoComboBox.Text = "Abertura" Then
             SistemaExternoLabel.Text = "Cadastro no Sistema Externo:"
@@ -1342,11 +1317,25 @@ Protocolo RedeSim= " & G & ".
 
 
                 'Corpo
-                ProcessoComboBox.Text = ""
+                ' ProcessoComboBox.Text = ""
                 EmpCriadoMaskedTextBox.Text = ""
                 MotivoRichTextBox.Text = ""
-                NAlteracaoComboBox.Text = ""
-                ' StatusComboBox.Text = ""
+
+                If NAlteracaoComboBox.Text = "" Then
+                    NAlteracaoComboBox.Text = ""
+
+                ElseIf NAlteracaoComboBox.Text <> "" Then
+                    'perguntar se é uma alteração ou não
+                    If MsgBox("Deseja Adicionar nova alteração?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
+                        NAlteracaoComboBox.Text = NAlteracaoComboBox.Text + 1
+                        ProcessoComboBox.Text = "Alteração"
+                        MsgBox("Conferir Número da Alteração conforme a Junta Comercial", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+                    Else
+                        ProcessoComboBox.Text = ""
+                        NAlteracaoComboBox.Text = ""
+                    End If
+                End If
+
 
                 'Geral
                 GeralRichTextBox.Text = ""
@@ -1384,16 +1373,10 @@ Protocolo RedeSim= " & G & ".
                 PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
 
-                'Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
-
-
-                'StatusComboBox selecionar 1 item
                 StatusComboBox.SelectedIndex = 0
+
+
                 SistemaExternoComboBox.SelectedIndex = 1
-
-
-
-            Else
 
             End If
 
