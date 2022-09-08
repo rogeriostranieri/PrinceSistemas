@@ -284,7 +284,7 @@ Public Class WebSiteGERAL
                 WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
                 WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
 
-                Me.Focus()
+                WebView.Focus()
 
             End If
         Catch ex As Exception
@@ -328,9 +328,9 @@ Public Class WebSiteGERAL
             WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
             WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
 
-            Me.Focus()
+                WebView.Focus()
 
-        End If
+            End If
         Catch ex As Exception
         'MsgBox formulario nao esta aberto + a Message
         MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
@@ -378,14 +378,14 @@ Public Class WebSiteGERAL
                     If FrmLegalizacao.ProtocoloREDESIMTextBox.Text <> "" Then
                         Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloREDESIMTextBox.Text
                         WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
-                        Me.Focus()
+                        WebView.Focus()
                         Exit Sub
                     Else
                         ' FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text <> "" 
                         Dim ProtocoloREDESIM As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text
                         'procurar no webviewl o texto e colocar no campo
                         WebView.ExecuteScriptAsync("document.getElementById('id='protocoloViabilidadeAlteracaoInput').value = '" & ProtocoloREDESIM & "'")
-                        Me.Focus()
+                        WebView.Focus()
                         Exit Sub
                     End If
                 End If
@@ -423,7 +423,7 @@ Public Class WebSiteGERAL
 
                 'procurar no webviewl o texto e colocar no campo id="cpfCnpj"
                 WebView.ExecuteScriptAsync("document.getElementById('id='cpfCnpj').value = '" & CNPJ & "'")
-                Me.Focus()
+                WebView.Focus()
             End If
         Catch ex As Exception
             'MsgBox formulario nao esta aberto + a Message
@@ -483,9 +483,9 @@ Public Class WebSiteGERAL
             WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
             WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
 
-            Me.Focus()
+                WebView.Focus()
 
-        End If
+            End If
         Catch ex As Exception
         'MsgBox formulario nao esta aberto + a Message
         MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
@@ -617,7 +617,7 @@ Public Class WebSiteGERAL
             'selecionar aba FrmAlvara.TabControl2 1
             FrmAlvara.TabControl2.SelectTab(1)
             'voltar
-            Me.Focus()
+            WebView.Focus()
             WebView.ExecuteScriptAsync("document.getElementById('formCadastroImobiliario:pesqEndereco_input').value = '" & Rua & ", " & N & "'")
         Catch ex As Exception
             'MsgBox formulario nao esta aberto + a Message
@@ -636,7 +636,7 @@ Public Class WebSiteGERAL
             Dim Area2 As String = FrmAlvara.Area2TextBox.Text
 
 
-            Me.Focus()
+            WebView.Focus()
             'id="form:areaConstruida_input"
             'AreaTextBox
             WebView.ExecuteScriptAsync("document.getElementById('form:areaConstruida_input').value = '" & Area1 & "'")
@@ -797,7 +797,7 @@ Public Class WebSiteGERAL
         Contador.Close()
 
 
-        Me.Focus()
+        WebView.Focus()
         WebView.Focus()
     End Sub
 
@@ -942,7 +942,7 @@ Public Class WebSiteGERAL
 
                 'voltar TabAlvara 1
                 FrmAlvara.TabAlvara.SelectTab(1)
-                Me.Focus()
+                WebView.Focus()
 
             Catch ex As Exception
                 'MsgBox formulario nao esta aberto + a Message

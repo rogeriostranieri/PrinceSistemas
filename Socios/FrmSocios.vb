@@ -138,6 +138,7 @@ Public Class FrmSocios
 
             TextBoxExtensoDN.Visible = False
             BtnDuplicidade.Visible = True
+            BtnEditar.Text = "Cancelar"
         End If
 
     End Sub
@@ -173,6 +174,7 @@ Public Class FrmSocios
             MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
             BloquearEdicao()
             TextBoxExtensoDN.Visible = False
+            BtnEditar.Text = "Editar"
         End If
     End Sub
 

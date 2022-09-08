@@ -547,7 +547,7 @@ Partial Class WebSiteGERAL
         'NúmeroDoLaudoToolStripMenuItem
         '
         Me.NúmeroDoLaudoToolStripMenuItem.Name = "NúmeroDoLaudoToolStripMenuItem"
-        Me.NúmeroDoLaudoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NúmeroDoLaudoToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.NúmeroDoLaudoToolStripMenuItem.Text = "Número do Laudo"
         '
         'AlvaraOnlineMaringaPRSistemaOnlineToolStripMenuItem
