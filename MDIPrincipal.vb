@@ -234,17 +234,18 @@ Public Class MDIPrincipal
         'excluir pasta  "\PrinceSistemas.exe.WebView2" onde fica salvo todo cache
         Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2"
         Dim di As New IO.DirectoryInfo(dir)
-        For Each fi As IO.FileInfo In di.GetFiles()
-            fi.Delete()
-        Next
-        For Each dii As IO.DirectoryInfo In di.GetDirectories()
-            dii.Delete(True)
-        Next
-        di.Delete()
+        'verificar se tem pasta do webview 
+        If di.Exists Then
+            For Each fi As IO.FileInfo In di.GetFiles()
+                fi.Delete()
+            Next
+            For Each dii As IO.DirectoryInfo In di.GetDirectories()
+                dii.Delete(True)
+            Next
+            di.Delete()
+        End If
         'fim do codigo de apagar a pasta
-
         Application.Exit()
-
     End Sub
 
 

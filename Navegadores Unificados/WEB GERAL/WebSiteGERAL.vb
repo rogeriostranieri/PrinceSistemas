@@ -1223,5 +1223,13 @@ Public Class WebSiteGERAL
         End If
     End Sub
 
-
+    Private Sub OpçõesGeraisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpçõesGeraisToolStripMenuItem.Click
+        'abrir WebControleDialog
+        'ver se está aberto antes
+        If WebControleDialog.Visible = True Then
+            WebControleDialog.Focus()
+        Else
+            WebControleDialog.Show()
+        End If
+    End Sub
 End Class

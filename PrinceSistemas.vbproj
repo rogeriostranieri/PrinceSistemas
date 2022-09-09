@@ -344,6 +344,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Navegadores Unificados\WEB GERAL\WebControleDialog.Designer.vb">
+      <DependentUpon>WebControleDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\WEB GERAL\WebControleDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.Designer.vb">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </Compile>
@@ -640,6 +646,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo\LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebControleDialog.resx">
+      <DependentUpon>WebControleDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
