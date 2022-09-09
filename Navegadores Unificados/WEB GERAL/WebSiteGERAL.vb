@@ -65,7 +65,23 @@ Public Class WebSiteGERAL
 
         'dispose of WebView
         WebView.Dispose()
+
+        'Sobre excluir a pasta de todo cache e cookies está ao fechar MDIPRINCIPAL
     End Sub
+
+    Private Sub LimpaCache()
+        'limpar arquivos "\PrinceSistemas.exe.WebView2\EBWebView\Default\Cache\Cache_Data" no mesmo local do executavel
+        Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2\EBWebView\Default\Cache\Cache_Data"
+        Dim di As New IO.DirectoryInfo(dir)
+        For Each file As IO.FileInfo In di.GetFiles()
+            file.Delete()
+        Next
+        For Each dir2 As IO.DirectoryInfo In di.GetDirectories()
+            dir2.Delete(True)
+        Next
+        'fim limpar arquivos
+    End Sub
+
 
     Private Sub LogMsg(msg As String, Optional addTimestamp As Boolean = True)
         'ToDo: add desired code
@@ -1206,4 +1222,6 @@ Public Class WebSiteGERAL
             Exit Sub
         End If
     End Sub
+
+
 End Class

@@ -60,6 +60,7 @@ Public Class FrmSocios
         BtnNovo.Enabled = True
         BtnFecharMenu.Enabled = True
         BtnFechar.Enabled = True
+        BtnEditar.Text = "Editar"
     End Sub
 
     Private Sub LiberarEdicao()
@@ -75,6 +76,7 @@ Public Class FrmSocios
         BtnNovo.Enabled = False
         BtnFecharMenu.Enabled = False
         BtnFechar.Enabled = False
+        BtnEditar.Text = "Cancelar"
     End Sub
 
     Private Sub EstadoCivil()
@@ -138,7 +140,7 @@ Public Class FrmSocios
 
             TextBoxExtensoDN.Visible = False
             BtnDuplicidade.Visible = True
-            BtnEditar.Text = "Cancelar"
+            '  BtnEditar.Text = "Cancelar"
         End If
 
     End Sub
@@ -202,6 +204,7 @@ Public Class FrmSocios
                 Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
                 BloquearEdicao()
                 TextBoxExtensoDN.Visible = False
+                BtnEditar.Text = "Editar"
             End If
         End If
     End Sub
