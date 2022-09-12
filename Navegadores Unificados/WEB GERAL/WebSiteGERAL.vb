@@ -44,16 +44,6 @@ Public Class WebSiteGERAL
             WebsiteNavigate(TxtURL.Text)
         End If
 
-        'ao altera o site salvar no txt da primeira linha inciando com "pagina_inicial:" e site depois
-        Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
-
-        '"pagina_inicial:" e pega o site depois e coloca no ToolStripTextBox1.Tex
-        If File.Exists(path) Then
-            Dim lines As String() = File.ReadAllLines(path)
-            Dim line As String = lines(0)
-            Dim site As String = line.Substring(15)
-            ToolStripTextBox1.Text = site
-        End If
     End Sub
 
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -68,20 +58,6 @@ Public Class WebSiteGERAL
 
         'Sobre excluir a pasta de todo cache e cookies está ao fechar MDIPRINCIPAL
     End Sub
-
-    Private Sub LimpaCache()
-        'limpar arquivos "\PrinceSistemas.exe.WebView2\EBWebView\Default\Cache\Cache_Data" no mesmo local do executavel
-        Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2\EBWebView\Default\Cache\Cache_Data"
-        Dim di As New IO.DirectoryInfo(dir)
-        For Each file As IO.FileInfo In di.GetFiles()
-            file.Delete()
-        Next
-        For Each dir2 As IO.DirectoryInfo In di.GetDirectories()
-            dir2.Delete(True)
-        Next
-        'fim limpar arquivos
-    End Sub
-
 
     Private Sub LogMsg(msg As String, Optional addTimestamp As Boolean = True)
         'ToDo: add desired code
@@ -232,15 +208,6 @@ Public Class WebSiteGERAL
         Me.Close()
     End Sub
 
-
-    Private Sub ToolStripTextBox1_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox1.TextChanged
-        'ao altera o site salvar no txt da primeira linha inciando com "pagina_inicial:" e site depois
-        Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
-        Dim sw As New StreamWriter(path)
-        sw.WriteLine("pagina_inicial:" & ToolStripTextBox1.Text)
-        sw.Close()
-        'mgsbox
-    End Sub
     Private Sub BtnHome_Click(sender As Object, e As EventArgs) Handles BtnHome.Click
         Try
             'ler o txt e pegar o site inicial que está na frente "pagina_inicial:" do txt
@@ -1223,7 +1190,7 @@ Public Class WebSiteGERAL
         End If
     End Sub
 
-    Private Sub OpçõesGeraisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpçõesGeraisToolStripMenuItem.Click
+    Private Sub OpçõesGeraisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpçõesGerais.Click
         'abrir WebControleDialog
         'ver se está aberto antes
         If WebControleDialog.Visible = True Then
@@ -1231,5 +1198,10 @@ Public Class WebSiteGERAL
         Else
             WebControleDialog.Show()
         End If
+    End Sub
+
+    Private Sub AbrirNoNavegadorExternoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirNoNavegadorExternoToolStripMenuItem.Click
+        'Abrir o URL no navegador externo
+        Process.Start(WebView.Source.ToString)
     End Sub
 End Class
