@@ -134,18 +134,18 @@ Module ModeMail
             'Nome Antigo
             Dim NomeAntigo As String = ""
             If H = "" Then
-                NomeAntigo = ""
+                NomeAntigo = "<br>"
             Else
-                NomeAntigo = "<b>Com Nome Empresarial Antigo = </b> " & H & ", <br/>"
+                NomeAntigo = "<b>Com Nome Empresarial Antigo = </b> " & H & ". <br><br>"
 
             End If
 
             'IE ESTADUAL
             Dim IE As String = ""
             If F = "" Then
-                IE = ""
+                IE = "<br>"
             Else
-                IE = ", e <b>inscrita no Estado com Nº = </b>" & F & ". <br/>"
+                IE = ", e <b>inscrita no Estado com Nº = </b>" & F & ". <br>"
             End If
 
             'Nome Do usuário
@@ -166,27 +166,26 @@ Module ModeMail
 
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>Razão Social = </b> " & A & ".<br/>
-<b>" & NomeAntigo & "<br/>
-<b>Natureza jurídica = </b> " & I & " - " & J & ".<br/>
-<br/>
-<b>Inscrita no CNPJ Nº = </b>" & B & "" & IE & "
-<br/>
-<b>Com o processo de = </b> " & C & ".<br/>
-<b>Teve como objetivo de = </b> " & D & ".<br/>
-<br/>
-<b>E no Sistema ja foi atualizado = </b> " & E & ".<br/>
-<br/>
-<br/>            
-//-----------------//-----------------//-----------------//-----------------//<br/>
-<br/>
-<b>" & Nome & " </b><br/>
-<br/>
-<br/>
-<b>Enviado pelo sistema: " & NomeSistema & " </b><br/>
-" & K & "<br/>
-<br/>
-<br/> 
+"<html><body><b>Nome Empresarial = </b> " & A & ".<br>
+" & NomeAntigo & "
+<b>Natureza jurídica = </b> " & I & " - " & J & ".<br>
+<b>Inscrita no CNPJ Nº = </b> " & B & "" & IE & "<br>
+<br>
+<b>Com o processo = </b> " & C & ".<br>
+<b>Teve como objetivo = </b> " & D & ".<br>
+<br>
+<b>Sistema externo atualizado = </b> " & E & ".<br>
+<br>
+<br>           
+//-----------------//-----------------//-----------------//-----------------//<br>
+<br>
+<b>" & Nome & " </b><br>
+<br>
+<br>
+<b>Enviado pelo sistema: " & NomeSistema & " </b><br>
+</b><i>Em: " & K & "</i><br>
+<br>
+<br>
 </body></html>
 "
 
@@ -200,68 +199,5 @@ Module ModeMail
 
     End Sub
 
-    Sub EnviaremaillegalizaoNAO()
-        FrmLegalizacao.TabControle.SelectTab(0)
-        FrmLegalizacao.TabControle.SelectTab(1)
-        FrmLegalizacao.TabControl2.SelectTab(6)
-        'retorna
-        FrmLegalizacao.TabControle.SelectTab(0)
-
-        'abrir histórico
-        FrmMail.TabControle.SelectTab(0)
-
-        FrmMail.TextBoxAssunto.Text = ""
-        FrmMail.RichTextBoxMensagem.Text = ""
-
-
-        Try
-            Dim A = FrmLegalizacao.RazaoSocialTextBox.Text.ToString()
-            Dim B = FrmLegalizacao.CNPJMaskedTextBox.Text.ToString()
-            Dim C = FrmLegalizacao.ProcessoComboBox.Text.ToString()
-            Dim D = FrmLegalizacao.MotivoRichTextBox.Text.ToString()
-            Dim E = FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
-            Dim F = FrmLegalizacao.IETextBox.Text.ToString()
-            If F = "" Then
-                F = "Não tem Inscrição Estadual"
-            End If
-            Dim H = FrmLegalizacao.RazaoSocialAntigaTextBox.Text.ToString()
-
-            'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
-            If C = "Transformação" Then
-                'caixa MsgBox VBA e InputBox
-                Dim G = InputBox("Digite qual tipo Processo de Transformação", "Processo de Transformação")
-                'InputBox colocar "escreva aqui"
-
-                C = G
-            End If
-
-            '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
-            'assunto
-            FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
-
-            'corpo do email
-            FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>A Empresa = </b> " & A & ", <br/>
-<b>Nome Empresarial Antigo = </b> " & H & ", <br/>
-<br/>
-<b>Inscrita no CNPJ</b> Nº = " & B & ", e <b>inscrita no Estado</b> com Nº = " & F & ". <br/>
-<br/>
-<b>Com o processo de = </b> " & C & ", <br/>
-<b>Teve como objetivo de = </b> " & D & ",<br/>
-<br/>
-<b>E no Sistema ja foi atualizado = </b> " & E & ".<br/>
-<br/>
-<br/>            
-//-----------------//-----------------//-----------------//-----------------//<br/>
-</body></html>
-"
-
-            '/////////////////////////// FIM CAIXA DO EMAIL ////////////////////////////////////////////////
-
-        Catch ex As System.InvalidCastException
-            MessageBox.Show("ERRO" & vbCrLf & ex.Message, "Prince Avisa")
-
-        End Try
-    End Sub
 
 End Module
