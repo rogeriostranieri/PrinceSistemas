@@ -37,8 +37,12 @@
 
     Private Sub Filtro()
         Dim filtro As String = "protocolado"
-        ''filtrar Status da EmpresasBindingSource que contenha "protocolado"
-        Me.EmpresasBindingSource.Filter = "Status like '%" & filtro & "%'"
+        Dim filtro1 As String = "e-Processo"
+        Dim filtro2 As String = "Procuração"
+
+        ''filtrar Status da EmpresasBindingSource que contenha "protocolado" ou "e-Processo""Procuração"
+        EmpresasBindingSource.Filter = String.Format("Status LIKE '%{0}%' OR Status LIKE '%{1}%' OR Status LIKE '%{2}%'", filtro, filtro1, filtro2)
+        '  Me.EmpresasBindingSource.Filter = "Status like '%" & filtro & "%'"
     End Sub
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click

@@ -160,7 +160,8 @@ Public Class FrmMail
 
                 ProgressBar1.Value = 100
 
-                MessageBox.Show("E-mail enviado com sucesso")
+                'mgs "E-mail enviado com sucesso" com titulo Email
+                MsgBox("E-mail enviado com sucesso", MsgBoxStyle.Information, "Prince Sistemas - e-Mail")
 
             Catch ex As Exception
                 ProgressBar1.Value = 100

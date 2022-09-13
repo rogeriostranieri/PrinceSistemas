@@ -43,6 +43,7 @@ Public Class FrmAnotacoes
 
     Private Sub FrmAnotacoes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Salvar()
+
     End Sub
 
     Private Sub Salvar()
@@ -57,7 +58,7 @@ Public Class FrmAnotacoes
 
             'MOSTRA MENSAGM BOX
             'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou alguma(s) alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+            message = String.Format("Você realizou algumas alterações." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
 
             'mostra mensagem box SIM OU NAO OU CANCELA
             Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)

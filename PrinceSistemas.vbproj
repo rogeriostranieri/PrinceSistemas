@@ -292,6 +292,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo\ModNumeroExtenso.vb" />
+    <Compile Include="Modulo\ModProtecaoPrint.vb" />
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.Designer.vb">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </Compile>

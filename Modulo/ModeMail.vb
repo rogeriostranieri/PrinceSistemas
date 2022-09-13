@@ -117,6 +117,12 @@ Module ModeMail
             Dim E = "Sim" 'FrmLegalizacao.SistemaExternoComboBox.Text.ToString()
             Dim F = FrmLegalizacao.IETextBox.Text.ToString()
             Dim H = FrmLegalizacao.RazaoSocialAntigaTextBox.Text.ToString()
+            'TipoDeEmpresaComboBox
+            Dim I = FrmLegalizacao.TipoDeEmpresaComboBox.Text.ToString()
+            'NaturezaJuridicaComboBox
+            Dim J = FrmLegalizacao.NaturezaJuridicaComboBox.Text.ToString()
+            'data de hoje dd/mm/aaaa as 00:00:00
+            Dim K = DateTime.Now.ToString("dd'/'MM'/'yyyy HH:mm:ss", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))
 
             'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
             If C = "Transformação" Then
@@ -160,8 +166,9 @@ Module ModeMail
 
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>A Empresa = </b> " & A & ".<br/>
-" & NomeAntigo & "
+"<html><body><b>Razão Social = </b> " & A & ".<br/>
+<b>" & NomeAntigo & "<br/>
+<b>Natureza jurídica = </b> " & I & " - " & J & ".<br/>
 <br/>
 <b>Inscrita no CNPJ Nº = </b>" & B & "" & IE & "
 <br/>
@@ -177,6 +184,7 @@ Module ModeMail
 <br/>
 <br/>
 <b>Enviado pelo sistema: " & NomeSistema & " </b><br/>
+" & K & "<br/>
 <br/>
 <br/> 
 </body></html>

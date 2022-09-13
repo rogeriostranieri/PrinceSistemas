@@ -2006,47 +2006,65 @@ Protocolo RedeSim= " & G & ".
             'If StatusComboBox.Text = "Finalizado" Then
             'selecioanr Index 0
             If SistemaExternoComboBox.SelectedIndex = 0 Then
+                EnviarEmail()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 
-                Dim message As String
+    Private Sub EnviarEmail()
+        Try
+            Dim message As String
+            'message Deseja enviar por e-mail toda alteração feita?
+            message = "Deseja enviar por e-mail toda alteração feita?"
+            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNo)
+            If result = DialogResult.Cancel Then
+                'nao fazer nada
 
-                'message Deseja enviar por e-mail toda alteração feita?
-                message = "Deseja enviar por e-mail toda alteração feita?"
-
-                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNo)
-                If result = DialogResult.Cancel Then
-
-                ElseIf result = DialogResult.No Then
-                    'cancelar
-
-                ElseIf result = DialogResult.Yes Then
+            ElseIf result = DialogResult.No Then
+                'perguntar se deseja abrir o Form FrmEmail
+                Dim message2 As String
+                message2 = "Deseja abrir o e-Mail?"
+                Dim result2 As Integer = MessageBox.Show(message2, "Prince Alerta", MessageBoxButtons.YesNo)
+                If result2 = DialogResult.Yes Then
                     If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-                        SistemaExternoComboBox.SelectedIndex = 0
-                        Dim Sair As String
-                        Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-
-                        FrmMail.MdiParent = MDIPrincipal
-                        FrmMail.Show()
+                        FrmMail.BringToFront()
                         FrmMail.Focus()
-
-
-                        'abrir a automação
-                        ModeMail.Enviaremaillegalizao()
-
                     Else
-                        'SistemaExternoComboBox muda para Sim
-                        SistemaExternoComboBox.SelectedIndex = 0
-
-                        FrmMail.MdiParent = MDIPrincipal
                         FrmMail.Show()
+                        FrmMail.BringToFront()
                         FrmMail.Focus()
-                        ModeMail.Enviaremaillegalizao()
-
                     End If
                 End If
+
+            ElseIf result = DialogResult.Yes Then
+                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
+                    SistemaExternoComboBox.SelectedIndex = 0
+                    Dim Sair As String
+                    Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
+                    'SistemaExternoComboBox muda para Sim
+                    SistemaExternoComboBox.SelectedIndex = 0
+
+                    FrmMail.MdiParent = MDIPrincipal
+                    FrmMail.Show()
+                    'abrir a automação
+                    ModeMail.Enviaremaillegalizao()
+                    FrmMail.BringToFront()
+                    FrmMail.Focus()
+
+                Else
+                    'SistemaExternoComboBox muda para Sim
+                    SistemaExternoComboBox.SelectedIndex = 0
+
+                    FrmMail.MdiParent = MDIPrincipal
+                    FrmMail.Show()
+                    ModeMail.Enviaremaillegalizao()
+                    FrmMail.BringToFront()
+                    FrmMail.Focus()
+                End If
             End If
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -2056,68 +2074,7 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub ButtoneMail_Click(sender As Object, e As EventArgs) Handles ButtoneMail.Click
-        'perguntar se deseja enviar a empresa por email
-        Try
-
-            Dim message As String
-
-            'message Deseja enviar por e-mail toda alteração feita?
-            message = "Deseja enviar por e-mail, as informações desta empresa? ou NÂO, apenas abrir o e-mail??"
-
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-
-            ElseIf result = DialogResult.No Then
-                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-
-                    FrmMail.Focus()
-                    FrmMail.Close()
-                    FrmMail.MdiParent = MDIPrincipal
-                    ' WebAgenda.WindowState = FormWindowState.Maximized
-                    FrmMail.Show()
-                    FrmMail.Focus()
-
-
-                Else
-
-                    FrmMail.MdiParent = MDIPrincipal
-                    ' WebAgenda.WindowState = FormWindowState.Maximized
-                    FrmMail.Show()
-                    FrmMail.Focus()
-
-                End If
-            ElseIf result = DialogResult.Yes Then
-                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-
-                    Dim Sair As String
-                    Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-
-                    FrmMail.MdiParent = MDIPrincipal
-                    FrmMail.Show()
-                    FrmMail.Focus()
-
-
-                    'abrir a automação
-                    ModeMail.EnviaremaillegalizaoNAO()
-
-                Else
-
-                    FrmMail.MdiParent = MDIPrincipal
-                    FrmMail.Show()
-                    FrmMail.Focus()
-                    ModeMail.EnviaremaillegalizaoNAO()
-
-
-                End If
-            End If
-
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
-
+        EnviarEmail()
     End Sub
 
     Private Sub NovaRazaoSocialComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialComboBox.SelectedIndexChanged

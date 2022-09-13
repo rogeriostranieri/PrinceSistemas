@@ -1,4 +1,6 @@
 Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
+
 Public Class Login
 
     ' TODO: Inserir código para realizar autenticação personalizada utilizando o nome de usuário e senha fornecidos 
@@ -76,6 +78,11 @@ Public Class Login
         'chama validação da expiração
         Call ModData.FimData()
         'continua
+        'bloquear print da senha deste form
+        'MOD ProtecaoContraPrintScreen
+        ProtecaoContraPrintScreen(Me, True)
+
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -97,5 +104,17 @@ cmd /k" ' <- pass arguments for the command you want to run
         End If
 
 
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        'se estiver marcado mostrar a senha ou ocultar
+        If CheckBox1.Checked = True Then
+            'mostrar senha digita
+            txtPassword.PasswordChar = ""
+
+        Else
+            'ocultar senha novamente
+            txtPassword.PasswordChar = "*"
+        End If
     End Sub
 End Class
