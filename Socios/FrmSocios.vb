@@ -341,12 +341,13 @@ Public Class FrmSocios
             'clicar no BtnExtensoDN
 
             'se tiver vazio DataDeNascExtenso deixar em branco
-            Dim DataDeNascimento As String = TextBoxExtensoDN.Text
+            Dim DataDeNascimento As String = DatadeNascMaskedTextBox.Text
 
-            If TextBoxExtensoDN.Text = "" Then
-                TextBoxExtensoDN.Text = ""
+            If DataDeNascimento = "" Then
+                DataDeNascimento = ""
             Else
-                DataDeNascExtenso()
+                Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dd 'de' MMMM 'de' yyyy")
+                DataDeNascimento = DataDeNascimentoFormatada
             End If
 
 
