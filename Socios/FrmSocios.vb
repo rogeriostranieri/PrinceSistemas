@@ -1116,19 +1116,13 @@ Novos dados:" + "
                         Dim CapitalSocio As String = row.Cells(3).Value
 
                         '////////////////////// INICIO NOME PEQUENO DO SOCIO ///////////////////////////////   
-                        'com a 1 letra ToUpper e o resto ToLower
-                        'e depois @NomeCompleto
-                        Dim NomePequeno As String = NomeSocio
-                        Dim NomePequenoArray() As String = NomePequeno.Split(" ")
-                        Dim NomePequenoArray2(NomePequenoArray.Length - 1) As String
-                        For i = 0 To NomePequenoArray.Length - 1
-                            NomePequenoArray2(i) = NomePequenoArray(i).Substring(0, 1).ToUpper & NomePequenoArray(i).Substring(1, NomePequenoArray(i).Length - 1).ToLower
-                        Next
-                        Dim NomePequeno2 As String = ""
-                        For i = 0 To NomePequenoArray2.Length - 1
-                            NomePequeno2 = NomePequeno2 & NomePequenoArray2(i) & " "
-                        Next
-                        NomePequeno2 = NomePequeno2.Substring(0, NomePequeno2.Length - 1)
+                        'mudar de "ROGERIO STRANIERI SILVA" para "Rogerio Stranieri Silva" 
+                        Dim NomePequeno2 As String = NomeSocio.ToLower
+                        'mudar de "rogerio stranieri silva" para "Rogerio Stranieri Silva"
+                        NomePequeno2 = StrConv(NomePequeno2, VbStrConv.ProperCase)
+                        'mudar de "Rogerio Stranieri Silva" para "Rogerio Stranieri Silva"
+
+
                         '////////////////////// FIM NOME PEQUENO DO SOCIO ///////////////////////////////   
 
                         'EXPORTAR /////////////////////////

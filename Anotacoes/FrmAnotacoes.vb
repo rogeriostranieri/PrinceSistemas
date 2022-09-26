@@ -149,30 +149,80 @@ Public Class FrmAnotacoes
         Mudafonte()
     End Sub
 
-
-    Private Sub BtnNegrito_Click(sender As Object, e As EventArgs) Handles BtnNegrito.Click
+    Private Sub negrito()
         If RichTextBoxAnotacao.SelectedText.Length > 0 Then
             RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
         Else
             RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
         End If
-
+    End Sub
+    Private Sub BtnNegrito_Click(sender As Object, e As EventArgs) Handles BtnNegrito.Click
+        'verificar se foi selecionado texto
+        If RichTextBoxAnotacao.SelectedText.Length > 0 Then
+            'verificar se o texto selecionado esta em negrito
+            If RichTextBoxAnotacao.SelectionFont.Bold = True Then
+                'se estiver em negrito, desfazer negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+            Else
+                'se nao estiver em negrito, aplicar negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
+            End If
+        Else
+            If BtnNegrito.Checked = True Then
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+                BtnNegrito.Checked = False
+            Else
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
+                BtnNegrito.Checked = True
+            End If
+        End If
     End Sub
 
     Private Sub BtnItalico_Click(sender As Object, e As EventArgs) Handles BtnItalico.Click
+        'verificar se foi selecionado texto
         If RichTextBoxAnotacao.SelectedText.Length > 0 Then
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Italic)
+            'verificar se o texto selecionado esta em negrito
+            If RichTextBoxAnotacao.SelectionFont.Bold = True Then
+                'se estiver em negrito, desfazer negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+            Else
+                'se nao estiver em negrito, aplicar negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Italic)
+            End If
         Else
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Italic)
+            If BtnItalico.Checked = True Then
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+                BtnItalico.Checked = False
+            Else
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Italic)
+                BtnItalico.Checked = True
+            End If
         End If
+
     End Sub
 
     Private Sub BtnSublinhado_Click(sender As Object, e As EventArgs) Handles BtnSublinhado.Click
+        'verificar se foi selecionado texto
         If RichTextBoxAnotacao.SelectedText.Length > 0 Then
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Underline)
+            'verificar se o texto selecionado esta em negrito
+            If RichTextBoxAnotacao.SelectionFont.Bold = True Then
+                'se estiver em negrito, desfazer negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+            Else
+                'se nao estiver em negrito, aplicar negrito
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Underline)
+            End If
         Else
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Underline)
+            If BtnSublinhado.Checked = True Then
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Regular)
+                BtnSublinhado.Checked = False
+            Else
+                RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Underline)
+                BtnSublinhado.Checked = True
+            End If
         End If
+
+
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles BtnColar.Click

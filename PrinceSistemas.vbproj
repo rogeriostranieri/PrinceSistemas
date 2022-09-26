@@ -557,6 +557,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Exportar Contrato\DadosExportacao.resx">
       <DependentUpon>DadosExportacao.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Exportar Contrato\ExportarContratoWordDialog.resx">
       <DependentUpon>ExportarContratoWordDialog.vb</DependentUpon>

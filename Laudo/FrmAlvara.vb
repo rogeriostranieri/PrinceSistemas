@@ -1034,13 +1034,9 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub BtnAtualizarDados_Click(sender As Object, e As EventArgs) Handles BtnAtualizarDados.Click
-        If MessageBox.Show("Deseja efetuar a atualização dos dados apenas?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+        If MessageBox.Show("Deseja efetuar a atualização dos dados apenas?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
             'ModCon.Historico()
             ModCon.Atualizadadadoslaudo()
-
-        Else
-            ModCon.Atualizadadadoslaudo()
-
         End If
 
     End Sub
