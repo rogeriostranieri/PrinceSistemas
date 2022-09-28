@@ -735,7 +735,7 @@ Partial Class FrmAlvara
         'Area2Label
         '
         Area2Label.AutoSize = True
-        Area2Label.Location = New System.Drawing.Point(177, 183)
+        Area2Label.Location = New System.Drawing.Point(229, 183)
         Area2Label.Name = "Area2Label"
         Area2Label.Size = New System.Drawing.Size(148, 13)
         Area2Label.TabIndex = 41
@@ -2266,9 +2266,9 @@ Partial Class FrmAlvara
         'Area2TextBox
         '
         Me.Area2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "area2", True))
-        Me.Area2TextBox.Location = New System.Drawing.Point(331, 180)
+        Me.Area2TextBox.Location = New System.Drawing.Point(383, 180)
         Me.Area2TextBox.Name = "Area2TextBox"
-        Me.Area2TextBox.Size = New System.Drawing.Size(49, 20)
+        Me.Area2TextBox.Size = New System.Drawing.Size(81, 20)
         Me.Area2TextBox.TabIndex = 42
         '
         'AreaTextBox
@@ -2276,7 +2276,7 @@ Partial Class FrmAlvara
         Me.AreaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "area", True))
         Me.AreaTextBox.Location = New System.Drawing.Point(124, 180)
         Me.AreaTextBox.Name = "AreaTextBox"
-        Me.AreaTextBox.Size = New System.Drawing.Size(49, 20)
+        Me.AreaTextBox.Size = New System.Drawing.Size(81, 20)
         Me.AreaTextBox.TabIndex = 41
         '
         'CadImobTextBox

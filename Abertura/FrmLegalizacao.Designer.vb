@@ -1013,7 +1013,7 @@ Partial Class FrmLegalizacao
         'Area2Label
         '
         Area2Label.AutoSize = True
-        Area2Label.Location = New System.Drawing.Point(178, 156)
+        Area2Label.Location = New System.Drawing.Point(215, 156)
         Area2Label.Name = "Area2Label"
         Area2Label.Size = New System.Drawing.Size(148, 13)
         Area2Label.TabIndex = 28
@@ -2151,9 +2151,9 @@ Partial Class FrmLegalizacao
         'Area2TextBox
         '
         Me.Area2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area2", True))
-        Me.Area2TextBox.Location = New System.Drawing.Point(332, 153)
+        Me.Area2TextBox.Location = New System.Drawing.Point(369, 153)
         Me.Area2TextBox.Name = "Area2TextBox"
-        Me.Area2TextBox.Size = New System.Drawing.Size(49, 20)
+        Me.Area2TextBox.Size = New System.Drawing.Size(81, 20)
         Me.Area2TextBox.TabIndex = 29
         '
         'AreaTextBox
@@ -2161,7 +2161,7 @@ Partial Class FrmLegalizacao
         Me.AreaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area", True))
         Me.AreaTextBox.Location = New System.Drawing.Point(123, 153)
         Me.AreaTextBox.Name = "AreaTextBox"
-        Me.AreaTextBox.Size = New System.Drawing.Size(49, 20)
+        Me.AreaTextBox.Size = New System.Drawing.Size(81, 20)
         Me.AreaTextBox.TabIndex = 27
         '
         'EndEstadoTextBox
