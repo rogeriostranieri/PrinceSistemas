@@ -60,7 +60,7 @@ Partial Class Login
         Me.PasswordLabel.BackColor = System.Drawing.Color.Transparent
         Me.PasswordLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PasswordLabel.ForeColor = System.Drawing.Color.White
-        Me.PasswordLabel.Location = New System.Drawing.Point(133, 125)
+        Me.PasswordLabel.Location = New System.Drawing.Point(133, 131)
         Me.PasswordLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(172, 28)
@@ -70,21 +70,21 @@ Partial Class Login
         '
         'txtUsername
         '
-        Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(137, 108)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(168, 21)
+        Me.txtUsername.Size = New System.Drawing.Size(168, 26)
         Me.txtUsername.TabIndex = 1
         '
         'txtPassword
         '
-        Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(136, 149)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Location = New System.Drawing.Point(136, 155)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(168, 21)
+        Me.txtPassword.Size = New System.Drawing.Size(168, 26)
         Me.txtPassword.TabIndex = 3
         '
         'OK
@@ -93,7 +93,7 @@ Partial Class Login
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.OK.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OK.Location = New System.Drawing.Point(103, 209)
-        Me.OK.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.OK.Margin = New System.Windows.Forms.Padding(4)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(111, 37)
         Me.OK.TabIndex = 4
@@ -108,7 +108,7 @@ Partial Class Login
         Me.Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.Color.Black
         Me.Cancel.Location = New System.Drawing.Point(222, 209)
-        Me.Cancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cancel.Margin = New System.Windows.Forms.Padding(4)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(111, 37)
         Me.Cancel.TabIndex = 5
@@ -124,7 +124,7 @@ Partial Class Login
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
         Me.Button1.Location = New System.Drawing.Point(335, 13)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(73, 32)
         Me.Button1.TabIndex = 6
@@ -153,7 +153,7 @@ Partial Class Login
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Transparent
         Me.Button2.Location = New System.Drawing.Point(13, 13)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(100, 32)
         Me.Button2.TabIndex = 8
@@ -166,8 +166,8 @@ Partial Class Login
         Me.CheckBox1.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox1.Location = New System.Drawing.Point(137, 172)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox1.Location = New System.Drawing.Point(137, 180)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(105, 19)
         Me.CheckBox1.TabIndex = 9
@@ -196,7 +196,7 @@ Partial Class Login
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Login"

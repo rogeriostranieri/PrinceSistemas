@@ -1204,4 +1204,10 @@ Public Class WebSiteGERAL
         'Abrir o URL no navegador externo
         Process.Start(WebView.Source.ToString)
     End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        'abrri site url no navegador externo
+        Process.Start(WebView.Source.ToString)
+
+    End Sub
 End Class

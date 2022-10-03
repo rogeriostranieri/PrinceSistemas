@@ -46,6 +46,7 @@ Partial Class WebSiteGERAL
         Me.SairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.AbrirNoNavegadorExternoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpçõesGerais = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -117,7 +118,8 @@ Partial Class WebSiteGERAL
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnFavoritos = New System.Windows.Forms.ToolStripSplitButton()
         Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AbrirNoNavegadorExternoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.BtnIR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnVoltar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -360,7 +362,7 @@ Partial Class WebSiteGERAL
         'SairToolStripMenuItem
         '
         Me.SairToolStripMenuItem.Name = "SairToolStripMenuItem"
-        Me.SairToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SairToolStripMenuItem.Size = New System.Drawing.Size(93, 22)
         Me.SairToolStripMenuItem.Text = "Sair"
         '
         'ToolStripSeparator7
@@ -379,10 +381,16 @@ Partial Class WebSiteGERAL
         Me.ToolStripDropDownButton1.Text = "Opções"
         Me.ToolStripDropDownButton1.ToolTipText = "Opções"
         '
+        'AbrirNoNavegadorExternoToolStripMenuItem
+        '
+        Me.AbrirNoNavegadorExternoToolStripMenuItem.Name = "AbrirNoNavegadorExternoToolStripMenuItem"
+        Me.AbrirNoNavegadorExternoToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
+        Me.AbrirNoNavegadorExternoToolStripMenuItem.Text = "Abrir no Navegador Externo"
+        '
         'OpçõesGerais
         '
         Me.OpçõesGerais.Name = "OpçõesGerais"
-        Me.OpçõesGerais.Size = New System.Drawing.Size(205, 22)
+        Me.OpçõesGerais.Size = New System.Drawing.Size(221, 22)
         Me.OpçõesGerais.Text = "Opções Gerais"
         '
         'ToolStripSeparator2
@@ -813,7 +821,7 @@ Partial Class WebSiteGERAL
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnAddFavoritos, Me.ToolStripSeparator1, Me.BtnFavoritos, Me.ToolStripSeparator11})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnAddFavoritos, Me.ToolStripSeparator1, Me.BtnFavoritos, Me.ToolStripSeparator11, Me.ToolStripButton1, Me.ToolStripSeparator13})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 69)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(919, 27)
@@ -847,11 +855,20 @@ Partial Class WebSiteGERAL
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
         Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 27)
         '
-        'AbrirNoNavegadorExternoToolStripMenuItem
+        'ToolStripButton1
         '
-        Me.AbrirNoNavegadorExternoToolStripMenuItem.Name = "AbrirNoNavegadorExternoToolStripMenuItem"
-        Me.AbrirNoNavegadorExternoToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
-        Me.AbrirNoNavegadorExternoToolStripMenuItem.Text = "Abrir no Navegador Externo"
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(102, 24)
+        Me.ToolStripButton1.Text = "Abrir Site Externo"
+        '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(6, 27)
         '
         'WebSiteGERAL
         '
@@ -985,4 +1002,6 @@ Partial Class WebSiteGERAL
     Friend WithEvents SociosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpçõesGerais As ToolStripMenuItem
     Friend WithEvents AbrirNoNavegadorExternoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
 End Class

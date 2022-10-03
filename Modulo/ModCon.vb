@@ -821,6 +821,8 @@ Protocolo: Data " & D & "; Tipo:" & E & ", Número:" & F & ", Ano:" & G & ", Sen
             Dim F = FrmAlvara.ProtocoloNTextBox.Text.ToString()
             Dim G = FrmAlvara.ProtocoloAnoTextBox.Text.ToString()
             Dim H = FrmAlvara.ProtocoloSenhaTextBox.Text.ToString()
+            Dim I = FrmAlvara.NumeroProcessoTextBox.Text.ToString()
+            Dim J = FrmAlvara.ReciboProcessoTextBox.Text.ToString()
 
             'abrir histórico
             FrmAlvara.TabAlvara.SelectTab(4)
@@ -829,6 +831,7 @@ Protocolo: Data " & D & "; Tipo:" & E & ", Número:" & F & ", Ano:" & G & ", Sen
             'Salvar
             FrmAlvara.HistoricoRichTextBox.SelectedText &=
     "Protocolo: Data " & D & "; Tipo:" & E & ", Número:" & F & ", Ano:" & G & ", Senha:" & H & ".
+Nº do processo: " & I & ", com recibo do processo: " & J & ".
 
 //-----------------//-----------------//-----------------//-----------------//
 "
@@ -839,6 +842,8 @@ Protocolo: Data " & D & "; Tipo:" & E & ", Número:" & F & ", Ano:" & G & ", Sen
             FrmAlvara.ProtocoloNTextBox.Text = ""
             FrmAlvara.ProtocoloAnoTextBox.Text = ""
             FrmAlvara.ProtocoloSenhaTextBox.Text = ""
+            FrmAlvara.NumeroProcessoTextBox.Text = ""
+            FrmAlvara.ReciboProcessoTextBox.Text = ""
 
             'menssagem box
             MessageBox.Show("Protocolo Salvo no Histórico", "Prince Avisa")

@@ -71,11 +71,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Select()
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = False
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -85,11 +81,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Select()
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = False
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -99,11 +91,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Text = ""
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = True
 
 
                     ButtonSolicitar.Visible = False
@@ -114,11 +102,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Text = ""
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = True
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -128,11 +112,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Text = ""
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = False
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -142,11 +122,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Text = ""
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = True
 
                     ButtonSolicitar.Visible = True
                     ButtonConsultar.Visible = True
@@ -155,11 +131,7 @@ Public Class FrmAlvara
                     TabAlvara.SelectTab(0)
                     DataEntradaLabel.Visible = True
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = True
-                    ProtocoloTipoTextBox.Visible = True
-                    ProtocoloNTextBox.Visible = True
-                    ProtocoloAnoTextBox.Visible = True
-                    ProtocoloSenhaTextBox.Visible = True
+                    GroupBoxProtocolo.Visible = True
 
                     AvisarDiaMaskedTextBox.Text = ""
                     ButtonSolicitar.Visible = False
@@ -170,11 +142,7 @@ Public Class FrmAlvara
                     TabAlvara.SelectTab(0)
                     DataEntradaLabel.Visible = True
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = True
-                    ProtocoloTipoTextBox.Visible = True
-                    ProtocoloNTextBox.Visible = True
-                    ProtocoloAnoTextBox.Visible = True
-                    ProtocoloSenhaTextBox.Visible = True
+                    GroupBoxProtocolo.Visible = True
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -183,11 +151,7 @@ Public Class FrmAlvara
                     TabAlvara.SelectTab(3)
                     DataEntradaLabel.Visible = True
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = True
-                    ProtocoloTipoTextBox.Visible = True
-                    ProtocoloNTextBox.Visible = True
-                    ProtocoloAnoTextBox.Visible = True
-                    ProtocoloSenhaTextBox.Visible = True
+                    GroupBoxProtocolo.Visible = True
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -197,11 +161,7 @@ Public Class FrmAlvara
                     AvisarDiaMaskedTextBox.Select()
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = False
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
@@ -210,11 +170,7 @@ Public Class FrmAlvara
                     TabAlvara.SelectTab(0)
                     DataEntradaLabel.Visible = False
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = False
-                    ProtocoloTipoTextBox.Visible = False
-                    ProtocoloNTextBox.Visible = False
-                    ProtocoloAnoTextBox.Visible = False
-                    ProtocoloSenhaTextBox.Visible = False
+                    GroupBoxProtocolo.Visible = False
 
                     AvisarDiaMaskedTextBox.Select()
                     ButtonSolicitar.Visible = True
@@ -226,11 +182,7 @@ Public Class FrmAlvara
                     TabAlvara.SelectTab(0)
                     DataEntradaLabel.Visible = True
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = True
-                    ProtocoloTipoTextBox.Visible = True
-                    ProtocoloNTextBox.Visible = True
-                    ProtocoloAnoTextBox.Visible = True
-                    ProtocoloSenhaTextBox.Visible = True
+                    GroupBoxProtocolo.Visible = True
 
                     AvisarDiaMaskedTextBox.Text = ""
                     ButtonSolicitar.Visible = False
@@ -255,21 +207,11 @@ Public Class FrmAlvara
                 Case Else
                     DataEntradaLabel.Visible = True
                     'protocolo
-                    DataEntradaMaskedTextBox.Visible = True
-                    ProtocoloTipoTextBox.Visible = True
-                    ProtocoloNTextBox.Visible = True
-                    ProtocoloAnoTextBox.Visible = True
-                    ProtocoloSenhaTextBox.Visible = True
+                    GroupBoxProtocolo.Visible = True
 
                     ButtonSolicitar.Visible = False
                     ButtonConsultar.Visible = True
-
-
-                    ' Case False
-
             End Select
-
-
         Catch ex As Exception
             MessageBox.Show("Erro ao carregar Situação")
         End Try
@@ -1160,6 +1102,8 @@ Public Class FrmAlvara
                 ProtocoloNTextBox.Text = ""
                 ProtocoloAnoTextBox.Text = ""
                 ProtocoloSenhaTextBox.Text = ""
+                NumeroProcessoTextBox.Text = ""
+                ReciboProcessoTextBox.Text = ""
             Else
             End If
 
