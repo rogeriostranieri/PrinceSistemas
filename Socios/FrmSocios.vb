@@ -1347,4 +1347,20 @@ Novos dados:" + "
         ConsultarCPFNoBanco()
 
     End Sub
+
+    Private Sub BtnCopiarSenhaGov_Click(sender As Object, e As EventArgs) Handles BtnCopiarSenhaGov.Click
+        'copiar SenhaGOVTextBox sem os *
+        Clipboard.SetText(SenhaGOVTextBox.Text)
+    End Sub
+
+    Private Sub SenhaGOVTextBox_Click(sender As Object, e As EventArgs) Handles SenhaGOVTextBox.Click
+        'mostrar senha sem os *
+        SenhaGOVTextBox.PasswordChar = ""
+
+    End Sub
+
+    Private Sub SenhaGOVTextBox_Leave(sender As Object, e As EventArgs) Handles SenhaGOVTextBox.Leave
+        'mudar para senha
+        SenhaGOVTextBox.PasswordChar = "*"
+    End Sub
 End Class
