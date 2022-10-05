@@ -286,14 +286,10 @@ Public Class FrmAnotacoes
 
 
     Private Sub BtnRealcar_Click(sender As Object, e As EventArgs) Handles BtnRealcar.Click
-        Dim MinhasCores As ColorDialog '= New ColorDialog
-        'selecionar uma cor customizada
-        MinhasCores.AllowFullOpen = False
-        'Permite o usuário obter ajuda 
-        MinhasCores.ShowHelp = True
-        'Define a cor inicial selecionada para a cor atual
-        MinhasCores.Color = RichTextBoxAnotacao.BackColor
-        'pinta a seleção do texto
+
+        Dim MinhasCores As ColorDialog = New ColorDialog()
+        MinhasCores.Color = RichTextBoxAnotacao.SelectionColor
+
 
         If (MinhasCores.ShowDialog() = DialogResult.OK) Then
             If RichTextBoxAnotacao.SelectedText.Length > 0 Then
@@ -304,6 +300,7 @@ Public Class FrmAnotacoes
             End If
 
         End If
+
     End Sub
 
 
