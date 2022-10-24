@@ -490,15 +490,7 @@ Public Class FrmAlvara
             ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
                 Select Case EndEstadoLabel2.Text.Trim()
                     Case "PR"
-                        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                            WebSiteGERAL.Focus()
-                            WebSiteGERAL.MdiParent = MDIPrincipal
-                            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
-                        Else
-                            WebSiteGERAL.Show()
-                            WebSiteGERAL.MdiParent = MDIPrincipal
-                            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + NLaudo)
-                        End If
+                        BoxJuntaComercialLaudo.Show()
                     Case "SC"
                         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
                             WebSiteGERAL.Focus()
