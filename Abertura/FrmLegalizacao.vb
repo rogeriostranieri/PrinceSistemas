@@ -1071,16 +1071,6 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
         End If
     End Sub
 
-    Private Sub BombeiroJuntaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BombeiroJuntaComboBox.SelectedIndexChanged
-        If BombeiroJuntaComboBox.Text = "Vinculado na Junta Comercial" Then
-
-            Button32.Visible = False
-
-        Else
-
-            Button32.Visible = True
-        End If
-    End Sub
 
     Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
         Try

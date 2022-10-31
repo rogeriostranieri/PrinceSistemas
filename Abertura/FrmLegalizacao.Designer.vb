@@ -3689,7 +3689,7 @@ Partial Class FrmLegalizacao
         '
         Me.BombeiroJuntaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroJunta", True))
         Me.BombeiroJuntaComboBox.FormattingEnabled = True
-        Me.BombeiroJuntaComboBox.Items.AddRange(New Object() {"Vinculado na Junta Comercial", "Manualmente o Pedido"})
+        Me.BombeiroJuntaComboBox.Items.AddRange(New Object() {"Alvará cadastrado", "Alvará não cadastrado"})
         Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(126, 39)
         Me.BombeiroJuntaComboBox.Name = "BombeiroJuntaComboBox"
         Me.BombeiroJuntaComboBox.Size = New System.Drawing.Size(178, 21)
