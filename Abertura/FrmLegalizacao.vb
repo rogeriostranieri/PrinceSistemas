@@ -1942,23 +1942,6 @@ Protocolo RedeSim= " & G & ".
 
     '/////////// fim do codigo de mostrar calendario
 
-    Private Sub LinkLabel18_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel18.LinkClicked
-        ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-        Dim CNPJ As String = CNPJMaskedTextBox.Text
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        If WebSiteGERAL.Visible = True Then
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
-        Else
-            WebSiteGERAL.Show()
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
-        End If
-
-    End Sub
-
     Private Sub BtnLocalizar_Click(sender As Object, e As EventArgs) Handles BtnLocalizar.Click
         If Application.OpenForms.OfType(Of FrmAtalhoBuscadores)().Count() > 0 Then
 
@@ -2801,5 +2784,36 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         'LimpaCaracteres
         ' RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaCaracteres(RamoDeAtividadeRichTextBox.Text)
 
+    End Sub
+
+    Private Sub BtnConsultaOptante_Click(sender As Object, e As EventArgs) Handles BtnConsultaOptante.Click
+        ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+        Dim CNPJ As String = CNPJMaskedTextBox.Text
+        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        If WebSiteGERAL.Visible = True Then
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        Else
+            WebSiteGERAL.Show()
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        End If
+    End Sub
+
+    Private Sub BtnAvancoRazao_Click(sender As Object, e As EventArgs) Handles BtnAvancoRazao.Click
+        'mostrar por mgsbox a RazaoSocialTextBox completa, mgsbox alerta
+        '"A razão social da empresa completa é: "
+        MessageBox.Show("A razão social da empresa completa é: " & RazaoSocialTextBox.Text, "Prince Ajuda")
+    End Sub
+
+    Private Sub RazaoSocialTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialTextBox.TextChanged
+        'se for maior do que Caracteres: 63, mostrar o botao BtnAvancoRazao, se nao esconder
+        If RazaoSocialTextBox.Text.Length > 63 Then
+            BtnAvancoRazao.Visible = True
+        Else
+            BtnAvancoRazao.Visible = False
+        End If
     End Sub
 End Class

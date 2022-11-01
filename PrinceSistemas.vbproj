@@ -1019,6 +1019,7 @@
     <Content Include="AnotacoesHELP.txt" />
     <Content Include="Atualizacao.txt" />
     <None Include="Resources\expandirpagina.png" />
+    <None Include="Resources\interrogacao.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup />
