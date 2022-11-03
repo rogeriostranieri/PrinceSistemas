@@ -22,39 +22,55 @@ Partial Class FrmEventos
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim EventosLabel As System.Windows.Forms.Label
-        Me.CheckedListBoxEventosJunta = New System.Windows.Forms.CheckedListBox()
+        Dim Label3 As System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnEventos = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnFechar = New System.Windows.Forms.PictureBox()
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
+        Me.EventosEmpresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EventosEmpresaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EventosEmpresaTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.EventosEmpresaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpresaFacil = New System.Windows.Forms.CheckBox()
+        Me.ReceitaFederal = New System.Windows.Forms.CheckBox()
+        Me.ReceitaEstadual = New System.Windows.Forms.CheckBox()
+        Me.PrefeituraMunicipal = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BtnLimparEventos = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
         EventosLabel = New System.Windows.Forms.Label()
+        Label3 = New System.Windows.Forms.Label()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EventosEmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EventosEmpresaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EventosLabel
         '
         EventosLabel.AutoSize = True
         EventosLabel.BackColor = System.Drawing.Color.Transparent
-        EventosLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EventosLabel.Location = New System.Drawing.Point(12, 135)
+        EventosLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EventosLabel.Location = New System.Drawing.Point(12, 101)
         EventosLabel.Name = "EventosLabel"
-        EventosLabel.Size = New System.Drawing.Size(69, 13)
+        EventosLabel.Size = New System.Drawing.Size(197, 18)
         EventosLabel.TabIndex = 2
-        EventosLabel.Text = "EVENTOS:"
+        EventosLabel.Text = "Orgãos Governamentais:"
         '
-        'CheckedListBoxEventosJunta
+        'Label3
         '
-        Me.CheckedListBoxEventosJunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckedListBoxEventosJunta.FormattingEnabled = True
-        Me.CheckedListBoxEventosJunta.Items.AddRange(New Object() {"=======JUNTA COMERCIAL=======", "Abertura Matriz", "Baixa Matriz", "", "Abertura de Filial", "Alteração de Filial", "Baixa de Filial", "", "Alteração da forma de atuação", "Alteração da natureza jurídica", "Alteração de atividades econômicas (principal e secundárias)", "Alteração de capital social e/ou Quadro Societário", "Alteração de Cláusulas Particulares", "Alteração de dados do Empresário", "Alteração de endereço entre estados", "Alteração de endereço entre municípios no mesmo estado", "Alteração de endereço no mesmo município", "Alteração de nome empresarial (firma ou denominação)", "Alteração de Proteção de Nome Empresarial", "Alteração do tipo de unidade", "Alteração da pessoa física responsável perante o CNPJ", "Cancelamento de Proteção de Nome Empresarial", "Consolidação", "Emancipação", "Enquadramento / Reenquadramento / Desenquadramento de Porte de Empresa", "Espólio", "Interrupção temporária de atividades", "Procuração", "Proteção de Nome Empresarial", "Reinício das atividades interrompidas temporariamente", "Rerratificação", "Restabelecimento de filial", "Restabelecimento de matriz (Reativação)", "Revogação de Procuração", "", "=======RECEITA FEDERAL=======", "Abertura apenas na Receita Federal", "Alteração apenas na Receita Federal", "Baixa apenas na Receita Federal", "Alteração da pessoa fisica responsável perante o CNPJ", "", "", "=======RECEITA ESTADUAL=======", "Nova Inscrição Estadual", "Alteração Cadastral da Inscrição Estadual", "Baixa da Inscrição Estadual", "Reativação da Inscrição Estadual", "Inscrição Estadual Auxiliar – Subst. Trib. ", "Inscrição de estabelecimento localizado em outro Estado", "Inscrição de estabelecimento localizado em outro Estado, exceto Substituto Tribut" &
-                "ário "})
-        Me.CheckedListBoxEventosJunta.Location = New System.Drawing.Point(15, 156)
-        Me.CheckedListBoxEventosJunta.Name = "CheckedListBoxEventosJunta"
-        Me.CheckedListBoxEventosJunta.Size = New System.Drawing.Size(532, 293)
-        Me.CheckedListBoxEventosJunta.TabIndex = 3
+        Label3.AutoSize = True
+        Label3.BackColor = System.Drawing.Color.Transparent
+        Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label3.Location = New System.Drawing.Point(12, 208)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(91, 18)
+        Label3.TabIndex = 17
+        Label3.Text = "EVENTOS:"
         '
         'Label1
         '
@@ -67,43 +83,22 @@ Partial Class FrmEventos
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "LISTA DE EVENTOS"
         '
-        'BtnEventos
-        '
-        Me.BtnEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEventos.ForeColor = System.Drawing.Color.Green
-        Me.BtnEventos.Location = New System.Drawing.Point(454, 455)
-        Me.BtnEventos.Name = "BtnEventos"
-        Me.BtnEventos.Size = New System.Drawing.Size(93, 30)
-        Me.BtnEventos.TabIndex = 5
-        Me.BtnEventos.Text = "Adicionar"
-        Me.BtnEventos.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Red
-        Me.Button2.Location = New System.Drawing.Point(382, 455)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(66, 30)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Limpar"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(15, 96)
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(15, 179)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(532, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(577, 24)
         Me.TextBox1.TabIndex = 8
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 77)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 160)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 16)
+        Me.Label2.Size = New System.Drawing.Size(82, 18)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Localizar:"
         '
@@ -113,12 +108,155 @@ Partial Class FrmEventos
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(413, -2)
+        Me.BtnFechar.Location = New System.Drawing.Point(458, -2)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(134, 60)
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnFechar.TabIndex = 15
         Me.BtnFechar.TabStop = False
+        '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EventosEmpresaBindingSource
+        '
+        Me.EventosEmpresaBindingSource.DataMember = "EventosEmpresa"
+        Me.EventosEmpresaBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'EventosEmpresaTableAdapter
+        '
+        Me.EventosEmpresaTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.ContadorTableAdapter = Nothing
+        Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Me.EventosEmpresaTableAdapter
+        Me.TableAdapterManager.LaudosTableAdapter = Nothing
+        Me.TableAdapterManager.LoginTableAdapter = Nothing
+        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
+        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
+        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'EventosEmpresaDataGridView
+        '
+        Me.EventosEmpresaDataGridView.AllowUserToAddRows = False
+        Me.EventosEmpresaDataGridView.AllowUserToDeleteRows = False
+        Me.EventosEmpresaDataGridView.AllowUserToOrderColumns = True
+        Me.EventosEmpresaDataGridView.AutoGenerateColumns = False
+        Me.EventosEmpresaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.EventosEmpresaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
+        Me.EventosEmpresaDataGridView.DataSource = Me.EventosEmpresaBindingSource
+        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(15, 229)
+        Me.EventosEmpresaDataGridView.Name = "EventosEmpresaDataGridView"
+        Me.EventosEmpresaDataGridView.ReadOnly = True
+        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(577, 233)
+        Me.EventosEmpresaDataGridView.TabIndex = 16
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Eventos"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Eventos"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 500
+        '
+        'EmpresaFacil
+        '
+        Me.EmpresaFacil.AutoSize = True
+        Me.EmpresaFacil.BackColor = System.Drawing.Color.Transparent
+        Me.EmpresaFacil.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmpresaFacil.Location = New System.Drawing.Point(28, 121)
+        Me.EmpresaFacil.Name = "EmpresaFacil"
+        Me.EmpresaFacil.Size = New System.Drawing.Size(122, 22)
+        Me.EmpresaFacil.TabIndex = 18
+        Me.EmpresaFacil.Text = "Empresa Fácil"
+        Me.EmpresaFacil.UseVisualStyleBackColor = False
+        '
+        'ReceitaFederal
+        '
+        Me.ReceitaFederal.AutoSize = True
+        Me.ReceitaFederal.BackColor = System.Drawing.Color.Transparent
+        Me.ReceitaFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReceitaFederal.Location = New System.Drawing.Point(156, 121)
+        Me.ReceitaFederal.Name = "ReceitaFederal"
+        Me.ReceitaFederal.Size = New System.Drawing.Size(130, 22)
+        Me.ReceitaFederal.TabIndex = 19
+        Me.ReceitaFederal.Text = "Receita Federal"
+        Me.ReceitaFederal.UseVisualStyleBackColor = False
+        '
+        'ReceitaEstadual
+        '
+        Me.ReceitaEstadual.AutoSize = True
+        Me.ReceitaEstadual.BackColor = System.Drawing.Color.Transparent
+        Me.ReceitaEstadual.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReceitaEstadual.Location = New System.Drawing.Point(292, 121)
+        Me.ReceitaEstadual.Name = "ReceitaEstadual"
+        Me.ReceitaEstadual.Size = New System.Drawing.Size(138, 22)
+        Me.ReceitaEstadual.TabIndex = 20
+        Me.ReceitaEstadual.Text = "Receita Estadual"
+        Me.ReceitaEstadual.UseVisualStyleBackColor = False
+        '
+        'PrefeituraMunicipal
+        '
+        Me.PrefeituraMunicipal.AutoSize = True
+        Me.PrefeituraMunicipal.BackColor = System.Drawing.Color.Transparent
+        Me.PrefeituraMunicipal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrefeituraMunicipal.Location = New System.Drawing.Point(436, 121)
+        Me.PrefeituraMunicipal.Name = "PrefeituraMunicipal"
+        Me.PrefeituraMunicipal.Size = New System.Drawing.Size(156, 22)
+        Me.PrefeituraMunicipal.TabIndex = 21
+        Me.PrefeituraMunicipal.Text = "Prefeitura Municipal"
+        Me.PrefeituraMunicipal.UseVisualStyleBackColor = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(12, 465)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(235, 18)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "* Clique duas vezes para adicionar"
+        '
+        'BtnLimparEventos
+        '
+        Me.BtnLimparEventos.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnLimparEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLimparEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLimparEventos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnLimparEventos.Location = New System.Drawing.Point(476, 468)
+        Me.BtnLimparEventos.Name = "BtnLimparEventos"
+        Me.BtnLimparEventos.Size = New System.Drawing.Size(116, 28)
+        Me.BtnLimparEventos.TabIndex = 46
+        Me.BtnLimparEventos.Text = "Limpar Eventos"
+        Me.BtnLimparEventos.UseVisualStyleBackColor = False
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditar.ForeColor = System.Drawing.Color.Blue
+        Me.BtnEditar.Location = New System.Drawing.Point(354, 468)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(116, 28)
+        Me.BtnEditar.TabIndex = 47
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'FrmEventos
         '
@@ -126,16 +264,23 @@ Partial Class FrmEventos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(566, 492)
+        Me.ClientSize = New System.Drawing.Size(604, 505)
+        Me.Controls.Add(Me.BtnEditar)
+        Me.Controls.Add(Me.BtnLimparEventos)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.PrefeituraMunicipal)
+        Me.Controls.Add(Me.ReceitaEstadual)
+        Me.Controls.Add(Me.ReceitaFederal)
+        Me.Controls.Add(Me.EmpresaFacil)
+        Me.Controls.Add(Label3)
+        Me.Controls.Add(Me.EventosEmpresaDataGridView)
         Me.Controls.Add(Me.BtnFechar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.BtnEventos)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.CheckedListBoxEventosJunta)
         Me.Controls.Add(EventosLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmEventos"
@@ -143,16 +288,28 @@ Partial Class FrmEventos
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lista de Eventos"
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EventosEmpresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EventosEmpresaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents CheckedListBoxEventosJunta As CheckedListBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents BtnEventos As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnFechar As PictureBox
+    Friend WithEvents PrinceDBDataSet As PrinceDBDataSet
+    Friend WithEvents EventosEmpresaBindingSource As BindingSource
+    Friend WithEvents EventosEmpresaTableAdapter As PrinceDBDataSetTableAdapters.EventosEmpresaTableAdapter
+    Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents EventosEmpresaDataGridView As DataGridView
+    Friend WithEvents EmpresaFacil As CheckBox
+    Friend WithEvents ReceitaFederal As CheckBox
+    Friend WithEvents ReceitaEstadual As CheckBox
+    Friend WithEvents PrefeituraMunicipal As CheckBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents BtnLimparEventos As Button
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents BtnEditar As Button
 End Class

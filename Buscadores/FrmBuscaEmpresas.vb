@@ -23,6 +23,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         EmpresasDataGridView.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         EmpresasDataGridView.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        EmpresasDataGridView.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
     End Sub
 
     Private Sub EmpresasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpresasDataGridView.CellContentClick
@@ -60,6 +61,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -77,6 +79,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -94,6 +97,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -111,6 +115,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -128,6 +133,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = True
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -145,6 +151,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = True
         EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -162,6 +169,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = True
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -177,6 +185,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = True
         EmpresasDataGridView.Columns(5).Visible = True
         EmpresasDataGridView.Columns(6).Visible = True
+        EmpresasDataGridView.Columns(7).Visible = True
 
         '        limpar todas txtbox
         TxtPesquisaRazaoSocial.Clear()
@@ -186,6 +195,7 @@ Public Class FrmBuscaEmpresas
         TxtPesquisaProtRedeSim.Clear()
         TxtPesquisaCompEstado.Clear()
         TxtPesquisaProtEstado.Clear()
+        TxtNomeFantasia.Clear()
 
     End Sub
 
@@ -202,6 +212,7 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = True
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub
@@ -219,6 +230,24 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(4).Visible = False
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = True
+        EmpresasDataGridView.Columns(7).Visible = False
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+    Private Sub TxtNomeFantasia_TextChanged(sender As Object, e As EventArgs) Handles TxtNomeFantasia.TextChanged
+        'Limpar Antes e reinicia o filtro
+        EmpresasBindingSource.RemoveFilter()
+        'Filtra o DataGridView
+        EmpresasBindingSource.Filter = "NomeFantasia like '%" & TxtNomeFantasia.Text & "%'"
+        'esconder aa coluna 
+        EmpresasDataGridView.Columns(1).Visible = True
+        EmpresasDataGridView.Columns(2).Visible = False
+        EmpresasDataGridView.Columns(3).Visible = False
+        EmpresasDataGridView.Columns(4).Visible = False
+        EmpresasDataGridView.Columns(5).Visible = False
+        EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = True
         'auto organizar tamanho da coluna
         Organizar()
     End Sub

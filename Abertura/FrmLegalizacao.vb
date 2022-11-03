@@ -951,7 +951,18 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
         End If
 
-
+        'verificar se FrmEventos está aberto e fechar
+        If FrmEventos.Visible = True Then
+            FrmEventos.Close()
+        End If
+        'DialogCalendarioEmpresas
+        If DialogCalendarioEmpresas.Visible = True Then
+            DialogCalendarioEmpresas.Close()
+        End If
+        'FrmControleEventosEmpresa
+        If FrmControleEventosEmpresa.Visible = True Then
+            FrmControleEventosEmpresa.Close()
+        End If
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
@@ -2816,4 +2827,33 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
             BtnAvancoRazao.Visible = False
         End If
     End Sub
+
+
+
+    Private Sub SEDEComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SEDEComboBox.SelectionChangeCommitted
+        'verificar se existe empresas com o mesmo nome e informar por mgsbox
+        Dim con As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+        Dim cmd As New SqlCommand("SELECT * FROM Empresas WHERE SEDE = @SEDE AND RazaoSocial = @RazaoSocial", con)
+        cmd.Parameters.AddWithValue("@SEDE", SEDEComboBox.Text)
+        cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocialTextBox.Text)
+        Dim da As New SqlDataAdapter(cmd)
+        Dim dt As New DataTable()
+        da.Fill(dt)
+        If dt.Rows.Count > 0 Then
+            Dim Sede As String = SEDEComboBox.Text
+            MessageBox.Show("Existe uma empresa com a mesma razão social e sede: " & Sede, "Prince Ajuda")
+            'SEDEComboBox seleciona o qual estava antes ou se for null
+            SEDEComboBox.SelectedIndex = SEDEComboBox.FindString(SEDEComboBox.Text)
+
+            BoxEmpresasIguais()
+        End If
+
+    End Sub
+
+    Private Sub BoxEmpresasIguais()
+        Dim Filtro As String = RazaoSocialTextBox.Text
+        DialogEmpresasIguais.EmpresasBindingSource.Filter = String.Format("Status LIKE '%{0}%'", Filtro)
+    End Sub
+
+
 End Class

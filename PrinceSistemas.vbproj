@@ -117,6 +117,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abertura\Administracao\FrmControleEventosEmpresa.Designer.vb">
+      <DependentUpon>FrmControleEventosEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Administracao\FrmControleEventosEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abertura\BoxConsultaIEEmpresa.Designer.vb">
       <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>
     </Compile>
@@ -139,6 +145,12 @@
       <DependentUpon>DialogCalendarioEmpresas.vb</DependentUpon>
     </Compile>
     <Compile Include="Abertura\DialogCalendarioEmpresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\DialogEmpresasIguais.Designer.vb">
+      <DependentUpon>DialogEmpresasIguais.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\DialogEmpresasIguais.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abertura\Exportar Contrato\DadosExportacao.Designer.vb">
@@ -549,6 +561,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Abertura\Administracao\FrmControleEventosEmpresa.resx">
+      <DependentUpon>FrmControleEventosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abertura\BoxConsultaIEEmpresa.resx">
       <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>
     </EmbeddedResource>
@@ -560,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\DialogCalendarioEmpresas.resx">
       <DependentUpon>DialogCalendarioEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\DialogEmpresasIguais.resx">
+      <DependentUpon>DialogEmpresasIguais.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Exportar Contrato\DadosExportacao.resx">
       <DependentUpon>DadosExportacao.vb</DependentUpon>

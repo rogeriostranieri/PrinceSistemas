@@ -50,4 +50,17 @@
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
+
+    Private Sub BtnEventos_Click(sender As Object, e As EventArgs) Handles BtnEventos.Click
+        'FrmCadastroEventosEmpresa
+        If Application.OpenForms.OfType(Of FrmControleEventosEmpresa)().Count() > 0 Then
+            FrmControleEventosEmpresa.Focus()
+            FrmControleEventosEmpresa.Close()
+            FrmControleEventosEmpresa.MdiParent = MDIPrincipal
+            FrmControleEventosEmpresa.Show()
+        Else
+            FrmControleEventosEmpresa.MdiParent = MDIPrincipal
+            FrmControleEventosEmpresa.Show()
+        End If
+    End Sub
 End Class

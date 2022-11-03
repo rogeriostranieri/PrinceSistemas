@@ -363,6 +363,7 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnAvancoRazao = New System.Windows.Forms.Button()
         Me.BtnConsultaOptante = New System.Windows.Forms.Button()
         Me.SEDEComboBox = New System.Windows.Forms.ComboBox()
         Me.NomeFantasiaTextBox = New System.Windows.Forms.TextBox()
@@ -418,7 +419,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnAvancoRazao = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -4051,6 +4051,20 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
+        'BtnAvancoRazao
+        '
+        Me.BtnAvancoRazao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAvancoRazao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAvancoRazao.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAvancoRazao.FlatAppearance.BorderSize = 0
+        Me.BtnAvancoRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAvancoRazao.Location = New System.Drawing.Point(518, 67)
+        Me.BtnAvancoRazao.Name = "BtnAvancoRazao"
+        Me.BtnAvancoRazao.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAvancoRazao.TabIndex = 70
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAvancoRazao, "Mostrar Razão Social Completa")
+        Me.BtnAvancoRazao.UseVisualStyleBackColor = True
+        '
         'BtnConsultaOptante
         '
         Me.BtnConsultaOptante.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
@@ -4069,7 +4083,7 @@ Partial Class FrmLegalizacao
         '
         Me.SEDEComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SEDE", True))
         Me.SEDEComboBox.FormattingEnabled = True
-        Me.SEDEComboBox.Items.AddRange(New Object() {"MATRIZ", "FILIAL"})
+        Me.SEDEComboBox.Items.AddRange(New Object() {"MATRIZ", "FILIAL 1", "FILIAL 2", "FILIAL 3", "FILIAL 4", "FILIAL 5", "FILIAL 6", "FILIAL 7", "FILIAL 8", "FILIAL 9", "FILIAL 10"})
         Me.SEDEComboBox.Location = New System.Drawing.Point(584, 69)
         Me.SEDEComboBox.Name = "SEDEComboBox"
         Me.SEDEComboBox.Size = New System.Drawing.Size(73, 21)
@@ -4669,20 +4683,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'BtnAvancoRazao
-        '
-        Me.BtnAvancoRazao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
-        Me.BtnAvancoRazao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAvancoRazao.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAvancoRazao.FlatAppearance.BorderSize = 0
-        Me.BtnAvancoRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAvancoRazao.Location = New System.Drawing.Point(518, 67)
-        Me.BtnAvancoRazao.Name = "BtnAvancoRazao"
-        Me.BtnAvancoRazao.Size = New System.Drawing.Size(27, 23)
-        Me.BtnAvancoRazao.TabIndex = 70
-        Me.ToolTipDICAS.SetToolTip(Me.BtnAvancoRazao, "Mostrar Razão Social Completa")
-        Me.BtnAvancoRazao.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '

@@ -29,6 +29,7 @@ Partial Class FrmControleEmpresas
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnEventos = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -83,6 +84,7 @@ Partial Class FrmControleEmpresas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnEventos)
         Me.GroupBox1.Controls.Add(Me.BtnExterno)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 17)
         Me.GroupBox1.Name = "GroupBox1"
@@ -111,6 +113,17 @@ Partial Class FrmControleEmpresas
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Situação"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'BtnEventos
+        '
+        Me.BtnEventos.BackColor = System.Drawing.Color.Transparent
+        Me.BtnEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEventos.Location = New System.Drawing.Point(126, 37)
+        Me.BtnEventos.Name = "BtnEventos"
+        Me.BtnEventos.Size = New System.Drawing.Size(104, 43)
+        Me.BtnEventos.TabIndex = 6
+        Me.BtnEventos.Text = "Eventos"
+        Me.BtnEventos.UseVisualStyleBackColor = False
         '
         'FrmControleEmpresas
         '
@@ -141,4 +154,5 @@ Partial Class FrmControleEmpresas
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents BtnEventos As Button
 End Class
