@@ -149,13 +149,7 @@ Public Class FrmAnotacoes
         Mudafonte()
     End Sub
 
-    Private Sub negrito()
-        If RichTextBoxAnotacao.SelectedText.Length > 0 Then
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
-        Else
-            RichTextBoxAnotacao.SelectionFont = New Font(RichTextBoxAnotacao.SelectionFont, FontStyle.Bold)
-        End If
-    End Sub
+
     Private Sub BtnNegrito_Click(sender As Object, e As EventArgs) Handles BtnNegrito.Click
         'verificar se foi selecionado texto
         If RichTextBoxAnotacao.SelectedText.Length > 0 Then
@@ -286,9 +280,9 @@ Public Class FrmAnotacoes
 
 
     Private Sub BtnRealcar_Click(sender As Object, e As EventArgs) Handles BtnRealcar.Click
-
-        Dim MinhasCores As ColorDialog = New ColorDialog()
-        MinhasCores.Color = RichTextBoxAnotacao.SelectionColor
+        Dim MinhasCores As New ColorDialog With {
+            .Color = RichTextBoxAnotacao.SelectionColor
+        }
 
 
         If (MinhasCores.ShowDialog() = DialogResult.OK) Then

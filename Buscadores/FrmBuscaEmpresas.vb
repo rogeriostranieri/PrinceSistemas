@@ -27,10 +27,15 @@ Public Class FrmBuscaEmpresas
     End Sub
 
     Private Sub EmpresasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpresasDataGridView.CellContentClick
+        AbrirEmpresa()
+
+
+    End Sub
+
+    Private Sub AbrirEmpresa()
         If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
             FrmLegalizacao.Focus()
             FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
             'FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString

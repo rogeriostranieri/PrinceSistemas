@@ -103,11 +103,6 @@ Public Class WebControleDialog
         MsgBox("Arquivos Temporários foi limpo com sucesso!", MsgBoxStyle.Information, "Limpar Total")
     End Sub
 
-    Private Sub Históricodenavegação()
-        ' 'Histórico de navegação
-        'Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2\History"
-    End Sub
-
     Private Sub BtnPagInicialPadrao_Click(sender As Object, e As EventArgs) Handles BtnPagInicialPadrao.Click
         'mudar TextBoxPaginaInicial para "https://www.google.com.br/"
         TextBoxPaginaInicial.Text = "https://www.google.com.br/"

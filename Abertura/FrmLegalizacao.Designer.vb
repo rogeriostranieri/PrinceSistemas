@@ -3976,6 +3976,7 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Me.EmpresasTableAdapter
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing

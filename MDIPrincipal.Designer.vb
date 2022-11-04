@@ -97,6 +97,8 @@ Partial Class MDIPrincipal
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.White
+        Me.MenuStrip.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.MenuStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.WebSiteToolStripMenuItem, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)

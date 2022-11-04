@@ -225,6 +225,8 @@ Partial Class WebSiteGERAL
         '
         'ToolStrip2
         '
+        Me.ToolStrip2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.ToolStrip2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProgressBar1, Me.TxtCarregamento})
@@ -341,6 +343,8 @@ Partial Class WebSiteGERAL
         '
         'ToolStrip3
         '
+        Me.ToolStrip3.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.ToolStrip3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnArquivo, Me.ToolStripSeparator7, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator3, Me.ToolStripDropDownButton3, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonAlvara, Me.ToolStripSeparator8, Me.BtnTSE, Me.ToolStripSeparator9, Me.BtnProcuracao, Me.ToolStripSeparator10, Me.ToolStripDropDownButton4, Me.ToolStripSeparator12, Me.BtnSobre})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)

@@ -39,6 +39,7 @@ Partial Class FrmControleSituacaoAlvara
         Me.BtnNovo = New System.Windows.Forms.Button()
         Me.BtnExcluir = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         DescricaoLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CADSituacaoAlvaraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,9 +50,10 @@ Partial Class FrmControleSituacaoAlvara
         '
         DescricaoLabel.AutoSize = True
         DescricaoLabel.BackColor = System.Drawing.Color.Transparent
-        DescricaoLabel.Location = New System.Drawing.Point(9, 97)
+        DescricaoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DescricaoLabel.Location = New System.Drawing.Point(12, 90)
         DescricaoLabel.Name = "DescricaoLabel"
-        DescricaoLabel.Size = New System.Drawing.Size(58, 13)
+        DescricaoLabel.Size = New System.Drawing.Size(80, 18)
         DescricaoLabel.TabIndex = 2
         DescricaoLabel.Text = "Descricao:"
         '
@@ -81,6 +83,7 @@ Partial Class FrmControleSituacaoAlvara
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
@@ -100,7 +103,7 @@ Partial Class FrmControleSituacaoAlvara
         Me.CADSituacaoAlvaraDataGridView.Location = New System.Drawing.Point(12, 157)
         Me.CADSituacaoAlvaraDataGridView.Name = "CADSituacaoAlvaraDataGridView"
         Me.CADSituacaoAlvaraDataGridView.ReadOnly = True
-        Me.CADSituacaoAlvaraDataGridView.Size = New System.Drawing.Size(552, 220)
+        Me.CADSituacaoAlvaraDataGridView.Size = New System.Drawing.Size(552, 191)
         Me.CADSituacaoAlvaraDataGridView.TabIndex = 1
         '
         'ID_CADSituacaoAlv
@@ -122,9 +125,10 @@ Partial Class FrmControleSituacaoAlvara
         'DescricaoTextBox
         '
         Me.DescricaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CADSituacaoAlvaraBindingSource, "Descricao", True))
-        Me.DescricaoTextBox.Location = New System.Drawing.Point(73, 94)
+        Me.DescricaoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DescricaoTextBox.Location = New System.Drawing.Point(98, 87)
         Me.DescricaoTextBox.Name = "DescricaoTextBox"
-        Me.DescricaoTextBox.Size = New System.Drawing.Size(341, 20)
+        Me.DescricaoTextBox.Size = New System.Drawing.Size(466, 24)
         Me.DescricaoTextBox.TabIndex = 3
         '
         'Button1
@@ -132,9 +136,9 @@ Partial Class FrmControleSituacaoAlvara
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(570, 345)
+        Me.Button1.Location = New System.Drawing.Point(12, 354)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(78, 32)
+        Me.Button1.Size = New System.Drawing.Size(77, 27)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = "Atualizar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -143,9 +147,10 @@ Partial Class FrmControleSituacaoAlvara
         '
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFechar.Location = New System.Drawing.Point(495, 108)
+        Me.BtnFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFechar.Location = New System.Drawing.Point(420, 354)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnFechar.Size = New System.Drawing.Size(69, 27)
         Me.BtnFechar.TabIndex = 36
         Me.BtnFechar.Text = "Fechar"
         Me.BtnFechar.UseVisualStyleBackColor = True
@@ -154,9 +159,10 @@ Partial Class FrmControleSituacaoAlvara
         '
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSalvar.Location = New System.Drawing.Point(420, 107)
+        Me.BtnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSalvar.Location = New System.Drawing.Point(345, 354)
         Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnSalvar.Size = New System.Drawing.Size(69, 27)
         Me.BtnSalvar.TabIndex = 35
         Me.BtnSalvar.Text = "Salvar"
         Me.BtnSalvar.UseVisualStyleBackColor = True
@@ -165,10 +171,11 @@ Partial Class FrmControleSituacaoAlvara
         '
         Me.BtnNovo.BackgroundImage = CType(resources.GetObject("BtnNovo.BackgroundImage"), System.Drawing.Image)
         Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNovo.ForeColor = System.Drawing.Color.Green
-        Me.BtnNovo.Location = New System.Drawing.Point(420, 79)
+        Me.BtnNovo.Location = New System.Drawing.Point(270, 354)
         Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(69, 22)
+        Me.BtnNovo.Size = New System.Drawing.Size(69, 27)
         Me.BtnNovo.TabIndex = 33
         Me.BtnNovo.Text = "Novo"
         Me.BtnNovo.UseVisualStyleBackColor = True
@@ -177,10 +184,11 @@ Partial Class FrmControleSituacaoAlvara
         '
         Me.BtnExcluir.BackgroundImage = CType(resources.GetObject("BtnExcluir.BackgroundImage"), System.Drawing.Image)
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(495, 79)
+        Me.BtnExcluir.Location = New System.Drawing.Point(495, 354)
         Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
+        Me.BtnExcluir.Size = New System.Drawing.Size(69, 27)
         Me.BtnExcluir.TabIndex = 34
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
@@ -190,19 +198,31 @@ Partial Class FrmControleSituacaoAlvara
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(146, 23)
+        Me.Label1.Location = New System.Drawing.Point(94, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(343, 24)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Controle do Situação das Empresas"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 130)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(83, 24)
+        Me.Label2.TabIndex = 39
+        Me.Label2.Text = "Consulta"
+        '
         'FrmControleSituacaoAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.bg
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(653, 397)
+        Me.ClientSize = New System.Drawing.Size(577, 387)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BtnFechar)
@@ -242,4 +262,5 @@ Partial Class FrmControleSituacaoAlvara
     Friend WithEvents BtnNovo As Button
     Friend WithEvents BtnExcluir As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

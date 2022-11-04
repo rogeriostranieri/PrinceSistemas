@@ -17,9 +17,10 @@ Public Class BackupERestore
             'depois fazer o backup
             Dim sqlConnection As New SqlConnection(SqlConnectionString)
             'escolher o local usando savedialog
-            Dim saveFileDialog1 As New SaveFileDialog
-            saveFileDialog1.Filter = "Backup Files|*.bak"
-            saveFileDialog1.Title = "Salvar o Arquivo de Backup"
+            Dim saveFileDialog1 As New SaveFileDialog With {
+                .Filter = "Backup Files|*.bak",
+                .Title = "Salvar o Arquivo de Backup"
+            }
             saveFileDialog1.ShowDialog()
             'verificar se o usuario escolheu um local
             If saveFileDialog1.FileName <> "" Then

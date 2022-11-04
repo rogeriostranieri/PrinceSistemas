@@ -27,9 +27,9 @@ Partial Class FrmControleEmpresas
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnEventos = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BtnEventos = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -84,8 +84,11 @@ Partial Class FrmControleEmpresas
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.BtnEventos)
         Me.GroupBox1.Controls.Add(Me.BtnExterno)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 17)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(403, 130)
@@ -93,9 +96,23 @@ Partial Class FrmControleEmpresas
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Controle Empresas"
         '
+        'BtnEventos
+        '
+        Me.BtnEventos.BackColor = System.Drawing.Color.Transparent
+        Me.BtnEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEventos.Location = New System.Drawing.Point(126, 37)
+        Me.BtnEventos.Name = "BtnEventos"
+        Me.BtnEventos.Size = New System.Drawing.Size(104, 43)
+        Me.BtnEventos.TabIndex = 6
+        Me.BtnEventos.Text = "Eventos"
+        Me.BtnEventos.UseVisualStyleBackColor = False
+        '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(12, 175)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(403, 112)
@@ -114,22 +131,11 @@ Partial Class FrmControleEmpresas
         Me.Button1.Text = "Situação"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'BtnEventos
-        '
-        Me.BtnEventos.BackColor = System.Drawing.Color.Transparent
-        Me.BtnEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEventos.Location = New System.Drawing.Point(126, 37)
-        Me.BtnEventos.Name = "BtnEventos"
-        Me.BtnEventos.Size = New System.Drawing.Size(104, 43)
-        Me.BtnEventos.TabIndex = 6
-        Me.BtnEventos.Text = "Eventos"
-        Me.BtnEventos.UseVisualStyleBackColor = False
-        '
         'FrmControleEmpresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.bg
+        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(431, 360)
         Me.Controls.Add(Me.GroupBox2)
