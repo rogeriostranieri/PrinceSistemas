@@ -104,9 +104,6 @@ Public Class UserAltDados
             MDIPrincipal.LbTema.ForeColor = Color.Black
 
             Try
-                'pegar pnd da pasta \Imagens\Plano de Fundo\ e coloca como plano de fundo
-                'BackgroundImage = Image.FromFile("\Imagens\Plano de Fundo\" & dr("Tema")) '& ".png")
-
                 For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo\")
                     Dim imgName As String = IO.Path.GetFileName(img)
                     If imgName.StartsWith(dr("Tema")) Then
@@ -137,5 +134,17 @@ Public Class UserAltDados
         Catch ex As Exception
             MsgBox("Erro ao carregar imagem de fundo")
         End Try
+    End Sub
+
+    Private Sub BtnAjudaImage_Click(sender As Object, e As EventArgs) Handles BtnAjudaImage.Click
+        'mgsbox diz: "salvar a imagem com nome de "planodefundo"
+        MsgBox("Salve a imagem com o nome inicial de ""planodefundo"", por exemplo ""planodefundo2""")
+    End Sub
+
+    Private Sub BtnProcurarPasta_Click(sender As Object, e As EventArgs) Handles BtnProcurarPasta.Click
+        'deseja abrir a pasta \Imagens\Plano de Fundo
+        If MsgBox("Deseja abrir a pasta de Imagens\Plano de Fundo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Process.Start(Application.StartupPath & "\Imagens\Plano de Fundo")
+        End If
     End Sub
 End Class

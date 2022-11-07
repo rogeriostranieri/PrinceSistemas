@@ -1,4 +1,12 @@
 ﻿Public Class FrmAdmPrincipal
+    'botao esc para fechar
+    Private Sub FrmAdmPrincipal_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Deseja realmente sair?", MsgBoxStyle.YesNo, "Sair") = MsgBoxResult.Yes Then
+                Me.Close()
+            End If
+        End If
+    End Sub
 
     Private Sub BtnAlterarSenha_Click(sender As Object, e As EventArgs) Handles BtnAlterarSenha.Click
 
@@ -44,5 +52,12 @@
         FlowLayoutPanel1.Controls.Clear()
         Dim UserDel As New UserDel
         FlowLayoutPanel1.Controls.Add(UserDel)
+    End Sub
+
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        'fechar
+        If MsgBox("Deseja realmente sair?", MsgBoxStyle.YesNo, "Sair") = MsgBoxResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 End Class

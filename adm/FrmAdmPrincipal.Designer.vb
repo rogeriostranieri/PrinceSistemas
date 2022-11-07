@@ -32,10 +32,12 @@ Partial Class FrmAdmPrincipal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -54,6 +56,7 @@ Partial Class FrmAdmPrincipal
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.18391!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.81609!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(639, 479)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -114,9 +117,11 @@ Partial Class FrmAdmPrincipal
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnCount = 3
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.774436!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.22556!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.BtnFechar, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -124,6 +129,7 @@ Partial Class FrmAdmPrincipal
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(501, 52)
         Me.TableLayoutPanel2.TabIndex = 4
         '
@@ -131,7 +137,7 @@ Partial Class FrmAdmPrincipal
         '
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(42, 36)
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 36)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
@@ -141,7 +147,7 @@ Partial Class FrmAdmPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(51, 0)
+        Me.Label1.Location = New System.Drawing.Point(41, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 39)
         Me.Label1.TabIndex = 4
@@ -156,6 +162,19 @@ Partial Class FrmAdmPrincipal
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(501, 415)
         Me.FlowLayoutPanel1.TabIndex = 5
         '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.Location = New System.Drawing.Point(400, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(98, 46)
+        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BtnFechar.TabIndex = 15
+        Me.BtnFechar.TabStop = False
+        '
         'FrmAdmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -163,6 +182,7 @@ Partial Class FrmAdmPrincipal
         Me.ClientSize = New System.Drawing.Size(639, 479)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmAdmPrincipal"
@@ -174,6 +194,7 @@ Partial Class FrmAdmPrincipal
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -187,4 +208,5 @@ Partial Class FrmAdmPrincipal
     Friend WithEvents Label1 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents BtnApagar As Button
+    Friend WithEvents BtnFechar As PictureBox
 End Class

@@ -41,7 +41,6 @@ Partial Class WebAgenda
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.WebView2 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -183,7 +182,6 @@ Partial Class WebAgenda
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -232,19 +230,6 @@ Partial Class WebAgenda
         Me.WebView2.TabIndex = 16
         Me.WebView2.ZoomFactor = 1.0R
         '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.icone_questao
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(304, 55)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(62, 66)
-        Me.Button2.TabIndex = 15
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'WebAgenda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,5 +273,4 @@ Partial Class WebAgenda
     Friend WithEvents WebView2 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents LblStatusCarregamento As ToolStripStatusLabel
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button2 As Button
 End Class

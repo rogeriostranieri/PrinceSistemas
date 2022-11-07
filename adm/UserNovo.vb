@@ -54,4 +54,16 @@ Public Class UserNovo
             MsgBox("Erro ao carregar imagens")
         End Try
     End Sub
+
+    Private Sub BtnAjudaImage_Click(sender As Object, e As EventArgs) Handles BtnAjudaImage.Click
+        'mgsbox diz: "salvar a imagem com nome de "planodefundo"
+        MsgBox("Salve a imagem com o nome inicial de ""planodefundo"", por exemplo ""planodefundo2""")
+    End Sub
+
+    Private Sub BtnProcurarPasta_Click(sender As Object, e As EventArgs) Handles BtnProcurarPasta.Click
+        'deseja abrir a pasta \Imagens\Plano de Fundo
+        If MsgBox("Deseja abrir a pasta de Imagens\Plano de Fundo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Process.Start(Application.StartupPath & "\Imagens\Plano de Fundo")
+        End If
+    End Sub
 End Class

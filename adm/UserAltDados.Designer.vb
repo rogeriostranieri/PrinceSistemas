@@ -35,7 +35,9 @@ Partial Class UserAltDados
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.BtnMostrarDados = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.BtnAjudaImage = New System.Windows.Forms.Button()
         Me.TemaPictureBox = New System.Windows.Forms.PictureBox()
+        Me.BtnProcurarPasta = New System.Windows.Forms.Button()
         TemaLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
         CType(Me.TemaPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,6 +164,19 @@ Partial Class UserAltDados
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
+        'BtnAjudaImage
+        '
+        Me.BtnAjudaImage.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaImage.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaImage.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaImage.Location = New System.Drawing.Point(215, 233)
+        Me.BtnAjudaImage.Name = "BtnAjudaImage"
+        Me.BtnAjudaImage.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaImage.TabIndex = 70
+        Me.BtnAjudaImage.UseVisualStyleBackColor = True
+        '
         'TemaPictureBox
         '
         Me.TemaPictureBox.Location = New System.Drawing.Point(39, 263)
@@ -170,12 +185,27 @@ Partial Class UserAltDados
         Me.TemaPictureBox.TabIndex = 31
         Me.TemaPictureBox.TabStop = False
         '
+        'BtnProcurarPasta
+        '
+        Me.BtnProcurarPasta.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.pasta1
+        Me.BtnProcurarPasta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnProcurarPasta.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnProcurarPasta.FlatAppearance.BorderSize = 0
+        Me.BtnProcurarPasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnProcurarPasta.Location = New System.Drawing.Point(248, 233)
+        Me.BtnProcurarPasta.Name = "BtnProcurarPasta"
+        Me.BtnProcurarPasta.Size = New System.Drawing.Size(27, 23)
+        Me.BtnProcurarPasta.TabIndex = 71
+        Me.BtnProcurarPasta.UseVisualStyleBackColor = True
+        '
         'UserAltDados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Controls.Add(Me.BtnProcurarPasta)
+        Me.Controls.Add(Me.BtnAjudaImage)
         Me.Controls.Add(Me.TemaPictureBox)
         Me.Controls.Add(Me.BtnMostrarDados)
         Me.Controls.Add(Me.UsernameLabel)
@@ -207,4 +237,6 @@ Partial Class UserAltDados
     Friend WithEvents BtnMostrarDados As Button
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents TemaPictureBox As PictureBox
+    Friend WithEvents BtnAjudaImage As Button
+    Friend WithEvents BtnProcurarPasta As Button
 End Class

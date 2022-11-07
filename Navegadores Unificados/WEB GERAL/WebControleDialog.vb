@@ -80,27 +80,39 @@ Public Class WebControleDialog
     End Sub
 
     Private Sub LimparTudo()
-        'verificar se WebGeral está aberto e fechar
-        If Not IsNothing(WebSiteGERAL) Then
-            WebSiteGERAL.Close()
-        End If
+        Try
+            'perguntar se deseja apagar
+            Dim result As Integer = MessageBox.Show("Deseja apagar tudo?", "Apagar", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                Exit Sub
+            ElseIf result = DialogResult.Yes Then
+                'verificar se WebGeral está aberto e fechar
+                If Not IsNothing(WebSiteGERAL) Then
+                    WebSiteGERAL.Close()
+                End If
 
-        'excluir pasta  "\PrinceSistemas.exe.WebView2" onde fica salvo todo cache
-        Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2"
-        Dim di As New IO.DirectoryInfo(dir)
-        'verificar se tem pasta do webview 
-        If di.Exists Then
-            For Each fi As IO.FileInfo In di.GetFiles()
-                fi.Delete()
-            Next
-            For Each dii As IO.DirectoryInfo In di.GetDirectories()
-                dii.Delete(True)
-            Next
-            di.Delete()
-        End If
-        'fim do codigo de apagar a pasta
-        'mgs
-        MsgBox("Arquivos Temporários foi limpo com sucesso!", MsgBoxStyle.Information, "Limpar Total")
+                'excluir pasta  "\PrinceSistemas.exe.WebView2" onde fica salvo todo cache
+                Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2"
+                Dim di As New IO.DirectoryInfo(dir)
+                'verificar se tem pasta do webview 
+                If di.Exists Then
+                    For Each fi As IO.FileInfo In di.GetFiles()
+                        fi.Delete()
+                    Next
+                    For Each dii As IO.DirectoryInfo In di.GetDirectories()
+                        dii.Delete(True)
+                    Next
+                    di.Delete()
+                End If
+                'fim do codigo de apagar a pasta
+                'mgs
+                MsgBox("Arquivos Temporários foi limpo com sucesso!", MsgBoxStyle.Information, "Limpar Total")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
     End Sub
 
     Private Sub BtnPagInicialPadrao_Click(sender As Object, e As EventArgs) Handles BtnPagInicialPadrao.Click

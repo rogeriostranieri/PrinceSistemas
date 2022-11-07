@@ -33,6 +33,8 @@ Partial Class UserNovo
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnCriar = New System.Windows.Forms.Button()
         Me.BtnLimpar = New System.Windows.Forms.Button()
+        Me.BtnProcurarPasta = New System.Windows.Forms.Button()
+        Me.BtnAjudaImage = New System.Windows.Forms.Button()
         UsuarioLabel = New System.Windows.Forms.Label()
         SenhaLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
@@ -144,12 +146,40 @@ Partial Class UserNovo
         Me.BtnLimpar.TabIndex = 11
         Me.BtnLimpar.Text = "&Limpar"
         '
+        'BtnProcurarPasta
+        '
+        Me.BtnProcurarPasta.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.pasta1
+        Me.BtnProcurarPasta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnProcurarPasta.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnProcurarPasta.FlatAppearance.BorderSize = 0
+        Me.BtnProcurarPasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnProcurarPasta.Location = New System.Drawing.Point(199, 182)
+        Me.BtnProcurarPasta.Name = "BtnProcurarPasta"
+        Me.BtnProcurarPasta.Size = New System.Drawing.Size(27, 23)
+        Me.BtnProcurarPasta.TabIndex = 73
+        Me.BtnProcurarPasta.UseVisualStyleBackColor = True
+        '
+        'BtnAjudaImage
+        '
+        Me.BtnAjudaImage.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaImage.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaImage.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaImage.Location = New System.Drawing.Point(166, 182)
+        Me.BtnAjudaImage.Name = "BtnAjudaImage"
+        Me.BtnAjudaImage.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaImage.TabIndex = 72
+        Me.BtnAjudaImage.UseVisualStyleBackColor = True
+        '
         'UserNovo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Controls.Add(Me.BtnProcurarPasta)
+        Me.Controls.Add(Me.BtnAjudaImage)
         Me.Controls.Add(Me.BtnLimpar)
         Me.Controls.Add(Me.BtnCriar)
         Me.Controls.Add(Me.BtnCancelar)
@@ -175,4 +205,6 @@ Partial Class UserNovo
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents BtnCriar As Button
     Friend WithEvents BtnLimpar As Button
+    Friend WithEvents BtnProcurarPasta As Button
+    Friend WithEvents BtnAjudaImage As Button
 End Class

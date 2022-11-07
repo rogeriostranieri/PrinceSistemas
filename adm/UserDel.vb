@@ -27,10 +27,13 @@ Public Class UserDel
             Try
                 conexao2.Open()
                 leitor = comando2.ExecuteReader()
+
                 While leitor.Read()
                     ComboBoxUser.Items.Add(leitor("Usuario"))
                 End While
                 conexao2.Close()
+                'mgsbox usuario aceito
+                MsgBox("Usuário aceito")
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
