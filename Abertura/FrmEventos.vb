@@ -207,11 +207,9 @@
         'ao clicar adicionar o Evento dentro do FrmLegalizacao.MotivoRichTextBox,
         'verificar antes se tem texto no FrmLegalizacao.MotivoRichTextBox e adicionar na proxima linha
         If FrmLegalizacao.MotivoRichTextBox.Text = "" Then
-            FrmLegalizacao.MotivoRichTextBox.Text = EventosEmpresaDataGridView.CurrentRow.Cells(1).Value
+            FrmLegalizacao.MotivoRichTextBox.Text = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value
         Else
-            'apagar paragrafo vazia
-            FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text.Replace(vbCrLf, "")
-            FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text & vbCrLf & EventosEmpresaDataGridView.CurrentRow.Cells(1).Value
+            FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text & vbCrLf & EventosEmpresaDataGridView.CurrentRow.Cells(0).Value
         End If
     End Sub
 

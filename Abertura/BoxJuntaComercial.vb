@@ -19,19 +19,42 @@ Public Class BoxJuntaComercial
     End Sub
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
-
-
-        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+        Try
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(1)
+            'selecionar TabControle  aba 2
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            Dim Junta As String = FrmLegalizacao.EndEstadoTextBox.Text
+            '///////////////////////////////////////////////////////////////////////////////////
+            'Verifica Navegador interno
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+            Else
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = MDIPrincipal
+            End If
+            '///////////////////////////////////////////////////////////////////////////////////
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(2)
+            '///////////////////////////////////////////////////////////////////////////////////
+            'inicia processo de abrir
+            If Junta = Protocolo Then
+                WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            ElseIf Junta = "ES" Then
+                WebSiteGERAL.WebView.Source = New Uri("https://www.simplifica.es.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            End If
+            '///////////////////////////////////////////////////////////////////////////////////
+            MDIPrincipal.Focus()
             WebSiteGERAL.Focus()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
             Me.Close()
-        Else
-            WebSiteGERAL.Show()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
-            Me.Close()
-        End If
+        Catch ex As Exception
+            MsgBox("Erro ao abrir o site da Junta Comercial, verificar o  Estado Cadastrado ou informar o administrador")
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(1)
+            'selecionar TabControle  aba 2
+            FrmLegalizacao.TabControl2.SelectTab(3)
+        End Try
     End Sub
 
     Private Sub BoxJuntaComercial_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -39,7 +62,27 @@ Public Class BoxJuntaComercial
     End Sub
 
     Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
-        System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
-        Me.Close()
+        Try
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(1)
+            'selecionar TabControle  aba 2
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            Dim Junta As String = FrmLegalizacao.EndEstadoTextBox.Text
+
+            If Junta = Protocolo Then
+                System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            ElseIf Junta = "ES" Then
+                System.Diagnostics.Process.Start("https://www.simplifica.es.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
+            End If
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(2)
+            Me.Close()
+        Catch ex As Exception
+            MsgBox("Erro ao abrir o site da Junta Comercial, verificar o  Estado Cadastrado ou informar o administrador")
+            'selecionar TabControle  aba 1
+            FrmLegalizacao.TabControle.SelectTab(1)
+            'selecionar TabControle  aba 2
+            FrmLegalizacao.TabControl2.SelectTab(3)
+        End Try
     End Sub
 End Class
