@@ -73,9 +73,9 @@ Partial Class FrmAlvara
         Dim EndEstadoLabel1 As System.Windows.Forms.Label
         Dim OrgaoRGRequerenteLabel As System.Windows.Forms.Label
         Dim EstadoOrgaoRGRequerenteLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Dim NumeroProcessoLabel As System.Windows.Forms.Label
         Dim ReciboProcessoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -243,15 +243,17 @@ Partial Class FrmAlvara
         Me.Button6 = New System.Windows.Forms.Button()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxProtocolo = New System.Windows.Forms.GroupBox()
+        Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
+        Me.ReciboProcessoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtocoloSenhaTextBox = New System.Windows.Forms.TextBox()
+        Me.DataEntradaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.DataEntradaLabel = New System.Windows.Forms.Label()
+        Me.NumeroProcessoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtocoloAnoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtocoloNTextBox = New System.Windows.Forms.TextBox()
         Me.ProtocoloTipoTextBox = New System.Windows.Forms.TextBox()
-        Me.DataEntradaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.DataEntradaLabel = New System.Windows.Forms.Label()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ButtonSolicitar = New System.Windows.Forms.Button()
@@ -288,8 +290,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.NumeroProcessoTextBox = New System.Windows.Forms.TextBox()
-        Me.ReciboProcessoTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -857,6 +857,24 @@ Partial Class FrmAlvara
         EstadoOrgaoRGRequerenteLabel.TabIndex = 58
         EstadoOrgaoRGRequerenteLabel.Text = "Estado:"
         '
+        'NumeroProcessoLabel
+        '
+        NumeroProcessoLabel.AutoSize = True
+        NumeroProcessoLabel.Location = New System.Drawing.Point(15, 143)
+        NumeroProcessoLabel.Name = "NumeroProcessoLabel"
+        NumeroProcessoLabel.Size = New System.Drawing.Size(109, 13)
+        NumeroProcessoLabel.TabIndex = 0
+        NumeroProcessoLabel.Text = "Número do Processo:"
+        '
+        'ReciboProcessoLabel
+        '
+        ReciboProcessoLabel.AutoSize = True
+        ReciboProcessoLabel.Location = New System.Drawing.Point(20, 169)
+        ReciboProcessoLabel.Name = "ReciboProcessoLabel"
+        ReciboProcessoLabel.Size = New System.Drawing.Size(99, 13)
+        ReciboProcessoLabel.TabIndex = 2
+        ReciboProcessoLabel.Text = "Número do Recibo:"
+        '
         'PrinceDBDataSet
         '
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
@@ -883,6 +901,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Me.LaudosTableAdapter
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
@@ -1802,7 +1821,7 @@ Partial Class FrmAlvara
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
         Me.ModeloSistemaComboBox.FormattingEnabled = True
-        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Junta Comercial", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "Baixa de Alvará", "Outros"})
+        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Baixa de Alvará", "Junta Comercial", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "SEI - Sistema Eletrônico de Informações", "Outros"})
         Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(81, 46)
         Me.ModeloSistemaComboBox.Name = "ModeloSistemaComboBox"
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)
@@ -2695,17 +2714,6 @@ Partial Class FrmAlvara
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Documentos necessários para Requerimento de Extravio de Alvará"
         '
-        'BtnNovoProtocolo
-        '
-        Me.BtnNovoProtocolo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BtnNovoProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNovoProtocolo.Location = New System.Drawing.Point(484, 17)
-        Me.BtnNovoProtocolo.Name = "BtnNovoProtocolo"
-        Me.BtnNovoProtocolo.Size = New System.Drawing.Size(69, 35)
-        Me.BtnNovoProtocolo.TabIndex = 78
-        Me.BtnNovoProtocolo.Text = "Novo Protocolo"
-        Me.BtnNovoProtocolo.UseVisualStyleBackColor = True
-        '
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.protocolo
@@ -2742,6 +2750,25 @@ Partial Class FrmAlvara
         Me.GroupBoxProtocolo.TabStop = False
         Me.GroupBoxProtocolo.Text = "Processo"
         '
+        'BtnNovoProtocolo
+        '
+        Me.BtnNovoProtocolo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnNovoProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnNovoProtocolo.Location = New System.Drawing.Point(484, 17)
+        Me.BtnNovoProtocolo.Name = "BtnNovoProtocolo"
+        Me.BtnNovoProtocolo.Size = New System.Drawing.Size(69, 35)
+        Me.BtnNovoProtocolo.TabIndex = 78
+        Me.BtnNovoProtocolo.Text = "Novo Protocolo"
+        Me.BtnNovoProtocolo.UseVisualStyleBackColor = True
+        '
+        'ReciboProcessoTextBox
+        '
+        Me.ReciboProcessoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ReciboProcesso", True))
+        Me.ReciboProcessoTextBox.Location = New System.Drawing.Point(125, 166)
+        Me.ReciboProcessoTextBox.Name = "ReciboProcessoTextBox"
+        Me.ReciboProcessoTextBox.Size = New System.Drawing.Size(218, 20)
+        Me.ReciboProcessoTextBox.TabIndex = 3
+        '
         'ProtocoloSenhaTextBox
         '
         Me.ProtocoloSenhaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ProtocoloSenha", True))
@@ -2749,6 +2776,34 @@ Partial Class FrmAlvara
         Me.ProtocoloSenhaTextBox.Name = "ProtocoloSenhaTextBox"
         Me.ProtocoloSenhaTextBox.Size = New System.Drawing.Size(100, 20)
         Me.ProtocoloSenhaTextBox.TabIndex = 75
+        '
+        'DataEntradaMaskedTextBox
+        '
+        Me.DataEntradaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "DataEntrada", True))
+        Me.DataEntradaMaskedTextBox.Location = New System.Drawing.Point(95, 19)
+        Me.DataEntradaMaskedTextBox.Mask = "00/00/0000 90:00"
+        Me.DataEntradaMaskedTextBox.Name = "DataEntradaMaskedTextBox"
+        Me.DataEntradaMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.DataEntradaMaskedTextBox.TabIndex = 66
+        Me.DataEntradaMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'DataEntradaLabel
+        '
+        Me.DataEntradaLabel.AutoSize = True
+        Me.DataEntradaLabel.BackColor = System.Drawing.Color.Transparent
+        Me.DataEntradaLabel.Location = New System.Drawing.Point(11, 24)
+        Me.DataEntradaLabel.Name = "DataEntradaLabel"
+        Me.DataEntradaLabel.Size = New System.Drawing.Size(84, 13)
+        Me.DataEntradaLabel.TabIndex = 71
+        Me.DataEntradaLabel.Text = "Protocolado dia:"
+        '
+        'NumeroProcessoTextBox
+        '
+        Me.NumeroProcessoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NumeroProcesso", True))
+        Me.NumeroProcessoTextBox.Location = New System.Drawing.Point(125, 140)
+        Me.NumeroProcessoTextBox.Name = "NumeroProcessoTextBox"
+        Me.NumeroProcessoTextBox.Size = New System.Drawing.Size(218, 20)
+        Me.NumeroProcessoTextBox.TabIndex = 1
         '
         'ProtocoloAnoTextBox
         '
@@ -2773,26 +2828,6 @@ Partial Class FrmAlvara
         Me.ProtocoloTipoTextBox.Name = "ProtocoloTipoTextBox"
         Me.ProtocoloTipoTextBox.Size = New System.Drawing.Size(39, 20)
         Me.ProtocoloTipoTextBox.TabIndex = 72
-        '
-        'DataEntradaMaskedTextBox
-        '
-        Me.DataEntradaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "DataEntrada", True))
-        Me.DataEntradaMaskedTextBox.Location = New System.Drawing.Point(95, 19)
-        Me.DataEntradaMaskedTextBox.Mask = "00/00/0000 90:00"
-        Me.DataEntradaMaskedTextBox.Name = "DataEntradaMaskedTextBox"
-        Me.DataEntradaMaskedTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.DataEntradaMaskedTextBox.TabIndex = 66
-        Me.DataEntradaMaskedTextBox.ValidatingType = GetType(Date)
-        '
-        'DataEntradaLabel
-        '
-        Me.DataEntradaLabel.AutoSize = True
-        Me.DataEntradaLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DataEntradaLabel.Location = New System.Drawing.Point(11, 24)
-        Me.DataEntradaLabel.Name = "DataEntradaLabel"
-        Me.DataEntradaLabel.Size = New System.Drawing.Size(84, 13)
-        Me.DataEntradaLabel.TabIndex = 71
-        Me.DataEntradaLabel.Text = "Protocolado dia:"
         '
         'TabPage16
         '
@@ -3220,40 +3255,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'NumeroProcessoLabel
-        '
-        NumeroProcessoLabel.AutoSize = True
-        NumeroProcessoLabel.Location = New System.Drawing.Point(15, 143)
-        NumeroProcessoLabel.Name = "NumeroProcessoLabel"
-        NumeroProcessoLabel.Size = New System.Drawing.Size(109, 13)
-        NumeroProcessoLabel.TabIndex = 0
-        NumeroProcessoLabel.Text = "Número do Processo:"
-        '
-        'NumeroProcessoTextBox
-        '
-        Me.NumeroProcessoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NumeroProcesso", True))
-        Me.NumeroProcessoTextBox.Location = New System.Drawing.Point(125, 140)
-        Me.NumeroProcessoTextBox.Name = "NumeroProcessoTextBox"
-        Me.NumeroProcessoTextBox.Size = New System.Drawing.Size(218, 20)
-        Me.NumeroProcessoTextBox.TabIndex = 1
-        '
-        'ReciboProcessoLabel
-        '
-        ReciboProcessoLabel.AutoSize = True
-        ReciboProcessoLabel.Location = New System.Drawing.Point(20, 169)
-        ReciboProcessoLabel.Name = "ReciboProcessoLabel"
-        ReciboProcessoLabel.Size = New System.Drawing.Size(99, 13)
-        ReciboProcessoLabel.TabIndex = 2
-        ReciboProcessoLabel.Text = "Número do Recibo:"
-        '
-        'ReciboProcessoTextBox
-        '
-        Me.ReciboProcessoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ReciboProcesso", True))
-        Me.ReciboProcessoTextBox.Location = New System.Drawing.Point(125, 166)
-        Me.ReciboProcessoTextBox.Name = "ReciboProcessoTextBox"
-        Me.ReciboProcessoTextBox.Size = New System.Drawing.Size(218, 20)
-        Me.ReciboProcessoTextBox.TabIndex = 3
         '
         'FrmAlvara
         '
