@@ -39,7 +39,7 @@ Public Class BoxJuntaComercial
             FrmLegalizacao.TabControle.SelectTab(2)
             '///////////////////////////////////////////////////////////////////////////////////
             'inicia processo de abrir
-            If Junta = Protocolo Then
+            If Junta = "PR" Then
                 WebSiteGERAL.WebView.Source = New Uri("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
             ElseIf Junta = "ES" Then
                 WebSiteGERAL.WebView.Source = New Uri("https://www.simplifica.es.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
@@ -69,7 +69,7 @@ Public Class BoxJuntaComercial
             FrmLegalizacao.TabControl2.SelectTab(3)
             Dim Junta As String = FrmLegalizacao.EndEstadoTextBox.Text
 
-            If Junta = Protocolo Then
+            If Junta = "PR" Then
                 System.Diagnostics.Process.Start("https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
             ElseIf Junta = "ES" Then
                 System.Diagnostics.Process.Start("https://www.simplifica.es.gov.br/sigfacil/processo/acompanhar/co_protocolo/" + Protocolo)
