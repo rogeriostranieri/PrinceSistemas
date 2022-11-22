@@ -2856,4 +2856,42 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
     End Sub
 
 
+
+    Private Sub TipoUnidadeProdutivaRichTextBox_Click(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Click
+        TipodeUnidade.ShowDialog()
+    End Sub
+
+    Private Sub TipoUnidadeProdutivaRichTextBox_Leave(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Leave
+        TipodeUnidade.Close()
+    End Sub
+
+    Private Sub TipoUnidadeProdutivaRichTextBox_Validated(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Validated
+        'auto size
+        TipoUnidadeProdutivaRichTextBox.AutoSize = True
+
+    End Sub
+
+    Private Sub FormaDeAtuacaoRichTextBox_Click(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Click
+        FormadeAtuacao.ShowDialog()
+    End Sub
+
+    Private Sub FormaDeAtuacaoRichTextBox_Leave(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Leave
+        FormadeAtuacao.Close()
+    End Sub
+
+    Private Sub FormaDeAtuacaoRichTextBox_Validated(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Validated
+        FormaDeAtuacaoRichTextBox.AutoSize = True
+    End Sub
+
+    Private Sub TabPage21_Enter(sender As Object, e As EventArgs) Handles TabPage21.Enter
+        If TipoUnidadeProdutivaRichTextBox.Text.Contains("Unidade Produtiva") Then
+            FormaDeAtuacaoRichTextBox.Visible = True
+            FormaDeAtuacaoLabel.Visible = True
+        Else
+            FormaDeAtuacaoRichTextBox.Visible = False
+            FormaDeAtuacaoLabel.Visible = False
+        End If
+    End Sub
+
+
 End Class

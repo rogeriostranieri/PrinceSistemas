@@ -113,6 +113,15 @@ Partial Class FrmLegalizacao
         Dim ResponsavelOrgaoRGLabel As System.Windows.Forms.Label
         Dim ResponsavelEstadoOrgaoRGLabel As System.Windows.Forms.Label
         Dim SEDELabel As System.Windows.Forms.Label
+        Dim PontoDeReferenciaLabel As System.Windows.Forms.Label
+        Dim TipoUnidadeProdutivaLabel As System.Windows.Forms.Label
+        Dim DadosComplSubsoloLabel As System.Windows.Forms.Label
+        Dim DadosComplPessoasLabel As System.Windows.Forms.Label
+        Dim DadosComplPavimentosLabel As System.Windows.Forms.Label
+        Dim DadosComplAtividadeLabel As System.Windows.Forms.Label
+        Dim DadosComplEstabelecimentoLabel As System.Windows.Forms.Label
+        Dim DadosComplLiquidoLabel As System.Windows.Forms.Label
+        Dim DadosComplGLPLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -178,6 +187,7 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.PontoDeReferenciaComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.EndPaisTextBox = New System.Windows.Forms.TextBox()
         Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
@@ -221,6 +231,18 @@ Partial Class FrmLegalizacao
         Me.NovaRazaoSocial3TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial2TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial1TextBox = New System.Windows.Forms.TextBox()
+        Me.TabPage21 = New System.Windows.Forms.TabPage()
+        Me.FormaDeAtuacaoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TipoUnidadeProdutivaRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.FormaDeAtuacaoLabel = New System.Windows.Forms.Label()
+        Me.TabPage22 = New System.Windows.Forms.TabPage()
+        Me.DadosComplGLPTextBox = New System.Windows.Forms.TextBox()
+        Me.DadosComplLiquidoTextBox = New System.Windows.Forms.TextBox()
+        Me.DadosComplSubsoloComboBox = New System.Windows.Forms.ComboBox()
+        Me.DadosComplPessoasTextBox = New System.Windows.Forms.TextBox()
+        Me.DadosComplPavimentosTextBox = New System.Windows.Forms.TextBox()
+        Me.DadosComplAtividadeComboBox = New System.Windows.Forms.ComboBox()
+        Me.DadosComplEstabelecimentoComboBox = New System.Windows.Forms.ComboBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.BtnData3 = New System.Windows.Forms.Button()
@@ -509,6 +531,15 @@ Partial Class FrmLegalizacao
         ResponsavelOrgaoRGLabel = New System.Windows.Forms.Label()
         ResponsavelEstadoOrgaoRGLabel = New System.Windows.Forms.Label()
         SEDELabel = New System.Windows.Forms.Label()
+        PontoDeReferenciaLabel = New System.Windows.Forms.Label()
+        TipoUnidadeProdutivaLabel = New System.Windows.Forms.Label()
+        DadosComplSubsoloLabel = New System.Windows.Forms.Label()
+        DadosComplPessoasLabel = New System.Windows.Forms.Label()
+        DadosComplPavimentosLabel = New System.Windows.Forms.Label()
+        DadosComplAtividadeLabel = New System.Windows.Forms.Label()
+        DadosComplEstabelecimentoLabel = New System.Windows.Forms.Label()
+        DadosComplLiquidoLabel = New System.Windows.Forms.Label()
+        DadosComplGLPLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -527,6 +558,8 @@ Partial Class FrmLegalizacao
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
         Me.TabPage18.SuspendLayout()
+        Me.TabPage21.SuspendLayout()
+        Me.TabPage22.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage9.SuspendLayout()
@@ -621,7 +654,7 @@ Partial Class FrmLegalizacao
         'EnderecoLabel
         '
         EnderecoLabel.AutoSize = True
-        EnderecoLabel.Location = New System.Drawing.Point(7, 53)
+        EnderecoLabel.Location = New System.Drawing.Point(7, 43)
         EnderecoLabel.Name = "EnderecoLabel"
         EnderecoLabel.Size = New System.Drawing.Size(56, 13)
         EnderecoLabel.TabIndex = 0
@@ -630,7 +663,7 @@ Partial Class FrmLegalizacao
         'EndNumeroLabel
         '
         EndNumeroLabel.AutoSize = True
-        EndNumeroLabel.Location = New System.Drawing.Point(459, 53)
+        EndNumeroLabel.Location = New System.Drawing.Point(459, 43)
         EndNumeroLabel.Name = "EndNumeroLabel"
         EndNumeroLabel.Size = New System.Drawing.Size(47, 13)
         EndNumeroLabel.TabIndex = 2
@@ -639,7 +672,7 @@ Partial Class FrmLegalizacao
         'EndBairroLabel
         '
         EndBairroLabel.AutoSize = True
-        EndBairroLabel.Location = New System.Drawing.Point(23, 104)
+        EndBairroLabel.Location = New System.Drawing.Point(23, 94)
         EndBairroLabel.Name = "EndBairroLabel"
         EndBairroLabel.Size = New System.Drawing.Size(37, 13)
         EndBairroLabel.TabIndex = 4
@@ -648,7 +681,7 @@ Partial Class FrmLegalizacao
         'EndComplementoLabel
         '
         EndComplementoLabel.AutoSize = True
-        EndComplementoLabel.Location = New System.Drawing.Point(289, 104)
+        EndComplementoLabel.Location = New System.Drawing.Point(289, 94)
         EndComplementoLabel.Name = "EndComplementoLabel"
         EndComplementoLabel.Size = New System.Drawing.Size(74, 13)
         EndComplementoLabel.TabIndex = 6
@@ -657,7 +690,7 @@ Partial Class FrmLegalizacao
         'EndCEPLabel
         '
         EndCEPLabel.AutoSize = True
-        EndCEPLabel.Location = New System.Drawing.Point(29, 27)
+        EndCEPLabel.Location = New System.Drawing.Point(29, 17)
         EndCEPLabel.Name = "EndCEPLabel"
         EndCEPLabel.Size = New System.Drawing.Size(31, 13)
         EndCEPLabel.TabIndex = 8
@@ -666,7 +699,7 @@ Partial Class FrmLegalizacao
         'EndCidadeLabel
         '
         EndCidadeLabel.AutoSize = True
-        EndCidadeLabel.Location = New System.Drawing.Point(20, 130)
+        EndCidadeLabel.Location = New System.Drawing.Point(20, 120)
         EndCidadeLabel.Name = "EndCidadeLabel"
         EndCidadeLabel.Size = New System.Drawing.Size(43, 13)
         EndCidadeLabel.TabIndex = 10
@@ -675,7 +708,7 @@ Partial Class FrmLegalizacao
         'EndEstadoLabel
         '
         EndEstadoLabel.AutoSize = True
-        EndEstadoLabel.Location = New System.Drawing.Point(245, 130)
+        EndEstadoLabel.Location = New System.Drawing.Point(245, 120)
         EndEstadoLabel.Name = "EndEstadoLabel"
         EndEstadoLabel.Size = New System.Drawing.Size(43, 13)
         EndEstadoLabel.TabIndex = 12
@@ -684,7 +717,7 @@ Partial Class FrmLegalizacao
         'EndPaisLabel
         '
         EndPaisLabel.AutoSize = True
-        EndPaisLabel.Location = New System.Drawing.Point(340, 130)
+        EndPaisLabel.Location = New System.Drawing.Point(340, 120)
         EndPaisLabel.Name = "EndPaisLabel"
         EndPaisLabel.Size = New System.Drawing.Size(32, 13)
         EndPaisLabel.TabIndex = 14
@@ -1008,7 +1041,7 @@ Partial Class FrmLegalizacao
         'AreaLabel
         '
         AreaLabel.AutoSize = True
-        AreaLabel.Location = New System.Drawing.Point(20, 156)
+        AreaLabel.Location = New System.Drawing.Point(67, 147)
         AreaLabel.Name = "AreaLabel"
         AreaLabel.Size = New System.Drawing.Size(101, 13)
         AreaLabel.TabIndex = 26
@@ -1017,7 +1050,7 @@ Partial Class FrmLegalizacao
         'Area2Label
         '
         Area2Label.AutoSize = True
-        Area2Label.Location = New System.Drawing.Point(215, 156)
+        Area2Label.Location = New System.Drawing.Point(20, 171)
         Area2Label.Name = "Area2Label"
         Area2Label.Size = New System.Drawing.Size(148, 13)
         Area2Label.TabIndex = 28
@@ -1161,7 +1194,7 @@ Partial Class FrmLegalizacao
         'CadImobLabel
         '
         CadImobLabel.AutoSize = True
-        CadImobLabel.Location = New System.Drawing.Point(325, 79)
+        CadImobLabel.Location = New System.Drawing.Point(325, 69)
         CadImobLabel.Name = "CadImobLabel"
         CadImobLabel.Size = New System.Drawing.Size(101, 13)
         CadImobLabel.TabIndex = 29
@@ -1170,7 +1203,7 @@ Partial Class FrmLegalizacao
         'EndZonaLabel
         '
         EndZonaLabel.AutoSize = True
-        EndZonaLabel.Location = New System.Drawing.Point(25, 79)
+        EndZonaLabel.Location = New System.Drawing.Point(25, 69)
         EndZonaLabel.Name = "EndZonaLabel"
         EndZonaLabel.Size = New System.Drawing.Size(35, 13)
         EndZonaLabel.TabIndex = 30
@@ -1179,7 +1212,7 @@ Partial Class FrmLegalizacao
         'EndQuadraLabel
         '
         EndQuadraLabel.AutoSize = True
-        EndQuadraLabel.Location = New System.Drawing.Point(122, 79)
+        EndQuadraLabel.Location = New System.Drawing.Point(122, 69)
         EndQuadraLabel.Name = "EndQuadraLabel"
         EndQuadraLabel.Size = New System.Drawing.Size(45, 13)
         EndQuadraLabel.TabIndex = 31
@@ -1188,7 +1221,7 @@ Partial Class FrmLegalizacao
         'EndDataLabel
         '
         EndDataLabel.AutoSize = True
-        EndDataLabel.Location = New System.Drawing.Point(223, 79)
+        EndDataLabel.Location = New System.Drawing.Point(223, 69)
         EndDataLabel.Name = "EndDataLabel"
         EndDataLabel.Size = New System.Drawing.Size(33, 13)
         EndDataLabel.TabIndex = 32
@@ -1373,6 +1406,87 @@ Partial Class FrmLegalizacao
         SEDELabel.Size = New System.Drawing.Size(39, 13)
         SEDELabel.TabIndex = 67
         SEDELabel.Text = "SEDE:"
+        '
+        'PontoDeReferenciaLabel
+        '
+        PontoDeReferenciaLabel.AutoSize = True
+        PontoDeReferenciaLabel.Location = New System.Drawing.Point(271, 147)
+        PontoDeReferenciaLabel.Name = "PontoDeReferenciaLabel"
+        PontoDeReferenciaLabel.Size = New System.Drawing.Size(110, 13)
+        PontoDeReferenciaLabel.TabIndex = 39
+        PontoDeReferenciaLabel.Text = "Ponto De Referencia:"
+        '
+        'TipoUnidadeProdutivaLabel
+        '
+        TipoUnidadeProdutivaLabel.AutoSize = True
+        TipoUnidadeProdutivaLabel.Location = New System.Drawing.Point(11, 19)
+        TipoUnidadeProdutivaLabel.Name = "TipoUnidadeProdutivaLabel"
+        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(122, 13)
+        TipoUnidadeProdutivaLabel.TabIndex = 0
+        TipoUnidadeProdutivaLabel.Text = "Tipo Unidade Produtiva:"
+        '
+        'DadosComplSubsoloLabel
+        '
+        DadosComplSubsoloLabel.AutoSize = True
+        DadosComplSubsoloLabel.Location = New System.Drawing.Point(19, 114)
+        DadosComplSubsoloLabel.Name = "DadosComplSubsoloLabel"
+        DadosComplSubsoloLabel.Size = New System.Drawing.Size(316, 13)
+        DadosComplSubsoloLabel.TabIndex = 22
+        DadosComplSubsoloLabel.Text = "A edificação possui subsolo com uso distinto de estacionamento?"
+        '
+        'DadosComplPessoasLabel
+        '
+        DadosComplPessoasLabel.AutoSize = True
+        DadosComplPessoasLabel.Location = New System.Drawing.Point(19, 93)
+        DadosComplPessoasLabel.Name = "DadosComplPessoasLabel"
+        DadosComplPessoasLabel.Size = New System.Drawing.Size(224, 13)
+        DadosComplPessoasLabel.TabIndex = 19
+        DadosComplPessoasLabel.Text = "Quantidade máxima de pessoas no ambiente?"
+        '
+        'DadosComplPavimentosLabel
+        '
+        DadosComplPavimentosLabel.AutoSize = True
+        DadosComplPavimentosLabel.Location = New System.Drawing.Point(19, 65)
+        DadosComplPavimentosLabel.Name = "DadosComplPavimentosLabel"
+        DadosComplPavimentosLabel.Size = New System.Drawing.Size(203, 13)
+        DadosComplPavimentosLabel.TabIndex = 18
+        DadosComplPavimentosLabel.Text = "A edificação possui quantos pavimentos?"
+        '
+        'DadosComplAtividadeLabel
+        '
+        DadosComplAtividadeLabel.AutoSize = True
+        DadosComplAtividadeLabel.Location = New System.Drawing.Point(19, 40)
+        DadosComplAtividadeLabel.Name = "DadosComplAtividadeLabel"
+        DadosComplAtividadeLabel.Size = New System.Drawing.Size(305, 13)
+        DadosComplAtividadeLabel.TabIndex = 16
+        DadosComplAtividadeLabel.Text = "As atividades serão exercidas na residência do empreendedor?"
+        '
+        'DadosComplEstabelecimentoLabel
+        '
+        DadosComplEstabelecimentoLabel.AutoSize = True
+        DadosComplEstabelecimentoLabel.Location = New System.Drawing.Point(19, 15)
+        DadosComplEstabelecimentoLabel.Name = "DadosComplEstabelecimentoLabel"
+        DadosComplEstabelecimentoLabel.Size = New System.Drawing.Size(191, 13)
+        DadosComplEstabelecimentoLabel.TabIndex = 14
+        DadosComplEstabelecimentoLabel.Text = "O estabelecimento é inócuo ou virtual?"
+        '
+        'DadosComplLiquidoLabel
+        '
+        DadosComplLiquidoLabel.AutoSize = True
+        DadosComplLiquidoLabel.Location = New System.Drawing.Point(19, 139)
+        DadosComplLiquidoLabel.Name = "DadosComplLiquidoLabel"
+        DadosComplLiquidoLabel.Size = New System.Drawing.Size(285, 13)
+        DadosComplLiquidoLabel.TabIndex = 23
+        DadosComplLiquidoLabel.Text = "Quantidade em litros de líquido inflamável ou combustível?"
+        '
+        'DadosComplGLPLabel
+        '
+        DadosComplGLPLabel.AutoSize = True
+        DadosComplGLPLabel.Location = New System.Drawing.Point(19, 163)
+        DadosComplGLPLabel.Name = "DadosComplGLPLabel"
+        DadosComplGLPLabel.Size = New System.Drawing.Size(299, 13)
+        DadosComplGLPLabel.TabIndex = 24
+        DadosComplGLPLabel.Text = "Quantidade em quilos(kg) de gás liquefeito de petróleo (GLP)?"
         '
         'EmpresasBindingNavigator
         '
@@ -1619,6 +1733,8 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Controls.Add(Me.TabPage15)
         Me.TabControl2.Controls.Add(Me.TabPage16)
         Me.TabControl2.Controls.Add(Me.TabPage18)
+        Me.TabControl2.Controls.Add(Me.TabPage21)
+        Me.TabControl2.Controls.Add(Me.TabPage22)
         Me.TabControl2.Location = New System.Drawing.Point(4, 9)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
@@ -2032,6 +2148,8 @@ Partial Class FrmLegalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(PontoDeReferenciaLabel)
+        Me.TabPage14.Controls.Add(Me.PontoDeReferenciaComboBox)
         Me.TabPage14.Controls.Add(Me.BtnCorreios)
         Me.TabPage14.Controls.Add(Me.EndPaisTextBox)
         Me.TabPage14.Controls.Add(Me.EndCidadeTextBox)
@@ -2069,11 +2187,22 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
         '
+        'PontoDeReferenciaComboBox
+        '
+        Me.PontoDeReferenciaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PontoDeReferencia", True))
+        Me.PontoDeReferenciaComboBox.FormattingEnabled = True
+        Me.PontoDeReferenciaComboBox.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.PontoDeReferenciaComboBox.Location = New System.Drawing.Point(381, 144)
+        Me.PontoDeReferenciaComboBox.Name = "PontoDeReferenciaComboBox"
+        Me.PontoDeReferenciaComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.PontoDeReferenciaComboBox.TabIndex = 40
+        Me.ToolTipDICAS.SetToolTip(Me.PontoDeReferenciaComboBox, "Apenas ponto de referencia sem atividade no local ?")
+        '
         'BtnCorreios
         '
         Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCorreios.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCorreios.Location = New System.Drawing.Point(210, 23)
+        Me.BtnCorreios.Location = New System.Drawing.Point(210, 13)
         Me.BtnCorreios.Name = "BtnCorreios"
         Me.BtnCorreios.Size = New System.Drawing.Size(62, 21)
         Me.BtnCorreios.TabIndex = 39
@@ -2083,7 +2212,7 @@ Partial Class FrmLegalizacao
         'EndPaisTextBox
         '
         Me.EndPaisTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndPais", True))
-        Me.EndPaisTextBox.Location = New System.Drawing.Point(378, 127)
+        Me.EndPaisTextBox.Location = New System.Drawing.Point(378, 117)
         Me.EndPaisTextBox.Name = "EndPaisTextBox"
         Me.EndPaisTextBox.Size = New System.Drawing.Size(179, 20)
         Me.EndPaisTextBox.TabIndex = 38
@@ -2091,7 +2220,7 @@ Partial Class FrmLegalizacao
         'EndCidadeTextBox
         '
         Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 127)
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 117)
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
         Me.EndCidadeTextBox.Size = New System.Drawing.Size(170, 20)
         Me.EndCidadeTextBox.TabIndex = 37
@@ -2099,7 +2228,7 @@ Partial Class FrmLegalizacao
         'EndComplementoTextBox
         '
         Me.EndComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndComplemento", True))
-        Me.EndComplementoTextBox.Location = New System.Drawing.Point(369, 101)
+        Me.EndComplementoTextBox.Location = New System.Drawing.Point(369, 91)
         Me.EndComplementoTextBox.Name = "EndComplementoTextBox"
         Me.EndComplementoTextBox.Size = New System.Drawing.Size(188, 20)
         Me.EndComplementoTextBox.TabIndex = 36
@@ -2107,7 +2236,7 @@ Partial Class FrmLegalizacao
         'EndBairroTextBox
         '
         Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 101)
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 91)
         Me.EndBairroTextBox.Name = "EndBairroTextBox"
         Me.EndBairroTextBox.Size = New System.Drawing.Size(214, 20)
         Me.EndBairroTextBox.TabIndex = 35
@@ -2115,7 +2244,7 @@ Partial Class FrmLegalizacao
         'EnderecoTextBox
         '
         Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 50)
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 40)
         Me.EnderecoTextBox.Name = "EnderecoTextBox"
         Me.EnderecoTextBox.Size = New System.Drawing.Size(384, 20)
         Me.EnderecoTextBox.TabIndex = 34
@@ -2123,7 +2252,7 @@ Partial Class FrmLegalizacao
         'EndDataTextBox
         '
         Me.EndDataTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndData", True))
-        Me.EndDataTextBox.Location = New System.Drawing.Point(262, 76)
+        Me.EndDataTextBox.Location = New System.Drawing.Point(262, 66)
         Me.EndDataTextBox.Name = "EndDataTextBox"
         Me.EndDataTextBox.Size = New System.Drawing.Size(47, 20)
         Me.EndDataTextBox.TabIndex = 33
@@ -2131,7 +2260,7 @@ Partial Class FrmLegalizacao
         'EndQuadraTextBox
         '
         Me.EndQuadraTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndQuadra", True))
-        Me.EndQuadraTextBox.Location = New System.Drawing.Point(170, 76)
+        Me.EndQuadraTextBox.Location = New System.Drawing.Point(170, 66)
         Me.EndQuadraTextBox.Name = "EndQuadraTextBox"
         Me.EndQuadraTextBox.Size = New System.Drawing.Size(47, 20)
         Me.EndQuadraTextBox.TabIndex = 32
@@ -2139,7 +2268,7 @@ Partial Class FrmLegalizacao
         'EndZonaTextBox
         '
         Me.EndZonaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndZona", True))
-        Me.EndZonaTextBox.Location = New System.Drawing.Point(69, 76)
+        Me.EndZonaTextBox.Location = New System.Drawing.Point(69, 66)
         Me.EndZonaTextBox.Name = "EndZonaTextBox"
         Me.EndZonaTextBox.Size = New System.Drawing.Size(47, 20)
         Me.EndZonaTextBox.TabIndex = 31
@@ -2147,7 +2276,7 @@ Partial Class FrmLegalizacao
         'CadImobTextBox
         '
         Me.CadImobTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CadImob", True))
-        Me.CadImobTextBox.Location = New System.Drawing.Point(424, 76)
+        Me.CadImobTextBox.Location = New System.Drawing.Point(424, 66)
         Me.CadImobTextBox.Name = "CadImobTextBox"
         Me.CadImobTextBox.Size = New System.Drawing.Size(133, 20)
         Me.CadImobTextBox.TabIndex = 30
@@ -2155,7 +2284,7 @@ Partial Class FrmLegalizacao
         'EndCEPMaskedTextBox
         '
         Me.EndCEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCEP", True))
-        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(69, 24)
+        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(69, 14)
         Me.EndCEPMaskedTextBox.Mask = "00000-000"
         Me.EndCEPMaskedTextBox.Name = "EndCEPMaskedTextBox"
         Me.EndCEPMaskedTextBox.Size = New System.Drawing.Size(62, 20)
@@ -2164,7 +2293,7 @@ Partial Class FrmLegalizacao
         'Area2TextBox
         '
         Me.Area2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area2", True))
-        Me.Area2TextBox.Location = New System.Drawing.Point(369, 153)
+        Me.Area2TextBox.Location = New System.Drawing.Point(174, 168)
         Me.Area2TextBox.Name = "Area2TextBox"
         Me.Area2TextBox.Size = New System.Drawing.Size(81, 20)
         Me.Area2TextBox.TabIndex = 29
@@ -2172,7 +2301,7 @@ Partial Class FrmLegalizacao
         'AreaTextBox
         '
         Me.AreaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area", True))
-        Me.AreaTextBox.Location = New System.Drawing.Point(123, 153)
+        Me.AreaTextBox.Location = New System.Drawing.Point(175, 144)
         Me.AreaTextBox.Name = "AreaTextBox"
         Me.AreaTextBox.Size = New System.Drawing.Size(81, 20)
         Me.AreaTextBox.TabIndex = 27
@@ -2180,7 +2309,7 @@ Partial Class FrmLegalizacao
         'EndEstadoTextBox
         '
         Me.EndEstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndEstado", True))
-        Me.EndEstadoTextBox.Location = New System.Drawing.Point(294, 127)
+        Me.EndEstadoTextBox.Location = New System.Drawing.Point(294, 117)
         Me.EndEstadoTextBox.Name = "EndEstadoTextBox"
         Me.EndEstadoTextBox.Size = New System.Drawing.Size(40, 20)
         Me.EndEstadoTextBox.TabIndex = 14
@@ -2188,7 +2317,7 @@ Partial Class FrmLegalizacao
         'EndNumeroTextBox
         '
         Me.EndNumeroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndNumero", True))
-        Me.EndNumeroTextBox.Location = New System.Drawing.Point(508, 50)
+        Me.EndNumeroTextBox.Location = New System.Drawing.Point(508, 40)
         Me.EndNumeroTextBox.Name = "EndNumeroTextBox"
         Me.EndNumeroTextBox.Size = New System.Drawing.Size(49, 20)
         Me.EndNumeroTextBox.TabIndex = 3
@@ -2197,7 +2326,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button3.Location = New System.Drawing.Point(135, 23)
+        Me.Button3.Location = New System.Drawing.Point(135, 13)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(69, 21)
         Me.Button3.TabIndex = 16
@@ -2494,6 +2623,137 @@ Partial Class FrmLegalizacao
         Me.NovaRazaoSocial1TextBox.Name = "NovaRazaoSocial1TextBox"
         Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial1TextBox.TabIndex = 1
+        '
+        'TabPage21
+        '
+        Me.TabPage21.AutoScroll = True
+        Me.TabPage21.Controls.Add(Me.FormaDeAtuacaoRichTextBox)
+        Me.TabPage21.Controls.Add(Me.TipoUnidadeProdutivaRichTextBox)
+        Me.TabPage21.Controls.Add(Me.FormaDeAtuacaoLabel)
+        Me.TabPage21.Controls.Add(TipoUnidadeProdutivaLabel)
+        Me.TabPage21.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage21.Name = "TabPage21"
+        Me.TabPage21.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage21.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage21.TabIndex = 7
+        Me.TabPage21.Text = "Atuação da Empresa"
+        Me.TabPage21.UseVisualStyleBackColor = True
+        '
+        'FormaDeAtuacaoRichTextBox
+        '
+        Me.FormaDeAtuacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "FormaDeAtuacao", True))
+        Me.FormaDeAtuacaoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormaDeAtuacaoRichTextBox.Location = New System.Drawing.Point(329, 35)
+        Me.FormaDeAtuacaoRichTextBox.Name = "FormaDeAtuacaoRichTextBox"
+        Me.FormaDeAtuacaoRichTextBox.Size = New System.Drawing.Size(262, 138)
+        Me.FormaDeAtuacaoRichTextBox.TabIndex = 6
+        Me.FormaDeAtuacaoRichTextBox.Text = ""
+        '
+        'TipoUnidadeProdutivaRichTextBox
+        '
+        Me.TipoUnidadeProdutivaRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "TipoUnidadeProdutiva", True))
+        Me.TipoUnidadeProdutivaRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TipoUnidadeProdutivaRichTextBox.Location = New System.Drawing.Point(14, 35)
+        Me.TipoUnidadeProdutivaRichTextBox.Name = "TipoUnidadeProdutivaRichTextBox"
+        Me.TipoUnidadeProdutivaRichTextBox.Size = New System.Drawing.Size(262, 138)
+        Me.TipoUnidadeProdutivaRichTextBox.TabIndex = 5
+        Me.TipoUnidadeProdutivaRichTextBox.Text = ""
+        '
+        'FormaDeAtuacaoLabel
+        '
+        Me.FormaDeAtuacaoLabel.AutoSize = True
+        Me.FormaDeAtuacaoLabel.Location = New System.Drawing.Point(326, 19)
+        Me.FormaDeAtuacaoLabel.Name = "FormaDeAtuacaoLabel"
+        Me.FormaDeAtuacaoLabel.Size = New System.Drawing.Size(97, 13)
+        Me.FormaDeAtuacaoLabel.TabIndex = 4
+        Me.FormaDeAtuacaoLabel.Text = "Forma de Atuação:"
+        '
+        'TabPage22
+        '
+        Me.TabPage22.AutoScroll = True
+        Me.TabPage22.Controls.Add(DadosComplGLPLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplGLPTextBox)
+        Me.TabPage22.Controls.Add(DadosComplLiquidoLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplLiquidoTextBox)
+        Me.TabPage22.Controls.Add(DadosComplSubsoloLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplSubsoloComboBox)
+        Me.TabPage22.Controls.Add(DadosComplPessoasLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplPessoasTextBox)
+        Me.TabPage22.Controls.Add(Me.DadosComplPavimentosTextBox)
+        Me.TabPage22.Controls.Add(DadosComplPavimentosLabel)
+        Me.TabPage22.Controls.Add(DadosComplAtividadeLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplAtividadeComboBox)
+        Me.TabPage22.Controls.Add(DadosComplEstabelecimentoLabel)
+        Me.TabPage22.Controls.Add(Me.DadosComplEstabelecimentoComboBox)
+        Me.TabPage22.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage22.Name = "TabPage22"
+        Me.TabPage22.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage22.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage22.TabIndex = 8
+        Me.TabPage22.Text = "Dados Complementares"
+        Me.TabPage22.UseVisualStyleBackColor = True
+        '
+        'DadosComplGLPTextBox
+        '
+        Me.DadosComplGLPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplGLP", True))
+        Me.DadosComplGLPTextBox.Location = New System.Drawing.Point(342, 160)
+        Me.DadosComplGLPTextBox.Name = "DadosComplGLPTextBox"
+        Me.DadosComplGLPTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplGLPTextBox.TabIndex = 25
+        '
+        'DadosComplLiquidoTextBox
+        '
+        Me.DadosComplLiquidoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplLiquido", True))
+        Me.DadosComplLiquidoTextBox.Location = New System.Drawing.Point(342, 136)
+        Me.DadosComplLiquidoTextBox.Name = "DadosComplLiquidoTextBox"
+        Me.DadosComplLiquidoTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplLiquidoTextBox.TabIndex = 24
+        '
+        'DadosComplSubsoloComboBox
+        '
+        Me.DadosComplSubsoloComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplSubsolo", True))
+        Me.DadosComplSubsoloComboBox.FormattingEnabled = True
+        Me.DadosComplSubsoloComboBox.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.DadosComplSubsoloComboBox.Location = New System.Drawing.Point(342, 111)
+        Me.DadosComplSubsoloComboBox.Name = "DadosComplSubsoloComboBox"
+        Me.DadosComplSubsoloComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplSubsoloComboBox.TabIndex = 23
+        '
+        'DadosComplPessoasTextBox
+        '
+        Me.DadosComplPessoasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPessoas", True))
+        Me.DadosComplPessoasTextBox.Location = New System.Drawing.Point(342, 86)
+        Me.DadosComplPessoasTextBox.Name = "DadosComplPessoasTextBox"
+        Me.DadosComplPessoasTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplPessoasTextBox.TabIndex = 21
+        '
+        'DadosComplPavimentosTextBox
+        '
+        Me.DadosComplPavimentosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPavimentos", True))
+        Me.DadosComplPavimentosTextBox.Location = New System.Drawing.Point(342, 62)
+        Me.DadosComplPavimentosTextBox.Name = "DadosComplPavimentosTextBox"
+        Me.DadosComplPavimentosTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplPavimentosTextBox.TabIndex = 20
+        '
+        'DadosComplAtividadeComboBox
+        '
+        Me.DadosComplAtividadeComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplAtividade", True))
+        Me.DadosComplAtividadeComboBox.FormattingEnabled = True
+        Me.DadosComplAtividadeComboBox.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.DadosComplAtividadeComboBox.Location = New System.Drawing.Point(342, 37)
+        Me.DadosComplAtividadeComboBox.Name = "DadosComplAtividadeComboBox"
+        Me.DadosComplAtividadeComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplAtividadeComboBox.TabIndex = 17
+        '
+        'DadosComplEstabelecimentoComboBox
+        '
+        Me.DadosComplEstabelecimentoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplEstabelecimento", True))
+        Me.DadosComplEstabelecimentoComboBox.FormattingEnabled = True
+        Me.DadosComplEstabelecimentoComboBox.Items.AddRange(New Object() {"Inócuo", "Virtual"})
+        Me.DadosComplEstabelecimentoComboBox.Location = New System.Drawing.Point(342, 12)
+        Me.DadosComplEstabelecimentoComboBox.Name = "DadosComplEstabelecimentoComboBox"
+        Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplEstabelecimentoComboBox.TabIndex = 15
         '
         'TabPage3
         '
@@ -4732,6 +4992,10 @@ Partial Class FrmLegalizacao
         Me.TabPage16.PerformLayout()
         Me.TabPage18.ResumeLayout(False)
         Me.TabPage18.PerformLayout()
+        Me.TabPage21.ResumeLayout(False)
+        Me.TabPage21.PerformLayout()
+        Me.TabPage22.ResumeLayout(False)
+        Me.TabPage22.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -5098,4 +5362,17 @@ Partial Class FrmLegalizacao
     Friend WithEvents SEDEComboBox As ComboBox
     Friend WithEvents BtnConsultaOptante As Button
     Friend WithEvents BtnAvancoRazao As Button
+    Friend WithEvents PontoDeReferenciaComboBox As ComboBox
+    Friend WithEvents TabPage21 As TabPage
+    Friend WithEvents FormaDeAtuacaoLabel As Label
+    Friend WithEvents TabPage22 As TabPage
+    Friend WithEvents DadosComplSubsoloComboBox As ComboBox
+    Friend WithEvents DadosComplPessoasTextBox As TextBox
+    Friend WithEvents DadosComplPavimentosTextBox As TextBox
+    Friend WithEvents DadosComplAtividadeComboBox As ComboBox
+    Friend WithEvents DadosComplEstabelecimentoComboBox As ComboBox
+    Friend WithEvents DadosComplGLPTextBox As TextBox
+    Friend WithEvents DadosComplLiquidoTextBox As TextBox
+    Friend WithEvents FormaDeAtuacaoRichTextBox As RichTextBox
+    Friend WithEvents TipoUnidadeProdutivaRichTextBox As RichTextBox
 End Class
