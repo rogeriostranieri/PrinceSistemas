@@ -1648,4 +1648,24 @@ Public Class FrmAlvara
         End If
     End Sub
 
+    Private Sub BtnImportaSocio_Click(sender As Object, e As EventArgs) Handles BtnImportaSocio.Click
+        'verifica se tem RequerenteTextBox preenchido ou abre
+        If RequerenteTextBox.Text = "" Then
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                FrmSocios.Focus()
+            Else
+                FrmSocios.Show()
+            End If
+        Else
+            If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+                FrmSocios.Focus()
+                'igual do frmsocios.RequerenteTextBox.text
+                FrmSocios.NomeCompletoComboBox.Text = RequerenteTextBox.Text
+            Else
+                FrmSocios.Show()
+                FrmSocios.NomeCompletoComboBox.Text = RequerenteTextBox.Text
+            End If
+
+        End If
+    End Sub
 End Class

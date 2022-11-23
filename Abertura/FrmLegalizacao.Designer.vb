@@ -441,6 +441,8 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnDadosComplementares = New System.Windows.Forms.Button()
+        Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1421,9 +1423,9 @@ Partial Class FrmLegalizacao
         TipoUnidadeProdutivaLabel.AutoSize = True
         TipoUnidadeProdutivaLabel.Location = New System.Drawing.Point(11, 19)
         TipoUnidadeProdutivaLabel.Name = "TipoUnidadeProdutivaLabel"
-        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(122, 13)
+        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(146, 13)
         TipoUnidadeProdutivaLabel.TabIndex = 0
-        TipoUnidadeProdutivaLabel.Text = "Tipo Unidade Produtiva:"
+        TipoUnidadeProdutivaLabel.Text = "Tipo de atuação da empresa:"
         '
         'DadosComplSubsoloLabel
         '
@@ -2037,6 +2039,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnAtividadeLocal)
         Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
         Me.GroupBox1.Controls.Add(Me.CnaeSimples)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -2051,7 +2054,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.Controls.Add(CNAEPrincipalLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(568, 190)
+        Me.GroupBox1.Size = New System.Drawing.Size(599, 190)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
@@ -2061,7 +2064,7 @@ Partial Class FrmLegalizacao
         Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnRemovCaract.Location = New System.Drawing.Point(469, 101)
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(404, 32)
         Me.BtnRemovCaract.Name = "BtnRemovCaract"
         Me.BtnRemovCaract.Size = New System.Drawing.Size(82, 37)
         Me.BtnRemovCaract.TabIndex = 49
@@ -2072,11 +2075,11 @@ Partial Class FrmLegalizacao
         '
         Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
-        Me.CnaeSimples.Location = New System.Drawing.Point(40, 147)
+        Me.CnaeSimples.Location = New System.Drawing.Point(511, 92)
         Me.CnaeSimples.Name = "CnaeSimples"
-        Me.CnaeSimples.Size = New System.Drawing.Size(107, 37)
+        Me.CnaeSimples.Size = New System.Drawing.Size(82, 49)
         Me.CnaeSimples.TabIndex = 41
-        Me.CnaeSimples.Text = "Verificar CNAE - Simples Nacional"
+        Me.CnaeSimples.Text = "Verificar no Simples Nacional"
         Me.CnaeSimples.UseVisualStyleBackColor = False
         '
         'Label9
@@ -2091,7 +2094,7 @@ Partial Class FrmLegalizacao
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(466, 22)
+        Me.Label6.Location = New System.Drawing.Point(508, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(75, 13)
         Me.Label6.TabIndex = 35
@@ -2101,7 +2104,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(469, 71)
+        Me.Button25.Location = New System.Drawing.Point(511, 62)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(82, 24)
         Me.Button25.TabIndex = 34
@@ -2113,7 +2116,7 @@ Partial Class FrmLegalizacao
         Me.CNAESecundarioRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAESecundario", True))
         Me.CNAESecundarioRichTextBox.Location = New System.Drawing.Point(66, 58)
         Me.CNAESecundarioRichTextBox.Name = "CNAESecundarioRichTextBox"
-        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(81, 83)
+        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(81, 111)
         Me.CNAESecundarioRichTextBox.TabIndex = 33
         Me.CNAESecundarioRichTextBox.Text = ""
         '
@@ -2122,7 +2125,7 @@ Partial Class FrmLegalizacao
         Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
         Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(153, 32)
         Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
-        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(307, 152)
+        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(245, 137)
         Me.RamoDeAtividadeRichTextBox.TabIndex = 32
         Me.RamoDeAtividadeRichTextBox.Text = ""
         '
@@ -2138,7 +2141,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button4.Location = New System.Drawing.Point(469, 41)
+        Me.Button4.Location = New System.Drawing.Point(511, 32)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(82, 24)
         Me.Button4.TabIndex = 29
@@ -2148,6 +2151,7 @@ Partial Class FrmLegalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(Me.BtnDadosComplementares)
         Me.TabPage14.Controls.Add(PontoDeReferenciaLabel)
         Me.TabPage14.Controls.Add(Me.PontoDeReferenciaComboBox)
         Me.TabPage14.Controls.Add(Me.BtnCorreios)
@@ -2664,9 +2668,9 @@ Partial Class FrmLegalizacao
         Me.FormaDeAtuacaoLabel.AutoSize = True
         Me.FormaDeAtuacaoLabel.Location = New System.Drawing.Point(326, 19)
         Me.FormaDeAtuacaoLabel.Name = "FormaDeAtuacaoLabel"
-        Me.FormaDeAtuacaoLabel.Size = New System.Drawing.Size(97, 13)
+        Me.FormaDeAtuacaoLabel.Size = New System.Drawing.Size(154, 13)
         Me.FormaDeAtuacaoLabel.TabIndex = 4
-        Me.FormaDeAtuacaoLabel.Text = "Forma de Atuação:"
+        Me.FormaDeAtuacaoLabel.Text = "Forma de atuação da empresa:"
         '
         'TabPage22
         '
@@ -4945,6 +4949,31 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnDadosComplementares
+        '
+        Me.BtnDadosComplementares.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnDadosComplementares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDadosComplementares.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnDadosComplementares.Location = New System.Drawing.Point(466, 147)
+        Me.BtnDadosComplementares.Name = "BtnDadosComplementares"
+        Me.BtnDadosComplementares.Size = New System.Drawing.Size(91, 41)
+        Me.BtnDadosComplementares.TabIndex = 44
+        Me.BtnDadosComplementares.Text = "Dados Complementares"
+        Me.BtnDadosComplementares.UseVisualStyleBackColor = False
+        '
+        'BtnAtividadeLocal
+        '
+        Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
+        Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(404, 75)
+        Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
+        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(82, 40)
+        Me.BtnAtividadeLocal.TabIndex = 50
+        Me.BtnAtividadeLocal.Text = "Atividade no local ?"
+        Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5375,4 +5404,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents DadosComplLiquidoTextBox As TextBox
     Friend WithEvents FormaDeAtuacaoRichTextBox As RichTextBox
     Friend WithEvents TipoUnidadeProdutivaRichTextBox As RichTextBox
+    Friend WithEvents BtnDadosComplementares As Button
+    Friend WithEvents BtnAtividadeLocal As Button
 End Class

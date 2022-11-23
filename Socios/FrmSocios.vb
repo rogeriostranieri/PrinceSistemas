@@ -1363,4 +1363,42 @@ Novos dados:" + "
         'mudar para senha
         SenhaGOVTextBox.PasswordChar = "*"
     End Sub
+
+
+
+    '//////////////////////////////////////////  exportar socio para alvara //////////////////////////////
+    Private Sub AddSocioRequerente()
+        Dim Nome As String = NomeCompletoTextBox.Text
+        Dim CPF As String = CPFMaskedTextBox.Text
+        Dim RG As String = RGTextBox.Text
+        Dim OrgaoRG As String = OrgaoRGTextBox.Text
+        Dim EstRG As String = EstadoRGTextBox.Text
+
+        FrmAlvara.RequerenteTextBox.Text = Nome
+        FrmAlvara.RGRequerenteTextBox.Text = RG
+        FrmAlvara.CPFRequerenteMaskedTextBox.Text = CPF
+        FrmAlvara.OrgaoRGRequerenteTextBox.Text = OrgaoRG
+        FrmAlvara.EstadoOrgaoRGRequerenteTextBox.Text = EstRG
+    End Sub
+
+    Private Sub BtnExportaSocioLaudo_Click(sender As Object, e As EventArgs) Handles BtnExportaSocioLaudo.Click
+        Try
+            If FrmAlvara.Visible = True Then
+                FrmAlvara.Focus()
+                Dim NomeEmpresa As String = FrmAlvara.RazaoSocialTextBox.Text
+                Dim NomeSocio As String = NomeCompletoTextBox.Text
+
+                If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                    AddSocioRequerente()
+                End If
+            Else
+                FrmAlvara.Show()
+                ' ExportarDados()
+                'mgsbox abrir a empresa onde deseja exportar
+                MsgBox("Abrir a empresa onde deseja exportar!")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

@@ -2893,5 +2893,13 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         End If
     End Sub
 
+    Private Sub BtnDadosComplementares_Click(sender As Object, e As EventArgs) Handles BtnDadosComplementares.Click
+        'TabControl2 ir para tab6
+        TabControl2.SelectedIndex = 7
+    End Sub
 
+    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs) Handles BtnAtividadeLocal.Click
+        'TabControl2 ir para tab6
+        TabControl2.SelectedIndex = 7
+    End Sub
 End Class
