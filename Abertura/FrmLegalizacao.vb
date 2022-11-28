@@ -924,9 +924,7 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
         Me.EmpresasBindingSource.EndEdit()
         changedRecords = PrinceDBDataSet.Empresas.GetChanges()
 
-
         If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-
             Dim message As String
             message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
 
@@ -937,13 +935,9 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
             ElseIf result = DialogResult.Yes Then
                 Try
-
                     EmpresasTableAdapter.Update(PrinceDBDataSet.Empresas)
-
                 Catch exc As Exception
-
                     MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
                 End Try
 
             End If
@@ -963,6 +957,26 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
         If FrmControleEventosEmpresa.Visible = True Then
             FrmControleEventosEmpresa.Close()
         End If
+
+
+        'fechar os complementos
+        'fechar FormaDeAtuacao
+        If FormadeAtuacao.Visible = True Then
+            FormadeAtuacao.Close()
+        End If
+        'TipodeUnidade
+        If TipodeUnidade.Visible = True Then
+            TipodeUnidade.Close()
+        End If
+        'DialogAjudaFormaAtuacao fechar
+        If DialogAjudaFormaAtuacao.Visible = True Then
+            DialogAjudaFormaAtuacao.Close()
+        End If
+        'DialogAjudaTipoUnidade
+        If DialogAjudaTipoUnidade.Visible = True Then
+            DialogAjudaTipoUnidade.Close()
+        End If
+
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
@@ -2855,35 +2869,75 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         DialogEmpresasIguais.EmpresasBindingSource.Filter = String.Format("Status LIKE '%{0}%'", Filtro)
     End Sub
 
+    Private Sub BtnDadosComplementares_Click(sender As Object, e As EventArgs) Handles BtnDadosComplementares.Click
+        'TabControl2 ir para tab6
+        TabControl2.SelectedIndex = 7
+    End Sub
 
+    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs) Handles BtnAtividadeLocal.Click
+        'TabControl2 ir para tab6
+        TabControl2.SelectedIndex = 7
+    End Sub
+
+    Private Sub BtnAjudaAréa_Click(sender As Object, e As EventArgs) Handles BtnAjudaAréa.Click
+        'mgsbox ajudando informando = " IMPORTANTE SABER!
+    MessageBox.Show("IMPORTANTE SABER!
+A metragem deve ser preenchida com exatidão pois esta informação impacta nos demais órgãos:
+
+Área do Imóvel = é a área total da edificação.
+
+Área do Estabelecimento = é a área exata (em metros quadrados) do local onde é realizada a atividade econômica dentro de um imóvel, podendo ocupar toda ou apenas uma parte da área do imóvel. Essa área nunca poderá ser zero ou maior que o imóvel.
+")
+
+    End Sub
+
+    Private Sub BtnAjudaEmpresaFacilTipoUnidade_Click(sender As Object, e As EventArgs) Handles BtnAjudaEmpresaFacilTipoUnidade.Click
+        'abrir AjudaEmpresaFacilTipoUnidade mas verificando se esta aberta
+        If DialogAjudaTipoUnidade.Visible = True Then
+            DialogAjudaTipoUnidade.Close()
+            'trazer para frente 
+            DialogAjudaTipoUnidade.BringToFront()
+        Else
+            DialogAjudaTipoUnidade.Show()
+            DialogAjudaTipoUnidade.BringToFront()
+        End If
+    End Sub
+
+    Private Sub BtnAjudaEmpresaFacilFormaAtuacao_Click(sender As Object, e As EventArgs) Handles BtnAjudaEmpresaFacilFormaAtuacao.Click
+        'abrir AjudaEmpresaFacilTipoUnidade mas verificando se esta aberta
+        If DialogAjudaFormaAtuacao.Visible = True Then
+            DialogAjudaFormaAtuacao.Close()
+            'trazer para frente 
+            DialogAjudaFormaAtuacao.BringToFront()
+        Else
+            DialogAjudaFormaAtuacao.Show()
+            DialogAjudaFormaAtuacao.BringToFront()
+        End If
+    End Sub
 
     Private Sub TipoUnidadeProdutivaRichTextBox_Click(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Click
-        TipodeUnidade.ShowDialog()
-    End Sub
-
-    Private Sub TipoUnidadeProdutivaRichTextBox_Leave(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Leave
-        TipodeUnidade.Close()
-    End Sub
-
-    Private Sub TipoUnidadeProdutivaRichTextBox_Validated(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.Validated
-        'auto size
-        TipoUnidadeProdutivaRichTextBox.AutoSize = True
-
+        If TipodeUnidade.Visible = True Then
+            TipodeUnidade.Close()
+            'trazer para frente 
+            TipodeUnidade.BringToFront()
+        Else
+            TipodeUnidade.Show()
+            TipodeUnidade.BringToFront()
+        End If
     End Sub
 
     Private Sub FormaDeAtuacaoRichTextBox_Click(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Click
-        FormadeAtuacao.ShowDialog()
+        If FormadeAtuacao.Visible = True Then
+            FormadeAtuacao.Close()
+            'trazer para frente 
+            FormadeAtuacao.BringToFront()
+        Else
+            FormadeAtuacao.Show()
+            FormadeAtuacao.BringToFront()
+        End If
     End Sub
 
-    Private Sub FormaDeAtuacaoRichTextBox_Leave(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Leave
-        FormadeAtuacao.Close()
-    End Sub
-
-    Private Sub FormaDeAtuacaoRichTextBox_Validated(sender As Object, e As EventArgs) Handles FormaDeAtuacaoRichTextBox.Validated
-        FormaDeAtuacaoRichTextBox.AutoSize = True
-    End Sub
-
-    Private Sub TabPage21_Enter(sender As Object, e As EventArgs) Handles TabPage21.Enter
+    Private Sub TipoUnidadeProdutivaRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles TipoUnidadeProdutivaRichTextBox.TextChanged
         If TipoUnidadeProdutivaRichTextBox.Text.Contains("Unidade Produtiva") Then
             FormaDeAtuacaoRichTextBox.Visible = True
             FormaDeAtuacaoLabel.Visible = True
@@ -2893,13 +2947,29 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         End If
     End Sub
 
-    Private Sub BtnDadosComplementares_Click(sender As Object, e As EventArgs) Handles BtnDadosComplementares.Click
-        'TabControl2 ir para tab6
-        TabControl2.SelectedIndex = 7
+    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
+        'copiar RamoDeAtividadeRichTextBox
+        RamoDeAtividadeRichTextBox.Copy()
     End Sub
 
-    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs) Handles BtnAtividadeLocal.Click
-        'TabControl2 ir para tab6
-        TabControl2.SelectedIndex = 7
+    Private Sub BtnCopiaEndereco_Click(sender As Object, e As EventArgs) Handles BtnCopiaEndereco.Click
+        'copiar no formato "avenida Pioneiro Antônio Franco de Morais, Nº 1373, Sala 02, Jardim Brasil, CEP: 87083-260, Maringá-PR"
+        Dim Endereco As String = EnderecoTextBox.Text
+        Dim Numero As String = EndNumeroTextBox.Text
+        Dim Complemento As String = EndComplementoTextBox.Text
+        Dim Bairro As String = EndBairroTextBox.Text
+        Dim CEP As String = EndCEPMaskedTextBox.Text
+        Dim Cidade As String = EndCidadeTextBox.Text
+        Dim UF As String = EndEstadoTextBox.Text
+
+        'se tiver complemento ou retirar o complemento
+        If Complemento = "" Then
+            Clipboard.SetText(Endereco & ", nº " & Numero & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+        Else
+            Clipboard.SetText(Endereco & ", nº " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+        End If
+
+        'mgsbox
+        MessageBox.Show("Endereço copiado com sucesso!")
     End Sub
 End Class

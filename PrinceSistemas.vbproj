@@ -123,6 +123,18 @@
     <Compile Include="Abertura\Administracao\FrmControleEventosEmpresa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaFormaAtuacao.Designer.vb">
+      <DependentUpon>DialogAjudaFormaAtuacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaFormaAtuacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaTipoUnidade.Designer.vb">
+      <DependentUpon>DialogAjudaTipoUnidade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaTipoUnidade.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abertura\BoxConsultaIEEmpresa.Designer.vb">
       <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>
     </Compile>
@@ -575,6 +587,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Abertura\Administracao\FrmControleEventosEmpresa.resx">
       <DependentUpon>FrmControleEventosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Ajuda Empresa Facil\DialogAjudaFormaAtuacao.resx">
+      <DependentUpon>DialogAjudaFormaAtuacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Ajuda Empresa Facil\DialogAjudaTipoUnidade.resx">
+      <DependentUpon>DialogAjudaTipoUnidade.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\BoxConsultaIEEmpresa.resx">
       <DependentUpon>BoxConsultaIEEmpresa.vb</DependentUpon>

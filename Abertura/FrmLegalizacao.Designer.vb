@@ -177,6 +177,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -187,6 +188,8 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnAjudaAréa = New System.Windows.Forms.Button()
+        Me.BtnDadosComplementares = New System.Windows.Forms.Button()
         Me.PontoDeReferenciaComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnCorreios = New System.Windows.Forms.Button()
         Me.EndPaisTextBox = New System.Windows.Forms.TextBox()
@@ -232,6 +235,8 @@ Partial Class FrmLegalizacao
         Me.NovaRazaoSocial2TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial1TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage21 = New System.Windows.Forms.TabPage()
+        Me.BtnAjudaEmpresaFacilFormaAtuacao = New System.Windows.Forms.Button()
+        Me.BtnAjudaEmpresaFacilTipoUnidade = New System.Windows.Forms.Button()
         Me.FormaDeAtuacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TipoUnidadeProdutivaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.FormaDeAtuacaoLabel = New System.Windows.Forms.Label()
@@ -441,8 +446,8 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnDadosComplementares = New System.Windows.Forms.Button()
-        Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
+        Me.BtnCopiarRamo = New System.Windows.Forms.Button()
+        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1423,9 +1428,9 @@ Partial Class FrmLegalizacao
         TipoUnidadeProdutivaLabel.AutoSize = True
         TipoUnidadeProdutivaLabel.Location = New System.Drawing.Point(11, 19)
         TipoUnidadeProdutivaLabel.Name = "TipoUnidadeProdutivaLabel"
-        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(146, 13)
+        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(145, 13)
         TipoUnidadeProdutivaLabel.TabIndex = 0
-        TipoUnidadeProdutivaLabel.Text = "Tipo de atuação da empresa:"
+        TipoUnidadeProdutivaLabel.Text = "Tipo de unidade da empresa:"
         '
         'DadosComplSubsoloLabel
         '
@@ -2039,6 +2044,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnCopiarRamo)
         Me.GroupBox1.Controls.Add(Me.BtnAtividadeLocal)
         Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
         Me.GroupBox1.Controls.Add(Me.CnaeSimples)
@@ -2058,6 +2064,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
+        '
+        'BtnAtividadeLocal
+        '
+        Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
+        Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(404, 75)
+        Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
+        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(82, 40)
+        Me.BtnAtividadeLocal.TabIndex = 50
+        Me.BtnAtividadeLocal.Text = "Atividade no local ?"
+        Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
         '
         'BtnRemovCaract
         '
@@ -2151,6 +2170,8 @@ Partial Class FrmLegalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(Me.BtnCopiaEndereco)
+        Me.TabPage14.Controls.Add(Me.BtnAjudaAréa)
         Me.TabPage14.Controls.Add(Me.BtnDadosComplementares)
         Me.TabPage14.Controls.Add(PontoDeReferenciaLabel)
         Me.TabPage14.Controls.Add(Me.PontoDeReferenciaComboBox)
@@ -2190,6 +2211,32 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'BtnAjudaAréa
+        '
+        Me.BtnAjudaAréa.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaAréa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaAréa.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaAréa.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaAréa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaAréa.Location = New System.Drawing.Point(262, 165)
+        Me.BtnAjudaAréa.Name = "BtnAjudaAréa"
+        Me.BtnAjudaAréa.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaAréa.TabIndex = 70
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaAréa, "Consulta Optante do Simples Nacional Federal")
+        Me.BtnAjudaAréa.UseVisualStyleBackColor = True
+        '
+        'BtnDadosComplementares
+        '
+        Me.BtnDadosComplementares.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnDadosComplementares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDadosComplementares.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnDadosComplementares.Location = New System.Drawing.Point(466, 147)
+        Me.BtnDadosComplementares.Name = "BtnDadosComplementares"
+        Me.BtnDadosComplementares.Size = New System.Drawing.Size(91, 41)
+        Me.BtnDadosComplementares.TabIndex = 44
+        Me.BtnDadosComplementares.Text = "Dados Complementares"
+        Me.BtnDadosComplementares.UseVisualStyleBackColor = False
         '
         'PontoDeReferenciaComboBox
         '
@@ -2631,6 +2678,8 @@ Partial Class FrmLegalizacao
         'TabPage21
         '
         Me.TabPage21.AutoScroll = True
+        Me.TabPage21.Controls.Add(Me.BtnAjudaEmpresaFacilFormaAtuacao)
+        Me.TabPage21.Controls.Add(Me.BtnAjudaEmpresaFacilTipoUnidade)
         Me.TabPage21.Controls.Add(Me.FormaDeAtuacaoRichTextBox)
         Me.TabPage21.Controls.Add(Me.TipoUnidadeProdutivaRichTextBox)
         Me.TabPage21.Controls.Add(Me.FormaDeAtuacaoLabel)
@@ -2642,6 +2691,34 @@ Partial Class FrmLegalizacao
         Me.TabPage21.TabIndex = 7
         Me.TabPage21.Text = "Atuação da Empresa"
         Me.TabPage21.UseVisualStyleBackColor = True
+        '
+        'BtnAjudaEmpresaFacilFormaAtuacao
+        '
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Location = New System.Drawing.Point(485, 12)
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Name = "BtnAjudaEmpresaFacilFormaAtuacao"
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.TabIndex = 72
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaEmpresaFacilFormaAtuacao, "Mostrar Razão Social Completa")
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.UseVisualStyleBackColor = True
+        '
+        'BtnAjudaEmpresaFacilTipoUnidade
+        '
+        Me.BtnAjudaEmpresaFacilTipoUnidade.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaEmpresaFacilTipoUnidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaEmpresaFacilTipoUnidade.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaEmpresaFacilTipoUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Location = New System.Drawing.Point(153, 12)
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Name = "BtnAjudaEmpresaFacilTipoUnidade"
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaEmpresaFacilTipoUnidade.TabIndex = 71
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaEmpresaFacilTipoUnidade, "Mostrar Razão Social Completa")
+        Me.BtnAjudaEmpresaFacilTipoUnidade.UseVisualStyleBackColor = True
         '
         'FormaDeAtuacaoRichTextBox
         '
@@ -4230,6 +4307,7 @@ Partial Class FrmLegalizacao
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
@@ -4949,30 +5027,28 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnDadosComplementares
+        'BtnCopiarRamo
         '
-        Me.BtnDadosComplementares.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnDadosComplementares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnDadosComplementares.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnDadosComplementares.Location = New System.Drawing.Point(466, 147)
-        Me.BtnDadosComplementares.Name = "BtnDadosComplementares"
-        Me.BtnDadosComplementares.Size = New System.Drawing.Size(91, 41)
-        Me.BtnDadosComplementares.TabIndex = 44
-        Me.BtnDadosComplementares.Text = "Dados Complementares"
-        Me.BtnDadosComplementares.UseVisualStyleBackColor = False
+        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiarRamo.Location = New System.Drawing.Point(404, 121)
+        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
+        Me.BtnCopiarRamo.Size = New System.Drawing.Size(82, 37)
+        Me.BtnCopiarRamo.TabIndex = 51
+        Me.BtnCopiarRamo.Text = "Copiar Ramo"
+        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
         '
-        'BtnAtividadeLocal
+        'BtnCopiaEndereco
         '
-        Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
-        Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
-        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(404, 75)
-        Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
-        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(82, 40)
-        Me.BtnAtividadeLocal.TabIndex = 50
-        Me.BtnAtividadeLocal.Text = "Atividade no local ?"
-        Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
+        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(495, 9)
+        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
+        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(62, 25)
+        Me.BtnCopiaEndereco.TabIndex = 71
+        Me.BtnCopiaEndereco.Text = "Copiar"
+        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '
@@ -5406,4 +5482,9 @@ Partial Class FrmLegalizacao
     Friend WithEvents TipoUnidadeProdutivaRichTextBox As RichTextBox
     Friend WithEvents BtnDadosComplementares As Button
     Friend WithEvents BtnAtividadeLocal As Button
+    Friend WithEvents BtnAjudaAréa As Button
+    Friend WithEvents BtnAjudaEmpresaFacilTipoUnidade As Button
+    Friend WithEvents BtnAjudaEmpresaFacilFormaAtuacao As Button
+    Friend WithEvents BtnCopiarRamo As Button
+    Friend WithEvents BtnCopiaEndereco As Button
 End Class
