@@ -177,6 +177,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarRamo = New System.Windows.Forms.Button()
         Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.CnaeSimples = New System.Windows.Forms.Button()
@@ -188,6 +189,7 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
         Me.BtnAjudaAréa = New System.Windows.Forms.Button()
         Me.BtnDadosComplementares = New System.Windows.Forms.Button()
         Me.PontoDeReferenciaComboBox = New System.Windows.Forms.ComboBox()
@@ -446,8 +448,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnCopiarRamo = New System.Windows.Forms.Button()
-        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
+        Me.BtnLimpaCaractRazao = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1809,10 +1810,11 @@ Partial Class FrmLegalizacao
         Me.BtnImportarSocioAdm.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnImportarSocioAdm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnImportarSocioAdm.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnImportarSocioAdm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(501, 12)
+        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(499, 12)
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
-        Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(75, 49)
+        Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(110, 49)
         Me.BtnImportarSocioAdm.TabIndex = 7
         Me.BtnImportarSocioAdm.Text = "Adicionar Socio"
         Me.BtnImportarSocioAdm.UseVisualStyleBackColor = True
@@ -1852,7 +1854,7 @@ Partial Class FrmLegalizacao
         Me.RespPaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespPai", True))
         Me.RespPaiTextBox.Location = New System.Drawing.Point(54, 67)
         Me.RespPaiTextBox.Name = "RespPaiTextBox"
-        Me.RespPaiTextBox.Size = New System.Drawing.Size(331, 20)
+        Me.RespPaiTextBox.Size = New System.Drawing.Size(367, 20)
         Me.RespPaiTextBox.TabIndex = 67
         '
         'Button44
@@ -1909,7 +1911,7 @@ Partial Class FrmLegalizacao
         Me.RespMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespMae", True))
         Me.RespMaeTextBox.Location = New System.Drawing.Point(54, 41)
         Me.RespMaeTextBox.Name = "RespMaeTextBox"
-        Me.RespMaeTextBox.Size = New System.Drawing.Size(331, 20)
+        Me.RespMaeTextBox.Size = New System.Drawing.Size(367, 20)
         Me.RespMaeTextBox.TabIndex = 41
         '
         'NomeResponsavelTextBox
@@ -1917,7 +1919,7 @@ Partial Class FrmLegalizacao
         Me.NomeResponsavelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeResponsavel", True))
         Me.NomeResponsavelTextBox.Location = New System.Drawing.Point(54, 15)
         Me.NomeResponsavelTextBox.Name = "NomeResponsavelTextBox"
-        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(331, 20)
+        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(367, 20)
         Me.NomeResponsavelTextBox.TabIndex = 34
         '
         'RespRGTextBox
@@ -2065,6 +2067,18 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
         '
+        'BtnCopiarRamo
+        '
+        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiarRamo.Location = New System.Drawing.Point(404, 121)
+        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
+        Me.BtnCopiarRamo.Size = New System.Drawing.Size(82, 37)
+        Me.BtnCopiarRamo.TabIndex = 51
+        Me.BtnCopiarRamo.Text = "Copiar Ramo"
+        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
+        '
         'BtnAtividadeLocal
         '
         Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -2211,6 +2225,17 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'BtnCopiaEndereco
+        '
+        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(495, 9)
+        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
+        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(62, 25)
+        Me.BtnCopiaEndereco.TabIndex = 71
+        Me.BtnCopiaEndereco.Text = "Copiar"
+        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
         '
         'BtnAjudaAréa
         '
@@ -2553,6 +2578,7 @@ Partial Class FrmLegalizacao
         'TabPage18
         '
         Me.TabPage18.AutoScroll = True
+        Me.TabPage18.Controls.Add(Me.BtnLimpaCaractRazao)
         Me.TabPage18.Controls.Add(Me.BtnUsarNomeFantasia)
         Me.TabPage18.Controls.Add(Me.BtnUsarRazao3)
         Me.TabPage18.Controls.Add(Me.BtnUsarRazao2)
@@ -5027,28 +5053,15 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnCopiarRamo
+        'BtnLimpaCaractRazao
         '
-        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiarRamo.Location = New System.Drawing.Point(404, 121)
-        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
-        Me.BtnCopiarRamo.Size = New System.Drawing.Size(82, 37)
-        Me.BtnCopiarRamo.TabIndex = 51
-        Me.BtnCopiarRamo.Text = "Copiar Ramo"
-        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
-        '
-        'BtnCopiaEndereco
-        '
-        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(495, 9)
-        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
-        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(62, 25)
-        Me.BtnCopiaEndereco.TabIndex = 71
-        Me.BtnCopiaEndereco.Text = "Copiar"
-        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
+        Me.BtnLimpaCaractRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(540, 54)
+        Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
+        Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
+        Me.BtnLimpaCaractRazao.TabIndex = 51
+        Me.BtnLimpaCaractRazao.Text = "Limpar Caracteres"
+        Me.BtnLimpaCaractRazao.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '
@@ -5487,4 +5500,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnAjudaEmpresaFacilFormaAtuacao As Button
     Friend WithEvents BtnCopiarRamo As Button
     Friend WithEvents BtnCopiaEndereco As Button
+    Friend WithEvents BtnLimpaCaractRazao As Button
 End Class

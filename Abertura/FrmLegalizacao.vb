@@ -2948,8 +2948,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
-        'copiar RamoDeAtividadeRichTextBox
-        RamoDeAtividadeRichTextBox.Copy()
+        'copiar para area de trabalho RamoDeAtividadeRichTextBox
+        Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
     End Sub
 
     Private Sub BtnCopiaEndereco_Click(sender As Object, e As EventArgs) Handles BtnCopiaEndereco.Click
@@ -2971,5 +2971,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
         'mgsbox
         MessageBox.Show("Endereço copiado com sucesso!")
+    End Sub
+
+    Private Sub BtnLimpaCaractRazao_Click(sender As Object, e As EventArgs) Handles BtnLimpaCaractRazao.Click
+        'trocar ç por c, Ç por C, . "", , "", õ por o, Õ por O.
+        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
     End Sub
 End Class
