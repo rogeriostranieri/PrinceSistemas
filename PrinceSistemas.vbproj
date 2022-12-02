@@ -805,6 +805,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Socios\FrmSocios.resx">
       <DependentUpon>FrmSocios.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
