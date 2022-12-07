@@ -219,6 +219,7 @@ Partial Class FrmAlvara
         Me.RamodeatividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.CNAERichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.BtnImportaSocio = New System.Windows.Forms.Button()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Button23 = New System.Windows.Forms.Button()
         Me.EstadoOrgaoRGRequerenteTextBox = New System.Windows.Forms.TextBox()
@@ -245,6 +246,8 @@ Partial Class FrmAlvara
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxProtocolo = New System.Windows.Forms.GroupBox()
+        Me.LblProtocolo2 = New System.Windows.Forms.Label()
+        Me.LblProtocolo1 = New System.Windows.Forms.Label()
         Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
         Me.ReciboProcessoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtocoloSenhaTextBox = New System.Windows.Forms.TextBox()
@@ -290,7 +293,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnImportaSocio = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -892,6 +894,7 @@ Partial Class FrmAlvara
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
@@ -2448,6 +2451,19 @@ Partial Class FrmAlvara
         Me.TabPage9.Text = "Requerente"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
+        'BtnImportaSocio
+        '
+        Me.BtnImportaSocio.BackgroundImage = CType(resources.GetObject("BtnImportaSocio.BackgroundImage"), System.Drawing.Image)
+        Me.BtnImportaSocio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnImportaSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportaSocio.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnImportaSocio.Location = New System.Drawing.Point(472, 25)
+        Me.BtnImportaSocio.Name = "BtnImportaSocio"
+        Me.BtnImportaSocio.Size = New System.Drawing.Size(69, 44)
+        Me.BtnImportaSocio.TabIndex = 82
+        Me.BtnImportaSocio.Text = "Importar Sócio"
+        Me.BtnImportaSocio.UseVisualStyleBackColor = True
+        '
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(EstadoOrgaoRGRequerenteLabel)
@@ -2718,10 +2734,10 @@ Partial Class FrmAlvara
         '
         'PictureBox3
         '
-        Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.protocolo
+        Me.PictureBox3.Image = Global.PrinceSistemas.My.Resources.Resources.protocolo11
         Me.PictureBox3.Location = New System.Drawing.Point(3, 6)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(128, 108)
+        Me.PictureBox3.Size = New System.Drawing.Size(175, 79)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 77
         Me.PictureBox3.TabStop = False
@@ -2729,6 +2745,8 @@ Partial Class FrmAlvara
         'GroupBoxProtocolo
         '
         Me.GroupBoxProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.GroupBoxProtocolo.Controls.Add(Me.LblProtocolo2)
+        Me.GroupBoxProtocolo.Controls.Add(Me.LblProtocolo1)
         Me.GroupBoxProtocolo.Controls.Add(ReciboProcessoLabel)
         Me.GroupBoxProtocolo.Controls.Add(Me.BtnNovoProtocolo)
         Me.GroupBoxProtocolo.Controls.Add(ProtocoloSenhaLabel)
@@ -2745,12 +2763,32 @@ Partial Class FrmAlvara
         Me.GroupBoxProtocolo.Controls.Add(ProtocoloTipoLabel)
         Me.GroupBoxProtocolo.Controls.Add(Me.ProtocoloTipoTextBox)
         Me.GroupBoxProtocolo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.GroupBoxProtocolo.Location = New System.Drawing.Point(144, 6)
+        Me.GroupBoxProtocolo.Location = New System.Drawing.Point(184, 6)
         Me.GroupBoxProtocolo.Name = "GroupBoxProtocolo"
         Me.GroupBoxProtocolo.Size = New System.Drawing.Size(559, 198)
         Me.GroupBoxProtocolo.TabIndex = 76
         Me.GroupBoxProtocolo.TabStop = False
         Me.GroupBoxProtocolo.Text = "Processo"
+        '
+        'LblProtocolo2
+        '
+        Me.LblProtocolo2.AutoSize = True
+        Me.LblProtocolo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblProtocolo2.Location = New System.Drawing.Point(6, 114)
+        Me.LblProtocolo2.Name = "LblProtocolo2"
+        Me.LblProtocolo2.Size = New System.Drawing.Size(100, 20)
+        Me.LblProtocolo2.TabIndex = 80
+        Me.LblProtocolo2.Text = "Protocolo 2"
+        '
+        'LblProtocolo1
+        '
+        Me.LblProtocolo1.AutoSize = True
+        Me.LblProtocolo1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblProtocolo1.Location = New System.Drawing.Point(6, 52)
+        Me.LblProtocolo1.Name = "LblProtocolo1"
+        Me.LblProtocolo1.Size = New System.Drawing.Size(100, 20)
+        Me.LblProtocolo1.TabIndex = 79
+        Me.LblProtocolo1.Text = "Protocolo 1"
         '
         'BtnNovoProtocolo
         '
@@ -3258,19 +3296,6 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
-        'BtnImportaSocio
-        '
-        Me.BtnImportaSocio.BackgroundImage = CType(resources.GetObject("BtnImportaSocio.BackgroundImage"), System.Drawing.Image)
-        Me.BtnImportaSocio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnImportaSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnImportaSocio.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnImportaSocio.Location = New System.Drawing.Point(472, 25)
-        Me.BtnImportaSocio.Name = "BtnImportaSocio"
-        Me.BtnImportaSocio.Size = New System.Drawing.Size(69, 44)
-        Me.BtnImportaSocio.TabIndex = 82
-        Me.BtnImportaSocio.Text = "Importar Sócio"
-        Me.BtnImportaSocio.UseVisualStyleBackColor = True
-        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3593,4 +3618,6 @@ Partial Class FrmAlvara
     Friend WithEvents ReciboProcessoTextBox As TextBox
     Friend WithEvents NumeroProcessoTextBox As TextBox
     Friend WithEvents BtnImportaSocio As Button
+    Friend WithEvents LblProtocolo2 As Label
+    Friend WithEvents LblProtocolo1 As Label
 End Class

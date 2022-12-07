@@ -99,6 +99,8 @@
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             VencimentoAlvara.Focus()
+            'frente
+            VencimentoAlvara.BringToFront()
         Else
             VencimentoAlvara.MdiParent = MDIPrincipal
             VencimentoAlvara.Show()
@@ -110,6 +112,20 @@
     Private Sub VbAvisoPrincipal_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If Me.WindowState = FormWindowState.Maximized Then
             Me.WindowState = FormWindowState.Normal
+        End If
+    End Sub
+
+    Private Sub BtnControleLigacoes_Click(sender As Object, e As EventArgs) Handles BtnControleLigacoes.Click
+        If Application.OpenForms.OfType(Of FrmLigacaoAlvara)().Count() > 0 Then
+            Dim Sair As String
+            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+            FrmLigacaoAlvara.Focus()
+            'para frente
+            FrmLigacaoAlvara.BringToFront()
+        Else
+            FrmLigacaoAlvara.MdiParent = MDIPrincipal
+            FrmLigacaoAlvara.Show()
+            FrmLigacaoAlvara.Focus()
         End If
     End Sub
 End Class

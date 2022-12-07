@@ -1093,6 +1093,7 @@
     <None Include="Resources\expandirpagina.png" />
     <None Include="Resources\interrogacao.png" />
     <None Include="Resources\pasta.png" />
+    <None Include="Resources\protocolo1.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup />

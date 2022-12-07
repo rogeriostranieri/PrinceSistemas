@@ -32,6 +32,7 @@ Partial Class VbAvisoPrincipal
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.ButtonMais7 = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnControleLigacoes = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,6 +54,7 @@ Partial Class VbAvisoPrincipal
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
@@ -63,6 +65,7 @@ Partial Class VbAvisoPrincipal
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Me.LaudosTableAdapter
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
@@ -141,15 +144,28 @@ Partial Class VbAvisoPrincipal
         Me.ButtonMais7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonMais7.Location = New System.Drawing.Point(360, 592)
         Me.ButtonMais7.Name = "ButtonMais7"
-        Me.ButtonMais7.Size = New System.Drawing.Size(189, 21)
+        Me.ButtonMais7.Size = New System.Drawing.Size(189, 23)
         Me.ButtonMais7.TabIndex = 22
         Me.ButtonMais7.Text = "Consulta de Vencimento de Alvarás"
         Me.ButtonMais7.UseVisualStyleBackColor = False
+        '
+        'BtnControleLigacoes
+        '
+        Me.BtnControleLigacoes.BackColor = System.Drawing.Color.White
+        Me.BtnControleLigacoes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnControleLigacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnControleLigacoes.Location = New System.Drawing.Point(5, 592)
+        Me.BtnControleLigacoes.Name = "BtnControleLigacoes"
+        Me.BtnControleLigacoes.Size = New System.Drawing.Size(189, 23)
+        Me.BtnControleLigacoes.TabIndex = 23
+        Me.BtnControleLigacoes.Text = "Consultar Ligações de Alvarás"
+        Me.BtnControleLigacoes.UseVisualStyleBackColor = False
         '
         'VbAvisoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(555, 619)
+        Me.Controls.Add(Me.BtnControleLigacoes)
         Me.Controls.Add(Me.ButtonMais7)
         Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.LaudosDataGridView1)
@@ -166,6 +182,7 @@ Partial Class VbAvisoPrincipal
         Me.Controls.SetChildIndex(Me.LaudosDataGridView1, 0)
         Me.Controls.SetChildIndex(Me.MonthCalendar2, 0)
         Me.Controls.SetChildIndex(Me.ButtonMais7, 0)
+        Me.Controls.SetChildIndex(Me.BtnControleLigacoes, 0)
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaudosDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -187,6 +204,7 @@ Partial Class VbAvisoPrincipal
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonMais7 As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents BtnControleLigacoes As Button
 #Enable Warning BC40004 ' O membro está em conflito com membros no tipo base e deve ser declarado como 'Shadows'
 
 

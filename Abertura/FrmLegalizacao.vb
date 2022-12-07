@@ -2964,9 +2964,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
         'se tiver complemento ou retirar o complemento
         If Complemento = "" Then
-            Clipboard.SetText(Endereco & ", nº " & Numero & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
         Else
-            Clipboard.SetText(Endereco & ", nº " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
         End If
 
         'mgsbox
@@ -2975,8 +2975,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnLimpaCaractRazao_Click(sender As Object, e As EventArgs) Handles BtnLimpaCaractRazao.Click
         'trocar ç por c, Ç por C, . "", , "", õ por o, Õ por O.
-        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
-        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
-        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace(".", "").Replace(",", "").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
+        'retirar ponto e virgulas apenas do final
+        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
+        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
+        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
     End Sub
 End Class
