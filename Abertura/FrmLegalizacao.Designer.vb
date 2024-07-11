@@ -208,7 +208,7 @@ Partial Class FrmLegalizacao
         Me.AreaTextBox = New System.Windows.Forms.TextBox()
         Me.EndEstadoTextBox = New System.Windows.Forms.TextBox()
         Me.EndNumeroTextBox = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnBuscaCEP = New System.Windows.Forms.Button()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.EmpTel1TextBox = New System.Windows.Forms.TextBox()
         Me.EmpEmailTextBox = New System.Windows.Forms.TextBox()
@@ -225,6 +225,7 @@ Partial Class FrmLegalizacao
         Me.CapitalSTextBox = New System.Windows.Forms.TextBox()
         Me.DataExcSocialMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage18 = New System.Windows.Forms.TabPage()
+        Me.BtnLimpaCaractRazao = New System.Windows.Forms.Button()
         Me.BtnUsarNomeFantasia = New System.Windows.Forms.Button()
         Me.BtnUsarRazao3 = New System.Windows.Forms.Button()
         Me.BtnUsarRazao2 = New System.Windows.Forms.Button()
@@ -392,6 +393,7 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnAvancoRazao = New System.Windows.Forms.Button()
         Me.BtnConsultaOptante = New System.Windows.Forms.Button()
         Me.SEDEComboBox = New System.Windows.Forms.ComboBox()
@@ -448,7 +450,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnLimpaCaractRazao = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2214,7 +2215,7 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Controls.Add(EndPaisLabel)
         Me.TabPage14.Controls.Add(Me.EndEstadoTextBox)
         Me.TabPage14.Controls.Add(Me.EndNumeroTextBox)
-        Me.TabPage14.Controls.Add(Me.Button3)
+        Me.TabPage14.Controls.Add(Me.BtnBuscaCEP)
         Me.TabPage14.Controls.Add(EnderecoLabel)
         Me.TabPage14.Controls.Add(EndEstadoLabel)
         Me.TabPage14.Controls.Add(EndCidadeLabel)
@@ -2398,16 +2399,16 @@ Partial Class FrmLegalizacao
         Me.EndNumeroTextBox.Size = New System.Drawing.Size(49, 20)
         Me.EndNumeroTextBox.TabIndex = 3
         '
-        'Button3
+        'BtnBuscaCEP
         '
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button3.Location = New System.Drawing.Point(135, 13)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(69, 21)
-        Me.Button3.TabIndex = 16
-        Me.Button3.Text = "Preencher"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnBuscaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBuscaCEP.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnBuscaCEP.Location = New System.Drawing.Point(135, 13)
+        Me.BtnBuscaCEP.Name = "BtnBuscaCEP"
+        Me.BtnBuscaCEP.Size = New System.Drawing.Size(69, 21)
+        Me.BtnBuscaCEP.TabIndex = 16
+        Me.BtnBuscaCEP.Text = "Preencher"
+        Me.BtnBuscaCEP.UseVisualStyleBackColor = True
         '
         'TabPage15
         '
@@ -2600,6 +2601,16 @@ Partial Class FrmLegalizacao
         Me.TabPage18.TabIndex = 5
         Me.TabPage18.Text = "Busca de Nome"
         Me.TabPage18.UseVisualStyleBackColor = True
+        '
+        'BtnLimpaCaractRazao
+        '
+        Me.BtnLimpaCaractRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(540, 54)
+        Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
+        Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
+        Me.BtnLimpaCaractRazao.TabIndex = 51
+        Me.BtnLimpaCaractRazao.Text = "Limpar Caracteres"
+        Me.BtnLimpaCaractRazao.UseVisualStyleBackColor = True
         '
         'BtnUsarNomeFantasia
         '
@@ -4384,6 +4395,7 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.BtnVerificar)
         Me.GroupBox2.Controls.Add(Me.BtnAvancoRazao)
         Me.GroupBox2.Controls.Add(Me.BtnConsultaOptante)
         Me.GroupBox2.Controls.Add(SEDELabel)
@@ -4419,6 +4431,20 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Size = New System.Drawing.Size(663, 174)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
+        '
+        'BtnVerificar
+        '
+        Me.BtnVerificar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnVerificar.BackgroundImage = CType(resources.GetObject("BtnVerificar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerificar.Location = New System.Drawing.Point(328, 41)
+        Me.BtnVerificar.Name = "BtnVerificar"
+        Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
+        Me.BtnVerificar.TabIndex = 84
+        Me.BtnVerificar.Text = "Verificar"
+        Me.BtnVerificar.UseVisualStyleBackColor = False
         '
         'BtnAvancoRazao
         '
@@ -5053,16 +5079,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnLimpaCaractRazao
-        '
-        Me.BtnLimpaCaractRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(540, 54)
-        Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
-        Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
-        Me.BtnLimpaCaractRazao.TabIndex = 51
-        Me.BtnLimpaCaractRazao.Text = "Limpar Caracteres"
-        Me.BtnLimpaCaractRazao.UseVisualStyleBackColor = True
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5205,7 +5221,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents EndEstadoTextBox As TextBox
     Friend WithEvents EndCEPMaskedTextBox As MaskedTextBox
     Friend WithEvents EndNumeroTextBox As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BtnBuscaCEP As Button
     Friend WithEvents PaginaWebTextBox As TextBox
     Friend WithEvents EmpEmailTextBox As TextBox
     Friend WithEvents EmpTel2TextBox As TextBox
@@ -5501,4 +5517,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnCopiarRamo As Button
     Friend WithEvents BtnCopiaEndereco As Button
     Friend WithEvents BtnLimpaCaractRazao As Button
+    Friend WithEvents BtnVerificar As Button
 End Class

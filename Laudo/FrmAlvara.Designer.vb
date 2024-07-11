@@ -293,6 +293,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnVerificar = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -3097,6 +3098,7 @@ Partial Class FrmAlvara
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.BtnVerificar)
         Me.GroupBox9.Controls.Add(Me.BtnMgsBoxAvisarDia)
         Me.GroupBox9.Controls.Add(Me.LembreteCheckBox)
         Me.GroupBox9.Controls.Add(Me.CNPJLabel)
@@ -3295,6 +3297,20 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
+        '
+        'BtnVerificar
+        '
+        Me.BtnVerificar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnVerificar.BackgroundImage = CType(resources.GetObject("BtnVerificar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerificar.Location = New System.Drawing.Point(317, 59)
+        Me.BtnVerificar.Name = "BtnVerificar"
+        Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
+        Me.BtnVerificar.TabIndex = 83
+        Me.BtnVerificar.Text = "Verificar"
+        Me.BtnVerificar.UseVisualStyleBackColor = False
         '
         'FrmAlvara
         '
@@ -3620,4 +3636,5 @@ Partial Class FrmAlvara
     Friend WithEvents BtnImportaSocio As Button
     Friend WithEvents LblProtocolo2 As Label
     Friend WithEvents LblProtocolo1 As Label
+    Friend WithEvents BtnVerificar As Button
 End Class

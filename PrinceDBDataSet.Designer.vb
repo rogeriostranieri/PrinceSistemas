@@ -9217,6 +9217,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnProfissão As Global.System.Data.DataColumn
         
+        Private columnOutrosDados As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -9493,6 +9495,14 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property OutrosDadosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOutrosDados
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9558,9 +9568,10 @@ Partial Public Class PrinceDBDataSet
                     ByVal Genero As String,  _
                     ByVal CPFdoCONJUGE As String,  _
                     ByVal NOMEdoCONJUGE As String,  _
-                    ByVal Profissão As String) As SociosRow
+                    ByVal Profissão As String,  _
+                    ByVal OutrosDados As String) As SociosRow
             Dim rowSociosRow As SociosRow = CType(Me.NewRow,SociosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CPF, NomeCompleto, NomeMae, NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CPF, NomeCompleto, NomeMae, NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão, OutrosDados}
             rowSociosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSociosRow)
             Return rowSociosRow
@@ -9619,6 +9630,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnCPFdoCONJUGE = MyBase.Columns("CPFdoCONJUGE")
             Me.columnNOMEdoCONJUGE = MyBase.Columns("NOMEdoCONJUGE")
             Me.columnProfissão = MyBase.Columns("Profissão")
+            Me.columnOutrosDados = MyBase.Columns("OutrosDados")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9684,6 +9696,8 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnNOMEdoCONJUGE)
             Me.columnProfissão = New Global.System.Data.DataColumn("Profissão", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProfissão)
+            Me.columnOutrosDados = New Global.System.Data.DataColumn("OutrosDados", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOutrosDados)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Socios}, true))
             Me.columnID_Socios.AutoIncrement = true
             Me.columnID_Socios.AutoIncrementSeed = -1
@@ -9720,6 +9734,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnCPFdoCONJUGE.MaxLength = 2147483647
             Me.columnNOMEdoCONJUGE.MaxLength = 2147483647
             Me.columnProfissão.MaxLength = 2147483647
+            Me.columnOutrosDados.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19682,6 +19697,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property OutrosDados() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSocios.OutrosDadosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'OutrosDados' na tabela 'Socios' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSocios.OutrosDadosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsCPFNull() As Boolean
             Return Me.IsNull(Me.tableSocios.CPFColumn)
         End Function
@@ -20026,6 +20056,18 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetProfissãoNull()
             Me(Me.tableSocios.ProfissãoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsOutrosDadosNull() As Boolean
+            Return Me.IsNull(Me.tableSocios.OutrosDadosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetOutrosDadosNull()
+            Me(Me.tableSocios.OutrosDadosColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -33160,6 +33202,7 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("CPFdoCONJUGE", "CPFdoCONJUGE")
             tableMapping.ColumnMappings.Add("NOMEdoCONJUGE", "NOMEdoCONJUGE")
             tableMapping.ColumnMappings.Add("Profissão", "Profissão")
+            tableMapping.ColumnMappings.Add("OutrosDados", "OutrosDados")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -33172,15 +33215,16 @@ Namespace PrinceDBDataSetTableAdapters
                 "[RG], [OrgaoRG], [EstadoRG], [TituloDeEleitor], [SenhaGOV], [CNH], [CNHExpedicao"& _ 
                 "], [CNHDataExp], [Civil], [CEP], [RUA], [Num], [Bairro], [Complemento], [Cidade]"& _ 
                 ", [Estado], [País], [Telefone1], [Telefone2], [eMail], [Genero], [CPFdoCONJUGE],"& _ 
-                " [NOMEdoCONJUGE], [Profissão]) VALUES (@CPF, @NomeCompleto, @NomeMae, @NomePai, "& _ 
-                "@DatadeNasc, @RG, @OrgaoRG, @EstadoRG, @TituloDeEleitor, @SenhaGOV, @CNH, @CNHEx"& _ 
-                "pedicao, @CNHDataExp, @Civil, @CEP, @RUA, @Num, @Bairro, @Complemento, @Cidade, "& _ 
-                "@Estado, @País, @Telefone1, @Telefone2, @eMail, @Genero, @CPFdoCONJUGE, @NOMEdoC"& _ 
-                "ONJUGE, @Profissão);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Socios, CPF, NomeCompleto, NomeMae, NomePai, Dat"& _ 
-                "adeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CN"& _ 
-                "HDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telef"& _ 
-                "one1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão FROM Soci"& _ 
-                "os WHERE (ID_Socios = SCOPE_IDENTITY())"
+                " [NOMEdoCONJUGE], [Profissão], [OutrosDados]) VALUES (@CPF, @NomeCompleto, @Nome"& _ 
+                "Mae, @NomePai, @DatadeNasc, @RG, @OrgaoRG, @EstadoRG, @TituloDeEleitor, @SenhaGO"& _ 
+                "V, @CNH, @CNHExpedicao, @CNHDataExp, @Civil, @CEP, @RUA, @Num, @Bairro, @Complem"& _ 
+                "ento, @Cidade, @Estado, @País, @Telefone1, @Telefone2, @eMail, @Genero, @CPFdoCO"& _ 
+                "NJUGE, @NOMEdoCONJUGE, @Profissão, @OutrosDados);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Socios, CPF, NomeCo"& _ 
+                "mpleto, NomeMae, NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, Se"& _ 
+                "nhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento"& _ 
+                ", Cidade, Estado, País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEd"& _ 
+                "oCONJUGE, Profissão, OutrosDados FROM Socios WHERE (ID_Socios = SCOPE_IDENTITY()"& _ 
+                ")"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPF", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeCompleto", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeCompleto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33211,6 +33255,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFdoCONJUGE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFdoCONJUGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NOMEdoCONJUGE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NOMEdoCONJUGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Profissão", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profissão", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OutrosDados", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OutrosDados", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Socios] SET [CPF] = @CPF, [NomeCompleto] = @NomeCompleto, [NomeMae] = @No"& _ 
@@ -33221,12 +33266,12 @@ Namespace PrinceDBDataSetTableAdapters
                 "= @Bairro, [Complemento] = @Complemento, [Cidade] = @Cidade, [Estado] = @Estado,"& _ 
                 " [País] = @País, [Telefone1] = @Telefone1, [Telefone2] = @Telefone2, [eMail] = @"& _ 
                 "eMail, [Genero] = @Genero, [CPFdoCONJUGE] = @CPFdoCONJUGE, [NOMEdoCONJUGE] = @NO"& _ 
-                "MEdoCONJUGE, [Profissão] = @Profissão WHERE (([ID_Socios] = @Original_ID_Socios)"& _ 
-                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Socios, CPF, NomeCompleto, NomeMae, NomePai, DatadeNasc, RG, Orgao"& _ 
-                "RG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, C"& _ 
-                "EP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telefone1, Telefone2, e"& _ 
-                "Mail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão FROM Socios WHERE (ID_Socio"& _ 
-                "s = @ID_Socios)"
+                "MEdoCONJUGE, [Profissão] = @Profissão, [OutrosDados] = @OutrosDados WHERE (([ID_"& _ 
+                "Socios] = @Original_ID_Socios));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Socios, CPF, NomeCompleto, NomeMae, "& _ 
+                "NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHE"& _ 
+                "xpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado,"& _ 
+                " País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profiss"& _ 
+                "ão, OutrosDados FROM Socios WHERE (ID_Socios = @ID_Socios)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPF", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeCompleto", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeCompleto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33257,6 +33302,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFdoCONJUGE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFdoCONJUGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NOMEdoCONJUGE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NOMEdoCONJUGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Profissão", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profissão", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OutrosDados", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OutrosDados", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Socios", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Socios", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Socios", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Socios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -33384,7 +33430,8 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal Genero As String,  _
                     ByVal CPFdoCONJUGE As String,  _
                     ByVal NOMEdoCONJUGE As String,  _
-                    ByVal Profissão As String) As Integer
+                    ByVal Profissão As String,  _
+                    ByVal OutrosDados As String) As Integer
             If (CPF Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -33530,6 +33577,11 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(28).Value = CType(Profissão,String)
             End If
+            If (OutrosDados Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(OutrosDados,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -33579,6 +33631,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal CPFdoCONJUGE As String,  _
                     ByVal NOMEdoCONJUGE As String,  _
                     ByVal Profissão As String,  _
+                    ByVal OutrosDados As String,  _
                     ByVal Original_ID_Socios As Integer,  _
                     ByVal ID_Socios As Integer) As Integer
             If (CPF Is Nothing) Then
@@ -33726,8 +33779,13 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Profissão,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ID_Socios,Integer)
-            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(ID_Socios,Integer)
+            If (OutrosDados Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(OutrosDados,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ID_Socios,Integer)
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(ID_Socios,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -33777,8 +33835,9 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal CPFdoCONJUGE As String,  _
                     ByVal NOMEdoCONJUGE As String,  _
                     ByVal Profissão As String,  _
+                    ByVal OutrosDados As String,  _
                     ByVal Original_ID_Socios As Integer) As Integer
-            Return Me.Update(CPF, NomeCompleto, NomeMae, NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão, Original_ID_Socios, Original_ID_Socios)
+            Return Me.Update(CPF, NomeCompleto, NomeMae, NomePai, DatadeNasc, RG, OrgaoRG, EstadoRG, TituloDeEleitor, SenhaGOV, CNH, CNHExpedicao, CNHDataExp, Civil, CEP, RUA, Num, Bairro, Complemento, Cidade, Estado, País, Telefone1, Telefone2, eMail, Genero, CPFdoCONJUGE, NOMEdoCONJUGE, Profissão, OutrosDados, Original_ID_Socios, Original_ID_Socios)
         End Function
     End Class
     

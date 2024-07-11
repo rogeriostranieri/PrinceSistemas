@@ -11,7 +11,7 @@
     <AssemblyName>PrinceSistemas</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -80,15 +80,18 @@
     <ManifestKeyFile>PrinceSistemas_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.61.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>packages\HtmlAgilityPack.1.11.61\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -349,8 +352,15 @@
     <Compile Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Laudo\PrevFogo\FrmProtegeFacil.Designer.vb">
+      <DependentUpon>FrmProtegeFacil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\PrevFogo\FrmProtegeFacil.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo\ModNumeroExtenso.vb" />
     <Compile Include="Modulo\ModProtecaoPrint.vb" />
+    <Compile Include="Modulo\ModuloBuscaCEP.vb" />
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.Designer.vb">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </Compile>
@@ -444,11 +454,6 @@
     </Compile>
     <Compile Include="BackupERestore.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Connected Services\WSCorreios\Reference.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Contador\Contador.Designer.vb">
       <DependentUpon>Contador.vb</DependentUpon>
@@ -707,6 +712,9 @@
     <EmbeddedResource Include="Laudo\Exportar Dados Word\ExportarLaudoWordDialog.resx">
       <DependentUpon>ExportarLaudoWordDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\PrevFogo\FrmProtegeFacil.resx">
+      <DependentUpon>FrmProtegeFacil.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\FrmConsultaCNPJImportar.resx">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </EmbeddedResource>
@@ -822,145 +830,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-    <None Include="Connected Services\WSCorreios\AtendeClienteService.wsdl" />
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.atualizaPagamentoNaEntregaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.atualizaRemessaAgrupadaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.bloquearObjetoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaContratoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaDataAtualResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaPagamentoEntregaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosAdicionaisAtivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosValorDeclaradoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaServicosXServicosAdicionaisResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.buscaTarifaValeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.calculaTarifaServicoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.cancelarObjetoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.cancelarPedidoScolResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.clienteERP.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaCEPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaSROResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.consultaSRO_NEWResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.contratoERP.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.embalagemLRSMaster.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.enderecoERP.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.fechaPlpResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.fechaPlpVariosServicosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.geraDigitoVerificadorEtiquetasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.getStatusCartaoPostagemResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.getStatusPLPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.integrarUsuarioScolResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.obterClienteAtualizacaoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.obterEmbalagemLRSResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.retornoCancelamento.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.servicoAdicionalXML.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.servicoERP.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaEtiquetasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaPLPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitarPostagemScolResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.solicitaXmlPlpResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.statusCartao.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.statusPlp.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.valePostal.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validaEtiquetaPLPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validaPlpResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validarPostagemReversaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.validarPostagemSimultaneaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.verificaDisponibilidadeServicoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WSCorreios\PrinceSistemas.WSCorreios.VerificaSeTodosObjetosCanceladosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -987,21 +857,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\WSCorreios\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WSCorreios\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WSCorreios\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WSCorreios\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PrinceSistemas_TemporaryKey.pfx" />
@@ -1096,7 +951,9 @@
     <None Include="Resources\protocolo1.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abertura\WebLegalizacao\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

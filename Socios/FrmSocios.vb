@@ -216,35 +216,25 @@ Public Class FrmSocios
 
     End Sub
 
-    Private Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(CEPMaskedTextBox.Text)
-                RUATextBox.Text = Resultado.[end]
-                Dim Rua As String = RUATextBox.Text
-                'primeira letra minuscula
-                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
-                RUATextBox.Text = Rua
+    Private Async Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(CEPMaskedTextBox.Text)
 
-                'EndComplementoTextBox.Text = Resultado.complemento
-                ComplementoTextBox.Text = Resultado.complemento2
-                CidadeTextBox.Text = Resultado.cidade
-                BairroTextBox.Text = Resultado.bairro
-                EstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
-
-            Catch Ex As Exception
-                ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-
-                If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
-                    System.Diagnostics.Process.Start("https://buscacepinter.correios.com.br/app/endereco/index.php")
-                Else
-
-                End If
-            End Try
-
-        End Using
+            If resultado IsNot Nothing Then
+                RUATextBox.Text = resultado.logradouro
+                ComplementoTextBox.Text = resultado.complemento
+                CidadeTextBox.Text = resultado.localidade
+                BairroTextBox.Text = resultado.bairro
+                EstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub GeneroComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GeneroComboBox.SelectedIndexChanged
@@ -427,7 +417,7 @@ Public Class FrmSocios
 
 Novos dados:" + " 
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º: " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & " " & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & " " & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
 " + vbCrLf)
                 End If
 
@@ -443,7 +433,7 @@ Novos dados:" + "
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
 " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
 
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º: " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & " " & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & " " & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
 

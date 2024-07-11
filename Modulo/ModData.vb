@@ -10,7 +10,7 @@
     ' Dim agora As Date = agoradll
     'Dim Data As String = Datadll
 
-    Private ReadOnly Data As String = "31/12/2022"
+    Private ReadOnly Data As String = "31/12/2024"
 
     Private ReadOnly agora As Date = Now
     Dim firstDate As String

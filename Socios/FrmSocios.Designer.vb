@@ -52,6 +52,7 @@ Partial Class FrmSocios
         Dim CPFdoCONJUGELabel As System.Windows.Forms.Label
         Dim NOMEdoCONJUGELabel As System.Windows.Forms.Label
         Dim ProfissãoLabel As System.Windows.Forms.Label
+        Dim OutrosDadosLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
         Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -65,9 +66,10 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.BtnAtalhoConjuge = New System.Windows.Forms.Button()
+        Me.BtnAtalhoEndereco = New System.Windows.Forms.Button()
         Me.BtnCopiarSenhaGov = New System.Windows.Forms.Button()
         Me.BtnDuplicidade = New System.Windows.Forms.Button()
-        Me.BtnAtalhoConjuge = New System.Windows.Forms.Button()
         Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         Me.CivilTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultarTituloDeEleitor = New System.Windows.Forms.Button()
@@ -75,7 +77,6 @@ Partial Class FrmSocios
         Me.ListBoxEstadoCivil = New System.Windows.Forms.ListBox()
         Me.ProfissãoTextBox = New System.Windows.Forms.TextBox()
         Me.BtnConsultaCPF = New System.Windows.Forms.Button()
-        Me.BtnAtalhoEndereco = New System.Windows.Forms.Button()
         Me.TextBoxExtensoDN = New System.Windows.Forms.TextBox()
         Me.BtnExtensoDN = New System.Windows.Forms.Button()
         Me.GeneroComboBox = New System.Windows.Forms.ComboBox()
@@ -107,17 +108,35 @@ Partial Class FrmSocios
         Me.RUATextBox = New System.Windows.Forms.TextBox()
         Me.CEPMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.GroupBoxConjuge = New System.Windows.Forms.GroupBox()
         Me.BtnAtalhoEndereco3 = New System.Windows.Forms.Button()
         Me.BtnAtablhoSocio3 = New System.Windows.Forms.Button()
-        Me.GroupBoxConjuge = New System.Windows.Forms.GroupBox()
         Me.NOMEdoCONJUGETextBox = New System.Windows.Forms.TextBox()
         Me.CPFdoCONJUGEMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.OutrosDadosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnExportaSocioLaudo = New System.Windows.Forms.Button()
         Me.BtnCapitalSocial = New System.Windows.Forms.Button()
         Me.BtnAddSocios = New System.Windows.Forms.Button()
         Me.BtnExportar = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnFechar = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BtnFecharMenu = New System.Windows.Forms.Button()
+        Me.BtnNovo = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BtnEditar = New System.Windows.Forms.Button()
+        Me.BtnSalvar = New System.Windows.Forms.Button()
+        Me.BtnWord = New System.Windows.Forms.Button()
+        Me.BtnExcluir = New System.Windows.Forms.Button()
+        Me.GroupBoxMenuCapitalSocial = New System.Windows.Forms.GroupBox()
+        Me.BtnCapitalEmpresas = New System.Windows.Forms.Button()
+        Me.BtnADDSocioCapital = New System.Windows.Forms.Button()
+        Me.ButtonLimpar = New System.Windows.Forms.Button()
+        Me.ButtonPorcentagem = New System.Windows.Forms.Button()
         Me.GroupBoxCapitalSocial = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -140,21 +159,6 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ButtonPorcentagem = New System.Windows.Forms.Button()
-        Me.ButtonLimpar = New System.Windows.Forms.Button()
-        Me.BtnADDSocioCapital = New System.Windows.Forms.Button()
-        Me.BtnCapitalEmpresas = New System.Windows.Forms.Button()
-        Me.GroupBoxMenuCapitalSocial = New System.Windows.Forms.GroupBox()
-        Me.BtnExcluir = New System.Windows.Forms.Button()
-        Me.BtnWord = New System.Windows.Forms.Button()
-        Me.BtnSalvar = New System.Windows.Forms.Button()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.BtnNovo = New System.Windows.Forms.Button()
-        Me.BtnFecharMenu = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.BtnFechar = New System.Windows.Forms.Button()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -184,6 +188,7 @@ Partial Class FrmSocios
         CPFdoCONJUGELabel = New System.Windows.Forms.Label()
         NOMEdoCONJUGELabel = New System.Windows.Forms.Label()
         ProfissãoLabel = New System.Windows.Forms.Label()
+        OutrosDadosLabel = New System.Windows.Forms.Label()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -193,15 +198,17 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.GroupBoxConjuge.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBoxMenuCapitalSocial.SuspendLayout()
         Me.GroupBoxCapitalSocial.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SociosBindingNavigator.SuspendLayout()
-        Me.GroupBoxMenuCapitalSocial.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'CEPLabel
@@ -465,6 +472,15 @@ Partial Class FrmSocios
         ProfissãoLabel.TabIndex = 56
         ProfissãoLabel.Text = "Profissão:"
         '
+        'OutrosDadosLabel
+        '
+        OutrosDadosLabel.AutoSize = True
+        OutrosDadosLabel.Location = New System.Drawing.Point(7, 16)
+        OutrosDadosLabel.Name = "OutrosDadosLabel"
+        OutrosDadosLabel.Size = New System.Drawing.Size(75, 13)
+        OutrosDadosLabel.TabIndex = 0
+        OutrosDadosLabel.Text = "Outros Dados:"
+        '
         'SociosBindingSource
         '
         Me.SociosBindingSource.DataMember = "Socios"
@@ -552,10 +568,11 @@ Partial Class FrmSocios
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 100)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 99)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 327)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 325)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -564,7 +581,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 301)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 299)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -616,10 +633,36 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 295)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 293)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'BtnAtalhoConjuge
+        '
+        Me.BtnAtalhoConjuge.BackColor = System.Drawing.Color.Azure
+        Me.BtnAtalhoConjuge.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
+        Me.BtnAtalhoConjuge.FlatAppearance.BorderSize = 2
+        Me.BtnAtalhoConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAtalhoConjuge.Location = New System.Drawing.Point(485, 260)
+        Me.BtnAtalhoConjuge.Name = "BtnAtalhoConjuge"
+        Me.BtnAtalhoConjuge.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtalhoConjuge.TabIndex = 64
+        Me.BtnAtalhoConjuge.Text = "Cônjuge"
+        Me.BtnAtalhoConjuge.UseVisualStyleBackColor = False
+        '
+        'BtnAtalhoEndereco
+        '
+        Me.BtnAtalhoEndereco.BackColor = System.Drawing.Color.Azure
+        Me.BtnAtalhoEndereco.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
+        Me.BtnAtalhoEndereco.FlatAppearance.BorderSize = 2
+        Me.BtnAtalhoEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAtalhoEndereco.Location = New System.Drawing.Point(485, 231)
+        Me.BtnAtalhoEndereco.Name = "BtnAtalhoEndereco"
+        Me.BtnAtalhoEndereco.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAtalhoEndereco.TabIndex = 54
+        Me.BtnAtalhoEndereco.Text = "Endereço"
+        Me.BtnAtalhoEndereco.UseVisualStyleBackColor = False
         '
         'BtnCopiarSenhaGov
         '
@@ -644,19 +687,6 @@ Partial Class FrmSocios
         Me.BtnDuplicidade.TabIndex = 65
         Me.BtnDuplicidade.Text = "Verificação de CPF"
         Me.BtnDuplicidade.UseVisualStyleBackColor = False
-        '
-        'BtnAtalhoConjuge
-        '
-        Me.BtnAtalhoConjuge.BackColor = System.Drawing.Color.Azure
-        Me.BtnAtalhoConjuge.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
-        Me.BtnAtalhoConjuge.FlatAppearance.BorderSize = 2
-        Me.BtnAtalhoConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAtalhoConjuge.Location = New System.Drawing.Point(485, 260)
-        Me.BtnAtalhoConjuge.Name = "BtnAtalhoConjuge"
-        Me.BtnAtalhoConjuge.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAtalhoConjuge.TabIndex = 64
-        Me.BtnAtalhoConjuge.Text = "Cônjuge"
-        Me.BtnAtalhoConjuge.UseVisualStyleBackColor = False
         '
         'NomeCompletoTextBox
         '
@@ -724,19 +754,6 @@ Partial Class FrmSocios
         Me.BtnConsultaCPF.TabIndex = 56
         Me.BtnConsultaCPF.Text = "Consultar na Federal"
         Me.BtnConsultaCPF.UseVisualStyleBackColor = False
-        '
-        'BtnAtalhoEndereco
-        '
-        Me.BtnAtalhoEndereco.BackColor = System.Drawing.Color.Azure
-        Me.BtnAtalhoEndereco.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
-        Me.BtnAtalhoEndereco.FlatAppearance.BorderSize = 2
-        Me.BtnAtalhoEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAtalhoEndereco.Location = New System.Drawing.Point(485, 231)
-        Me.BtnAtalhoEndereco.Name = "BtnAtalhoEndereco"
-        Me.BtnAtalhoEndereco.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAtalhoEndereco.TabIndex = 54
-        Me.BtnAtalhoEndereco.Text = "Endereço"
-        Me.BtnAtalhoEndereco.UseVisualStyleBackColor = False
         '
         'TextBoxExtensoDN
         '
@@ -864,7 +881,7 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 301)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 299)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -900,7 +917,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 295)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 293)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1036,10 +1053,27 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 301)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 300)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Cônjuge"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'GroupBoxConjuge
+        '
+        Me.GroupBoxConjuge.Controls.Add(Me.BtnAtalhoEndereco3)
+        Me.GroupBoxConjuge.Controls.Add(NOMEdoCONJUGELabel)
+        Me.GroupBoxConjuge.Controls.Add(Me.BtnAtablhoSocio3)
+        Me.GroupBoxConjuge.Controls.Add(Me.NOMEdoCONJUGETextBox)
+        Me.GroupBoxConjuge.Controls.Add(CPFdoCONJUGELabel)
+        Me.GroupBoxConjuge.Controls.Add(Me.CPFdoCONJUGEMaskedTextBox)
+        Me.GroupBoxConjuge.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBoxConjuge.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
+        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 300)
+        Me.GroupBoxConjuge.TabIndex = 4
+        Me.GroupBoxConjuge.TabStop = False
+        Me.GroupBoxConjuge.Text = "Dado do Cônjuge"
         '
         'BtnAtalhoEndereco3
         '
@@ -1067,23 +1101,6 @@ Partial Class FrmSocios
         Me.BtnAtablhoSocio3.Text = "Dados"
         Me.BtnAtablhoSocio3.UseVisualStyleBackColor = False
         '
-        'GroupBoxConjuge
-        '
-        Me.GroupBoxConjuge.Controls.Add(Me.BtnAtalhoEndereco3)
-        Me.GroupBoxConjuge.Controls.Add(NOMEdoCONJUGELabel)
-        Me.GroupBoxConjuge.Controls.Add(Me.BtnAtablhoSocio3)
-        Me.GroupBoxConjuge.Controls.Add(Me.NOMEdoCONJUGETextBox)
-        Me.GroupBoxConjuge.Controls.Add(CPFdoCONJUGELabel)
-        Me.GroupBoxConjuge.Controls.Add(Me.CPFdoCONJUGEMaskedTextBox)
-        Me.GroupBoxConjuge.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBoxConjuge.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
-        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 301)
-        Me.GroupBoxConjuge.TabIndex = 4
-        Me.GroupBoxConjuge.TabStop = False
-        Me.GroupBoxConjuge.Text = "Dado do Cônjuge"
-        '
         'NOMEdoCONJUGETextBox
         '
         Me.NOMEdoCONJUGETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NOMEdoCONJUGE", True))
@@ -1101,6 +1118,38 @@ Partial Class FrmSocios
         Me.CPFdoCONJUGEMaskedTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CPFdoCONJUGEMaskedTextBox.TabIndex = 1
         '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.GroupBox4)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 300)
+        Me.TabPage4.TabIndex = 4
+        Me.TabPage4.Text = "Outros Dados"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(OutrosDadosLabel)
+        Me.GroupBox4.Controls.Add(Me.OutrosDadosRichTextBox)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(577, 294)
+        Me.GroupBox4.TabIndex = 0
+        Me.GroupBox4.TabStop = False
+        '
+        'OutrosDadosRichTextBox
+        '
+        Me.OutrosDadosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "OutrosDados", True))
+        Me.OutrosDadosRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OutrosDadosRichTextBox.Location = New System.Drawing.Point(8, 32)
+        Me.OutrosDadosRichTextBox.Name = "OutrosDadosRichTextBox"
+        Me.OutrosDadosRichTextBox.Size = New System.Drawing.Size(469, 234)
+        Me.OutrosDadosRichTextBox.TabIndex = 1
+        Me.OutrosDadosRichTextBox.Text = ""
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.BtnExportaSocioLaudo)
@@ -1110,7 +1159,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 433)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 430)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(593, 57)
         Me.GroupBox2.TabIndex = 58
@@ -1201,6 +1250,189 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(698, 778)
         Me.TableLayoutPanel1.TabIndex = 51
         '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.FlatAppearance.BorderSize = 0
+        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFechar.Location = New System.Drawing.Point(602, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(93, 47)
+        Me.BtnFechar.TabIndex = 57
+        Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BtnFechar.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.BtnFecharMenu)
+        Me.GroupBox1.Controls.Add(Me.BtnNovo)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.BtnEditar)
+        Me.GroupBox1.Controls.Add(Me.BtnSalvar)
+        Me.GroupBox1.Controls.Add(Me.BtnWord)
+        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Location = New System.Drawing.Point(602, 99)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 325)
+        Me.GroupBox1.TabIndex = 56
+        Me.GroupBox1.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(4, 250)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(23, 15)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Nº:"
+        '
+        'BtnFecharMenu
+        '
+        Me.BtnFecharMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnFecharMenu.Location = New System.Drawing.Point(7, 129)
+        Me.BtnFecharMenu.Name = "BtnFecharMenu"
+        Me.BtnFecharMenu.Size = New System.Drawing.Size(75, 23)
+        Me.BtnFecharMenu.TabIndex = 10
+        Me.BtnFecharMenu.Text = "Fechar"
+        Me.BtnFecharMenu.UseVisualStyleBackColor = True
+        '
+        'BtnNovo
+        '
+        Me.BtnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnNovo.FlatAppearance.BorderSize = 2
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNovo.ForeColor = System.Drawing.Color.Black
+        Me.BtnNovo.Location = New System.Drawing.Point(7, 19)
+        Me.BtnNovo.Name = "BtnNovo"
+        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
+        Me.BtnNovo.TabIndex = 5
+        Me.BtnNovo.Text = "Novo"
+        Me.BtnNovo.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "+ Digitar"})
+        Me.ComboBox1.Location = New System.Drawing.Point(33, 249)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(48, 21)
+        Me.ComboBox1.TabIndex = 54
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnEditar.Location = New System.Drawing.Point(7, 45)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnEditar.TabIndex = 8
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = True
+        '
+        'BtnSalvar
+        '
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnSalvar.Location = New System.Drawing.Point(7, 71)
+        Me.BtnSalvar.Name = "BtnSalvar"
+        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSalvar.TabIndex = 7
+        Me.BtnSalvar.Text = "Salvar"
+        Me.BtnSalvar.UseVisualStyleBackColor = True
+        '
+        'BtnWord
+        '
+        Me.BtnWord.BackColor = System.Drawing.Color.Aquamarine
+        Me.BtnWord.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnWord.Location = New System.Drawing.Point(7, 276)
+        Me.BtnWord.Name = "BtnWord"
+        Me.BtnWord.Size = New System.Drawing.Size(74, 42)
+        Me.BtnWord.TabIndex = 53
+        Me.BtnWord.Text = "Exportar para Word"
+        Me.BtnWord.UseVisualStyleBackColor = False
+        '
+        'BtnExcluir
+        '
+        Me.BtnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.Red
+        Me.BtnExcluir.FlatAppearance.BorderSize = 2
+        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExcluir.ForeColor = System.Drawing.Color.Black
+        Me.BtnExcluir.Location = New System.Drawing.Point(7, 100)
+        Me.BtnExcluir.Name = "BtnExcluir"
+        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExcluir.TabIndex = 9
+        Me.BtnExcluir.Text = "Excluir"
+        Me.BtnExcluir.UseVisualStyleBackColor = True
+        '
+        'GroupBoxMenuCapitalSocial
+        '
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnCapitalEmpresas)
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
+        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 493)
+        Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
+        Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
+        Me.GroupBoxMenuCapitalSocial.TabIndex = 63
+        Me.GroupBoxMenuCapitalSocial.TabStop = False
+        Me.GroupBoxMenuCapitalSocial.Text = "Menu do Capital Social"
+        '
+        'BtnCapitalEmpresas
+        '
+        Me.BtnCapitalEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCapitalEmpresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCapitalEmpresas.Location = New System.Drawing.Point(7, 151)
+        Me.BtnCapitalEmpresas.Name = "BtnCapitalEmpresas"
+        Me.BtnCapitalEmpresas.Size = New System.Drawing.Size(76, 60)
+        Me.BtnCapitalEmpresas.TabIndex = 40
+        Me.BtnCapitalEmpresas.Text = "Exportar para Empresas"
+        Me.BtnCapitalEmpresas.UseVisualStyleBackColor = True
+        '
+        'BtnADDSocioCapital
+        '
+        Me.BtnADDSocioCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnADDSocioCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnADDSocioCapital.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnADDSocioCapital.Location = New System.Drawing.Point(6, 33)
+        Me.BtnADDSocioCapital.Name = "BtnADDSocioCapital"
+        Me.BtnADDSocioCapital.Size = New System.Drawing.Size(75, 44)
+        Me.BtnADDSocioCapital.TabIndex = 8
+        Me.BtnADDSocioCapital.Text = "Adicionar Sócio"
+        Me.BtnADDSocioCapital.UseVisualStyleBackColor = True
+        '
+        'ButtonLimpar
+        '
+        Me.ButtonLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonLimpar.ForeColor = System.Drawing.Color.Red
+        Me.ButtonLimpar.Location = New System.Drawing.Point(7, 116)
+        Me.ButtonLimpar.Name = "ButtonLimpar"
+        Me.ButtonLimpar.Size = New System.Drawing.Size(76, 29)
+        Me.ButtonLimpar.TabIndex = 39
+        Me.ButtonLimpar.Text = "Limpar Tudo"
+        Me.ButtonLimpar.UseVisualStyleBackColor = True
+        '
+        'ButtonPorcentagem
+        '
+        Me.ButtonPorcentagem.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonPorcentagem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonPorcentagem.Location = New System.Drawing.Point(6, 81)
+        Me.ButtonPorcentagem.Name = "ButtonPorcentagem"
+        Me.ButtonPorcentagem.Size = New System.Drawing.Size(76, 29)
+        Me.ButtonPorcentagem.TabIndex = 36
+        Me.ButtonPorcentagem.Text = "Calcular"
+        Me.ButtonPorcentagem.UseVisualStyleBackColor = True
+        '
         'GroupBoxCapitalSocial
         '
         Me.GroupBoxCapitalSocial.Controls.Add(Me.Label5)
@@ -1208,9 +1440,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 496)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 493)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 279)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 282)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1291,7 +1523,7 @@ Partial Class FrmSocios
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(593, 91)
+        Me.GroupBox3.Size = New System.Drawing.Size(593, 90)
         Me.GroupBox3.TabIndex = 65
         Me.GroupBox3.TabStop = False
         '
@@ -1394,189 +1626,6 @@ Partial Class FrmSocios
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'ButtonPorcentagem
-        '
-        Me.ButtonPorcentagem.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.ButtonPorcentagem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonPorcentagem.Location = New System.Drawing.Point(6, 81)
-        Me.ButtonPorcentagem.Name = "ButtonPorcentagem"
-        Me.ButtonPorcentagem.Size = New System.Drawing.Size(76, 29)
-        Me.ButtonPorcentagem.TabIndex = 36
-        Me.ButtonPorcentagem.Text = "Calcular"
-        Me.ButtonPorcentagem.UseVisualStyleBackColor = True
-        '
-        'ButtonLimpar
-        '
-        Me.ButtonLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.ForeColor = System.Drawing.Color.Red
-        Me.ButtonLimpar.Location = New System.Drawing.Point(7, 116)
-        Me.ButtonLimpar.Name = "ButtonLimpar"
-        Me.ButtonLimpar.Size = New System.Drawing.Size(76, 29)
-        Me.ButtonLimpar.TabIndex = 39
-        Me.ButtonLimpar.Text = "Limpar Tudo"
-        Me.ButtonLimpar.UseVisualStyleBackColor = True
-        '
-        'BtnADDSocioCapital
-        '
-        Me.BtnADDSocioCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnADDSocioCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnADDSocioCapital.ForeColor = System.Drawing.Color.DarkGreen
-        Me.BtnADDSocioCapital.Location = New System.Drawing.Point(6, 33)
-        Me.BtnADDSocioCapital.Name = "BtnADDSocioCapital"
-        Me.BtnADDSocioCapital.Size = New System.Drawing.Size(75, 44)
-        Me.BtnADDSocioCapital.TabIndex = 8
-        Me.BtnADDSocioCapital.Text = "Adicionar Sócio"
-        Me.BtnADDSocioCapital.UseVisualStyleBackColor = True
-        '
-        'BtnCapitalEmpresas
-        '
-        Me.BtnCapitalEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCapitalEmpresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCapitalEmpresas.Location = New System.Drawing.Point(7, 151)
-        Me.BtnCapitalEmpresas.Name = "BtnCapitalEmpresas"
-        Me.BtnCapitalEmpresas.Size = New System.Drawing.Size(76, 60)
-        Me.BtnCapitalEmpresas.TabIndex = 40
-        Me.BtnCapitalEmpresas.Text = "Exportar para Empresas"
-        Me.BtnCapitalEmpresas.UseVisualStyleBackColor = True
-        '
-        'GroupBoxMenuCapitalSocial
-        '
-        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnCapitalEmpresas)
-        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
-        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
-        Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 496)
-        Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
-        Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
-        Me.GroupBoxMenuCapitalSocial.TabIndex = 63
-        Me.GroupBoxMenuCapitalSocial.TabStop = False
-        Me.GroupBoxMenuCapitalSocial.Text = "Menu do Capital Social"
-        '
-        'BtnExcluir
-        '
-        Me.BtnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.Red
-        Me.BtnExcluir.FlatAppearance.BorderSize = 2
-        Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExcluir.ForeColor = System.Drawing.Color.Black
-        Me.BtnExcluir.Location = New System.Drawing.Point(7, 100)
-        Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExcluir.TabIndex = 9
-        Me.BtnExcluir.Text = "Excluir"
-        Me.BtnExcluir.UseVisualStyleBackColor = True
-        '
-        'BtnWord
-        '
-        Me.BtnWord.BackColor = System.Drawing.Color.Aquamarine
-        Me.BtnWord.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnWord.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnWord.Location = New System.Drawing.Point(7, 276)
-        Me.BtnWord.Name = "BtnWord"
-        Me.BtnWord.Size = New System.Drawing.Size(74, 42)
-        Me.BtnWord.TabIndex = 53
-        Me.BtnWord.Text = "Exportar para Word"
-        Me.BtnWord.UseVisualStyleBackColor = False
-        '
-        'BtnSalvar
-        '
-        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnSalvar.Location = New System.Drawing.Point(7, 71)
-        Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnSalvar.TabIndex = 7
-        Me.BtnSalvar.Text = "Salvar"
-        Me.BtnSalvar.UseVisualStyleBackColor = True
-        '
-        'BtnEditar
-        '
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnEditar.Location = New System.Drawing.Point(7, 45)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnEditar.TabIndex = 8
-        Me.BtnEditar.Text = "Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "+ Digitar"})
-        Me.ComboBox1.Location = New System.Drawing.Point(33, 249)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(48, 21)
-        Me.ComboBox1.TabIndex = 54
-        '
-        'BtnNovo
-        '
-        Me.BtnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnNovo.FlatAppearance.BorderSize = 2
-        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNovo.ForeColor = System.Drawing.Color.Black
-        Me.BtnNovo.Location = New System.Drawing.Point(7, 19)
-        Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(75, 23)
-        Me.BtnNovo.TabIndex = 5
-        Me.BtnNovo.Text = "Novo"
-        Me.BtnNovo.UseVisualStyleBackColor = True
-        '
-        'BtnFecharMenu
-        '
-        Me.BtnFecharMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnFecharMenu.Location = New System.Drawing.Point(7, 129)
-        Me.BtnFecharMenu.Name = "BtnFecharMenu"
-        Me.BtnFecharMenu.Size = New System.Drawing.Size(75, 23)
-        Me.BtnFecharMenu.TabIndex = 10
-        Me.BtnFecharMenu.Text = "Fechar"
-        Me.BtnFecharMenu.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(4, 250)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(23, 15)
-        Me.Label4.TabIndex = 55
-        Me.Label4.Text = "Nº:"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.BtnFecharMenu)
-        Me.GroupBox1.Controls.Add(Me.BtnNovo)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.BtnEditar)
-        Me.GroupBox1.Controls.Add(Me.BtnSalvar)
-        Me.GroupBox1.Controls.Add(Me.BtnWord)
-        Me.GroupBox1.Controls.Add(Me.BtnExcluir)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(602, 100)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 327)
-        Me.GroupBox1.TabIndex = 56
-        Me.GroupBox1.TabStop = False
-        '
-        'BtnFechar
-        '
-        Me.BtnFechar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFechar.FlatAppearance.BorderSize = 0
-        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(602, 3)
-        Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(93, 47)
-        Me.BtnFechar.TabIndex = 57
-        Me.BtnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.BtnFechar.UseVisualStyleBackColor = True
-        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1606,8 +1655,14 @@ Partial Class FrmSocios
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBoxConjuge.ResumeLayout(False)
         Me.GroupBoxConjuge.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBoxMenuCapitalSocial.ResumeLayout(False)
         Me.GroupBoxCapitalSocial.ResumeLayout(False)
         Me.GroupBoxCapitalSocial.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1616,9 +1671,6 @@ Partial Class FrmSocios
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SociosBindingNavigator.ResumeLayout(False)
         Me.SociosBindingNavigator.PerformLayout()
-        Me.GroupBoxMenuCapitalSocial.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1726,4 +1778,7 @@ Partial Class FrmSocios
     Friend WithEvents BtnADDSocioCapital As Button
     Friend WithEvents ButtonLimpar As Button
     Friend WithEvents ButtonPorcentagem As Button
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents OutrosDadosRichTextBox As RichTextBox
 End Class

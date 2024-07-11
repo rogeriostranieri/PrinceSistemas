@@ -1,4 +1,6 @@
-﻿Public Class Contador
+﻿Imports System.Net.Http
+
+Public Class Contador
     Private Sub Salvar()
         Me.Validate()
         Me.ContadorBindingSource.EndEdit()
@@ -20,26 +22,26 @@
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(EndCEPMaskedTextBox.Text)
-                EnderecoTextBox.Text = Resultado.[end]
-                'EndComplementoTextBox.Text = Resultado.complemento
-                EndCompTextBox.Text = Resultado.complemento2
-                EndCidadeTextBox.Text = Resultado.cidade
-                EndBairroTextBox.Text = Resultado.bairro
-                EndEstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
+    Private Async Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
 
-            Catch Ex As Exception
-                MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-            End Try
-
-        End Using
+            If resultado IsNot Nothing Then
+                EnderecoTextBox.Text = resultado.logradouro
+                EndCompTextBox.Text = resultado.complemento
+                EndCidadeTextBox.Text = resultado.localidade
+                EndBairroTextBox.Text = resultado.bairro
+                EndEstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
     End Sub
-
 
 
     Private Sub Contador_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown

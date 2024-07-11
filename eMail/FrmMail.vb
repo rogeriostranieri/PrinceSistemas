@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net.Mail
+Imports System.Xml
 
 Public Class FrmMail
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -71,7 +72,7 @@ Public Class FrmMail
 
 
     'tem que configurar no cliente POP/IMAP e habilitar e ter os dados"
-    Private Sub ButtonEnviar_Click(sender As Object, e As EventArgs) Handles ButtonEnviar.Click
+    Private Sub EnviarEmail()
         If MsgBox(" Deseja enviar este e-Mail?", MsgBoxStyle.YesNo, "Enviar") = MsgBoxResult.Yes Then
             'inicia o ProgressBar1
             ProgressBar1.Value = 0
@@ -167,6 +168,8 @@ Public Class FrmMail
                 ProgressBar1.Value = 100
                 ProgressBar1.BackColor = Color.Red
                 MessageBox.Show("Erro ao enviar o e-mail ,tente novamente ou configure corretamente os dados nas configurações")
+                'mostrar erro
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Prince Sistemas - e-Mail")
             End Try
         End If
     End Sub
@@ -450,4 +453,19 @@ Public Class FrmMail
         FiltroSaida()
     End Sub
 
+
+    Private Sub EnviarGmail()
+        'mgsbox aviso manutencao
+        MsgBox("A partir de 30 de maio de 2022, o Google não autorizará mais o uso de apps ou dispositivos de terceiros que exigem apenas nome de usuário e senha para fazer login na Conta do Google . Essa mudança tem como objetivo proteger sua conta.")
+    End Sub
+
+    Private Sub ButtonEnviar_Click(sender As Object, e As EventArgs) Handles ButtonEnviar.Click
+        'EmailComboBox.Text contenha gmail
+        If ComboBoxEmailSelecionar.Text.Contains("gmail") Then
+            EnviarGmail()
+        Else
+            EnviarEmail()
+        End If
+
+    End Sub
 End Class

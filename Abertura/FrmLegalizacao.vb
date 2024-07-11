@@ -1,7 +1,12 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Net.Http
+Imports HtmlAgilityPack
 
 Public Class FrmLegalizacao
+    ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
 
     'Bloqueando para edição
     Private Sub Bloquear()
@@ -418,47 +423,7 @@ Public Class FrmLegalizacao
         End If
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(EndCEPMaskedTextBox.Text)
-                EnderecoTextBox.Text = Resultado.[end]
-                'EnderecoTextBox com primeira letra minuscula
-                Dim Rua As String = EnderecoTextBox.Text
-                'primeira letra minuscula
-                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
-                EnderecoTextBox.Text = Rua
 
-                'EndComplementoTextBox.Text = Resultado.complemento
-                EndComplementoTextBox.Text = Resultado.complemento2
-                EndCidadeTextBox.Text = Resultado.cidade
-                EndBairroTextBox.Text = Resultado.bairro
-                EndEstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
-
-
-            Catch Ex As Exception
-                ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-
-                If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
-                    If WebSiteGERAL.Visible = True Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
-
-                    Else
-                        'abrir
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.WebView.Source = New Uri("https://buscacepinter.correios.com.br/app/endereco/index.php")
-
-                    End If
-                End If
-            End Try
-
-        End Using
-
-    End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Try
@@ -626,62 +591,71 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
         Dim frm As New WebSiteGERAL
 
         Try
+            If ProtocoloREDESIMTextBox.Text <> "" Then
+                'perguntar
+                Dim resposta As DialogResult = MessageBox.Show("Deseja abrir o site para consultar?", "Pergunta", MessageBoxButtons.YesNo)
+                If resposta = DialogResult.Yes Then
+                    ' Verifica se o formulário WebSiteGERAL já está aberto
+                    Dim webForm As WebSiteGERAL = Nothing
 
-            If BtnConsultaRedeSim.Text = "Solicitar" Then
-                If WebSiteGERAL.Visible = True Then
-                    'coloca focus e frente
-                    WebSiteGERAL.Focus()
-                    WebSiteGERAL.BringToFront()
-                    WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
+                    For Each form As Form In Application.OpenForms
+                        If TypeOf form Is WebSiteGERAL Then
+                            webForm = DirectCast(form, WebSiteGERAL)
+                            Exit For
+                        End If
+                    Next
+
+                    ' Se o formulário estiver aberto, foca nele. Caso contrário, cria uma nova instância e abre.
+                    If webForm IsNot Nothing Then
+                        webForm.Focus()
+                        webForm.BringToFront()
+                    Else
+                        webForm = New WebSiteGERAL()
+                        webForm.Show()
+                    End If
+
+                    ' Define a URL para o WebView
+                    Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
+                    webForm.WebView.Source = New Uri("https://servicos.receita.fazenda.gov.br/Servicos/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
                 Else
-                    WebSiteGERAL.Show()
-                    WebSiteGERAL.BringToFront()
-                    WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=99999999&erro=4")
+                    ' Código para lidar com a resposta "Não"
                 End If
 
-            ElseIf BtnConsultaRedeSim.Text = "Consultar" Then
-                If WebSiteGERAL.Visible = True Then
-                    If ProtocoloREDESIMTextBox.Text = "" Then
-                        TabControle.SelectTab(2)
-                        TabControle.SelectTab(3)
-                    End If
 
-                    If ProtocoloREDESIMTextBox.Text <> "" Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.BringToFront()
-                        Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
-                        Exit Sub
-                    ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.BringToFront()
-                        Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
-                        Exit Sub
+            Else
+                '  BtnConsultaRedeSim.Text = "Solicitar"
+                Dim resposta As DialogResult = MessageBox.Show("Deseja abrir o site para Solicitar?", "Pergunta", MessageBoxButtons.YesNo)
+                If resposta = DialogResult.Yes Then
+                    ' Verifica se o formulário WebSiteGERAL já está aberto
+                    Dim webForm As WebSiteGERAL = Nothing
+
+                    For Each form As Form In Application.OpenForms
+                        If TypeOf form Is WebSiteGERAL Then
+                            webForm = DirectCast(form, WebSiteGERAL)
+                            Exit For
+                        End If
+                    Next
+
+                    ' Se o formulário estiver aberto, foca nele. Caso contrário, cria uma nova instância e abre.
+                    If webForm IsNot Nothing Then
+                        webForm.Focus()
+                        webForm.BringToFront()
+                    Else
+                        webForm = New WebSiteGERAL()
+                        webForm.Show()
                     End If
+                    ' Define a URL para o WebView
+
+                    webForm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/meu-cnpj")
                 Else
-                    If ProtocoloREDESIMTextBox.Text <> "" Then
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.BringToFront()
-                        Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
-                        Exit Sub
-                    ElseIf ProtocoloJuntaComercialTextBox.Text <> "" Then
-
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.BringToFront()
-                        Dim ProtocoloREDESIM As String = ProtocoloJuntaComercialTextBox.Text
-                        WebSiteGERAL.WebView.Source = New Uri("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
-                        Exit Sub
-                    End If
+                    ' Código para lidar com a resposta "Não"
                 End If
+
 
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Erro ao abrir o site, verifique se o protocolo está correto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro ao abrir o site ou no codigo, verifique com o administrador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -2982,5 +2956,99 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
         NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
         NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
+    End Sub
+
+    Private Sub BtnVerificar_Click(sender As Object, e As EventArgs) Handles BtnVerificar.Click
+        ' Chamar o método de verificação
+        VerificarCNPJ(CNPJMaskedTextBox.Text)
+    End Sub
+
+    Private Sub VerificarCNPJ(cnpj As String)
+        ' O CNPJ está no formato já formatado com máscara
+        Dim cnpjFormatado As String = cnpj
+
+        Using connection As New SqlConnection(Str)
+            Try
+                connection.Open()
+
+                ' Log da consulta
+                Debug.WriteLine("Consultando CNPJ: " & cnpjFormatado)
+
+                ' Consultar o CNPJ na tabela "Laudos"
+                Dim query As String = "SELECT CNPJ FROM Empresas WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Laudos: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Empresas WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("Empresa já cadastrada!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado.")
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao conectar ao banco de dados: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Async Sub BtnBuscaCEP_Click(sender As Object, e As EventArgs) Handles BtnBuscaCEP.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
+
+            If resultado IsNot Nothing Then
+                EnderecoTextBox.Text = resultado.logradouro
+                EndComplementoTextBox.Text = resultado.complemento
+                EndCidadeTextBox.Text = resultado.localidade
+                EndBairroTextBox.Text = resultado.bairro
+                EndEstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub TabControle_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControle.Selecting
+        ' Verifique se o índice da aba selecionada é 3 (PAGE4 é a quarta aba, então o índice é 3)
+        If e.TabPageIndex = 3 Then
+            ' Coloque aqui o código que você deseja executar quando entrar na PAGE4
+            ' Por exemplo:
+            TabControle.SelectTab(2)
+            TabControle.SelectTab(3)
+
+            'mudar
+            Try
+                If ProtocoloREDESIMTextBox.Text <> "" Then
+                    BtnConsultaRedeSim.Text = "Consultar"
+                ElseIf ProtocoloREDESIMTextBox.Text = "" Then
+                    If ProtocoloJuntaComercialTextBox.Text <> "" Then
+                        BtnConsultaRedeSim.Text = "Consultar"
+                        ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
+                    End If
+
+                Else
+                        BtnConsultaRedeSim.Text = "Solicitar"
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Erro! Verifique com o administrador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+
+        End If
     End Sub
 End Class

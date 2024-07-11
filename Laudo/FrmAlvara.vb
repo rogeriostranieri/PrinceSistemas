@@ -3,6 +3,7 @@ Imports System.Data.Sql
 Imports System.Data.SqlTypes
 Imports System.Globalization
 Imports System.Configuration
+Imports System.Net.Http
 
 Public Class FrmAlvara
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
@@ -689,14 +690,12 @@ Public Class FrmAlvara
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
 
-        If WebSiteGERAL.Visible = False Then
-            WebSiteGERAL.Show()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso")
+        If FrmProtegeFacil.Visible = False Then
+            FrmProtegeFacil.Show()
+            FrmProtegeFacil.MdiParent = MDIPrincipal
         Else
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/acompanharProcesso.do?action=informacoesProcesso")
+            FrmProtegeFacil.Focus()
+            FrmProtegeFacil.MdiParent = MDIPrincipal
         End If
     End Sub
 
@@ -768,25 +767,27 @@ Public Class FrmAlvara
 
 
 
-    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(EndCEPMaskedTextBox.Text)
-                EnderecoTextBox.Text = Resultado.[end]
-                'EndComplementoTextBox.Text = Resultado.complemento
-                EndCompTextBox.Text = Resultado.complemento2
-                EndCidadeTextBox.Text = Resultado.cidade
-                EndBairroTextBox.Text = Resultado.bairro
-                EndEstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
+    Private Async Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
 
-            Catch Ex As Exception
-                MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-            End Try
-
-        End Using
+            If resultado IsNot Nothing Then
+                EnderecoTextBox.Text = resultado.logradouro
+                EndCompTextBox.Text = resultado.complemento
+                EndCidadeTextBox.Text = resultado.localidade
+                EndBairroTextBox.Text = resultado.bairro
+                EndEstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
     End Sub
+
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
         System.Diagnostics.Process.Start("http://venus.maringa.pr.gov.br:9900/fazendaonline/")
@@ -1667,5 +1668,49 @@ Public Class FrmAlvara
             End If
 
         End If
+    End Sub
+
+    Private Sub BtnVerificar_Click(sender As Object, e As EventArgs) Handles BtnVerificar.Click
+        ' Chamar o método de verificação
+        VerificarCNPJ(CNPJMaskedTextBox.Text)
+    End Sub
+
+    Private Sub VerificarCNPJ(cnpj As String)
+        ' O CNPJ está no formato já formatado com máscara
+        Dim cnpjFormatado As String = cnpj
+
+        Using connection As New SqlConnection(str)
+            Try
+                connection.Open()
+
+                ' Log da consulta
+                Debug.WriteLine("Consultando CNPJ: " & cnpjFormatado)
+
+                ' Consultar o CNPJ na tabela "Laudos"
+                Dim query As String = "SELECT CNPJ FROM Laudos WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Laudos: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Empresas WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("Empresa já cadastrada!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado.")
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao conectar ao banco de dados: " & ex.Message)
+            End Try
+        End Using
     End Sub
 End Class

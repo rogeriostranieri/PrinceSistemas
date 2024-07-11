@@ -231,32 +231,48 @@ Public Class MDIPrincipal
 
 
     Private Sub MDIPrincipal_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        ' Try
-        'WebSiteGERAl verificar se está aberto e fechar
-        If Application.OpenForms.OfType(Of WebSiteGERAL).Count() > 0 Then
+        Try
+            ' Verificar se WebSiteGERAL está aberto e fechar
+            If Application.OpenForms.OfType(Of WebSiteGERAL).Count() > 0 Then
                 WebSiteGERAL.Close()
             End If
 
-            'excluir pasta  "\PrinceSistemas.exe.WebView2" onde fica salvo todo cache
+            ' Excluir pasta "\PrinceSistemas.exe.WebView2" onde fica salvo todo cache
             Dim dir As String = Application.StartupPath & "\PrinceSistemas.exe.WebView2"
             Dim di As New IO.DirectoryInfo(dir)
-            'verificar se tem pasta do webview 
+
+            ' Verificar se a pasta do WebView existe
             If di.Exists Then
                 For Each fi As IO.FileInfo In di.GetFiles()
-                    fi.Delete()
+                    Try
+                        fi.Delete()
+                    Catch ex As UnauthorizedAccessException
+                        MsgBox("Erro ao excluir arquivo: " & fi.Name & " - " & ex.Message)
+                    End Try
                 Next
-                For Each dii As IO.DirectoryInfo In di.GetDirectories()
-                    dii.Delete(True)
-                Next
-                di.Delete()
-            End If
-            ' Catch ex As Exception
-            '     MsgBox(ex.Message)
-            ' End Try
 
-            'fim do codigo de apagar a pasta
-            Application.Exit()
+                For Each dii As IO.DirectoryInfo In di.GetDirectories()
+                    Try
+                        dii.Delete(True)
+                    Catch ex As UnauthorizedAccessException
+                        MsgBox("Erro ao excluir diretório: " & dii.Name & " - " & ex.Message)
+                    End Try
+                Next
+
+                Try
+                    di.Delete()
+                Catch ex As UnauthorizedAccessException
+                    MsgBox("Erro ao excluir diretório principal: " & di.FullName & " - " & ex.Message)
+                End Try
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        ' Fim do código de apagar a pasta
+        Application.Exit()
     End Sub
+
 
 
 

@@ -639,7 +639,7 @@ Partial Class FrmMail
         Me.ClientSslComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EMailBindingSource, "clientSsl", True))
         Me.ClientSslComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ClientSslComboBox.FormattingEnabled = True
-        Me.ClientSslComboBox.Items.AddRange(New Object() {"", "False", "True"})
+        Me.ClientSslComboBox.Items.AddRange(New Object() {"", "False", "SSL", "TLS", "True"})
         Me.ClientSslComboBox.Location = New System.Drawing.Point(145, 198)
         Me.ClientSslComboBox.Name = "ClientSslComboBox"
         Me.ClientSslComboBox.Size = New System.Drawing.Size(100, 21)
@@ -693,6 +693,7 @@ Partial Class FrmMail
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
@@ -703,6 +704,7 @@ Partial Class FrmMail
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Me.EMailTableAdapter
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing

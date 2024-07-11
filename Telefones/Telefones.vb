@@ -30,29 +30,25 @@
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(CEPMaskedTextBox.Text)
-                EndereçoTextBox.Text = Resultado.[end]
-                Dim Rua As String = EndereçoTextBox.Text
-                'primeira letra minuscula
-                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
-                EndereçoTextBox.Text = Rua
+    Private Async Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(CEPMaskedTextBox.Text)
 
-                'EndComplementoTextBox.Text = Resultado.complemento
-                ComplementoTextBox.Text = Resultado.complemento2
-                CidadeTextBox.Text = Resultado.cidade
-                BairroTextBox.Text = Resultado.bairro
-                EstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
-
-            Catch Ex As Exception
-                MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-            End Try
-
-        End Using
+            If resultado IsNot Nothing Then
+                EndereçoTextBox.Text = resultado.logradouro
+                ComplementoTextBox.Text = resultado.complemento
+                CidadeTextBox.Text = resultado.localidade
+                BairroTextBox.Text = resultado.bairro
+                EstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click

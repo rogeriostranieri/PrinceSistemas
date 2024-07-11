@@ -67,35 +67,25 @@
 
     End Sub
 
-    Private Sub BtnPreenchers_Click(sender As Object, e As EventArgs) Handles BtnPreencher.Click
-        Using WS = New WSCorreios.AtendeClienteClient()
-            Try
-                'Using WS = New WSCorreios.AtendeClienteClient()
-                Dim Resultado = WS.consultaCEP(End_CEPMaskedTextBox.Text)
-                End_RuaTextBox.Text = Resultado.[end]
-                Dim Rua As String = End_RuaTextBox.Text
-                'primeira letra minuscula
-                Rua = Rua.Substring(0, 1).ToLower() & Rua.Substring(1)
-                End_RuaTextBox.Text = Rua
+    Private Async Sub BtnPreenchers_Click(sender As Object, e As EventArgs) Handles BtnPreencher.Click
+        Try
+            ' Chamar o método de busca de CEP no módulo
+            Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(End_CEPMaskedTextBox.Text)
 
-                'EndComplementoTextBox.Text = Resultado.complemento
-                End_CompTextBox.Text = Resultado.complemento2
-                End_CidadeTextBox.Text = Resultado.cidade
-                End_BairroTextBox.Text = Resultado.bairro
-                End_EstadoTextBox.Text = Resultado.uf
-                ' mgs de erro
-
-            Catch Ex As Exception
-                ' MessageBox.Show(Ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-
-                If MsgBox(" Deseja Buscar CEP correto no site dos correios?", MsgBoxStyle.YesNo, "Busca CEP") = MsgBoxResult.Yes Then
-                    System.Diagnostics.Process.Start("http://www.buscacep.correios.com.br/sistemas/buscacep/")
-                Else
-
-                End If
-            End Try
-
-        End Using
+            If resultado IsNot Nothing Then
+                End_RuaTextBox.Text = resultado.logradouro
+                End_CompTextBox.Text = resultado.complemento
+                End_CidadeTextBox.Text = resultado.localidade
+                End_BairroTextBox.Text = resultado.bairro
+                End_EstadoTextBox.Text = resultado.uf
+            Else
+                MessageBox.Show("CEP não encontrado.")
+            End If
+        Catch ex As ArgumentException
+            MessageBox.Show(ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
