@@ -1,7 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.Data.SqlClient
-Imports System.IO
-Imports System.Net.Mail
+﻿Imports System.Data.SqlClient
 
 
 Module ModeMail

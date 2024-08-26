@@ -128,6 +128,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
                             'unchek lembrete
                             FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.PrioridadeCheckBox.CheckState = CheckState.Unchecked
+
 
                             'TAB PRINCIPAL
                             FrmAlvara.TabAlvara.SelectTab(1)
@@ -173,6 +175,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
                             'unchek lembrete
                             FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+                            FrmAlvara.PrioridadeCheckBox.CheckState = CheckState.Unchecked
+
 
                             'Uncheck controle de ligações
                             FrmAlvara.BombeirosCheckBox.CheckState = CheckState.Unchecked
@@ -421,6 +425,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
                                     'unchek lembrete
                                     FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+                                    FrmAlvara.PrioridadeCheckBox.CheckState = CheckState.Unchecked
+
 
                                     'TAB PRINCIPAL
                                     FrmAlvara.TabAlvara.SelectTab(1)
@@ -466,6 +472,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
                                     'unchek lembrete
                                     FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+                                    FrmAlvara.PrioridadeCheckBox.CheckState = CheckState.Unchecked
+
 
                                     'Uncheck controle de ligações
                                     FrmAlvara.BombeirosCheckBox.CheckState = CheckState.Unchecked
@@ -722,6 +730,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
 
             'unchek lembrete
             FrmAlvara.LembreteCheckBox.CheckState = CheckState.Unchecked
+            FrmAlvara.PrioridadeCheckBox.CheckState = CheckState.Unchecked
+
 
             'TAB PRINCIPAL
             FrmAlvara.TabAlvara.SelectTab(1)

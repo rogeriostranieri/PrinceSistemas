@@ -196,6 +196,8 @@ Partial Class FrmAlvara
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.NaturezaDoPedidoOBSRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiaCEP = New System.Windows.Forms.Button()
+        Me.BtnMapa = New System.Windows.Forms.Button()
         Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
         Me.PontoRefTextBox = New System.Windows.Forms.TextBox()
         Me.EndBairroTextBox = New System.Windows.Forms.TextBox()
@@ -276,7 +278,9 @@ Partial Class FrmAlvara
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxPrioridade = New System.Windows.Forms.GroupBox()
+        Me.PrioridadeCheckBox = New System.Windows.Forms.CheckBox()
+        Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
         Me.LembreteCheckBox = New System.Windows.Forms.CheckBox()
         Me.CNPJLabel = New System.Windows.Forms.Label()
@@ -293,7 +297,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnVerificar = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -397,7 +400,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox9.SuspendLayout()
+        Me.CheckBoxPrioridade.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBoxCima.SuspendLayout()
@@ -490,7 +493,7 @@ Partial Class FrmAlvara
         '
         SituacaoLabel.AutoSize = True
         SituacaoLabel.BackColor = System.Drawing.Color.Transparent
-        SituacaoLabel.Location = New System.Drawing.Point(263, 88)
+        SituacaoLabel.Location = New System.Drawing.Point(223, 88)
         SituacaoLabel.Name = "SituacaoLabel"
         SituacaoLabel.Size = New System.Drawing.Size(52, 13)
         SituacaoLabel.TabIndex = 51
@@ -1826,7 +1829,7 @@ Partial Class FrmAlvara
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
         Me.ModeloSistemaComboBox.FormattingEnabled = True
-        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Baixa de Alvará", "Junta Comercial", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "SEI - Sistema Eletrônico de Informações", "Outros"})
+        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Baixa de Alvará", "Empresa Fácil", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "SEI - Sistema Eletrônico de Informações", "Outros"})
         Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(81, 46)
         Me.ModeloSistemaComboBox.Name = "ModeloSistemaComboBox"
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)
@@ -2205,6 +2208,8 @@ Partial Class FrmAlvara
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
+        Me.TabPage7.Controls.Add(Me.BtnCopiaCEP)
+        Me.TabPage7.Controls.Add(Me.BtnMapa)
         Me.TabPage7.Controls.Add(Me.EndCidadeTextBox)
         Me.TabPage7.Controls.Add(Me.PontoRefTextBox)
         Me.TabPage7.Controls.Add(Me.EndBairroTextBox)
@@ -2242,6 +2247,28 @@ Partial Class FrmAlvara
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'BtnCopiaCEP
+        '
+        Me.BtnCopiaCEP.BackColor = System.Drawing.Color.Azure
+        Me.BtnCopiaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaCEP.Location = New System.Drawing.Point(228, 20)
+        Me.BtnCopiaCEP.Name = "BtnCopiaCEP"
+        Me.BtnCopiaCEP.Size = New System.Drawing.Size(73, 22)
+        Me.BtnCopiaCEP.TabIndex = 74
+        Me.BtnCopiaCEP.Text = "Copiar CEP"
+        Me.BtnCopiaCEP.UseVisualStyleBackColor = False
+        '
+        'BtnMapa
+        '
+        Me.BtnMapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnMapa.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnMapa.Location = New System.Drawing.Point(475, 17)
+        Me.BtnMapa.Name = "BtnMapa"
+        Me.BtnMapa.Size = New System.Drawing.Size(52, 25)
+        Me.BtnMapa.TabIndex = 73
+        Me.BtnMapa.Text = "Mapa"
+        Me.BtnMapa.UseVisualStyleBackColor = True
         '
         'EndCidadeTextBox
         '
@@ -3095,38 +3122,63 @@ Partial Class FrmAlvara
         Me.CMCLabel.TabStop = True
         Me.CMCLabel.Text = "CMC:"
         '
-        'GroupBox9
+        'CheckBoxPrioridade
         '
-        Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox9.Controls.Add(Me.BtnVerificar)
-        Me.GroupBox9.Controls.Add(Me.BtnMgsBoxAvisarDia)
-        Me.GroupBox9.Controls.Add(Me.LembreteCheckBox)
-        Me.GroupBox9.Controls.Add(Me.CNPJLabel)
-        Me.GroupBox9.Controls.Add(Me.SituacaoComboBox)
-        Me.GroupBox9.Controls.Add(EndEstadoLabel1)
-        Me.GroupBox9.Controls.Add(Me.EndEstadoLabel2)
-        Me.GroupBox9.Controls.Add(Me.PictureBox1)
-        Me.GroupBox9.Controls.Add(Me.PictureBox2)
-        Me.GroupBox9.Controls.Add(Me.EndCidadeLabel2)
-        Me.GroupBox9.Controls.Add(EndCidadeLabel1)
-        Me.GroupBox9.Controls.Add(Me.BtnData1)
-        Me.GroupBox9.Controls.Add(Me.CMCLabel)
-        Me.GroupBox9.Controls.Add(AvisarDiaLabel)
-        Me.GroupBox9.Controls.Add(Me.AvisarDiaMaskedTextBox)
-        Me.GroupBox9.Controls.Add(Me.CMCTextBox)
-        Me.GroupBox9.Controls.Add(DataCriadoLabel)
-        Me.GroupBox9.Controls.Add(Me.DataCriadoMaskedTextBox)
-        Me.GroupBox9.Controls.Add(Me.Button15)
-        Me.GroupBox9.Controls.Add(Me.Button12)
-        Me.GroupBox9.Controls.Add(SituacaoLabel)
-        Me.GroupBox9.Controls.Add(Me.CNPJMaskedTextBox)
-        Me.GroupBox9.Controls.Add(RazaoSocialLabel)
-        Me.GroupBox9.Controls.Add(Me.RazaoSocialTextBox)
-        Me.GroupBox9.Location = New System.Drawing.Point(6, 10)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(485, 153)
-        Me.GroupBox9.TabIndex = 78
-        Me.GroupBox9.TabStop = False
+        Me.CheckBoxPrioridade.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBoxPrioridade.Controls.Add(Me.PrioridadeCheckBox)
+        Me.CheckBoxPrioridade.Controls.Add(Me.BtnVerificar)
+        Me.CheckBoxPrioridade.Controls.Add(Me.BtnMgsBoxAvisarDia)
+        Me.CheckBoxPrioridade.Controls.Add(Me.LembreteCheckBox)
+        Me.CheckBoxPrioridade.Controls.Add(Me.CNPJLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.SituacaoComboBox)
+        Me.CheckBoxPrioridade.Controls.Add(EndEstadoLabel1)
+        Me.CheckBoxPrioridade.Controls.Add(Me.EndEstadoLabel2)
+        Me.CheckBoxPrioridade.Controls.Add(Me.PictureBox1)
+        Me.CheckBoxPrioridade.Controls.Add(Me.PictureBox2)
+        Me.CheckBoxPrioridade.Controls.Add(Me.EndCidadeLabel2)
+        Me.CheckBoxPrioridade.Controls.Add(EndCidadeLabel1)
+        Me.CheckBoxPrioridade.Controls.Add(Me.BtnData1)
+        Me.CheckBoxPrioridade.Controls.Add(Me.CMCLabel)
+        Me.CheckBoxPrioridade.Controls.Add(AvisarDiaLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.AvisarDiaMaskedTextBox)
+        Me.CheckBoxPrioridade.Controls.Add(Me.CMCTextBox)
+        Me.CheckBoxPrioridade.Controls.Add(DataCriadoLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.DataCriadoMaskedTextBox)
+        Me.CheckBoxPrioridade.Controls.Add(Me.Button15)
+        Me.CheckBoxPrioridade.Controls.Add(Me.Button12)
+        Me.CheckBoxPrioridade.Controls.Add(SituacaoLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.CNPJMaskedTextBox)
+        Me.CheckBoxPrioridade.Controls.Add(RazaoSocialLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.RazaoSocialTextBox)
+        Me.CheckBoxPrioridade.Location = New System.Drawing.Point(6, 10)
+        Me.CheckBoxPrioridade.Name = "CheckBoxPrioridade"
+        Me.CheckBoxPrioridade.Size = New System.Drawing.Size(485, 153)
+        Me.CheckBoxPrioridade.TabIndex = 78
+        Me.CheckBoxPrioridade.TabStop = False
+        '
+        'PrioridadeCheckBox
+        '
+        Me.PrioridadeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Prioridade", True))
+        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(156, 132)
+        Me.PrioridadeCheckBox.Name = "PrioridadeCheckBox"
+        Me.PrioridadeCheckBox.Size = New System.Drawing.Size(73, 24)
+        Me.PrioridadeCheckBox.TabIndex = 58
+        Me.PrioridadeCheckBox.Text = "Prioridade"
+        Me.PrioridadeCheckBox.UseVisualStyleBackColor = True
+        '
+        'BtnVerificar
+        '
+        Me.BtnVerificar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnVerificar.BackgroundImage = CType(resources.GetObject("BtnVerificar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerificar.Location = New System.Drawing.Point(317, 59)
+        Me.BtnVerificar.Name = "BtnVerificar"
+        Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
+        Me.BtnVerificar.TabIndex = 83
+        Me.BtnVerificar.Text = "Verificar"
+        Me.BtnVerificar.UseVisualStyleBackColor = False
         '
         'BtnMgsBoxAvisarDia
         '
@@ -3159,11 +3211,13 @@ Partial Class FrmAlvara
         '
         'SituacaoComboBox
         '
+        Me.SituacaoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.SituacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
         Me.SituacaoComboBox.FormattingEnabled = True
-        Me.SituacaoComboBox.Location = New System.Drawing.Point(317, 85)
+        Me.SituacaoComboBox.Location = New System.Drawing.Point(277, 85)
         Me.SituacaoComboBox.Name = "SituacaoComboBox"
-        Me.SituacaoComboBox.Size = New System.Drawing.Size(167, 21)
+        Me.SituacaoComboBox.Size = New System.Drawing.Size(207, 21)
         Me.SituacaoComboBox.TabIndex = 78
         '
         'EndEstadoLabel2
@@ -3278,7 +3332,7 @@ Partial Class FrmAlvara
         '
         'GroupBoxCima
         '
-        Me.GroupBoxCima.Controls.Add(Me.GroupBox9)
+        Me.GroupBoxCima.Controls.Add(Me.CheckBoxPrioridade)
         Me.GroupBoxCima.Controls.Add(Me.GroupBox3)
         Me.GroupBoxCima.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxCima.Location = New System.Drawing.Point(3, 3)
@@ -3297,20 +3351,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'BtnVerificar
-        '
-        Me.BtnVerificar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnVerificar.BackgroundImage = CType(resources.GetObject("BtnVerificar.BackgroundImage"), System.Drawing.Image)
-        Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVerificar.Location = New System.Drawing.Point(317, 59)
-        Me.BtnVerificar.Name = "BtnVerificar"
-        Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
-        Me.BtnVerificar.TabIndex = 83
-        Me.BtnVerificar.Text = "Verificar"
-        Me.BtnVerificar.UseVisualStyleBackColor = False
         '
         'FrmAlvara
         '
@@ -3408,8 +3448,8 @@ Partial Class FrmAlvara
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
+        Me.CheckBoxPrioridade.ResumeLayout(False)
+        Me.CheckBoxPrioridade.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBoxCima.ResumeLayout(False)
@@ -3567,7 +3607,7 @@ Partial Class FrmAlvara
     Friend WithEvents BombeiroSituacaoComboBox As ComboBox
     Friend WithEvents BtnBombVer As Button
     Friend WithEvents BtnEditar As Button
-    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents CheckBoxPrioridade As GroupBox
     Friend WithEvents GroupBoxProtocolo As GroupBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents NlaudoLabel As Label
@@ -3637,4 +3677,7 @@ Partial Class FrmAlvara
     Friend WithEvents LblProtocolo2 As Label
     Friend WithEvents LblProtocolo1 As Label
     Friend WithEvents BtnVerificar As Button
+    Friend WithEvents BtnMapa As Button
+    Friend WithEvents BtnCopiaCEP As Button
+    Friend WithEvents PrioridadeCheckBox As CheckBox
 End Class

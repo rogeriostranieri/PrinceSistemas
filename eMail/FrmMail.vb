@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Net.Mail
-Imports System.Xml
 
 Public Class FrmMail
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown

@@ -186,17 +186,19 @@
     End Sub
 
     Private Sub BtnProtocolados_Click(sender As Object, e As EventArgs) Handles BtnProtocolados.Click
-        If Application.OpenForms.OfType(Of FrmProtocolados)().Count() > 0 Then
+        Dim Protocolos As New FrmProtocoladosGeral
 
-            FrmProtocolados.Focus()
-            FrmProtocolados.Close()
-            FrmProtocolados.MdiParent = MDIPrincipal
-            FrmProtocolados.Show()
+        If Application.OpenForms.OfType(Of FrmProtocoladosGeral)().Count() > 0 Then
+
+            Protocolos.Focus()
+            Protocolos.Close()
+            Protocolos.MdiParent = MDIPrincipal
+            Protocolos.Show()
 
         Else
 
-            FrmProtocolados.MdiParent = MDIPrincipal
-            FrmProtocolados.Show()
+            Protocolos.MdiParent = MDIPrincipal
+            Protocolos.Show()
 
 
         End If

@@ -58,7 +58,7 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;Us"& _ 
-            "er ID=sa;Password=rs755")>  _
+            "er ID=sa;Password=rs755;Encrypt=False")>  _
         Public ReadOnly Property PrinceDBConnectionString() As String
             Get
                 Return CType(Me("PrinceDBConnectionString"),String)

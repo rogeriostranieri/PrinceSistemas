@@ -1,6 +1,4 @@
-﻿Imports System.Net.Http
-
-Public Class Contador
+﻿Public Class ContadorGeral
     Private Sub Salvar()
         Me.Validate()
         Me.ContadorBindingSource.EndEdit()
@@ -124,5 +122,72 @@ Public Class Contador
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
+
+    Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
+        Dim CNPJ As String = CPFMaskedTextBox.Text
+        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
+        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+
+    End Sub
+
+    ' ESTADO CIVIL DO CONTADOR
+
+    Private Sub EstadoCivil()
+        ' Verificar o gênero selecionado e preencher o EstadoCivilComboBox
+        EstadoCivilComboBox.Items.Clear()
+
+        If GeneroComboBox.Text = "Masculino" Then
+            EstadoCivilComboBox.Items.Add("solteiro")
+            EstadoCivilComboBox.Items.Add("separado")
+            EstadoCivilComboBox.Items.Add("divorciado")
+            EstadoCivilComboBox.Items.Add("casado em regime de comunhão parcial de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de comunhão universal de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de separação obrigatória de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
+            EstadoCivilComboBox.Items.Add("viúvo")
+
+
+        ElseIf GeneroComboBox.Text = "Feminino" Then
+            EstadoCivilComboBox.Items.Add("solteira")
+            EstadoCivilComboBox.Items.Add("separada")
+            EstadoCivilComboBox.Items.Add("divorciada")
+            EstadoCivilComboBox.Items.Add("casada em regime de comunhão parcial de bens")
+            EstadoCivilComboBox.Items.Add("casada em regime de comunhão universal de bens")
+            EstadoCivilComboBox.Items.Add("casada em regime de separação obrigatória de bens")
+            EstadoCivilComboBox.Items.Add("casada em regime de participação final nos aquestos")
+            EstadoCivilComboBox.Items.Add("viúva")
+
+        Else
+            EstadoCivilComboBox.Items.Add("solteiro")
+            EstadoCivilComboBox.Items.Add("separado")
+            EstadoCivilComboBox.Items.Add("divorciado")
+            EstadoCivilComboBox.Items.Add("casado em regime de comunhão parcial de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de comunhão universal de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de separação obrigatória de bens")
+            EstadoCivilComboBox.Items.Add("casado em regime de participação final nos aquestos")
+            EstadoCivilComboBox.Items.Add("viúvo")
+
+        End If
+    End Sub
+
+
+    Private Sub GeneroComboBox_TextChanged(sender As Object, e As EventArgs) Handles GeneroComboBox.TextChanged
+        EstadoCivil()
+    End Sub
+
+    Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
+        ' Obter o texto do CEPMaskedTextBox
+        Dim cep As String = EndCEPMaskedTextBox.Text
+
+        ' Remover o hífen
+        Dim cepSemHifen As String = cep.Replace("-", "")
+
+        ' Copiar o resultado para a área de transferência
+        Clipboard.SetText(cepSemHifen)
+
+        ' Informar ao usuário que o CEP foi copiado
+        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 End Class

@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class DadosExportacaoLaudos
+﻿Public Class DadosExportacaoLaudos
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub

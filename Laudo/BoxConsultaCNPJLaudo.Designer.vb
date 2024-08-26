@@ -145,6 +145,7 @@ Partial Class BoxConsultaCNPJLaudo
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "BoxConsultaCNPJLaudo"
+        Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta CNPJ - Prince Sistemas"

@@ -1,9 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Data.Sql
-Imports System.Data.SqlTypes
-Imports System.Globalization
-Imports System.Configuration
-Imports System.Net.Http
 
 Public Class FrmAlvara
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
@@ -12,46 +7,119 @@ Public Class FrmAlvara
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 
+    ' inicio LOAD
 
-    Private Sub LaudosConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADSituacaoAlvara'. Você pode movê-la ou removê-la conforme necessário.
-        Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
-        'carregar statuscombobox com bando de dados CADstatus
-        SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
-        SituacaoComboBox.DisplayMember = "Descricao"
-        SituacaoComboBox.ValueMember = "Descricao"
+    ' Propriedade pública para receber a RazaoSocialSelecionada
+    Public Property RazaoSocialSelecionada As String
+    ' Declaração da variável no nível do formulário
 
 
 
+    Private Sub FrmAlvara_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            ' Carregar os dados da tabela CADSituacaoAlvara
+            Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
+            SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
+            SituacaoComboBox.DisplayMember = "Descricao"
+            SituacaoComboBox.ValueMember = "Descricao"
 
-        ' My.Application.DoEvents()
-        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
-        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+            ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
+            PrinceDBDataSet.AcceptChanges()
+
+            ' Atualizar o BindingSource após aplicar o filtro
+            AtualizarBindingSource()
+
+            ' Configurar o valor do ComboBox com base no valor salvo em Laudos
+            ConfigurarComboBox()
+
+            ' Configurar estado inicial dos controles
+            BtnEditar.Text = "Editar"
+            CheckBoxPrioridade.Enabled = False
+            GroupBox4.Enabled = False
+            DesativaDataProvisorio()
+
+            ' Tirar borda do TableLayoutPanel1
+            TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
+
+            ' Ordenar Situações
+            SituacaoOrdenado()
 
 
-        BtnEditar.Text = "Editar"
-        GroupBox9.Enabled = False
-        GroupBox4.Enabled = False
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao carregar o formulário" & vbCrLf & ex.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
 
-        'ativa os provisorio datas
-        DesativaDataProvisorio()
 
-        'tirar borda do TableLayoutPanel1
-        TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
+
+        ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
+        PrinceDBDataSet.AcceptChanges()
+
+        ' Atualizar o BindingSource após aplicar o filtro
+        AtualizarBindingSource()
+
+        ' Configurar o valor do ComboBox com base no valor salvo em Laudos
+        ConfigurarComboBox()
+
+        For Each col As DataColumn In Me.PrinceDBDataSet.Laudos.Columns
+            col.ReadOnly = False
+        Next
     End Sub
 
+
+
+
+    Private Sub AtualizarBindingSource()
+        ' Forçar a atualização do BindingSource
+        LaudosBindingSource.EndEdit()
+        LaudosBindingSource.ResetBindings(False)
+    End Sub
+
+    Private Sub ConfigurarComboBox()
+        ' Verificar se há dados no BindingSource
+        If LaudosBindingSource.Current IsNot Nothing Then
+            Dim selectedValue As String = LaudosBindingSource.Current("Situacao").ToString()
+            SituacaoComboBox.SelectedValue = selectedValue
+        End If
+    End Sub
+
+
+
+    '//// fim load
+
+    'FIM
+    Private Sub SituacaoOrdenado()
+        ' Obter a fonte de dados original do ComboBox
+        Dim bindingSource As BindingSource = DirectCast(SituacaoComboBox.DataSource, BindingSource)
+
+        ' Verificar se o BindingSource não é Nothing
+        If bindingSource IsNot Nothing Then
+            ' Obter a DataView da fonte de dados do BindingSource
+            Dim dataView As DataView = DirectCast(bindingSource.List, DataView)
+
+            ' Verificar se a DataView não é Nothing
+            If dataView IsNot Nothing Then
+                ' Ordenar a DataView pela coluna desejada
+                dataView.Sort = "Descricao ASC" ' Substitua "ColumnName" pelo nome da coluna que você deseja ordenar
+
+                ' Atualizar o BindingSource com a DataView ordenada
+                bindingSource.DataSource = dataView
+            End If
+        End If
+
+    End Sub
     Private Sub Bloquear()
         'Modifica bloqueando td novamente
         BtnEditar.Text = "Editar"
-        GroupBox9.Enabled = False
+        CheckBoxPrioridade.Enabled = False
         GroupBox4.Enabled = False
     End Sub
 
     Private Sub Desbloquear()
         'Modifica bloqueando td novamente
         BtnEditar.Text = "Cancelar"
-        GroupBox9.Enabled = True
+        CheckBoxPrioridade.Enabled = True
         GroupBox4.Enabled = True
     End Sub
     Private Sub DesativaDataProvisorio()
@@ -221,174 +289,89 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub PreSalvar()
-        'ver BOmbeiroProvisoriodata está com valor
-        If BombeiroProvisorioDATAMaskedTextBox.Text <> "" Or AmbientalProvisorioDATAMaskedTextBox.Text <> "" Or ViabilidadeProvisorioDATAMaskedTextBox.Text <> "" Or SanitarioProvisorioDATAMaskedTextBox.Text <> "" Or SetranProvisorioDATAMaskedTextBox.Text <> "" Then
-            SalvarFinal()
-        Else
-            Salvar()
-        End If
+        Salvar()
     End Sub
-    Private Sub SalvarFinal()
 
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        Try
-            Dim changedRecords As System.Data.DataTable
-            Me.LaudosBindingSource.EndEdit()
-            changedRecords = PrinceDBDataSet.Laudos.GetChanges()
-
-
-            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-                Dim message As String
-                message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
-
-
-                'mostra mensagem box SIM OU NAO OU CANCELA
-                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-                If result = DialogResult.Cancel Then
-                    ' e.Cancel = True
-                ElseIf result = DialogResult.No Then
-                    BtnEditar.Text = "Editar"
-                    Button17.Enabled = True
-                    GroupBox9.Enabled = False
-                    GroupBox4.Enabled = False
-                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                    'retorna para CNPJMaskedTextBox empresa que estava  
-                    ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                    'focar ComboBoxBuscaCNPJ
-                    ComboBoxBuscaCNPJ.Select()
-                    DesativaDataProvisorio()
-                ElseIf result = DialogResult.Yes Then
-                    Try
-
-                        'Salva alterações
-                        Me.Validate()
-                        Me.LaudosBindingSource.EndEdit()
-                        Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                        'Modifica bloqueando td novamente
-                        BtnEditar.Text = "Editar"
-                        GroupBox9.Enabled = False
-                        GroupBox4.Enabled = False
-
-                        'retorna para CNPJMaskedTextBox empresa que estava  
-                        ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                        'focar ComboBoxBuscaCNPJ
-                        ComboBoxBuscaCNPJ.Select()
-                        DesativaDataProvisorio()
-
-                    Catch exc As Exception
-
-                        MessageBox.Show("2 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
-                    End Try
-                Else
-
-                    BtnEditar.Text = "Editar"
-                    Button17.Enabled = True
-                    GroupBox9.Enabled = False
-                    GroupBox4.Enabled = False
-                    Button17.Enabled = True
-                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-
-                    'retorna para CNPJMaskedTextBox empresa que estava  
-                    ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                    'focar ComboBoxBuscaCNPJ
-                    ComboBoxBuscaCNPJ.Select()
-                    DesativaDataProvisorio()
-
-                End If
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("2 - Ocorreu um Erro ao Salvar" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
-        End Try
-
-    End Sub
+    ' INICIO SALVAR
     Private Sub Salvar()
-
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
         Try
-            Dim changedRecords As System.Data.DataTable
+            ' Forçar a validação e finalizar edição nos controles ligados ao BindingSource
+            Me.Validate()
             Me.LaudosBindingSource.EndEdit()
-            changedRecords = PrinceDBDataSet.Laudos.GetChanges()
 
+            ' Forçar atualização do DataTable para garantir que alterações são refletidas
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
 
+            ' Verificar se há alterações para salvar
             If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-                Dim message As String
-                message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
-                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-                If result = DialogResult.Cancel Then
-                    ' e.Cancel = True
-                ElseIf result = DialogResult.No Then
-                    BtnEditar.Text = "Editar"
-                    Button17.Enabled = True
-                    GroupBox9.Enabled = False
-                    GroupBox4.Enabled = False
-                    'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
-                    '  Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-                    'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-                    Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Não faça nada, apenas sair do método
+                        Exit Sub
 
-                    'retorna para CNPJMaskedTextBox empresa que estava  
-                    ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                    'focar ComboBoxBuscaCNPJ
-                    ComboBoxBuscaCNPJ.Select()
-                    DesativaDataProvisorio()
-                ElseIf result = DialogResult.Yes Then
-                    Try
-
-                        'Salva alterações
-                        Me.Validate()
-                        Me.LaudosBindingSource.EndEdit()
-                        Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-                        'salvar
-
-
-                        'Modifica bloqueando td novamente
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
                         BtnEditar.Text = "Editar"
-                        GroupBox9.Enabled = False
+                        Button17.Enabled = True
+                        CheckBoxPrioridade.Enabled = False
                         GroupBox4.Enabled = False
-
-                        'retorna para CNPJMaskedTextBox empresa que estava  
+                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
                         ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                        'focar ComboBoxBuscaCNPJ
                         ComboBoxBuscaCNPJ.Select()
                         DesativaDataProvisorio()
-                    Catch exc As Exception
 
-                        MessageBox.Show("1 - Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Case DialogResult.Yes
+                        Try
+                            ' Salvar alterações
+                            Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
 
-                    End Try
+                            ' Recarregar os dados para garantir que tudo está sincronizado
+                            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-                End If
+                            ' Desativar edição após salvar
+                            BtnEditar.Text = "Editar"
+                            CheckBoxPrioridade.Enabled = False
+                            GroupBox4.Enabled = False
+                            ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                            ComboBoxBuscaCNPJ.Select()
+                            DesativaDataProvisorio()
+                            MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
 
+                End Select
             Else
+                ' Não há alterações, apenas desativar edição
                 BtnEditar.Text = "Editar"
-                GroupBox9.Enabled = False
+                CheckBoxPrioridade.Enabled = False
                 GroupBox4.Enabled = False
                 Button17.Enabled = True
-                'retorna para CNPJMaskedTextBox empresa que estava  
                 ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
                 ComboBoxBuscaCNPJ.Select()
                 DesativaDataProvisorio()
+                MessageBox.Show("Nenhuma alteração foi detectada.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-
-
         Catch ex As Exception
-            MessageBox.Show("1 - Ocorreu um Erro ao Salvar" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
+            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
-
     End Sub
 
+
+
+
+
+
+
+
+
+
+    ' FIM SALVAR
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         TabControlAcompanhamento.SelectTab(0)
 
@@ -445,7 +428,16 @@ Public Class FrmAlvara
             'Abrir anotações direto
             TabAlvara.SelectTab(1)
             TabControlAcompanhamento.SelectTab(0)
-            Dim NLaudo As String = NlaudoTextBox.Text.Replace(" ", "")
+            Dim NLaudo As String = NlaudoTextBox.Text '.Replace(" ", "").Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+
+            'copiar
+            ' Remover caracteres especiais e copiar o número para a área de transferência
+            Clipboard.SetText(NLaudo)
+
+            ' Exibir mensagem de sucesso
+            MessageBox.Show("Número do Laudo Copiado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
 
 
             If ModeloSistemaComboBox.Text = "Alvará Antigo" Then
@@ -469,17 +461,17 @@ Public Class FrmAlvara
                     WebSiteGERAL.Focus()
                     WebSiteGERAL.MdiParent = MDIPrincipal
                     If EndCidadeLabel2.Text.Contains("Maring") Then
-                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e3s1")
+                        WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                     ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                        WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
+                        WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                     End If
                 Else
                     WebSiteGERAL.Show()
                     WebSiteGERAL.MdiParent = MDIPrincipal
                     If EndCidadeLabel2.Text.Contains("Maring") Then
-                        WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/acompanhamento?execution=e3s1")
+                        WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                     ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                        WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/acompanhamento?execution=e2s1")
+                        WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                     End If
                 End If
                 ALVARAEsconderAtalhosNavegadorPadrao()
@@ -488,7 +480,7 @@ Public Class FrmAlvara
                 MessageBox.Show("Ligar ou Comparecer na Prefeitura da cidade onde foi solicitado", "Prince Ajuda")
             ElseIf ModeloSistemaComboBox.Text = "Consulta Prévia" Then
                 MessageBox.Show("Consulta Prévia solicitada antes do pedido de alvará na Prefeitura", "Prince Ajuda")
-            ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
+            ElseIf ModeloSistemaComboBox.Text = "Empresa Fácil" Then
                 Select Case EndEstadoLabel2.Text.Trim()
                     Case "PR"
                         BoxJuntaComercialLaudo.Show()
@@ -582,6 +574,7 @@ Public Class FrmAlvara
 
             'unchek lembrete
             LembreteCheckBox.CheckState = CheckState.Unchecked
+            PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
             'Uncheck controle de ligações
             BombeirosCheckBox.CheckState = CheckState.Unchecked
@@ -618,8 +611,8 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
-        'Salvar()
-        PreSalvar()
+        Salvar()
+        '  PreSalvar()
 
     End Sub
 
@@ -738,16 +731,16 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        If Application.OpenForms.OfType(Of Contador)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of ContadorGeral)().Count() > 0 Then
 
-            Contador.Focus()
+            ContadorGeral.Focus()
             '   Contador.MdiParent = MDIPrincipal
 
 
         Else
 
             ' Contador.MdiParent = MDIPrincipal
-            Contador.Show()
+            ContadorGeral.Show()
 
 
         End If
@@ -802,16 +795,16 @@ Public Class FrmAlvara
         'EmailRequerenteTextBox.Text = "legalizacaobetel@gmail.com"
 
         If Trim(FoneRequerenteTextBox.Text) = "" Then
-            Contador.Show() ' pégando apenas o 1 cadastro
-            FoneRequerenteTextBox.Text = Contador.TelefoneMaskedTextBox.Text
+            ContadorGeral.Show() ' pégando apenas o 1 cadastro
+            FoneRequerenteTextBox.Text = ContadorGeral.TelefoneMaskedTextBox.Text
         End If
 
         If Trim(EmailRequerenteTextBox.Text) = "" Then
-            Contador.Show() ' pégando apenas o 1 cadastro
-            EmailRequerenteTextBox.Text = Contador.EmailTextBox.Text
+            ContadorGeral.Show() ' pégando apenas o 1 cadastro
+            EmailRequerenteTextBox.Text = ContadorGeral.EmailTextBox.Text
         End If
 
-        Contador.Close()
+        ContadorGeral.Close()
 
     End Sub
 
@@ -853,17 +846,17 @@ Public Class FrmAlvara
                 WebSiteGERAL.Focus()
                 WebSiteGERAL.MdiParent = MDIPrincipal
                 If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e4s1")
+                    WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                 ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e4s1")
+                    WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                 End If
             Else
                 WebSiteGERAL.Show()
                 WebSiteGERAL.MdiParent = MDIPrincipal
                 If EndCidadeLabel2.Text.Contains("Maring") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e4s1")
+                    WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                 ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    WebSiteGERAL.WebView.Source = New Uri("http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e4s1")
+                    WebSiteGERAL.WebView.Source = New Uri("https://www.maringa.pr.gov.br/fazendaonline")
                 End If
             End If
 
@@ -1020,15 +1013,12 @@ Public Class FrmAlvara
     Private Sub Editar()
         If BtnEditar.Text = "Editar" Then
             BtnEditar.Text = "Cancelar"
-            GroupBox9.Enabled = True
+            CheckBoxPrioridade.Enabled = True
             GroupBox4.Enabled = True
-
             Button17.Enabled = False
-
         ElseIf BtnEditar.Text = "Cancelar" Then
-
             BtnEditar.Text = "Editar"
-            GroupBox9.Enabled = False
+            CheckBoxPrioridade.Enabled = False
             GroupBox4.Enabled = False
 
             Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
@@ -1036,9 +1026,9 @@ Public Class FrmAlvara
             RazaoSocialTextBox.Focus()
 
             Button17.Enabled = True
-
         End If
     End Sub
+
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
 
@@ -1057,7 +1047,7 @@ Public Class FrmAlvara
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
             ButtonConsultar.Visible = True
-        ElseIf ModeloSistemaComboBox.Text = "Junta Comercial" Then
+        ElseIf ModeloSistemaComboBox.Text = "Empresa Fácil" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
             ButtonConsultar.Visible = True
@@ -1249,13 +1239,13 @@ Public Class FrmAlvara
         End Try
     End Sub
 
-    Private Sub SituacaoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SituacaoComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
-    End Sub
+    '  Private Sub SituacaoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SituacaoComboBox.KeyPress
+    '    e.Handled = True 'nao permitir escrita
+    '  End Sub
 
-    Private Sub ModeloSistemaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ModeloSistemaComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
-    End Sub
+    'Private Sub ModeloSistemaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ModeloSistemaComboBox.KeyPress
+    '    e.Handled = True 'nao permitir escrita
+    ' End Sub
 
 
 
@@ -1280,237 +1270,6 @@ Public Class FrmAlvara
     End Sub
 
 
-    '//////////////////////////////////////// INICIO DATA PROVISORIO ////////////////////////////////////////////////////////////////
-    'fução conexão com o banco de dados
-
-    Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Bombeiro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            PreSalvar()
-            Try
-                Dim sql As String = "UPDATE Laudos SET BombeiroProvisorioDATA = NULL where RazaoSocial=@RazaoSocial"
-                Dim RazaoSocial As String = RazaoSocialTextBox.Text
-                Dim con As New SqlConnection(str)
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-                BombeiroProvisorioDATAMaskedTextBox.Text = ""
-                BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("A Data Provisória do orgão: Bombeiro - Foi apagada com sucesso!")
-
-                'retorna para CNPJ empresa que estava  
-                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                Bloquear()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar a Data Provisória do orgão: Bombeiro!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-
-    'Apagar Data Provisório Ambiental
-    Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Meio Ambiente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            PreSalvar()
-            Try
-                Dim sql As String = "UPDATE Laudos SET AmbientalProvisorioData = NULL where RazaoSocial=@RazaoSocial"
-                Dim RazaoSocial As String = RazaoSocialTextBox.Text
-                Dim con As New SqlConnection(str)
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-                AmbientalProvisorioDATAMaskedTextBox.Text = ""
-                AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("A Data Provisória do orgão: Meio Ambiente - Foi apagada com sucesso!")
-
-                'retorna para CNPJ empresa que estava  
-                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                Bloquear()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar a Data Provisória do orgão: Meio Ambiente!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    'Apagar Data Provisório Viabilidade
-    Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Viabilidade?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            PreSalvar()
-            Try
-                Dim sql As String = "UPDATE Laudos SET ViabilidadeProvisorioData = NULL where RazaoSocial=@RazaoSocial"
-                Dim RazaoSocial As String = RazaoSocialTextBox.Text
-                Dim con As New SqlConnection(str)
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-                ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
-                ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("A Data Provisória do orgão: Viabilidade - Foi apagada com sucesso!")
-
-                'retorna para CNPJ empresa que estava  
-                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                Bloquear()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar a Data Provisória do orgão: Viabilidade!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    'Apagar Data Provisório Sanitario
-    Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Vigilância Sanitária?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            PreSalvar()
-            Try
-                Dim sql As String = "UPDATE Laudos SET SanitarioProvisorioData = NULL where RazaoSocial=@RazaoSocial"
-                Dim RazaoSocial As String = RazaoSocialTextBox.Text
-                Dim con As New SqlConnection(str)
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-                SanitarioProvisorioDATAMaskedTextBox.Text = ""
-                SanitarioProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("A Data Provisória do orgão: Vigilância Sanitária - Foi apagada com sucesso!")
-
-                'retorna para CNPJ empresa que estava  
-                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                Bloquear()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar a Data Provisória do orgão: Vigilância Sanitária!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    'Apagar Data Provisório Setran
-    Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        If MessageBox.Show("Deseja salvar as alterações e apagar a Data Provisória do orgão: Setran/Mobilidade?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            PreSalvar()
-            Try
-                Dim sql As String = "UPDATE Laudos SET SetranProvisorioData = NULL where RazaoSocial=@RazaoSocial"
-                Dim RazaoSocial As String = RazaoSocialTextBox.Text
-                Dim con As New SqlConnection(str)
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@RazaoSocial", RazaoSocial)
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-                SetranProvisorioDATAMaskedTextBox.Text = ""
-                SetranProvisorioDATAMaskedTextBox.ReadOnly = True
-                MsgBox("A Data Provisória do orgão: Setran/Mobilidade - Foi apagada com sucesso!")
-
-                'retorna para CNPJ empresa que estava  
-                LaudosTableAdapter.Fill(PrinceDBDataSet.Laudos)
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                'focar ComboBoxBuscaCNPJ
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                Bloquear()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar a Data Provisória do orgão: Setran/Mobilidade!" & vbCrLf & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Private Sub ButtonAddDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonAddDataBombeiro.Click
-        'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do bombeiro?", MsgBoxStyle.YesNo, "Adicionar Bombeiro") = MsgBoxResult.Yes Then
-            'visible true BombeiroProvisorioDATAMaskedTextBox
-            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
-            'limpar BombeiroProvisorioDATAMaskedTextBox
-            BombeiroProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            'visible true BombeiroProvisorioDATAMaskedTextBox
-            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
-        End If
-    End Sub
-
-    'Ambiental
-    Private Sub ButtonAddDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonAddDataAmbiental.Click
-        'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do Ambiental?", MsgBoxStyle.YesNo, "Adicionar Ambiental") = MsgBoxResult.Yes Then
-            'visible true AmbientalProvisorioDATAMaskedTextBox
-            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
-            'limpar AmbientalProvisorioDATAMaskedTextBox
-            AmbientalProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            'visible true AmbientalProvisorioDATAMaskedTextBox
-            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
-        End If
-    End Sub
-
-    'viabilidade
-    Private Sub ButtonAddDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonAddDataViabilidade.Click
-        'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do Viabilidade?", MsgBoxStyle.YesNo, "Adicionar Viabilidade") = MsgBoxResult.Yes Then
-            'visible true ViabilidadeProvisorioDATAMaskedTextBox
-            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
-            'limpar ViabilidadeProvisorioDATAMaskedTextBox
-            ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            'visible true ViabilidadeProvisorioDATAMaskedTextBox
-            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
-        End If
-    End Sub
-
-    'Sanitario
-    Private Sub ButtonAddDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSanitario.Click
-        'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do Sanitário?", MsgBoxStyle.YesNo, "Adicionar Sanitário") = MsgBoxResult.Yes Then
-            'visible true SanitarioProvisorioDATAMaskedTextBox
-            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
-            'limpar SanitarioProvisorioDATAMaskedTextBox
-            SanitarioProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            'visible true SanitarioProvisorioDATAMaskedTextBox
-            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
-        End If
-    End Sub
-
-    'Setran
-    Private Sub ButtonAddDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSetran.Click
-        'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do Setran?", MsgBoxStyle.YesNo, "Adicionar Setran") = MsgBoxResult.Yes Then
-            'visible true SetranProvisorioDATAMaskedTextBox
-            SetranProvisorioDATAMaskedTextBox.ReadOnly = False
-            'limpar SetranProvisorioDATAMaskedTextBox
-            SetranProvisorioDATAMaskedTextBox.Text = ""
-        Else
-            'visible true SetranProvisorioDATAMaskedTextBox
-            SetranProvisorioDATAMaskedTextBox.ReadOnly = False
-        End If
-    End Sub
 
 
     '////////////////////////////// INICIO LABEL DATA PROVISORIO ////////////////////////////////////////////////
@@ -1713,4 +1472,251 @@ Public Class FrmAlvara
             End Try
         End Using
     End Sub
+
+    Private Sub BtnMapa_Click(sender As Object, e As EventArgs) Handles BtnMapa.Click
+
+        Mapa()
+    End Sub
+
+    Private Sub Mapa()
+        ' Obtém o número do cadastro imobiliário a partir do TextBox
+        Dim cadastroImobiliario As String = CadImobTextBox.Text.Trim()
+
+        ' Verifica se o campo está vazio
+        If String.IsNullOrEmpty(cadastroImobiliario) Then
+            MessageBox.Show("Por favor, insira um número de cadastro imobiliário.", "Número de Cadastro Imobiliário Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Copia o número do cadastro imobiliário para a área de transferência
+        Clipboard.SetText(cadastroImobiliario)
+
+        ' Mensagem de pergunta ao usuário
+        Dim result As DialogResult = MessageBox.Show("Deseja abrir o mapa da cidade com o cadastro imobiliário " & cadastroImobiliario & "?", "Abrir Mapa", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Verifica a resposta do usuário
+        If result = DialogResult.Yes Then
+            If WebSiteGERAL.Visible = True Then
+                ' Coloca foco e frente
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.BringToFront()
+            Else
+                ' Mostra a janela
+                WebSiteGERAL.Show()
+                WebSiteGERAL.BringToFront()
+            End If
+
+            ' Define a URL com o número do cadastro imobiliário
+            WebSiteGERAL.WebView.Source = New Uri("http://geoproc.maringa.pr.gov.br:8090/SIGMARINGA/")
+        End If
+    End Sub
+
+    Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
+        ' Obter o texto do CEPMaskedTextBox
+        Dim cep As String = EndCEPMaskedTextBox.Text
+
+        ' Remover o hífen
+        Dim cepSemHifen As String = cep.Replace("-", "")
+
+        ' Copiar o resultado para a área de transferência
+        Clipboard.SetText(cepSemHifen)
+
+        ' Informar ao usuário que o CEP foi copiado
+        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
+
+    '//////////////////////////////////////// INICIO DATA PROVISORIO ////////////////////////////////////////////////////////////////
+    Private Sub SalvarAlteracoes()
+        Try
+            Me.LaudosBindingSource.EndEdit()
+            Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+            MsgBox("Alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+        Catch ex As Exception
+            MessageBox.Show("Erro ao salvar alterações: " & ex.Message)
+        End Try
+    End Sub
+
+
+    'VIABILIDADE
+    Private Sub ButtonAddDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonAddDataViabilidade.Click
+        'pergunta se deseja adicionar
+        If MsgBox("Deseja Adicionar uma nova data provisório do Viabilidade?", MsgBoxStyle.YesNo, "Adicionar data da Viabilidade") = MsgBoxResult.Yes Then
+            'visible true AmbientalProvisorioDATAMaskedTextBox
+            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
+            'limpar AmbientalProvisorioDATAMaskedTextBox
+            ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
+        Else
+            'visible true AmbientalProvisorioDATAMaskedTextBox
+            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
+        End If
+        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
+    End Sub
+
+    ' Adicionar Data Ambiental
+    Private Sub ButtonAddDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonAddDataAmbiental.Click
+        If MsgBox("Deseja Adicionar uma nova data provisório do Ambiental?", MsgBoxStyle.YesNo, "Adicionar data Ambiental") = MsgBoxResult.Yes Then
+            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
+            AmbientalProvisorioDATAMaskedTextBox.Text = ""
+        Else
+            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
+        End If
+        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
+    End Sub
+
+    ' Adicionar Data Bombeiro
+    Private Sub ButtonAddDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonAddDataBombeiro.Click
+        If MsgBox("Deseja Adicionar uma nova data provisório do Bombeiro?", MsgBoxStyle.YesNo, "Adicionar data Bombeiro") = MsgBoxResult.Yes Then
+            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
+            BombeiroProvisorioDATAMaskedTextBox.Text = ""
+        Else
+            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
+        End If
+        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
+    End Sub
+
+    ' Adicionar Data Setran
+    Private Sub ButtonAddDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSetran.Click
+        If MsgBox("Deseja Adicionar uma nova data provisório do Setran?", MsgBoxStyle.YesNo, "Adicionar data Setran") = MsgBoxResult.Yes Then
+            SetranProvisorioDATAMaskedTextBox.ReadOnly = False
+            SetranProvisorioDATAMaskedTextBox.Text = ""
+        Else
+            SetranProvisorioDATAMaskedTextBox.ReadOnly = False
+        End If
+        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
+    End Sub
+
+    ' Adicionar Data Sanitario
+    Private Sub ButtonAddDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSanitario.Click
+        If MsgBox("Deseja Adicionar uma nova data provisório do Sanitário?", MsgBoxStyle.YesNo, "Adicionar data Sanitário") = MsgBoxResult.Yes Then
+            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
+            SanitarioProvisorioDATAMaskedTextBox.Text = ""
+        Else
+            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
+        End If
+        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
+    End Sub
+
+    'APAGAR
+    Private Sub ButtonApagaDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataViabilidade.Click
+        If MsgBox("Deseja Apagar a data provisório da Viabilidade e Salvar?", MsgBoxStyle.YesNo, "Apagar data da Viabilidade") = MsgBoxResult.Yes Then
+            Try
+                ' Atualiza o MaskedTextBox e o DataSet
+                ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = True
+                ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
+
+                ' Atualiza o DataSet para definir o campo como NULL
+                Dim row As DataRow = CType(Me.PrinceDBDataSet.Laudos.Rows(Me.LaudosBindingSource.Position), DataRow)
+                row("ViabilidadeProvisorioData") = DBNull.Value
+
+                ' Salva as alterações no DataSet
+                Me.LaudosBindingSource.EndEdit()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                ' Exibe mensagem informativa
+                MsgBox("Data provisória apagada e alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao apagar a data provisória: " & ex.Message)
+            End Try
+
+            DesativaDataProvisorio()
+        End If
+    End Sub
+
+    ' Apagar Data Ambiental
+    Private Sub ButtonApagaDataAmbiental_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataAmbiental.Click
+        If MsgBox("Deseja Apagar a data provisório do Ambiental e Salvar?", MsgBoxStyle.YesNo, "Apagar data Ambiental") = MsgBoxResult.Yes Then
+            Try
+                AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
+                AmbientalProvisorioDATAMaskedTextBox.Text = ""
+
+                Dim row As DataRow = CType(Me.PrinceDBDataSet.Laudos.Rows(Me.LaudosBindingSource.Position), DataRow)
+                row("AmbientalProvisorioData") = DBNull.Value
+
+                Me.LaudosBindingSource.EndEdit()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                MsgBox("Data provisória apagada e alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao apagar a data provisória: " & ex.Message)
+            End Try
+
+            DesativaDataProvisorio()
+        End If
+    End Sub
+
+    ' Apagar Data Bombeiro
+    Private Sub ButtonApagaDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataBombeiro.Click
+        If MsgBox("Deseja Apagar a data provisório do Bombeiro e Salvar?", MsgBoxStyle.YesNo, "Apagar data Bombeiro") = MsgBoxResult.Yes Then
+            Try
+                BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
+                BombeiroProvisorioDATAMaskedTextBox.Text = ""
+
+                Dim row As DataRow = CType(Me.PrinceDBDataSet.Laudos.Rows(Me.LaudosBindingSource.Position), DataRow)
+                row("BombeiroProvisorioData") = DBNull.Value
+
+                Me.LaudosBindingSource.EndEdit()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                MsgBox("Data provisória apagada e alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao apagar a data provisória: " & ex.Message)
+            End Try
+
+            DesativaDataProvisorio()
+        End If
+    End Sub
+
+    ' Apagar Data Setran
+    Private Sub ButtonApagaDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSetran.Click
+        If MsgBox("Deseja Apagar a data provisório do Setran e Salvar?", MsgBoxStyle.YesNo, "Apagar data Setran") = MsgBoxResult.Yes Then
+            Try
+                SetranProvisorioDATAMaskedTextBox.ReadOnly = True
+                SetranProvisorioDATAMaskedTextBox.Text = ""
+
+                Dim row As DataRow = CType(Me.PrinceDBDataSet.Laudos.Rows(Me.LaudosBindingSource.Position), DataRow)
+                row("SetranProvisorioData") = DBNull.Value
+
+                Me.LaudosBindingSource.EndEdit()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                MsgBox("Data provisória apagada e alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao apagar a data provisória: " & ex.Message)
+            End Try
+
+            DesativaDataProvisorio()
+        End If
+    End Sub
+
+    ' Apagar Data Sanitário
+    Private Sub ButtonApagaDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonApagaDataSanitario.Click
+        If MsgBox("Deseja Apagar a data provisório do Sanitário e Salvar?", MsgBoxStyle.YesNo, "Apagar data Sanitário") = MsgBoxResult.Yes Then
+            Try
+                SanitarioProvisorioDATAMaskedTextBox.ReadOnly = True
+                SanitarioProvisorioDATAMaskedTextBox.Text = ""
+
+                Dim row As DataRow = CType(Me.PrinceDBDataSet.Laudos.Rows(Me.LaudosBindingSource.Position), DataRow)
+                row("SanitarioProvisorioData") = DBNull.Value
+
+                Me.LaudosBindingSource.EndEdit()
+                Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                MsgBox("Data provisória apagada e alterações salvas com sucesso.", MsgBoxStyle.Information, "Sucesso")
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao apagar a data provisória: " & ex.Message)
+            End Try
+
+            DesativaDataProvisorio()
+        End If
+    End Sub
+
+    '//////////////////////////////////////// FIM DATA PROVISORIO ////////////////////////////////////////////////////////////////
+
+
 End Class

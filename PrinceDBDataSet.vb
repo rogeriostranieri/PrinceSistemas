@@ -7,3 +7,9 @@
 
     End Class
 End Class
+
+Namespace PrinceDBDataSetTableAdapters
+
+    Partial Public Class LaudosTableAdapter
+    End Class
+End Namespace

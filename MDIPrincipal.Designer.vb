@@ -31,14 +31,12 @@ Partial Class MDIPrincipal
         Me.UsuárioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.SairToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ControleGeral = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpresasToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AlvaraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SóciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContadorToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TESTEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SóciosGeralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ControleLegalizaçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AlvaráToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaudosGeralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TelefonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,14 +62,15 @@ Partial Class MDIPrincipal
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TributáriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiversosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculadoraDeCapitalSocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WebSiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NavegadorWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -100,10 +99,10 @@ Partial Class MDIPrincipal
         Me.MenuStrip.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.MenuStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.TESTEToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.AlvaráToolStripMenuItem, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.EMailToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.WebSiteToolStripMenuItem, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.ToolStripMenuItem1, Me.ControleGeral, Me.TelefonesToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.ConsultaToolStripMenuItem, Me.BuscaToolStripMenuItem, Me.DiversosToolStripMenuItem, Me.AgendaToolStripMenuItem, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(1050, 25)
+        Me.MenuStrip.Size = New System.Drawing.Size(1150, 25)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -142,6 +141,31 @@ Partial Class MDIPrincipal
         Me.SairToolStripMenuItem1.Size = New System.Drawing.Size(197, 22)
         Me.SairToolStripMenuItem1.Text = "Sair"
         '
+        'ControleGeral
+        '
+        Me.ControleGeral.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpresasToolStripMenuItem2, Me.AlvaraToolStripMenuItem, Me.SóciosToolStripMenuItem})
+        Me.ControleGeral.Name = "ControleGeral"
+        Me.ControleGeral.Size = New System.Drawing.Size(107, 21)
+        Me.ControleGeral.Text = "Controle Geral"
+        '
+        'EmpresasToolStripMenuItem2
+        '
+        Me.EmpresasToolStripMenuItem2.Name = "EmpresasToolStripMenuItem2"
+        Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
+        Me.EmpresasToolStripMenuItem2.Text = "Empresas"
+        '
+        'AlvaraToolStripMenuItem
+        '
+        Me.AlvaraToolStripMenuItem.Name = "AlvaraToolStripMenuItem"
+        Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AlvaraToolStripMenuItem.Text = "Alvara"
+        '
+        'SóciosToolStripMenuItem
+        '
+        Me.SóciosToolStripMenuItem.Name = "SóciosToolStripMenuItem"
+        Me.SóciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SóciosToolStripMenuItem.Text = "Sócios"
+        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContadorToolStripMenuItem1})
@@ -152,57 +176,8 @@ Partial Class MDIPrincipal
         'ContadorToolStripMenuItem1
         '
         Me.ContadorToolStripMenuItem1.Name = "ContadorToolStripMenuItem1"
-        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
+        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ContadorToolStripMenuItem1.Text = "Dados"
-        '
-        'TESTEToolStripMenuItem
-        '
-        Me.TESTEToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SóciosGeralToolStripMenuItem})
-        Me.TESTEToolStripMenuItem.Name = "TESTEToolStripMenuItem"
-        Me.TESTEToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
-        Me.TESTEToolStripMenuItem.Text = "Sócios"
-        '
-        'SóciosGeralToolStripMenuItem
-        '
-        Me.SóciosGeralToolStripMenuItem.Name = "SóciosGeralToolStripMenuItem"
-        Me.SóciosGeralToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
-        Me.SóciosGeralToolStripMenuItem.Text = "Sócios Geral"
-        '
-        'EmpresasToolStripMenuItem
-        '
-        Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControleLegalizaçãoToolStripMenuItem})
-        Me.EmpresasToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EmpresasToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(78, 21)
-        Me.EmpresasToolStripMenuItem.Text = "Empresas"
-        '
-        'ControleLegalizaçãoToolStripMenuItem
-        '
-        Me.ControleLegalizaçãoToolStripMenuItem.BackColor = System.Drawing.Color.Black
-        Me.ControleLegalizaçãoToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ControleLegalizaçãoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.ControleLegalizaçãoToolStripMenuItem.Name = "ControleLegalizaçãoToolStripMenuItem"
-        Me.ControleLegalizaçãoToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ControleLegalizaçãoToolStripMenuItem.Text = "Controle Legalização"
-        '
-        'AlvaráToolStripMenuItem
-        '
-        Me.AlvaráToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaudosGeralToolStripMenuItem})
-        Me.AlvaráToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.AlvaráToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.AlvaráToolStripMenuItem.Name = "AlvaráToolStripMenuItem"
-        Me.AlvaráToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
-        Me.AlvaráToolStripMenuItem.Text = "Alvará"
-        '
-        'LaudosGeralToolStripMenuItem
-        '
-        Me.LaudosGeralToolStripMenuItem.BackColor = System.Drawing.Color.Black
-        Me.LaudosGeralToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.LaudosGeralToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.LaudosGeralToolStripMenuItem.Name = "LaudosGeralToolStripMenuItem"
-        Me.LaudosGeralToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.LaudosGeralToolStripMenuItem.Text = "Alvará de Localização"
         '
         'TelefonesToolStripMenuItem
         '
@@ -219,7 +194,7 @@ Partial Class MDIPrincipal
         Me.OrToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.OrToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.OrToolStripMenuItem.Name = "OrToolStripMenuItem"
-        Me.OrToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.OrToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OrToolStripMenuItem.Text = "Órgão público"
         '
         'ContatosToolStripMenuItem
@@ -228,7 +203,7 @@ Partial Class MDIPrincipal
         Me.ContatosToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ContatosToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.ContatosToolStripMenuItem.Name = "ContatosToolStripMenuItem"
-        Me.ContatosToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ContatosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ContatosToolStripMenuItem.Text = "Contatos"
         '
         'RelatóriosToolStripMenuItem
@@ -376,15 +351,9 @@ Partial Class MDIPrincipal
         Me.TributáriaToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.TributáriaToolStripMenuItem.Text = "Tributária Federal"
         '
-        'EMailToolStripMenuItem
-        '
-        Me.EMailToolStripMenuItem.Name = "EMailToolStripMenuItem"
-        Me.EMailToolStripMenuItem.Size = New System.Drawing.Size(57, 21)
-        Me.EMailToolStripMenuItem.Text = "e-Mail"
-        '
         'DiversosToolStripMenuItem
         '
-        Me.DiversosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculadoraDeCapitalSocialToolStripMenuItem})
+        Me.DiversosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculadoraDeCapitalSocialToolStripMenuItem, Me.NavegadorWEBToolStripMenuItem})
         Me.DiversosToolStripMenuItem.Name = "DiversosToolStripMenuItem"
         Me.DiversosToolStripMenuItem.Size = New System.Drawing.Size(71, 21)
         Me.DiversosToolStripMenuItem.Text = "Diversos"
@@ -395,11 +364,11 @@ Partial Class MDIPrincipal
         Me.CalculadoraDeCapitalSocialToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.CalculadoraDeCapitalSocialToolStripMenuItem.Text = "Calculadora de Capital Social"
         '
-        'WebSiteToolStripMenuItem
+        'NavegadorWEBToolStripMenuItem
         '
-        Me.WebSiteToolStripMenuItem.Name = "WebSiteToolStripMenuItem"
-        Me.WebSiteToolStripMenuItem.Size = New System.Drawing.Size(119, 21)
-        Me.WebSiteToolStripMenuItem.Text = "Navegador Web"
+        Me.NavegadorWEBToolStripMenuItem.Name = "NavegadorWEBToolStripMenuItem"
+        Me.NavegadorWEBToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.NavegadorWEBToolStripMenuItem.Text = "Navegador WEB"
         '
         'HelpMenu
         '
@@ -429,12 +398,26 @@ Partial Class MDIPrincipal
         '
         Me.ToolStrip.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.ToolStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3, Me.ToolStripSeparator7, Me.ToolStripButton4, Me.ToolStripSeparator5, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripButton6, Me.LbTema, Me.ToolStripLabel1, Me.ToolStripSeparator9})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton7, Me.ToolStripSeparator13, Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3, Me.ToolStripSeparator7, Me.ToolStripButton4, Me.ToolStripSeparator5, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripButton6, Me.LbTema, Me.ToolStripLabel1, Me.ToolStripSeparator9})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(1050, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(1150, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
+        '
+        'ToolStripButton7
+        '
+        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton7.Name = "ToolStripButton7"
+        Me.ToolStripButton7.Size = New System.Drawing.Size(112, 22)
+        Me.ToolStripButton7.Text = "Selecionar Empresa"
+        '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(6, 25)
         '
         'ToolStripButton1
         '
@@ -545,7 +528,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.StatusStrip.Size = New System.Drawing.Size(1050, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1150, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -561,7 +544,7 @@ Partial Class MDIPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1050, 453)
+        Me.ClientSize = New System.Drawing.Size(1150, 453)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
@@ -588,8 +571,6 @@ Partial Class MDIPrincipal
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
-    Friend WithEvents EmpresasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ControleLegalizaçãoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ToolStripButton2 As ToolStripButton
@@ -598,8 +579,6 @@ Partial Class MDIPrincipal
     Friend WithEvents ContatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents ToolStripButton3 As ToolStripButton
-    Friend WithEvents AlvaráToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents LaudosGeralToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProtocoladosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VencimentoAlvaráToolStripMenuItem As ToolStripMenuItem
@@ -627,7 +606,6 @@ Partial Class MDIPrincipal
     Friend WithEvents BuscaEmpresaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ControleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton5 As ToolStripButton
-    Friend WithEvents EMailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuárioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents ToolStripButton6 As ToolStripButton
@@ -643,7 +621,11 @@ Partial Class MDIPrincipal
     Friend WithEvents AlvaráToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
-    Friend WithEvents TESTEToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SóciosGeralToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents WebSiteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ControleGeral As ToolStripMenuItem
+    Friend WithEvents EmpresasToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents AlvaraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SóciosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripButton7 As ToolStripButton
+    Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
+    Friend WithEvents NavegadorWEBToolStripMenuItem As ToolStripMenuItem
 End Class

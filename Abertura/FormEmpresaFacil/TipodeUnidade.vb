@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class TipodeUnidade
+﻿Public Class TipodeUnidade
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         'limpar antes o TipoUnidadeProdutivaRichTextBox ""

@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class DialogAjudaTipoUnidade
+﻿Public Class DialogAjudaTipoUnidade
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Salvar()
@@ -29,8 +27,8 @@ Public Class DialogAjudaTipoUnidade
         Try
             'verificar se foi modificado AjudaEmpresaFacilTableAdapter 
             Dim changedRecords As System.Data.DataTable
-        Me.AjudaEmpresaFacilBindingSource.EndEdit()
-        changedRecords = PrinceDBDataSet.AjudaEmpresaFacil.GetChanges()
+            Me.AjudaEmpresaFacilBindingSource.EndEdit()
+            changedRecords = PrinceDBDataSet.AjudaEmpresaFacil.GetChanges()
 
             If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
                 Dim message As String

@@ -1,8 +1,10 @@
-﻿Imports System.IO
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
+Imports System.IO
 
 
 Public Class MDIPrincipal
+
+
 
     'inicia verificação do login e tema
     ' Private conexao As SqlConnection
@@ -61,25 +63,6 @@ Public Class MDIPrincipal
 
 
 
-    Private Sub ControleLegalizaçãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControleLegalizaçãoToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
-            '  Dim Sair As String
-            '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-            FrmLegalizacao.Focus()
-            ' FrmLegalizacao.MdiParent = Me
-
-
-
-        Else
-
-            ' FrmLegalizacao.MdiParent = Me
-            FrmLegalizacao.Show()
-
-
-        End If
-
-    End Sub
 
     Private Sub MDIPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'chama validação da expiração
@@ -119,8 +102,8 @@ Public Class MDIPrincipal
 
         'COR MENU PRINCIPAÇ
         MenuToolStripMenuItem.ForeColor = Color.Black
-        EmpresasToolStripMenuItem.ForeColor = Color.Black
-        AlvaráToolStripMenuItem.ForeColor = Color.Black
+        'EmpresasToolStripMenuItem.ForeColor = Color.Black
+        'AlvaráToolStripMenuItem.ForeColor = Color.Black
         TelefonesToolStripMenuItem.ForeColor = Color.Black
         ConsultaToolStripMenuItem.ForeColor = Color.Black
         RelatóriosToolStripMenuItem.ForeColor = Color.Black
@@ -129,8 +112,8 @@ Public Class MDIPrincipal
 
 
         MenuToolStripMenuItem.BackColor = Color.White
-        EmpresasToolStripMenuItem.BackColor = Color.White
-        AlvaráToolStripMenuItem.BackColor = Color.White
+        ' EmpresasToolStripMenuItem.BackColor = Color.White
+        'AlvaráToolStripMenuItem.BackColor = Color.White
         TelefonesToolStripMenuItem.BackColor = Color.White
         ConsultaToolStripMenuItem.BackColor = Color.White
         RelatóriosToolStripMenuItem.BackColor = Color.White
@@ -155,10 +138,10 @@ Public Class MDIPrincipal
         SairToolStripMenuItem1.ForeColor = Color.Black
 
         'Empresas
-        ControleLegalizaçãoToolStripMenuItem.ForeColor = Color.Black
+        'ControleLegalizaçãoToolStripMenuItem.ForeColor = Color.Black
 
         'Laudos
-        LaudosGeralToolStripMenuItem.ForeColor = Color.Black
+        'LaudosGeralToolStripMenuItem.ForeColor = Color.Black
         OrToolStripMenuItem.ForeColor = Color.Black
 
         'Contatos
@@ -176,7 +159,7 @@ Public Class MDIPrincipal
         TributáriaToolStripMenuItem.ForeColor = Color.Black
 
         'Relatórios
-        EmpresasToolStripMenuItem.ForeColor = Color.Black
+        'EmpresasToolStripMenuItem.ForeColor = Color.Black
         AlvarásLaudosToolStripMenuItem.ForeColor = Color.Black
 
 
@@ -191,10 +174,10 @@ Public Class MDIPrincipal
         SairToolStripMenuItem1.BackColor = Color.White
 
         'Empresas
-        ControleLegalizaçãoToolStripMenuItem.BackColor = Color.White
+        'ControleLegalizaçãoToolStripMenuItem.BackColor = Color.White
 
         'Laudos
-        LaudosGeralToolStripMenuItem.BackColor = Color.White
+        'LaudosGeralToolStripMenuItem.BackColor = Color.White
         OrToolStripMenuItem.BackColor = Color.White
 
         'Contatos
@@ -209,7 +192,7 @@ Public Class MDIPrincipal
         RegimeFederalToolStripMenuItem.BackColor = Color.White
 
         'Relatórios
-        EmpresasToolStripMenuItem.BackColor = Color.White
+        'EmpresasToolStripMenuItem.BackColor = Color.White
         AlvarásLaudosToolStripMenuItem.BackColor = Color.White
 
         'Agenda
@@ -222,6 +205,9 @@ Public Class MDIPrincipal
 
 
 
+
+        MenuStrip.AutoSize = True
+        MenuStrip.Dock = DockStyle.Top
 
 
 
@@ -363,50 +349,7 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub VencimentosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub LaudosGeralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaudosGeralToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-            'fecha o formulario de consulta e depois abre o cadastro
-            FrmAlvara.Close()
-
-            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-                '  Dim Sair As String
-                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-                FrmAlvara.Focus()
-                ' FrmContatos.MdiParent = MDIMenu
-
-
-            Else
-
-                'FrmContatos.MdiParent = MDIMenu
-                FrmAlvara.Show()
-
-
-            End If
-        Else
-            'se nao tiver consulta aberto ele nao faz nd e verifica o cadastro e continua
-            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-                '  Dim Sair As String
-                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-                FrmAlvara.Focus()
-                ' FrmContatos.MdiParent = MDIMenu
-
-
-            Else
-
-                'FrmContatos.MdiParent = MDIMenu
-                FrmAlvara.Show()
-
-
-            End If
-
-        End If
-    End Sub
 
     Private Sub ProtocoladosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProtocoladosToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmProtocolados)().Count() > 0 Then
@@ -766,24 +709,7 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub EMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EMailToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
 
-            FrmMail.Focus()
-            FrmMail.Close()
-            FrmMail.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            FrmMail.Show()
-
-
-        Else
-
-            FrmMail.MdiParent = Me
-            ' WebAgenda.WindowState = FormWindowState.Maximized
-            FrmMail.Show()
-
-        End If
-    End Sub
 
 
 
@@ -826,16 +752,16 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub ContadorToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContadorToolStripMenuItem1.Click
-        If Application.OpenForms.OfType(Of Contador)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of ContadorGeral)().Count() > 0 Then
 
-            Contador.Focus()
-            Contador.MdiParent = Me
+            ContadorGeral.Focus()
+            ContadorGeral.MdiParent = Me
 
 
         Else
 
-            Contador.MdiParent = Me
-            Contador.Show()
+            ContadorGeral.MdiParent = Me
+            ContadorGeral.Show()
 
 
         End If
@@ -874,52 +800,7 @@ Public Class MDIPrincipal
     End Sub
 
 
-    Private Sub SóciosGeralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SóciosGeralToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
-            FrmSocios.Focus()
-        Else
-            FrmSocios.Show()
-        End If
-    End Sub
 
-    Private Sub WebSiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WebSiteToolStripMenuItem.Click
-        Try
-            'ler o txt e pegar o site inicial que está na frente "pagina_inicial:" do txt
-            Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
-            Dim sr As New StreamReader(path)
-            Dim line As String = sr.ReadLine()
-            Dim site As String = ""
-            While line IsNot Nothing
-                If line.Contains("pagina_inicial:") Then
-                    site = line.Replace("pagina_inicial:", "")
-                End If
-                line = sr.ReadLine()
-            End While
-            sr.Close()
-
-
-            '  Dim WebSiteGeral As New WebSiteGERAL
-            Dim URLsite As String = WebSiteGeral.TxtURL.Text
-
-            'abrir o WebSiteGERAL
-            If WebSiteGERAL.Visible = True Then
-                WebSiteGERAL.Focus()
-                WebSiteGERAL.MdiParent = Me
-                'site WebView com site
-                WebSiteGERAL.WebsiteNavigate(site)
-            Else
-                WebSiteGERAL.Show()
-                WebSiteGeral.MdiParent = Me
-                WebSiteGERAL.WebsiteNavigate(site)
-            End If
-            'maximizar
-            WebSiteGERAL.WindowState = FormWindowState.Maximized
-
-        Catch ex As Exception
-            'abrir o site do google no lugar
-            WebSiteGERAL.WebsiteNavigate("https://www.google.com.br/")
-        End Try
-    End Sub
 
     Private Sub MDIPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'nao permitir fechar o form quando os outros estiver abertos
@@ -951,5 +832,123 @@ Public Class MDIPrincipal
             MsgBox("Feche o formulário de Administrador antes de fechar o programa", MsgBoxStyle.Information, "Aviso")
             FrmAdmPrincipal.Focus()
         End If
+    End Sub
+
+
+    Private Sub EmpresasToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem2.Click
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+            '  Dim Sair As String
+            '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
+            FrmLegalizacao.Focus()
+            ' FrmLegalizacao.MdiParent = Me
+
+
+
+        Else
+
+            ' FrmLegalizacao.MdiParent = Me
+            FrmLegalizacao.Show()
+
+
+        End If
+    End Sub
+
+    Private Sub AlvaraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlvaraToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+            'fecha o formulario de consulta e depois abre o cadastro
+            FrmAlvara.Close()
+
+            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+                '  Dim Sair As String
+                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
+                FrmAlvara.Focus()
+                ' FrmContatos.MdiParent = MDIMenu
+
+
+            Else
+
+                'FrmContatos.MdiParent = MDIMenu
+                FrmAlvara.Show()
+
+
+            End If
+        Else
+            'se nao tiver consulta aberto ele nao faz nd e verifica o cadastro e continua
+            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+                '  Dim Sair As String
+                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+
+                FrmAlvara.Focus()
+                ' FrmContatos.MdiParent = MDIMenu
+
+
+            Else
+
+                'FrmContatos.MdiParent = MDIMenu
+                FrmAlvara.Show()
+
+
+            End If
+
+        End If
+    End Sub
+
+    Private Sub SóciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SóciosToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
+            FrmSocios.Focus()
+        Else
+            FrmSocios.Show()
+        End If
+    End Sub
+
+    Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
+        If Application.OpenForms.OfType(Of FrmGeral)().Count() > 0 Then
+            FrmGeral.Focus()
+            FrmGeral.MdiParent = Me
+        Else
+            FrmGeral.MdiParent = Me
+            FrmGeral.Show()
+        End If
+    End Sub
+
+    Private Sub NavegadorWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NavegadorWEBToolStripMenuItem.Click
+        Try
+            'ler o txt e pegar o site inicial que está na frente "pagina_inicial:" do txt
+            Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
+            Dim sr As New StreamReader(path)
+            Dim line As String = sr.ReadLine()
+            Dim site As String = ""
+            While line IsNot Nothing
+                If line.Contains("pagina_inicial:") Then
+                    site = line.Replace("pagina_inicial:", "")
+                End If
+                line = sr.ReadLine()
+            End While
+            sr.Close()
+
+
+            '  Dim WebSiteGeral As New WebSiteGERAL
+            Dim URLsite As String = WebSiteGERAL.TxtURL.Text
+
+            'abrir o WebSiteGERAL
+            If WebSiteGERAL.Visible = True Then
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.MdiParent = Me
+                'site WebView com site
+                WebSiteGERAL.WebsiteNavigate(site)
+            Else
+                WebSiteGERAL.Show()
+                WebSiteGERAL.MdiParent = Me
+                WebSiteGERAL.WebsiteNavigate(site)
+            End If
+            'maximizar
+            WebSiteGERAL.WindowState = FormWindowState.Maximized
+
+        Catch ex As Exception
+            'abrir o site do google no lugar
+            WebSiteGERAL.WebsiteNavigate("https://www.google.com.br/")
+        End Try
     End Sub
 End Class

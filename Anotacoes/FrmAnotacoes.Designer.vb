@@ -101,6 +101,7 @@ Partial Class FrmAnotacoes
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Me.AnotacoesTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
@@ -111,6 +112,7 @@ Partial Class FrmAnotacoes
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
@@ -388,9 +390,9 @@ Partial Class FrmAnotacoes
         Me.ButtonLimpar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ButtonLimpar.Location = New System.Drawing.Point(6, 73)
         Me.ButtonLimpar.Name = "ButtonLimpar"
-        Me.ButtonLimpar.Size = New System.Drawing.Size(83, 47)
+        Me.ButtonLimpar.Size = New System.Drawing.Size(107, 47)
         Me.ButtonLimpar.TabIndex = 53
-        Me.ButtonLimpar.Text = "Limpar"
+        Me.ButtonLimpar.Text = "Limpar Tudo"
         Me.ButtonLimpar.UseVisualStyleBackColor = True
         '
         'ButtonSalvar
@@ -402,7 +404,7 @@ Partial Class FrmAnotacoes
         Me.ButtonSalvar.ForeColor = System.Drawing.Color.SeaGreen
         Me.ButtonSalvar.Location = New System.Drawing.Point(6, 19)
         Me.ButtonSalvar.Name = "ButtonSalvar"
-        Me.ButtonSalvar.Size = New System.Drawing.Size(83, 48)
+        Me.ButtonSalvar.Size = New System.Drawing.Size(107, 48)
         Me.ButtonSalvar.TabIndex = 51
         Me.ButtonSalvar.Text = "Salvar"
         Me.ButtonSalvar.UseVisualStyleBackColor = True

@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class DialogCalendarioAlvara
+﻿Public Class DialogCalendarioAlvara
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -13,9 +11,17 @@ Public Class DialogCalendarioAlvara
     End Sub
 
     Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles Calendar1.DateSelected
-        FrmAlvara.AvisarDiaMaskedTextBox.Text = Calendar1.SelectionStart
+        ' Obter a data selecionada no formato DD/MM/YYYY
+        Dim selectedDate As String = Calendar1.SelectionStart.ToString("dd/MM/yyyy")
+
+        FrmAlvara.AvisarDiaMaskedTextBox.Text = ""
+        ' Atualizar o AvisarDiaMaskedTextBox com a data formatada como string
+        FrmAlvara.AvisarDiaMaskedTextBox.Text = selectedDate
+
+        ' Fechar o formulário de calendário
         Me.Close()
     End Sub
+
 
     Private Sub Calendar1_Leave(sender As Object, e As EventArgs) Handles Calendar1.Leave
         Me.Close()

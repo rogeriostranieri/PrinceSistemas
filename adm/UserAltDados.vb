@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Globalization
 
 Public Class UserAltDados
     Private Sub BtnNomeFinal_Click(sender As Object, e As EventArgs) Handles BtnNomeFinal.Click

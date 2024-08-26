@@ -140,7 +140,7 @@
             DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value & "%"
 
 
-            
+
 
 
             '////////////////////////////    FIM TOTAL   ////////////////////////

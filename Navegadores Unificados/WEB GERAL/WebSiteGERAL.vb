@@ -1,5 +1,5 @@
-﻿Imports Microsoft.Web.WebView2.Core
-Imports System.IO
+﻿Imports System.IO
+Imports Microsoft.Web.WebView2.Core
 Public Class WebSiteGERAL
     Private Sub Titulo()
         TabControl1.TabPages(0).Text = "aguarde"
@@ -156,10 +156,8 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
-        If WebView IsNot Nothing Then
-            'atualizar pagina
-            WebView.Reload()
-        End If
+        'atualizar pagina
+        WebView?.Reload()
     End Sub
 
     Private Sub WebView_CoreWebView2InitializationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs) Handles WebView.CoreWebView2InitializationCompleted
@@ -174,8 +172,8 @@ Public Class WebSiteGERAL
             End Try
             'subscribe to CoreWebView2 event(s) (add event handlers) 
             AddHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
-            Catch ex As Exception
-                LogMsg(ex.Message)
+        Catch ex As Exception
+            LogMsg(ex.Message)
             Me.Close()
         End Try
     End Sub
@@ -282,41 +280,41 @@ Public Class WebSiteGERAL
             Else
                 'abrir o site do google no lugar
                 WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=39")
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
+                MsgBox("Aguarde o carregamento do site e tente novamente!")
 
-            Exit Sub
+                Exit Sub
 
-        End If
+            End If
 
-        'verificar se o frmlegalizacao está aberto
-        If FrmLegalizacao Is Nothing Then
-            FrmLegalizacao = New FrmLegalizacao
-            FrmLegalizacao.Show()
-            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
-            Exit Sub
-        Else
-            'ativa TabControle 0
-            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
-            FrmLegalizacao.TabControle.SelectedIndex = 1
-            FrmLegalizacao.TabControl2.SelectedIndex = 0
-            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+            'verificar se o frmlegalizacao está aberto
+            If FrmLegalizacao Is Nothing Then
+                FrmLegalizacao = New FrmLegalizacao
+                FrmLegalizacao.Show()
+                MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                Exit Sub
+            Else
+                'ativa TabControle 0
+                Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+                FrmLegalizacao.TabControle.SelectedIndex = 1
+                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
-            FrmLegalizacao.TabControle.SelectedIndex = 5
-            Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
+                FrmLegalizacao.TabControle.SelectedIndex = 5
+                Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
 
-            FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = 0
 
-            'procurar no webviewl o texto e colocar no campo
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
+                'procurar no webviewl o texto e colocar no campo
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCodigoAcesso').value = '" & CodigoSimples & "'")
 
                 WebView.Focus()
 
             End If
         Catch ex As Exception
-        'MsgBox formulario nao esta aberto + a Message
-        MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
         End Try
     End Sub
 
@@ -440,38 +438,38 @@ Public Class WebSiteGERAL
             Else
                 'abrir o site do google no lugar
                 WebsiteNavigate("https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/GeraCodigo.aspx")
-            MsgBox("Aguarde o carregamento do site e tente novamente!")
+                MsgBox("Aguarde o carregamento do site e tente novamente!")
 
-            Exit Sub
+                Exit Sub
 
-        End If
+            End If
 
 
-        'verificar se o frmlegalizacao está aberto
-        If FrmLegalizacao Is Nothing Then
-            FrmLegalizacao = New FrmLegalizacao
-            FrmLegalizacao.Show()
-            MsgBox("Favor, abrir na empresa desejada o preenchimento!")
-            Exit Sub
-        Else
-            'ativa TabControle 0
-            Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
-            FrmLegalizacao.TabControle.SelectedIndex = 1
-            FrmLegalizacao.TabControl2.SelectedIndex = 0
-            Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
+            'verificar se o frmlegalizacao está aberto
+            If FrmLegalizacao Is Nothing Then
+                FrmLegalizacao = New FrmLegalizacao
+                FrmLegalizacao.Show()
+                MsgBox("Favor, abrir na empresa desejada o preenchimento!")
+                Exit Sub
+            Else
+                'ativa TabControle 0
+                Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
+                FrmLegalizacao.TabControle.SelectedIndex = 1
+                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
-            FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = 0
 
-            'procurar no webviewl o texto e colocar no campo
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
+                'procurar no webviewl o texto e colocar no campo
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
+                WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCPFResponsavel').value = '" & CPF & "'")
 
                 WebView.Focus()
 
             End If
         Catch ex As Exception
-        'MsgBox formulario nao esta aberto + a Message
-        MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
+            'MsgBox formulario nao esta aberto + a Message
+            MsgBox("Formulario não está aberto" & vbNewLine & ex.Message)
         End Try
     End Sub
 
@@ -717,7 +715,7 @@ Public Class WebSiteGERAL
         Dim ResptecnicoNumero As String = FrmAlvara.ResptecnicoNumeroTextBox.Text
         Dim NaturezaDoPedido As String = FrmAlvara.NaturezaDoPedidoOBSRichTextBox.Text
         Dim Ramodeatividade As String = FrmAlvara.RamodeatividadeRichTextBox.Text
-        Dim Area As String = FrmAlvara.AreaTextBox.Text
+        Dim Area As String = FrmAlvara.Area2TextBox.Text
 
         Dim RequerenteNome As String = FrmAlvara.RequerenteTextBox.Text
         Dim RequerenteFone As String = FrmAlvara.FoneRequerenteTextBox.Text
@@ -764,20 +762,23 @@ Public Class WebSiteGERAL
             WebView.ExecuteScriptAsync("document.getElementsByName('endereco_requerente')[0].value = '" & RequerenteEnd & "'")
         End If
 
-        'parte do contador 1 cadastro apenas
-        Contador.Show()
-        Dim ContadorRazaoSocial As String = Contador.RazaoSocialTextBox.Text
-        Dim ContadorTelefone As String = Contador.TelefoneMaskedTextBox.Text
-        Dim ContadorEmail As String = Contador.EmailTextBox.Text
-        Dim ContadorCNPJ As String = Contador.CNPJMaskedTextBox.Text
-        Dim ContadorRG As String = Contador.RGTextBox.Text
+        'parte do ContadorGeral 1 cadastro apenas
+        ContadorGeral.Show()
+        ContadorGeral.TabControlContador.SelectTab(0)
+        ContadorGeral.TabControlContador.SelectTab(1)
+
+        Dim ContadorRazaoSocial As String = ContadorGeral.RazaoSocialTextBox.Text
+        Dim ContadorTelefone As String = ContadorGeral.TelefoneMaskedTextBox.Text
+        Dim ContadorEmail As String = ContadorGeral.EmailTextBox.Text
+        Dim ContadorCNPJ As String = ContadorGeral.CNPJMaskedTextBox.Text
+        Dim ContadorRG As String = ContadorGeral.RGTextBox.Text
 
         WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_nome')[0].value = '" & ContadorRazaoSocial & "'")
         WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_fone')[0].value = '" & ContadorTelefone & "'")
         WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_email')[0].value = '" & ContadorEmail & "'")
         WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_cpfcnpj')[0].value = '" & ContadorCNPJ & "'")
         WebView.ExecuteScriptAsync("document.getElementsByName('escritorio_rg')[0].value = '" & ContadorRG & "'")
-        Contador.Close()
+        ContadorGeral.Close()
 
 
         WebView.Focus()
@@ -834,7 +835,7 @@ Public Class WebSiteGERAL
         If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
             WebView.Focus()
             Try
-                'procura o txt_rg e coloca dados do RG do form Contador na RGTextBox.text
+                'procura o txt_rg e coloca dados do RG do form ContadorGeral na RGTextBox.text
                 Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
                 'id="documento"
                 WebView.ExecuteScriptAsync("document.getElementById('documento').click()")
@@ -855,22 +856,22 @@ Public Class WebSiteGERAL
         If WebView.Source.ToString.Contains("prevfogo.sesp.pr.gov.br") Then
             WebView.Focus()
             Try
-                'abrir Contador escondido   
-                Contador.Show()
-                Contador.WindowState = FormWindowState.Minimized
-                Contador.WindowState = FormWindowState.Normal
-                Contador.Focus()
-                Contador.BringToFront()
+                'abrir ContadorGeral escondido   
+                ContadorGeral.Show()
+                ContadorGeral.WindowState = FormWindowState.Minimized
+                ContadorGeral.WindowState = FormWindowState.Normal
+                ContadorGeral.Focus()
+                ContadorGeral.BringToFront()
 
-                'procura o txt_rg e coloca dados do RG do form Contador na RGTextBox.text
-                Dim RG As String = Contador.RGTextBox.Text
-                Dim CPF As String = Contador.CPFMaskedTextBox.Text
-                Dim Nome As String = Contador.NomeTextBox.Text
-                Dim Email As String = Contador.EmailTextBox.Text
+                'procura o txt_rg e coloca dados do RG do form ContadorGeral na RGTextBox.text
+                Dim RG As String = ContadorGeral.RGTextBox.Text
+                Dim CPF As String = ContadorGeral.CPFMaskedTextBox.Text
+                Dim Nome As String = ContadorGeral.NomeTextBox.Text
+                Dim Email As String = ContadorGeral.EmailTextBox.Text
                 'telefone pegar o numero dentro do "(44)" e colocar na string DDDTELEFONE os dois digitos
-                Dim DDDTELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(1, 2)
+                Dim DDDTELEFONE As String = ContadorGeral.TelefoneMaskedTextBox.Text.Substring(1, 2)
                 'telefone pegar o numero depois do "(44)" e do espaço, e colocar na string TELEFONE depois dos dois digitos 3228-8785
-                Dim TELEFONE As String = Contador.TelefoneMaskedTextBox.Text.Substring(Contador.TelefoneMaskedTextBox.Text.IndexOf("(44)") + 4, 9).Replace(" ", "").Replace("-", "")
+                Dim TELEFONE As String = ContadorGeral.TelefoneMaskedTextBox.Text.Substring(ContadorGeral.TelefoneMaskedTextBox.Text.IndexOf("(44)") + 4, 9).Replace(" ", "").Replace("-", "")
 
 
                 'procura a id=txt_rg no site 
@@ -886,8 +887,8 @@ Public Class WebSiteGERAL
                 WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.telefone')[0].value = '" & TELEFONE & "'")
                 'name="edicao.solicitante.email"
                 WebView.ExecuteScriptAsync("document.getElementsByName('edicao.solicitante.email')[0].value = '" & Email & "'")
-                'fechar Contador
-                Contador.Close()
+                'fechar ContadorGeral
+                ContadorGeral.Close()
 
             Catch ex As Exception
                 'MsgBox formulario nao esta aberto + a Message
@@ -982,28 +983,28 @@ Public Class WebSiteGERAL
             Dim EstadoRG As String = FrmLegalizacao.ResponsavelEstadoOrgaoRGTextBox.Text
             WebView.ExecuteScriptAsync("document.getElementById('delegOrgaoExpedidor').value = '" & OrgaoRG + " " & EstadoRG & "'")
 
-            'Form Contador
-            Contador.Show()
-            Dim CPF2 As String = Contador.CPFMaskedTextBox.Text
+            'Form ContadorGeral
+            ContadorGeral.Show()
+            Dim CPF2 As String = ContadorGeral.CPFMaskedTextBox.Text
             Dim CPF3 As String = CPF2.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(",", "")
             Dim unused As String = ApenasNumeros(CPF3)
             WebView.ExecuteScriptAsync("document.getElementById('procID').value = '" & CPF3 & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoLogradouro').value = '" & Contador.EnderecoTextBox.Text & ", " & Contador.EndNumTextBox.Text & ", " & Contador.EndBairroTextBox.Text & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoCidade').value = '" & Contador.EndCidadeTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoLogradouro').value = '" & ContadorGeral.EnderecoTextBox.Text & ", " & ContadorGeral.EndNumTextBox.Text & ", " & ContadorGeral.EndBairroTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procEnderecoCidade').value = '" & ContadorGeral.EndCidadeTextBox.Text & "'")
             WebView.ExecuteScriptAsync("document.getElementById('procEnderecoEstado').value = 'PR'")
 
-            Dim TEL1 As String = Contador.TelefoneMaskedTextBox.Text
+            Dim TEL1 As String = ContadorGeral.TelefoneMaskedTextBox.Text
             TEL1 = TEL1.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "").Replace(" ", "").Replace("(", "").Replace(")", "")
             WebView.ExecuteScriptAsync("document.getElementById('procTelefone').value = '" & TEL1 & "'")
 
-            Dim RG1 As String = Contador.RGTextBox.Text
+            Dim RG1 As String = ContadorGeral.RGTextBox.Text
             RG1 = RG1.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
             RG1 = ApenasNumeros(RG1)
             WebView.ExecuteScriptAsync("document.getElementById('procRg').value = '" & RG1 & "'")
-            WebView.ExecuteScriptAsync("document.getElementById('procOrgaoExpedidor').value = '" & Contador.RGSiglaTextBox.Text & "'")
+            WebView.ExecuteScriptAsync("document.getElementById('procOrgaoExpedidor').value = '" & ContadorGeral.RGSiglaTextBox.Text & "'")
             WebView.ExecuteScriptAsync("document.getElementById('nacionalidadeProcurador').value = 'Brasileiro'")
 
-            Contador.Close()
+            ContadorGeral.Close()
 
             'id="dataVigenciaInicio"
             'Data de hoje dd/mm/yyyy

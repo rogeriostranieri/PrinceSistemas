@@ -1,12 +1,11 @@
 ﻿Imports System.Net.Http
-Imports System.Threading.Tasks
 
 Module ModuloBuscaCEP
     Public Async Function BuscarCEPAsync(cep As String) As Task(Of ViaCEP)
         ' Remover qualquer caractere não numérico do CEP
-        Dim cepLimpo As String = New String(cep.Where(AddressOf Char.IsDigit).ToArray())
+        Dim CepLimpo As String = New String(cep.Where(AddressOf Char.IsDigit).ToArray())
 
-        If cepLimpo.Length <> 8 Then
+        If CepLimpo.Length <> 8 Then
             Throw New ArgumentException("CEP inválido. Por favor, insira um CEP válido.")
         End If
 

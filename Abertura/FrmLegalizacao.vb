@@ -1,7 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
-Imports System.Net.Http
-Imports HtmlAgilityPack
 
 Public Class FrmLegalizacao
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
@@ -31,128 +29,171 @@ Public Class FrmLegalizacao
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 
+    ' SEMPRE MAIUSCULO - inicio
 
-
-
-    Private Sub Salvar()
-        Dim changedRecords As System.Data.DataTable
-        Me.EmpresasBindingSource.EndEdit()
-        changedRecords = PrinceDBDataSet.Empresas.GetChanges()
-
-
-        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-
-            Dim message As String
-            message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
-
-            'mostra mensagem box SIM OU NAO OU CANCELA
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-                ' e.Cancel = True
-            ElseIf result = DialogResult.No Then
-                BtnEditar.Text = "Editar"
-                BtnExcluir.Enabled = True
-                GroupBox2.Enabled = False
-                GroupBox10.Enabled = False
-                'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
-                Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-                'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-                Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
-
-            ElseIf result = DialogResult.Yes Then
-
-
-
-                Try
-                    MudarStatusFinalizado() 'verifica o finalizar e muda o status
-
-                    'Salva alterações
-                    Me.Validate()
-                    Me.EmpresasBindingSource.EndEdit()
-                    Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
-
-
-                    If BtnEditar.Text = "Editar" Then
-                        Editar()
-
-                    ElseIf BtnEditar.Text = "Cancelar" Then
-                        'Modifica bloqueando td novamente
-                        ' BtnEditar.Text = "Editar"
-                        ' BtnExcluir.Enabled = True
-                        ' GroupBox2.Enabled = False
-                        ' GroupBox10.Enabled = False
-                        Editar()
-                    End If
-
-
-                    Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-                    ComboBoxBuscaEmpresa.Text = NomeEmpresa
-                    ComboBoxBuscaEmpresa.Focus()
-                    RazaoSocialTextBox.Focus()
-
-
-
-                Catch exc As Exception
-
-                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
-                End Try
-
-            End If
-
+    Private Sub RazaoSocialTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialTextBox.TextChanged
+        'se for maior do que Caracteres: 63, mostrar o botao BtnAvancoRazao, se nao esconder
+        If RazaoSocialTextBox.Text.Length > 63 Then
+            BtnAvancoRazao.Visible = True
         Else
-
-            BtnEditar.Text = "Editar"
-            GroupBox2.Enabled = False
-            GroupBox10.Enabled = False
-
-            Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-            'Salvar() nao precisa pq nao houve alteração em nada
-            ComboBoxBuscaEmpresa.Text = NomeEmpresa
-            ComboBoxBuscaEmpresa.Focus()
-            RazaoSocialTextBox.Focus()
-
-            BtnExcluir.Enabled = True
-
+            BtnAvancoRazao.Visible = False
         End If
+        'maiusculo
+        Dim selectionStart As Integer = RazaoSocialTextBox.SelectionStart
+        Dim selectionLength As Integer = RazaoSocialTextBox.SelectionLength
 
+        ' Converte o texto para maiúsculas
+        RazaoSocialTextBox.Text = RazaoSocialTextBox.Text.ToUpper()
 
-
-
+        ' Restaura a posição do cursor e a seleção
+        RazaoSocialTextBox.SelectionStart = selectionStart
+        RazaoSocialTextBox.SelectionLength = selectionLength
     End Sub
 
 
+    'FIM maiusculo
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Laudos'. Você pode movê-la ou removê-la conforme necessário.
-        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+    Private Sub Salvar()
         Try
-            'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.CADstatus'. Você pode movê-la ou removê-la conforme necessário.
+            ' Finalizar edição e obter registros alterados
+            Me.EmpresasBindingSource.EndEdit()
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
+
+            ' Verificar se há alterações para salvar
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Ação para Cancelar
+                        Return
+
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
+                        PrinceDBDataSet.Empresas.RejectChanges()
+                        BtnEditar.Text = "Editar"
+                        BtnExcluir.Enabled = True
+                        GroupBox2.Enabled = False
+                        GroupBox10.Enabled = False
+
+                        ' Recarregar dados
+                        Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
+                        Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+
+                    Case DialogResult.Yes
+                        ' Salvar alterações
+                        Try
+                            MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
+
+                            Me.Validate()
+                            Me.EmpresasBindingSource.EndEdit()
+                            Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+
+                            ' Ajustar a interface após salvar
+                            BtnEditar.Text = "Editar"
+                            GroupBox2.Enabled = False
+                            GroupBox10.Enabled = False
+                            BtnExcluir.Enabled = True
+
+                            ' Focar na empresa atual no combobox de busca
+                            Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                            ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                            ComboBoxBuscaEmpresa.Focus()
+                            RazaoSocialTextBox.Focus()
+
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+                End Select
+            Else
+                ' Não há alterações, apenas desativar edição
+                BtnEditar.Text = "Editar"
+                GroupBox2.Enabled = False
+                GroupBox10.Enabled = False
+                BtnExcluir.Enabled = True
+
+                ' Focar na empresa atual
+                Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                ComboBoxBuscaEmpresa.Focus()
+                RazaoSocialTextBox.Focus()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+
+    ' LOAD INICIAL
+
+    Public Property RazaoSocialSelecionada As String
+
+    Private Sub FrmLegalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
             Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
-            'carregar statuscombobox com bando de dados CADstatus
             StatusComboBox.DataSource = Me.CADstatusBindingSource
             StatusComboBox.DisplayMember = "Descricao"
             StatusComboBox.ValueMember = "Descricao"
 
-            'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Naturezajuridica'. Você pode movê-la ou removê-la conforme necessário.
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-            'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+
+
+            Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+
+
             BtnEditar.Text = "Cancelar"
             Editar()
-
             ModCombobox.ComboboxLegalizacaoProcesso()
-            'Ficar focado no campo busca
             Me.ComboBoxBuscaEmpresa.Focus()
-
+            StatusOrdenado()
         Catch ex As Exception
             MessageBox.Show("Ocorreu um Erro ao carregar o formulário" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
 
+        ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
+        PrinceDBDataSet.AcceptChanges()
+
+        ' Atualizar o BindingSource após aplicar o filtro
+        AtualizarBindingSource()
+
+
+        For Each col As DataColumn In Me.PrinceDBDataSet.Empresas.Columns
+            col.ReadOnly = False
+        Next
+    End Sub
+
+    Private Sub AtualizarBindingSource()
+        ' Forçar a atualização do BindingSource
+        EmpresasBindingSource.EndEdit()
+        EmpresasBindingSource.ResetBindings(False)
     End Sub
 
 
+
+    Private Sub StatusOrdenado()
+        ' Obter a fonte de dados original do ComboBox
+        Dim bindingSource As BindingSource = DirectCast(StatusComboBox.DataSource, BindingSource)
+
+        ' Verificar se o BindingSource não é Nothing
+        If bindingSource IsNot Nothing Then
+            ' Obter a DataView da fonte de dados do BindingSource
+            Dim dataView As DataView = DirectCast(bindingSource.List, DataView)
+
+            ' Verificar se a DataView não é Nothing
+            If dataView IsNot Nothing Then
+                ' Ordenar a DataView pela coluna desejada
+                dataView.Sort = "Descricao ASC" ' Substitua "ColumnName" pelo nome da coluna que você deseja ordenar
+
+                ' Atualizar o BindingSource com a DataView ordenada
+                bindingSource.DataSource = dataView
+            End If
+        End If
+    End Sub
 
     Private Sub ProcessoMudar()
         Try
@@ -253,7 +294,9 @@ Public Class FrmLegalizacao
                     ' AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = Nothing
-               ' SistemaExternoComboBox.SelectedText = "Não"
+                    ' SistemaExternoComboBox.SelectedText = "Não"
+                    AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
+
 
                 Case StatusComboBox.Text.Contains("Paralisado")
                     StatusComboBox.BackColor = Color.Red
@@ -289,31 +332,31 @@ Public Class FrmLegalizacao
                     PictureBox2.Image = My.Resources.pagamento
 
                 '//////////////////////////////////////////////
-                ' JUNTA COMERCIAL
+                ' Empresa Fácil
                 '//////////////////////////////////////////////
-                Case StatusComboBox.Text.Contains("Junta Comercial - Prefeitura: EM ANÁLISE")
+                Case StatusComboBox.Text.Contains("Empresa Fácil - Prefeitura: EM ANÁLISE")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
-                Case StatusComboBox.Text.Contains("Junta Comercial - Busca de Nome")
+                Case StatusComboBox.Text.Contains("Empresa Fácil - Busca de Nome")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
-                Case StatusComboBox.Text.Contains("Junta Comercial - Aguardando Atualização")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
-
-                Case StatusComboBox.Text.Contains("Junta Comercial - Protocolado")
+                Case StatusComboBox.Text.Contains("Empresa Fácil - Aguardando Atualização")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Junta Comercial")
+                Case StatusComboBox.Text.Contains("Empresa Fácil - Protocolado")
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.empresa_facil
+                    PictureBox1.Image = My.Resources.emandamento
+
+                Case StatusComboBox.Text.Contains("Empresa Fácil")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
@@ -571,13 +614,13 @@ Public Class FrmLegalizacao
     Private Sub Ajuda1()
         MessageBox.Show(" LEI 8934/94
 Dispõe sobre o Registro Público de Empresas Mercantis e Atividades Afins e dá outras providências.
-Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivamento no período de 10 (dez) anos consecutivos deverá comunicar à junta comercial que deseja manter-se em funcionamento.
+Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivamento no período de 10 (dez) anos consecutivos deverá comunicar à Empresa Fácil que deseja manter-se em funcionamento.
 
-§ 1º Na ausência dessa comunicação, a empresa mercantil será considerada inativa, promovendo a junta comercial o cancelamento do registro, com a perda automática da proteção ao nome empresarial.
+§ 1º Na ausência dessa comunicação, a empresa mercantil será considerada inativa, promovendo a Empresa Fácil o cancelamento do registro, com a perda automática da proteção ao nome empresarial.
 
-§ 2º A empresa mercantil deverá ser notificada previamente pela junta comercial, mediante comunicação direta ou por edital, para os fins deste artigo.
+§ 2º A empresa mercantil deverá ser notificada previamente pela Empresa Fácil, mediante comunicação direta ou por edital, para os fins deste artigo.
 
-§ 3º A junta comercial fará comunicação do cancelamento às autoridades arrecadadoras, no prazo de até dez dias.
+§ 3º A Empresa Fácil fará comunicação do cancelamento às autoridades arrecadadoras, no prazo de até dez dias.
 
 § 4º A reativação da empresa obedecerá aos mesmos procedimentos requeridos para sua constituição. ", "Prince Ajuda")
     End Sub
@@ -617,6 +660,9 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
                     ' Define a URL para o WebView
                     Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
                     webForm.WebView.Source = New Uri("https://servicos.receita.fazenda.gov.br/Servicos/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
+
+                    webForm.Focus()
+                    webForm.BringToFront()
                 Else
                     ' Código para lidar com a resposta "Não"
                 End If
@@ -671,7 +717,7 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 *Alteração da forma de atuação
 
 Se for SIM, 
-Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
+Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Ajuda2()
@@ -810,9 +856,8 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
 
                     'procedimentos
-                    'StatusComboBox.SelectedIndex = -1
-                    'StatusComboBox.SelectedText = "Não Iniciado"
-                    StatusComboBox.SelectedIndex = 0
+                    StatusComboBox.SelectedText = "Não Iniciado"
+
                     ProcessoComboBox.SelectedIndex = -1
                     'SistemaExternoComboBox.SelectedText = "Não"
                     SistemaExternoComboBox.SelectedIndex = 1
@@ -844,9 +889,9 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
 
                     'procedimentos
-                    'StatusComboBox.SelectedIndex = -1
-                    'StatusComboBox.SelectedText = "Não Iniciado"
-                    StatusComboBox.SelectedIndex = 0
+
+                    StatusComboBox.SelectedText = "Não Iniciado"
+
                     ProcessoComboBox.SelectedIndex = -1
                     'SistemaExternoComboBox.SelectedText = "Não"
                     SistemaExternoComboBox.SelectedIndex = 1
@@ -1058,7 +1103,7 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
     End Sub
 
     Private Sub IEjuntaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles IEjuntaComboBox.SelectedIndexChanged
-        If IEjuntaComboBox.Text = "Vinculado na Junta Comercial" Then
+        If IEjuntaComboBox.Text = "Vinculado na Empresa Fácil" Then
             GroupBox12.Visible = False
             Button33.Visible = True
 
@@ -1268,19 +1313,14 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
 
     Private Sub BtnAlteracao_Click(sender As Object, e As EventArgs) Handles BtnAlteracao.Click
         Try
-
             If MsgBox("Limpar o Procedimento e salvar no Histórico?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
+                ' Alternar entre as guias
+                Dim tabsToSelect = {0, 2, 3, 4, 7}
+                For Each index In tabsToSelect
+                    TabControle.SelectTab(index)
+                Next
 
-                TabControle.SelectTab(0)
-                TabControle.SelectTab(2)
-                TabControle.SelectTab(3)
-                TabControle.SelectTab(4)
-                TabControle.SelectTab(7)
-
-
-
-
-
+                ' Capturar os valores dos campos
                 Dim A = NAlteracaoComboBox.Text.ToString()
                 Dim B = ProcessoComboBox.Text.ToString()
                 Dim C = EmpCriadoMaskedTextBox.Text.ToString()
@@ -1288,94 +1328,82 @@ Precisa do Protocolo de Viabilidade da Junta Comercial", "Prince Ajuda")
                 Dim F = ProtocoloJuntaComercialTextBox.Text.ToString()
                 Dim G = ProtocoloREDESIMTextBox.Text.ToString()
 
+                ' Atualizar o histórico
+                HistoricoRichTextBox.AppendText(
+                "Histórico anterior, Salvo Dia: " & Format(Now, "dd/MM/yyyy") & " às " & Format(Now, "HH:mm") & ", com as seguintes informações:" & vbCrLf &
+                "Processo: " & A & " " & B & "." & vbCrLf &
+                "Iniciado o processo em: " & C & "." & vbCrLf &
+                "Motivo: " & D & "." & vbCrLf &
+                "Protocolo Empresa Fácil: " & F & "." & vbCrLf &
+                "Protocolo RedeSim: " & G & "." & vbCrLf &
+                "//-----------------//-----------------//-----------------//-----------------//" & vbCrLf
+            )
 
-                HistoricoRichTextBox.SelectedText &=
-"Histórico anterior, Salvo Dia: " & Format(Now, "dd/MM/yyyy") & " as " & Format(Now, "HH:mm") & ", com as seguintes informações:
-Processo :  " & A & " " & B & ". 
-Iniciado o processo em: " & C & ". 
-Motivo: " & D & ".
-Protocolo Junta Comercial= " & F & ".
-Protocolo RedeSim= " & G & ".
+                MessageBox.Show("Dados Principais Salvos no Histórico", "Prince Avisa")
 
-//-----------------//-----------------//-----------------//-----------------//
-"
-
-
-
-                MessageBox.Show("Dados Principais Salvo no Histórico", "Prince Avisa")
-
-
-                'Corpo
-                ' ProcessoComboBox.Text = ""
-                EmpCriadoMaskedTextBox.Text = ""
-                MotivoRichTextBox.Text = ""
-
-                If NAlteracaoComboBox.Text = "" Then
-                    NAlteracaoComboBox.Text = ""
-
-                ElseIf NAlteracaoComboBox.Text <> "" Then
-                    'perguntar se é uma alteração ou não
-                    If MsgBox("Deseja Adicionar nova alteração?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
-                        NAlteracaoComboBox.Text = NAlteracaoComboBox.Text + 1
-                        ProcessoComboBox.Text = "Alteração"
-                        MsgBox("Conferir Número da Alteração conforme a Junta Comercial", MsgBoxStyle.Information, "Prince Sistemas Informa!")
-                    Else
-                        ProcessoComboBox.Text = ""
-                        NAlteracaoComboBox.Text = ""
-                    End If
-                End If
-
-
-                'Geral
-                GeralRichTextBox.Text = ""
-                ProcedimentoRichTextBox.Text = ""
-                AvisarDiaMaskedTextBox.Text = ""
-
-                'Junta Comercial
-                DataProtJuntaComercialMaskedTextBox.Text = ""
-                ProtocoloJuntaComercialTextBox.Text = ""
-                ProtJuntaFinalMaskedTextBox.Text = ""
-                JuntaObsRichTextBox.Text = ""
-
-                'RedeSim
-                DataProtREDESIMMaskedTextBox.Text = ""
-                ProtocoloREDESIMTextBox.Text = ""
-                RedeSimObsRichTextBox.Text = ""
-
-                'Estadual
-                IEjuntaComboBox.Text = ""
-                DataPedidoIEMaskedTextBox.Text = ""
-                IEInicioAtividadeMaskedTextBox.Text = ""
-                IEComprovanteTextBox.Text = ""
-                IEVencPedidoMaskedTextBox.Text = ""
-                EstadualObsRichTextBox.Text = ""
-
-                'procedimentos
-                StatusComboBox.SelectedIndex = -1
-                ProcessoComboBox.SelectedIndex = -1
-
-                'Preencher data
-                EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
-                AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-
-                LembreteCheckBox.CheckState = CheckState.Unchecked
-                PrioridadeCheckBox.CheckState = CheckState.Unchecked
-
-
-                StatusComboBox.SelectedIndex = 0
-
-
-                SistemaExternoComboBox.SelectedIndex = 1
+                ' Verificar se é uma nova alteração ou mudar o status
+                HandleProcessStatus(A, B, C, D, F, G)
 
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Erro ao salvar no Histórico" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
+            MessageBox.Show("Erro ao salvar no Histórico" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
-
     End Sub
+
+    Private Sub ClearFields()
+        ' Limpar campos
+        EmpCriadoMaskedTextBox.Text = ""
+        MotivoRichTextBox.Text = ""
+        GeralRichTextBox.Text = ""
+        ProcedimentoRichTextBox.Text = ""
+        AvisarDiaMaskedTextBox.Text = ""
+        DataProtJuntaComercialMaskedTextBox.Text = ""
+        ProtocoloJuntaComercialTextBox.Text = ""
+        ProtJuntaFinalMaskedTextBox.Text = ""
+        JuntaObsRichTextBox.Text = ""
+        DataProtREDESIMMaskedTextBox.Text = ""
+        ProtocoloREDESIMTextBox.Text = ""
+        RedeSimObsRichTextBox.Text = ""
+        IEjuntaComboBox.Text = ""
+        DataPedidoIEMaskedTextBox.Text = ""
+        IEInicioAtividadeMaskedTextBox.Text = ""
+        IEComprovanteTextBox.Text = ""
+        IEVencPedidoMaskedTextBox.Text = ""
+        EstadualObsRichTextBox.Text = ""
+        ProcessoComboBox.SelectedIndex = -1
+        EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() & " " & DateTime.Now.ToShortTimeString()
+        AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
+        LembreteCheckBox.CheckState = CheckState.Unchecked
+        PrioridadeCheckBox.CheckState = CheckState.Unchecked
+        SistemaExternoComboBox.SelectedIndex = 1
+    End Sub
+
+    Private Sub HandleProcessStatus(A As String, B As String, C As String, D As String, F As String, G As String)
+        ' Verifica se o campo ProcessoComboBox.Text contém "Alteração"
+        If ProcessoComboBox.Text.Equals("Alteração", StringComparison.OrdinalIgnoreCase) Then
+            ' Incrementa o número de alteração
+            Dim alteracaoNumber As Integer
+            If Integer.TryParse(NAlteracaoComboBox.Text, alteracaoNumber) Then
+                NAlteracaoComboBox.Text = (alteracaoNumber + 1).ToString()
+            Else
+                NAlteracaoComboBox.Text = "1"
+            End If
+            ClearFields()
+            ProcessoComboBox.Text = "Alteração"
+            StatusComboBox.Text = "Não Iniciado"
+
+            MsgBox("Número de Alteração incrementado. Verifique conforme a Empresa Fácil.", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+        Else
+            ' Não é uma alteração, apenas salvar os dados e mudar o status
+            ClearFields()
+            StatusComboBox.Text = "Não Iniciado"
+            MsgBox("Nenhum dado encontrado para alteração. Status alterado para 'Não Iniciado'.", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+
+        End If
+    End Sub
+
+
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         TabControle.SelectTab(0)
@@ -1548,7 +1576,7 @@ Protocolo RedeSim= " & G & ".
 
     End Sub
 
-    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs) 
+    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs)
         Try
             NomeFantasiaTextBox1.Text = NomeFantasiaTextBox.Text
 
@@ -1752,13 +1780,13 @@ Protocolo RedeSim= " & G & ".
     Private Sub BtnData3_Click(sender As Object, e As EventArgs) Handles BtnData3.Click
         ProtJuntaFinalMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
 
-        'procurar "Junta Comercial - Protocolado"no StatusComboBox e selecionar
+        'procurar "Empresa Fácil - Protocolado"no StatusComboBox e selecionar
         Try
-            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact("Junta Comercial - Protocolado")
+            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact("Empresa Fácil - Protocolado")
         Catch ex As Exception
             MessageBox.Show("Erro ao alterar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             'selecionar select all
-            StatusComboBox.SelectedIndex = 0
+            StatusComboBox.SelectedText = "Não Iniciado"
         End Try
 
     End Sub
@@ -1961,13 +1989,13 @@ Protocolo RedeSim= " & G & ".
     End Sub
 
     Private Sub BtnContador_Click(sender As Object, e As EventArgs) Handles BtnContador.Click
-        If Application.OpenForms.OfType(Of Contador)().Count() > 0 Then
-            Contador.Focus()
+        If Application.OpenForms.OfType(Of ContadorGeral)().Count() > 0 Then
+            ContadorGeral.Focus()
             '   Contador.MdiParent = MDIPrincipal
 
         Else
             ' Contador.MdiParent = MDIPrincipal
-            Contador.Show()
+            ContadorGeral.Show()
         End If
     End Sub
 
@@ -2807,14 +2835,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         MessageBox.Show("A razão social da empresa completa é: " & RazaoSocialTextBox.Text, "Prince Ajuda")
     End Sub
 
-    Private Sub RazaoSocialTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialTextBox.TextChanged
-        'se for maior do que Caracteres: 63, mostrar o botao BtnAvancoRazao, se nao esconder
-        If RazaoSocialTextBox.Text.Length > 63 Then
-            BtnAvancoRazao.Visible = True
-        Else
-            BtnAvancoRazao.Visible = False
-        End If
-    End Sub
+
 
 
 
@@ -2855,13 +2876,22 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
 
     Private Sub BtnAjudaAréa_Click(sender As Object, e As EventArgs) Handles BtnAjudaAréa.Click
         'mgsbox ajudando informando = " IMPORTANTE SABER!
-    MessageBox.Show("IMPORTANTE SABER!
+        MessageBox.Show("IMPORTANTE SABER!
 A metragem deve ser preenchida com exatidão pois esta informação impacta nos demais órgãos:
 
 Área do Imóvel = é a área total da edificação.
 
 Área do Estabelecimento = é a área exata (em metros quadrados) do local onde é realizada a atividade econômica dentro de um imóvel, podendo ocupar toda ou apenas uma parte da área do imóvel. Essa área nunca poderá ser zero ou maior que o imóvel.
 ")
+
+        ' Mensagem de pergunta ao usuário
+        Dim result As DialogResult = MessageBox.Show("Deseja ver no mapa?", "Ver Mapa", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Verifica a resposta do usuário
+        If result = DialogResult.Yes Then
+            ' Chama o método Mapa
+            Mapa()
+        End If
 
     End Sub
 
@@ -3042,7 +3072,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                     End If
 
                 Else
-                        BtnConsultaRedeSim.Text = "Solicitar"
+                    BtnConsultaRedeSim.Text = "Solicitar"
                 End If
             Catch ex As Exception
                 MessageBox.Show("Erro! Verifique com o administrador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -3050,5 +3080,74 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
         End If
+    End Sub
+
+    Private Sub LinkLabeLPrazoEmpresaFacil_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabeLPrazoEmpresaFacil.LinkClicked
+        ' Extrair apenas a parte da data do texto
+        Dim dataText As String = DataProtJuntaComercialMaskedTextBox.Text.Substring(0, 10)
+        ' Verificar se a data extraída é válida
+        Dim dataProt As DateTime
+        If DateTime.TryParseExact(dataText, "dd/MM/yyyy", Nothing, Globalization.DateTimeStyles.None, dataProt) Then
+            ' Adicionar 90 dias à data
+            Dim prazoFinal As DateTime = dataProt.AddDays(90)
+            ' Exibir a mensagem com a data calculada
+            MessageBox.Show("O processo Empresa Fácil é cancelado por inatividade, automaticamente, após 90 dias. Após esse período, cancelado o processo, o nome empresarial deverá passar por nova consulta prévia." & vbCrLf & vbCrLf & "Prazo Final = " & prazoFinal.ToString("dd/MM/yyyy"))
+        Else
+            ' Se a data não for válida, exibir uma mensagem de erro
+            MessageBox.Show("Por favor, insira uma data válida no formato dd/MM/yyyy HH:mm.")
+        End If
+
+    End Sub
+
+    Private Sub BtnMapa_Click(sender As Object, e As EventArgs) Handles BtnMapa.Click
+        Mapa()
+    End Sub
+
+    Private Sub Mapa()
+        ' Obtém o número do cadastro imobiliário a partir do TextBox
+        Dim cadastroImobiliario As String = CadImobTextBox.Text.Trim()
+
+        ' Verifica se o campo está vazio
+        If String.IsNullOrEmpty(cadastroImobiliario) Then
+            MessageBox.Show("Por favor, insira um número de cadastro imobiliário.", "Número de Cadastro Imobiliário Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Copia o número do cadastro imobiliário para a área de transferência
+        Clipboard.SetText(cadastroImobiliario)
+
+        ' Mensagem de pergunta ao usuário
+        Dim result As DialogResult = MessageBox.Show("Deseja abrir o mapa da cidade com o cadastro imobiliário " & cadastroImobiliario & "?", "Abrir Mapa", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Verifica a resposta do usuário
+        If result = DialogResult.Yes Then
+            If WebSiteGERAL.Visible = True Then
+                ' Coloca foco e frente
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.BringToFront()
+            Else
+                ' Mostra a janela
+                WebSiteGERAL.Show()
+                WebSiteGERAL.BringToFront()
+            End If
+
+            ' Define a URL com o número do cadastro imobiliário
+            WebSiteGERAL.WebView.Source = New Uri("http://geoproc.maringa.pr.gov.br:8090/SIGMARINGA/")
+        End If
+    End Sub
+
+    Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
+        ' Obter o texto do CEPMaskedTextBox
+        Dim cep As String = EndCEPMaskedTextBox.Text
+
+        ' Remover o hífen
+        Dim cepSemHifen As String = cep.Replace("-", "")
+
+        ' Copiar o resultado para a área de transferência
+        Clipboard.SetText(cepSemHifen)
+
+        ' Informar ao usuário que o CEP foi copiado
+        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 End Class

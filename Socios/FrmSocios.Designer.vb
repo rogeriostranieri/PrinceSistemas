@@ -159,6 +159,7 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -572,7 +573,7 @@ Partial Class FrmSocios
         Me.TabControl1.Location = New System.Drawing.Point(3, 99)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 325)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 324)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -581,7 +582,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 299)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 298)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -633,7 +634,7 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 293)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 292)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
@@ -881,13 +882,14 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 299)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 298)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'GroupBoxOutrosDados
         '
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCopiaCEP)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtalhoConjuge2)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtablhoSocio)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorreios)
@@ -917,7 +919,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 293)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 292)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1053,7 +1055,7 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 300)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 299)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Cônjuge"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1070,7 +1072,7 @@ Partial Class FrmSocios
         Me.GroupBoxConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxConjuge.Location = New System.Drawing.Point(0, 0)
         Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
-        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 300)
+        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 299)
         Me.GroupBoxConjuge.TabIndex = 4
         Me.GroupBoxConjuge.TabStop = False
         Me.GroupBoxConjuge.Text = "Dado do Cônjuge"
@@ -1124,7 +1126,7 @@ Partial Class FrmSocios
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(583, 300)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 299)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "Outros Dados"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1136,7 +1138,7 @@ Partial Class FrmSocios
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(577, 294)
+        Me.GroupBox4.Size = New System.Drawing.Size(577, 293)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
@@ -1159,7 +1161,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 430)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 429)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(593, 57)
         Me.GroupBox2.TabIndex = 58
@@ -1278,7 +1280,7 @@ Partial Class FrmSocios
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(602, 99)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 325)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 324)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -1380,7 +1382,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 493)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 492)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1440,9 +1442,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 493)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 492)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 282)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 283)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1626,6 +1628,17 @@ Partial Class FrmSocios
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'BtnCopiaCEP
+        '
+        Me.BtnCopiaCEP.BackColor = System.Drawing.Color.Azure
+        Me.BtnCopiaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaCEP.Location = New System.Drawing.Point(279, 26)
+        Me.BtnCopiaCEP.Name = "BtnCopiaCEP"
+        Me.BtnCopiaCEP.Size = New System.Drawing.Size(73, 22)
+        Me.BtnCopiaCEP.TabIndex = 66
+        Me.BtnCopiaCEP.Text = "Copiar CEP"
+        Me.BtnCopiaCEP.UseVisualStyleBackColor = False
+        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1781,4 +1794,5 @@ Partial Class FrmSocios
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents OutrosDadosRichTextBox As RichTextBox
+    Friend WithEvents BtnCopiaCEP As Button
 End Class

@@ -18,7 +18,7 @@ Public Class BoxConsultaCNPJLaudo
         Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
         Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
-        System.Diagnostics.Process.Start("http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/cnpjreva/Cnpjreva_Solicitacao2.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
         Me.Close()
     End Sub
 
@@ -28,12 +28,12 @@ Public Class BoxConsultaCNPJLaudo
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
             WebSiteGERAL.Focus()
             WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
             Me.Close()
         Else
             WebSiteGERAL.Show()
             WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
             Me.Close()
         End If
     End Sub

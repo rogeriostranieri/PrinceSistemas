@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.Office.Interop.Word
-Imports System.Windows.Forms
 
 Public Class ExportarLaudoWordDialog
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -87,8 +86,8 @@ Public Class ExportarLaudoWordDialog
 
 
         If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-                TextBoxCaminho.Text = openFileDialog1.FileName
-            End If
+            TextBoxCaminho.Text = openFileDialog1.FileName
+        End If
 
 
     End Sub

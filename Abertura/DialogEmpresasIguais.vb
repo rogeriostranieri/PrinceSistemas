@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class DialogEmpresasIguais
+﻿Public Class DialogEmpresasIguais
     'ESC fechar
     Private Sub DialogEmpresasIguais_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then

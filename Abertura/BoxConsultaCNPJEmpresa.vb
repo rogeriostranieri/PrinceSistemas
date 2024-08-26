@@ -18,7 +18,7 @@ Public Class BoxConsultaCNPJEmpresa
         Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
         Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
-        System.Diagnostics.Process.Start("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
         Me.Close()
 
     End Sub
@@ -29,12 +29,12 @@ Public Class BoxConsultaCNPJEmpresa
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
             WebSiteGERAL.Focus()
             WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
             Me.Close()
         Else
             WebSiteGERAL.Show()
             WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
             Me.Close()
         End If
 
@@ -72,7 +72,7 @@ Public Class BoxConsultaCNPJEmpresa
                 End If
                 Dim nome As String = json_obj.Item("nome").ToString
 
-                    Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
+                Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
                 Dim data_abertura As String = json_obj.Item("abertura").ToString
                 Dim fantasia As String = json_obj.Item("fantasia").ToString
                 Dim porte As String = json_obj.Item("porte").ToString

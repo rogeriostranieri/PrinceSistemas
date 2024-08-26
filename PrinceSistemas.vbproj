@@ -96,17 +96,17 @@
       <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.2592.51, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2592.51\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.2592.51, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2592.51\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.2592.51, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2592.51\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -334,6 +334,30 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Endereço\FrmEndereco.Designer.vb">
+      <DependentUpon>FrmEndereco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Endereço\FrmEndereco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEscolha.Designer.vb">
+      <DependentUpon>FrmEscolha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEscolha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGeral.Designer.vb">
+      <DependentUpon>FrmGeral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGeral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProtocoladosGeral.Designer.vb">
+      <DependentUpon>FrmProtocoladosGeral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProtocoladosGeral.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Laudo\BoxJuntaComercialLaudo.Designer.vb">
       <DependentUpon>BoxJuntaComercialLaudo.vb</DependentUpon>
     </Compile>
@@ -455,10 +479,10 @@
     <Compile Include="BackupERestore.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contador\Contador.Designer.vb">
-      <DependentUpon>Contador.vb</DependentUpon>
+    <Compile Include="Contador\ContadorGeral.Designer.vb">
+      <DependentUpon>ContadorGeral.vb</DependentUpon>
     </Compile>
-    <Compile Include="Contador\Contador.vb">
+    <Compile Include="Contador\ContadorGeral.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abertura\FrmLegalizacao.vb">
@@ -703,6 +727,15 @@
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEscolha.resx">
+      <DependentUpon>FrmEscolha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGeral.resx">
+      <DependentUpon>FrmGeral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProtocoladosGeral.resx">
+      <DependentUpon>FrmProtocoladosGeral.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laudo\BoxJuntaComercialLaudo.resx">
       <DependentUpon>BoxJuntaComercialLaudo.vb</DependentUpon>
     </EmbeddedResource>
@@ -754,8 +787,8 @@
     <EmbeddedResource Include="BackupERestore.resx">
       <DependentUpon>BackupERestore.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contador\Contador.resx">
-      <DependentUpon>Contador.vb</DependentUpon>
+    <EmbeddedResource Include="Contador\ContadorGeral.resx">
+      <DependentUpon>ContadorGeral.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\FrmLegalizacao.resx">
       <DependentUpon>FrmLegalizacao.vb</DependentUpon>
@@ -953,6 +986,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abertura\WebLegalizacao\" />
+    <Folder Include="TESTE\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -967,11 +1001,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <Import Project="packages\Microsoft.Web.WebView2.1.0.1293.44\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.1293.44\build\Microsoft.Web.WebView2.targets')" />
+  <Import Project="packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.1293.44\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.1293.44\build\Microsoft.Web.WebView2.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets'))" />
   </Target>
 </Project>

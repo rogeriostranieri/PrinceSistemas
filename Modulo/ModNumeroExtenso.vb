@@ -1,6 +1,4 @@
-﻿Imports Microsoft.Office.Interop.Word
-
-Module ModNumeroExtenso
+﻿Module ModNumeroExtenso
 
     Public Function NumberToEuro(ByVal number As Decimal) As String
         Dim cent As Integer

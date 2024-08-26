@@ -5,8 +5,9 @@
 
         If form Is Nothing Then
             ' Se não estiver aberto, cria uma nova instância do formulário
-            form = New WebSiteGERAL()
-            form.MdiParent = MDIPrincipal
+            form = New WebSiteGERAL With {
+                .MdiParent = MDIPrincipal
+            }
             form.WebView.Source = New Uri("https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Acompanhar-Processo")
             form.Show()
         Else
@@ -25,8 +26,9 @@
 
         If form Is Nothing Then
             ' Se não estiver aberto, cria uma nova instância do formulário
-            form = New WebSiteGERAL()
-            form.MdiParent = MDIPrincipal
+            form = New WebSiteGERAL With {
+                .MdiParent = MDIPrincipal
+            }
             form.WebView.Source = New Uri("https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Solicitacao-de-Vistoria")
             form.Show()
         Else
@@ -44,8 +46,9 @@
 
         If form Is Nothing Then
             ' Se não estiver aberto, cria uma nova instância do formulário
-            form = New WebSiteGERAL()
-            form.MdiParent = MDIPrincipal
+            form = New WebSiteGERAL With {
+                .MdiParent = MDIPrincipal
+            }
             form.WebView.Source = New Uri("https://protegefacil.paas.pr.gov.br/")
             form.Show()
         Else
@@ -65,8 +68,9 @@
 
         If form Is Nothing Then
             ' Se não estiver aberto, cria uma nova instância do formulário
-            form = New WebSiteGERAL()
-            form.MdiParent = MDIPrincipal
+            form = New WebSiteGERAL With {
+                .MdiParent = MDIPrincipal
+            }
             form.WebView.Source = New Uri("https://www.bombeiros.pr.gov.br/PrevFogo")
             form.Show()
         Else

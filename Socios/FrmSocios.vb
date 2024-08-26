@@ -289,28 +289,40 @@ Public Class FrmSocios
     End Sub
     Private Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
         Try
-            If FrmLegalizacao.Visible = True Then
+            ' Verifica se o formulário já está aberto
+            Dim frmLegalizacaoAberto As Boolean = False
+
+            ' Procura pelo formulário entre os forms abertos
+            For Each form In Application.OpenForms
+                If TypeOf form Is FrmLegalizacao Then
+                    frmLegalizacaoAberto = True
+                    FrmLegalizacao = CType(form, FrmLegalizacao)
+                    Exit For
+                End If
+            Next
+
+            If frmLegalizacaoAberto Then
+                ' Se o formulário estiver aberto, focar nele e exportar dados
                 FrmLegalizacao.Focus()
                 Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
                 Dim NomeSocio As String = NomeCompletoTextBox.Text
-                If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & "?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                     AtivarTab()
                     ExportarDados()
                     Me.Close()
                 End If
             Else
+                ' Se o formulário não estiver aberto, abrir o formulário e exibir mensagem
+                FrmLegalizacao = New FrmLegalizacao()
                 FrmLegalizacao.Show()
-                ' ExportarDados()
-                'mgsbox abrir a empresa onde deseja exportar
                 MsgBox("Abrir a empresa onde deseja exportar!")
             End If
 
-
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Erro: " & ex.Message)
         End Try
-
     End Sub
+
 
 
 
@@ -477,39 +489,36 @@ Novos dados:" + "
 
     'ao fechar PrinceDBDataSet.Socios.GetChanges() verificar se teve alterações
     Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If BtnEditar.Text = "Cancelar" Then
-            'mgsbox "Favor cancelar edição"
-            MsgBox("Favor, cancelar edição", MsgBoxStyle.Exclamation, "Atenção")
-            'nao fechar o form
-            e.Cancel = True
-        Else
-            'verificar se teve alterações no formulario atual compadado ao que tem no banco de dados
-            Dim changedRecords As System.Data.DataTable
-            Me.SociosBindingSource.EndEdit()
-            changedRecords = PrinceDBDataSet.Socios.GetChanges()
 
-            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-                Dim message As String
-                'mostrar quantas alterações foram feitas e id
-                message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
-                Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-                If result = DialogResult.Cancel Then
-                    e.Cancel = True
-                ElseIf result = DialogResult.No Then
+        'verificar se teve alterações no formulario atual compadado ao que tem no banco de dados
+        Dim changedRecords As System.Data.DataTable
+        Me.SociosBindingSource.EndEdit()
+        changedRecords = PrinceDBDataSet.Socios.GetChanges()
 
-                ElseIf result = DialogResult.Yes Then
-                    Try
-                        'salvar alterações
-                        Me.Validate()
-                        Me.SociosBindingSource.EndEdit()
-                        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            Dim message As String
+            'mostrar quantas alterações foram feitas e id
+            message = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos Sócios." & vbCrLf & "Deseja salvar as alterações?"
+            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+            If result = DialogResult.Cancel Then
+                e.Cancel = True
+            ElseIf result = DialogResult.No Then
 
-                    Catch exc As Exception
-                        MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    End Try
-                End If
+            ElseIf result = DialogResult.Yes Then
+                Try
+                    'salvar alterações
+                    Me.Validate()
+                    Me.SociosBindingSource.EndEdit()
+                    Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+
+                Catch exc As Exception
+                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
             End If
         End If
+
+
+
     End Sub
 
 
@@ -1392,5 +1401,18 @@ Novos dados:" + "
         End Try
     End Sub
 
+    Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
+        ' Obter o texto do CEPMaskedTextBox
+        Dim cep As String = CEPMaskedTextBox.Text
 
+        ' Remover o hífen
+        Dim cepSemHifen As String = cep.Replace("-", "")
+
+        ' Copiar o resultado para a área de transferência
+        Clipboard.SetText(cepSemHifen)
+
+        ' Informar ao usuário que o CEP foi copiado
+        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
 End Class

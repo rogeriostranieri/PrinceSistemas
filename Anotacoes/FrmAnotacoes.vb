@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports System.Drawing.Text
+﻿Imports System.Drawing.Text
 
 
 Public Class FrmAnotacoes
@@ -26,12 +25,7 @@ Public Class FrmAnotacoes
         RichTextBoxAnotacao.Visible = False
         lblMudaTexto.Visible = False
 
-
         cbotamanho.DropDownStyle = ComboBoxStyle.DropDownList
-
-
-        ' Dim Tamanhos As String = "6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72"
-
 
         Dim Tamanhos As String = ("6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72")
 
@@ -39,57 +33,69 @@ Public Class FrmAnotacoes
 
         cbotamanho.SelectedIndex = 6
 
+        ' Salvar o valor original ao carregar o formulário
+        originalText = RichTextBoxAnotacao.Text
+
     End Sub
+
+
+    ' // FECHAR E CONFERIR
+    Private originalText As String
+
 
     Private Sub FrmAnotacoes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Salvar()
-
+        ' Verificar se houve alteração antes de chamar o método Salvar
+        If RichTextBoxAnotacao.Text <> originalText Then
+            Salvar(e)
+        End If
     End Sub
 
-    Private Sub Salvar()
+    Private Sub Salvar(ByRef e As FormClosingEventArgs)
         Dim changedRecords As System.Data.DataTable
         Me.AnotacoesBindingSource.EndEdit()
         changedRecords = PrinceDBDataSet.Anotacoes.GetChanges()
 
-
         If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            Dim message As String = String.Format("Você realizou algumas alterações." & vbCrLf & "Deseja salvar estas alterações?", changedRecords.Rows.Count)
+            Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
-            Dim message As String
+            Select Case result
+                Case DialogResult.Cancel
+                    ' Cancelar o fechamento do formulário
+                    e.Cancel = True
 
-            'MOSTRA MENSAGM BOX
-            'message = String.Format("Você realizou = {0} alterações(s)." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
-            message = String.Format("Você realizou algumas alterações." + vbCrLf + "Deseja Salvar estas alterações?", changedRecords.Rows.Count)
+                Case DialogResult.No
+                    ' Reverter as mudanças
+                    AnotacoesBindingSource.CancelEdit()
 
-            'mostra mensagem box SIM OU NAO OU CANCELA
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-            If result = DialogResult.Cancel Then
-                ' e.Cancel = True
-            ElseIf result = DialogResult.No Then
-                ' AnotacoesBindingSource.fill(PrinceDBDataSet.Anotacoes)
-                AnotacoesBindingSource.CancelEdit() 'teste pois nao funcionou o modo antigo
-
-
-            ElseIf result = DialogResult.Yes Then
-                ' Try
-                'Salva alterações
-                Me.Validate()
+                Case DialogResult.Yes
+                    ' Salvar alterações
+                    Me.Validate()
                     Me.AnotacoesBindingSource.EndEdit()
                     Me.AnotacoesTableAdapter.Update(Me.PrinceDBDataSet.Anotacoes)
-
-                'Catch exc As Exception
-                'MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                ' Catch error_t As Exception
-                'MsgBox(error_t.ToString)
-                ' End Try
-
-            End If
-        Else
-
-
-
+            End Select
         End If
-
     End Sub
+
+
+    Private Sub SalvarSimples()
+        Try
+            ' Finalizar a edição dos dados
+            Me.AnotacoesBindingSource.EndEdit()
+
+            ' Salvar as alterações diretamente
+            Me.Validate()
+            Me.AnotacoesTableAdapter.Update(Me.PrinceDBDataSet.Anotacoes)
+
+            MessageBox.Show("Alterações salvas com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+
+
     '=================================================================================
     'FIM DO SAVE
     '=================================================================================
@@ -329,8 +335,7 @@ Public Class FrmAnotacoes
     '=================================================================================
 
     Private Sub ButtonSalvar_Click(sender As Object, e As EventArgs) Handles ButtonSalvar.Click
-        Salvar()
-
+        SalvarSimples()
     End Sub
 
     '=================================================================================
@@ -338,92 +343,129 @@ Public Class FrmAnotacoes
     '=================================================================================
 
     Private Sub ButtonInicial_Click(sender As Object, e As EventArgs) Handles ButtonInicial.Click
-
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Inicial"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Inicial"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Inicial"))
 
-
-            'ANEXOS
-
-
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     Private Sub ButtonLegalizacao_Click(sender As Object, e As EventArgs) Handles ButtonLegalizacao.Click
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Legalização"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Legalização"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Legalizacao"))
+
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     Private Sub ButtonFederal_Click(sender As Object, e As EventArgs) Handles ButtonFederal.Click
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Receita Federal"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Receita Federal"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Federal"))
+
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     Private Sub ButtonEstadual_Click(sender As Object, e As EventArgs) Handles ButtonEstadual.Click
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Receita Estadual"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Receita Estadual"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Estadual"))
+
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     Private Sub ButtonPrefeitura_Click(sender As Object, e As EventArgs) Handles ButtonPrefeitura.Click
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Prefeitura Municipal"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Prefeitura Municipal"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Municipal"))
+
         Catch ex As Exception
             MsgBox("Erro!" & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     Private Sub ButtonDemais_Click(sender As Object, e As EventArgs) Handles ButtonDemais.Click
         Try
+            ' Desativa temporariamente a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = False
+
+            ' Configura o RichTextBox para "Demais Assuntos"
             RichTextBoxAnotacao.Visible = True
             lblMudaTexto.Visible = True
-
             lblMudaTexto.Text = "Demais Assuntos"
             RichTextBoxAnotacao.DataBindings.Clear()
             RichTextBoxAnotacao.DataBindings.Add(New Binding("RTF", AnotacoesBindingSource, "Demais"))
+
         Catch ex As Exception
             MsgBox("Erro! " & vbCrLf & ex.Message)
+        Finally
+            ' Reativa a detecção de alterações
+            AnotacoesBindingSource.RaiseListChangedEvents = True
         End Try
     End Sub
 
     '=================================================================================
     'FIM botões
     '=================================================================================
+
     Private Sub ButtonFechar_Click(sender As Object, e As EventArgs) Handles ButtonFechar.Click
         Me.Close()
 

@@ -482,15 +482,15 @@ Public Class ExportarContratoWordDialog
         End Try
 
 
-            'esconder PictureBoxAguarde com imagem "aguarde"
-            PictureBoxAguarde.Visible = False
-            PictureBoxAguarde.Image = Nothing
-            'Mostra os botao de abrir ok e cancelar e fechar
-            BtnAbrir.Enabled = True
-            BtnAdicionar.Enabled = True
-            BtnContrato.Enabled = True
-            BtnDados.Enabled = True
-            OK_Button.Enabled = True
+        'esconder PictureBoxAguarde com imagem "aguarde"
+        PictureBoxAguarde.Visible = False
+        PictureBoxAguarde.Image = Nothing
+        'Mostra os botao de abrir ok e cancelar e fechar
+        BtnAbrir.Enabled = True
+        BtnAdicionar.Enabled = True
+        BtnContrato.Enabled = True
+        BtnDados.Enabled = True
+        OK_Button.Enabled = True
     End Sub
     Private Sub ExportarWordSocios()
 

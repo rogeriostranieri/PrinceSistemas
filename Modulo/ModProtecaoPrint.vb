@@ -3,7 +3,7 @@
 Module ModProtecaoPrint
 
     Private Const WDA_NONE As UInteger = &H0
-        Private Const WDA_MONITOR As UInteger = &H1
+    Private Const WDA_MONITOR As UInteger = &H1
 
     <DllImport("user32.dll")>
     Private Function SetWindowDisplayAffinity(ByVal hWnd As IntPtr, ByVal dwAffinity As UInteger) As <MarshalAs(UnmanagedType.Bool)> Boolean
