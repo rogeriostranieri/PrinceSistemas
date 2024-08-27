@@ -62,7 +62,24 @@ Public Class FrmLegalizacao
 
             ' Verificar se há alterações para salvar
             If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+                ' Criar uma string para armazenar as mudanças
+                Dim changesDescription As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+                    changesDescription &= vbCrLf
+                Next
+
+                ' Mostrar a quantidade de alterações e as mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
@@ -131,6 +148,7 @@ Public Class FrmLegalizacao
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
     ' LOAD INICIAL

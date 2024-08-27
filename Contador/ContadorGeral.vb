@@ -1,10 +1,39 @@
 ﻿Public Class ContadorGeral
     Private Sub Salvar()
+        ' Finalizar edição e obter registros alterados
         Me.Validate()
         Me.ContadorBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+        Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Contador.GetChanges()
 
+        ' Verificar se há alterações para salvar
+        If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+            ' Criar uma string para armazenar as mudanças
+            Dim changesDescription As String = ""
+
+            ' Iterar sobre as linhas alteradas
+            For Each row As DataRow In changedRecords.Rows
+                changesDescription &= "Alterações na linha com ID: " & row("ID_Contador").ToString() & vbCrLf
+
+                ' Iterar sobre as colunas para identificar as mudanças
+                For Each column As DataColumn In changedRecords.Columns
+                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                    End If
+                Next
+                changesDescription &= vbCrLf
+            Next
+
+            ' Perguntar se deseja salvar os dados, exibindo as mudanças detectadas
+            If MsgBox("Deseja salvar as alterações?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription, MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
+                ' Salvar dados
+                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+            End If
+        Else
+            ' Se não houver alterações, informar ao usuário
+            MessageBox.Show("Nenhuma alteração foi detectada.", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
+
 
     Private Sub Contador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Contador'. Você pode movê-la ou removê-la conforme necessário.
@@ -66,11 +95,8 @@
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-        If MsgBox(" Deseja salvar as alterações?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
-            Salvar()
-        Else
+        Salvar()
 
-        End If
 
     End Sub
 

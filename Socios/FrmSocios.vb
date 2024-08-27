@@ -167,18 +167,47 @@ Public Class FrmSocios
     End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
-        'perguntar, salvar dados
-        If MsgBox("Deseja salvar os dados?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-            'salvar dados
-            Me.Validate()
-            Me.SociosBindingSource.EndEdit()
-            Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
-            MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Finalizar edição e obter registros alterados
+        Me.Validate()
+        Me.SociosBindingSource.EndEdit()
+        Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Socios.GetChanges()
+
+        ' Verificar se há alterações para salvar
+        If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+            ' Criar uma string para armazenar as mudanças
+            Dim changesDescription As String = ""
+
+            ' Iterar sobre as linhas alteradas
+            For Each row As DataRow In changedRecords.Rows
+                changesDescription &= "Alterações na linha com ID: " & row("ID_Socios").ToString() & vbCrLf
+
+                ' Iterar sobre as colunas para identificar as mudanças
+                For Each column As DataColumn In changedRecords.Columns
+                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                    End If
+                Next
+                changesDescription &= vbCrLf
+            Next
+
+            ' Perguntar se deseja salvar os dados, exibindo as mudanças detectadas
+            If MsgBox("Deseja salvar os dados?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription, MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                ' Salvar dados
+                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+                MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BloquearEdicao()
+                TextBoxExtensoDN.Visible = False
+                BtnEditar.Text = "Editar"
+            End If
+        Else
+            ' Se não houver alterações, informar ao usuário
+            MessageBox.Show("Nenhuma alteração foi detectada.", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
             BloquearEdicao()
             TextBoxExtensoDN.Visible = False
             BtnEditar.Text = "Editar"
         End If
     End Sub
+
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs)
         'cancelar ediçao
