@@ -321,6 +321,10 @@ Public Class FrmAlvara
                         CheckBoxPrioridade.Enabled = False
                         GroupBox4.Enabled = False
                         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                        ' Permitir que o sistema processe os eventos pendentes
+                        Application.DoEvents()
+
                         ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
                         ComboBoxBuscaCNPJ.Select()
                         DesativaDataProvisorio()
@@ -332,6 +336,9 @@ Public Class FrmAlvara
 
                             ' Recarregar os dados para garantir que tudo está sincronizado
                             Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                            ' Permitir que o sistema processe os eventos pendentes
+                            Application.DoEvents()
 
                             ' Desativar edição após salvar
                             BtnEditar.Text = "Editar"
@@ -1016,18 +1023,44 @@ Public Class FrmAlvara
             CheckBoxPrioridade.Enabled = True
             GroupBox4.Enabled = True
             Button17.Enabled = False
+
         ElseIf BtnEditar.Text = "Cancelar" Then
-            BtnEditar.Text = "Editar"
-            CheckBoxPrioridade.Enabled = False
-            GroupBox4.Enabled = False
+            ' Perguntar se o usuário deseja cancelar
+            Dim resultado As DialogResult = MessageBox.Show("Deseja cancelar as alterações e reverter os dados?",
+                                                         "Cancelar Edição", MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question)
 
-            Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-            Salvar()
-            RazaoSocialTextBox.Focus()
+            If resultado = DialogResult.Yes Then
+                Dim RazaoSocial As String = RazaoSocialTextBox.Text
 
-            Button17.Enabled = True
+                ' Cancelar as alterações feitas
+                Me.LaudosBindingSource.CancelEdit()
+
+                ' Atualizar os dados da tabela
+                Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                ' Permitir que o sistema processe os eventos pendentes
+                Application.DoEvents()
+
+                ' Reposicionar o foco
+                BtnEditar.Text = "Editar"
+                CheckBoxPrioridade.Enabled = False
+                GroupBox4.Enabled = False
+                Button17.Enabled = True
+
+                ComboBoxBuscaAlvara.Text = RazaoSocial
+                ComboBoxBuscaAlvara.Focus()
+            Else
+                ' Manter o modo de edição
+                BtnEditar.Text = "Cancelar"
+                CheckBoxPrioridade.Enabled = True
+                GroupBox4.Enabled = True
+                Button17.Enabled = False
+            End If
         End If
     End Sub
+
+
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
@@ -1541,16 +1574,17 @@ Public Class FrmAlvara
     'VIABILIDADE
     Private Sub ButtonAddDataViabilidade_Click(sender As Object, e As EventArgs) Handles ButtonAddDataViabilidade.Click
         'pergunta se deseja adicionar
-        If MsgBox("Deseja Adicionar uma nova data provisório do Viabilidade?", MsgBoxStyle.YesNo, "Adicionar data da Viabilidade") = MsgBoxResult.Yes Then
+        If MsgBox("Deseja Adicionar uma nova data provisório do Viabilidade?" & vbCrLf &
+      "Salvar empresa antes de alterar para outra empresa",
+      MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Adicionar data Viabilidade") = MsgBoxResult.Yes Then
             'visible true AmbientalProvisorioDATAMaskedTextBox
             ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
             'limpar AmbientalProvisorioDATAMaskedTextBox
             ViabilidadeProvisorioDATAMaskedTextBox.Text = ""
         Else
             'visible true AmbientalProvisorioDATAMaskedTextBox
-            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = False
+            ViabilidadeProvisorioDATAMaskedTextBox.ReadOnly = True
         End If
-        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
     End Sub
 
     ' Adicionar Data Ambiental
@@ -1559,42 +1593,45 @@ Public Class FrmAlvara
             AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
             AmbientalProvisorioDATAMaskedTextBox.Text = ""
         Else
-            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = False
+            AmbientalProvisorioDATAMaskedTextBox.ReadOnly = True
         End If
-        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
     End Sub
 
     ' Adicionar Data Bombeiro
     Private Sub ButtonAddDataBombeiro_Click(sender As Object, e As EventArgs) Handles ButtonAddDataBombeiro.Click
-        If MsgBox("Deseja Adicionar uma nova data provisório do Bombeiro?", MsgBoxStyle.YesNo, "Adicionar data Bombeiro") = MsgBoxResult.Yes Then
+        If MsgBox("Deseja Adicionar uma nova data provisório do Bombeiro?" & vbCrLf &
+      "Salvar empresa antes de alterar para outra empresa",
+      MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Adicionar data Bombeiro") = MsgBoxResult.Yes Then
+            ' Código para adicionar a data
             BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
             BombeiroProvisorioDATAMaskedTextBox.Text = ""
         Else
-            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = False
+            BombeiroProvisorioDATAMaskedTextBox.ReadOnly = True
         End If
-        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
     End Sub
 
     ' Adicionar Data Setran
     Private Sub ButtonAddDataSetran_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSetran.Click
-        If MsgBox("Deseja Adicionar uma nova data provisório do Setran?", MsgBoxStyle.YesNo, "Adicionar data Setran") = MsgBoxResult.Yes Then
+        If MsgBox("Deseja Adicionar uma nova data provisório do Setran?" & vbCrLf &
+      "Salvar empresa antes de alterar para outra empresa",
+      MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Adicionar data Setran") = MsgBoxResult.Yes Then
             SetranProvisorioDATAMaskedTextBox.ReadOnly = False
             SetranProvisorioDATAMaskedTextBox.Text = ""
         Else
-            SetranProvisorioDATAMaskedTextBox.ReadOnly = False
+            SetranProvisorioDATAMaskedTextBox.ReadOnly = True
         End If
-        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
     End Sub
 
     ' Adicionar Data Sanitario
     Private Sub ButtonAddDataSanitario_Click(sender As Object, e As EventArgs) Handles ButtonAddDataSanitario.Click
-        If MsgBox("Deseja Adicionar uma nova data provisório do Sanitário?", MsgBoxStyle.YesNo, "Adicionar data Sanitário") = MsgBoxResult.Yes Then
+        If MsgBox("Deseja Adicionar uma nova data provisório do Sanitário?" & vbCrLf &
+      "Salvar empresa antes de alterar para outra empresa",
+      MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Adicionar data Sanitario") = MsgBoxResult.Yes Then
             SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
             SanitarioProvisorioDATAMaskedTextBox.Text = ""
         Else
-            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = False
+            SanitarioProvisorioDATAMaskedTextBox.ReadOnly = True
         End If
-        MsgBox("Salvar empresa antes de alterar para outra empresa", MsgBoxStyle.YesNo, "ATENÇÃO")
     End Sub
 
     'APAGAR

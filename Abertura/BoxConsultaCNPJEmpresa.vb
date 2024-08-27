@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Http
+Imports System.Net.Http.Headers
 Imports Newtonsoft.Json.Linq
 
 Public Class BoxConsultaCNPJEmpresa
@@ -42,8 +43,6 @@ Public Class BoxConsultaCNPJEmpresa
 
     Private Async Sub BtnImportar_Click(sender As Object, e As EventArgs) Handles BtnImportar.Click
         Try
-
-
             'pergunta se deseja importar o CNPJ
             Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ? Isto irá sobrepor os dados existentes...", "Importar CNPJ", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
@@ -59,10 +58,21 @@ Public Class BoxConsultaCNPJEmpresa
 
                 'conectar no site https://www.receitaws.com.br/v1/cnpj/
                 Dim client As New HttpClient
+                client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+
                 Dim response As HttpResponseMessage = Await client.GetAsync("https://www.receitaws.com.br/v1/cnpj/" + CNPJ_Limpo)
                 Dim json As String = Await response.Content.ReadAsStringAsync
                 'nome, natureza_juridica, data_abertura,fantasia,porte,logradouro,numero,complemento,bairro,municipio,uf,cep,telefone,email,capital_social,atividade_principal,atividades_secundarias
                 Dim json_obj As JObject = JObject.Parse(json)
+
+                ' Verifica se a resposta é bem-sucedida
+                If Not response.IsSuccessStatusCode Then
+                    MessageBox.Show("Erro ao acessar o serviço da Receita Federal. Código de status: " & response.StatusCode.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    BtnImportar.Text = "Importar"
+                    BtnImportar.Enabled = True
+                    Exit Sub
+                End If
+
                 'se der erro no Nome finaliza o sub
                 If json_obj("nome") Is Nothing Then
                     MessageBox.Show("CNPJ não encontrado no site da Receita Federal...", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -70,6 +80,8 @@ Public Class BoxConsultaCNPJEmpresa
                     BtnImportar.Enabled = True
                     Exit Sub
                 End If
+
+                '/////// PROCESSO IMPORTACAO
                 Dim nome As String = json_obj.Item("nome").ToString
 
                 Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
@@ -97,6 +109,8 @@ Public Class BoxConsultaCNPJEmpresa
                 Dim capital_social_str As String = capital_social.Replace(".", ",")
                 Dim capital_social_str_2 As String = capital_social_str.Replace("R$", "")
 
+
+                Dim DataAtualizacao As String = json_obj.Item("ultima_atualizacao").ToString
 
                 '//////////////////////////////// ATIVIDADE PRINCIPAL ///////////////////////////////////////
 
@@ -246,9 +260,7 @@ Public Class BoxConsultaCNPJEmpresa
                 FrmLegalizacao.TabControl1.SelectedIndex = 0
 
                 'mostrar mgs de sucesso
-                MsgBox("Importação realizada com sucesso!", MsgBoxStyle.Information, "Importação")
-                'mgsbox O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias
-                MsgBox("O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias", MsgBoxStyle.Information, "Importação")
+                MsgBox("Importação realizada com sucesso! Ultima atualização em:" & DataAtualizacao, MsgBoxStyle.Information, "Importação")
                 'fechar formulario
                 Me.Close()
             End If
@@ -260,6 +272,8 @@ Public Class BoxConsultaCNPJEmpresa
 
         Me.Close()
     End Sub
+
+
 
     Private Sub BoxConsultaCNPJEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WebView21.Visible = False

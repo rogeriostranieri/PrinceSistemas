@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Http
+Imports System.Net.Http.Headers
 Imports Newtonsoft.Json.Linq
 Public Class BoxConsultaCNPJLaudo
 
@@ -57,6 +58,8 @@ Public Class BoxConsultaCNPJLaudo
 
                 'conectar no site https://www.receitaws.com.br/v1/cnpj/
                 Dim client As New HttpClient
+                client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+
                 Dim response As HttpResponseMessage = Await client.GetAsync("https://www.receitaws.com.br/v1/cnpj/" + CNPJ_Limpo)
                 Dim json As String = Await response.Content.ReadAsStringAsync
                 'nome, natureza_juridica, data_abertura,fantasia,porte,logradouro,numero,complemento,bairro,municipio,uf,cep,telefone,email,capital_social,atividade_principal,atividades_secundarias
@@ -82,6 +85,8 @@ Public Class BoxConsultaCNPJLaudo
                 Dim capital_social As String = json_obj.Item("capital_social").ToString
                 Dim capital_social_str As String = capital_social.Replace(".", ",")
                 Dim capital_social_str_2 As String = capital_social_str.Replace("R$", "")
+
+                Dim DataAtualizacao As String = json_obj.Item("ultima_atualizacao").ToString
 
 
                 '//////////////////////////////// ATIVIDADE PRINCIPAL ///////////////////////////////////////
@@ -230,7 +235,7 @@ Public Class BoxConsultaCNPJLaudo
                 FrmAlvara.TabAlvara.SelectedIndex = 0
 
                 'mostrar mgs de sucesso
-                MsgBox("Importação realizada com sucesso!", MsgBoxStyle.Information, "Importação")
+                MsgBox("Importação realizada com sucesso! Ultima atualização em:" & DataAtualizacao, MsgBoxStyle.Information, "Importação")
                 'fechar formulario
                 Me.Close()
             End If
@@ -238,11 +243,11 @@ Public Class BoxConsultaCNPJLaudo
         Catch ex As Exception
             'mostrar mgs de erro
             MsgBox("Erro ao importar: " + ex.Message, MsgBoxStyle.Critical, "Erro")
-            MsgBox("O Componente utiliza o site https://www.receitaws.com.br para obter os dados. Pode existir uma defasagem de ate 10 dias", MsgBoxStyle.Information, "Importação")
 
         End Try
         Me.Close()
     End Sub
+
 
     Private Sub BoxConsultaCNPJLaudo_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()

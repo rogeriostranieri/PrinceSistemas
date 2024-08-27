@@ -73,6 +73,9 @@ Public Class FrmLegalizacao
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
                         PrinceDBDataSet.Empresas.RejectChanges()
+                        ' Permitir que o sistema processe os eventos pendentes
+                        Application.DoEvents()
+
                         BtnEditar.Text = "Editar"
                         BtnExcluir.Enabled = True
                         GroupBox2.Enabled = False
@@ -90,6 +93,9 @@ Public Class FrmLegalizacao
                             Me.Validate()
                             Me.EmpresasBindingSource.EndEdit()
                             Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+
+                            ' Permitir que o sistema processe os eventos pendentes
+                            Application.DoEvents()
 
                             ' Ajustar a interface após salvar
                             BtnEditar.Text = "Editar"
@@ -1610,31 +1616,51 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                 GroupBox10.Enabled = True
 
                 BtnExcluir.Enabled = False
-
                 BtnAlteracao.Enabled = True
 
             ElseIf BtnEditar.Text = "Cancelar" Then
+                ' Perguntar se o usuário deseja cancelar as alterações
+                Dim resultado As DialogResult = MessageBox.Show("Deseja cancelar as alterações e reverter os dados?",
+                                                            "Cancelar Edição", MessageBoxButtons.YesNo,
+                                                            MessageBoxIcon.Question)
 
-                BtnEditar.Text = "Editar"
-                GroupBox2.Enabled = False
-                GroupBox10.Enabled = False
+                If resultado = DialogResult.Yes Then
+                    ' Cancelar as alterações feitas
+                    BtnEditar.Text = "Editar"
+                    GroupBox2.Enabled = False
+                    GroupBox10.Enabled = False
 
-                Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-                Salvar()
-                ComboBoxBuscaEmpresa.Text = NomeEmpresa
-                ComboBoxBuscaEmpresa.Focus()
-                RazaoSocialTextBox.Focus()
+                    Dim NomeEmpresa As String = RazaoSocialTextBox.Text
 
-                BtnExcluir.Enabled = True
-                BtnAlteracao.Enabled = False
+                    ' Salvar os dados e recarregar
+                    Salvar()
+
+                    ' Permitir que o sistema processe os eventos pendentes
+                    Application.DoEvents()
+
+                    ' Reposicionar o foco nos controles
+                    ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                    ComboBoxBuscaEmpresa.Focus()
+                    RazaoSocialTextBox.Focus()
+
+                    BtnExcluir.Enabled = True
+                    BtnAlteracao.Enabled = False
+                Else
+                    ' Manter o modo de edição
+                    BtnEditar.Text = "Cancelar"
+                    GroupBox2.Enabled = True
+                    GroupBox10.Enabled = True
+
+                    BtnExcluir.Enabled = False
+                    BtnAlteracao.Enabled = True
+                End If
             End If
 
         Catch ex As Exception
             MessageBox.Show("Erro ao editar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
-
     End Sub
+
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()

@@ -90,7 +90,7 @@ Public Class FrmEscolha
             End If
 
             ' Criar e mostrar uma nova instância do formulário
-            Dim FrmLegalizacao As New FrmLegalizacao()
+            '    Dim FrmLegalizacao As New FrmLegalizacao()
 
             FrmLegalizacao.Show()
 
@@ -135,9 +135,9 @@ Public Class FrmEscolha
             End If
 
             ' Criar e mostrar uma nova instância do formulário
-            Dim frmAlvara As New FrmAlvara()
+            '   Dim frmAlvara As New FrmAlvara()
 
-            frmAlvara.Show()
+            FrmAlvara.Show()
 
             '' Configurar o ComboBoxBuscaAlvara com a razão social selecionada
             frmAlvara.ComboBoxBuscaAlvara.Text = LabelRazaoSocial.Text
