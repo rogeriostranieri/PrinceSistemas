@@ -49,6 +49,7 @@ Partial Class ContadorGeral
         Dim Email1Label As System.Windows.Forms.Label
         Dim Email2Label As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContadorGeral))
+        Dim IEescritorioLabel As System.Windows.Forms.Label
         Me.NomeTextBox = New System.Windows.Forms.TextBox()
         Me.ContadorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -89,13 +90,14 @@ Partial Class ContadorGeral
         Me.NomeMaeTextBox = New System.Windows.Forms.TextBox()
         Me.NomePaiTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.Email2TextBox = New System.Windows.Forms.TextBox()
         Me.Email1TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.AnotacoesRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ContadorTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ContadorTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.BtnCopiaCEP = New System.Windows.Forms.Button()
+        Me.IEescritorioTextBox = New System.Windows.Forms.TextBox()
         NomeLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         CRCLabel = New System.Windows.Forms.Label()
@@ -121,6 +123,7 @@ Partial Class ContadorGeral
         NomeMaeLabel = New System.Windows.Forms.Label()
         Email1Label = New System.Windows.Forms.Label()
         Email2Label = New System.Windows.Forms.Label()
+        IEescritorioLabel = New System.Windows.Forms.Label()
         CType(Me.ContadorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -216,7 +219,7 @@ Partial Class ContadorGeral
         '
         EmailLabel.AutoSize = True
         EmailLabel.BackColor = System.Drawing.Color.Transparent
-        EmailLabel.Location = New System.Drawing.Point(4, 70)
+        EmailLabel.Location = New System.Drawing.Point(4, 241)
         EmailLabel.Name = "EmailLabel"
         EmailLabel.Size = New System.Drawing.Size(81, 13)
         EmailLabel.TabIndex = 17
@@ -236,7 +239,7 @@ Partial Class ContadorGeral
         '
         EndCEPLabel.AutoSize = True
         EndCEPLabel.BackColor = System.Drawing.Color.Transparent
-        EndCEPLabel.Location = New System.Drawing.Point(52, 161)
+        EndCEPLabel.Location = New System.Drawing.Point(52, 105)
         EndCEPLabel.Name = "EndCEPLabel"
         EndCEPLabel.Size = New System.Drawing.Size(31, 13)
         EndCEPLabel.TabIndex = 21
@@ -246,7 +249,7 @@ Partial Class ContadorGeral
         '
         EnderecoLabel.AutoSize = True
         EnderecoLabel.BackColor = System.Drawing.Color.Transparent
-        EnderecoLabel.Location = New System.Drawing.Point(27, 187)
+        EnderecoLabel.Location = New System.Drawing.Point(27, 131)
         EnderecoLabel.Name = "EnderecoLabel"
         EnderecoLabel.Size = New System.Drawing.Size(56, 13)
         EnderecoLabel.TabIndex = 23
@@ -255,7 +258,7 @@ Partial Class ContadorGeral
         'EndNumLabel
         '
         EndNumLabel.AutoSize = True
-        EndNumLabel.Location = New System.Drawing.Point(416, 187)
+        EndNumLabel.Location = New System.Drawing.Point(416, 131)
         EndNumLabel.Name = "EndNumLabel"
         EndNumLabel.Size = New System.Drawing.Size(22, 13)
         EndNumLabel.TabIndex = 25
@@ -265,7 +268,7 @@ Partial Class ContadorGeral
         '
         EndCompLabel.AutoSize = True
         EndCompLabel.BackColor = System.Drawing.Color.Transparent
-        EndCompLabel.Location = New System.Drawing.Point(6, 213)
+        EndCompLabel.Location = New System.Drawing.Point(6, 157)
         EndCompLabel.Name = "EndCompLabel"
         EndCompLabel.Size = New System.Drawing.Size(77, 13)
         EndCompLabel.TabIndex = 27
@@ -275,7 +278,7 @@ Partial Class ContadorGeral
         '
         EndBairroLabel.AutoSize = True
         EndBairroLabel.BackColor = System.Drawing.Color.Transparent
-        EndBairroLabel.Location = New System.Drawing.Point(247, 213)
+        EndBairroLabel.Location = New System.Drawing.Point(247, 157)
         EndBairroLabel.Name = "EndBairroLabel"
         EndBairroLabel.Size = New System.Drawing.Size(37, 13)
         EndBairroLabel.TabIndex = 29
@@ -285,7 +288,7 @@ Partial Class ContadorGeral
         '
         EndCidadeLabel.AutoSize = True
         EndCidadeLabel.BackColor = System.Drawing.Color.Transparent
-        EndCidadeLabel.Location = New System.Drawing.Point(40, 239)
+        EndCidadeLabel.Location = New System.Drawing.Point(40, 183)
         EndCidadeLabel.Name = "EndCidadeLabel"
         EndCidadeLabel.Size = New System.Drawing.Size(43, 13)
         EndCidadeLabel.TabIndex = 31
@@ -295,7 +298,7 @@ Partial Class ContadorGeral
         '
         EndEstadoLabel.AutoSize = True
         EndEstadoLabel.BackColor = System.Drawing.Color.Transparent
-        EndEstadoLabel.Location = New System.Drawing.Point(241, 242)
+        EndEstadoLabel.Location = New System.Drawing.Point(241, 186)
         EndEstadoLabel.Name = "EndEstadoLabel"
         EndEstadoLabel.Size = New System.Drawing.Size(43, 13)
         EndEstadoLabel.TabIndex = 33
@@ -362,7 +365,7 @@ Partial Class ContadorGeral
         'Email1Label
         '
         Email1Label.AutoSize = True
-        Email1Label.Location = New System.Drawing.Point(39, 96)
+        Email1Label.Location = New System.Drawing.Point(39, 267)
         Email1Label.Name = "Email1Label"
         Email1Label.Size = New System.Drawing.Size(47, 13)
         Email1Label.TabIndex = 38
@@ -371,7 +374,7 @@ Partial Class ContadorGeral
         'Email2Label
         '
         Email2Label.AutoSize = True
-        Email2Label.Location = New System.Drawing.Point(38, 122)
+        Email2Label.Location = New System.Drawing.Point(38, 293)
         Email2Label.Name = "Email2Label"
         Email2Label.Size = New System.Drawing.Size(47, 13)
         Email2Label.TabIndex = 39
@@ -459,7 +462,7 @@ Partial Class ContadorGeral
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(89, 67)
+        Me.EmailTextBox.Location = New System.Drawing.Point(89, 238)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(290, 20)
         Me.EmailTextBox.TabIndex = 18
@@ -475,7 +478,7 @@ Partial Class ContadorGeral
         'EndCEPMaskedTextBox
         '
         Me.EndCEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndCEP", True))
-        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(89, 158)
+        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(89, 102)
         Me.EndCEPMaskedTextBox.Mask = "00000-000"
         Me.EndCEPMaskedTextBox.Name = "EndCEPMaskedTextBox"
         Me.EndCEPMaskedTextBox.Size = New System.Drawing.Size(63, 20)
@@ -484,7 +487,7 @@ Partial Class ContadorGeral
         'EnderecoTextBox
         '
         Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(89, 184)
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(89, 128)
         Me.EnderecoTextBox.Name = "EnderecoTextBox"
         Me.EnderecoTextBox.Size = New System.Drawing.Size(321, 20)
         Me.EnderecoTextBox.TabIndex = 24
@@ -492,7 +495,7 @@ Partial Class ContadorGeral
         'EndNumTextBox
         '
         Me.EndNumTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndNum", True))
-        Me.EndNumTextBox.Location = New System.Drawing.Point(444, 184)
+        Me.EndNumTextBox.Location = New System.Drawing.Point(444, 128)
         Me.EndNumTextBox.Name = "EndNumTextBox"
         Me.EndNumTextBox.Size = New System.Drawing.Size(75, 20)
         Me.EndNumTextBox.TabIndex = 26
@@ -500,7 +503,7 @@ Partial Class ContadorGeral
         'EndCompTextBox
         '
         Me.EndCompTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndComp", True))
-        Me.EndCompTextBox.Location = New System.Drawing.Point(89, 210)
+        Me.EndCompTextBox.Location = New System.Drawing.Point(89, 154)
         Me.EndCompTextBox.Name = "EndCompTextBox"
         Me.EndCompTextBox.Size = New System.Drawing.Size(124, 20)
         Me.EndCompTextBox.TabIndex = 28
@@ -508,7 +511,7 @@ Partial Class ContadorGeral
         'EndBairroTextBox
         '
         Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(290, 210)
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(290, 154)
         Me.EndBairroTextBox.Name = "EndBairroTextBox"
         Me.EndBairroTextBox.Size = New System.Drawing.Size(229, 20)
         Me.EndBairroTextBox.TabIndex = 30
@@ -516,7 +519,7 @@ Partial Class ContadorGeral
         'EndCidadeTextBox
         '
         Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(89, 236)
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(89, 180)
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
         Me.EndCidadeTextBox.Size = New System.Drawing.Size(124, 20)
         Me.EndCidadeTextBox.TabIndex = 32
@@ -524,14 +527,14 @@ Partial Class ContadorGeral
         'EndEstadoTextBox
         '
         Me.EndEstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "EndEstado", True))
-        Me.EndEstadoTextBox.Location = New System.Drawing.Point(290, 239)
+        Me.EndEstadoTextBox.Location = New System.Drawing.Point(290, 183)
         Me.EndEstadoTextBox.Name = "EndEstadoTextBox"
         Me.EndEstadoTextBox.Size = New System.Drawing.Size(120, 20)
         Me.EndEstadoTextBox.TabIndex = 34
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(158, 158)
+        Me.Button3.Location = New System.Drawing.Point(158, 102)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(73, 22)
         Me.Button3.TabIndex = 38
@@ -569,7 +572,7 @@ Partial Class ContadorGeral
         '
         Me.ComboBoxBusca.FlatStyle = System.Windows.Forms.FlatStyle.Standard
         Me.ComboBoxBusca.Name = "ComboBoxBusca"
-        Me.ComboBoxBusca.Size = New System.Drawing.Size(210, 25)
+        Me.ComboBoxBusca.Size = New System.Drawing.Size(250, 25)
         '
         'GroupBox5
         '
@@ -690,7 +693,7 @@ Partial Class ContadorGeral
         Me.TabControlContador.Location = New System.Drawing.Point(132, 45)
         Me.TabControlContador.Name = "TabControlContador"
         Me.TabControlContador.SelectedIndex = 0
-        Me.TabControlContador.Size = New System.Drawing.Size(600, 294)
+        Me.TabControlContador.Size = New System.Drawing.Size(600, 353)
         Me.TabControlContador.TabIndex = 71
         '
         'TabPage1
@@ -746,6 +749,8 @@ Partial Class ContadorGeral
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
+        Me.TabPage2.Controls.Add(IEescritorioLabel)
+        Me.TabPage2.Controls.Add(Me.IEescritorioTextBox)
         Me.TabPage2.Controls.Add(Me.BtnCopiaCEP)
         Me.TabPage2.Controls.Add(Email2Label)
         Me.TabPage2.Controls.Add(Me.Email2TextBox)
@@ -779,15 +784,26 @@ Partial Class ContadorGeral
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(592, 268)
+        Me.TabPage2.Size = New System.Drawing.Size(592, 327)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Escritório"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'BtnCopiaCEP
+        '
+        Me.BtnCopiaCEP.BackColor = System.Drawing.Color.Azure
+        Me.BtnCopiaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaCEP.Location = New System.Drawing.Point(237, 102)
+        Me.BtnCopiaCEP.Name = "BtnCopiaCEP"
+        Me.BtnCopiaCEP.Size = New System.Drawing.Size(73, 22)
+        Me.BtnCopiaCEP.TabIndex = 75
+        Me.BtnCopiaCEP.Text = "Copiar CEP"
+        Me.BtnCopiaCEP.UseVisualStyleBackColor = False
+        '
         'Email2TextBox
         '
         Me.Email2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "email2", True))
-        Me.Email2TextBox.Location = New System.Drawing.Point(89, 119)
+        Me.Email2TextBox.Location = New System.Drawing.Point(89, 290)
         Me.Email2TextBox.Name = "Email2TextBox"
         Me.Email2TextBox.Size = New System.Drawing.Size(290, 20)
         Me.Email2TextBox.TabIndex = 40
@@ -795,7 +811,7 @@ Partial Class ContadorGeral
         'Email1TextBox
         '
         Me.Email1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "email1", True))
-        Me.Email1TextBox.Location = New System.Drawing.Point(89, 93)
+        Me.Email1TextBox.Location = New System.Drawing.Point(89, 264)
         Me.Email1TextBox.Name = "Email1TextBox"
         Me.Email1TextBox.Size = New System.Drawing.Size(290, 20)
         Me.Email1TextBox.TabIndex = 39
@@ -847,16 +863,22 @@ Partial Class ContadorGeral
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'BtnCopiaCEP
+        'IEescritorioLabel
         '
-        Me.BtnCopiaCEP.BackColor = System.Drawing.Color.Azure
-        Me.BtnCopiaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiaCEP.Location = New System.Drawing.Point(237, 158)
-        Me.BtnCopiaCEP.Name = "BtnCopiaCEP"
-        Me.BtnCopiaCEP.Size = New System.Drawing.Size(73, 22)
-        Me.BtnCopiaCEP.TabIndex = 75
-        Me.BtnCopiaCEP.Text = "Copiar CEP"
-        Me.BtnCopiaCEP.UseVisualStyleBackColor = False
+        IEescritorioLabel.AutoSize = True
+        IEescritorioLabel.Location = New System.Drawing.Point(10, 70)
+        IEescritorioLabel.Name = "IEescritorioLabel"
+        IEescritorioLabel.Size = New System.Drawing.Size(97, 13)
+        IEescritorioLabel.TabIndex = 75
+        IEescritorioLabel.Text = "Inscrição Estadual:"
+        '
+        'IEescritorioTextBox
+        '
+        Me.IEescritorioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "IEescritorio", True))
+        Me.IEescritorioTextBox.Location = New System.Drawing.Point(113, 67)
+        Me.IEescritorioTextBox.Name = "IEescritorioTextBox"
+        Me.IEescritorioTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.IEescritorioTextBox.TabIndex = 76
         '
         'ContadorGeral
         '
@@ -864,7 +886,7 @@ Partial Class ContadorGeral
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(833, 361)
+        Me.ClientSize = New System.Drawing.Size(833, 407)
         Me.Controls.Add(Me.TabControlContador)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.ToolStrip1)
@@ -941,4 +963,5 @@ Partial Class ContadorGeral
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents AnotacoesRichTextBox As RichTextBox
     Friend WithEvents BtnCopiaCEP As Button
+    Friend WithEvents IEescritorioTextBox As TextBox
 End Class

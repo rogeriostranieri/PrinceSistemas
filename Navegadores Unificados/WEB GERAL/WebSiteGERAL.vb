@@ -156,9 +156,15 @@ Public Class WebSiteGERAL
     End Sub
 
     Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
-        'atualizar pagina
-        WebView?.Reload()
+        Try
+            ' Tentar atualizar a página
+            WebView?.Reload()
+        Catch ex As Exception
+            ' Se ocorrer um erro, não fazer nada para evitar página em branco ou outros imprevistos
+            ' Você pode adicionar um log ou mensagem aqui, se necessário, para registrar o erro
+        End Try
     End Sub
+
 
     Private Sub WebView_CoreWebView2InitializationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs) Handles WebView.CoreWebView2InitializationCompleted
         Try

@@ -170,7 +170,7 @@ Public Class FrmLegalizacao
 
 
             BtnEditar.Text = "Cancelar"
-            Editar()
+            ' Editar()
             ModCombobox.ComboboxLegalizacaoProcesso()
             Me.ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
@@ -963,64 +963,58 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
 
     Private Sub Legalizacao_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim changedRecords As System.Data.DataTable
+        ' Finalizar edição e obter registros alterados
         Me.EmpresasBindingSource.EndEdit()
-        changedRecords = PrinceDBDataSet.Empresas.GetChanges()
+        Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
 
-        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
-            Dim message As String
-            message = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?"
+        ' Verificar se há alterações
+        If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+            ' Criar uma string para armazenar as mudanças
+            Dim changesDescription As String = ""
 
+            ' Iterar sobre as linhas alteradas
+            For Each row As DataRow In changedRecords.Rows
+                changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
+
+                ' Iterar sobre as colunas para identificar as mudanças
+                For Each column As DataColumn In changedRecords.Columns
+                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                    End If
+                Next
+                changesDescription &= vbCrLf
+            Next
+
+            ' Perguntar se deseja salvar as alterações, exibindo as mudanças detectadas
+            Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription
             Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
             If result = DialogResult.Cancel Then
                 e.Cancel = True
             ElseIf result = DialogResult.No Then
-
+                ' Reverter alterações
+                PrinceDBDataSet.Empresas.RejectChanges()
             ElseIf result = DialogResult.Yes Then
                 Try
+                    ' Salvar as alterações
                     EmpresasTableAdapter.Update(PrinceDBDataSet.Empresas)
                 Catch exc As Exception
-                    MessageBox.Show("Ocorreu um Erro ao atualizar" + vbCrLf + exc.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("Ocorreu um Erro ao atualizar" & vbCrLf & exc.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    e.Cancel = True
                 End Try
-
             End If
-
-
         End If
 
-        'verificar se FrmEventos está aberto e fechar
-        If FrmEventos.Visible = True Then
-            FrmEventos.Close()
-        End If
-        'DialogCalendarioEmpresas
-        If DialogCalendarioEmpresas.Visible = True Then
-            DialogCalendarioEmpresas.Close()
-        End If
-        'FrmControleEventosEmpresa
-        If FrmControleEventosEmpresa.Visible = True Then
-            FrmControleEventosEmpresa.Close()
-        End If
-
-
-        'fechar os complementos
-        'fechar FormaDeAtuacao
-        If FormadeAtuacao.Visible = True Then
-            FormadeAtuacao.Close()
-        End If
-        'TipodeUnidade
-        If TipodeUnidade.Visible = True Then
-            TipodeUnidade.Close()
-        End If
-        'DialogAjudaFormaAtuacao fechar
-        If DialogAjudaFormaAtuacao.Visible = True Then
-            DialogAjudaFormaAtuacao.Close()
-        End If
-        'DialogAjudaTipoUnidade
-        If DialogAjudaTipoUnidade.Visible = True Then
-            DialogAjudaTipoUnidade.Close()
-        End If
-
+        ' Fechar formulários e diálogos auxiliares se estiverem abertos
+        If FrmEventos.Visible Then FrmEventos.Close()
+        If DialogCalendarioEmpresas.Visible Then DialogCalendarioEmpresas.Close()
+        If FrmControleEventosEmpresa.Visible Then FrmControleEventosEmpresa.Close()
+        If FormadeAtuacao.Visible Then FormadeAtuacao.Close()
+        If TipodeUnidade.Visible Then TipodeUnidade.Close()
+        If DialogAjudaFormaAtuacao.Visible Then DialogAjudaFormaAtuacao.Close()
+        If DialogAjudaTipoUnidade.Visible Then DialogAjudaTipoUnidade.Close()
     End Sub
+
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
         TabControle.SelectTab(2)
@@ -3012,13 +3006,13 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
         'se tiver complemento ou retirar o complemento
         If Complemento = "" Then
-            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
         Else
-            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", " & Cidade & "-" & UF)
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
         End If
 
         'mgsbox
-        MessageBox.Show("Endereço copiado com sucesso!")
+        ' MessageBox.Show("Endereço copiado com sucesso!")
     End Sub
 
     Private Sub BtnLimpaCaractRazao_Click(sender As Object, e As EventArgs) Handles BtnLimpaCaractRazao.Click

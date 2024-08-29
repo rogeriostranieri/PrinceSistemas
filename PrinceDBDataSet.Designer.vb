@@ -1469,6 +1469,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnAnotacoes As Global.System.Data.DataColumn
         
+        Private columnIEescritorio As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -1737,6 +1739,14 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property IEescritorioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIEescritorio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1801,9 +1811,10 @@ Partial Public Class PrinceDBDataSet
                     ByVal NomeMae As String,  _
                     ByVal email1 As String,  _
                     ByVal email2 As String,  _
-                    ByVal Anotacoes As String) As ContadorRow
+                    ByVal Anotacoes As String,  _
+                    ByVal IEescritorio As String) As ContadorRow
             Dim rowContadorRow As ContadorRow = CType(Me.NewRow,ContadorRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, email1, email2, Anotacoes}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, email1, email2, Anotacoes, IEescritorio}
             rowContadorRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowContadorRow)
             Return rowContadorRow
@@ -1861,6 +1872,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnemail1 = MyBase.Columns("email1")
             Me.columnemail2 = MyBase.Columns("email2")
             Me.columnAnotacoes = MyBase.Columns("Anotacoes")
+            Me.columnIEescritorio = MyBase.Columns("IEescritorio")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1924,6 +1936,8 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnemail2)
             Me.columnAnotacoes = New Global.System.Data.DataColumn("Anotacoes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnotacoes)
+            Me.columnIEescritorio = New Global.System.Data.DataColumn("IEescritorio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIEescritorio)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Contador}, true))
             Me.columnID_Contador.AutoIncrement = true
             Me.columnID_Contador.AutoIncrementSeed = -1
@@ -1959,6 +1973,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnemail1.MaxLength = 2147483647
             Me.columnemail2.MaxLength = 2147483647
             Me.columnAnotacoes.MaxLength = 2147483647
+            Me.columnIEescritorio.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11213,6 +11228,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property IEescritorio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableContador.IEescritorioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'IEescritorio' na tabela 'Contador' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContador.IEescritorioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsNomeNull() As Boolean
             Return Me.IsNull(Me.tableContador.NomeColumn)
         End Function
@@ -11545,6 +11575,18 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetAnotacoesNull()
             Me(Me.tableContador.AnotacoesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsIEescritorioNull() As Boolean
+            Return Me.IsNull(Me.tableContador.IEescritorioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetIEescritorioNull()
+            Me(Me.tableContador.IEescritorioColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -22156,6 +22198,7 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("email1", "email1")
             tableMapping.ColumnMappings.Add("email2", "email2")
             tableMapping.ColumnMappings.Add("Anotacoes", "Anotacoes")
+            tableMapping.ColumnMappings.Add("IEescritorio", "IEescritorio")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -22211,14 +22254,15 @@ Namespace PrinceDBDataSetTableAdapters
                 ", [CNPJ], [Telefone], [email], [CMC], [Endereco], [EndNum], [EndComp], [EndBairr"& _ 
                 "o], [EndCidade], [EndEstado], [EndCEP], [RGSigla], [EstadoCivil], [EstadoCivilDe"& _ 
                 "sc], [DataNasc], [Genero], [Profissao], [NomePai], [NomeMae], [email1], [email2]"& _ 
-                ", [Anotacoes]) VALUES (@Nome, @CPF, @CRC, @ExpedicaoCRC, @RG, @RazaoSocial, @CNP"& _ 
-                "J, @Telefone, @email, @CMC, @Endereco, @EndNum, @EndComp, @EndBairro, @EndCidade"& _ 
-                ", @EndEstado, @EndCEP, @RGSigla, @EstadoCivil, @EstadoCivilDesc, @DataNasc, @Gen"& _ 
-                "ero, @Profissao, @NomePai, @NomeMae, @email1, @email2, @Anotacoes);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_C"& _ 
-                "ontador, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, C"& _ 
-                "MC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla,"& _ 
-                " EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, em"& _ 
-                "ail1, email2, Anotacoes FROM Contador WHERE (ID_Contador = SCOPE_IDENTITY())"
+                ", [Anotacoes], [IEescritorio]) VALUES (@Nome, @CPF, @CRC, @ExpedicaoCRC, @RG, @R"& _ 
+                "azaoSocial, @CNPJ, @Telefone, @email, @CMC, @Endereco, @EndNum, @EndComp, @EndBa"& _ 
+                "irro, @EndCidade, @EndEstado, @EndCEP, @RGSigla, @EstadoCivil, @EstadoCivilDesc,"& _ 
+                " @DataNasc, @Genero, @Profissao, @NomePai, @NomeMae, @email1, @email2, @Anotacoe"& _ 
+                "s, @IEescritorio);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Contador, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoS"& _ 
+                "ocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCida"& _ 
+                "de, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, "& _ 
+                "Profissao, NomePai, NomeMae, email1, email2, Anotacoes, IEescritorio FROM Contad"& _ 
+                "or WHERE (ID_Contador = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPF", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22248,6 +22292,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anotacoes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anotacoes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IEescritorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IEescritorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Contador] SET [Nome] = @Nome, [CPF] = @CPF, [CRC] = @CRC, [ExpedicaoCRC] "& _ 
@@ -22258,25 +22303,26 @@ Namespace PrinceDBDataSetTableAdapters
                 "tadoCivil] = @EstadoCivil, [EstadoCivilDesc] = @EstadoCivilDesc, [DataNasc] = @D"& _ 
                 "ataNasc, [Genero] = @Genero, [Profissao] = @Profissao, [NomePai] = @NomePai, [No"& _ 
                 "meMae] = @NomeMae, [email1] = @email1, [email2] = @email2, [Anotacoes] = @Anotac"& _ 
-                "oes WHERE (([ID_Contador] = @Original_ID_Contador) AND ((@IsNull_Nome = 1 AND [N"& _ 
-                "ome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_CPF = 1 AND [CPF] IS N"& _ 
-                "ULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_CRC = 1 AND [CRC] IS NULL) OR ([C"& _ 
-                "RC] = @Original_CRC)) AND ((@IsNull_ExpedicaoCRC = 1 AND [ExpedicaoCRC] IS NULL)"& _ 
-                " OR ([ExpedicaoCRC] = @Original_ExpedicaoCRC)) AND ((@IsNull_RG = 1 AND [RG] IS "& _ 
-                "NULL) OR ([RG] = @Original_RG)) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) OR (["& _ 
-                "CNPJ] = @Original_CNPJ)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ("& _ 
-                "[Telefone] = @Original_Telefone)) AND ((@IsNull_CMC = 1 AND [CMC] IS NULL) OR (["& _ 
-                "CMC] = @Original_CMC)) AND ((@IsNull_EndNum = 1 AND [EndNum] IS NULL) OR ([EndNu"& _ 
-                "m] = @Original_EndNum)) AND ((@IsNull_EndCidade = 1 AND [EndCidade] IS NULL) OR "& _ 
-                "([EndCidade] = @Original_EndCidade)) AND ((@IsNull_EndEstado = 1 AND [EndEstado]"& _ 
-                " IS NULL) OR ([EndEstado] = @Original_EndEstado)) AND ((@IsNull_EndCEP = 1 AND ["& _ 
-                "EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP)) AND ((@IsNull_RGSigla = 1 AND"& _ 
-                " [RGSigla] IS NULL) OR ([RGSigla] = @Original_RGSigla)) AND ((@IsNull_DataNasc ="& _ 
-                " 1 AND [DataNasc] IS NULL) OR ([DataNasc] = @Original_DataNasc)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Co"& _ 
-                "ntador, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CM"& _ 
-                "C, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, "& _ 
-                "EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, ema"& _ 
-                "il1, email2, Anotacoes FROM Contador WHERE (ID_Contador = @ID_Contador)"
+                "oes, [IEescritorio] = @IEescritorio WHERE (([ID_Contador] = @Original_ID_Contado"& _ 
+                "r) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND "& _ 
+                "((@IsNull_CPF = 1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_C"& _ 
+                "RC = 1 AND [CRC] IS NULL) OR ([CRC] = @Original_CRC)) AND ((@IsNull_ExpedicaoCRC"& _ 
+                " = 1 AND [ExpedicaoCRC] IS NULL) OR ([ExpedicaoCRC] = @Original_ExpedicaoCRC)) A"& _ 
+                "ND ((@IsNull_RG = 1 AND [RG] IS NULL) OR ([RG] = @Original_RG)) AND ((@IsNull_CN"& _ 
+                "PJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_Telefone "& _ 
+                "= 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_"& _ 
+                "CMC = 1 AND [CMC] IS NULL) OR ([CMC] = @Original_CMC)) AND ((@IsNull_EndNum = 1 "& _ 
+                "AND [EndNum] IS NULL) OR ([EndNum] = @Original_EndNum)) AND ((@IsNull_EndCidade "& _ 
+                "= 1 AND [EndCidade] IS NULL) OR ([EndCidade] = @Original_EndCidade)) AND ((@IsNu"& _ 
+                "ll_EndEstado = 1 AND [EndEstado] IS NULL) OR ([EndEstado] = @Original_EndEstado)"& _ 
+                ") AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP"& _ 
+                ")) AND ((@IsNull_RGSigla = 1 AND [RGSigla] IS NULL) OR ([RGSigla] = @Original_RG"& _ 
+                "Sigla)) AND ((@IsNull_DataNasc = 1 AND [DataNasc] IS NULL) OR ([DataNasc] = @Ori"& _ 
+                "ginal_DataNasc)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Contador, Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoS"& _ 
+                "ocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCida"& _ 
+                "de, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, "& _ 
+                "Profissao, NomePai, NomeMae, email1, email2, Anotacoes, IEescritorio FROM Contad"& _ 
+                "or WHERE (ID_Contador = @ID_Contador)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPF", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22306,6 +22352,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Anotacoes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Anotacoes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IEescritorio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IEescritorio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Contador", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Contador", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nome", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -22558,7 +22605,8 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal NomeMae As String,  _
                     ByVal email1 As String,  _
                     ByVal email2 As String,  _
-                    ByVal Anotacoes As String) As Integer
+                    ByVal Anotacoes As String,  _
+                    ByVal IEescritorio As String) As Integer
             If (Nome Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -22699,6 +22747,11 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(27).Value = CType(Anotacoes,String)
             End If
+            If (IEescritorio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(IEescritorio,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -22747,6 +22800,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal email1 As String,  _
                     ByVal email2 As String,  _
                     ByVal Anotacoes As String,  _
+                    ByVal IEescritorio As String,  _
                     ByVal Original_ID_Contador As Short,  _
                     ByVal Original_Nome As String,  _
                     ByVal Original_CPF As String,  _
@@ -22903,106 +22957,111 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Anotacoes,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_ID_Contador,Short)
-            If (Original_Nome Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            If (IEescritorio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_Nome,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(IEescritorio,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ID_Contador,Short)
+            If (Original_Nome Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Nome,String)
             End If
             If (Original_CPF Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_CPF,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_CPF,String)
             End If
             If (Original_CRC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_CRC,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_CRC,String)
             End If
             If (Original_ExpedicaoCRC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_ExpedicaoCRC,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_ExpedicaoCRC,String)
             End If
             If (Original_RG Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_RG,String)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_RG,String)
             End If
             If (Original_CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_CNPJ,String)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_CNPJ,String)
             End If
             If (Original_Telefone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_Telefone,String)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Telefone,String)
             End If
             If (Original_CMC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_CMC,String)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CMC,String)
             End If
             If (Original_EndNum Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_EndNum,String)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_EndNum,String)
             End If
             If (Original_EndCidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_EndCidade,String)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_EndCidade,String)
             End If
             If (Original_EndEstado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_EndEstado,String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_EndEstado,String)
             End If
             If (Original_EndCEP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_EndCEP,String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_EndCEP,String)
             End If
             If (Original_RGSigla Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_RGSigla,String)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_RGSigla,String)
             End If
             If (Original_DataNasc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_DataNasc,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_DataNasc,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(ID_Contador,Short)
+            Me.Adapter.UpdateCommand.Parameters(58).Value = CType(ID_Contador,Short)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -23051,6 +23110,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal email1 As String,  _
                     ByVal email2 As String,  _
                     ByVal Anotacoes As String,  _
+                    ByVal IEescritorio As String,  _
                     ByVal Original_ID_Contador As Short,  _
                     ByVal Original_Nome As String,  _
                     ByVal Original_CPF As String,  _
@@ -23066,7 +23126,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal Original_EndCEP As String,  _
                     ByVal Original_RGSigla As String,  _
                     ByVal Original_DataNasc As String) As Integer
-            Return Me.Update(Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, email1, email2, Anotacoes, Original_ID_Contador, Original_Nome, Original_CPF, Original_CRC, Original_ExpedicaoCRC, Original_RG, Original_CNPJ, Original_Telefone, Original_CMC, Original_EndNum, Original_EndCidade, Original_EndEstado, Original_EndCEP, Original_RGSigla, Original_DataNasc, Original_ID_Contador)
+            Return Me.Update(Nome, CPF, CRC, ExpedicaoCRC, RG, RazaoSocial, CNPJ, Telefone, email, CMC, Endereco, EndNum, EndComp, EndBairro, EndCidade, EndEstado, EndCEP, RGSigla, EstadoCivil, EstadoCivilDesc, DataNasc, Genero, Profissao, NomePai, NomeMae, email1, email2, Anotacoes, IEescritorio, Original_ID_Contador, Original_Nome, Original_CPF, Original_CRC, Original_ExpedicaoCRC, Original_RG, Original_CNPJ, Original_Telefone, Original_CMC, Original_EndNum, Original_EndCidade, Original_EndEstado, Original_EndCEP, Original_RGSigla, Original_DataNasc, Original_ID_Contador)
         End Function
     End Class
     
