@@ -23,7 +23,7 @@ Partial Class FrmGeral
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TextBoxBusca = New System.Windows.Forms.TextBox()
-        Me.ListBoxEmpresas = New System.Windows.Forms.ListBox()
+        Me.ListBoxCNAE = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -38,15 +38,15 @@ Partial Class FrmGeral
         Me.TextBoxBusca.Size = New System.Drawing.Size(472, 31)
         Me.TextBoxBusca.TabIndex = 0
         '
-        'ListBoxEmpresas
+        'ListBoxCNAE
         '
-        Me.ListBoxEmpresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBoxEmpresas.FormattingEnabled = True
-        Me.ListBoxEmpresas.ItemHeight = 20
-        Me.ListBoxEmpresas.Location = New System.Drawing.Point(12, 96)
-        Me.ListBoxEmpresas.Name = "ListBoxEmpresas"
-        Me.ListBoxEmpresas.Size = New System.Drawing.Size(472, 464)
-        Me.ListBoxEmpresas.TabIndex = 1
+        Me.ListBoxCNAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBoxCNAE.FormattingEnabled = True
+        Me.ListBoxCNAE.ItemHeight = 20
+        Me.ListBoxCNAE.Location = New System.Drawing.Point(12, 96)
+        Me.ListBoxCNAE.Name = "ListBoxCNAE"
+        Me.ListBoxCNAE.Size = New System.Drawing.Size(472, 464)
+        Me.ListBoxCNAE.TabIndex = 1
         '
         'Label1
         '
@@ -54,9 +54,9 @@ Partial Class FrmGeral
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 25)
+        Me.Label1.Size = New System.Drawing.Size(146, 25)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Todas Empresas"
+        Me.Label1.Text = "Todas CNAE"
         '
         'PictureBox2
         '
@@ -92,7 +92,7 @@ Partial Class FrmGeral
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBoxEmpresas)
+        Me.Controls.Add(Me.ListBoxCNAE)
         Me.Controls.Add(Me.TextBoxBusca)
         Me.HelpButton = True
         Me.KeyPreview = True
@@ -110,7 +110,7 @@ Partial Class FrmGeral
     End Sub
 
     Friend WithEvents TextBoxBusca As TextBox
-    Friend WithEvents ListBoxEmpresas As ListBox
+    Friend WithEvents ListBoxCNAE As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LinkLabel1 As LinkLabel

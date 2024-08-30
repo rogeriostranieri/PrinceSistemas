@@ -396,6 +396,8 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnFiliais = New System.Windows.Forms.Button()
         Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnAvancoRazao = New System.Windows.Forms.Button()
         Me.BtnConsultaOptante = New System.Windows.Forms.Button()
@@ -453,6 +455,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2050,6 +2053,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnGrauDeRisco)
         Me.GroupBox1.Controls.Add(Me.BtnCopiarRamo)
         Me.GroupBox1.Controls.Add(Me.BtnAtividadeLocal)
         Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
@@ -2153,7 +2157,7 @@ Partial Class FrmLegalizacao
         Me.CNAESecundarioRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAESecundario", True))
         Me.CNAESecundarioRichTextBox.Location = New System.Drawing.Point(66, 58)
         Me.CNAESecundarioRichTextBox.Name = "CNAESecundarioRichTextBox"
-        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(81, 111)
+        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(81, 83)
         Me.CNAESecundarioRichTextBox.TabIndex = 33
         Me.CNAESecundarioRichTextBox.Text = ""
         '
@@ -4389,6 +4393,7 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -4435,6 +4440,8 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.BtnFiliais)
         Me.GroupBox2.Controls.Add(Me.BtnVerificar)
         Me.GroupBox2.Controls.Add(Me.BtnAvancoRazao)
         Me.GroupBox2.Controls.Add(Me.BtnConsultaOptante)
@@ -4471,6 +4478,30 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Size = New System.Drawing.Size(663, 174)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(328, 149)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(61, 22)
+        Me.Button1.TabIndex = 86
+        Me.Button1.Text = "Ver"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'BtnFiliais
+        '
+        Me.BtnFiliais.BackgroundImage = CType(resources.GetObject("BtnFiliais.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFiliais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFiliais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFiliais.Location = New System.Drawing.Point(460, 120)
+        Me.BtnFiliais.Name = "BtnFiliais"
+        Me.BtnFiliais.Size = New System.Drawing.Size(98, 23)
+        Me.BtnFiliais.TabIndex = 78
+        Me.BtnFiliais.Text = "Filiais"
+        Me.BtnFiliais.UseVisualStyleBackColor = True
         '
         'BtnVerificar
         '
@@ -5119,6 +5150,19 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnGrauDeRisco
+        '
+        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(54, 146)
+        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
+        Me.BtnGrauDeRisco.TabIndex = 82
+        Me.BtnGrauDeRisco.Text = "Grau de Risco"
+        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5561,4 +5605,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents LinkLabeLPrazoEmpresaFacil As LinkLabel
     Friend WithEvents BtnMapa As Button
     Friend WithEvents BtnCopiaCEP As Button
+    Friend WithEvents BtnFiliais As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnGrauDeRisco As Button
 End Class

@@ -322,6 +322,30 @@
     <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CNAEs\FrmBuscaCNAE.Designer.vb">
+      <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmBuscaCNAE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAE.Designer.vb">
+      <DependentUpon>FrmCNAE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEEditar.Designer.vb">
+      <DependentUpon>FrmCNAEEditar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEEditar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEescolha.Designer.vb">
+      <DependentUpon>FrmCNAEescolha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEescolha.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
     </Compile>
@@ -338,6 +362,12 @@
       <DependentUpon>FrmEndereco.vb</DependentUpon>
     </Compile>
     <Compile Include="Endereço\FrmEndereco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filiais\FrmFiliais.Designer.vb">
+      <DependentUpon>FrmFiliais.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Filiais\FrmFiliais.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEscolha.Designer.vb">
@@ -721,11 +751,26 @@
     <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmBuscaCNAE.resx">
+      <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAE.resx">
+      <DependentUpon>FrmCNAE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAEEditar.resx">
+      <DependentUpon>FrmCNAEEditar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAEescolha.resx">
+      <DependentUpon>FrmCNAEescolha.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmMail.resx">
       <DependentUpon>FrmMail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filiais\FrmFiliais.resx">
+      <DependentUpon>FrmFiliais.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEscolha.resx">
       <DependentUpon>FrmEscolha.vb</DependentUpon>

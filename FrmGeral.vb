@@ -34,8 +34,8 @@ Public Class FrmGeral
             allEmpresas = New DataTable()
             adapter.Fill(allEmpresas)
 
-            ListBoxEmpresas.DataSource = allEmpresas
-            ListBoxEmpresas.DisplayMember = "RazaoSocial"
+            ListBoxCNAE.DataSource = allEmpresas
+            ListBoxCNAE.DisplayMember = "RazaoSocial"
         End Using
     End Sub
 
@@ -44,37 +44,37 @@ Public Class FrmGeral
 
         If String.IsNullOrEmpty(searchTerm) Then
             ' Quando a busca está vazia, exiba todas as empresas
-            ListBoxEmpresas.DataSource = allEmpresas
+            ListBoxCNAE.DataSource = allEmpresas
         Else
             Dim filteredRows = allEmpresas.AsEnumerable().Where(Function(row) row.Field(Of String)("RazaoSocial").ToLower().Contains(searchTerm))
 
             If filteredRows.Any() Then
-                ListBoxEmpresas.DataSource = filteredRows.CopyToDataTable()
+                ListBoxCNAE.DataSource = filteredRows.CopyToDataTable()
             Else
                 ' Se não houver resultados, exiba uma lista vazia
                 Dim emptyTable As New DataTable()
                 emptyTable.Columns.Add("RazaoSocial", GetType(String))
-                ListBoxEmpresas.DataSource = emptyTable
+                ListBoxCNAE.DataSource = emptyTable
             End If
         End If
 
         ' Limpe qualquer seleção anterior
-        ListBoxEmpresas.ClearSelected()
+        ListBoxCNAE.ClearSelected()
     End Sub
 
-    Private Sub ListBoxEmpresas_MouseMove(sender As Object, e As MouseEventArgs) Handles ListBoxEmpresas.MouseMove
-        Dim index As Integer = ListBoxEmpresas.IndexFromPoint(e.Location)
-        If index >= 0 AndAlso index < ListBoxEmpresas.Items.Count Then
-            Dim item As DataRowView = CType(ListBoxEmpresas.Items(index), DataRowView)
+    Private Sub ListBoxEmpresas_MouseMove(sender As Object, e As MouseEventArgs) Handles ListBoxCNAE.MouseMove
+        Dim index As Integer = ListBoxCNAE.IndexFromPoint(e.Location)
+        If index >= 0 AndAlso index < ListBoxCNAE.Items.Count Then
+            Dim item As DataRowView = CType(ListBoxCNAE.Items(index), DataRowView)
             Dim itemText As String = item("RazaoSocial").ToString()
-            toolTip.SetToolTip(ListBoxEmpresas, itemText)
+            toolTip.SetToolTip(ListBoxCNAE, itemText)
         Else
-            toolTip.SetToolTip(ListBoxEmpresas, String.Empty)
+            toolTip.SetToolTip(ListBoxCNAE, String.Empty)
         End If
     End Sub
 
-    Private Sub ListBoxEmpresas_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBoxEmpresas.MouseDoubleClick
-        Dim selectedItem As DataRowView = CType(ListBoxEmpresas.SelectedItem, DataRowView)
+    Private Sub ListBoxEmpresas_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBoxCNAE.MouseDoubleClick
+        Dim selectedItem As DataRowView = CType(ListBoxCNAE.SelectedItem, DataRowView)
         If selectedItem IsNot Nothing Then
             Dim selectedRazaoSocial As String = selectedItem("RazaoSocial").ToString()
 

@@ -248,6 +248,7 @@ Partial Class FrmAlvara
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxProtocolo = New System.Windows.Forms.GroupBox()
+        Me.BtnAgoraProt = New System.Windows.Forms.Button()
         Me.LblProtocolo2 = New System.Windows.Forms.Label()
         Me.LblProtocolo1 = New System.Windows.Forms.Label()
         Me.BtnNovoProtocolo = New System.Windows.Forms.Button()
@@ -297,6 +298,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -613,7 +615,7 @@ Partial Class FrmAlvara
         'RamodeatividadeLabel
         '
         RamodeatividadeLabel.AutoSize = True
-        RamodeatividadeLabel.Location = New System.Drawing.Point(12, 106)
+        RamodeatividadeLabel.Location = New System.Drawing.Point(119, 16)
         RamodeatividadeLabel.Name = "RamodeatividadeLabel"
         RamodeatividadeLabel.Size = New System.Drawing.Size(97, 13)
         RamodeatividadeLabel.TabIndex = 24
@@ -903,6 +905,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -2436,6 +2439,7 @@ Partial Class FrmAlvara
         '
         'TabPage10
         '
+        Me.TabPage10.Controls.Add(Me.BtnGrauDeRisco)
         Me.TabPage10.Controls.Add(RamodeatividadeLabel)
         Me.TabPage10.Controls.Add(Me.RamodeatividadeRichTextBox)
         Me.TabPage10.Controls.Add(Me.CNAERichTextBox)
@@ -2451,9 +2455,9 @@ Partial Class FrmAlvara
         'RamodeatividadeRichTextBox
         '
         Me.RamodeatividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Ramodeatividade", True))
-        Me.RamodeatividadeRichTextBox.Location = New System.Drawing.Point(13, 122)
+        Me.RamodeatividadeRichTextBox.Location = New System.Drawing.Point(115, 32)
         Me.RamodeatividadeRichTextBox.Name = "RamodeatividadeRichTextBox"
-        Me.RamodeatividadeRichTextBox.Size = New System.Drawing.Size(503, 72)
+        Me.RamodeatividadeRichTextBox.Size = New System.Drawing.Size(327, 162)
         Me.RamodeatividadeRichTextBox.TabIndex = 25
         Me.RamodeatividadeRichTextBox.Text = ""
         '
@@ -2462,7 +2466,7 @@ Partial Class FrmAlvara
         Me.CNAERichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNAE", True))
         Me.CNAERichTextBox.Location = New System.Drawing.Point(15, 32)
         Me.CNAERichTextBox.Name = "CNAERichTextBox"
-        Me.CNAERichTextBox.Size = New System.Drawing.Size(503, 71)
+        Me.CNAERichTextBox.Size = New System.Drawing.Size(94, 162)
         Me.CNAERichTextBox.TabIndex = 24
         Me.CNAERichTextBox.Text = ""
         '
@@ -2773,6 +2777,7 @@ Partial Class FrmAlvara
         'GroupBoxProtocolo
         '
         Me.GroupBoxProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.GroupBoxProtocolo.Controls.Add(Me.BtnAgoraProt)
         Me.GroupBoxProtocolo.Controls.Add(Me.LblProtocolo2)
         Me.GroupBoxProtocolo.Controls.Add(Me.LblProtocolo1)
         Me.GroupBoxProtocolo.Controls.Add(ReciboProcessoLabel)
@@ -2797,6 +2802,19 @@ Partial Class FrmAlvara
         Me.GroupBoxProtocolo.TabIndex = 76
         Me.GroupBoxProtocolo.TabStop = False
         Me.GroupBoxProtocolo.Text = "Processo"
+        '
+        'BtnAgoraProt
+        '
+        Me.BtnAgoraProt.BackgroundImage = CType(resources.GetObject("BtnAgoraProt.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAgoraProt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAgoraProt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAgoraProt.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnAgoraProt.Location = New System.Drawing.Point(201, 19)
+        Me.BtnAgoraProt.Name = "BtnAgoraProt"
+        Me.BtnAgoraProt.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAgoraProt.TabIndex = 81
+        Me.BtnAgoraProt.Text = "Agora"
+        Me.BtnAgoraProt.UseVisualStyleBackColor = True
         '
         'LblProtocolo2
         '
@@ -3352,6 +3370,19 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'BtnGrauDeRisco
+        '
+        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(448, 32)
+        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
+        Me.BtnGrauDeRisco.TabIndex = 81
+        Me.BtnGrauDeRisco.Text = "Grau de Risco"
+        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3680,4 +3711,6 @@ Partial Class FrmAlvara
     Friend WithEvents BtnMapa As Button
     Friend WithEvents BtnCopiaCEP As Button
     Friend WithEvents PrioridadeCheckBox As CheckBox
+    Friend WithEvents BtnAgoraProt As Button
+    Friend WithEvents BtnGrauDeRisco As Button
 End Class

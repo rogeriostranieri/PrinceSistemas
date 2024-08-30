@@ -1,24 +1,5 @@
-﻿legalizacao
-
-- bloquear ao editar e cancelar = EmpresasBindingNavigator
-fazer a mesma coisa no alvara
+﻿
 
 
- - adicionar listbox mostrando filiais da empresa com ID diferentes, 
- mas CNPJ sao iguais ate /000... antes disso nao muda o cnpj por ser filial
- buscar iniciais iguais no banco de dados com ou sem caraceteres 
 
-ai vai mostrar no listbox e ao clicar ele muda para filial mas verificando se teve alteração
-no EmpresasTable
-
-
- - Busca CNAE da prefeitura de maringa
- ali vai pegar o CNAE do formulario aberto (ver qual se legalizacao ou alvara)
- ai pega os CNAE e coloca no novo FORM com 2 richtext
- a primeira fica os cnae que pegou e depois botao para consulta
- na conusslta vai pegar paragrafo por paragrafo e consultar com a nova DB 
- e vai mostrar os dados igual da DBE em cada novo paragrafo
-
- RICH text vai ter que permitir colorido para pintar o grau de RISCO
- exemplo = CNAE X / GRAU DE RISCO X (em vermelho) = Descricao / Observação = X . 
- cada paragrafo que for criado buscando cada CNAE respectivos
+feito

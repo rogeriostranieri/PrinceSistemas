@@ -64,12 +64,41 @@ Public Class FrmAlvara
         ' Configurar o valor do ComboBox com base no valor salvo em Laudos
         ConfigurarComboBox()
 
+        InicializarControles()
+
         For Each col As DataColumn In Me.PrinceDBDataSet.Laudos.Columns
             col.ReadOnly = False
         Next
     End Sub
 
+    Private Sub InicializarControles()
+        Try
+            If BtnEditar.Text = "Cancelar" Then
+                ' Remover do dock, ocultar e desabilitar o binding navigator
+                LaudosBindingNavigator.Dock = DockStyle.None
+                LaudosBindingNavigator.Visible = False
+                LaudosBindingNavigator.Enabled = False
 
+                ' Oculte os combo boxes também
+                ComboBoxBuscaCNPJ.Visible = False
+                ComboBoxBuscaAlvara.Visible = False
+                Label19.Visible = False
+            Else
+                ' Se não estiver em modo de edição, habilitar e mostrar o binding navigator
+                LaudosBindingNavigator.Dock = DockStyle.Top
+                LaudosBindingNavigator.Visible = True
+                LaudosBindingNavigator.Enabled = True
+
+                ' Mostrar os combo boxes
+                ComboBoxBuscaCNPJ.Visible = True
+                ComboBoxBuscaAlvara.Visible = True
+                Label19.Visible = True
+
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao editar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
 
 
     Private Sub AtualizarBindingSource()
@@ -303,11 +332,11 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.EndEdit()
 
-            ' Forçar atualização do DataTable para garantir que alterações são refletidas
+            ' Obter registros alterados no DataTable
             Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
 
             ' Verificar se há alterações para salvar
-            If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
                 ' Criar uma string para armazenar as mudanças
                 Dim changesDescription As String = ""
 
@@ -335,15 +364,18 @@ Public Class FrmAlvara
 
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
+                        PrinceDBDataSet.Laudos.RejectChanges()
+                        Application.DoEvents()
+
                         BtnEditar.Text = "Editar"
                         Button17.Enabled = True
                         CheckBoxPrioridade.Enabled = False
                         GroupBox4.Enabled = False
+
+                        ' Recarregar dados
                         Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
 
-                        ' Permitir que o sistema processe os eventos pendentes
-                        Application.DoEvents()
-
+                        ' Focar no CNPJ da empresa no combobox de busca
                         ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
                         ComboBoxBuscaCNPJ.Select()
                         DesativaDataProvisorio()
@@ -351,22 +383,31 @@ Public Class FrmAlvara
                     Case DialogResult.Yes
                         Try
                             ' Salvar alterações
-                            Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+                            Dim rowsAffected As Integer = Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                            ' Verificar se o salvamento foi bem-sucedido
+                            If rowsAffected > 0 Then
+                                MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
+                            Application.DoEvents()
 
                             ' Recarregar os dados para garantir que tudo está sincronizado
                             Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                            ' Permitir que o sistema processe os eventos pendentes
-                            Application.DoEvents()
 
                             ' Desativar edição após salvar
                             BtnEditar.Text = "Editar"
                             CheckBoxPrioridade.Enabled = False
                             GroupBox4.Enabled = False
+                            Button17.Enabled = True
+
+                            ' Focar no CNPJ da empresa no combobox de busca
                             ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
                             ComboBoxBuscaCNPJ.Select()
                             DesativaDataProvisorio()
-                            MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                         Catch exc As Exception
                             MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
@@ -386,6 +427,7 @@ Public Class FrmAlvara
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 
@@ -613,6 +655,8 @@ Public Class FrmAlvara
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+            Salvar()
+
             Me.Validate()
             Me.LaudosBindingSource.AddNew()
 
@@ -1097,6 +1141,7 @@ Public Class FrmAlvara
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
+        InicializarControles()
 
     End Sub
 
@@ -1792,7 +1837,21 @@ Public Class FrmAlvara
         End If
     End Sub
 
+
+
     '//////////////////////////////////////// FIM DATA PROVISORIO ////////////////////////////////////////////////////////////////
+    Private Sub BtnAgoraProt_Click(sender As Object, e As EventArgs) Handles BtnAgoraProt.Click
+        ' Obtém a data e hora atuais
+        Dim dataAtual As DateTime = DateTime.Now
 
+        ' Formata a data e hora no formato desejado
+        Dim dataFormatada As String = dataAtual.ToString("dd/MM/yyyy HH:mm")
 
+        ' Atribui a data formatada ao MaskedTextBox
+        DataEntradaMaskedTextBox.Text = dataFormatada
+    End Sub
+
+    Private Sub BtnGrauDeRisco_Click(sender As Object, e As EventArgs) Handles BtnGrauDeRisco.Click
+        FrmCNAEescolha.Show()
+    End Sub
 End Class

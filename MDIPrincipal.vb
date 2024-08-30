@@ -951,4 +951,8 @@ Public Class MDIPrincipal
             WebSiteGERAL.WebsiteNavigate("https://www.google.com.br/")
         End Try
     End Sub
+
+    Private Sub MaringáPRToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MaringáPRToolStripMenuItem.Click
+        FrmBuscaCNAE.Show()
+    End Sub
 End Class

@@ -52,9 +52,8 @@ Public Class FrmLegalizacao
 
 
     'FIM maiusculo
-
-
-    Private Sub Salvar()
+    '///////////////////// SALVAR PRIVATE E PUBLIC
+    Public Sub SalvarExterno()
         Try
             ' Finalizar edição e obter registros alterados
             Me.EmpresasBindingSource.EndEdit()
@@ -67,15 +66,21 @@ Public Class FrmLegalizacao
 
                 ' Iterar sobre as linhas alteradas
                 For Each row As DataRow In changedRecords.Rows
+                    ' Adiciona o ID da empresa
                     changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
 
                     ' Iterar sobre as colunas para identificar as mudanças
                     For Each column As DataColumn In changedRecords.Columns
-                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        ' Verificar se o registro não é novo antes de acessar dados originais
+                        If row.RowState <> DataRowState.Added Then
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Else
+                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                         End If
                     Next
-                    changesDescription &= vbCrLf
+                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
                 Next
 
                 ' Mostrar a quantidade de alterações e as mudanças
@@ -90,7 +95,6 @@ Public Class FrmLegalizacao
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
                         PrinceDBDataSet.Empresas.RejectChanges()
-                        ' Permitir que o sistema processe os eventos pendentes
                         Application.DoEvents()
 
                         BtnEditar.Text = "Editar"
@@ -109,9 +113,16 @@ Public Class FrmLegalizacao
 
                             Me.Validate()
                             Me.EmpresasBindingSource.EndEdit()
-                            Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
 
-                            ' Permitir que o sistema processe os eventos pendentes
+                            ' Tente atualizar o DataSet
+                            Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+
+                            If rowsAffected > 0 Then
+                                MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
                             Application.DoEvents()
 
                             ' Ajustar a interface após salvar
@@ -150,6 +161,168 @@ Public Class FrmLegalizacao
     End Sub
 
 
+    Private Sub Salvar()
+        Try
+            ' Finalizar edição e obter registros alterados
+            Me.EmpresasBindingSource.EndEdit()
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
+
+            ' Verificar se há alterações para salvar
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+                ' Criar uma string para armazenar as mudanças
+                Dim changesDescription As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    ' Adiciona o ID da empresa
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        ' Verificar se o registro não é novo antes de acessar dados originais
+                        If row.RowState <> DataRowState.Added Then
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Else
+                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
+                Next
+
+                ' Mostrar a quantidade de alterações e as mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Ação para Cancelar
+                        Return
+
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
+                        PrinceDBDataSet.Empresas.RejectChanges()
+                        Application.DoEvents()
+
+                        BtnEditar.Text = "Editar"
+                        BtnExcluir.Enabled = True
+                        GroupBox2.Enabled = False
+                        GroupBox10.Enabled = False
+
+                        ' Recarregar dados
+                        Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
+                        Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+
+                    Case DialogResult.Yes
+                        ' Salvar alterações
+                        Try
+                            MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
+
+                            Me.Validate()
+                            Me.EmpresasBindingSource.EndEdit()
+
+                            ' Tente atualizar o DataSet
+                            Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+
+                            If rowsAffected > 0 Then
+                                MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
+                            Application.DoEvents()
+
+                            ' Ajustar a interface após salvar
+                            BtnEditar.Text = "Editar"
+                            GroupBox2.Enabled = False
+                            GroupBox10.Enabled = False
+                            BtnExcluir.Enabled = True
+
+                            ' Focar na empresa atual no combobox de busca
+                            Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                            ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                            ComboBoxBuscaEmpresa.Focus()
+                            RazaoSocialTextBox.Focus()
+
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+                End Select
+            Else
+                ' Não há alterações, apenas desativar edição
+                BtnEditar.Text = "Editar"
+                GroupBox2.Enabled = False
+                GroupBox10.Enabled = False
+                BtnExcluir.Enabled = True
+
+                ' Focar na empresa atual
+                Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                ComboBoxBuscaEmpresa.Focus()
+                RazaoSocialTextBox.Focus()
+            End If
+
+
+
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+
+    Private Sub VerificarFiliais()
+
+        ' Obtém o CNPJ atual e remove a máscara, se houver
+        Dim cnpjAtual As String = CNPJMaskedTextBox.Text.Trim()
+
+        ' Verifica se o CNPJ é válido e extrai a base do CNPJ (primeiros 8 dígitos)
+        If Not String.IsNullOrEmpty(cnpjAtual) AndAlso cnpjAtual.Length >= 10 Then
+            ' Extraímos os primeiros 10 caracteres incluindo pontos e barra
+            Dim cnpjBase As String = cnpjAtual.Substring(0, 10)
+
+            ' Consulta SQL para contar o número de filiais com o mesmo CNPJ base
+            Dim query As String = "SELECT COUNT(*) FROM Empresas WHERE CNPJ LIKE @CNPJBase + '%000%' AND CNPJ <> @CNPJAtual"
+            Dim filiaisCount As Integer = 0
+
+            Using conn As New SqlConnection(connectionString)
+                Using cmd As New SqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@CNPJBase", cnpjBase)
+                    cmd.Parameters.AddWithValue("@CNPJAtual", cnpjAtual)
+                    conn.Open()
+
+                    filiaisCount = Convert.ToInt32(cmd.ExecuteScalar())
+                End Using
+            End Using
+
+            ' Atualiza o botão BtnFiliais conforme o número de filiais encontradas
+            If filiaisCount > 0 Then
+                BtnFiliais.Text = $"{filiaisCount} Empresas Vinculadas"
+                BtnFiliais.Visible = True
+            Else
+                BtnFiliais.Visible = False
+            End If
+            AjustarTamanhoBtnFiliais()
+        End If
+    End Sub
+
+
+    Private Sub AjustarTamanhoBtnFiliais()
+        ' Define o texto do botão (você pode substituir isso pelo valor real a ser exibido)
+        Dim texto As String = BtnFiliais.Text
+
+        ' Calcula o tamanho do texto com base na fonte do botão
+        Dim tamanhoTexto As Size = TextRenderer.MeasureText(texto, BtnFiliais.Font)
+
+        ' Define a nova largura do botão com base na largura do texto, adicionando um pequeno padding
+        BtnFiliais.Width = tamanhoTexto.Width + 20 ' Adicione um padding para ajustar a borda
+
+        ' Opcional: Se você quiser que o botão se expanda para a direita, sem alterar a posição à esquerda
+        ' Descomente a linha abaixo e comente a linha anterior
+        ' BtnFiliais.Width = tamanhoTexto.Width + BtnFiliais.Padding.Horizontal
+    End Sub
+
+
 
     ' LOAD INICIAL
 
@@ -165,15 +338,11 @@ Public Class FrmLegalizacao
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
-
-            Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
-
-
-            BtnEditar.Text = "Cancelar"
-            ' Editar()
             ModCombobox.ComboboxLegalizacaoProcesso()
             Me.ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
+
+
         Catch ex As Exception
             MessageBox.Show("Ocorreu um Erro ao carregar o formulário" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -183,13 +352,44 @@ Public Class FrmLegalizacao
         PrinceDBDataSet.AcceptChanges()
 
         ' Atualizar o BindingSource após aplicar o filtro
-        AtualizarBindingSource()
+        'AtualizarBindingSource()
+
 
 
         For Each col As DataColumn In Me.PrinceDBDataSet.Empresas.Columns
             col.ReadOnly = False
         Next
+
+        ' Inicializa o formulário e configura o estado inicial dos controles
+        AtualizaDados2()
+
+        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
+        AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
+
+        ' Se desejar, carregue os dados da empresa inicial aqui, ou pode ser feito no Shown
+        VerificarFiliais()
+
     End Sub
+
+    Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+        ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
+        VerificarFiliais()
+    End Sub
+
+    Private Sub FrmEmpresa_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        AtualizaDados2()
+    End Sub
+
+
+    Private Sub AtualizaDados2()
+
+        ' Chama o método para verificar as filiais
+        BtnEditar.Text = "Editar"
+        Editar()
+        InicializarControles()
+        VerificarFiliais()
+    End Sub
+
 
     Private Sub AtualizarBindingSource()
         ' Forçar a atualização do BindingSource
@@ -198,6 +398,32 @@ Public Class FrmLegalizacao
     End Sub
 
 
+    Private Sub InicializarControles()
+        Try
+            If BtnEditar.Text = "Cancelar" Then
+                ' Remover do dock, ocultar e desabilitar o binding navigator
+                EmpresasBindingNavigator.Dock = DockStyle.None
+                EmpresasBindingNavigator.Visible = False
+                EmpresasBindingNavigator.Enabled = False
+
+                ' Oculte os combo boxes também
+                ComboBoxBuscaCNPJ.Visible = False
+                ComboBoxBuscaEmpresa.Visible = False
+            Else
+                ' Se não estiver em modo de edição, habilitar e mostrar o binding navigator
+                EmpresasBindingNavigator.Dock = DockStyle.Top
+                EmpresasBindingNavigator.Visible = True
+                EmpresasBindingNavigator.Enabled = True
+
+                ' Mostrar os combo boxes
+                ComboBoxBuscaCNPJ.Visible = True
+                ComboBoxBuscaEmpresa.Visible = True
+
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao editar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
 
     Private Sub StatusOrdenado()
         ' Obter a fonte de dados original do ComboBox
@@ -861,6 +1087,8 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             If BtnEditar.Text = "Editar" Then
 
                 If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+                    Salvar()
+
                     Me.Validate()
                     Me.EmpresasBindingSource.AddNew()
                     'unchek lembrete
@@ -894,6 +1122,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
             ElseIf BtnEditar.Text = "Cancelar" Then
                 If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+                    Salvar()
                     Me.Validate()
                     Me.EmpresasBindingSource.AddNew()
                     'unchek lembrete
@@ -948,6 +1177,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
         'If MsgBox(" Deseja salvar as alterações?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
         Salvar()
+        InicializarControles()
         ' Else
 
         ' End If
@@ -978,12 +1208,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
                 ' Iterar sobre as colunas para identificar as mudanças
                 For Each column As DataColumn In changedRecords.Columns
-                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                    If row.GetColumnError(column) <> "" Then
                         changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                     End If
                 Next
                 changesDescription &= vbCrLf
             Next
+
 
             ' Perguntar se deseja salvar as alterações, exibindo as mudanças detectadas
             Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription
@@ -1666,6 +1897,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     BtnExcluir.Enabled = False
                     BtnAlteracao.Enabled = True
                 End If
+
             End If
 
         Catch ex As Exception
@@ -1676,9 +1908,10 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
-
+        InicializarControles()
 
     End Sub
+
 
     Private Sub NovaRazaoSocialComboBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialComboBox.TextChanged
         ' RazaoSocialTextBox
@@ -3187,5 +3420,22 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ' Informar ao usuário que o CEP foi copiado
         'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+    End Sub
+
+    Private Sub BtnFiliais_Click(sender As Object, e As EventArgs) Handles BtnFiliais.Click
+        ' Obtém o CNPJ do MaskedTextBox no FrmLegalizacao
+        Dim cnpjAtual As String = CNPJMaskedTextBox.Text.Trim()
+
+        ' Extrai a base do CNPJ (antes do "/")
+        Dim cnpjBase As String = cnpjAtual.Split("/"c)(0)
+
+        ' Abre o formulário FrmFiliais passando o CNPJ base
+        Dim frmFiliais As New FrmFiliais(cnpjBase)
+        frmFiliais.ShowDialog()
+
+    End Sub
+
+    Private Sub BtnGrauDeRisco_Click(sender As Object, e As EventArgs) Handles BtnGrauDeRisco.Click
+        FrmCNAEescolha.Show()
     End Sub
 End Class
