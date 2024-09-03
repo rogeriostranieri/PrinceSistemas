@@ -85,6 +85,7 @@
         End If
     End Sub
 
+
     Private Sub LaudosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles LaudosDataGridView.CellContentDoubleClick
 
 

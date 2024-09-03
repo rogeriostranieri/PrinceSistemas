@@ -75,6 +75,7 @@ Partial Class FrmAlvara
         Dim EstadoOrgaoRGRequerenteLabel As System.Windows.Forms.Label
         Dim NumeroProcessoLabel As System.Windows.Forms.Label
         Dim ReciboProcessoLabel As System.Windows.Forms.Label
+        Dim MatrizLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -119,16 +120,18 @@ Partial Class FrmAlvara
         Me.BombeiroProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ButtonAddDataBombeiro = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LabelBombeiroMulta = New System.Windows.Forms.Label()
+        Me.BombeiroDataMultaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.BtnMultaBombeiro = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
         Me.Button26 = New System.Windows.Forms.Button()
-        Me.BtnProcotBomb = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.BombeiroNProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroDataPedProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.BtnProcotBomb = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDatProvAmbiental = New System.Windows.Forms.GroupBox()
         Me.AmbientalProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -218,6 +221,7 @@ Partial Class FrmAlvara
         Me.ResptecnicoTextBox = New System.Windows.Forms.TextBox()
         Me.ResptecnicoNumeroTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         Me.RamodeatividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.CNAERichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -280,6 +284,9 @@ Partial Class FrmAlvara
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
         Me.CheckBoxPrioridade = New System.Windows.Forms.GroupBox()
+        Me.BtnFiliais = New System.Windows.Forms.Button()
+        Me.MatrizComboBox = New System.Windows.Forms.ComboBox()
+        Me.LabelFilial = New System.Windows.Forms.Label()
         Me.PrioridadeCheckBox = New System.Windows.Forms.CheckBox()
         Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
@@ -298,7 +305,6 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -351,6 +357,7 @@ Partial Class FrmAlvara
         EstadoOrgaoRGRequerenteLabel = New System.Windows.Forms.Label()
         NumeroProcessoLabel = New System.Windows.Forms.Label()
         ReciboProcessoLabel = New System.Windows.Forms.Label()
+        MatrizLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -412,7 +419,7 @@ Partial Class FrmAlvara
         '
         RazaoSocialLabel.AutoSize = True
         RazaoSocialLabel.BackColor = System.Drawing.Color.Transparent
-        RazaoSocialLabel.Location = New System.Drawing.Point(12, 37)
+        RazaoSocialLabel.Location = New System.Drawing.Point(4, 37)
         RazaoSocialLabel.Name = "RazaoSocialLabel"
         RazaoSocialLabel.Size = New System.Drawing.Size(73, 13)
         RazaoSocialLabel.TabIndex = 1
@@ -431,7 +438,7 @@ Partial Class FrmAlvara
         'BombeiroNProcessoLabel
         '
         BombeiroNProcessoLabel.AutoSize = True
-        BombeiroNProcessoLabel.Location = New System.Drawing.Point(23, 22)
+        BombeiroNProcessoLabel.Location = New System.Drawing.Point(24, 22)
         BombeiroNProcessoLabel.Name = "BombeiroNProcessoLabel"
         BombeiroNProcessoLabel.Size = New System.Drawing.Size(54, 13)
         BombeiroNProcessoLabel.TabIndex = 3
@@ -495,7 +502,7 @@ Partial Class FrmAlvara
         '
         SituacaoLabel.AutoSize = True
         SituacaoLabel.BackColor = System.Drawing.Color.Transparent
-        SituacaoLabel.Location = New System.Drawing.Point(223, 88)
+        SituacaoLabel.Location = New System.Drawing.Point(232, 89)
         SituacaoLabel.Name = "SituacaoLabel"
         SituacaoLabel.Size = New System.Drawing.Size(52, 13)
         SituacaoLabel.TabIndex = 51
@@ -505,7 +512,7 @@ Partial Class FrmAlvara
         '
         AvisarDiaLabel.AutoSize = True
         AvisarDiaLabel.BackColor = System.Drawing.Color.Transparent
-        AvisarDiaLabel.Location = New System.Drawing.Point(21, 115)
+        AvisarDiaLabel.Location = New System.Drawing.Point(13, 115)
         AvisarDiaLabel.Name = "AvisarDiaLabel"
         AvisarDiaLabel.Size = New System.Drawing.Size(58, 13)
         AvisarDiaLabel.TabIndex = 69
@@ -515,7 +522,7 @@ Partial Class FrmAlvara
         '
         DataCriadoLabel.AutoSize = True
         DataCriadoLabel.BackColor = System.Drawing.Color.Transparent
-        DataCriadoLabel.Location = New System.Drawing.Point(39, 90)
+        DataCriadoLabel.Location = New System.Drawing.Point(31, 90)
         DataCriadoLabel.Name = "DataCriadoLabel"
         DataCriadoLabel.Size = New System.Drawing.Size(46, 13)
         DataCriadoLabel.TabIndex = 67
@@ -832,7 +839,7 @@ Partial Class FrmAlvara
         '
         EndCidadeLabel1.AutoSize = True
         EndCidadeLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndCidadeLabel1.Location = New System.Drawing.Point(298, 112)
+        EndCidadeLabel1.Location = New System.Drawing.Point(282, 112)
         EndCidadeLabel1.Name = "EndCidadeLabel1"
         EndCidadeLabel1.Size = New System.Drawing.Size(54, 16)
         EndCidadeLabel1.TabIndex = 75
@@ -842,7 +849,7 @@ Partial Class FrmAlvara
         '
         EndEstadoLabel1.AutoSize = True
         EndEstadoLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndEstadoLabel1.Location = New System.Drawing.Point(298, 133)
+        EndEstadoLabel1.Location = New System.Drawing.Point(282, 133)
         EndEstadoLabel1.Name = "EndEstadoLabel1"
         EndEstadoLabel1.Size = New System.Drawing.Size(53, 16)
         EndEstadoLabel1.TabIndex = 76
@@ -883,6 +890,15 @@ Partial Class FrmAlvara
         ReciboProcessoLabel.Size = New System.Drawing.Size(99, 13)
         ReciboProcessoLabel.TabIndex = 2
         ReciboProcessoLabel.Text = "Número do Recibo:"
+        '
+        'MatrizLabel
+        '
+        MatrizLabel.AutoSize = True
+        MatrizLabel.Location = New System.Drawing.Point(469, 64)
+        MatrizLabel.Name = "MatrizLabel"
+        MatrizLabel.Size = New System.Drawing.Size(39, 13)
+        MatrizLabel.TabIndex = 57
+        MatrizLabel.Text = "SEDE:"
         '
         'PrinceDBDataSet
         '
@@ -1011,15 +1027,15 @@ Partial Class FrmAlvara
         'RazaoSocialTextBox
         '
         Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "RazaoSocial", True))
-        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(85, 34)
+        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(77, 34)
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(399, 20)
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(431, 20)
         Me.RazaoSocialTextBox.TabIndex = 2
         '
         'CNPJMaskedTextBox
         '
         Me.CNPJMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNPJ", True))
-        Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(85, 60)
+        Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(77, 60)
         Me.CNPJMaskedTextBox.Mask = "99,999,999/9999-99"
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
         Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(111, 20)
@@ -1332,12 +1348,14 @@ Partial Class FrmAlvara
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.LabelBombeiroMulta)
+        Me.GroupBox2.Controls.Add(Me.BombeiroDataMultaMaskedTextBox)
+        Me.GroupBox2.Controls.Add(Me.BtnMultaBombeiro)
         Me.GroupBox2.Controls.Add(Me.Button27)
-        Me.GroupBox2.Controls.Add(Me.Button26)
         Me.GroupBox2.Controls.Add(Me.BtnProcotBomb)
+        Me.GroupBox2.Controls.Add(Me.Button26)
         Me.GroupBox2.Controls.Add(Me.Button11)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Button10)
         Me.GroupBox2.Controls.Add(Me.Button9)
         Me.GroupBox2.Controls.Add(Me.BombeiroNProcessoMaskedTextBox)
         Me.GroupBox2.Controls.Add(BombeiroNProcessoLabel)
@@ -1349,6 +1367,38 @@ Partial Class FrmAlvara
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Corpo de Bombeiros ( PrevFogo )"
         '
+        'LabelBombeiroMulta
+        '
+        Me.LabelBombeiroMulta.AutoSize = True
+        Me.LabelBombeiroMulta.Location = New System.Drawing.Point(156, 76)
+        Me.LabelBombeiroMulta.Name = "LabelBombeiroMulta"
+        Me.LabelBombeiroMulta.Size = New System.Drawing.Size(73, 13)
+        Me.LabelBombeiroMulta.TabIndex = 82
+        Me.LabelBombeiroMulta.Text = "Prazo Máximo"
+        '
+        'BombeiroDataMultaMaskedTextBox
+        '
+        Me.BombeiroDataMultaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataMulta", True))
+        Me.BombeiroDataMultaMaskedTextBox.Location = New System.Drawing.Point(86, 71)
+        Me.BombeiroDataMultaMaskedTextBox.Mask = "00/00/0000"
+        Me.BombeiroDataMultaMaskedTextBox.Name = "BombeiroDataMultaMaskedTextBox"
+        Me.BombeiroDataMultaMaskedTextBox.Size = New System.Drawing.Size(68, 20)
+        Me.BombeiroDataMultaMaskedTextBox.TabIndex = 19
+        Me.BombeiroDataMultaMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'BtnMultaBombeiro
+        '
+        Me.BtnMultaBombeiro.BackgroundImage = CType(resources.GetObject("BtnMultaBombeiro.BackgroundImage"), System.Drawing.Image)
+        Me.BtnMultaBombeiro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMultaBombeiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnMultaBombeiro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnMultaBombeiro.Location = New System.Drawing.Point(5, 69)
+        Me.BtnMultaBombeiro.Name = "BtnMultaBombeiro"
+        Me.BtnMultaBombeiro.Size = New System.Drawing.Size(77, 23)
+        Me.BtnMultaBombeiro.TabIndex = 48
+        Me.BtnMultaBombeiro.Text = "Teve Multa?"
+        Me.BtnMultaBombeiro.UseVisualStyleBackColor = True
+        '
         'Button27
         '
         Me.Button27.BackColor = System.Drawing.Color.Transparent
@@ -1356,7 +1406,7 @@ Partial Class FrmAlvara
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button27.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button27.Location = New System.Drawing.Point(224, 18)
+        Me.Button27.Location = New System.Drawing.Point(225, 18)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(46, 22)
         Me.Button27.TabIndex = 81
@@ -1366,28 +1416,17 @@ Partial Class FrmAlvara
         'Button26
         '
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button26.Location = New System.Drawing.Point(159, 45)
+        Me.Button26.Location = New System.Drawing.Point(160, 45)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(43, 21)
         Me.Button26.TabIndex = 80
         Me.Button26.Text = "Agora"
         Me.Button26.UseVisualStyleBackColor = True
         '
-        'BtnProcotBomb
-        '
-        Me.BtnProcotBomb.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BtnProcotBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnProcotBomb.Location = New System.Drawing.Point(196, 73)
-        Me.BtnProcotBomb.Name = "BtnProcotBomb"
-        Me.BtnProcotBomb.Size = New System.Drawing.Size(69, 35)
-        Me.BtnProcotBomb.TabIndex = 79
-        Me.BtnProcotBomb.Text = "Novo Protocolo"
-        Me.BtnProcotBomb.UseVisualStyleBackColor = True
-        '
         'Button11
         '
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Location = New System.Drawing.Point(64, 131)
+        Me.Button11.Location = New System.Drawing.Point(10, 131)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(123, 23)
         Me.Button11.TabIndex = 52
@@ -1397,36 +1436,26 @@ Partial Class FrmAlvara
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 49)
+        Me.Label3.Location = New System.Drawing.Point(6, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 13)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Solicitado dia:"
         '
-        'Button10
-        '
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Location = New System.Drawing.Point(64, 102)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(123, 23)
-        Me.Button10.TabIndex = 51
-        Me.Button10.Text = "Solicitação de Vistoria"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
         'Button9
         '
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Location = New System.Drawing.Point(64, 73)
+        Me.Button9.Location = New System.Drawing.Point(142, 131)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(123, 23)
+        Me.Button9.Size = New System.Drawing.Size(87, 23)
         Me.Button9.TabIndex = 50
-        Me.Button9.Text = "Corpo de Bombeiros"
+        Me.Button9.Text = "Site Bombeiros"
         Me.Button9.UseVisualStyleBackColor = True
         '
         'BombeiroNProcessoMaskedTextBox
         '
         Me.BombeiroNProcessoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroNProcesso", True))
-        Me.BombeiroNProcessoMaskedTextBox.Location = New System.Drawing.Point(83, 19)
+        Me.BombeiroNProcessoMaskedTextBox.Location = New System.Drawing.Point(84, 19)
         Me.BombeiroNProcessoMaskedTextBox.Mask = "9,9,99,99,9999999999-99"
         Me.BombeiroNProcessoMaskedTextBox.Name = "BombeiroNProcessoMaskedTextBox"
         Me.BombeiroNProcessoMaskedTextBox.Size = New System.Drawing.Size(136, 20)
@@ -1435,7 +1464,7 @@ Partial Class FrmAlvara
         'BombeiroDataPedProcessoMaskedTextBox
         '
         Me.BombeiroDataPedProcessoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroDataPedProcesso", True))
-        Me.BombeiroDataPedProcessoMaskedTextBox.Location = New System.Drawing.Point(84, 45)
+        Me.BombeiroDataPedProcessoMaskedTextBox.Location = New System.Drawing.Point(85, 45)
         Me.BombeiroDataPedProcessoMaskedTextBox.Mask = "00/00/0000"
         Me.BombeiroDataPedProcessoMaskedTextBox.Name = "BombeiroDataPedProcessoMaskedTextBox"
         Me.BombeiroDataPedProcessoMaskedTextBox.Size = New System.Drawing.Size(69, 20)
@@ -1450,6 +1479,17 @@ Partial Class FrmAlvara
         Me.BombeiroExigenciaRichTextBox.Size = New System.Drawing.Size(219, 88)
         Me.BombeiroExigenciaRichTextBox.TabIndex = 1
         Me.BombeiroExigenciaRichTextBox.Text = ""
+        '
+        'BtnProcotBomb
+        '
+        Me.BtnProcotBomb.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnProcotBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnProcotBomb.Location = New System.Drawing.Point(10, 102)
+        Me.BtnProcotBomb.Name = "BtnProcotBomb"
+        Me.BtnProcotBomb.Size = New System.Drawing.Size(123, 23)
+        Me.BtnProcotBomb.TabIndex = 79
+        Me.BtnProcotBomb.Text = "Novo Protocolo"
+        Me.BtnProcotBomb.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -1944,9 +1984,9 @@ Partial Class FrmAlvara
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(503, 10)
+        Me.GroupBox3.Location = New System.Drawing.Point(599, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(215, 165)
+        Me.GroupBox3.Size = New System.Drawing.Size(241, 165)
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Vencimento Alvará Provisório "
@@ -2085,7 +2125,7 @@ Partial Class FrmAlvara
         Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
         Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
         Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
-        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(295, 94)
+        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(447, 94)
         Me.ObservacaoRichTextBox.TabIndex = 80
         Me.ObservacaoRichTextBox.Text = ""
         '
@@ -2128,7 +2168,7 @@ Partial Class FrmAlvara
         '
         Me.BombeiroSituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroSituacao", True))
         Me.BombeiroSituacaoComboBox.FormattingEnabled = True
-        Me.BombeiroSituacaoComboBox.Items.AddRange(New Object() {"Não Necessita", "------ PrevFogo ------", "Não solicitado", "Aguardando Pagamento", "Em Andamento", "Junto com Laudo", "Não Liberado", "Finalizado Definitivo", "Finalizado Provisório", "Cancelado", "Paralisado", "Baixa em Andamento", "Baixado", "-", "---- Prefeitura/Laudo ----", "Não Iniciado", "Aguardando Pagamento", "Encaminhado p/ Vistoria", "Em Andamento", "Em Exigências", "Liberado", "Baixa em Andamento", "Baixado", "-"})
+        Me.BombeiroSituacaoComboBox.Items.AddRange(New Object() {"Aguardando Cliente", "Aguardando Pagamento", "Baixa em Andamento", "Baixado", "Cancelado", "Em Andamento", "Em Exigências", "Encaminhado p/ Vistoria", "Finalizado Definitivo", "Finalizado Provisório", "Junto com Laudo", "Liberado", "Não Iniciado", "Não Liberado", "Não Necessita", "Não solicitado", "Notificado/Multa", "Paralisado"})
         Me.BombeiroSituacaoComboBox.Location = New System.Drawing.Point(117, 87)
         Me.BombeiroSituacaoComboBox.Name = "BombeiroSituacaoComboBox"
         Me.BombeiroSituacaoComboBox.Size = New System.Drawing.Size(142, 21)
@@ -2451,6 +2491,19 @@ Partial Class FrmAlvara
         Me.TabPage10.TabIndex = 3
         Me.TabPage10.Text = "Ramo de Atividade"
         Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'BtnGrauDeRisco
+        '
+        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(448, 32)
+        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
+        Me.BtnGrauDeRisco.TabIndex = 81
+        Me.BtnGrauDeRisco.Text = "Grau de Risco"
+        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
         '
         'RamodeatividadeRichTextBox
         '
@@ -2964,9 +3017,9 @@ Partial Class FrmAlvara
         'CMCTextBox
         '
         Me.CMCTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CMC", True))
-        Me.CMCTextBox.Location = New System.Drawing.Point(402, 60)
+        Me.CMCTextBox.Location = New System.Drawing.Point(396, 60)
         Me.CMCTextBox.Name = "CMCTextBox"
-        Me.CMCTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CMCTextBox.Size = New System.Drawing.Size(72, 20)
         Me.CMCTextBox.TabIndex = 40
         '
         'Button14
@@ -3068,7 +3121,7 @@ Partial Class FrmAlvara
         Me.Button12.BackgroundImage = CType(resources.GetObject("Button12.BackgroundImage"), System.Drawing.Image)
         Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button12.Location = New System.Drawing.Point(199, 59)
+        Me.Button12.Location = New System.Drawing.Point(191, 59)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(61, 22)
         Me.Button12.TabIndex = 60
@@ -3082,7 +3135,7 @@ Partial Class FrmAlvara
         Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button15.Location = New System.Drawing.Point(266, 59)
+        Me.Button15.Location = New System.Drawing.Point(258, 59)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(46, 22)
         Me.Button15.TabIndex = 61
@@ -3092,7 +3145,7 @@ Partial Class FrmAlvara
         'AvisarDiaMaskedTextBox
         '
         Me.AvisarDiaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AvisarDia", True))
-        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(85, 112)
+        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(77, 112)
         Me.AvisarDiaMaskedTextBox.Mask = "00/00/0000"
         Me.AvisarDiaMaskedTextBox.Name = "AvisarDiaMaskedTextBox"
         Me.AvisarDiaMaskedTextBox.Size = New System.Drawing.Size(65, 20)
@@ -3102,7 +3155,7 @@ Partial Class FrmAlvara
         'DataCriadoMaskedTextBox
         '
         Me.DataCriadoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "DataCriado", True))
-        Me.DataCriadoMaskedTextBox.Location = New System.Drawing.Point(85, 86)
+        Me.DataCriadoMaskedTextBox.Location = New System.Drawing.Point(77, 86)
         Me.DataCriadoMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataCriadoMaskedTextBox.Name = "DataCriadoMaskedTextBox"
         Me.DataCriadoMaskedTextBox.Size = New System.Drawing.Size(100, 20)
@@ -3124,7 +3177,7 @@ Partial Class FrmAlvara
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
         Me.PictureBox2.Location = New System.Drawing.Point(81, -3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(403, 37)
+        Me.PictureBox2.Size = New System.Drawing.Size(534, 37)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 73
         Me.PictureBox2.TabStop = False
@@ -3133,7 +3186,7 @@ Partial Class FrmAlvara
         '
         Me.CMCLabel.AutoSize = True
         Me.CMCLabel.BackColor = System.Drawing.Color.Transparent
-        Me.CMCLabel.Location = New System.Drawing.Point(369, 64)
+        Me.CMCLabel.Location = New System.Drawing.Point(363, 64)
         Me.CMCLabel.Name = "CMCLabel"
         Me.CMCLabel.Size = New System.Drawing.Size(33, 13)
         Me.CMCLabel.TabIndex = 75
@@ -3143,6 +3196,10 @@ Partial Class FrmAlvara
         'CheckBoxPrioridade
         '
         Me.CheckBoxPrioridade.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBoxPrioridade.Controls.Add(MatrizLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.BtnFiliais)
+        Me.CheckBoxPrioridade.Controls.Add(Me.MatrizComboBox)
+        Me.CheckBoxPrioridade.Controls.Add(Me.LabelFilial)
         Me.CheckBoxPrioridade.Controls.Add(Me.PrioridadeCheckBox)
         Me.CheckBoxPrioridade.Controls.Add(Me.BtnVerificar)
         Me.CheckBoxPrioridade.Controls.Add(Me.BtnMgsBoxAvisarDia)
@@ -3168,16 +3225,48 @@ Partial Class FrmAlvara
         Me.CheckBoxPrioridade.Controls.Add(Me.CNPJMaskedTextBox)
         Me.CheckBoxPrioridade.Controls.Add(RazaoSocialLabel)
         Me.CheckBoxPrioridade.Controls.Add(Me.RazaoSocialTextBox)
-        Me.CheckBoxPrioridade.Location = New System.Drawing.Point(6, 10)
+        Me.CheckBoxPrioridade.Location = New System.Drawing.Point(4, 11)
         Me.CheckBoxPrioridade.Name = "CheckBoxPrioridade"
-        Me.CheckBoxPrioridade.Size = New System.Drawing.Size(485, 153)
+        Me.CheckBoxPrioridade.Size = New System.Drawing.Size(595, 160)
         Me.CheckBoxPrioridade.TabIndex = 78
         Me.CheckBoxPrioridade.TabStop = False
+        '
+        'BtnFiliais
+        '
+        Me.BtnFiliais.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.BtnFiliais.BackgroundImage = CType(resources.GetObject("BtnFiliais.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFiliais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFiliais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFiliais.Location = New System.Drawing.Point(509, 33)
+        Me.BtnFiliais.Name = "BtnFiliais"
+        Me.BtnFiliais.Size = New System.Drawing.Size(71, 22)
+        Me.BtnFiliais.TabIndex = 84
+        Me.BtnFiliais.Text = "Filiais"
+        Me.BtnFiliais.UseVisualStyleBackColor = False
+        '
+        'MatrizComboBox
+        '
+        Me.MatrizComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Matriz", True))
+        Me.MatrizComboBox.FormattingEnabled = True
+        Me.MatrizComboBox.Items.AddRange(New Object() {"MATRIZ", "FILIAL 1", "FILIAL 2", "FILIAL 3", "FILIAL 4", "FILIAL 5", "FILIAL 6", "FILIAL 7", "FILIAL 8", "FILIAL 9", "FILIAL 10"})
+        Me.MatrizComboBox.Location = New System.Drawing.Point(509, 61)
+        Me.MatrizComboBox.Name = "MatrizComboBox"
+        Me.MatrizComboBox.Size = New System.Drawing.Size(80, 21)
+        Me.MatrizComboBox.TabIndex = 58
+        '
+        'LabelFilial
+        '
+        Me.LabelFilial.AutoSize = True
+        Me.LabelFilial.Location = New System.Drawing.Point(512, 36)
+        Me.LabelFilial.Name = "LabelFilial"
+        Me.LabelFilial.Size = New System.Drawing.Size(61, 26)
+        Me.LabelFilial.TabIndex = 85
+        Me.LabelFilial.Text = "Filial não" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "encontrada"
         '
         'PrioridadeCheckBox
         '
         Me.PrioridadeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Prioridade", True))
-        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(156, 132)
+        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(148, 132)
         Me.PrioridadeCheckBox.Name = "PrioridadeCheckBox"
         Me.PrioridadeCheckBox.Size = New System.Drawing.Size(73, 24)
         Me.PrioridadeCheckBox.TabIndex = 58
@@ -3191,7 +3280,7 @@ Partial Class FrmAlvara
         Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVerificar.Location = New System.Drawing.Point(317, 59)
+        Me.BtnVerificar.Location = New System.Drawing.Point(309, 59)
         Me.BtnVerificar.Name = "BtnVerificar"
         Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
         Me.BtnVerificar.TabIndex = 83
@@ -3201,7 +3290,7 @@ Partial Class FrmAlvara
         'BtnMgsBoxAvisarDia
         '
         Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(202, 111)
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(194, 111)
         Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
         Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(80, 20)
         Me.BtnMgsBoxAvisarDia.TabIndex = 82
@@ -3211,7 +3300,7 @@ Partial Class FrmAlvara
         'LembreteCheckBox
         '
         Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(85, 132)
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(77, 132)
         Me.LembreteCheckBox.Name = "LembreteCheckBox"
         Me.LembreteCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.LembreteCheckBox.TabIndex = 81
@@ -3221,7 +3310,7 @@ Partial Class FrmAlvara
         'CNPJLabel
         '
         Me.CNPJLabel.AutoSize = True
-        Me.CNPJLabel.Location = New System.Drawing.Point(46, 63)
+        Me.CNPJLabel.Location = New System.Drawing.Point(38, 63)
         Me.CNPJLabel.Name = "CNPJLabel"
         Me.CNPJLabel.Size = New System.Drawing.Size(37, 13)
         Me.CNPJLabel.TabIndex = 79
@@ -3233,7 +3322,7 @@ Partial Class FrmAlvara
         Me.SituacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
         Me.SituacaoComboBox.FormattingEnabled = True
-        Me.SituacaoComboBox.Location = New System.Drawing.Point(277, 85)
+        Me.SituacaoComboBox.Location = New System.Drawing.Point(286, 86)
         Me.SituacaoComboBox.Name = "SituacaoComboBox"
         Me.SituacaoComboBox.Size = New System.Drawing.Size(207, 21)
         Me.SituacaoComboBox.TabIndex = 78
@@ -3242,7 +3331,7 @@ Partial Class FrmAlvara
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndEstado", True))
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndEstadoLabel2.Location = New System.Drawing.Point(348, 133)
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(332, 133)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
         Me.EndEstadoLabel2.Size = New System.Drawing.Size(136, 15)
         Me.EndEstadoLabel2.TabIndex = 77
@@ -3253,7 +3342,7 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.EndCidadeLabel2.Location = New System.Drawing.Point(349, 112)
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(333, 112)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
         Me.EndCidadeLabel2.Size = New System.Drawing.Size(135, 18)
         Me.EndCidadeLabel2.TabIndex = 76
@@ -3261,7 +3350,7 @@ Partial Class FrmAlvara
         'BtnData1
         '
         Me.BtnData1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData1.Location = New System.Drawing.Point(156, 111)
+        Me.BtnData1.Location = New System.Drawing.Point(148, 111)
         Me.BtnData1.Name = "BtnData1"
         Me.BtnData1.Size = New System.Drawing.Size(43, 21)
         Me.BtnData1.TabIndex = 76
@@ -3369,19 +3458,6 @@ Partial Class FrmAlvara
         Me.Label19.Size = New System.Drawing.Size(69, 15)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
-        '
-        'BtnGrauDeRisco
-        '
-        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
-        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(448, 32)
-        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
-        Me.BtnGrauDeRisco.TabIndex = 81
-        Me.BtnGrauDeRisco.Text = "Grau de Risco"
-        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
@@ -3545,7 +3621,6 @@ Partial Class FrmAlvara
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button11 As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button10 As Button
     Friend WithEvents Button9 As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label9 As Label
@@ -3713,4 +3788,10 @@ Partial Class FrmAlvara
     Friend WithEvents PrioridadeCheckBox As CheckBox
     Friend WithEvents BtnAgoraProt As Button
     Friend WithEvents BtnGrauDeRisco As Button
+    Friend WithEvents BtnFiliais As Button
+    Friend WithEvents LabelFilial As Label
+    Friend WithEvents MatrizComboBox As ComboBox
+    Friend WithEvents BombeiroDataMultaMaskedTextBox As MaskedTextBox
+    Friend WithEvents BtnMultaBombeiro As Button
+    Friend WithEvents LabelBombeiroMulta As Label
 End Class

@@ -177,6 +177,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         Me.BtnCopiarRamo = New System.Windows.Forms.Button()
         Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
@@ -396,7 +397,6 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.BtnFiliais = New System.Windows.Forms.Button()
         Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnAvancoRazao = New System.Windows.Forms.Button()
@@ -455,7 +455,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
+        Me.LabelFilial = New System.Windows.Forms.Label()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2074,6 +2074,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
+        '
+        'BtnGrauDeRisco
+        '
+        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(54, 146)
+        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
+        Me.BtnGrauDeRisco.TabIndex = 82
+        Me.BtnGrauDeRisco.Text = "Grau de Risco"
+        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
         '
         'BtnCopiarRamo
         '
@@ -4440,7 +4453,7 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.LabelFilial)
         Me.GroupBox2.Controls.Add(Me.BtnFiliais)
         Me.GroupBox2.Controls.Add(Me.BtnVerificar)
         Me.GroupBox2.Controls.Add(Me.BtnAvancoRazao)
@@ -4478,18 +4491,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Size = New System.Drawing.Size(663, 174)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(328, 149)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(61, 22)
-        Me.Button1.TabIndex = 86
-        Me.Button1.Text = "Ver"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'BtnFiliais
         '
@@ -5150,18 +5151,14 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnGrauDeRisco
+        'LabelFilial
         '
-        Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
-        Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(54, 146)
-        Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
-        Me.BtnGrauDeRisco.TabIndex = 82
-        Me.BtnGrauDeRisco.Text = "Grau de Risco"
-        Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
+        Me.LabelFilial.AutoSize = True
+        Me.LabelFilial.Location = New System.Drawing.Point(460, 125)
+        Me.LabelFilial.Name = "LabelFilial"
+        Me.LabelFilial.Size = New System.Drawing.Size(105, 13)
+        Me.LabelFilial.TabIndex = 86
+        Me.LabelFilial.Text = "Filial não encontrada"
         '
         'FrmLegalizacao
         '
@@ -5606,6 +5603,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnMapa As Button
     Friend WithEvents BtnCopiaCEP As Button
     Friend WithEvents BtnFiliais As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents BtnGrauDeRisco As Button
+    Friend WithEvents LabelFilial As Label
 End Class

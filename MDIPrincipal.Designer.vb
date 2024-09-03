@@ -153,7 +153,7 @@ Partial Class MDIPrincipal
         'ContadorToolStripMenuItem1
         '
         Me.ContadorToolStripMenuItem1.Name = "ContadorToolStripMenuItem1"
-        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ContadorToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
         Me.ContadorToolStripMenuItem1.Text = "Dados"
         '
         'ControleGeral
@@ -166,32 +166,32 @@ Partial Class MDIPrincipal
         'EmpresasToolStripMenuItem2
         '
         Me.EmpresasToolStripMenuItem2.Name = "EmpresasToolStripMenuItem2"
-        Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
+        Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(134, 22)
         Me.EmpresasToolStripMenuItem2.Text = "Empresas"
         '
         'AlvaraToolStripMenuItem
         '
         Me.AlvaraToolStripMenuItem.Name = "AlvaraToolStripMenuItem"
-        Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.AlvaraToolStripMenuItem.Text = "Alvara"
         '
         'SóciosToolStripMenuItem
         '
         Me.SóciosToolStripMenuItem.Name = "SóciosToolStripMenuItem"
-        Me.SóciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SóciosToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.SóciosToolStripMenuItem.Text = "Sócios"
         '
         'CNAEsToolStripMenuItem
         '
         Me.CNAEsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaringáPRToolStripMenuItem})
         Me.CNAEsToolStripMenuItem.Name = "CNAEsToolStripMenuItem"
-        Me.CNAEsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CNAEsToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.CNAEsToolStripMenuItem.Text = "CNAEs"
         '
         'MaringáPRToolStripMenuItem
         '
         Me.MaringáPRToolStripMenuItem.Name = "MaringáPRToolStripMenuItem"
-        Me.MaringáPRToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MaringáPRToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.MaringáPRToolStripMenuItem.Text = "Maringá-PR"
         '
         'TelefonesToolStripMenuItem

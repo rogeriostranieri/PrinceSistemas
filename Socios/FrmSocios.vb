@@ -183,8 +183,15 @@ Public Class FrmSocios
 
                 ' Iterar sobre as colunas para identificar as mudanças
                 For Each column As DataColumn In changedRecords.Columns
-                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                    ' Verificar se a linha é nova (adicionada) ou modificada
+                    If row.RowState <> DataRowState.Added Then
+                        ' Apenas verificar diferenças entre as versões original e atual se a linha não for nova
+                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Else
+                        ' Para novas linhas, apenas listar os valores atuais
+                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                     End If
                 Next
                 changesDescription &= vbCrLf
@@ -207,6 +214,7 @@ Public Class FrmSocios
             BtnEditar.Text = "Editar"
         End If
     End Sub
+
 
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs)

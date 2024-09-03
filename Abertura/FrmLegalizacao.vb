@@ -299,8 +299,10 @@ Public Class FrmLegalizacao
             If filiaisCount > 0 Then
                 BtnFiliais.Text = $"{filiaisCount} Empresas Vinculadas"
                 BtnFiliais.Visible = True
+                LabelFilial.Visible = False
             Else
                 BtnFiliais.Visible = False
+                LabelFilial.Visible = True
             End If
             AjustarTamanhoBtnFiliais()
         End If
@@ -3423,19 +3425,35 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub BtnFiliais_Click(sender As Object, e As EventArgs) Handles BtnFiliais.Click
-        ' Obtém o CNPJ do MaskedTextBox no FrmLegalizacao
+        ' Obtém o CNPJ do MaskedTextBox no FrmAlvara
         Dim cnpjAtual As String = CNPJMaskedTextBox.Text.Trim()
+
+        ' Verifica se o CNPJ está vazio ou nulo
+        If String.IsNullOrEmpty(cnpjAtual) Then
+            MessageBox.Show("Por favor, insira um CNPJ válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
 
         ' Extrai a base do CNPJ (antes do "/")
         Dim cnpjBase As String = cnpjAtual.Split("/"c)(0)
 
-        ' Abre o formulário FrmFiliais passando o CNPJ base
-        Dim frmFiliais As New FrmFiliais(cnpjBase)
+        ' Abre o formulário FrmFiliais passando o CNPJ base e o formulário chamador
+        Dim frmFiliais As New FrmFiliais(cnpjBase, Me) ' Passa "Me" como chamador
         frmFiliais.ShowDialog()
-
     End Sub
 
+
     Private Sub BtnGrauDeRisco_Click(sender As Object, e As EventArgs) Handles BtnGrauDeRisco.Click
-        FrmCNAEescolha.Show()
+        ' Verificar se o formulário já está aberto
+        If FrmCNAEescolha.Visible Then
+            FrmCNAEescolha.Close()
+            FrmCNAEescolha.Show()
+        Else
+            FrmCNAEescolha.Show()
+        End If
+    End Sub
+
+    Private Sub ComboBoxBuscaEmpresa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxBuscaEmpresa.SelectedIndexChanged
+        VerificarFiliais()
     End Sub
 End Class

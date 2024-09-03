@@ -388,6 +388,12 @@
     <Compile Include="FrmProtocoladosGeral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Laudo\Bombeiro\FrmMultaBombeiro.Designer.vb">
+      <DependentUpon>FrmMultaBombeiro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laudo\Bombeiro\FrmMultaBombeiro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Laudo\BoxJuntaComercialLaudo.Designer.vb">
       <DependentUpon>BoxJuntaComercialLaudo.vb</DependentUpon>
     </Compile>
@@ -780,6 +786,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProtocoladosGeral.resx">
       <DependentUpon>FrmProtocoladosGeral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laudo\Bombeiro\FrmMultaBombeiro.resx">
+      <DependentUpon>FrmMultaBombeiro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laudo\BoxJuntaComercialLaudo.resx">
       <DependentUpon>BoxJuntaComercialLaudo.vb</DependentUpon>

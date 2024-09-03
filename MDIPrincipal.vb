@@ -953,6 +953,19 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub MaringáPRToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MaringáPRToolStripMenuItem.Click
-        FrmBuscaCNAE.Show()
+        ' Verificar se o formulário já está aberto
+        For Each frm As Form In Application.OpenForms
+            If TypeOf frm Is FrmBuscaCNAE Then
+                frm.BringToFront()
+                frm.Focus()
+                Return ' Sai do método sem abrir uma nova instância
+            End If
+        Next
+
+        ' Se o formulário não estiver aberto, criar uma nova instância e mostrar
+        Dim novoForm As New FrmBuscaCNAE()
+        novoForm.Show()
     End Sub
+
+
 End Class

@@ -4,6 +4,8 @@ Imports System.Text
 
 Public Class FrmAlvara
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -69,6 +71,37 @@ Public Class FrmAlvara
         For Each col As DataColumn In Me.PrinceDBDataSet.Laudos.Columns
             col.ReadOnly = False
         Next
+
+        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
+        AddHandler LaudosBindingSource.CurrentChanged, AddressOf LaudosBindingSource_CurrentChanged
+
+
+        VerificarFiliais()
+
+        BombeiroMulta()
+
+    End Sub
+
+    Public Sub BombeiroMulta()
+        Dim dataValida As DateTime
+
+        ' Verifica se o texto do MaskedTextBox está vazio, contém apenas o padrão ou não é uma data válida
+        If String.IsNullOrWhiteSpace(BombeiroDataMultaMaskedTextBox.Text) OrElse BombeiroDataMultaMaskedTextBox.Text = "/ /" OrElse Not DateTime.TryParseExact(BombeiroDataMultaMaskedTextBox.Text, "dd/MM/yyyy", Nothing, Globalization.DateTimeStyles.None, dataValida) Then
+            ' Se estiver vazio, contiver "/ /" ou não for uma data válida, esconde os controles
+            BombeiroDataMultaMaskedTextBox.Visible = False
+            LabelBombeiroMulta.Visible = False
+        Else
+            ' Se contiver uma data válida, mostra os controles
+            BombeiroDataMultaMaskedTextBox.Visible = True
+            LabelBombeiroMulta.Visible = True
+        End If
+    End Sub
+
+
+    Private Sub LaudosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+        ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
+        VerificarFiliais()
+        BombeiroMulta()
     End Sub
 
     Private Sub InicializarControles()
@@ -115,6 +148,40 @@ Public Class FrmAlvara
         End If
     End Sub
 
+
+
+    Private Sub VerificarFiliais()
+        Dim cnpjBase As String = "" ' Aqui você vai pegar o CNPJ base do controle correspondente
+
+        ' Supondo que você tenha um MaskedTextBox para o CNPJ no FrmAlvara
+        cnpjBase = CNPJMaskedTextBox.Text.Substring(0, 10)
+
+        Dim query As String = "SELECT COUNT(*) FROM Laudos WHERE CNPJ LIKE @CNPJBase + '%' AND CNPJ <> @CNPJAtual"
+        Dim filiaisCount As Integer = 0
+
+        Using conn As New SqlConnection(connectionString)
+            Using cmd As New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@CNPJBase", cnpjBase)
+                cmd.Parameters.AddWithValue("@CNPJAtual", CNPJMaskedTextBox.Text)
+                conn.Open()
+
+                filiaisCount = Convert.ToInt32(cmd.ExecuteScalar())
+            End Using
+        End Using
+
+        ' Atualiza o texto do BtnFiliais
+        If filiaisCount > 0 Then
+            BtnFiliais.Text = $"{filiaisCount} Filiais"
+            BtnFiliais.Visible = True
+            LabelFilial.Visible = False
+        Else
+            BtnFiliais.Visible = False
+            LabelFilial.Visible = True
+        End If
+
+        ' Ajusta o tamanho do botão
+        BtnFiliais.AutoSize = True
+    End Sub
 
 
     '//// fim load
@@ -428,6 +495,110 @@ Public Class FrmAlvara
         End Try
     End Sub
 
+    Public Sub SalvarExterno()
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        Try
+            ' Forçar a validação e finalizar edição nos controles ligados ao BindingSource
+            Me.Validate()
+            Me.LaudosBindingSource.EndEdit()
+
+            ' Obter registros alterados no DataTable
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
+
+            ' Verificar se há alterações para salvar
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+                ' Criar uma string para armazenar as mudanças
+                Dim changesDescription As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+                    changesDescription &= vbCrLf
+                Next
+
+                ' Mostrar a quantidade de alterações e as mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Não faça nada, apenas sair do método
+                        Exit Sub
+
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
+                        PrinceDBDataSet.Laudos.RejectChanges()
+                        Application.DoEvents()
+
+                        BtnEditar.Text = "Editar"
+                        Button17.Enabled = True
+                        CheckBoxPrioridade.Enabled = False
+                        GroupBox4.Enabled = False
+
+                        ' Recarregar dados
+                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                        ' Focar no CNPJ da empresa no combobox de busca
+                        ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                        ComboBoxBuscaCNPJ.Select()
+                        DesativaDataProvisorio()
+
+                    Case DialogResult.Yes
+                        Try
+                            ' Salvar alterações
+                            Dim rowsAffected As Integer = Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                            ' Verificar se o salvamento foi bem-sucedido
+                            If rowsAffected > 0 Then
+                                MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
+                            Application.DoEvents()
+
+                            ' Recarregar os dados para garantir que tudo está sincronizado
+                            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+                            ' Desativar edição após salvar
+                            BtnEditar.Text = "Editar"
+                            CheckBoxPrioridade.Enabled = False
+                            GroupBox4.Enabled = False
+                            Button17.Enabled = True
+
+                            ' Focar no CNPJ da empresa no combobox de busca
+                            ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                            ComboBoxBuscaCNPJ.Select()
+                            DesativaDataProvisorio()
+
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+                End Select
+            Else
+                ' Não há alterações, apenas desativar edição
+                BtnEditar.Text = "Editar"
+                CheckBoxPrioridade.Enabled = False
+                GroupBox4.Enabled = False
+                Button17.Enabled = True
+                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
+                ComboBoxBuscaCNPJ.Select()
+                DesativaDataProvisorio()
+                MessageBox.Show("Nenhuma alteração foi detectada.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
 
 
 
@@ -500,7 +671,7 @@ Public Class FrmAlvara
 
             ' Copiar o número do laudo para a área de transferência
             Clipboard.SetText(NLaudo)
-            MessageBox.Show("Número do Laudo Copiado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Número do Laudo Copiado = " & NLaudo, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ' Normalizar o texto da cidade para comparação
             Dim cidadeNormalizada As String = RemoveDiacritics(EndCidadeLabel2.Text).ToLower()
@@ -770,27 +941,14 @@ Public Class FrmAlvara
         End If
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-
-        If WebSiteGERAL.Visible = False Then
-            WebSiteGERAL.Show()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
-        Else
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoria.do?action=iniciarProcesso")
-        End If
-    End Sub
-
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
 
         If FrmProtegeFacil.Visible = False Then
             FrmProtegeFacil.Show()
-            FrmProtegeFacil.MdiParent = MDIPrincipal
+            ' FrmProtegeFacil.MdiParent = MDIPrincipal
         Else
             FrmProtegeFacil.Focus()
-            FrmProtegeFacil.MdiParent = MDIPrincipal
+            '  FrmProtegeFacil.MdiParent = MDIPrincipal
         End If
     End Sub
 
@@ -1142,7 +1300,7 @@ Public Class FrmAlvara
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
         InicializarControles()
-
+        VerificarFiliais()
     End Sub
 
     Private Sub ModeloSistemaComboBox_TextChanged(sender As Object, e As EventArgs) Handles ModeloSistemaComboBox.TextChanged
@@ -1852,6 +2010,49 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub BtnGrauDeRisco_Click(sender As Object, e As EventArgs) Handles BtnGrauDeRisco.Click
-        FrmCNAEescolha.Show()
+        ' Verificar se o formulário já está aberto
+        If FrmCNAEescolha.Visible Then
+            FrmCNAEescolha.Close()
+            FrmCNAEescolha.Show()
+        Else
+            FrmCNAEescolha.Show()
+        End If
     End Sub
+
+    Private Sub BtnFiliais_Click(sender As Object, e As EventArgs) Handles BtnFiliais.Click
+        ' Obtém o CNPJ do MaskedTextBox no FrmAlvara
+        Dim cnpjAtual As String = CNPJMaskedTextBox.Text.Trim()
+
+        ' Verifica se o CNPJ está vazio ou nulo
+        If String.IsNullOrEmpty(cnpjAtual) Then
+            MessageBox.Show("Por favor, insira um CNPJ válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        ' Extrai a base do CNPJ (antes do "/")
+        Dim cnpjBase As String = cnpjAtual.Split("/"c)(0)
+
+        ' Abre o formulário FrmFiliais passando o CNPJ base e o formulário chamador
+        Dim frmFiliais As New FrmFiliais(cnpjBase, Me) ' Passa "Me" como chamador
+        frmFiliais.ShowDialog()
+    End Sub
+
+    Private Sub ComboBoxBuscaAlvara_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxBuscaAlvara.SelectedIndexChanged
+        VerificarFiliais()
+    End Sub
+
+    Private Sub BtnMultaBombeiro_Click(sender As Object, e As EventArgs) Handles BtnMultaBombeiro.Click
+        ' Pergunta ao usuário se a empresa teve uma Notificação de Autuação
+        Dim resultado As DialogResult = MessageBox.Show("A empresa teve uma Notificação de Autuação?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Se o usuário responder "Sim", abre o FrmMultaBombeiro
+        If resultado = DialogResult.Yes Then
+            Dim frmMultaBombeiro As New FrmMultaBombeiro()
+            frmMultaBombeiro.Show()
+        Else
+            BombeiroMulta()
+        End If
+    End Sub
+
+
 End Class
