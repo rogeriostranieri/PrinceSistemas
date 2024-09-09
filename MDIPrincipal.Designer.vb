@@ -90,6 +90,7 @@ Partial Class MDIPrincipal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ButtonEmpresas = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -554,6 +555,21 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto.Size = New System.Drawing.Size(119, 17)
         Me.LblNomeCompleto.Text = "ToolStripStatusLabel1"
         '
+        'ButtonEmpresas
+        '
+        Me.ButtonEmpresas.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo1
+        Me.ButtonEmpresas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonEmpresas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonEmpresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.ButtonEmpresas.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ButtonEmpresas.Location = New System.Drawing.Point(12, 53)
+        Me.ButtonEmpresas.Name = "ButtonEmpresas"
+        Me.ButtonEmpresas.Size = New System.Drawing.Size(193, 69)
+        Me.ButtonEmpresas.TabIndex = 9
+        Me.ButtonEmpresas.Text = "Todas Empresas"
+        Me.ButtonEmpresas.UseVisualStyleBackColor = True
+        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -563,6 +579,7 @@ Partial Class MDIPrincipal
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
+        Me.Controls.Add(Me.ButtonEmpresas)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
@@ -645,4 +662,5 @@ Partial Class MDIPrincipal
     Friend WithEvents NavegadorWEBToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CNAEsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MaringáPRToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ButtonEmpresas As Button
 End Class

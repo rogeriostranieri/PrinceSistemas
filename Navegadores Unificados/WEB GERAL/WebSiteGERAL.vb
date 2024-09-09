@@ -43,7 +43,7 @@ Public Class WebSiteGERAL
             'WebView.Source = New Uri(TxtURL.Text)
             WebsiteNavigate(TxtURL.Text)
         End If
-
+        BotaoTodasEmpresasMDIPrincipalOFF()
     End Sub
 
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -55,7 +55,7 @@ Public Class WebSiteGERAL
 
         'dispose of WebView
         WebView.Dispose()
-
+        BotaoTodasEmpresasMDIPrincipalON()
         'Sobre excluir a pasta de todo cache e cookies está ao fechar MDIPRINCIPAL
     End Sub
 

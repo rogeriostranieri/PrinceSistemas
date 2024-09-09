@@ -399,29 +399,41 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.EndEdit()
 
-            ' Obter registros alterados no DataTable
-            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
+            ' Obter registros adicionados e modificados no DataTable
+            Dim addedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Added)
+            Dim modifiedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
 
-            ' Verificar se há alterações para salvar
-            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+            ' Verificar se há alterações para salvar (adicionados ou modificados)
+            If (addedRecords IsNot Nothing AndAlso addedRecords.Rows.Count > 0) OrElse
+           (modifiedRecords IsNot Nothing AndAlso modifiedRecords.Rows.Count > 0) Then
+
                 ' Criar uma string para armazenar as mudanças
                 Dim changesDescription As String = ""
 
-                ' Iterar sobre as linhas alteradas
-                For Each row As DataRow In changedRecords.Rows
-                    changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
-
-                    ' Iterar sobre as colunas para identificar as mudanças
-                    For Each column As DataColumn In changedRecords.Columns
-                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                        End If
+                ' Iterar sobre as linhas adicionadas
+                If addedRecords IsNot Nothing Then
+                    For Each row As DataRow In addedRecords.Rows
+                        changesDescription &= "Novo registro adicionado com ID: " & row("ID_Laudos").ToString() & vbCrLf
                     Next
-                    changesDescription &= vbCrLf
-                Next
+                End If
+
+                ' Iterar sobre as linhas modificadas
+                If modifiedRecords IsNot Nothing Then
+                    For Each row As DataRow In modifiedRecords.Rows
+                        changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                        ' Iterar sobre as colunas para identificar as mudanças
+                        For Each column As DataColumn In modifiedRecords.Columns
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Next
+                        changesDescription &= vbCrLf
+                    Next
+                End If
 
                 ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
@@ -494,6 +506,7 @@ Public Class FrmAlvara
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
     Public Sub SalvarExterno()
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
@@ -503,29 +516,41 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.EndEdit()
 
-            ' Obter registros alterados no DataTable
-            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
+            ' Obter registros adicionados e modificados no DataTable
+            Dim addedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Added)
+            Dim modifiedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
 
-            ' Verificar se há alterações para salvar
-            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+            ' Verificar se há alterações para salvar (adicionados ou modificados)
+            If (addedRecords IsNot Nothing AndAlso addedRecords.Rows.Count > 0) OrElse
+           (modifiedRecords IsNot Nothing AndAlso modifiedRecords.Rows.Count > 0) Then
+
                 ' Criar uma string para armazenar as mudanças
                 Dim changesDescription As String = ""
 
-                ' Iterar sobre as linhas alteradas
-                For Each row As DataRow In changedRecords.Rows
-                    changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
-
-                    ' Iterar sobre as colunas para identificar as mudanças
-                    For Each column As DataColumn In changedRecords.Columns
-                        If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                        End If
+                ' Iterar sobre as linhas adicionadas
+                If addedRecords IsNot Nothing Then
+                    For Each row As DataRow In addedRecords.Rows
+                        changesDescription &= "Novo registro adicionado com ID: " & row("ID_Laudos").ToString() & vbCrLf
                     Next
-                    changesDescription &= vbCrLf
-                Next
+                End If
+
+                ' Iterar sobre as linhas modificadas
+                If modifiedRecords IsNot Nothing Then
+                    For Each row As DataRow In modifiedRecords.Rows
+                        changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                        ' Iterar sobre as colunas para identificar as mudanças
+                        For Each column As DataColumn In modifiedRecords.Columns
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Next
+                        changesDescription &= vbCrLf
+                    Next
+                End If
 
                 ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
@@ -598,7 +623,6 @@ Public Class FrmAlvara
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
-
 
 
 
@@ -899,7 +923,8 @@ Public Class FrmAlvara
 
                 ' Iterar sobre as colunas para identificar as mudanças
                 For Each column As DataColumn In changedRecords.Columns
-                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                    ' Verificar se a linha tem uma versão original antes de comparar
+                    If row.HasVersion(DataRowVersion.Original) AndAlso Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
                         changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                     End If
                 Next
@@ -926,6 +951,7 @@ Public Class FrmAlvara
             End If
         End If
     End Sub
+
 
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click

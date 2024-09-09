@@ -538,7 +538,7 @@ Partial Class WebSiteGERAL
         'ImportarDadosToolStripMenuItem1
         '
         Me.ImportarDadosToolStripMenuItem1.Name = "ImportarDadosToolStripMenuItem1"
-        Me.ImportarDadosToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ImportarDadosToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
         Me.ImportarDadosToolStripMenuItem1.Text = "Importar dados"
         '
         'AcompanhamentoDaSolicitaçãoToolStripMenuItem1

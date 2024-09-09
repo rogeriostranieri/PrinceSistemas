@@ -418,6 +418,7 @@
     <Compile Include="Laudo\PrevFogo\FrmProtegeFacil.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo\ModInicial.vb" />
     <Compile Include="Modulo\ModNumeroExtenso.vb" />
     <Compile Include="Modulo\ModProtecaoPrint.vb" />
     <Compile Include="Modulo\ModuloBuscaCEP.vb" />

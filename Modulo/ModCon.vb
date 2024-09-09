@@ -46,11 +46,15 @@ Tente novamente!", "Prince Ajuda")
 
 
 
-                            'Abrir FORM
+                            ' Abre o formulário FrmAlvara
                             FrmAlvara.Show()
-                            'Valida e Abre um novo registro
-                            FrmAlvara.Validate()
+
+                            ' Adiciona um novo registro
                             FrmAlvara.LaudosBindingSource.AddNew()
+
+                            ' Finaliza a edição para que o registro seja tratado como uma alteração
+                            FrmAlvara.LaudosBindingSource.EndEdit()
+
                             '  LFrmAlvara.RazaoSocialTextBox.Text = RazaoSocialTextBox.Text
 
 
@@ -162,11 +166,15 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
     "Prince Sistemas Informa")
                         Else
 
-                            'Abrir FORM
+                            ' Abre o formulário FrmAlvara
                             FrmAlvara.Show()
-                            'Valida e Abre um novo registro
-                            FrmAlvara.Validate()
+
+                            ' Adiciona um novo registro
                             FrmAlvara.LaudosBindingSource.AddNew()
+
+                            ' Finaliza a edição para que o registro seja tratado como uma alteração
+                            FrmAlvara.LaudosBindingSource.EndEdit()
+
                             FrmAlvara.TabControlAcompanhamento.SelectTab(0)
 
                             FrmAlvara.ComboBoxBuscaAlvara.Focus()
@@ -343,11 +351,15 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
 
 
 
-                                    'Abrir FORM
+                                    ' Abre o formulário FrmAlvara
                                     FrmAlvara.Show()
-                                    'Valida e Abre um novo registro
-                                    FrmAlvara.Validate()
+
+                                    ' Adiciona um novo registro
                                     FrmAlvara.LaudosBindingSource.AddNew()
+
+                                    ' Finaliza a edição para que o registro seja tratado como uma alteração
+                                    FrmAlvara.LaudosBindingSource.EndEdit()
+
                                     '  LFrmAlvara.RazaoSocialTextBox.Text = RazaoSocialTextBox.Text
 
 
@@ -460,10 +472,16 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                                 Else
 
                                     'Abrir FORM
+                                    ' Abre o formulário FrmAlvara
                                     FrmAlvara.Show()
-                                    'Valida e Abre um novo registro
-                                    FrmAlvara.Validate()
+
+                                    ' Adiciona um novo registro
                                     FrmAlvara.LaudosBindingSource.AddNew()
+
+                                    ' Finaliza a edição para que o registro seja tratado como uma alteração
+                                    FrmAlvara.LaudosBindingSource.EndEdit()
+
+
                                     FrmAlvara.TabControlAcompanhamento.SelectTab(0)
 
                                     FrmAlvara.ComboBoxBuscaAlvara.Focus()

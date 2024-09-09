@@ -210,6 +210,13 @@ Public Class MDIPrincipal
         MenuStrip.Dock = DockStyle.Top
 
 
+        ' No Load do MDIPAI ou no evento de abertura do formulário filho
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is MdiClient Then
+                ctrl.SendToBack()
+            End If
+        Next
+
 
     End Sub
 
@@ -967,5 +974,18 @@ Public Class MDIPrincipal
         novoForm.Show()
     End Sub
 
+    Private Sub ButtonEmpresas_Click(sender As Object, e As EventArgs) Handles ButtonEmpresas.Click
+        If Application.OpenForms.OfType(Of FrmGeral)().Count() > 0 Then
+            FrmGeral.Focus()
+            FrmGeral.MdiParent = Me
+        Else
+            FrmGeral.MdiParent = Me
+            FrmGeral.Show()
+        End If
+    End Sub
 
+    Private Sub MDIPrincipal_MdiChildActivate(sender As Object, e As EventArgs) Handles MyBase.MdiChildActivate
+        Me.BringToFront()
+
+    End Sub
 End Class

@@ -92,7 +92,7 @@ Public Class FrmProtocoladosGeral
                 frmLegalizacao.ComboBoxBuscaEmpresa.Select()
             Else
                 ' Se FrmLegalizacao não estiver aberto, criar e mostrar uma nova instância
-                frmLegalizacao = New FrmLegalizacao()
+                ' frmLegalizacao = New FrmLegalizacao()
                 frmLegalizacao.Show()
                 frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
                 frmLegalizacao.ComboBoxBuscaEmpresa.Select()
@@ -113,17 +113,23 @@ Public Class FrmProtocoladosGeral
             If frmAlvara IsNot Nothing Then
                 ' Se FrmAlvara já está aberto, focar nele e atualizar o laudo
                 frmAlvara.BringToFront()
-                frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
-                frmAlvara.ComboBoxBuscaAlvara.Select()
             Else
-                ' Se FrmAlvara não estiver aberto, criar e mostrar uma nova instância
-                frmAlvara = New FrmAlvara()
-                frmAlvara.Show()
-                frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
-                frmAlvara.ComboBoxBuscaAlvara.Select()
+                ' Se FrmAlvara não estiver aberto, utilize uma função que abre ou ativa o form
+                Call AbrirForm(frmAlvara)
             End If
+
+            ' Atualizar o ComboBox com a Razão Social
+            frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
+            frmAlvara.ComboBoxBuscaAlvara.Select()
         End If
     End Sub
+
+    ' Função para abrir ou ativar o formulário
+    Private Sub AbrirForm(ByRef frm As FrmAlvara)
+        frm = FrmAlvara
+        frm.Show()
+    End Sub
+
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.Close()
