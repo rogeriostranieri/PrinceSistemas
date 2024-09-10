@@ -124,6 +124,7 @@ Partial Class FrmAlvara
         Me.BombeiroDataMultaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BtnMultaBombeiro = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
+        Me.BtnProcotBomb = New System.Windows.Forms.Button()
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -131,7 +132,6 @@ Partial Class FrmAlvara
         Me.BombeiroNProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroDataPedProcessoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.BombeiroExigenciaRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.BtnProcotBomb = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDatProvAmbiental = New System.Windows.Forms.GroupBox()
         Me.AmbientalProvisorioDATAMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -305,6 +305,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnVerObsGeral = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -1413,6 +1414,17 @@ Partial Class FrmAlvara
         Me.Button27.Text = "Copiar"
         Me.Button27.UseVisualStyleBackColor = False
         '
+        'BtnProcotBomb
+        '
+        Me.BtnProcotBomb.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnProcotBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnProcotBomb.Location = New System.Drawing.Point(10, 102)
+        Me.BtnProcotBomb.Name = "BtnProcotBomb"
+        Me.BtnProcotBomb.Size = New System.Drawing.Size(123, 23)
+        Me.BtnProcotBomb.TabIndex = 79
+        Me.BtnProcotBomb.Text = "Novo Protocolo"
+        Me.BtnProcotBomb.UseVisualStyleBackColor = True
+        '
         'Button26
         '
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -1479,17 +1491,6 @@ Partial Class FrmAlvara
         Me.BombeiroExigenciaRichTextBox.Size = New System.Drawing.Size(219, 88)
         Me.BombeiroExigenciaRichTextBox.TabIndex = 1
         Me.BombeiroExigenciaRichTextBox.Text = ""
-        '
-        'BtnProcotBomb
-        '
-        Me.BtnProcotBomb.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BtnProcotBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnProcotBomb.Location = New System.Drawing.Point(10, 102)
-        Me.BtnProcotBomb.Name = "BtnProcotBomb"
-        Me.BtnProcotBomb.Size = New System.Drawing.Size(123, 23)
-        Me.BtnProcotBomb.TabIndex = 79
-        Me.BtnProcotBomb.Text = "Novo Protocolo"
-        Me.BtnProcotBomb.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -2099,6 +2100,7 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.BtnVerObsGeral)
         Me.GroupBox4.Controls.Add(Me.ObservacaoRichTextBox)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
@@ -2125,7 +2127,7 @@ Partial Class FrmAlvara
         Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
         Me.ObservacaoRichTextBox.Location = New System.Drawing.Point(379, 25)
         Me.ObservacaoRichTextBox.Name = "ObservacaoRichTextBox"
-        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(447, 94)
+        Me.ObservacaoRichTextBox.Size = New System.Drawing.Size(447, 78)
         Me.ObservacaoRichTextBox.TabIndex = 80
         Me.ObservacaoRichTextBox.Text = ""
         '
@@ -3459,6 +3461,19 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
+        'BtnVerObsGeral
+        '
+        Me.BtnVerObsGeral.BackgroundImage = CType(resources.GetObject("BtnVerObsGeral.BackgroundImage"), System.Drawing.Image)
+        Me.BtnVerObsGeral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnVerObsGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerObsGeral.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerObsGeral.Location = New System.Drawing.Point(379, 105)
+        Me.BtnVerObsGeral.Name = "BtnVerObsGeral"
+        Me.BtnVerObsGeral.Size = New System.Drawing.Size(80, 23)
+        Me.BtnVerObsGeral.TabIndex = 81
+        Me.BtnVerObsGeral.Text = "Ver Completo"
+        Me.BtnVerObsGeral.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3794,4 +3809,5 @@ Partial Class FrmAlvara
     Friend WithEvents BombeiroDataMultaMaskedTextBox As MaskedTextBox
     Friend WithEvents BtnMultaBombeiro As Button
     Friend WithEvents LabelBombeiroMulta As Label
+    Friend WithEvents BtnVerObsGeral As Button
 End Class

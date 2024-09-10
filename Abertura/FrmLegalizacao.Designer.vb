@@ -141,6 +141,8 @@ Partial Class FrmLegalizacao
         Me.PrinceDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControle = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BtnVerObsGeral = New System.Windows.Forms.Button()
+        Me.BtnVerProcedimento = New System.Windows.Forms.Button()
         Me.MotivoLabel = New System.Windows.Forms.Label()
         Me.Button46 = New System.Windows.Forms.Button()
         Me.BtnListaEventos = New System.Windows.Forms.Button()
@@ -397,6 +399,7 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LabelFilial = New System.Windows.Forms.Label()
         Me.BtnFiliais = New System.Windows.Forms.Button()
         Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnAvancoRazao = New System.Windows.Forms.Button()
@@ -455,7 +458,8 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LabelFilial = New System.Windows.Forms.Label()
+        Me.BtnVerEmpresaFacil = New System.Windows.Forms.Button()
+        Me.BtnVerFederal = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -660,7 +664,7 @@ Partial Class FrmLegalizacao
         'GeralLabel
         '
         GeralLabel.AutoSize = True
-        GeralLabel.Location = New System.Drawing.Point(337, 149)
+        GeralLabel.Location = New System.Drawing.Point(337, 135)
         GeralLabel.Name = "GeralLabel"
         GeralLabel.Size = New System.Drawing.Size(106, 13)
         GeralLabel.TabIndex = 0
@@ -1649,6 +1653,8 @@ Partial Class FrmLegalizacao
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.BtnVerObsGeral)
+        Me.TabPage1.Controls.Add(Me.BtnVerProcedimento)
         Me.TabPage1.Controls.Add(Me.MotivoLabel)
         Me.TabPage1.Controls.Add(Me.Button46)
         Me.TabPage1.Controls.Add(Me.BtnListaEventos)
@@ -1664,6 +1670,30 @@ Partial Class FrmLegalizacao
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Geral"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'BtnVerObsGeral
+        '
+        Me.BtnVerObsGeral.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerObsGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerObsGeral.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerObsGeral.Location = New System.Drawing.Point(601, 211)
+        Me.BtnVerObsGeral.Name = "BtnVerObsGeral"
+        Me.BtnVerObsGeral.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerObsGeral.TabIndex = 79
+        Me.BtnVerObsGeral.Text = "Ver"
+        Me.BtnVerObsGeral.UseVisualStyleBackColor = False
+        '
+        'BtnVerProcedimento
+        '
+        Me.BtnVerProcedimento.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerProcedimento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerProcedimento.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerProcedimento.Location = New System.Drawing.Point(601, 109)
+        Me.BtnVerProcedimento.Name = "BtnVerProcedimento"
+        Me.BtnVerProcedimento.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerProcedimento.TabIndex = 78
+        Me.BtnVerProcedimento.Text = "Ver"
+        Me.BtnVerProcedimento.UseVisualStyleBackColor = False
         '
         'MotivoLabel
         '
@@ -1714,16 +1744,16 @@ Partial Class FrmLegalizacao
         Me.ProcedimentoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Procedimento", True))
         Me.ProcedimentoRichTextBox.Location = New System.Drawing.Point(337, 30)
         Me.ProcedimentoRichTextBox.Name = "ProcedimentoRichTextBox"
-        Me.ProcedimentoRichTextBox.Size = New System.Drawing.Size(265, 109)
+        Me.ProcedimentoRichTextBox.Size = New System.Drawing.Size(265, 101)
         Me.ProcedimentoRichTextBox.TabIndex = 3
         Me.ProcedimentoRichTextBox.Text = ""
         '
         'GeralRichTextBox
         '
         Me.GeralRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Geral", True))
-        Me.GeralRichTextBox.Location = New System.Drawing.Point(337, 165)
+        Me.GeralRichTextBox.Location = New System.Drawing.Point(337, 151)
         Me.GeralRichTextBox.Name = "GeralRichTextBox"
-        Me.GeralRichTextBox.Size = New System.Drawing.Size(274, 68)
+        Me.GeralRichTextBox.Size = New System.Drawing.Size(265, 82)
         Me.GeralRichTextBox.TabIndex = 1
         Me.GeralRichTextBox.Text = ""
         '
@@ -2921,6 +2951,7 @@ Partial Class FrmLegalizacao
         'TabPage3
         '
         Me.TabPage3.AutoScroll = True
+        Me.TabPage3.Controls.Add(Me.BtnVerEmpresaFacil)
         Me.TabPage3.Controls.Add(Me.LinkLabeLPrazoEmpresaFacil)
         Me.TabPage3.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.TabPage3.Controls.Add(Me.BtnData3)
@@ -3401,7 +3432,7 @@ Partial Class FrmLegalizacao
         Me.JuntaObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "JuntaObs", True))
         Me.JuntaObsRichTextBox.Location = New System.Drawing.Point(14, 162)
         Me.JuntaObsRichTextBox.Name = "JuntaObsRichTextBox"
-        Me.JuntaObsRichTextBox.Size = New System.Drawing.Size(285, 70)
+        Me.JuntaObsRichTextBox.Size = New System.Drawing.Size(270, 70)
         Me.JuntaObsRichTextBox.TabIndex = 30
         Me.JuntaObsRichTextBox.Text = ""
         '
@@ -3447,6 +3478,7 @@ Partial Class FrmLegalizacao
         'TabPage4
         '
         Me.TabPage4.AutoScroll = True
+        Me.TabPage4.Controls.Add(Me.BtnVerFederal)
         Me.TabPage4.Controls.Add(Me.BtnAnotacoesFederal)
         Me.TabPage4.Controls.Add(Me.BtnData4)
         Me.TabPage4.Controls.Add(Me.Button47)
@@ -4492,6 +4524,15 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
+        'LabelFilial
+        '
+        Me.LabelFilial.AutoSize = True
+        Me.LabelFilial.Location = New System.Drawing.Point(460, 125)
+        Me.LabelFilial.Name = "LabelFilial"
+        Me.LabelFilial.Size = New System.Drawing.Size(105, 13)
+        Me.LabelFilial.TabIndex = 86
+        Me.LabelFilial.Text = "Filial não encontrada"
+        '
         'BtnFiliais
         '
         Me.BtnFiliais.BackgroundImage = CType(resources.GetObject("BtnFiliais.BackgroundImage"), System.Drawing.Image)
@@ -5151,14 +5192,29 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'LabelFilial
+        'BtnVerEmpresaFacil
         '
-        Me.LabelFilial.AutoSize = True
-        Me.LabelFilial.Location = New System.Drawing.Point(460, 125)
-        Me.LabelFilial.Name = "LabelFilial"
-        Me.LabelFilial.Size = New System.Drawing.Size(105, 13)
-        Me.LabelFilial.TabIndex = 86
-        Me.LabelFilial.Text = "Filial não encontrada"
+        Me.BtnVerEmpresaFacil.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerEmpresaFacil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerEmpresaFacil.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerEmpresaFacil.Location = New System.Drawing.Point(284, 207)
+        Me.BtnVerEmpresaFacil.Name = "BtnVerEmpresaFacil"
+        Me.BtnVerEmpresaFacil.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerEmpresaFacil.TabIndex = 80
+        Me.BtnVerEmpresaFacil.Text = "Ver"
+        Me.BtnVerEmpresaFacil.UseVisualStyleBackColor = False
+        '
+        'BtnVerFederal
+        '
+        Me.BtnVerFederal.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerFederal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerFederal.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerFederal.Location = New System.Drawing.Point(310, 117)
+        Me.BtnVerFederal.Name = "BtnVerFederal"
+        Me.BtnVerFederal.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerFederal.TabIndex = 80
+        Me.BtnVerFederal.Text = "Ver"
+        Me.BtnVerFederal.UseVisualStyleBackColor = False
         '
         'FrmLegalizacao
         '
@@ -5605,4 +5661,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnFiliais As Button
     Friend WithEvents BtnGrauDeRisco As Button
     Friend WithEvents LabelFilial As Label
+    Friend WithEvents BtnVerProcedimento As Button
+    Friend WithEvents BtnVerObsGeral As Button
+    Friend WithEvents BtnVerEmpresaFacil As Button
+    Friend WithEvents BtnVerFederal As Button
 End Class

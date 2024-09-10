@@ -270,6 +270,20 @@ Public Class FrmLegalizacao
         End Try
     End Sub
 
+    Private Sub HabilitaEdicao()
+        BtnEditar.Text = "Cancelar"
+        BtnExcluir.Enabled = False
+        GroupBox2.Enabled = True
+        GroupBox10.Enabled = True
+    End Sub
+
+    Private Sub DesabilitaEdicao()
+        BtnEditar.Text = "Editar"
+        BtnExcluir.Enabled = True
+        GroupBox2.Enabled = False
+        GroupBox10.Enabled = False
+    End Sub
+
 
     Private Sub VerificarFiliais()
 
@@ -1086,83 +1100,41 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         Try
-            If BtnEditar.Text = "Editar" Then
+            Salvar()
 
-                If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
-                    Salvar()
-
+            If BtnEditar.Text = "Editar" Or BtnEditar.Text = "Cancelar" Then
+                If MsgBox("Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
                     Me.Validate()
                     Me.EmpresasBindingSource.AddNew()
-                    'unchek lembrete
 
+                    ' Uncheck Lembrete e Prioridade
                     LembreteCheckBox.CheckState = CheckState.Unchecked
                     PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
-                    'Cadastro
+                    ' Configurações de Cadastro
                     TipoDeEmpresaComboBox.SelectedIndex = -1
                     PorteDaEmpresaComboBox.SelectedIndex = -1
                     RegimeFederalComboBox.SelectedIndex = -1
                     NaturezaJuridicaComboBox.SelectedIndex = -1
 
-                    'que faltou
-                    'RegimeFederalComboBox.SelectedText = "Pendência"
-                    RegimeFederalComboBox.SelectedIndex = 4
-
-
-                    'procedimentos
+                    ' Definir valores padrão
+                    RegimeFederalComboBox.SelectedIndex = 4  ' RegimeFederal = Pendência
                     StatusComboBox.SelectedText = "Não Iniciado"
-
                     ProcessoComboBox.SelectedIndex = -1
-                    'SistemaExternoComboBox.SelectedText = "Não"
-                    SistemaExternoComboBox.SelectedIndex = 1
-                    EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
+                    SistemaExternoComboBox.SelectedIndex = 1  ' SistemaExterno = Não
+
+                    ' Preencher campos com a data e hora atuais
+                    EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-                    Editar()
-                Else
-
+                    HabilitaEdicao()
                 End If
-
-            ElseIf BtnEditar.Text = "Cancelar" Then
-                If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
-                    Salvar()
-                    Me.Validate()
-                    Me.EmpresasBindingSource.AddNew()
-                    'unchek lembrete
-
-                    LembreteCheckBox.CheckState = CheckState.Unchecked
-                    PrioridadeCheckBox.CheckState = CheckState.Unchecked
-
-                    'Cadastro
-                    TipoDeEmpresaComboBox.SelectedIndex = -1
-                    PorteDaEmpresaComboBox.SelectedIndex = -1
-                    RegimeFederalComboBox.SelectedIndex = -1
-                    NaturezaJuridicaComboBox.SelectedIndex = -1
-
-                    'que faltou
-                    'RegimeFederalComboBox.SelectedText = "Pendência"
-                    RegimeFederalComboBox.SelectedIndex = 4
-
-
-                    'procedimentos
-
-                    StatusComboBox.SelectedText = "Não Iniciado"
-
-                    ProcessoComboBox.SelectedIndex = -1
-                    'SistemaExternoComboBox.SelectedText = "Não"
-                    SistemaExternoComboBox.SelectedIndex = 1
-                    EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
-                    AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-                Else
-
-                End If
-
             End If
 
         Catch ex As Exception
             MsgBox("ERRO, Verifique se os campos estão preenchidos corretamente", MsgBoxStyle.Critical, "Prince Sistemas")
         End Try
-
     End Sub
+
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles BtnExcluir.Click
         If MsgBox(" Deseja apagar o registo ?", MsgBoxStyle.YesNo, "Apagar") = MsgBoxResult.Yes Then
@@ -1866,28 +1838,25 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             ElseIf BtnEditar.Text = "Cancelar" Then
                 ' Perguntar se o usuário deseja cancelar as alterações
                 Dim resultado As DialogResult = MessageBox.Show("Deseja cancelar as alterações e reverter os dados?",
-                                                            "Cancelar Edição", MessageBoxButtons.YesNo,
-                                                            MessageBoxIcon.Question)
+                                                         "Cancelar Edição", MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question)
 
                 If resultado = DialogResult.Yes Then
-                    ' Cancelar as alterações feitas
+                    ' Cancelar as alterações feitas e reverter os dados
+                    Me.EmpresasBindingSource.CancelEdit()
+
+                    ' Reverter o texto do botão e desabilitar os campos de edição
                     BtnEditar.Text = "Editar"
                     GroupBox2.Enabled = False
                     GroupBox10.Enabled = False
 
-                    Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-
-                    ' Salvar os dados e recarregar
-                    Salvar()
-
-                    ' Permitir que o sistema processe os eventos pendentes
-                    Application.DoEvents()
-
                     ' Reposicionar o foco nos controles
+                    Dim NomeEmpresa As String = RazaoSocialTextBox.Text
                     ComboBoxBuscaEmpresa.Text = NomeEmpresa
                     ComboBoxBuscaEmpresa.Focus()
                     RazaoSocialTextBox.Focus()
 
+                    ' Habilitar botões relevantes
                     BtnExcluir.Enabled = True
                     BtnAlteracao.Enabled = False
                 Else
@@ -1906,6 +1875,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             MessageBox.Show("Erro ao editar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
@@ -3455,5 +3425,64 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub ComboBoxBuscaEmpresa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxBuscaEmpresa.SelectedIndexChanged
         VerificarFiliais()
+    End Sub
+
+
+
+    Private Sub BtnVerProcedimento_Click(sender As Object, e As EventArgs) Handles BtnVerProcedimento.Click
+        ' Cria uma instância do FrmRichTextCompleto
+        Dim frmRichTextCompleto As New FrmRichTextCompleto()
+
+        ' Passa a referência do ProcedimentoRichTextBox para o FrmRichTextCompleto
+        frmRichTextCompleto.RichTextBoxOrigem = ProcedimentoRichTextBox
+
+        ' Preenche o RichTextBoxCompleto com o texto atual do ProcedimentoRichTextBox
+        frmRichTextCompleto.RichTextBoxCompleto.Text = ProcedimentoRichTextBox.Text
+
+        ' Exibe o FrmRichTextCompleto
+        frmRichTextCompleto.ShowDialog()
+    End Sub
+
+    Private Sub BtnVerObsGeral_Click(sender As Object, e As EventArgs) Handles BtnVerObsGeral.Click
+        ' Cria uma instância do FrmRichTextCompleto
+        Dim frmRichTextCompleto As New FrmRichTextCompleto()
+
+        ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
+        frmRichTextCompleto.RichTextBoxOrigem = GeralRichTextBox
+
+        ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
+        frmRichTextCompleto.RichTextBoxCompleto.Text = GeralRichTextBox.Text
+
+        ' Exibe o FrmRichTextCompleto
+        frmRichTextCompleto.ShowDialog()
+    End Sub
+
+    Private Sub BtnVerEmpresaFacil_Click(sender As Object, e As EventArgs) Handles BtnVerEmpresaFacil.Click
+        'JuntaObsRichTextBox
+        ' Cria uma instância do FrmRichTextCompleto
+        Dim frmRichTextCompleto As New FrmRichTextCompleto()
+
+        ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
+        frmRichTextCompleto.RichTextBoxOrigem = JuntaObsRichTextBox
+
+        ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
+        frmRichTextCompleto.RichTextBoxCompleto.Text = JuntaObsRichTextBox.Text
+
+        ' Exibe o FrmRichTextCompleto
+        frmRichTextCompleto.ShowDialog()
+    End Sub
+
+    Private Sub BtnVerFederal_Click(sender As Object, e As EventArgs) Handles BtnVerFederal.Click
+        'RedeSimObsRichTextBox
+        Dim frmRichTextCompleto As New FrmRichTextCompleto()
+
+        ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
+        frmRichTextCompleto.RichTextBoxOrigem = RedeSimObsRichTextBox()
+
+        ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
+        frmRichTextCompleto.RichTextBoxCompleto.Text = RedeSimObsRichTextBox.Text
+
+        ' Exibe o FrmRichTextCompleto
+        frmRichTextCompleto.ShowDialog()
     End Sub
 End Class

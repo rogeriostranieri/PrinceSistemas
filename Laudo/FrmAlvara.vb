@@ -2080,5 +2080,18 @@ Public Class FrmAlvara
         End If
     End Sub
 
+    Private Sub BtnVerObsGeral_Click(sender As Object, e As EventArgs) Handles BtnVerObsGeral.Click
+        'ObservacaoRichTextBox
+        ' Cria uma instância do FrmRichTextCompleto
+        Dim frmRichTextCompleto As New FrmRichTextCompleto()
 
+        ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
+        frmRichTextCompleto.RichTextBoxOrigem = ObservacaoRichTextBox
+
+        ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
+        frmRichTextCompleto.RichTextBoxCompleto.Text = ObservacaoRichTextBox.Text
+
+        ' Exibe o FrmRichTextCompleto
+        frmRichTextCompleto.ShowDialog()
+    End Sub
 End Class
