@@ -2089,7 +2089,7 @@ Public Class FrmAlvara
         frmRichTextCompleto.RichTextBoxOrigem = ObservacaoRichTextBox
 
         ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
-        frmRichTextCompleto.RichTextBoxCompleto.Text = ObservacaoRichTextBox.Text
+        frmRichTextCompleto.RichTextBoxCompleto.Rtf = ObservacaoRichTextBox.Rtf
 
         ' Exibe o FrmRichTextCompleto
         frmRichTextCompleto.ShowDialog()
