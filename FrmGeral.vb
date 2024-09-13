@@ -25,7 +25,7 @@ Public Class FrmGeral
         ListViewGeral.View = View.Details
         ListViewGeral.Columns.Add("Matriz/Filial", 90, HorizontalAlignment.Left)
         ListViewGeral.Columns.Add("Razão Social", 280, HorizontalAlignment.Left)
-        ListViewGeral.Columns.Add("CNPJ", 160, HorizontalAlignment.Left)
+        ListViewGeral.Columns.Add("CNPJ", 160, HorizontalAlignment.Left) ' Certifique-se que esta linha existe e que o tamanho é adequado
 
         ' Habilitar desenho personalizado
         ListViewGeral.OwnerDraw = True
@@ -36,6 +36,7 @@ Public Class FrmGeral
         Dim newFont As New Font("Arial", 12, FontStyle.Regular)
         ListViewGeral.Font = newFont
     End Sub
+
 
     Private Sub ListViewGeral_DrawColumnHeader(sender As Object, e As DrawListViewColumnHeaderEventArgs) Handles ListViewGeral.DrawColumnHeader
         ' Configurar a cor do título
@@ -66,18 +67,17 @@ Public Class FrmGeral
 
     Private Sub LoadEmpresas()
         Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
-        ' Ajustei o SQL para garantir que os campos Matriz/Sede tenham sempre um valor mesmo se for NULL
         Dim query As String = "SELECT 
-                                    COALESCE(NULLIF(Matriz, ''), 'Matriz') AS Tipo, 
-                                    RazaoSocial, 
-                                    CNPJ 
-                               FROM Laudos 
-                               UNION 
-                               SELECT 
-                                    COALESCE(NULLIF(Sede, ''), 'Matriz') AS Tipo, 
-                                    RazaoSocial, 
-                                    CNPJ 
-                               FROM Empresas"
+                                COALESCE(NULLIF(Matriz, ''), 'Matriz') AS Tipo, 
+                                RazaoSocial, 
+                                CNPJ 
+                           FROM Laudos 
+                           UNION 
+                           SELECT 
+                                COALESCE(NULLIF(Sede, ''), 'Matriz') AS Tipo, 
+                                RazaoSocial, 
+                                CNPJ 
+                           FROM Empresas"
 
         Using connection As New SqlConnection(connectionString)
             Dim command As New SqlCommand(query, connection)
@@ -93,40 +93,68 @@ Public Class FrmGeral
                 Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Sem Razão Social")
                 Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
 
-                Dim listItem As New ListViewItem(tipo) ' Matriz/Sede
-                listItem.SubItems.Add(razaoSocial) ' Razão Social
-                listItem.SubItems.Add(CNPJ) ' CNPJ
-                listItem.Tag = row("CNPJ").ToString() ' Guardar o CNPJ como Tag (não exibido)
+                ' Criar o ListViewItem com o tipo (Matriz/Filial)
+                Dim listItem As New ListViewItem(tipo)
+
+                ' Adicionar a Razão Social como subitem
+                listItem.SubItems.Add(razaoSocial)
+
+                ' Adicionar o CNPJ como subitem
+                listItem.SubItems.Add(CNPJ) ' Esta linha garante que o CNPJ será exibido
+
+                ' Guardar o CNPJ no Tag
+                listItem.Tag = CNPJ
+
+                ' Adicionar o item ao ListView
                 ListViewGeral.Items.Add(listItem)
             Next
         End Using
     End Sub
 
-    Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
-        Dim searchTerm As String = TextBoxBusca.Text.Trim().ToLower()
 
-        If String.IsNullOrEmpty(searchTerm) Then
-            ' Quando a busca está vazia, exiba todas as empresas
+
+    Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
+        Dim termoBusca As String = TextBoxBusca.Text.Trim()
+
+        ' Se a caixa de busca estiver vazia, recarregar todas as empresas
+        If String.IsNullOrEmpty(termoBusca) Then
             LoadEmpresas()
         Else
-            ListViewGeral.Items.Clear()
-
-            ' Filtrar as empresas com base na busca
-            Dim filteredRows = allEmpresas.AsEnumerable().Where(Function(row) row.Field(Of String)("RazaoSocial").ToLower().Contains(searchTerm))
-
-            If filteredRows.Any() Then
-                For Each row In filteredRows
-                    Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
-                    Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Sem Razão Social")
-
-                    Dim listItem As New ListViewItem(tipo)
-                    listItem.SubItems.Add(razaoSocial)
-                    listItem.Tag = row("CNPJ").ToString()
-                    ListViewGeral.Items.Add(listItem)
-                Next
-            End If
+            ' Caso contrário, filtrar empresas com base no termo de busca
+            BuscarEmpresas(termoBusca)
         End If
     End Sub
+
+    Private Sub BuscarEmpresas(ByVal termoBusca As String)
+        ' Filtra o DataTable com base no termo de busca
+        Dim resultados As DataRow() = allEmpresas.Select("RazaoSocial LIKE '%" & termoBusca & "%' OR CNPJ LIKE '%" & termoBusca & "%'")
+
+        ' Limpar o ListView antes de exibir os resultados filtrados
+        ListViewGeral.Items.Clear()
+
+        ' Adicionar os resultados filtrados ao ListView
+        For Each row As DataRow In resultados
+            Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
+            Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Sem Razão Social")
+            Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
+
+            ' Criar o ListViewItem com o tipo (Matriz/Filial)
+            Dim listItem As New ListViewItem(tipo)
+
+            ' Adicionar a Razão Social como subitem
+            listItem.SubItems.Add(razaoSocial)
+
+            ' Adicionar o CNPJ como subitem
+            listItem.SubItems.Add(CNPJ) ' Garantir que o CNPJ esteja sendo adicionado
+
+            ' Guardar o CNPJ no Tag
+            listItem.Tag = CNPJ
+
+            ' Adicionar o item ao ListView
+            ListViewGeral.Items.Add(listItem)
+        Next
+    End Sub
+
 
     Private Sub ListViewGeral_MouseMove(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseMove
         Dim item As ListViewItem = ListViewGeral.GetItemAt(e.X, e.Y)
@@ -174,4 +202,22 @@ Public Class FrmGeral
         FrmAtalhoBuscadores.MdiParent = Me.MdiParent ' Definindo o formulário MDI pai
         FrmAtalhoBuscadores.Show()
     End Sub
+
+    Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
+        ' Verifica se a TextBox de busca contém texto
+        Dim termoBusca As String = TextBoxBusca.Text.Trim()
+
+        ' Se houver texto na TextBox, faz a busca e atualiza o ListView
+        If Not String.IsNullOrEmpty(termoBusca) Then
+            ' Atualiza a busca com base no termo atual
+            BuscarEmpresas(termoBusca)
+        Else
+            ' Se a TextBox estiver vazia, apenas recarrega todas as empresas
+            LoadEmpresas()
+        End If
+
+        ' Mensagem opcional para confirmar que a atualização foi feita
+        MessageBox.Show("Dados atualizados com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
 End Class

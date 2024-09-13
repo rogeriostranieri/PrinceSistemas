@@ -2946,7 +2946,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
 
 
     Private Sub SEDEComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SEDEComboBox.SelectionChangeCommitted
-        'verificar se existe empresas com o mesmo nome e informar por mgsbox
+        ' Verificar se existe empresas com o mesmo nome e informar via MessageBox
         Dim con As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
         Dim cmd As New SqlCommand("SELECT * FROM Empresas WHERE SEDE = @SEDE AND RazaoSocial = @RazaoSocial", con)
         cmd.Parameters.AddWithValue("@SEDE", SEDEComboBox.Text)
@@ -2954,15 +2954,19 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         Dim da As New SqlDataAdapter(cmd)
         Dim dt As New DataTable()
         da.Fill(dt)
+
         If dt.Rows.Count > 0 Then
             Dim Sede As String = SEDEComboBox.Text
-            MessageBox.Show("Existe uma empresa com a mesma razão social e sede: " & Sede, "Prince Ajuda")
-            'SEDEComboBox seleciona o qual estava antes ou se for null
-            SEDEComboBox.SelectedIndex = SEDEComboBox.FindString(SEDEComboBox.Text)
+            Dim result As DialogResult = MessageBox.Show("Existe uma empresa com a mesma razão social e sede: " & Sede & vbCrLf & "Deseja continuar com a mudança?", "Prince Ajuda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
-            BoxEmpresasIguais()
+            If result = DialogResult.No Then
+                ' Reverter para a seleção anterior
+                SEDEComboBox.SelectedIndex = SEDEComboBox.FindString(SEDEComboBox.Text)
+            Else
+                ' Continuar e executar a lógica adicional
+                BoxEmpresasIguais()
+            End If
         End If
-
     End Sub
 
     Private Sub BoxEmpresasIguais()

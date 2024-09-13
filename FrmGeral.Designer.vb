@@ -29,7 +29,9 @@ Partial Class FrmGeral
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.ListViewGeral = New System.Windows.Forms.ListView()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnAtualizar = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBoxBusca
@@ -39,6 +41,7 @@ Partial Class FrmGeral
         Me.TextBoxBusca.Name = "TextBoxBusca"
         Me.TextBoxBusca.Size = New System.Drawing.Size(472, 31)
         Me.TextBoxBusca.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.TextBoxBusca, "Digite aqui a empresa para busar")
         '
         'Label1
         '
@@ -73,6 +76,7 @@ Partial Class FrmGeral
         Me.LinkLabel1.TabIndex = 16
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Buscar Empresas personalizado"
+        Me.ToolTip1.SetToolTip(Me.LinkLabel1, "Busca personalizada avançada")
         '
         'ListViewGeral
         '
@@ -83,6 +87,17 @@ Partial Class FrmGeral
         Me.ListViewGeral.TabIndex = 17
         Me.ListViewGeral.UseCompatibleStateImageBehavior = False
         '
+        'BtnAtualizar
+        '
+        Me.BtnAtualizar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.atualizar_azu
+        Me.BtnAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAtualizar.Location = New System.Drawing.Point(12, 563)
+        Me.BtnAtualizar.Name = "BtnAtualizar"
+        Me.BtnAtualizar.Size = New System.Drawing.Size(24, 23)
+        Me.BtnAtualizar.TabIndex = 18
+        Me.BtnAtualizar.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.BtnAtualizar, "Atualizar dados")
+        '
         'FrmGeral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -90,6 +105,7 @@ Partial Class FrmGeral
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(499, 587)
         Me.ControlBox = False
+        Me.Controls.Add(Me.BtnAtualizar)
         Me.Controls.Add(Me.ListViewGeral)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
@@ -105,6 +121,7 @@ Partial Class FrmGeral
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Empresas"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -116,4 +133,5 @@ Partial Class FrmGeral
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents ListViewGeral As ListView
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents BtnAtualizar As PictureBox
 End Class
