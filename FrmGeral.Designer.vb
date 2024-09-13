@@ -22,11 +22,13 @@ Partial Class FrmGeral
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TextBoxBusca = New System.Windows.Forms.TextBox()
-        Me.ListBoxCNAE = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.ListViewGeral = New System.Windows.Forms.ListView()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -37,16 +39,6 @@ Partial Class FrmGeral
         Me.TextBoxBusca.Name = "TextBoxBusca"
         Me.TextBoxBusca.Size = New System.Drawing.Size(472, 31)
         Me.TextBoxBusca.TabIndex = 0
-        '
-        'ListBoxCNAE
-        '
-        Me.ListBoxCNAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBoxCNAE.FormattingEnabled = True
-        Me.ListBoxCNAE.ItemHeight = 20
-        Me.ListBoxCNAE.Location = New System.Drawing.Point(12, 96)
-        Me.ListBoxCNAE.Name = "ListBoxCNAE"
-        Me.ListBoxCNAE.Size = New System.Drawing.Size(472, 464)
-        Me.ListBoxCNAE.TabIndex = 1
         '
         'Label1
         '
@@ -82,17 +74,26 @@ Partial Class FrmGeral
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Buscar Empresas personalizado"
         '
+        'ListViewGeral
+        '
+        Me.ListViewGeral.HideSelection = False
+        Me.ListViewGeral.Location = New System.Drawing.Point(12, 96)
+        Me.ListViewGeral.Name = "ListViewGeral"
+        Me.ListViewGeral.Size = New System.Drawing.Size(472, 464)
+        Me.ListViewGeral.TabIndex = 17
+        Me.ListViewGeral.UseCompatibleStateImageBehavior = False
+        '
         'FrmGeral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(494, 587)
+        Me.ClientSize = New System.Drawing.Size(499, 587)
         Me.ControlBox = False
+        Me.Controls.Add(Me.ListViewGeral)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBoxCNAE)
         Me.Controls.Add(Me.TextBoxBusca)
         Me.HelpButton = True
         Me.KeyPreview = True
@@ -110,8 +111,9 @@ Partial Class FrmGeral
     End Sub
 
     Friend WithEvents TextBoxBusca As TextBox
-    Friend WithEvents ListBoxCNAE As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents ListViewGeral As ListView
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

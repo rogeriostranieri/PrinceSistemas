@@ -20,17 +20,41 @@ Public Class FrmAlvara
 
 
     Private Sub FrmAlvara_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Try
-            ' Carregar os dados da tabela CADSituacaoAlvara
+            ' Carregar os dados das tabelas
             Me.CADSituacaoAlvaraTableAdapter.Fill(Me.PrinceDBDataSet.CADSituacaoAlvara)
+            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+            Me.AlvaraSistemaTableAdapter.Fill(Me.PrinceDBDataSet.AlvaraSistema)
+            Me.BombeiroSituacaoTableAdapter.Fill(Me.PrinceDBDataSet.BombeiroSituacao)
+
+            ' Vincular ComboBox de Situação com CADSituacaoAlvara
             SituacaoComboBox.DataSource = Me.CADSituacaoAlvaraBindingSource
             SituacaoComboBox.DisplayMember = "Descricao"
             SituacaoComboBox.ValueMember = "Descricao"
 
-            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+            ' Vincular ComboBox de Bombeiro com BombeiroSituacao
+            BombeiroSituacaoComboBox.DataSource = Me.BombeiroSituacaoBindingSource
+            BombeiroSituacaoComboBox.DisplayMember = "Descricao"
+            BombeiroSituacaoComboBox.ValueMember = "Descricao"
 
-            ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
-            PrinceDBDataSet.AcceptChanges()
+            ' Vincular ComboBox de Modelo de Sistema com AlvaraSistema
+            ModeloSistemaComboBox.DataSource = Me.AlvaraSistemaBindingSource
+            ModeloSistemaComboBox.DisplayMember = "Descricao"
+            ModeloSistemaComboBox.ValueMember = "Descricao"
+
+            ' Ordenar dados dos ComboBoxes
+            Dim viewSituacao As DataView = New DataView(Me.PrinceDBDataSet.CADSituacaoAlvara)
+            viewSituacao.Sort = "Descricao ASC"
+            Me.CADSituacaoAlvaraBindingSource.DataSource = viewSituacao
+
+            Dim viewBombeiro As DataView = New DataView(Me.PrinceDBDataSet.BombeiroSituacao)
+            viewBombeiro.Sort = "Descricao ASC"
+            Me.BombeiroSituacaoBindingSource.DataSource = viewBombeiro
+
+            Dim viewModeloSistema As DataView = New DataView(Me.PrinceDBDataSet.AlvaraSistema)
+            viewModeloSistema.Sort = "Descricao ASC"
+            Me.AlvaraSistemaBindingSource.DataSource = viewModeloSistema
 
             ' Atualizar o BindingSource após aplicar o filtro
             AtualizarBindingSource()
@@ -40,47 +64,32 @@ Public Class FrmAlvara
 
             ' Configurar estado inicial dos controles
             BtnEditar.Text = "Cancelar"
-            ' CheckBoxPrioridade.Enabled = False
-            ' GroupBox4.Enabled = False
             DesativaDataProvisorio()
 
             ' Tirar borda do TableLayoutPanel1
             TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None
 
-            ' Ordenar Situações
-            SituacaoOrdenado()
+            ' Permitir edição em todas as colunas do DataTable Laudos
+            For Each col As DataColumn In Me.PrinceDBDataSet.Laudos.Columns
+                col.ReadOnly = False
+            Next
 
+            ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
+            AddHandler LaudosBindingSource.CurrentChanged, AddressOf LaudosBindingSource_CurrentChanged
+
+            ' Verificar filiais e outras funções adicionais
+            VerificarFiliais()
+            BombeiroMulta()
 
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro ao carregar o formulário" & vbCrLf & ex.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocorreu um erro ao carregar o formulário" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
-
-
-        ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
-        PrinceDBDataSet.AcceptChanges()
-
-        ' Atualizar o BindingSource após aplicar o filtro
-        AtualizarBindingSource()
-
-        ' Configurar o valor do ComboBox com base no valor salvo em Laudos
-        ConfigurarComboBox()
-
+        ' Configurações adicionais
         InicializarControles()
-
-        For Each col As DataColumn In Me.PrinceDBDataSet.Laudos.Columns
-            col.ReadOnly = False
-        Next
-
-        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
-        AddHandler LaudosBindingSource.CurrentChanged, AddressOf LaudosBindingSource_CurrentChanged
-
-
-        VerificarFiliais()
-
-        BombeiroMulta()
-
     End Sub
+
+
 
     Public Sub BombeiroMulta()
         Dim dataValida As DateTime
@@ -399,38 +408,13 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.EndEdit()
 
-            ' Obter registros adicionados e modificados no DataTable
-            Dim addedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Added)
-            Dim modifiedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
+            ' Obter registros adicionados ou modificados no DataTable
+            Dim changes As DataTable = PrinceDBDataSet.Laudos.GetChanges()
 
             ' Verificar se há alterações para salvar (adicionados ou modificados)
-            If (addedRecords IsNot Nothing AndAlso addedRecords.Rows.Count > 0) OrElse
-           (modifiedRecords IsNot Nothing AndAlso modifiedRecords.Rows.Count > 0) Then
-
+            If changes IsNot Nothing AndAlso changes.Rows.Count > 0 Then
                 ' Criar uma string para armazenar as mudanças
-                Dim changesDescription As String = ""
-
-                ' Iterar sobre as linhas adicionadas
-                If addedRecords IsNot Nothing Then
-                    For Each row As DataRow In addedRecords.Rows
-                        changesDescription &= "Novo registro adicionado com ID: " & row("ID_Laudos").ToString() & vbCrLf
-                    Next
-                End If
-
-                ' Iterar sobre as linhas modificadas
-                If modifiedRecords IsNot Nothing Then
-                    For Each row As DataRow In modifiedRecords.Rows
-                        changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
-
-                        ' Iterar sobre as colunas para identificar as mudanças
-                        For Each column As DataColumn In modifiedRecords.Columns
-                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                            End If
-                        Next
-                        changesDescription &= vbCrLf
-                    Next
-                End If
+                Dim changesDescription As String = ObterDescricaoAlteracoes(changes)
 
                 ' Mostrar a quantidade de alterações e as mudanças
                 Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
@@ -443,21 +427,7 @@ Public Class FrmAlvara
 
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
-                        PrinceDBDataSet.Laudos.RejectChanges()
-                        Application.DoEvents()
-
-                        BtnEditar.Text = "Editar"
-                        Button17.Enabled = True
-                        CheckBoxPrioridade.Enabled = False
-                        GroupBox4.Enabled = False
-
-                        ' Recarregar dados
-                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                        ' Focar no CNPJ da empresa no combobox de busca
-                        ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                        ComboBoxBuscaCNPJ.Select()
-                        DesativaDataProvisorio()
+                        ReverterAlteracoes()
 
                     Case DialogResult.Yes
                         Try
@@ -471,157 +441,76 @@ Public Class FrmAlvara
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
 
-                            Application.DoEvents()
-
-                            ' Recarregar os dados para garantir que tudo está sincronizado
-                            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                            ' Desativar edição após salvar
-                            BtnEditar.Text = "Editar"
-                            CheckBoxPrioridade.Enabled = False
-                            GroupBox4.Enabled = False
-                            Button17.Enabled = True
-
-                            ' Focar no CNPJ da empresa no combobox de busca
-                            ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                            ComboBoxBuscaCNPJ.Select()
-                            DesativaDataProvisorio()
+                            ' Recarregar e desativar edição
+                            SincronizarDados()
 
                         Catch exc As Exception
-                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
-                BtnEditar.Text = "Editar"
-                CheckBoxPrioridade.Enabled = False
-                GroupBox4.Enabled = False
-                Button17.Enabled = True
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
+                DesativarEdicao()
                 MessageBox.Show("Nenhuma alteração foi detectada.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
+    ' Função para obter descrição das alterações
+    Private Function ObterDescricaoAlteracoes(changes As DataTable) As String
+        Dim changesDescription As String = ""
+
+        ' Iterar sobre as linhas adicionadas ou modificadas
+        For Each row As DataRow In changes.Rows
+            If row.RowState = DataRowState.Added Then
+                changesDescription &= "Novo registro adicionado com ID: " & row("ID_Laudos").ToString() & vbCrLf
+            ElseIf row.RowState = DataRowState.Modified Then
+                changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                ' Iterar sobre as colunas para identificar as mudanças
+                For Each column As DataColumn In changes.Columns
+                    If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                        changesDescription &= "  - " & column.ColumnName & ": " &
+                        row(column, DataRowVersion.Original).ToString() & " => " &
+                        row(column, DataRowVersion.Current).ToString() & vbCrLf
+                    End If
+                Next
+                changesDescription &= vbCrLf
+            End If
+        Next
+
+        Return changesDescription
+    End Function
+
+    ' Função para reverter alterações e recarregar dados
+    Private Sub ReverterAlteracoes()
+        PrinceDBDataSet.Laudos.RejectChanges()
+        SincronizarDados()
+    End Sub
+
+    ' Função para recarregar dados e desativar edição
+    Private Sub SincronizarDados()
+        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+        DesativarEdicao()
+    End Sub
+
+    ' Função para desativar a edição e resetar o estado da interface
+    Private Sub DesativarEdicao()
+        BtnEditar.Text = "Editar"
+        CheckBoxPrioridade.Enabled = False
+        GroupBox4.Enabled = False
+        Button17.Enabled = True
+        ComboBoxBuscaCNPJ.Text = CNPJMaskedTextBox.Text
+        ComboBoxBuscaCNPJ.Select()
+        DesativaDataProvisorio()
+    End Sub
+
+
 
     Public Sub SalvarExterno()
-        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
-
-        Try
-            ' Forçar a validação e finalizar edição nos controles ligados ao BindingSource
-            Me.Validate()
-            Me.LaudosBindingSource.EndEdit()
-
-            ' Obter registros adicionados e modificados no DataTable
-            Dim addedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Added)
-            Dim modifiedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges(DataRowState.Modified)
-
-            ' Verificar se há alterações para salvar (adicionados ou modificados)
-            If (addedRecords IsNot Nothing AndAlso addedRecords.Rows.Count > 0) OrElse
-           (modifiedRecords IsNot Nothing AndAlso modifiedRecords.Rows.Count > 0) Then
-
-                ' Criar uma string para armazenar as mudanças
-                Dim changesDescription As String = ""
-
-                ' Iterar sobre as linhas adicionadas
-                If addedRecords IsNot Nothing Then
-                    For Each row As DataRow In addedRecords.Rows
-                        changesDescription &= "Novo registro adicionado com ID: " & row("ID_Laudos").ToString() & vbCrLf
-                    Next
-                End If
-
-                ' Iterar sobre as linhas modificadas
-                If modifiedRecords IsNot Nothing Then
-                    For Each row As DataRow In modifiedRecords.Rows
-                        changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
-
-                        ' Iterar sobre as colunas para identificar as mudanças
-                        For Each column As DataColumn In modifiedRecords.Columns
-                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                            End If
-                        Next
-                        changesDescription &= vbCrLf
-                    Next
-                End If
-
-                ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
-                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-
-                Select Case result
-                    Case DialogResult.Cancel
-                        ' Não faça nada, apenas sair do método
-                        Exit Sub
-
-                    Case DialogResult.No
-                        ' Reverter mudanças e desativar edição
-                        PrinceDBDataSet.Laudos.RejectChanges()
-                        Application.DoEvents()
-
-                        BtnEditar.Text = "Editar"
-                        Button17.Enabled = True
-                        CheckBoxPrioridade.Enabled = False
-                        GroupBox4.Enabled = False
-
-                        ' Recarregar dados
-                        Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                        ' Focar no CNPJ da empresa no combobox de busca
-                        ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                        ComboBoxBuscaCNPJ.Select()
-                        DesativaDataProvisorio()
-
-                    Case DialogResult.Yes
-                        Try
-                            ' Salvar alterações
-                            Dim rowsAffected As Integer = Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
-
-                            ' Verificar se o salvamento foi bem-sucedido
-                            If rowsAffected > 0 Then
-                                MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Else
-                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            End If
-
-                            Application.DoEvents()
-
-                            ' Recarregar os dados para garantir que tudo está sincronizado
-                            Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
-
-                            ' Desativar edição após salvar
-                            BtnEditar.Text = "Editar"
-                            CheckBoxPrioridade.Enabled = False
-                            GroupBox4.Enabled = False
-                            Button17.Enabled = True
-
-                            ' Focar no CNPJ da empresa no combobox de busca
-                            ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                            ComboBoxBuscaCNPJ.Select()
-                            DesativaDataProvisorio()
-
-                        Catch exc As Exception
-                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        End Try
-                End Select
-            Else
-                ' Não há alterações, apenas desativar edição
-                BtnEditar.Text = "Editar"
-                CheckBoxPrioridade.Enabled = False
-                GroupBox4.Enabled = False
-                Button17.Enabled = True
-                ComboBoxBuscaCNPJ.Text = CNPJdaEmpresa
-                ComboBoxBuscaCNPJ.Select()
-                DesativaDataProvisorio()
-                MessageBox.Show("Nenhuma alteração foi detectada.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
+        Salvar()
     End Sub
 
 
@@ -2089,7 +1978,7 @@ Public Class FrmAlvara
         frmRichTextCompleto.RichTextBoxOrigem = ObservacaoRichTextBox
 
         ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
-        frmRichTextCompleto.RichTextBoxCompleto.Rtf = ObservacaoRichTextBox.Rtf
+        frmRichTextCompleto.RichTextBoxCompleto.Text = ObservacaoRichTextBox.Text
 
         ' Exibe o FrmRichTextCompleto
         frmRichTextCompleto.ShowDialog()

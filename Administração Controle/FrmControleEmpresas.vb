@@ -63,4 +63,29 @@
             FrmControleEventosEmpresa.Show()
         End If
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'FrmAlvaraSistema
+        If Application.OpenForms.OfType(Of FrmAlvaraSistema)().Count() > 0 Then
+            FrmAlvaraSistema.Focus()
+            FrmAlvaraSistema.Close()
+            FrmAlvaraSistema.MdiParent = MDIPrincipal
+            FrmAlvaraSistema.Show()
+        Else
+            FrmAlvaraSistema.MdiParent = MDIPrincipal
+            FrmAlvaraSistema.Show()
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If Application.OpenForms.OfType(Of FrmBombeiroSistema)().Count() > 0 Then
+            FrmBombeiroSistema.Focus()
+            FrmBombeiroSistema.Close()
+            FrmBombeiroSistema.MdiParent = MDIPrincipal
+            FrmBombeiroSistema.Show()
+        Else
+            FrmBombeiroSistema.MdiParent = MDIPrincipal
+            FrmBombeiroSistema.Show()
+        End If
+    End Sub
 End Class

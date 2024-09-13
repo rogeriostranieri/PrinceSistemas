@@ -135,18 +135,27 @@ Public Class FrmFiliais
     End Sub
 
     Private Sub AjustarTamanhoFormulario()
+        ' Desativar a exibição do cabeçalho de linha
+        DataGridViewEmpresa.RowHeadersVisible = False
+
+        ' Ajustar o tamanho do formulário com base no DataGridView
         Dim width As Integer = DataGridViewEmpresa.Width + 40
         Dim height As Integer = DataGridViewEmpresa.Height + 100
 
+        ' Definir valores máximos para largura e altura do formulário
         Dim maxWidth As Integer = 800 ' Ajuste conforme necessário
         Dim maxHeight As Integer = 600 ' Ajuste conforme necessário
 
+        ' Limitar largura e altura ao máximo permitido
         width = Math.Min(width, maxWidth)
         height = Math.Min(height, maxHeight)
 
+        ' Ajustar o tamanho do formulário
         Me.Size = New Size(width, height)
 
+        ' Permitir o ajuste automático do tamanho do formulário
         Me.AutoSize = True
         Me.AutoSizeMode = AutoSizeMode.GrowAndShrink
     End Sub
+
 End Class

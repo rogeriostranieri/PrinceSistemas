@@ -44,6 +44,7 @@ Partial Class FrmFiliais
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.DataGridViewEmpresa)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False

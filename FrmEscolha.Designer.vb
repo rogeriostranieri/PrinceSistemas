@@ -24,7 +24,7 @@ Partial Class FrmEscolha
     Private Sub InitializeComponent()
         Me.BtnEmpresa = New System.Windows.Forms.Button()
         Me.BtnAlvara = New System.Windows.Forms.Button()
-        Me.LabelRazaoSocial = New System.Windows.Forms.Label()
+        Me.LabelCNPJ = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,16 +53,16 @@ Partial Class FrmEscolha
         Me.BtnAlvara.Text = "Alvara"
         Me.BtnAlvara.UseVisualStyleBackColor = False
         '
-        'LabelRazaoSocial
+        'LabelCNPJ
         '
-        Me.LabelRazaoSocial.AutoSize = True
-        Me.LabelRazaoSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelRazaoSocial.Location = New System.Drawing.Point(235, 9)
-        Me.LabelRazaoSocial.Name = "LabelRazaoSocial"
-        Me.LabelRazaoSocial.Size = New System.Drawing.Size(66, 24)
-        Me.LabelRazaoSocial.TabIndex = 2
-        Me.LabelRazaoSocial.Text = "Label1"
-        Me.LabelRazaoSocial.Visible = False
+        Me.LabelCNPJ.AutoSize = True
+        Me.LabelCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCNPJ.Location = New System.Drawing.Point(235, 9)
+        Me.LabelCNPJ.Name = "LabelCNPJ"
+        Me.LabelCNPJ.Size = New System.Drawing.Size(66, 24)
+        Me.LabelCNPJ.TabIndex = 2
+        Me.LabelCNPJ.Text = "Label1"
+        Me.LabelCNPJ.Visible = False
         '
         'PictureBox2
         '
@@ -85,7 +85,7 @@ Partial Class FrmEscolha
         Me.ClientSize = New System.Drawing.Size(239, 237)
         Me.ControlBox = False
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.LabelRazaoSocial)
+        Me.Controls.Add(Me.LabelCNPJ)
         Me.Controls.Add(Me.BtnAlvara)
         Me.Controls.Add(Me.BtnEmpresa)
         Me.HelpButton = True
@@ -105,6 +105,6 @@ Partial Class FrmEscolha
 
     Friend WithEvents BtnEmpresa As Button
     Friend WithEvents BtnAlvara As Button
-    Friend WithEvents LabelRazaoSocial As Label
+    Friend WithEvents LabelCNPJ As Label
     Friend WithEvents PictureBox2 As PictureBox
 End Class

@@ -4,8 +4,23 @@
     Public RichTextBoxOrigem As RichTextBox
 
     Private Sub FrmRichTextCompleto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Permitir que o formulário capture eventos de tecla
-        Me.KeyPreview = True
+        ' Preenche o ToolStripComboBoxFontes com as fontes instaladas no sistema
+        For Each fonte As FontFamily In FontFamily.Families
+            ToolStripComboBoxFontes.Items.Add(fonte.Name)
+        Next
+
+        ' Definir fonte padrão como "Microsoft Sans Serif"
+        ToolStripComboBoxFontes.SelectedItem = "Microsoft Sans Serif"
+
+        ' Definir tamanho padrão como 12
+        ToolStripComboBoxTamanho.Items.AddRange(New String() {"8", "10", "12", "14", "16", "18", "20", "24", "28", "36", "48", "72"})
+        ToolStripComboBoxTamanho.SelectedItem = "12" ' Valor padrão
+
+        ' Definir a fonte e o tamanho padrão no RichTextBox
+        RichTextBoxCompleto.Font = New Font("Microsoft Sans Serif", 12)
+
+        ' Armazena o texto original quando o formulário é carregado (se necessário)
+        RichTextBoxOrigem.Text = RichTextBoxCompleto.Text
     End Sub
 
     Private Sub FrmRichTextCompleto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -35,20 +50,12 @@
             RichTextBoxOrigem.Text = RichTextBoxCompleto.Text
 
             ' Fecha o formulário após salvar
-
             MessageBox.Show("As alterações foram salvas.", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("Nenhuma origem de texto foi definida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
         End If
         Me.Close()
     End Sub
-
-
-
-
-
-
 
     '////////////////////// CODIGOS
     ' Captura o evento KeyDown do formulário
@@ -150,10 +157,31 @@
 
     Private Sub AjudaToolStripButton_Click(sender As Object, e As EventArgs) Handles AjudaToolStripButton.Click
         AboutBox.ShowDialog()
-
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Close()
     End Sub
+
+    ' ///////////////// EDITOR DE FONTES
+    ' Evento para mudar a fonte
+    Private Sub ToolStripComboBoxFontes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ToolStripComboBoxFontes.SelectedIndexChanged
+        MudarFonteOuTamanho()
+    End Sub
+
+    ' Evento para mudar o tamanho da fonte
+    Private Sub ToolStripComboBoxTamanho_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ToolStripComboBoxTamanho.SelectedIndexChanged
+        MudarFonteOuTamanho()
+    End Sub
+
+    ' Método para alterar a fonte e o tamanho
+    Private Sub MudarFonteOuTamanho()
+        If RichTextBoxCompleto.SelectionLength > 0 Then
+            ' Pega a fonte e o tamanho selecionados
+            Dim fonteSelecionada As String = If(ToolStripComboBoxFontes.SelectedItem IsNot Nothing, ToolStripComboBoxFontes.SelectedItem.ToString(), "Microsoft Sans Serif")
+            Dim tamanhoSelecionado As Single = If(ToolStripComboBoxTamanho.SelectedItem IsNot Nothing, Single.Parse(ToolStripComboBoxTamanho.SelectedItem.ToString()), 12)
+            RichTextBoxCompleto.SelectionFont = New Font(fonteSelecionada, tamanhoSelecionado)
+        End If
+    End Sub
+
 End Class

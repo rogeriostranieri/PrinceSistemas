@@ -68,41 +68,76 @@
 
 
     Private Sub EmpresasDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpresasDataGridView.CellContentDoubleClick
-        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
-            Dim Sair As String
-            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-            FrmLegalizacao.Focus()
-            'se clicar em outra coluna EmpresasDataGridView sempre pegar o texto da coluna 0 cell 0
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
-            'FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
-        Else
+        ' Verifica se a célula clicada é a primeira (índice 0)
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim cnpjValue As String = EmpresasDataGridView.Rows(e.RowIndex).Cells(4).Value.ToString().Trim()
+            Dim razaoSocialValue As String = EmpresasDataGridView.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
 
-            ' novoEmpresa.MdiParent = MDIPrincipal
-            FrmLegalizacao.Show()
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = EmpresasDataGridView.CurrentRow.Cells(0).Value.ToString
-            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+            If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+                Dim Sair As String
+                Sair = MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                FrmLegalizacao.Focus()
+
+                If String.IsNullOrEmpty(cnpjValue) Then
+                    FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
+                    FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+                Else
+                    FrmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpjValue
+                    FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+                End If
+
+            Else
+                FrmLegalizacao.Show()
+
+                If String.IsNullOrEmpty(cnpjValue) Then
+                    FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
+                    FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+                Else
+                    FrmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpjValue
+                    FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+                End If
+
+
+            End If
         End If
     End Sub
-
 
     Private Sub LaudosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles LaudosDataGridView.CellContentDoubleClick
+        ' Verifica se a célula clicada é a primeira (índice 0)
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim cnpjValue As String = LaudosDataGridView.Rows(e.RowIndex).Cells(4).Value.ToString().Trim()
+            Dim razaoSocialValue As String = LaudosDataGridView.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
+
+            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+                Dim Sair As String
+                Sair = MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                FrmAlvara.Focus()
+
+                If String.IsNullOrEmpty(cnpjValue) Then
+                    FrmAlvara.ComboBoxBuscaAlvara.Text = razaoSocialValue
+                    FrmAlvara.ComboBoxBuscaAlvara.Focus()
+                Else
+                    FrmAlvara.ComboBoxBuscaCNPJ.Text = cnpjValue
+                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+                End If
 
 
-        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-            Dim Sair As String
-            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-            FrmAlvara.Focus()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.CurrentRow.Cells(0).Value.ToString
-            ' FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmAlvara.ComboBoxBuscaAlvara.Focus()
-        Else
-            ' novoEmpresa.MdiParent = MDIPrincipal
-            FrmAlvara.Show()
-            FrmAlvara.ComboBoxBuscaAlvara.Text = LaudosDataGridView.CurrentRow.Cells(0).Value.ToString
-            FrmAlvara.ComboBoxBuscaAlvara.Focus()
+            Else
+                FrmAlvara.Show()
+
+                If String.IsNullOrEmpty(cnpjValue) Then
+                    FrmAlvara.ComboBoxBuscaAlvara.Text = razaoSocialValue
+                    FrmAlvara.ComboBoxBuscaAlvara.Focus()
+                Else
+                    FrmAlvara.ComboBoxBuscaCNPJ.Text = cnpjValue
+                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+                End If
+
+                FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+            End If
         End If
     End Sub
+
 
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click

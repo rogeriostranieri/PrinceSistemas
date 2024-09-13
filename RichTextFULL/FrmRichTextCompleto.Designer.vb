@@ -35,13 +35,24 @@ Partial Class FrmRichTextCompleto
         Me.CopiarToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ColarToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AjudaToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripComboBoxFontes = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripComboBoxTamanho = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AjudaToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.RichTextBoxCompleto = New System.Windows.Forms.RichTextBox()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButtonNegrito = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonItalico = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonSublinhado = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -65,7 +76,7 @@ Partial Class FrmRichTextCompleto
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoToolStripButton, Me.AbrirToolStripButton, Me.SalvarToolStripButton, Me.ImprimirToolStripButton, Me.toolStripSeparator, Me.RecortarToolStripButton, Me.CopiarToolStripButton, Me.ColarToolStripButton, Me.toolStripSeparator1, Me.AjudaToolStripButton, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoToolStripButton, Me.AbrirToolStripButton, Me.SalvarToolStripButton, Me.ImprimirToolStripButton, Me.toolStripSeparator, Me.RecortarToolStripButton, Me.CopiarToolStripButton, Me.ColarToolStripButton, Me.toolStripSeparator1, Me.ToolStripButton1, Me.ToolStripLabel1, Me.ToolStripComboBoxFontes, Me.ToolStripSeparator3, Me.ToolStripLabel2, Me.ToolStripComboBoxTamanho, Me.ToolStripSeparator4, Me.ToolStripButtonNegrito, Me.ToolStripButtonItalico, Me.ToolStripButtonSublinhado, Me.ToolStripSeparator5, Me.AjudaToolStripButton, Me.ToolStripSeparator2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -146,15 +157,6 @@ Partial Class FrmRichTextCompleto
         Me.toolStripSeparator1.Name = "toolStripSeparator1"
         Me.toolStripSeparator1.Size = New System.Drawing.Size(6, 31)
         '
-        'AjudaToolStripButton
-        '
-        Me.AjudaToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.AjudaToolStripButton.Image = CType(resources.GetObject("AjudaToolStripButton.Image"), System.Drawing.Image)
-        Me.AjudaToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.AjudaToolStripButton.Name = "AjudaToolStripButton"
-        Me.AjudaToolStripButton.Size = New System.Drawing.Size(23, 28)
-        Me.AjudaToolStripButton.Text = "&Ajuda"
-        '
         'ToolStripButton1
         '
         Me.ToolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -165,6 +167,42 @@ Partial Class FrmRichTextCompleto
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(60, 28)
         Me.ToolStripButton1.Text = "Fechar"
+        '
+        'ToolStripComboBoxFontes
+        '
+        Me.ToolStripComboBoxFontes.FlatStyle = System.Windows.Forms.FlatStyle.Standard
+        Me.ToolStripComboBoxFontes.Name = "ToolStripComboBoxFontes"
+        Me.ToolStripComboBoxFontes.Size = New System.Drawing.Size(121, 31)
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 31)
+        '
+        'ToolStripComboBoxTamanho
+        '
+        Me.ToolStripComboBoxTamanho.FlatStyle = System.Windows.Forms.FlatStyle.Standard
+        Me.ToolStripComboBoxTamanho.Name = "ToolStripComboBoxTamanho"
+        Me.ToolStripComboBoxTamanho.Size = New System.Drawing.Size(121, 31)
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 31)
+        '
+        'AjudaToolStripButton
+        '
+        Me.AjudaToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.AjudaToolStripButton.Image = CType(resources.GetObject("AjudaToolStripButton.Image"), System.Drawing.Image)
+        Me.AjudaToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AjudaToolStripButton.Name = "AjudaToolStripButton"
+        Me.AjudaToolStripButton.Size = New System.Drawing.Size(23, 28)
+        Me.AjudaToolStripButton.Text = "&Ajuda"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 31)
         '
         'RichTextBoxCompleto
         '
@@ -189,6 +227,53 @@ Partial Class FrmRichTextCompleto
         Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(49, 28)
+        Me.ToolStripLabel1.Text = "Fonte"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(73, 28)
+        Me.ToolStripLabel2.Text = "Tamanho"
+        '
+        'ToolStripButtonNegrito
+        '
+        Me.ToolStripButtonNegrito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButtonNegrito.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripButtonNegrito.Image = CType(resources.GetObject("ToolStripButtonNegrito.Image"), System.Drawing.Image)
+        Me.ToolStripButtonNegrito.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonNegrito.Name = "ToolStripButtonNegrito"
+        Me.ToolStripButtonNegrito.Size = New System.Drawing.Size(24, 28)
+        Me.ToolStripButtonNegrito.Text = "B"
+        '
+        'ToolStripButtonItalico
+        '
+        Me.ToolStripButtonItalico.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButtonItalico.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripButtonItalico.Image = CType(resources.GetObject("ToolStripButtonItalico.Image"), System.Drawing.Image)
+        Me.ToolStripButtonItalico.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonItalico.Name = "ToolStripButtonItalico"
+        Me.ToolStripButtonItalico.Size = New System.Drawing.Size(23, 28)
+        Me.ToolStripButtonItalico.Text = "i"
+        '
+        'ToolStripButtonSublinhado
+        '
+        Me.ToolStripButtonSublinhado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButtonSublinhado.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripButtonSublinhado.Image = CType(resources.GetObject("ToolStripButtonSublinhado.Image"), System.Drawing.Image)
+        Me.ToolStripButtonSublinhado.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonSublinhado.Name = "ToolStripButtonSublinhado"
+        Me.ToolStripButtonSublinhado.Size = New System.Drawing.Size(23, 28)
+        Me.ToolStripButtonSublinhado.Text = "S"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 31)
         '
         'FrmRichTextCompleto
         '
@@ -227,4 +312,15 @@ Partial Class FrmRichTextCompleto
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripComboBoxFontes As ToolStripComboBox
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents ToolStripComboBoxTamanho As ToolStripComboBox
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents ToolStripButtonNegrito As ToolStripButton
+    Friend WithEvents ToolStripButtonItalico As ToolStripButton
+    Friend WithEvents ToolStripButtonSublinhado As ToolStripButton
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
 End Class

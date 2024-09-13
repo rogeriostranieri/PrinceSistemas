@@ -302,8 +302,8 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                         Else
 
                             FrmAlvara.Show()
-                            'FrmAlvara.ComboBox3.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
-                            ' FrmAlvara.ComboBox1.Focus()
+                            FrmAlvara.ComboBoxBuscaCNPJ.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+                            FrmAlvara.ComboBoxBuscaCNPJ.Focus()
                             FrmAlvara.RazaoSocialTextBox.Focus()
 
                             'Verifica Razao Social
@@ -531,6 +531,15 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
         End Try
     End Sub
 
+
+
+
+
+
+
+
+
+
     Sub ConexaoEmpresa()
 
         Dim Str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
@@ -563,8 +572,9 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
                             FrmLegalizacao.Focus()
-                            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
-                            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+                            FrmLegalizacao.ComboBoxBuscaCNPJ.Text = FrmAlvara.CNPJMaskedTextBox.Text
+                            FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+                            'FrmLegalizacao.RazaoSocialTextBox.Focus()
 
                             'Verifica Razao Social
                             If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
@@ -578,9 +588,11 @@ CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
                         Else
 
                             FrmLegalizacao.Show()
-                            FrmLegalizacao.ComboBoxBuscaEmpresa.Text = FrmAlvara.RazaoSocialTextBox.Text
-                            FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+                            FrmLegalizacao.ComboBoxBuscaCNPJ.Text = FrmAlvara.CNPJMaskedTextBox.Text
+                            FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+                            FrmLegalizacao.Focus()
 
+                            'Verifica Razao Social
                             If FrmAlvara.RazaoSocialTextBox.Text <> FrmLegalizacao.RazaoSocialTextBox.Text Then
 
                                 Dim Msg As String

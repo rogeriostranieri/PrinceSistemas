@@ -54,112 +54,8 @@ Public Class FrmLegalizacao
     'FIM maiusculo
     '///////////////////// SALVAR PRIVATE E PUBLIC
     Public Sub SalvarExterno()
-        Try
-            ' Finalizar edição e obter registros alterados
-            Me.EmpresasBindingSource.EndEdit()
-            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
-
-            ' Verificar se há alterações para salvar
-            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-                ' Criar uma string para armazenar as mudanças
-                Dim changesDescription As String = ""
-
-                ' Iterar sobre as linhas alteradas
-                For Each row As DataRow In changedRecords.Rows
-                    ' Adiciona o ID da empresa
-                    changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
-
-                    ' Iterar sobre as colunas para identificar as mudanças
-                    For Each column As DataColumn In changedRecords.Columns
-                        ' Verificar se o registro não é novo antes de acessar dados originais
-                        If row.RowState <> DataRowState.Added Then
-                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                            End If
-                        Else
-                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                        End If
-                    Next
-                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
-                Next
-
-                ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
-                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-
-                Select Case result
-                    Case DialogResult.Cancel
-                        ' Ação para Cancelar
-                        Return
-
-                    Case DialogResult.No
-                        ' Reverter mudanças e desativar edição
-                        PrinceDBDataSet.Empresas.RejectChanges()
-                        Application.DoEvents()
-
-                        BtnEditar.Text = "Editar"
-                        BtnExcluir.Enabled = True
-                        GroupBox2.Enabled = False
-                        GroupBox10.Enabled = False
-
-                        ' Recarregar dados
-                        Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-                        Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
-
-                    Case DialogResult.Yes
-                        ' Salvar alterações
-                        Try
-                            MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
-
-                            Me.Validate()
-                            Me.EmpresasBindingSource.EndEdit()
-
-                            ' Tente atualizar o DataSet
-                            Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
-
-                            If rowsAffected > 0 Then
-                                MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Else
-                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            End If
-
-                            Application.DoEvents()
-
-                            ' Ajustar a interface após salvar
-                            BtnEditar.Text = "Editar"
-                            GroupBox2.Enabled = False
-                            GroupBox10.Enabled = False
-                            BtnExcluir.Enabled = True
-
-                            ' Focar na empresa atual no combobox de busca
-                            Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-                            ComboBoxBuscaEmpresa.Text = NomeEmpresa
-                            ComboBoxBuscaEmpresa.Focus()
-                            RazaoSocialTextBox.Focus()
-
-                        Catch exc As Exception
-                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        End Try
-                End Select
-            Else
-                ' Não há alterações, apenas desativar edição
-                BtnEditar.Text = "Editar"
-                GroupBox2.Enabled = False
-                GroupBox10.Enabled = False
-                BtnExcluir.Enabled = True
-
-                ' Focar na empresa atual
-                Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-                ComboBoxBuscaEmpresa.Text = NomeEmpresa
-                ComboBoxBuscaEmpresa.Focus()
-                RazaoSocialTextBox.Focus()
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
+        Salvar()
     End Sub
-
 
     Private Sub Salvar()
         Try
@@ -270,6 +166,10 @@ Public Class FrmLegalizacao
         End Try
     End Sub
 
+
+
+
+
     Private Sub HabilitaEdicao()
         BtnEditar.Text = "Cancelar"
         BtnExcluir.Enabled = False
@@ -311,7 +211,7 @@ Public Class FrmLegalizacao
 
             ' Atualiza o botão BtnFiliais conforme o número de filiais encontradas
             If filiaisCount > 0 Then
-                BtnFiliais.Text = $"{filiaisCount} Empresas Vinculadas"
+                BtnFiliais.Text = $"{filiaisCount} Filiais"
                 BtnFiliais.Visible = True
                 LabelFilial.Visible = False
             Else
@@ -346,6 +246,7 @@ Public Class FrmLegalizacao
 
     Private Sub FrmLegalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            ' Preenche os dados das tabelas relacionadas
             Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
             StatusComboBox.DataSource = Me.CADstatusBindingSource
             StatusComboBox.DisplayMember = "Descricao"
@@ -354,24 +255,19 @@ Public Class FrmLegalizacao
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
+            ' Configura ComboBox e foco inicial
             ModCombobox.ComboboxLegalizacaoProcesso()
             Me.ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
 
-
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um Erro ao carregar o formulário" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocorreu um Erro ao carregar o formulário" & vbCrLf & ex.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
 
         ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
         PrinceDBDataSet.AcceptChanges()
 
-        ' Atualizar o BindingSource após aplicar o filtro
-        'AtualizarBindingSource()
-
-
-
+        ' Permitir edições em todas as colunas da tabela Empresas
         For Each col As DataColumn In Me.PrinceDBDataSet.Empresas.Columns
             col.ReadOnly = False
         Next
@@ -382,15 +278,20 @@ Public Class FrmLegalizacao
         ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
         AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
 
-        ' Se desejar, carregue os dados da empresa inicial aqui, ou pode ser feito no Shown
+        ' Carregar dados adicionais, se necessário
         VerificarFiliais()
 
     End Sub
+
 
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
         VerificarFiliais()
+        'RecarregarFormulario()
     End Sub
+
+
+
 
     Private Sub FrmEmpresa_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         AtualizaDados2()
@@ -535,6 +436,7 @@ Public Class FrmLegalizacao
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.fechadaempresa
+                        SituacaoCadastralComboBox.Text = "BAIXADA"
 
                     ElseIf ProcessoComboBox.Text = "Finalizado" Then
                         StatusComboBox.BackColor = Color.Green
@@ -1167,48 +1069,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
 
     Private Sub Legalizacao_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' Finalizar edição e obter registros alterados
-        Me.EmpresasBindingSource.EndEdit()
-        Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
-
-        ' Verificar se há alterações
-        If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-            ' Criar uma string para armazenar as mudanças
-            Dim changesDescription As String = ""
-
-            ' Iterar sobre as linhas alteradas
-            For Each row As DataRow In changedRecords.Rows
-                changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
-
-                ' Iterar sobre as colunas para identificar as mudanças
-                For Each column As DataColumn In changedRecords.Columns
-                    If row.GetColumnError(column) <> "" Then
-                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
-                    End If
-                Next
-                changesDescription &= vbCrLf
-            Next
-
-
-            ' Perguntar se deseja salvar as alterações, exibindo as mudanças detectadas
-            Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações." & vbCrLf & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-
-            If result = DialogResult.Cancel Then
-                e.Cancel = True
-            ElseIf result = DialogResult.No Then
-                ' Reverter alterações
-                PrinceDBDataSet.Empresas.RejectChanges()
-            ElseIf result = DialogResult.Yes Then
-                Try
-                    ' Salvar as alterações
-                    EmpresasTableAdapter.Update(PrinceDBDataSet.Empresas)
-                Catch exc As Exception
-                    MessageBox.Show("Ocorreu um Erro ao atualizar" & vbCrLf & exc.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    e.Cancel = True
-                End Try
-            End If
-        End If
+        Salvar()
 
         ' Fechar formulários e diálogos auxiliares se estiverem abertos
         If FrmEventos.Visible Then FrmEventos.Close()
@@ -2327,11 +2188,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             NovaRazaoSocialFinalTextBox.Visible = True
             LabelNovaRazaoFinal.Visible = True
             LinkLabelMudarRazaoSocial.Visible = True
+            BtnVerNovoNome.Visible = True
 
         Else
             NovaRazaoSocialFinalTextBox.Visible = False
             LabelNovaRazaoFinal.Visible = False
             LinkLabelMudarRazaoSocial.Visible = False
+            BtnVerNovoNome.Visible = False
         End If
 
 
@@ -2796,22 +2659,22 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub BtnUsarRazao1_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao1.Click
         'pega NovaRazaoSocial1TextBox e coloca no NovaRazaoSocialFinalTextBox
         'ativa a TabControle 2 e retorna
-        TabControle.SelectedIndex = 2
-        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial1TextBox.Text
+        ' TabControle.SelectedIndex = 2
+        RazaoSocialTextBox.Text = NovaRazaoSocial1TextBox.Text
     End Sub
     'Razao Social 2
     Private Sub BtnUsarRazao2_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao2.Click
         'pega NovaRazaoSocial2TextBox e coloca no NovaRazaoSocialFinalTextBox
         'ativa a TabControle 2 e retorna
-        TabControle.SelectedIndex = 2
-        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial2TextBox.Text
+        'TabControle.SelectedIndex = 2
+        RazaoSocialTextBox.Text = NovaRazaoSocial2TextBox.Text
     End Sub
     'Razao Social 3
     Private Sub BtnUsarRazao3_Click(sender As Object, e As EventArgs) Handles BtnUsarRazao3.Click
         'pega NovaRazaoSocial3TextBox e coloca no NovaRazaoSocialFinalTextBox
         'ativa a TabControle 2 e retorna
-        TabControle.SelectedIndex = 2
-        NovaRazaoSocialFinalTextBox.Text = NovaRazaoSocial3TextBox.Text
+        ' TabControle.SelectedIndex = 2
+        RazaoSocialTextBox.Text = NovaRazaoSocial3TextBox.Text
     End Sub
 
     Private Sub BtnUsarNomeFantasia_Click(sender As Object, e As EventArgs) Handles BtnUsarNomeFantasia.Click
@@ -3485,4 +3348,28 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ' Exibe o FrmRichTextCompleto
         frmRichTextCompleto.ShowDialog()
     End Sub
+
+    Private Sub BtnVerNovoNome_Click(sender As Object, e As EventArgs) Handles BtnVerNovoNome.Click
+        TabControle.SelectTab(1)
+        TabControl2.SelectTab(6)
+    End Sub
+
+    Private Sub SituacaoCadastralComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SituacaoCadastralComboBox.SelectedIndexChanged
+        Select Case SituacaoCadastralComboBox.Text
+            Case "ATIVO"
+                SituacaoCadastralComboBox.BackColor = Color.DarkGreen
+                SituacaoCadastralComboBox.ForeColor = Color.White
+            Case "BAIXADA"
+                SituacaoCadastralComboBox.BackColor = Color.DarkRed
+                SituacaoCadastralComboBox.ForeColor = Color.White
+            Case "INAPTA"
+                SituacaoCadastralComboBox.BackColor = Color.Yellow
+                SituacaoCadastralComboBox.ForeColor = Color.Black
+            Case Else
+                ' Caso padrão para outras situações
+                SituacaoCadastralComboBox.BackColor = SystemColors.Window
+                SituacaoCadastralComboBox.ForeColor = SystemColors.WindowText
+        End Select
+    End Sub
+
 End Class

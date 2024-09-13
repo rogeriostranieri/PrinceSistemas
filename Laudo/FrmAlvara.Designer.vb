@@ -187,6 +187,7 @@ Partial Class FrmAlvara
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.BtnVerObsGeral = New System.Windows.Forms.Button()
         Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
         Me.NlaudoLabel = New System.Windows.Forms.Label()
@@ -305,7 +306,10 @@ Partial Class FrmAlvara
         Me.GroupBoxCima = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ToolTipMostraDescricao = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnVerObsGeral = New System.Windows.Forms.Button()
+        Me.BombeiroSituacaoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
+        Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -414,6 +418,8 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBoxCima.SuspendLayout()
+        CType(Me.BombeiroSituacaoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlvaraSistemaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RazaoSocialLabel
@@ -493,7 +499,7 @@ Partial Class FrmAlvara
         'ModeloSistemaLabel
         '
         ModeloSistemaLabel.AutoSize = True
-        ModeloSistemaLabel.Location = New System.Drawing.Point(33, 49)
+        ModeloSistemaLabel.Location = New System.Drawing.Point(55, 49)
         ModeloSistemaLabel.Name = "ModeloSistemaLabel"
         ModeloSistemaLabel.Size = New System.Drawing.Size(47, 13)
         ModeloSistemaLabel.TabIndex = 38
@@ -830,7 +836,7 @@ Partial Class FrmAlvara
         'BombeiroSituacaoLabel
         '
         BombeiroSituacaoLabel.AutoSize = True
-        BombeiroSituacaoLabel.Location = New System.Drawing.Point(12, 90)
+        BombeiroSituacaoLabel.Location = New System.Drawing.Point(4, 90)
         BombeiroSituacaoLabel.Name = "BombeiroSituacaoLabel"
         BombeiroSituacaoLabel.Size = New System.Drawing.Size(99, 13)
         BombeiroSituacaoLabel.TabIndex = 75
@@ -918,8 +924,10 @@ Partial Class FrmAlvara
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
@@ -1864,7 +1872,7 @@ Partial Class FrmAlvara
         'NlaudoTextBox
         '
         Me.NlaudoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Nlaudo", True))
-        Me.NlaudoTextBox.Location = New System.Drawing.Point(81, 22)
+        Me.NlaudoTextBox.Location = New System.Drawing.Point(103, 22)
         Me.NlaudoTextBox.Name = "NlaudoTextBox"
         Me.NlaudoTextBox.Size = New System.Drawing.Size(101, 20)
         Me.NlaudoTextBox.TabIndex = 36
@@ -1873,8 +1881,7 @@ Partial Class FrmAlvara
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
         Me.ModeloSistemaComboBox.FormattingEnabled = True
-        Me.ModeloSistemaComboBox.Items.AddRange(New Object() {"Consulta Prévia", "Alvará Online", "Alvará Antigo", "Alvará Manual", "Baixa de Alvará", "Empresa Fácil", "Bombeiro Certificado", "MEI - Dispensa de Alvará", "MEI - Alvará Online", "SEI - Sistema Eletrônico de Informações", "Outros"})
-        Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(81, 46)
+        Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(103, 46)
         Me.ModeloSistemaComboBox.Name = "ModeloSistemaComboBox"
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)
         Me.ModeloSistemaComboBox.TabIndex = 39
@@ -1885,7 +1892,7 @@ Partial Class FrmAlvara
         Me.ButtonConsultar.BackgroundImage = CType(resources.GetObject("ButtonConsultar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonConsultar.Location = New System.Drawing.Point(188, 19)
+        Me.ButtonConsultar.Location = New System.Drawing.Point(211, 19)
         Me.ButtonConsultar.Name = "ButtonConsultar"
         Me.ButtonConsultar.Size = New System.Drawing.Size(71, 24)
         Me.ButtonConsultar.TabIndex = 40
@@ -2122,6 +2129,19 @@ Partial Class FrmAlvara
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
         '
+        'BtnVerObsGeral
+        '
+        Me.BtnVerObsGeral.BackgroundImage = CType(resources.GetObject("BtnVerObsGeral.BackgroundImage"), System.Drawing.Image)
+        Me.BtnVerObsGeral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnVerObsGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerObsGeral.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerObsGeral.Location = New System.Drawing.Point(379, 105)
+        Me.BtnVerObsGeral.Name = "BtnVerObsGeral"
+        Me.BtnVerObsGeral.Size = New System.Drawing.Size(80, 23)
+        Me.BtnVerObsGeral.TabIndex = 81
+        Me.BtnVerObsGeral.Text = "Ver Completo"
+        Me.BtnVerObsGeral.UseVisualStyleBackColor = True
+        '
         'ObservacaoRichTextBox
         '
         Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
@@ -2137,7 +2157,7 @@ Partial Class FrmAlvara
         Me.BtnAnotacoes.BackgroundImage = CType(resources.GetObject("BtnAnotacoes.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAnotacoes.Location = New System.Drawing.Point(265, 19)
+        Me.BtnAnotacoes.Location = New System.Drawing.Point(288, 19)
         Me.BtnAnotacoes.Name = "BtnAnotacoes"
         Me.BtnAnotacoes.Size = New System.Drawing.Size(40, 24)
         Me.BtnAnotacoes.TabIndex = 79
@@ -2147,7 +2167,7 @@ Partial Class FrmAlvara
         'NlaudoLabel
         '
         Me.NlaudoLabel.AutoSize = True
-        Me.NlaudoLabel.Location = New System.Drawing.Point(8, 25)
+        Me.NlaudoLabel.Location = New System.Drawing.Point(30, 25)
         Me.NlaudoLabel.Name = "NlaudoLabel"
         Me.NlaudoLabel.Size = New System.Drawing.Size(70, 13)
         Me.NlaudoLabel.TabIndex = 78
@@ -2159,7 +2179,7 @@ Partial Class FrmAlvara
         Me.BtnBombVer.BackgroundImage = CType(resources.GetObject("BtnBombVer.BackgroundImage"), System.Drawing.Image)
         Me.BtnBombVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnBombVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBombVer.Location = New System.Drawing.Point(264, 87)
+        Me.BtnBombVer.Location = New System.Drawing.Point(287, 87)
         Me.BtnBombVer.Name = "BtnBombVer"
         Me.BtnBombVer.Size = New System.Drawing.Size(41, 21)
         Me.BtnBombVer.TabIndex = 77
@@ -2170,10 +2190,9 @@ Partial Class FrmAlvara
         '
         Me.BombeiroSituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroSituacao", True))
         Me.BombeiroSituacaoComboBox.FormattingEnabled = True
-        Me.BombeiroSituacaoComboBox.Items.AddRange(New Object() {"Aguardando Cliente", "Aguardando Pagamento", "Baixa em Andamento", "Baixado", "Cancelado", "Em Andamento", "Em Exigências", "Encaminhado p/ Vistoria", "Finalizado Definitivo", "Finalizado Provisório", "Junto com Laudo", "Liberado", "Não Iniciado", "Não Liberado", "Não Necessita", "Não solicitado", "Notificado/Multa", "Paralisado"})
-        Me.BombeiroSituacaoComboBox.Location = New System.Drawing.Point(117, 87)
+        Me.BombeiroSituacaoComboBox.Location = New System.Drawing.Point(103, 87)
         Me.BombeiroSituacaoComboBox.Name = "BombeiroSituacaoComboBox"
-        Me.BombeiroSituacaoComboBox.Size = New System.Drawing.Size(142, 21)
+        Me.BombeiroSituacaoComboBox.Size = New System.Drawing.Size(175, 21)
         Me.BombeiroSituacaoComboBox.TabIndex = 76
         '
         'TabAlvara
@@ -2996,7 +3015,7 @@ Partial Class FrmAlvara
         Me.ButtonSolicitar.BackgroundImage = CType(resources.GetObject("ButtonSolicitar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonSolicitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonSolicitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonSolicitar.Location = New System.Drawing.Point(265, 44)
+        Me.ButtonSolicitar.Location = New System.Drawing.Point(288, 44)
         Me.ButtonSolicitar.Name = "ButtonSolicitar"
         Me.ButtonSolicitar.Size = New System.Drawing.Size(78, 24)
         Me.ButtonSolicitar.TabIndex = 51
@@ -3250,7 +3269,7 @@ Partial Class FrmAlvara
         '
         Me.MatrizComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Matriz", True))
         Me.MatrizComboBox.FormattingEnabled = True
-        Me.MatrizComboBox.Items.AddRange(New Object() {"MATRIZ", "FILIAL 1", "FILIAL 2", "FILIAL 3", "FILIAL 4", "FILIAL 5", "FILIAL 6", "FILIAL 7", "FILIAL 8", "FILIAL 9", "FILIAL 10"})
+        Me.MatrizComboBox.Items.AddRange(New Object() {"Matriz", "Filial 1", "Filial 2", "Filial 3", "Filial 4", "Filial 5", "Filial 6", "Filial 7", "Filial 8", "Filial 9", "Filial 10"})
         Me.MatrizComboBox.Location = New System.Drawing.Point(509, 61)
         Me.MatrizComboBox.Name = "MatrizComboBox"
         Me.MatrizComboBox.Size = New System.Drawing.Size(80, 21)
@@ -3461,18 +3480,23 @@ Partial Class FrmAlvara
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "CPF/CNPJ:"
         '
-        'BtnVerObsGeral
+        'BombeiroSituacaoBindingSource
         '
-        Me.BtnVerObsGeral.BackgroundImage = CType(resources.GetObject("BtnVerObsGeral.BackgroundImage"), System.Drawing.Image)
-        Me.BtnVerObsGeral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnVerObsGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnVerObsGeral.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerObsGeral.Location = New System.Drawing.Point(379, 105)
-        Me.BtnVerObsGeral.Name = "BtnVerObsGeral"
-        Me.BtnVerObsGeral.Size = New System.Drawing.Size(80, 23)
-        Me.BtnVerObsGeral.TabIndex = 81
-        Me.BtnVerObsGeral.Text = "Ver Completo"
-        Me.BtnVerObsGeral.UseVisualStyleBackColor = True
+        Me.BombeiroSituacaoBindingSource.DataMember = "BombeiroSituacao"
+        Me.BombeiroSituacaoBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'BombeiroSituacaoTableAdapter
+        '
+        Me.BombeiroSituacaoTableAdapter.ClearBeforeFill = True
+        '
+        'AlvaraSistemaBindingSource
+        '
+        Me.AlvaraSistemaBindingSource.DataMember = "AlvaraSistema"
+        Me.AlvaraSistemaBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'AlvaraSistemaTableAdapter
+        '
+        Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
         '
         'FrmAlvara
         '
@@ -3576,6 +3600,8 @@ Partial Class FrmAlvara
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBoxCima.ResumeLayout(False)
         Me.GroupBoxCima.PerformLayout()
+        CType(Me.BombeiroSituacaoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlvaraSistemaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3810,4 +3836,8 @@ Partial Class FrmAlvara
     Friend WithEvents BtnMultaBombeiro As Button
     Friend WithEvents LabelBombeiroMulta As Label
     Friend WithEvents BtnVerObsGeral As Button
+    Friend WithEvents BombeiroSituacaoBindingSource As BindingSource
+    Friend WithEvents BombeiroSituacaoTableAdapter As PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter
+    Friend WithEvents AlvaraSistemaBindingSource As BindingSource
+    Friend WithEvents AlvaraSistemaTableAdapter As PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter
 End Class
