@@ -83,7 +83,7 @@ Public Class FrmProtocoladosGeral
             Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
 
             ' Verificar se o FrmLegalizacao está aberto
-            Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
+            ' Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
 
             If frmLegalizacao IsNot Nothing Then
                 ' Se FrmLegalizacao já está aberto, focar nele e atualizar a empresa
@@ -108,26 +108,21 @@ Public Class FrmProtocoladosGeral
             Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
 
             ' Verificar se o FrmAlvara está aberto
-            Dim frmAlvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
+            ' Dim frmAlvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
 
-            If frmAlvara IsNot Nothing Then
+            If FrmAlvara IsNot Nothing Then
                 ' Se FrmAlvara já está aberto, focar nele e atualizar o laudo
-                frmAlvara.BringToFront()
+                FrmAlvara.BringToFront()
             Else
                 ' Se FrmAlvara não estiver aberto, utilize uma função que abre ou ativa o form
-                Call AbrirForm(frmAlvara)
+                FrmAlvara.Show()
+                FrmAlvara.BringToFront()
             End If
 
             ' Atualizar o ComboBox com a Razão Social
             frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
             frmAlvara.ComboBoxBuscaAlvara.Select()
         End If
-    End Sub
-
-    ' Função para abrir ou ativar o formulário
-    Private Sub AbrirForm(ByRef frm As FrmAlvara)
-        frm = FrmAlvara
-        frm.Show()
     End Sub
 
 

@@ -48,8 +48,8 @@ Partial Class ContadorGeral
         Dim NomeMaeLabel As System.Windows.Forms.Label
         Dim Email1Label As System.Windows.Forms.Label
         Dim Email2Label As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContadorGeral))
         Dim IEescritorioLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContadorGeral))
         Me.NomeTextBox = New System.Windows.Forms.TextBox()
         Me.ContadorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -90,6 +90,7 @@ Partial Class ContadorGeral
         Me.NomeMaeTextBox = New System.Windows.Forms.TextBox()
         Me.NomePaiTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.IEescritorioTextBox = New System.Windows.Forms.TextBox()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.Email2TextBox = New System.Windows.Forms.TextBox()
         Me.Email1TextBox = New System.Windows.Forms.TextBox()
@@ -97,7 +98,6 @@ Partial Class ContadorGeral
         Me.AnotacoesRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ContadorTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ContadorTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.IEescritorioTextBox = New System.Windows.Forms.TextBox()
         NomeLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         CRCLabel = New System.Windows.Forms.Label()
@@ -379,6 +379,15 @@ Partial Class ContadorGeral
         Email2Label.Size = New System.Drawing.Size(47, 13)
         Email2Label.TabIndex = 39
         Email2Label.Text = "e-Mail 3:"
+        '
+        'IEescritorioLabel
+        '
+        IEescritorioLabel.AutoSize = True
+        IEescritorioLabel.Location = New System.Drawing.Point(10, 70)
+        IEescritorioLabel.Name = "IEescritorioLabel"
+        IEescritorioLabel.Size = New System.Drawing.Size(97, 13)
+        IEescritorioLabel.TabIndex = 75
+        IEescritorioLabel.Text = "Inscrição Estadual:"
         '
         'NomeTextBox
         '
@@ -698,6 +707,7 @@ Partial Class ContadorGeral
         '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.Color.AliceBlue
         Me.TabPage1.Controls.Add(NomeMaeLabel)
         Me.TabPage1.Controls.Add(Me.NomeMaeTextBox)
         Me.TabPage1.Controls.Add(NomePaiLabel)
@@ -725,10 +735,9 @@ Partial Class ContadorGeral
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(592, 268)
+        Me.TabPage1.Size = New System.Drawing.Size(592, 327)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Contador"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'NomeMaeTextBox
         '
@@ -749,6 +758,7 @@ Partial Class ContadorGeral
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
+        Me.TabPage2.BackColor = System.Drawing.Color.AliceBlue
         Me.TabPage2.Controls.Add(IEescritorioLabel)
         Me.TabPage2.Controls.Add(Me.IEescritorioTextBox)
         Me.TabPage2.Controls.Add(Me.BtnCopiaCEP)
@@ -787,7 +797,14 @@ Partial Class ContadorGeral
         Me.TabPage2.Size = New System.Drawing.Size(592, 327)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Escritório"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'IEescritorioTextBox
+        '
+        Me.IEescritorioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "IEescritorio", True))
+        Me.IEescritorioTextBox.Location = New System.Drawing.Point(113, 67)
+        Me.IEescritorioTextBox.Name = "IEescritorioTextBox"
+        Me.IEescritorioTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.IEescritorioTextBox.TabIndex = 76
         '
         'BtnCopiaCEP
         '
@@ -822,7 +839,7 @@ Partial Class ContadorGeral
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(592, 268)
+        Me.TabPage3.Size = New System.Drawing.Size(592, 327)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Anotações"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -833,7 +850,7 @@ Partial Class ContadorGeral
         Me.AnotacoesRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnotacoesRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.AnotacoesRichTextBox.Name = "AnotacoesRichTextBox"
-        Me.AnotacoesRichTextBox.Size = New System.Drawing.Size(586, 262)
+        Me.AnotacoesRichTextBox.Size = New System.Drawing.Size(586, 321)
         Me.AnotacoesRichTextBox.TabIndex = 1
         Me.AnotacoesRichTextBox.Text = ""
         '
@@ -844,10 +861,13 @@ Partial Class ContadorGeral
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Me.ContadorTableAdapter
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -862,23 +882,6 @@ Partial Class ContadorGeral
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'IEescritorioLabel
-        '
-        IEescritorioLabel.AutoSize = True
-        IEescritorioLabel.Location = New System.Drawing.Point(10, 70)
-        IEescritorioLabel.Name = "IEescritorioLabel"
-        IEescritorioLabel.Size = New System.Drawing.Size(97, 13)
-        IEescritorioLabel.TabIndex = 75
-        IEescritorioLabel.Text = "Inscrição Estadual:"
-        '
-        'IEescritorioTextBox
-        '
-        Me.IEescritorioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ContadorBindingSource, "IEescritorio", True))
-        Me.IEescritorioTextBox.Location = New System.Drawing.Point(113, 67)
-        Me.IEescritorioTextBox.Name = "IEescritorioTextBox"
-        Me.IEescritorioTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.IEescritorioTextBox.TabIndex = 76
         '
         'ContadorGeral
         '

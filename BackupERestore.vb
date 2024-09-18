@@ -1,57 +1,59 @@
 ﻿Imports System.Data.SqlClient
 
-'"Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
-
 Public Class BackupERestore
 
-
-
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
 
         Try
+            ' String de conexão
             Dim sqlConnectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
-            'perguntar se deseja fazer backup
-            'depois perguntar o local no windows para salvar antes savedialog e o nome
-            'depois fazer o backup
-            Dim sqlConnection As New SqlConnection(SqlConnectionString)
-            'escolher o local usando savedialog
+            ' Confirmar backup
+            Dim result = MessageBox.Show("Deseja realmente realizar o backup do banco de dados?", "Confirmação de Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.No Then
+                Exit Sub
+            End If
+
+            ' Criar diálogo para salvar o arquivo de backup
             Dim saveFileDialog1 As New SaveFileDialog With {
                 .Filter = "Backup Files|*.bak",
                 .Title = "Salvar o Arquivo de Backup"
             }
-            saveFileDialog1.ShowDialog()
-            'verificar se o usuario escolheu um local
-            If saveFileDialog1.FileName <> "" Then
-                'fazer o backup
-                Dim sqlQuery As String = "BACKUP DATABASE PrinceDB TO DISK='" & saveFileDialog1.FileName & "'"
-                Dim sqlCommand As New SqlCommand(sqlQuery, sqlConnection)
-                sqlConnection.Open()
-                sqlCommand.ExecuteNonQuery()
-                sqlConnection.Close()
+
+            ' Mostrar o diálogo de salvar
+            If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+                If Not String.IsNullOrEmpty(saveFileDialog1.FileName) Then
+                    ' Realizar o backup usando `Using` para garantir o fechamento correto da conexão
+                    Using sqlConnection As New SqlConnection(sqlConnectionString)
+                        Dim sqlQuery As String = "BACKUP DATABASE PrinceDB TO DISK = @filePath"
+                        Using sqlCommand As New SqlCommand(sqlQuery, sqlConnection)
+                            sqlCommand.Parameters.AddWithValue("@filePath", saveFileDialog1.FileName)
+                            sqlConnection.Open()
+                            sqlCommand.ExecuteNonQuery()
+                        End Using
+                    End Using
+
+                    ' Informar sucesso
+                    MessageBox.Show("Backup do banco de dados do sistema foi realizado com sucesso!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    ' Se o caminho estiver vazio
+                    MessageBox.Show("Nenhum local foi escolhido para salvar o backup.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
             Else
-                'finalizar sub
-                Exit Sub
+                ' Caso o diálogo seja cancelado
+                MessageBox.Show("Backup cancelado pelo usuário.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
 
+        Catch ex As SqlException
+            MessageBox.Show("Erro SQL: " & ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
-
-            MsgBox("Erro ao fazer cópia de segurança.Tente novamente salvar em outro local, se o erro persistir contate o administrador do sistema!", MsgBoxStyle.Information, "Erro")
-
-        Finally
-            MessageBox.Show("Backup do banco de dados do sistema foi realizado com sucesso!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-
+            MessageBox.Show("Erro ao realizar o backup: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
 
-
-
-
-
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.Close()
     End Sub
+
 End Class

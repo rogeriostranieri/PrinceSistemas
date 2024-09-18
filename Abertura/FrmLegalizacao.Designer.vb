@@ -1843,7 +1843,7 @@ Partial Class FrmLegalizacao
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
         Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(110, 49)
         Me.BtnImportarSocioAdm.TabIndex = 7
-        Me.BtnImportarSocioAdm.Text = "Adicionar Socio"
+        Me.BtnImportarSocioAdm.Text = "Adicionar/Abrir Socio"
         Me.BtnImportarSocioAdm.UseVisualStyleBackColor = True
         '
         'BtnCopiarSenhaGov
@@ -4449,8 +4449,10 @@ Partial Class FrmLegalizacao
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing

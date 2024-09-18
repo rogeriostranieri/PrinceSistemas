@@ -108,6 +108,8 @@ Public Class FrmGeral
                 ' Adicionar o item ao ListView
                 ListViewGeral.Items.Add(listItem)
             Next
+            ' Atualizar o Label com o total de empresas
+            Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
         End Using
     End Sub
 
@@ -123,6 +125,9 @@ Public Class FrmGeral
             ' Caso contrário, filtrar empresas com base no termo de busca
             BuscarEmpresas(termoBusca)
         End If
+
+        ' Atualizar o Label com o total de empresas filtradas
+        Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
     End Sub
 
     Private Sub BuscarEmpresas(ByVal termoBusca As String)
@@ -218,6 +223,8 @@ Public Class FrmGeral
 
         ' Mensagem opcional para confirmar que a atualização foi feita
         MessageBox.Show("Dados atualizados com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Atualizar o Label com o total de empresas
+        Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
     End Sub
 
 End Class
