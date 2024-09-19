@@ -999,4 +999,13 @@ Public Class MDIPrincipal
 
     End Sub
 
+    Private Sub TodosSóciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TodosSóciosToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmSociosGERAL)().Count() > 0 Then
+            FrmSociosGERAL.Focus()
+            FrmSociosGERAL.MdiParent = Me
+        Else
+            FrmSociosGERAL.MdiParent = Me
+            FrmSociosGERAL.Show()
+        End If
+    End Sub
 End Class

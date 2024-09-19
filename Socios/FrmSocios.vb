@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class FrmSocios
+
+
     Private Sub AtivarTab()
         'ativar TabControl1 1
         TabControl1.SelectedTab = TabPage1
@@ -45,6 +47,10 @@ Public Class FrmSocios
         BtnDuplicidade.Visible = False
 
         BtnEditar.Text = "Editar"
+
+
+
+
     End Sub
 
     Private Sub BloquearEdicao()

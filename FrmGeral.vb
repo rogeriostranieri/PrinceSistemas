@@ -132,8 +132,9 @@ Public Class FrmGeral
     End Sub
 
     Private Sub BuscarEmpresas(ByVal termoBusca As String)
-        ' Remover acentos do termo de busca
+        ' Normaliza o termo de busca
         termoBusca = RemoverAcentos(termoBusca.ToLower())
+        termoBusca = RemoverSimbolos(termoBusca)
 
         ' Filtra o DataTable com base no termo de busca
         Dim resultados As DataRow() = allEmpresas.Select()
@@ -144,9 +145,11 @@ Public Class FrmGeral
         ' Adicionar os resultados filtrados ao ListView
         For Each row As DataRow In resultados
             Dim razaoSocial As String = RemoverAcentos(row("RazaoSocial").ToString().ToLower())
-            If razaoSocial.Contains(termoBusca) Or row("CNPJ").ToString().Contains(termoBusca) Then
+            Dim cnpjFormatado As String = RemoverSimbolos(row("CNPJ").ToString())
+
+            If razaoSocial.Contains(termoBusca) Or cnpjFormatado.Contains(termoBusca) Then
                 Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
-                Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
+                Dim cnpjExibicao As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
 
                 ' Criar o ListViewItem com o tipo (Matriz/Filial)
                 Dim listItem As New ListViewItem(tipo)
@@ -155,16 +158,24 @@ Public Class FrmGeral
                 listItem.SubItems.Add(row("RazaoSocial").ToString())
 
                 ' Adicionar o CNPJ como subitem
-                listItem.SubItems.Add(CNPJ)
+                listItem.SubItems.Add(cnpjExibicao)
 
                 ' Guardar o CNPJ no Tag
-                listItem.Tag = CNPJ
+                listItem.Tag = cnpjFormatado
 
                 ' Adicionar o item ao ListView
                 ListViewGeral.Items.Add(listItem)
             End If
         Next
     End Sub
+
+
+
+
+    Private Function RemoverSimbolos(texto As String) As String
+        Return New String(texto.Where(Function(c) Char.IsLetterOrDigit(c)).ToArray())
+    End Function
+
 
 
     Private Function RemoverAcentos(texto As String) As String
