@@ -29,15 +29,15 @@ Partial Class FrmAdmPrincipal
         Me.BtnAltDados = New System.Windows.Forms.Button()
         Me.BtnAlterarSenha = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -120,7 +120,7 @@ Partial Class FrmAdmPrincipal
         Me.TableLayoutPanel2.ColumnCount = 3
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.774436!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.22556!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.BtnFechar, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
@@ -129,9 +129,22 @@ Partial Class FrmAdmPrincipal
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(501, 52)
         Me.TableLayoutPanel2.TabIndex = 4
+        '
+        'BtnFechar
+        '
+        Me.BtnFechar.BackColor = System.Drawing.Color.Transparent
+        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.Location = New System.Drawing.Point(399, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(98, 46)
+        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BtnFechar.TabIndex = 15
+        Me.BtnFechar.TabStop = False
         '
         'PictureBox1
         '
@@ -155,6 +168,7 @@ Partial Class FrmAdmPrincipal
         '
         'FlowLayoutPanel1
         '
+        Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(135, 61)
@@ -162,23 +176,11 @@ Partial Class FrmAdmPrincipal
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(501, 415)
         Me.FlowLayoutPanel1.TabIndex = 5
         '
-        'BtnFechar
-        '
-        Me.BtnFechar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(400, 3)
-        Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(98, 46)
-        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnFechar.TabIndex = 15
-        Me.BtnFechar.TabStop = False
-        '
         'FrmAdmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(639, 479)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -193,8 +195,8 @@ Partial Class FrmAdmPrincipal
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

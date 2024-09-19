@@ -25,6 +25,7 @@ Partial Class UserAltDados
         Me.components = New System.ComponentModel.Container()
         Dim TemaLabel As System.Windows.Forms.Label
         Dim NomeCompletoLabel As System.Windows.Forms.Label
+        Dim DataNascimentoLabel As System.Windows.Forms.Label
         Me.TemaComboBox = New System.Windows.Forms.ComboBox()
         Me.NomeCompletoTextBox = New System.Windows.Forms.TextBox()
         Me.BtnLimpar = New System.Windows.Forms.Button()
@@ -38,9 +39,17 @@ Partial Class UserAltDados
         Me.BtnAjudaImage = New System.Windows.Forms.Button()
         Me.TemaPictureBox = New System.Windows.Forms.PictureBox()
         Me.BtnProcurarPasta = New System.Windows.Forms.Button()
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
+        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LoginTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LoginTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.DataNascimentoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         TemaLabel = New System.Windows.Forms.Label()
         NomeCompletoLabel = New System.Windows.Forms.Label()
+        DataNascimentoLabel = New System.Windows.Forms.Label()
         CType(Me.TemaPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TemaLabel
@@ -49,7 +58,7 @@ Partial Class UserAltDados
         TemaLabel.BackColor = System.Drawing.Color.Transparent
         TemaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         TemaLabel.ForeColor = System.Drawing.Color.Black
-        TemaLabel.Location = New System.Drawing.Point(37, 212)
+        TemaLabel.Location = New System.Drawing.Point(37, 241)
         TemaLabel.Name = "TemaLabel"
         TemaLabel.Size = New System.Drawing.Size(50, 18)
         TemaLabel.TabIndex = 21
@@ -73,7 +82,7 @@ Partial Class UserAltDados
         Me.TemaComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.TemaComboBox.ForeColor = System.Drawing.Color.Black
         Me.TemaComboBox.FormattingEnabled = True
-        Me.TemaComboBox.Location = New System.Drawing.Point(40, 233)
+        Me.TemaComboBox.Location = New System.Drawing.Point(40, 262)
         Me.TemaComboBox.Name = "TemaComboBox"
         Me.TemaComboBox.Size = New System.Drawing.Size(169, 24)
         Me.TemaComboBox.TabIndex = 25
@@ -91,7 +100,7 @@ Partial Class UserAltDados
         '
         Me.BtnLimpar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.BtnLimpar.Location = New System.Drawing.Point(152, 386)
+        Me.BtnLimpar.Location = New System.Drawing.Point(229, 403)
         Me.BtnLimpar.Name = "BtnLimpar"
         Me.BtnLimpar.Size = New System.Drawing.Size(94, 28)
         Me.BtnLimpar.TabIndex = 23
@@ -100,7 +109,7 @@ Partial Class UserAltDados
         'BtnNomeFinal
         '
         Me.BtnNomeFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.BtnNomeFinal.Location = New System.Drawing.Point(40, 386)
+        Me.BtnNomeFinal.Location = New System.Drawing.Point(117, 403)
         Me.BtnNomeFinal.Name = "BtnNomeFinal"
         Me.BtnNomeFinal.Size = New System.Drawing.Size(106, 28)
         Me.BtnNomeFinal.TabIndex = 22
@@ -152,7 +161,7 @@ Partial Class UserAltDados
         'BtnMostrarDados
         '
         Me.BtnMostrarDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.BtnMostrarDados.Location = New System.Drawing.Point(40, 116)
+        Me.BtnMostrarDados.Location = New System.Drawing.Point(40, 105)
         Me.BtnMostrarDados.Name = "BtnMostrarDados"
         Me.BtnMostrarDados.Size = New System.Drawing.Size(106, 28)
         Me.BtnMostrarDados.TabIndex = 30
@@ -171,7 +180,7 @@ Partial Class UserAltDados
         Me.BtnAjudaImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAjudaImage.FlatAppearance.BorderSize = 0
         Me.BtnAjudaImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAjudaImage.Location = New System.Drawing.Point(215, 233)
+        Me.BtnAjudaImage.Location = New System.Drawing.Point(215, 262)
         Me.BtnAjudaImage.Name = "BtnAjudaImage"
         Me.BtnAjudaImage.Size = New System.Drawing.Size(27, 23)
         Me.BtnAjudaImage.TabIndex = 70
@@ -179,7 +188,7 @@ Partial Class UserAltDados
         '
         'TemaPictureBox
         '
-        Me.TemaPictureBox.Location = New System.Drawing.Point(39, 263)
+        Me.TemaPictureBox.Location = New System.Drawing.Point(39, 292)
         Me.TemaPictureBox.Name = "TemaPictureBox"
         Me.TemaPictureBox.Size = New System.Drawing.Size(284, 105)
         Me.TemaPictureBox.TabIndex = 31
@@ -192,18 +201,81 @@ Partial Class UserAltDados
         Me.BtnProcurarPasta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProcurarPasta.FlatAppearance.BorderSize = 0
         Me.BtnProcurarPasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnProcurarPasta.Location = New System.Drawing.Point(248, 233)
+        Me.BtnProcurarPasta.Location = New System.Drawing.Point(248, 262)
         Me.BtnProcurarPasta.Name = "BtnProcurarPasta"
         Me.BtnProcurarPasta.Size = New System.Drawing.Size(27, 23)
         Me.BtnProcurarPasta.TabIndex = 71
         Me.BtnProcurarPasta.UseVisualStyleBackColor = True
         '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LoginBindingSource
+        '
+        Me.LoginBindingSource.DataMember = "Login"
+        Me.LoginBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'LoginTableAdapter
+        '
+        Me.LoginTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
+        Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
+        Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.ContadorTableAdapter = Nothing
+        Me.TableAdapterManager.ContatosTableAdapter = Nothing
+        Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
+        Me.TableAdapterManager.eMailTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
+        Me.TableAdapterManager.LaudosTableAdapter = Nothing
+        Me.TableAdapterManager.LoginTableAdapter = Me.LoginTableAdapter
+        Me.TableAdapterManager.MunicipioTableAdapter = Nothing
+        Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SociosTableAdapter = Nothing
+        Me.TableAdapterManager.TelefonesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'DataNascimentoLabel
+        '
+        DataNascimentoLabel.AutoSize = True
+        DataNascimentoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!)
+        DataNascimentoLabel.Location = New System.Drawing.Point(37, 218)
+        DataNascimentoLabel.Name = "DataNascimentoLabel"
+        DataNascimentoLabel.Size = New System.Drawing.Size(133, 16)
+        DataNascimentoLabel.TabIndex = 72
+        DataNascimentoLabel.Text = "Data de Nascimento:"
+        '
+        'DataNascimentoMaskedTextBox
+        '
+        Me.DataNascimentoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LoginBindingSource, "DataNascimento", True))
+        Me.DataNascimentoMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!)
+        Me.DataNascimentoMaskedTextBox.Location = New System.Drawing.Point(176, 215)
+        Me.DataNascimentoMaskedTextBox.Mask = "00/00/0000"
+        Me.DataNascimentoMaskedTextBox.Name = "DataNascimentoMaskedTextBox"
+        Me.DataNascimentoMaskedTextBox.Size = New System.Drawing.Size(80, 21)
+        Me.DataNascimentoMaskedTextBox.TabIndex = 73
+        Me.DataNascimentoMaskedTextBox.ValidatingType = GetType(Date)
+        '
         'UserAltDados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Controls.Add(DataNascimentoLabel)
+        Me.Controls.Add(Me.DataNascimentoMaskedTextBox)
         Me.Controls.Add(Me.BtnProcurarPasta)
         Me.Controls.Add(Me.BtnAjudaImage)
         Me.Controls.Add(Me.TemaPictureBox)
@@ -219,8 +291,10 @@ Partial Class UserAltDados
         Me.Controls.Add(TemaLabel)
         Me.Controls.Add(NomeCompletoLabel)
         Me.Name = "UserAltDados"
-        Me.Size = New System.Drawing.Size(351, 426)
+        Me.Size = New System.Drawing.Size(333, 440)
         CType(Me.TemaPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -239,4 +313,9 @@ Partial Class UserAltDados
     Friend WithEvents TemaPictureBox As PictureBox
     Friend WithEvents BtnAjudaImage As Button
     Friend WithEvents BtnProcurarPasta As Button
+    Friend WithEvents PrinceDBDataSet As PrinceDBDataSet
+    Friend WithEvents LoginBindingSource As BindingSource
+    Friend WithEvents LoginTableAdapter As PrinceDBDataSetTableAdapters.LoginTableAdapter
+    Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents DataNascimentoMaskedTextBox As MaskedTextBox
 End Class

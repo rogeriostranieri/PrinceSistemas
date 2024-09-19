@@ -76,53 +76,39 @@ Public Class FrmProtocoladosGeral
     ' Comportamento dos Grid
 
     Private Sub DataGridViewEmpresas_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewEmpresas.CellDoubleClick
+        AbrirEmpresa(e)
+    End Sub
+
+    Private Sub AbrirEmpresa(ByVal e As DataGridViewCellEventArgs)
         ' Verificar se a célula clicada é válida
         If e.RowIndex >= 0 Then
             ' Obter a razão social da linha selecionada
             Dim selectedRow As DataGridViewRow = DataGridViewEmpresas.Rows(e.RowIndex)
             Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
 
-            ' Verificar se o FrmLegalizacao está aberto
-            ' Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
+            ' Verificar se o FrmLegalizacao já está aberto
+            Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
 
             If frmLegalizacao IsNot Nothing Then
-                ' Se FrmLegalizacao já está aberto, focar nele e atualizar a empresa
+                ' Se FrmLegalizacao já está aberto, trazê-lo para frente
                 frmLegalizacao.BringToFront()
-                frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
-                frmLegalizacao.ComboBoxBuscaEmpresa.Select()
             Else
-                ' Se FrmLegalizacao não estiver aberto, criar e mostrar uma nova instância
-                ' frmLegalizacao = New FrmLegalizacao()
+                ' Se FrmLegalizacao não estiver aberto, criar nova instância e abrir o formulário
+                frmLegalizacao = New FrmLegalizacao()
+                frmLegalizacao.MdiParent = MDIPrincipal ' Se for um formulário MDI
                 frmLegalizacao.Show()
-                frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
-                frmLegalizacao.ComboBoxBuscaEmpresa.Select()
-            End If
-        End If
-    End Sub
-
-    Private Sub DataGridViewLaudos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewLaudos.CellDoubleClick
-        ' Verificar se a célula clicada é válida
-        If e.RowIndex >= 0 Then
-            ' Obter a razão social da linha selecionada
-            Dim selectedRow As DataGridViewRow = DataGridViewLaudos.Rows(e.RowIndex)
-            Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
-
-            ' Verificar se o FrmAlvara está aberto
-            ' Dim frmAlvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
-
-            If FrmAlvara IsNot Nothing Then
-                ' Se FrmAlvara já está aberto, focar nele e atualizar o laudo
-                FrmAlvara.BringToFront()
-            Else
-                ' Se FrmAlvara não estiver aberto, utilize uma função que abre ou ativa o form
-                FrmAlvara.Show()
-                FrmAlvara.BringToFront()
+                frmLegalizacao.BringToFront()
             End If
 
             ' Atualizar o ComboBox com a Razão Social
-            frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
-            frmAlvara.ComboBoxBuscaAlvara.Select()
+            frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
+            frmLegalizacao.ComboBoxBuscaEmpresa.Select()
         End If
+    End Sub
+
+
+    Private Sub DataGridViewLaudos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewLaudos.CellDoubleClick
+        AbrirLaudo(e)
     End Sub
 
 
@@ -132,5 +118,40 @@ Public Class FrmProtocoladosGeral
 
     Private Sub BtnAtualizar1_Click(sender As Object, e As EventArgs) Handles BtnAtualizar1.Click
         CarregarDados()
+    End Sub
+
+    Private Sub DataGridViewLaudos_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewLaudos.CellContentDoubleClick
+        AbrirLaudo(e)
+    End Sub
+
+    Private Sub AbrirLaudo(ByVal e As DataGridViewCellEventArgs)
+        ' Verificar se a célula clicada é válida
+        If e.RowIndex >= 0 Then
+            ' Obter a razão social da linha selecionada
+            Dim selectedRow As DataGridViewRow = DataGridViewLaudos.Rows(e.RowIndex)
+            Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
+
+            ' Verificar se o FrmAlvara já está aberto
+            Dim frmAlvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
+
+            If frmAlvara IsNot Nothing Then
+                ' Se FrmAlvara já está aberto, trazê-lo para frente
+                frmAlvara.BringToFront()
+            Else
+                ' Se FrmAlvara não estiver aberto, criar nova instância e abrir o formulário
+                frmAlvara = New FrmAlvara()
+                frmAlvara.MdiParent = MDIPrincipal ' Se for um formulário MDI
+                frmAlvara.Show()
+                frmAlvara.BringToFront()
+            End If
+
+            ' Atualizar o ComboBox com a Razão Social
+            frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
+            frmAlvara.ComboBoxBuscaAlvara.Select()
+        End If
+    End Sub
+
+    Private Sub DataGridViewEmpresas_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewEmpresas.CellContentDoubleClick
+        AbrirEmpresa(e)
     End Sub
 End Class

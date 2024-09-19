@@ -1448,8 +1448,18 @@ Novos dados:" + "
         ' Copiar o resultado para a área de transferência
         Clipboard.SetText(cepSemHifen)
 
-        ' Informar ao usuário que o CEP foi copiado
-        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
+
+    Private Sub BtnCopiarCPF_Click(sender As Object, e As EventArgs) Handles BtnCopiarCPF.Click
+        ' Copiar CPF sem os caracteres especiais
+        Dim CPF As String = CPFMaskedTextBox.Text
+
+        ' Remover o hífen e os pontos
+        Dim CPFLimpo As String = CPF.Replace("-", "").Replace(".", "")
+
+        ' Copiar o CPF limpo para a área de transferência
+        Clipboard.SetText(CPFLimpo)
+    End Sub
+
 End Class

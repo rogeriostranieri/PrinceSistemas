@@ -85,6 +85,7 @@
         TxtCMC.Clear()
         TxtNumLaudo.Clear()
         TxtCidade.Clear()
+        TextBoxHistorico.Clear()
 
     End Sub
 
@@ -214,26 +215,40 @@
     End Sub
 
     Private Sub CheckBoxSituacao_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSituacao.CheckedChanged
-        'se CheckBoxSituacao for marcado mostra SituacaoComboBox e o botao BtnFiltroSituacao
-        'se não esconder
+        ' Verifica se a CheckBoxSituacao está marcada
         If CheckBoxSituacao.Checked = True Then
-            ' SituacaoComboBox.Visible = True
-            'BtnFiltroSituacao.Visible = True
-            ' LabelSituacao.Visible = True
+            ' Exibe os controles relacionados à situação
             GroupBox2.Visible = True
-
         Else
+            ' Oculta os controles relacionados à situação
             GroupBox2.Visible = False
-            ' SituacaoComboBox.Visible = False
-            ' BtnFiltroSituacao.Visible = False
-            ' LabelSituacao.Visible = False
+            ' Remove o filtro da LaudosBindingSource
+            LaudosBindingSource.RemoveFilter()
         End If
     End Sub
+
 
     Private Sub TxtEstado_TextChanged(sender As Object, e As EventArgs) Handles TxtEstado.TextChanged
         RemoverFiltro()
         LaudosBindingSource.Filter = "EndEstado like '%" & TxtEstado.Text & "%'"
 
+        'esconder aa coluna 
+        LaudosDataGridView.Columns(0).Visible = True
+        LaudosDataGridView.Columns(1).Visible = True
+        LaudosDataGridView.Columns(2).Visible = False
+        LaudosDataGridView.Columns(3).Visible = False
+        LaudosDataGridView.Columns(4).Visible = True
+        LaudosDataGridView.Columns(5).Visible = True
+        LaudosDataGridView.Columns(6).Visible = True
+
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+    Private Sub TextBoxHistorico_TextChanged(sender As Object, e As EventArgs) Handles TextBoxHistorico.TextChanged
+        RemoverFiltro()
+        'Filtra o DataGridView
+        LaudosBindingSource.Filter = "Historico like '%" & TextBoxHistorico.Text & "%'"
         'esconder aa coluna 
         LaudosDataGridView.Columns(0).Visible = True
         LaudosDataGridView.Columns(1).Visible = True

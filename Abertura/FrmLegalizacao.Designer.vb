@@ -455,6 +455,7 @@ Partial Class FrmLegalizacao
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxMenuCima = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarRegistroEmpresa = New System.Windows.Forms.Button()
         Me.GroupBoxMenuBaixo = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -4787,7 +4788,7 @@ Partial Class FrmLegalizacao
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(6, 117)
+        Me.BtnExcluir.Location = New System.Drawing.Point(6, 140)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
         Me.BtnExcluir.TabIndex = 23
@@ -4811,7 +4812,7 @@ Partial Class FrmLegalizacao
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(6, 146)
+        Me.BtnFechar.Location = New System.Drawing.Point(6, 169)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
         Me.BtnFechar.TabIndex = 25
@@ -5143,6 +5144,7 @@ Partial Class FrmLegalizacao
         'GroupBoxMenuCima
         '
         Me.GroupBoxMenuCima.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBoxMenuCima.Controls.Add(Me.BtnCopiarRegistroEmpresa)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnNovo)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnEditar)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnExcluir)
@@ -5155,6 +5157,18 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.TabIndex = 24
         Me.GroupBoxMenuCima.TabStop = False
         Me.GroupBoxMenuCima.Text = "MENU"
+        '
+        'BtnCopiarRegistroEmpresa
+        '
+        Me.BtnCopiarRegistroEmpresa.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistroEmpresa.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCopiarRegistroEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarRegistroEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRegistroEmpresa.Location = New System.Drawing.Point(7, 105)
+        Me.BtnCopiarRegistroEmpresa.Name = "BtnCopiarRegistroEmpresa"
+        Me.BtnCopiarRegistroEmpresa.Size = New System.Drawing.Size(69, 23)
+        Me.BtnCopiarRegistroEmpresa.TabIndex = 51
+        Me.BtnCopiarRegistroEmpresa.Text = "Copiar"
+        Me.BtnCopiarRegistroEmpresa.UseVisualStyleBackColor = True
         '
         'GroupBoxMenuBaixo
         '
@@ -5669,4 +5683,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnVerEmpresaFacil As Button
     Friend WithEvents BtnVerFederal As Button
     Friend WithEvents BtnVerNovoNome As Button
+    Friend WithEvents BtnCopiarRegistroEmpresa As Button
 End Class

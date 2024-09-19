@@ -310,6 +310,7 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
+        Me.BtnCopiarRegistro = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -1931,7 +1932,7 @@ Partial Class FrmAlvara
         Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
         Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button19.Location = New System.Drawing.Point(13, 130)
+        Me.Button19.Location = New System.Drawing.Point(13, 165)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(69, 23)
         Me.Button19.TabIndex = 49
@@ -1956,7 +1957,7 @@ Partial Class FrmAlvara
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button17.Location = New System.Drawing.Point(13, 101)
+        Me.Button17.Location = New System.Drawing.Point(13, 136)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(69, 23)
         Me.Button17.TabIndex = 47
@@ -2122,9 +2123,9 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(Me.NlaudoTextBox)
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 179)
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 203)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(840, 426)
+        Me.GroupBox4.Size = New System.Drawing.Size(840, 402)
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
@@ -3074,6 +3075,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox5.Controls.Add(Me.BtnCopiarRegistro)
         Me.GroupBox5.Controls.Add(Me.BtnEditar)
         Me.GroupBox5.Controls.Add(Me.Button16)
         Me.GroupBox5.Controls.Add(Me.BtnSalvar)
@@ -3082,7 +3084,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox5.Location = New System.Drawing.Point(849, 3)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(91, 170)
+        Me.GroupBox5.Size = New System.Drawing.Size(91, 194)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -3422,8 +3424,8 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.11184!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.88816!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.89474!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.10526!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(943, 608)
         Me.TableLayoutPanel1.TabIndex = 82
         '
@@ -3439,9 +3441,9 @@ Partial Class FrmAlvara
         Me.GroupBox10.Controls.Add(Me.Button14)
         Me.GroupBox10.Controls.Add(Me.Button13)
         Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(849, 179)
+        Me.GroupBox10.Location = New System.Drawing.Point(849, 203)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(91, 426)
+        Me.GroupBox10.Size = New System.Drawing.Size(91, 402)
         Me.GroupBox10.TabIndex = 58
         Me.GroupBox10.TabStop = False
         '
@@ -3465,7 +3467,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxCima.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxCima.Name = "GroupBoxCima"
-        Me.GroupBoxCima.Size = New System.Drawing.Size(840, 170)
+        Me.GroupBoxCima.Size = New System.Drawing.Size(840, 194)
         Me.GroupBoxCima.TabIndex = 0
         Me.GroupBoxCima.TabStop = False
         '
@@ -3497,6 +3499,18 @@ Partial Class FrmAlvara
         'AlvaraSistemaTableAdapter
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
+        '
+        'BtnCopiarRegistro
+        '
+        Me.BtnCopiarRegistro.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistro.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCopiarRegistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRegistro.Location = New System.Drawing.Point(13, 100)
+        Me.BtnCopiarRegistro.Name = "BtnCopiarRegistro"
+        Me.BtnCopiarRegistro.Size = New System.Drawing.Size(69, 23)
+        Me.BtnCopiarRegistro.TabIndex = 78
+        Me.BtnCopiarRegistro.Text = "Copiar"
+        Me.BtnCopiarRegistro.UseVisualStyleBackColor = True
         '
         'FrmAlvara
         '
@@ -3840,4 +3854,5 @@ Partial Class FrmAlvara
     Friend WithEvents BombeiroSituacaoTableAdapter As PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter
     Friend WithEvents AlvaraSistemaBindingSource As BindingSource
     Friend WithEvents AlvaraSistemaTableAdapter As PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter
+    Friend WithEvents BtnCopiarRegistro As Button
 End Class

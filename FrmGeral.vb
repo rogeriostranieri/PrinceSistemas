@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Text
+Imports System.Data.SqlClient
 Imports System.Drawing
 
 Public Class FrmGeral
@@ -131,34 +132,53 @@ Public Class FrmGeral
     End Sub
 
     Private Sub BuscarEmpresas(ByVal termoBusca As String)
+        ' Remover acentos do termo de busca
+        termoBusca = RemoverAcentos(termoBusca.ToLower())
+
         ' Filtra o DataTable com base no termo de busca
-        Dim resultados As DataRow() = allEmpresas.Select("RazaoSocial LIKE '%" & termoBusca & "%' OR CNPJ LIKE '%" & termoBusca & "%'")
+        Dim resultados As DataRow() = allEmpresas.Select()
 
         ' Limpar o ListView antes de exibir os resultados filtrados
         ListViewGeral.Items.Clear()
 
         ' Adicionar os resultados filtrados ao ListView
         For Each row As DataRow In resultados
-            Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
-            Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Sem Razão Social")
-            Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
+            Dim razaoSocial As String = RemoverAcentos(row("RazaoSocial").ToString().ToLower())
+            If razaoSocial.Contains(termoBusca) Or row("CNPJ").ToString().Contains(termoBusca) Then
+                Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
+                Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
 
-            ' Criar o ListViewItem com o tipo (Matriz/Filial)
-            Dim listItem As New ListViewItem(tipo)
+                ' Criar o ListViewItem com o tipo (Matriz/Filial)
+                Dim listItem As New ListViewItem(tipo)
 
-            ' Adicionar a Razão Social como subitem
-            listItem.SubItems.Add(razaoSocial)
+                ' Adicionar a Razão Social como subitem
+                listItem.SubItems.Add(row("RazaoSocial").ToString())
 
-            ' Adicionar o CNPJ como subitem
-            listItem.SubItems.Add(CNPJ) ' Garantir que o CNPJ esteja sendo adicionado
+                ' Adicionar o CNPJ como subitem
+                listItem.SubItems.Add(CNPJ)
 
-            ' Guardar o CNPJ no Tag
-            listItem.Tag = CNPJ
+                ' Guardar o CNPJ no Tag
+                listItem.Tag = CNPJ
 
-            ' Adicionar o item ao ListView
-            ListViewGeral.Items.Add(listItem)
+                ' Adicionar o item ao ListView
+                ListViewGeral.Items.Add(listItem)
+            End If
         Next
     End Sub
+
+
+    Private Function RemoverAcentos(texto As String) As String
+        Dim normalizedString As String = texto.Normalize(NormalizationForm.FormD)
+        Dim sb As New System.Text.StringBuilder()
+
+        For Each c As Char In normalizedString
+            If System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) <> System.Globalization.UnicodeCategory.NonSpacingMark Then
+                sb.Append(c)
+            End If
+        Next
+
+        Return sb.ToString().Normalize(NormalizationForm.FormC)
+    End Function
 
 
     Private Sub ListViewGeral_MouseMove(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseMove

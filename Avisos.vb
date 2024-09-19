@@ -222,23 +222,20 @@
     End Sub
 
     Private Sub BtnProtocolados_Click(sender As Object, e As EventArgs) Handles BtnProtocolados.Click
-        Dim Protocolos As New FrmProtocoladosGeral
+        ' Verifica se já existe uma instância aberta de FrmProtocoladosGeral
+        Dim Protocolos As FrmProtocoladosGeral = Application.OpenForms.OfType(Of FrmProtocoladosGeral)().FirstOrDefault()
 
-        If Application.OpenForms.OfType(Of FrmProtocoladosGeral)().Count() > 0 Then
-
+        ' Se já existir uma instância, foca no formulário
+        If Protocolos IsNot Nothing Then
             Protocolos.Focus()
-            Protocolos.Close()
-            Protocolos.MdiParent = MDIPrincipal
-            Protocolos.Show()
-
         Else
-
+            ' Se não existir, cria uma nova instância e define o MDI parent
+            Protocolos = New FrmProtocoladosGeral()
             Protocolos.MdiParent = MDIPrincipal
             Protocolos.Show()
-
-
         End If
     End Sub
+
 
     '/////////// fim do codigo de mostrar calendario        
 End Class

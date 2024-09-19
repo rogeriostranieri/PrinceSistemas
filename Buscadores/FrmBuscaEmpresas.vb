@@ -201,7 +201,7 @@ Public Class FrmBuscaEmpresas
         TxtPesquisaCompEstado.Clear()
         TxtPesquisaProtEstado.Clear()
         TxtNomeFantasia.Clear()
-
+        TextBoxHistorico.Clear()
     End Sub
 
     Private Sub TxtCidade_TextChanged(sender As Object, e As EventArgs) Handles TxtCidade.TextChanged
@@ -253,6 +253,24 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
         EmpresasDataGridView.Columns(7).Visible = True
+        'auto organizar tamanho da coluna
+        Organizar()
+    End Sub
+
+    Private Sub TextBoxHistorico_TextChanged(sender As Object, e As EventArgs) Handles TextBoxHistorico.TextChanged
+        'Limpar Antes e reinicia o filtro
+        EmpresasBindingSource.RemoveFilter()
+
+        'Filtra o DataGridView
+        EmpresasBindingSource.Filter = "Historico like '%" & TextBoxHistorico.Text & "%'"
+        'esconder aa coluna 
+        EmpresasDataGridView.Columns(1).Visible = True
+        EmpresasDataGridView.Columns(2).Visible = False
+        EmpresasDataGridView.Columns(3).Visible = True
+        EmpresasDataGridView.Columns(4).Visible = False
+        EmpresasDataGridView.Columns(5).Visible = False
+        EmpresasDataGridView.Columns(6).Visible = False
+        EmpresasDataGridView.Columns(7).Visible = False
         'auto organizar tamanho da coluna
         Organizar()
     End Sub

@@ -29,6 +29,14 @@ Partial Class FrmBuscaEmpresas
         Me.EmpresasTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EmpresasTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.EmpresasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResponsavelNome = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProtocoloJuntaComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProtocoloREDESIM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IEComprovante = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IEeProcNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomeFantasia = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TxtPesquisaRazaoSocial = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -44,6 +52,8 @@ Partial Class FrmBuscaEmpresas
         Me.TxtPesquisaProtEstado = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TxtNomeFantasia = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TxtEstado = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -52,16 +62,8 @@ Partial Class FrmBuscaEmpresas
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxResponsavel = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TxtNomeFantasia = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ResponsavelNome = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProtocoloJuntaComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProtocoloREDESIM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IEComprovante = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IEeProcNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomeFantasia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TextBoxHistorico = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,10 +88,14 @@ Partial Class FrmBuscaEmpresas
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -117,11 +123,74 @@ Partial Class FrmBuscaEmpresas
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.ResponsavelNome, Me.ProtocoloJuntaComercial, Me.ProtocoloREDESIM, Me.IEComprovante, Me.IEeProcNum, Me.NomeFantasia})
         Me.EmpresasDataGridView.DataSource = Me.EmpresasBindingSource
         Me.EmpresasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmpresasDataGridView.Location = New System.Drawing.Point(561, 73)
+        Me.EmpresasDataGridView.Location = New System.Drawing.Point(561, 84)
         Me.EmpresasDataGridView.Name = "EmpresasDataGridView"
         Me.EmpresasDataGridView.ReadOnly = True
-        Me.EmpresasDataGridView.Size = New System.Drawing.Size(552, 370)
+        Me.EmpresasDataGridView.Size = New System.Drawing.Size(552, 431)
         Me.EmpresasDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 88
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 59
+        '
+        'ResponsavelNome
+        '
+        Me.ResponsavelNome.DataPropertyName = "NomeResponsavel"
+        Me.ResponsavelNome.HeaderText = "Nome do Responsavel"
+        Me.ResponsavelNome.Name = "ResponsavelNome"
+        Me.ResponsavelNome.ReadOnly = True
+        Me.ResponsavelNome.Width = 128
+        '
+        'ProtocoloJuntaComercial
+        '
+        Me.ProtocoloJuntaComercial.DataPropertyName = "ProtocoloJuntaComercial"
+        Me.ProtocoloJuntaComercial.HeaderText = "Protocolo Junta Comercial"
+        Me.ProtocoloJuntaComercial.Name = "ProtocoloJuntaComercial"
+        Me.ProtocoloJuntaComercial.ReadOnly = True
+        Me.ProtocoloJuntaComercial.Width = 142
+        '
+        'ProtocoloREDESIM
+        '
+        Me.ProtocoloREDESIM.DataPropertyName = "ProtocoloREDESIM"
+        Me.ProtocoloREDESIM.HeaderText = "Protocolo REDESIM"
+        Me.ProtocoloREDESIM.Name = "ProtocoloREDESIM"
+        Me.ProtocoloREDESIM.ReadOnly = True
+        Me.ProtocoloREDESIM.Width = 118
+        '
+        'IEComprovante
+        '
+        Me.IEComprovante.DataPropertyName = "IEComprovante"
+        Me.IEComprovante.HeaderText = "Estado Comprovante"
+        Me.IEComprovante.Name = "IEComprovante"
+        Me.IEComprovante.ReadOnly = True
+        Me.IEComprovante.Width = 120
+        '
+        'IEeProcNum
+        '
+        Me.IEeProcNum.DataPropertyName = "IEeProcNum"
+        Me.IEeProcNum.HeaderText = "Estado eProtocolo"
+        Me.IEeProcNum.Name = "IEeProcNum"
+        Me.IEeProcNum.ReadOnly = True
+        Me.IEeProcNum.Width = 109
+        '
+        'NomeFantasia
+        '
+        Me.NomeFantasia.DataPropertyName = "NomeFantasia"
+        Me.NomeFantasia.HeaderText = "NomeFantasia"
+        Me.NomeFantasia.Name = "NomeFantasia"
+        Me.NomeFantasia.ReadOnly = True
         '
         'TxtPesquisaRazaoSocial
         '
@@ -163,7 +232,7 @@ Partial Class FrmBuscaEmpresas
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
         Me.PictureBox2.Location = New System.Drawing.Point(984, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(129, 64)
+        Me.PictureBox2.Size = New System.Drawing.Size(129, 75)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 15
         Me.PictureBox2.TabStop = False
@@ -265,6 +334,8 @@ Partial Class FrmBuscaEmpresas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBoxHistorico)
+        Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.TxtNomeFantasia)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -287,12 +358,31 @@ Partial Class FrmBuscaEmpresas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TxtPesquisaRazaoSocial)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 73)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 84)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(552, 370)
+        Me.GroupBox1.Size = New System.Drawing.Size(552, 431)
         Me.GroupBox1.TabIndex = 26
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Digite aonde deseja localizar"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(9, 59)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(117, 18)
+        Me.Label11.TabIndex = 39
+        Me.Label11.Text = "Nome Fantasia :"
+        '
+        'TxtNomeFantasia
+        '
+        Me.TxtNomeFantasia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNomeFantasia.Location = New System.Drawing.Point(156, 56)
+        Me.TxtNomeFantasia.Name = "TxtNomeFantasia"
+        Me.TxtNomeFantasia.Size = New System.Drawing.Size(353, 24)
+        Me.TxtNomeFantasia.TabIndex = 38
         '
         'Label10
         '
@@ -337,7 +427,7 @@ Partial Class FrmBuscaEmpresas
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(431, 332)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(431, 393)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(78, 32)
         Me.ButtonLimpar.TabIndex = 33
@@ -382,90 +472,27 @@ Partial Class FrmBuscaEmpresas
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.78947!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.21053!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1116, 446)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1116, 518)
         Me.TableLayoutPanel1.TabIndex = 27
         '
-        'TxtNomeFantasia
+        'TextBoxHistorico
         '
-        Me.TxtNomeFantasia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNomeFantasia.Location = New System.Drawing.Point(156, 56)
-        Me.TxtNomeFantasia.Name = "TxtNomeFantasia"
-        Me.TxtNomeFantasia.Size = New System.Drawing.Size(353, 24)
-        Me.TxtNomeFantasia.TabIndex = 38
+        Me.TextBoxHistorico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxHistorico.Location = New System.Drawing.Point(209, 363)
+        Me.TextBoxHistorico.Name = "TextBoxHistorico"
+        Me.TextBoxHistorico.Size = New System.Drawing.Size(300, 24)
+        Me.TextBoxHistorico.TabIndex = 41
         '
-        'Label11
+        'Label12
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(9, 59)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(117, 18)
-        Me.Label11.TabIndex = 39
-        Me.Label11.Text = "Nome Fantasia :"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 95
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 59
-        '
-        'ResponsavelNome
-        '
-        Me.ResponsavelNome.DataPropertyName = "NomeResponsavel"
-        Me.ResponsavelNome.HeaderText = "Nome do Responsavel"
-        Me.ResponsavelNome.Name = "ResponsavelNome"
-        Me.ResponsavelNome.ReadOnly = True
-        Me.ResponsavelNome.Width = 128
-        '
-        'ProtocoloJuntaComercial
-        '
-        Me.ProtocoloJuntaComercial.DataPropertyName = "ProtocoloJuntaComercial"
-        Me.ProtocoloJuntaComercial.HeaderText = "Protocolo Junta Comercial"
-        Me.ProtocoloJuntaComercial.Name = "ProtocoloJuntaComercial"
-        Me.ProtocoloJuntaComercial.ReadOnly = True
-        Me.ProtocoloJuntaComercial.Width = 142
-        '
-        'ProtocoloREDESIM
-        '
-        Me.ProtocoloREDESIM.DataPropertyName = "ProtocoloREDESIM"
-        Me.ProtocoloREDESIM.HeaderText = "Protocolo REDESIM"
-        Me.ProtocoloREDESIM.Name = "ProtocoloREDESIM"
-        Me.ProtocoloREDESIM.ReadOnly = True
-        Me.ProtocoloREDESIM.Width = 118
-        '
-        'IEComprovante
-        '
-        Me.IEComprovante.DataPropertyName = "IEComprovante"
-        Me.IEComprovante.HeaderText = "Estado Comprovante"
-        Me.IEComprovante.Name = "IEComprovante"
-        Me.IEComprovante.ReadOnly = True
-        Me.IEComprovante.Width = 120
-        '
-        'IEeProcNum
-        '
-        Me.IEeProcNum.DataPropertyName = "IEeProcNum"
-        Me.IEeProcNum.HeaderText = "Estado eProtocolo"
-        Me.IEeProcNum.Name = "IEeProcNum"
-        Me.IEeProcNum.ReadOnly = True
-        Me.IEeProcNum.Width = 109
-        '
-        'NomeFantasia
-        '
-        Me.NomeFantasia.DataPropertyName = "NomeFantasia"
-        Me.NomeFantasia.HeaderText = "NomeFantasia"
-        Me.NomeFantasia.Name = "NomeFantasia"
-        Me.NomeFantasia.ReadOnly = True
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(9, 366)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(164, 18)
+        Me.Label12.TabIndex = 40
+        Me.Label12.Text = "Historico de protocolos"
         '
         'FrmBuscaEmpresas
         '
@@ -473,7 +500,7 @@ Partial Class FrmBuscaEmpresas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1116, 446)
+        Me.ClientSize = New System.Drawing.Size(1116, 518)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
@@ -534,4 +561,6 @@ Partial Class FrmBuscaEmpresas
     Friend WithEvents IEComprovante As DataGridViewTextBoxColumn
     Friend WithEvents IEeProcNum As DataGridViewTextBoxColumn
     Friend WithEvents NomeFantasia As DataGridViewTextBoxColumn
+    Friend WithEvents TextBoxHistorico As TextBox
+    Friend WithEvents Label12 As Label
 End Class

@@ -415,10 +415,32 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.EndEdit()
 
+            ' Obter as mudanças no DataSet
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges()
+
             ' Verificar se há alterações reais no DataSet
-            If Me.PrinceDBDataSet.HasChanges(DataRowState.Modified) Then
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
                 ' Criar uma string para armazenar as mudanças
-                Dim changesDescription As String = ObterDescricaoAlteracoes(Me.PrinceDBDataSet.Laudos.GetChanges())
+                Dim changesDescription As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    ' Adiciona o ID do laudo
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        ' Verificar se o registro não é novo antes de acessar dados originais
+                        If row.RowState <> DataRowState.Added Then
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Else
+                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
+                Next
 
                 ' Mostrar a quantidade de alterações e as mudanças
                 Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
@@ -455,12 +477,12 @@ Public Class FrmAlvara
             Else
                 ' Não há alterações, apenas desativar edição
                 DesativarEdicao()
-                ' MessageBox.Show("Nenhuma alteração foi detectada.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 
@@ -2006,4 +2028,38 @@ Public Class FrmAlvara
         ' Exibe o FrmRichTextCompleto
         frmRichTextCompleto.ShowDialog()
     End Sub
+
+    Private Sub BtnCopiarRegistro_Click(sender As Object, e As EventArgs) Handles BtnCopiarRegistro.Click
+        Try
+            ' Verificar se há um registro selecionado no BindingSource
+            If Me.LaudosBindingSource.Current Is Nothing Then
+                MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Obter o registro atual da fonte de dados
+            Dim registroAtual As DataRowView = CType(Me.LaudosBindingSource.Current, DataRowView)
+            Dim novaLinha As DataRow = PrinceDBDataSet.Laudos.NewRow()
+
+            ' Copiar os dados do registro atual para a nova linha
+            For Each column As DataColumn In PrinceDBDataSet.Laudos.Columns
+                ' Não copiar o ID (supondo que o ID seja auto-incremento ou gerado automaticamente)
+                If column.ColumnName <> "ID_Laudos" Then
+                    novaLinha(column.ColumnName) = registroAtual(column.ColumnName)
+                End If
+            Next
+
+            ' Adicionar a nova linha à tabela
+            PrinceDBDataSet.Laudos.Rows.Add(novaLinha)
+
+            ' Ajustar o BindingSource para a nova linha
+            Me.LaudosBindingSource.Position = Me.LaudosBindingSource.Count - 1
+
+            MessageBox.Show("Registro copiado com sucesso! Preencha os detalhes adicionais e salve.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao copiar o registro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

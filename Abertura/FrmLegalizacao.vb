@@ -65,30 +65,36 @@ Public Class FrmLegalizacao
 
             ' Verificar se há alterações para salvar
             If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-                ' Criar uma string para armazenar as mudanças
+                ' Criar strings para armazenar o resumo e os detalhes das mudanças
                 Dim changesDescription As String = ""
+                Dim detailedChanges As String = ""
 
                 ' Iterar sobre as linhas alteradas
                 For Each row As DataRow In changedRecords.Rows
-                    ' Adiciona o ID da empresa
+                    ' Adiciona o ID da empresa ao resumo
                     changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
+
+                    Dim columnChangesCount As Integer = 0
 
                     ' Iterar sobre as colunas para identificar as mudanças
                     For Each column As DataColumn In changedRecords.Columns
                         ' Verificar se o registro não é novo antes de acessar dados originais
                         If row.RowState <> DataRowState.Added Then
                             If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                                columnChangesCount += 1
+                                detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                             End If
                         Else
-                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            columnChangesCount += 1
+                            detailedChanges &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                         End If
                     Next
-                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
+
+                    changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
                 Next
 
-                ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                ' Mostrar a quantidade de alterações e o resumo das mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
@@ -144,6 +150,11 @@ Public Class FrmLegalizacao
                         Catch exc As Exception
                             MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
+
+                        ' Perguntar ao usuário se deseja ver detalhes das alterações
+                        If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -159,12 +170,11 @@ Public Class FrmLegalizacao
                 RazaoSocialTextBox.Focus()
             End If
 
-
-
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 
@@ -3374,6 +3384,39 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                 SituacaoCadastralComboBox.BackColor = SystemColors.Window
                 SituacaoCadastralComboBox.ForeColor = SystemColors.WindowText
         End Select
+    End Sub
+
+    Private Sub BtnCopiarRegistroEmpresa_Click(sender As Object, e As EventArgs) Handles BtnCopiarRegistroEmpresa.Click
+        Try
+            ' Verificar se há um registro selecionado no BindingSource
+            If Me.EmpresasBindingSource.Current Is Nothing Then
+                MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Obter o registro atual da fonte de dados
+            Dim registroAtual As DataRowView = CType(Me.EmpresasBindingSource.Current, DataRowView)
+            Dim novaLinha As DataRow = PrinceDBDataSet.Empresas.NewRow()
+
+            ' Copiar os dados do registro atual para a nova linha
+            For Each column As DataColumn In PrinceDBDataSet.Empresas.Columns
+                ' Não copiar o ID (supondo que o ID seja auto-incremento ou gerado automaticamente)
+                If column.ColumnName <> "ID_Empresas" Then
+                    novaLinha(column.ColumnName) = registroAtual(column.ColumnName)
+                End If
+            Next
+
+            ' Adicionar a nova linha à tabela
+            PrinceDBDataSet.Empresas.Rows.Add(novaLinha)
+
+            ' Ajustar o BindingSource para a nova linha
+            Me.EmpresasBindingSource.Position = Me.EmpresasBindingSource.Count - 1
+
+            MessageBox.Show("Registro da empresa copiado com sucesso! Preencha os detalhes adicionais e salve.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao copiar o registro da empresa: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
 End Class

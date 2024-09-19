@@ -394,6 +394,12 @@
     <Compile Include="FrmGeral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmParabens.Designer.vb">
+      <DependentUpon>FrmParabens.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmParabens.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmProtocoladosGeral.Designer.vb">
       <DependentUpon>FrmProtocoladosGeral.vb</DependentUpon>
     </Compile>
@@ -809,6 +815,9 @@
     <EmbeddedResource Include="FrmGeral.resx">
       <DependentUpon>FrmGeral.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmParabens.resx">
+      <DependentUpon>FrmParabens.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProtocoladosGeral.resx">
       <DependentUpon>FrmProtocoladosGeral.vb</DependentUpon>
     </EmbeddedResource>
@@ -1065,6 +1074,8 @@
     <None Include="Resources\pasta.png" />
     <None Include="Resources\protocolo1.png" />
     <Content Include="PARAFAZER.txt" />
+    <None Include="Resources\birthday-congratulations.gif" />
+    <None Include="Resources\fogos.gif" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

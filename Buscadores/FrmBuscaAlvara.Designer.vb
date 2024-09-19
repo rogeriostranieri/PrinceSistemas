@@ -24,17 +24,27 @@ Partial Class FrmBuscaAlvara
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim EndCidadeLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
         Dim Label6 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
+        Dim Label7 As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Requerente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CMC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EndCidade = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EndEstado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtEstado = New System.Windows.Forms.TextBox()
         Me.TxtCidade = New System.Windows.Forms.TextBox()
         Me.ButtonLimpar = New System.Windows.Forms.Button()
         Me.CheckBoxSituacao = New System.Windows.Forms.CheckBox()
@@ -49,23 +59,16 @@ Partial Class FrmBuscaAlvara
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtPesquisaRazaoSocial = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.LabelSituacao = New System.Windows.Forms.Label()
         Me.BtnFiltroSituacao = New System.Windows.Forms.Button()
-        Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Requerente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CMC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nlaudo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EndCidade = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EndEstado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Situacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TxtEstado = New System.Windows.Forms.TextBox()
+        Me.TextBoxHistorico = New System.Windows.Forms.TextBox()
         EndCidadeLabel = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
+        Label7 = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +89,16 @@ Partial Class FrmBuscaAlvara
         EndCidadeLabel.TabIndex = 33
         EndCidadeLabel.Text = "Cidade :"
         '
+        'Label6
+        '
+        Label6.AutoSize = True
+        Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label6.Location = New System.Drawing.Point(8, 208)
+        Label6.Name = "Label6"
+        Label6.Size = New System.Drawing.Size(129, 20)
+        Label6.TabIndex = 35
+        Label6.Text = "Sigla do Estado :"
+        '
         'PrinceDBDataSet
         '
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
@@ -102,16 +115,21 @@ Partial Class FrmBuscaAlvara
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Me.LaudosTableAdapter
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
@@ -130,11 +148,70 @@ Partial Class FrmBuscaAlvara
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo, Me.EndCidade, Me.EndEstado, Me.Situacao})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
         Me.LaudosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LaudosDataGridView.Location = New System.Drawing.Point(493, 67)
+        Me.LaudosDataGridView.Location = New System.Drawing.Point(493, 75)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
-        Me.LaudosDataGridView.Size = New System.Drawing.Size(526, 301)
+        Me.LaudosDataGridView.Size = New System.Drawing.Size(526, 337)
         Me.LaudosDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 400
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 150
+        '
+        'Requerente
+        '
+        Me.Requerente.DataPropertyName = "Requerente"
+        Me.Requerente.HeaderText = "Responsável"
+        Me.Requerente.Name = "Requerente"
+        Me.Requerente.ReadOnly = True
+        '
+        'CMC
+        '
+        Me.CMC.DataPropertyName = "CMC"
+        Me.CMC.HeaderText = "Cadastro Mobiliário"
+        Me.CMC.Name = "CMC"
+        Me.CMC.ReadOnly = True
+        '
+        'Nlaudo
+        '
+        Me.Nlaudo.DataPropertyName = "Nlaudo"
+        Me.Nlaudo.HeaderText = "Nº do laudo"
+        Me.Nlaudo.Name = "Nlaudo"
+        Me.Nlaudo.ReadOnly = True
+        '
+        'EndCidade
+        '
+        Me.EndCidade.DataPropertyName = "EndCidade"
+        Me.EndCidade.HeaderText = "Cidade"
+        Me.EndCidade.Name = "EndCidade"
+        Me.EndCidade.ReadOnly = True
+        '
+        'EndEstado
+        '
+        Me.EndEstado.DataPropertyName = "EndEstado"
+        Me.EndEstado.HeaderText = "Estado"
+        Me.EndEstado.Name = "EndEstado"
+        Me.EndEstado.ReadOnly = True
+        Me.EndEstado.Width = 50
+        '
+        'Situacao
+        '
+        Me.Situacao.DataPropertyName = "Situacao"
+        Me.Situacao.HeaderText = "Situação"
+        Me.Situacao.Name = "Situacao"
+        Me.Situacao.ReadOnly = True
         '
         'PictureBox2
         '
@@ -145,7 +222,7 @@ Partial Class FrmBuscaAlvara
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
         Me.PictureBox2.Location = New System.Drawing.Point(890, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(129, 58)
+        Me.PictureBox2.Size = New System.Drawing.Size(129, 66)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 19
         Me.PictureBox2.TabStop = False
@@ -159,7 +236,7 @@ Partial Class FrmBuscaAlvara
         Me.Label2.ForeColor = System.Drawing.Color.Blue
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(484, 64)
+        Me.Label2.Size = New System.Drawing.Size(484, 72)
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Busca dados em Alvará"
         '
@@ -182,11 +259,13 @@ Partial Class FrmBuscaAlvara
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.36842!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.63158!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 457)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 501)
         Me.TableLayoutPanel1.TabIndex = 20
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBoxHistorico)
+        Me.GroupBox1.Controls.Add(Label7)
         Me.GroupBox1.Controls.Add(Me.TxtEstado)
         Me.GroupBox1.Controls.Add(Label6)
         Me.GroupBox1.Controls.Add(Me.TxtCidade)
@@ -204,12 +283,20 @@ Partial Class FrmBuscaAlvara
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TxtPesquisaRazaoSocial)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 67)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 75)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(484, 301)
+        Me.GroupBox1.Size = New System.Drawing.Size(484, 337)
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Digite aonde deseja localizar"
+        '
+        'TxtEstado
+        '
+        Me.TxtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEstado.Location = New System.Drawing.Point(143, 206)
+        Me.TxtEstado.Name = "TxtEstado"
+        Me.TxtEstado.Size = New System.Drawing.Size(330, 24)
+        Me.TxtEstado.TabIndex = 36
         '
         'TxtCidade
         '
@@ -224,7 +311,7 @@ Partial Class FrmBuscaAlvara
         Me.ButtonLimpar.BackgroundImage = CType(resources.GetObject("ButtonLimpar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(395, 263)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(395, 298)
         Me.ButtonLimpar.Name = "ButtonLimpar"
         Me.ButtonLimpar.Size = New System.Drawing.Size(78, 32)
         Me.ButtonLimpar.TabIndex = 33
@@ -235,7 +322,7 @@ Partial Class FrmBuscaAlvara
         '
         Me.CheckBoxSituacao.AutoSize = True
         Me.CheckBoxSituacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBoxSituacao.Location = New System.Drawing.Point(9, 269)
+        Me.CheckBoxSituacao.Location = New System.Drawing.Point(9, 304)
         Me.CheckBoxSituacao.Name = "CheckBoxSituacao"
         Me.CheckBoxSituacao.Size = New System.Drawing.Size(146, 22)
         Me.CheckBoxSituacao.TabIndex = 2
@@ -343,12 +430,20 @@ Partial Class FrmBuscaAlvara
         Me.GroupBox2.Controls.Add(Me.LabelSituacao)
         Me.GroupBox2.Controls.Add(Me.BtnFiltroSituacao)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 374)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 418)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(484, 80)
         Me.GroupBox2.TabIndex = 28
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Filtro Personalizado"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(92, 43)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(279, 21)
+        Me.ComboBox1.TabIndex = 82
         '
         'LabelSituacao
         '
@@ -373,108 +468,41 @@ Partial Class FrmBuscaAlvara
         Me.BtnFiltroSituacao.Text = "Filtrar"
         Me.BtnFiltroSituacao.UseVisualStyleBackColor = True
         '
-        'CADSituacaoAlvaraBindingSource
-        '
-        Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
-        Me.CADSituacaoAlvaraBindingSource.DataSource = Me.PrinceDBDataSet
-        '
         'GroupBox3
         '
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.Location = New System.Drawing.Point(493, 374)
+        Me.GroupBox3.Location = New System.Drawing.Point(493, 418)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(526, 80)
         Me.GroupBox3.TabIndex = 29
         Me.GroupBox3.TabStop = False
         '
+        'CADSituacaoAlvaraBindingSource
+        '
+        Me.CADSituacaoAlvaraBindingSource.DataMember = "CADSituacaoAlvara"
+        Me.CADSituacaoAlvaraBindingSource.DataSource = Me.PrinceDBDataSet
+        '
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
         '
-        'ComboBox1
+        'TextBoxHistorico
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(92, 43)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(279, 21)
-        Me.ComboBox1.TabIndex = 82
+        Me.TextBoxHistorico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxHistorico.Location = New System.Drawing.Point(185, 268)
+        Me.TextBoxHistorico.Name = "TextBoxHistorico"
+        Me.TextBoxHistorico.Size = New System.Drawing.Size(288, 24)
+        Me.TextBoxHistorico.TabIndex = 38
         '
-        'DataGridViewTextBoxColumn2
+        'Label7
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 400
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CNPJ"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'Requerente
-        '
-        Me.Requerente.DataPropertyName = "Requerente"
-        Me.Requerente.HeaderText = "Responsável"
-        Me.Requerente.Name = "Requerente"
-        Me.Requerente.ReadOnly = True
-        '
-        'CMC
-        '
-        Me.CMC.DataPropertyName = "CMC"
-        Me.CMC.HeaderText = "Cadastro Mobiliário"
-        Me.CMC.Name = "CMC"
-        Me.CMC.ReadOnly = True
-        '
-        'Nlaudo
-        '
-        Me.Nlaudo.DataPropertyName = "Nlaudo"
-        Me.Nlaudo.HeaderText = "Nº do laudo"
-        Me.Nlaudo.Name = "Nlaudo"
-        Me.Nlaudo.ReadOnly = True
-        '
-        'EndCidade
-        '
-        Me.EndCidade.DataPropertyName = "EndCidade"
-        Me.EndCidade.HeaderText = "Cidade"
-        Me.EndCidade.Name = "EndCidade"
-        Me.EndCidade.ReadOnly = True
-        '
-        'EndEstado
-        '
-        Me.EndEstado.DataPropertyName = "EndEstado"
-        Me.EndEstado.HeaderText = "Estado"
-        Me.EndEstado.Name = "EndEstado"
-        Me.EndEstado.ReadOnly = True
-        Me.EndEstado.Width = 50
-        '
-        'Situacao
-        '
-        Me.Situacao.DataPropertyName = "Situacao"
-        Me.Situacao.HeaderText = "Situação"
-        Me.Situacao.Name = "Situacao"
-        Me.Situacao.ReadOnly = True
-        '
-        'TxtEstado
-        '
-        Me.TxtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtEstado.Location = New System.Drawing.Point(143, 206)
-        Me.TxtEstado.Name = "TxtEstado"
-        Me.TxtEstado.Size = New System.Drawing.Size(330, 24)
-        Me.TxtEstado.TabIndex = 36
-        '
-        'Label6
-        '
-        Label6.AutoSize = True
-        Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label6.Location = New System.Drawing.Point(8, 208)
-        Label6.Name = "Label6"
-        Label6.Size = New System.Drawing.Size(129, 20)
-        Label6.TabIndex = 35
-        Label6.Text = "Sigla do Estado :"
+        Label7.AutoSize = True
+        Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label7.Location = New System.Drawing.Point(8, 270)
+        Label7.Name = "Label7"
+        Label7.Size = New System.Drawing.Size(179, 20)
+        Label7.TabIndex = 37
+        Label7.Text = "Historico de protocolos :"
         '
         'FrmBuscaAlvara
         '
@@ -482,7 +510,7 @@ Partial Class FrmBuscaAlvara
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1022, 457)
+        Me.ClientSize = New System.Drawing.Size(1022, 501)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
@@ -545,4 +573,5 @@ Partial Class FrmBuscaAlvara
     Friend WithEvents EndEstado As DataGridViewTextBoxColumn
     Friend WithEvents Situacao As DataGridViewTextBoxColumn
     Friend WithEvents TxtEstado As TextBox
+    Friend WithEvents TextBoxHistorico As TextBox
 End Class

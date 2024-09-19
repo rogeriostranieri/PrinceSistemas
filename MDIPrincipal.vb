@@ -4,17 +4,7 @@ Imports System.IO
 
 Public Class MDIPrincipal
 
-
-
-    'inicia verificação do login e tema
-    ' Private conexao As SqlConnection
-    'Private comando As SqlCommand
-    ' Private da As SqlDataAdapter
-    'Private dr As SqlDataReader
-
     Private Sub BuscaLogin()
-        'ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755
-        'conectar e modificar os label conforme o banco de dados, tabela LOGIN usuario do formulario LOGIN, pegando seu usuario logado e modifica os label tema e nome completo 
         Dim conexao As SqlConnection
         Dim comando As SqlCommand
         Dim da As SqlDataAdapter
@@ -22,37 +12,57 @@ Public Class MDIPrincipal
 
         conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
         conexao.Open()
-        comando = New SqlCommand("SELECT * FROM LOGIN WHERE USUARIO = '" & Login.txtUsername.Text & "'", conexao)
+
+        ' Busca o login do usuário logado
+        comando = New SqlCommand("SELECT * FROM LOGIN WHERE USUARIO = @Usuario", conexao)
+        comando.Parameters.AddWithValue("@Usuario", Login.txtUsername.Text)
         da = New SqlDataAdapter(comando)
         dr = comando.ExecuteReader()
-        'pegar nome completo e tema da tabela e modificar LbTema e lblnomecompleto
-        While dr.Read()
-            LblNomeCompleto.Text = "Bem vindo Sr(a). " & dr("NomeCompleto") & "!"
-            LbTema.Text = dr("Tema")
-            'mudar lblnomecompleto e lbtema para cor branca
+
+        If dr.Read() Then
+            Dim nomeCompleto As String = dr("NomeCompleto").ToString()
+            Dim dataNascimento As DateTime = Convert.ToDateTime(dr("DataNascimento"))
+
+            ' Verifica se hoje é o aniversário
+            If dataNascimento.Month = DateTime.Now.Month And dataNascimento.Day = DateTime.Now.Day Then
+                ' Abre o formulário de parabéns
+                Dim frmParabens As New FrmParabens()
+                frmParabens.UsuarioLogado = nomeCompleto
+                frmParabens.MdiParent = Me
+                ' Posiciona o formulário abaixo do ButtonEmpresas
+                Dim btnEmpresasPos As Point = ButtonEmpresas.PointToScreen(Point.Empty)
+                frmParabens.StartPosition = FormStartPosition.Manual
+                frmParabens.Location = New Point(btnEmpresasPos.X, btnEmpresasPos.Y + ButtonEmpresas.Height)
+
+                frmParabens.Show()
+            End If
+
+            ' Atualiza o nome completo e tema no MDI principal
+            LblNomeCompleto.Text = "Bem vindo Sr(a). " & nomeCompleto & "!"
+            LbTema.Text = dr("Tema").ToString()
+
+            ' Mudar a cor dos labels
             LblNomeCompleto.ForeColor = Color.White
             LbTema.ForeColor = Color.Black
 
+            ' Configurar o plano de fundo de acordo com o tema
             Try
-                'pegar pnd da pasta \Imagens\Plano de Fundo\ e coloca como plano de fundo
-                'BackgroundImage = Image.FromFile("\Imagens\Plano de Fundo\" & dr("Tema")) '& ".png")
-
                 For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo")
                     Dim imgName As String = IO.Path.GetFileName(img)
-                    If imgName.StartsWith(dr("Tema")) Then
+                    If imgName.StartsWith(dr("Tema").ToString()) Then
                         BackgroundImage = Image.FromFile(img)
                         BackgroundImageLayout = ImageLayout.Stretch
                     End If
                 Next
-
             Catch ex As Exception
                 MsgBox("Erro ao carregar imagem de fundo")
-                conexao.Close()
             End Try
+        End If
 
-        End While
         conexao.Close()
     End Sub
+
+
     'fim do codigo do TEMA
 
 
@@ -988,4 +998,5 @@ Public Class MDIPrincipal
         Me.BringToFront()
 
     End Sub
+
 End Class
