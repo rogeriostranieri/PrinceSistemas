@@ -182,10 +182,13 @@ Public Class FrmSocios
         If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
             ' Criar uma string para armazenar as mudanças
             Dim changesDescription As String = ""
+            Dim detailedChanges As String = ""
 
             ' Iterar sobre as linhas alteradas
             For Each row As DataRow In changedRecords.Rows
                 changesDescription &= "Alterações na linha com ID: " & row("ID_Socios").ToString() & vbCrLf
+
+                Dim columnChangesCount As Integer = 0
 
                 ' Iterar sobre as colunas para identificar as mudanças
                 For Each column As DataColumn In changedRecords.Columns
@@ -193,25 +196,51 @@ Public Class FrmSocios
                     If row.RowState <> DataRowState.Added Then
                         ' Apenas verificar diferenças entre as versões original e atual se a linha não for nova
                         If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                            changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            columnChangesCount += 1
+                            detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                         End If
                     Else
                         ' Para novas linhas, apenas listar os valores atuais
-                        changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        columnChangesCount += 1
+                        detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                     End If
                 Next
-                changesDescription &= vbCrLf
+                changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
             Next
 
             ' Perguntar se deseja salvar os dados, exibindo as mudanças detectadas
-            If MsgBox("Deseja salvar os dados?" & vbCrLf & vbCrLf & "Alterações detectadas:" & vbCrLf & changesDescription, MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                ' Salvar dados
-                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
-                MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                BloquearEdicao()
-                TextBoxExtensoDN.Visible = False
-                BtnEditar.Text = "Editar"
-            End If
+            Dim message As String = "Foram detectadas alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+            Dim result As DialogResult = MessageBox.Show(message, "Confirmação", MessageBoxButtons.YesNoCancel)
+
+            Select Case result
+                Case DialogResult.Cancel
+                    ' Não fazer nada, apenas sair do método
+                    Exit Sub
+
+                Case DialogResult.No
+                    ' Reverter mudanças se o usuário escolher não salvar
+                    PrinceDBDataSet.Socios.RejectChanges()
+                    BloquearEdicao()
+                    TextBoxExtensoDN.Visible = False
+                    BtnEditar.Text = "Editar"
+
+                Case DialogResult.Yes
+                    ' Salvar dados
+                    Try
+                        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+                        MessageBox.Show("Dados salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        BloquearEdicao()
+                        TextBoxExtensoDN.Visible = False
+                        BtnEditar.Text = "Editar"
+
+                        ' Perguntar se deseja ver os detalhes das alterações
+                        If MessageBox.Show("Deseja ver os detalhes das alterações?", "Detalhes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    Catch exc As Exception
+                        MessageBox.Show("Ocorreu um erro ao salvar os dados." & vbCrLf & exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End Try
+            End Select
         Else
             ' Se não houver alterações, informar ao usuário
             MessageBox.Show("Nenhuma alteração foi detectada.", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -220,6 +249,7 @@ Public Class FrmSocios
             BtnEditar.Text = "Editar"
         End If
     End Sub
+
 
 
 

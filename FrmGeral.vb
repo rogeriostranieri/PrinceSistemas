@@ -1,6 +1,8 @@
 ﻿Imports System.Text
 Imports System.Data.SqlClient
 Imports System.Drawing
+Imports System.Globalization
+Imports System.Text.RegularExpressions
 
 Public Class FrmGeral
     Private allEmpresas As DataTable
@@ -66,53 +68,85 @@ Public Class FrmGeral
     End Sub
 
 
+
     Private Sub LoadEmpresas()
         Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
-        Dim query As String = "SELECT 
-                                COALESCE(NULLIF(Matriz, ''), 'Matriz') AS Tipo, 
-                                RazaoSocial, 
-                                CNPJ 
-                           FROM Laudos 
-                           UNION 
-                           SELECT 
-                                COALESCE(NULLIF(Sede, ''), 'Matriz') AS Tipo, 
-                                RazaoSocial, 
-                                CNPJ 
-                           FROM Empresas"
+        Dim query As String = "
+    WITH CombinedCompanies AS (
+        SELECT 
+            'Empresa' AS SourceTable,
+            SEDE AS TipoOriginal, 
+            RazaoSocial, 
+            CNPJ 
+        FROM Empresas
+        WHERE CNPJ IS NOT NULL OR RazaoSocial IS NOT NULL
+
+        UNION ALL
+
+        SELECT 
+            'Laudo' AS SourceTable,
+            Matriz AS TipoOriginal, 
+            RazaoSocial, 
+            CNPJ 
+        FROM Laudos
+        WHERE CNPJ IS NOT NULL OR RazaoSocial IS NOT NULL
+    )
+    SELECT 
+        CASE 
+            WHEN COUNT(DISTINCT SourceTable) > 1 THEN 'Matriz'
+            ELSE COALESCE(MAX(TipoOriginal), 'Matriz')
+        END AS Tipo,
+        MAX(TipoOriginal) AS TipoOriginal,
+        RazaoSocial,
+        CNPJ,
+        STRING_AGG(SourceTable, ',') AS SourceTables
+    FROM CombinedCompanies
+    GROUP BY RazaoSocial, CNPJ
+    HAVING COUNT(*) > 0
+    ORDER BY RazaoSocial, CNPJ"
 
         Using connection As New SqlConnection(connectionString)
             Dim command As New SqlCommand(query, connection)
             Dim adapter As New SqlDataAdapter(command)
             allEmpresas = New DataTable()
-            adapter.Fill(allEmpresas)
 
-            ListViewGeral.Items.Clear()
+            Try
+                adapter.Fill(allEmpresas)
 
-            ' Adicionar linhas ao ListView com as colunas correspondentes
-            For Each row As DataRow In allEmpresas.Rows
-                Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
-                Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Sem Razão Social")
-                Dim CNPJ As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
+                ' Limpar o ListView antes de preencher novamente
+                ListViewGeral.Items.Clear()
 
-                ' Criar o ListViewItem com o tipo (Matriz/Filial)
-                Dim listItem As New ListViewItem(tipo)
+                ' Adicionar linhas ao ListView com as colunas correspondentes
+                For Each row As DataRow In allEmpresas.Rows
+                    Dim tipo As String = If(row("TipoOriginal") IsNot DBNull.Value, row("TipoOriginal").ToString(), "Matriz")
+                    Dim razaoSocial As String = If(row("RazaoSocial") IsNot DBNull.Value, row("RazaoSocial").ToString(), "Sem Razão Social")
+                    Dim cnpj As String = If(row("CNPJ") IsNot DBNull.Value, row("CNPJ").ToString(), "Sem CNPJ")
+                    Dim sourceTables As String = row("SourceTables").ToString()
 
-                ' Adicionar a Razão Social como subitem
-                listItem.SubItems.Add(razaoSocial)
+                    ' Criar o ListViewItem com o tipo (SEDE/Matriz)
+                    Dim listItem As New ListViewItem(tipo)
+                    ' Adicionar a Razão Social como subitem
+                    listItem.SubItems.Add(razaoSocial)
+                    ' Adicionar o CNPJ como subitem
+                    listItem.SubItems.Add(cnpj)
+                    ' Guardar informações adicionais no Tag usando objeto anônimo
+                    listItem.Tag = New With {.CNPJ = cnpj, .SourceTables = sourceTables, .TipoOriginal = tipo}
 
-                ' Adicionar o CNPJ como subitem
-                listItem.SubItems.Add(CNPJ) ' Esta linha garante que o CNPJ será exibido
+                    ' Adicionar o item ao ListView
+                    ListViewGeral.Items.Add(listItem)
+                Next
 
-                ' Guardar o CNPJ no Tag
-                listItem.Tag = CNPJ
+                ' Atualizar o Label com o total de empresas
+                Label2.Text = $"Total: {ListViewGeral.Items.Count} empresas"
 
-                ' Adicionar o item ao ListView
-                ListViewGeral.Items.Add(listItem)
-            Next
-            ' Atualizar o Label com o total de empresas
-            Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
+            Catch ex As Exception
+                MessageBox.Show($"Erro ao carregar empresas: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                allEmpresas = New DataTable() ' Inicializa com uma tabela vazia em caso de erro
+            End Try
         End Using
     End Sub
+
+
 
 
 
@@ -132,42 +166,51 @@ Public Class FrmGeral
     End Sub
 
     Private Sub BuscarEmpresas(ByVal termoBusca As String)
-        ' Normaliza o termo de busca
+        ' Verifica se a lista de empresas está carregada
+        If allEmpresas Is Nothing OrElse allEmpresas.Rows.Count = 0 Then
+            MessageBox.Show("Nenhuma empresa carregada. Por favor, carregue as empresas primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Normaliza o termo de busca (remove acentos e símbolos)
         termoBusca = RemoverAcentos(termoBusca.ToLower())
         termoBusca = RemoverSimbolos(termoBusca)
-
-        ' Filtra o DataTable com base no termo de busca
-        Dim resultados As DataRow() = allEmpresas.Select()
 
         ' Limpar o ListView antes de exibir os resultados filtrados
         ListViewGeral.Items.Clear()
 
         ' Adicionar os resultados filtrados ao ListView
-        For Each row As DataRow In resultados
-            Dim razaoSocial As String = RemoverAcentos(row("RazaoSocial").ToString().ToLower())
-            Dim cnpjFormatado As String = RemoverSimbolos(row("CNPJ").ToString())
+        For Each row As DataRow In allEmpresas.Rows
+            Dim tipo As String = If(row("TipoOriginal") IsNot DBNull.Value, row("TipoOriginal").ToString(), "Matriz")
+            Dim razaoSocial As String = If(row("RazaoSocial") IsNot DBNull.Value, row("RazaoSocial").ToString(), "Sem Razão Social")
+            Dim cnpj As String = If(row("CNPJ") IsNot DBNull.Value, row("CNPJ").ToString(), "Sem CNPJ")
+            Dim sourceTables As String = row("SourceTables").ToString()
 
-            If razaoSocial.Contains(termoBusca) Or cnpjFormatado.Contains(termoBusca) Then
-                Dim tipo As String = If(Not String.IsNullOrEmpty(row("Tipo").ToString()), row("Tipo").ToString(), "Não informado")
-                Dim cnpjExibicao As String = If(Not String.IsNullOrEmpty(row("CNPJ").ToString()), row("CNPJ").ToString(), "Sem CNPJ")
+            ' Normaliza os campos para facilitar a busca
+            Dim razaoSocialNormalized As String = RemoverAcentos(razaoSocial.ToLower())
+            Dim cnpjNormalized As String = RemoverSimbolos(cnpj)
 
-                ' Criar o ListViewItem com o tipo (Matriz/Filial)
+            ' Verifica se o termo de busca está presente na razão social ou no CNPJ
+            If razaoSocialNormalized.Contains(termoBusca) OrElse cnpjNormalized.Contains(termoBusca) Then
+                ' Criar o ListViewItem com o tipo (SEDE/Matriz)
                 Dim listItem As New ListViewItem(tipo)
-
                 ' Adicionar a Razão Social como subitem
-                listItem.SubItems.Add(row("RazaoSocial").ToString())
-
+                listItem.SubItems.Add(razaoSocial)
                 ' Adicionar o CNPJ como subitem
-                listItem.SubItems.Add(cnpjExibicao)
-
-                ' Guardar o CNPJ no Tag
-                listItem.Tag = cnpjFormatado
+                listItem.SubItems.Add(cnpj)
+                ' Guardar informações adicionais no Tag usando objeto anônimo
+                listItem.Tag = New With {.CNPJ = cnpj, .SourceTables = sourceTables, .TipoOriginal = tipo}
 
                 ' Adicionar o item ao ListView
                 ListViewGeral.Items.Add(listItem)
             End If
         Next
+
+        ' Atualizar o Label com o total de empresas encontradas
+        Label2.Text = $"Total: {ListViewGeral.Items.Count} empresas"
     End Sub
+
+
 
 
 
@@ -207,7 +250,9 @@ Public Class FrmGeral
     Private Sub ListViewGeral_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseDoubleClick
         If ListViewGeral.SelectedItems.Count > 0 Then
             Dim selectedItem As ListViewItem = ListViewGeral.SelectedItems(0)
-            Dim selectedCNPJ As String = selectedItem.Tag.ToString() ' Pegar o CNPJ
+
+            ' Extrair CNPJ, SourceTables e TipoOriginal diretamente do Tag (usando objeto anônimo)
+            Dim info = selectedItem.Tag
 
             ' Verificar se o FrmEscolha já está aberto
             Dim existingForm As FrmEscolha = Nothing
@@ -218,16 +263,17 @@ Public Class FrmGeral
                 End If
             Next
 
-            ' Fechar o formulário existente
+            ' Fechar o formulário existente, se encontrado
             existingForm?.Close()
 
-            ' Criar e mostrar uma nova instância do FrmEscolha, passando o CNPJ
-            Dim frmEscolha As New FrmEscolha(selectedCNPJ) With {
-                .MdiParent = Me.MdiParent ' Definindo o formulário MDI pai
-            }
+            ' Criar e mostrar uma nova instância do FrmEscolha, passando as informações diretamente
+            Dim frmEscolha As New FrmEscolha(info.CNPJ.ToString(), info.SourceTables, info.TipoOriginal) With {
+            .MdiParent = Me.MdiParent ' Definindo o formulário MDI pai
+        }
             frmEscolha.Show()
         End If
     End Sub
+
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.Close()
@@ -254,8 +300,10 @@ Public Class FrmGeral
 
         ' Mensagem opcional para confirmar que a atualização foi feita
         MessageBox.Show("Dados atualizados com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
         ' Atualizar o Label com o total de empresas
-        Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
+        Label2.Text = $"Total: {ListViewGeral.Items.Count} empresas"
     End Sub
+
 
 End Class

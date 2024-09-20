@@ -107,6 +107,7 @@ Module ModeMail
 
 
         Try
+            Dim Filial = FrmLegalizacao.SEDEComboBox.Text.ToString()
             Dim A = FrmLegalizacao.RazaoSocialTextBox.Text.ToString()
             Dim B = FrmLegalizacao.CNPJMaskedTextBox.Text.ToString()
             Dim C = FrmLegalizacao.ProcessoComboBox.Text.ToString()
@@ -159,7 +160,8 @@ Module ModeMail
 
             '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
             'assunto
-            FrmMail.TextBoxAssunto.Text = C & " - da Empresa = " & A & ""
+
+            FrmMail.TextBoxAssunto.Text = C & " da " & Filial & " - da Empresa = " & A & ""
 
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=

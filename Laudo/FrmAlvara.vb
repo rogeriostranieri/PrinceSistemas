@@ -420,30 +420,36 @@ Public Class FrmAlvara
 
             ' Verificar se há alterações reais no DataSet
             If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-                ' Criar uma string para armazenar as mudanças
+                ' Criar strings para armazenar o resumo e os detalhes das mudanças
                 Dim changesDescription As String = ""
+                Dim detailedChanges As String = ""
 
                 ' Iterar sobre as linhas alteradas
                 For Each row As DataRow In changedRecords.Rows
-                    ' Adiciona o ID do laudo
+                    ' Adiciona o ID do laudo ao resumo
                     changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                    Dim columnChangesCount As Integer = 0
 
                     ' Iterar sobre as colunas para identificar as mudanças
                     For Each column As DataColumn In changedRecords.Columns
                         ' Verificar se o registro não é novo antes de acessar dados originais
                         If row.RowState <> DataRowState.Added Then
                             If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
-                                changesDescription &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                                columnChangesCount += 1
+                                detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                             End If
                         Else
-                            changesDescription &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            columnChangesCount += 1
+                            detailedChanges &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
                         End If
                     Next
-                    changesDescription &= vbCrLf ' Adiciona uma linha em branco entre as alterações de diferentes registros
+
+                    changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
                 Next
 
-                ' Mostrar a quantidade de alterações e as mudanças
-                Dim message As String = "Foram detectadas mudanças." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
+                ' Mostrar a quantidade de alterações e o resumo das mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
@@ -467,12 +473,17 @@ Public Class FrmAlvara
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
 
-                            ' Recarregar e desativar edição
+                            ' Sincronizar e desativar edição
                             SincronizarDados()
 
                         Catch exc As Exception
                             MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
+
+                        ' Perguntar ao usuário se deseja ver detalhes das alterações
+                        If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -482,6 +493,7 @@ Public Class FrmAlvara
             MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 

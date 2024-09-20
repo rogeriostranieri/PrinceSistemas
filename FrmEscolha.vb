@@ -14,22 +14,18 @@ Public Class FrmEscolha
     End Function
 
     ' Construtor que aceita o CNPJ como parâmetro
-    Public Sub New(cnpj As String)
+    Public Sub New(cnpj As String, sourceTables As String, tipoOriginal As String)
         InitializeComponent()
         Me.selectedCNPJ = cnpj
+        ' Se precisar usar sourceTables e tipoOriginal, armazene-os ou processe-os aqui
     End Sub
 
-    ' Construtor padrão sem parâmetros
-    Public Sub New()
-        InitializeComponent()
-        Me.selectedCNPJ = String.Empty
-    End Sub
 
     ' Carregar o formulário e verificar a existência do CNPJ
     Private Sub FrmEscolha_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '   MessageBox.Show("FrmEscolha carregado com sucesso.") ' Verificação de debug
         LabelCNPJ.Text = selectedCNPJ
-
-        ' Verificar a existência do CNPJ nas tabelas "Empresas" e "Laudos"
+        ' Verificar existência do CNPJ nas tabelas "Empresas" e "Laudos"
         Dim existsInEmpresas As Boolean = CheckCNPJExists("Empresas")
         Dim existsInLaudos As Boolean = CheckCNPJExists("Laudos")
 
