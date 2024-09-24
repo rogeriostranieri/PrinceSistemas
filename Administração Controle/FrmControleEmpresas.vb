@@ -88,4 +88,16 @@
             FrmBombeiroSistema.Show()
         End If
     End Sub
+
+    Private Sub BtnSites_Click(sender As Object, e As EventArgs) Handles BtnSites.Click
+        If Application.OpenForms.OfType(Of FrmSites)().Count() > 0 Then
+            FrmSites.Focus()
+            FrmSites.Close()
+            FrmSites.MdiParent = MDIPrincipal
+            FrmSites.Show()
+        Else
+            FrmSites.MdiParent = MDIPrincipal
+            FrmSites.Show()
+        End If
+    End Sub
 End Class

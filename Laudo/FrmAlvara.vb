@@ -1127,12 +1127,9 @@ Public Class FrmAlvara
 
 
     Private Sub SituacaoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SituacaoComboBox.TextChanged, SituacaoComboBox.SelectedIndexChanged
-
-
+        ' Chama o método SituacaoCombo quando o valor for alterado
         SituacaoCombo()
-
     End Sub
-
 
 
     Private Sub Btnempresa_Click(sender As Object, e As EventArgs) Handles Btnempresa.Click

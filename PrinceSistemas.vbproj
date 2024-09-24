@@ -659,6 +659,18 @@
     <Compile Include="RichTextFULL\FrmRichTextCompleto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sites\FrmBrasilCidadesGeral.Designer.vb">
+      <DependentUpon>FrmBrasilCidadesGeral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\FrmBrasilCidadesGeral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sites\FrmSites.Designer.vb">
+      <DependentUpon>FrmSites.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\FrmSites.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Socios\FrmSocios.Designer.vb">
       <DependentUpon>FrmSocios.vb</DependentUpon>
     </Compile>
@@ -940,6 +952,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RichTextFULL\FrmRichTextCompleto.resx">
       <DependentUpon>FrmRichTextCompleto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\FrmBrasilCidadesGeral.resx">
+      <DependentUpon>FrmBrasilCidadesGeral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\FrmSites.resx">
+      <DependentUpon>FrmSites.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Socios\FrmSocios.resx">
       <DependentUpon>FrmSocios.vb</DependentUpon>

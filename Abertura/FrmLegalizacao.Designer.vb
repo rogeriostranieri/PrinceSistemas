@@ -121,6 +121,9 @@ Partial Class FrmLegalizacao
         Dim DadosComplEstabelecimentoLabel As System.Windows.Forms.Label
         Dim DadosComplLiquidoLabel As System.Windows.Forms.Label
         Dim DadosComplGLPLabel As System.Windows.Forms.Label
+        Dim DBEProtocoloLabel As System.Windows.Forms.Label
+        Dim DBEDataLabel As System.Windows.Forms.Label
+        Dim FederalProtocoloLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -305,6 +308,10 @@ Partial Class FrmLegalizacao
         Me.BtnConsultaJunta = New System.Windows.Forms.Button()
         Me.ProtocoloJuntaComercialTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnDataProtFedDBE = New System.Windows.Forms.Button()
+        Me.FederalProtocoloTextBox = New System.Windows.Forms.TextBox()
+        Me.DBEDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.DBEProtocoloTextBox = New System.Windows.Forms.TextBox()
         Me.BtnVerFederal = New System.Windows.Forms.Button()
         Me.BtnAnotacoesFederal = New System.Windows.Forms.Button()
         Me.BtnData4 = New System.Windows.Forms.Button()
@@ -559,6 +566,9 @@ Partial Class FrmLegalizacao
         DadosComplEstabelecimentoLabel = New System.Windows.Forms.Label()
         DadosComplLiquidoLabel = New System.Windows.Forms.Label()
         DadosComplGLPLabel = New System.Windows.Forms.Label()
+        DBEProtocoloLabel = New System.Windows.Forms.Label()
+        DBEDataLabel = New System.Windows.Forms.Label()
+        FederalProtocoloLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -907,7 +917,7 @@ Partial Class FrmLegalizacao
         'RedeSimObsLabel
         '
         RedeSimObsLabel.AutoSize = True
-        RedeSimObsLabel.Location = New System.Drawing.Point(16, 102)
+        RedeSimObsLabel.Location = New System.Drawing.Point(327, 8)
         RedeSimObsLabel.Name = "RedeSimObsLabel"
         RedeSimObsLabel.Size = New System.Drawing.Size(73, 13)
         RedeSimObsLabel.TabIndex = 30
@@ -1420,11 +1430,11 @@ Partial Class FrmLegalizacao
         'PontoDeReferenciaLabel
         '
         PontoDeReferenciaLabel.AutoSize = True
-        PontoDeReferenciaLabel.Location = New System.Drawing.Point(419, 145)
+        PontoDeReferenciaLabel.Location = New System.Drawing.Point(426, 145)
         PontoDeReferenciaLabel.Name = "PontoDeReferenciaLabel"
-        PontoDeReferenciaLabel.Size = New System.Drawing.Size(120, 13)
+        PontoDeReferenciaLabel.Size = New System.Drawing.Size(111, 13)
         PontoDeReferenciaLabel.TabIndex = 39
-        PontoDeReferenciaLabel.Text = "Sem atividade no local?"
+        PontoDeReferenciaLabel.Text = "Ponto de Referência?"
         '
         'TipoUnidadeProdutivaLabel
         '
@@ -1497,6 +1507,33 @@ Partial Class FrmLegalizacao
         DadosComplGLPLabel.Size = New System.Drawing.Size(299, 13)
         DadosComplGLPLabel.TabIndex = 24
         DadosComplGLPLabel.Text = "Quantidade em quilos(kg) de gás liquefeito de petróleo (GLP)?"
+        '
+        'DBEProtocoloLabel
+        '
+        DBEProtocoloLabel.AutoSize = True
+        DBEProtocoloLabel.Location = New System.Drawing.Point(55, 124)
+        DBEProtocoloLabel.Name = "DBEProtocoloLabel"
+        DBEProtocoloLabel.Size = New System.Drawing.Size(95, 13)
+        DBEProtocoloLabel.TabIndex = 80
+        DBEProtocoloLabel.Text = "DBE Nº Protocolo:"
+        '
+        'DBEDataLabel
+        '
+        DBEDataLabel.AutoSize = True
+        DBEDataLabel.Location = New System.Drawing.Point(30, 175)
+        DBEDataLabel.Name = "DBEDataLabel"
+        DBEDataLabel.Size = New System.Drawing.Size(118, 13)
+        DBEDataLabel.TabIndex = 81
+        DBEDataLabel.Text = "DBE Data Protocolado:"
+        '
+        'FederalProtocoloLabel
+        '
+        FederalProtocoloLabel.AutoSize = True
+        FederalProtocoloLabel.Location = New System.Drawing.Point(10, 150)
+        FederalProtocoloLabel.Name = "FederalProtocoloLabel"
+        FederalProtocoloLabel.Size = New System.Drawing.Size(134, 13)
+        FederalProtocoloLabel.TabIndex = 82
+        FederalProtocoloLabel.Text = "Protocolo Processo Digital:"
         '
         'EmpresasBindingNavigator
         '
@@ -3481,6 +3518,13 @@ Partial Class FrmLegalizacao
         'TabPage4
         '
         Me.TabPage4.AutoScroll = True
+        Me.TabPage4.Controls.Add(Me.BtnDataProtFedDBE)
+        Me.TabPage4.Controls.Add(FederalProtocoloLabel)
+        Me.TabPage4.Controls.Add(Me.FederalProtocoloTextBox)
+        Me.TabPage4.Controls.Add(DBEDataLabel)
+        Me.TabPage4.Controls.Add(Me.DBEDataMaskedTextBox)
+        Me.TabPage4.Controls.Add(DBEProtocoloLabel)
+        Me.TabPage4.Controls.Add(Me.DBEProtocoloTextBox)
         Me.TabPage4.Controls.Add(Me.BtnVerFederal)
         Me.TabPage4.Controls.Add(Me.BtnAnotacoesFederal)
         Me.TabPage4.Controls.Add(Me.BtnData4)
@@ -3503,12 +3547,48 @@ Partial Class FrmLegalizacao
         Me.TabPage4.Text = "Receita Federal"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'BtnDataProtFedDBE
+        '
+        Me.BtnDataProtFedDBE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnDataProtFedDBE.Location = New System.Drawing.Point(226, 171)
+        Me.BtnDataProtFedDBE.Name = "BtnDataProtFedDBE"
+        Me.BtnDataProtFedDBE.Size = New System.Drawing.Size(43, 21)
+        Me.BtnDataProtFedDBE.TabIndex = 84
+        Me.BtnDataProtFedDBE.Text = "Agora"
+        Me.BtnDataProtFedDBE.UseVisualStyleBackColor = True
+        '
+        'FederalProtocoloTextBox
+        '
+        Me.FederalProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "FederalProtocolo", True))
+        Me.FederalProtocoloTextBox.Location = New System.Drawing.Point(150, 147)
+        Me.FederalProtocoloTextBox.Name = "FederalProtocoloTextBox"
+        Me.FederalProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.FederalProtocoloTextBox.TabIndex = 83
+        '
+        'DBEDataMaskedTextBox
+        '
+        Me.DBEDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEData", True))
+        Me.DBEDataMaskedTextBox.Location = New System.Drawing.Point(150, 172)
+        Me.DBEDataMaskedTextBox.Mask = "00/00/0000"
+        Me.DBEDataMaskedTextBox.Name = "DBEDataMaskedTextBox"
+        Me.DBEDataMaskedTextBox.Size = New System.Drawing.Size(70, 20)
+        Me.DBEDataMaskedTextBox.TabIndex = 82
+        Me.DBEDataMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'DBEProtocoloTextBox
+        '
+        Me.DBEProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEProtocolo", True))
+        Me.DBEProtocoloTextBox.Location = New System.Drawing.Point(150, 121)
+        Me.DBEProtocoloTextBox.Name = "DBEProtocoloTextBox"
+        Me.DBEProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.DBEProtocoloTextBox.TabIndex = 81
+        '
         'BtnVerFederal
         '
         Me.BtnVerFederal.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnVerFederal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerFederal.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerFederal.Location = New System.Drawing.Point(310, 117)
+        Me.BtnVerFederal.Location = New System.Drawing.Point(597, 22)
         Me.BtnVerFederal.Name = "BtnVerFederal"
         Me.BtnVerFederal.Size = New System.Drawing.Size(33, 22)
         Me.BtnVerFederal.TabIndex = 80
@@ -3553,9 +3633,9 @@ Partial Class FrmLegalizacao
         Me.GroupBox7.Controls.Add(Me.LinkLabel13)
         Me.GroupBox7.Controls.Add(Me.LinkLabel8)
         Me.GroupBox7.Controls.Add(Me.LinkLabel12)
-        Me.GroupBox7.Location = New System.Drawing.Point(386, 105)
+        Me.GroupBox7.Location = New System.Drawing.Point(326, 194)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(202, 90)
+        Me.GroupBox7.Size = New System.Drawing.Size(305, 38)
         Me.GroupBox7.TabIndex = 40
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Serviços REDESIM - Links"
@@ -3564,7 +3644,7 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel15.AutoSize = True
         Me.LinkLabel15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel15.Location = New System.Drawing.Point(13, 60)
+        Me.LinkLabel15.Location = New System.Drawing.Point(136, 16)
         Me.LinkLabel15.Name = "LinkLabel15"
         Me.LinkLabel15.Size = New System.Drawing.Size(38, 15)
         Me.LinkLabel15.TabIndex = 32
@@ -3575,7 +3655,7 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel14.AutoSize = True
         Me.LinkLabel14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel14.Location = New System.Drawing.Point(99, 37)
+        Me.LinkLabel14.Location = New System.Drawing.Point(244, 16)
         Me.LinkLabel14.Name = "LinkLabel14"
         Me.LinkLabel14.Size = New System.Drawing.Size(56, 15)
         Me.LinkLabel14.TabIndex = 31
@@ -3586,7 +3666,7 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel13.AutoSize = True
         Me.LinkLabel13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel13.Location = New System.Drawing.Point(99, 16)
+        Me.LinkLabel13.Location = New System.Drawing.Point(178, 16)
         Me.LinkLabel13.Name = "LinkLabel13"
         Me.LinkLabel13.Size = New System.Drawing.Size(65, 15)
         Me.LinkLabel13.TabIndex = 30
@@ -3608,7 +3688,7 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel12.AutoSize = True
         Me.LinkLabel12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel12.Location = New System.Drawing.Point(13, 37)
+        Me.LinkLabel12.Location = New System.Drawing.Point(72, 16)
         Me.LinkLabel12.Name = "LinkLabel12"
         Me.LinkLabel12.Size = New System.Drawing.Size(58, 15)
         Me.LinkLabel12.TabIndex = 28
@@ -3646,9 +3726,9 @@ Partial Class FrmLegalizacao
         'RedeSimObsRichTextBox
         '
         Me.RedeSimObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RedeSimObs", True))
-        Me.RedeSimObsRichTextBox.Location = New System.Drawing.Point(19, 118)
+        Me.RedeSimObsRichTextBox.Location = New System.Drawing.Point(326, 24)
         Me.RedeSimObsRichTextBox.Name = "RedeSimObsRichTextBox"
-        Me.RedeSimObsRichTextBox.Size = New System.Drawing.Size(289, 103)
+        Me.RedeSimObsRichTextBox.Size = New System.Drawing.Size(265, 96)
         Me.RedeSimObsRichTextBox.TabIndex = 31
         Me.RedeSimObsRichTextBox.Text = ""
         '
@@ -3656,9 +3736,9 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox4.Controls.Add(Me.LinkLabel3)
         Me.GroupBox4.Controls.Add(Me.LinkLabel4)
-        Me.GroupBox4.Location = New System.Drawing.Point(386, 10)
+        Me.GroupBox4.Location = New System.Drawing.Point(326, 126)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(202, 62)
+        Me.GroupBox4.Size = New System.Drawing.Size(305, 62)
         Me.GroupBox4.TabIndex = 30
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Ajuda"
@@ -5684,4 +5764,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnVerFederal As Button
     Friend WithEvents BtnVerNovoNome As Button
     Friend WithEvents BtnCopiarRegistroEmpresa As Button
+    Friend WithEvents FederalProtocoloTextBox As TextBox
+    Friend WithEvents DBEDataMaskedTextBox As MaskedTextBox
+    Friend WithEvents DBEProtocoloTextBox As TextBox
+    Friend WithEvents BtnDataProtFedDBE As Button
 End Class

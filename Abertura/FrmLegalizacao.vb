@@ -3419,4 +3419,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End Try
     End Sub
 
+    Private Sub BtnDataProtFedDBE_Click(sender As Object, e As EventArgs) Handles BtnDataProtFedDBE.Click
+        DBEDataMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
+
+    End Sub
 End Class

@@ -1008,4 +1008,18 @@ Public Class MDIPrincipal
             FrmSociosGERAL.Show()
         End If
     End Sub
+
+
+
+    Private Sub TodasCidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TodasCidadesToolStripMenuItem.Click
+        FrmBrasilCidadesGeral.Show()
+    End Sub
+
+    Private Sub SitesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SitesToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmSites)().Count() > 0 Then
+            FrmSites.Focus()
+        Else
+            FrmSites.Show()
+        End If
+    End Sub
 End Class
