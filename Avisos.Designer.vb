@@ -29,14 +29,14 @@ Partial Class Avisos
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Matriz = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmpresasTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EmpresasTableAdapter()
         Me.EmpresasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SEDE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Processo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CNPJ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,11 +49,11 @@ Partial Class Avisos
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.BtnProtocolados = New System.Windows.Forms.PictureBox()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Matriz = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BombeiroSituacao = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SEDE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Processo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CNPJ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,8 +84,13 @@ Partial Class Avisos
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
@@ -100,6 +105,7 @@ Partial Class Avisos
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -118,6 +124,46 @@ Partial Class Avisos
         Me.LaudosDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.LaudosDataGridView.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.LaudosDataGridView, "Clique na empresa para abrir")
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 230
+        '
+        'Matriz
+        '
+        Me.Matriz.DataPropertyName = "Matriz"
+        Me.Matriz.HeaderText = "Matriz"
+        Me.Matriz.Name = "Matriz"
+        Me.Matriz.ReadOnly = True
+        Me.Matriz.Width = 50
+        '
+        'DataGridViewTextBoxColumn59
+        '
+        Me.DataGridViewTextBoxColumn59.DataPropertyName = "Situacao"
+        Me.DataGridViewTextBoxColumn59.HeaderText = "Situação Prefeitura"
+        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
+        Me.DataGridViewTextBoxColumn59.ReadOnly = True
+        Me.DataGridViewTextBoxColumn59.Width = 125
+        '
+        'BombeiroSituacao
+        '
+        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
+        Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
+        Me.BombeiroSituacao.Name = "BombeiroSituacao"
+        Me.BombeiroSituacao.ReadOnly = True
+        Me.BombeiroSituacao.Width = 125
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "CNPJ"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "CNPJ"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 120
         '
         'EmpresasBindingSource
         '
@@ -142,45 +188,6 @@ Partial Class Avisos
         Me.EmpresasDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.EmpresasDataGridView.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.EmpresasDataGridView, "Clique na empresa para abrir")
-        '
-        'DataGridViewTextBoxColumn68
-        '
-        Me.DataGridViewTextBoxColumn68.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn68.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
-        Me.DataGridViewTextBoxColumn68.ReadOnly = True
-        Me.DataGridViewTextBoxColumn68.Width = 230
-        '
-        'SEDE
-        '
-        Me.SEDE.DataPropertyName = "SEDE"
-        Me.SEDE.HeaderText = "Matriz"
-        Me.SEDE.Name = "SEDE"
-        Me.SEDE.ReadOnly = True
-        Me.SEDE.Width = 50
-        '
-        'Processo
-        '
-        Me.Processo.DataPropertyName = "Processo"
-        Me.Processo.HeaderText = "Processo"
-        Me.Processo.Name = "Processo"
-        Me.Processo.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn89
-        '
-        Me.DataGridViewTextBoxColumn89.DataPropertyName = "Status"
-        Me.DataGridViewTextBoxColumn89.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
-        Me.DataGridViewTextBoxColumn89.ReadOnly = True
-        Me.DataGridViewTextBoxColumn89.Width = 150
-        '
-        'CNPJ
-        '
-        Me.CNPJ.DataPropertyName = "CNPJ"
-        Me.CNPJ.HeaderText = "CNPJ"
-        Me.CNPJ.Name = "CNPJ"
-        Me.CNPJ.ReadOnly = True
-        Me.CNPJ.Width = 120
         '
         'MaskedTextBox1
         '
@@ -306,45 +313,45 @@ Partial Class Avisos
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 18
         '
-        'DataGridViewTextBoxColumn2
+        'DataGridViewTextBoxColumn68
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 230
+        Me.DataGridViewTextBoxColumn68.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn68.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
+        Me.DataGridViewTextBoxColumn68.ReadOnly = True
+        Me.DataGridViewTextBoxColumn68.Width = 230
         '
-        'Matriz
+        'SEDE
         '
-        Me.Matriz.DataPropertyName = "Matriz"
-        Me.Matriz.HeaderText = "Matriz"
-        Me.Matriz.Name = "Matriz"
-        Me.Matriz.ReadOnly = True
-        Me.Matriz.Width = 50
+        Me.SEDE.DataPropertyName = "SEDE"
+        Me.SEDE.HeaderText = "Matriz"
+        Me.SEDE.Name = "SEDE"
+        Me.SEDE.ReadOnly = True
+        Me.SEDE.Width = 50
         '
-        'DataGridViewTextBoxColumn59
+        'Processo
         '
-        Me.DataGridViewTextBoxColumn59.DataPropertyName = "Situacao"
-        Me.DataGridViewTextBoxColumn59.HeaderText = "Situação Prefeitura"
-        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
-        Me.DataGridViewTextBoxColumn59.ReadOnly = True
-        Me.DataGridViewTextBoxColumn59.Width = 125
+        Me.Processo.DataPropertyName = "Processo"
+        Me.Processo.HeaderText = "Processo"
+        Me.Processo.Name = "Processo"
+        Me.Processo.ReadOnly = True
+        Me.Processo.Width = 70
         '
-        'BombeiroSituacao
+        'DataGridViewTextBoxColumn89
         '
-        Me.BombeiroSituacao.DataPropertyName = "BombeiroSituacao"
-        Me.BombeiroSituacao.HeaderText = "Situação Bombeiro"
-        Me.BombeiroSituacao.Name = "BombeiroSituacao"
-        Me.BombeiroSituacao.ReadOnly = True
-        Me.BombeiroSituacao.Width = 125
+        Me.DataGridViewTextBoxColumn89.DataPropertyName = "Status"
+        Me.DataGridViewTextBoxColumn89.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
+        Me.DataGridViewTextBoxColumn89.ReadOnly = True
+        Me.DataGridViewTextBoxColumn89.Width = 150
         '
-        'DataGridViewTextBoxColumn1
+        'CNPJ
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "CNPJ"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "CNPJ"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 120
+        Me.CNPJ.DataPropertyName = "CNPJ"
+        Me.CNPJ.HeaderText = "CNPJ"
+        Me.CNPJ.Name = "CNPJ"
+        Me.CNPJ.ReadOnly = True
+        Me.CNPJ.Width = 120
         '
         'Avisos
         '
@@ -407,14 +414,14 @@ Partial Class Avisos
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Calendar1 As MonthCalendar
     Friend WithEvents BtnProtocolados As PictureBox
-    Friend WithEvents DataGridViewTextBoxColumn68 As DataGridViewTextBoxColumn
-    Friend WithEvents SEDE As DataGridViewTextBoxColumn
-    Friend WithEvents Processo As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
-    Friend WithEvents CNPJ As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents Matriz As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
     Friend WithEvents BombeiroSituacao As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn68 As DataGridViewTextBoxColumn
+    Friend WithEvents SEDE As DataGridViewTextBoxColumn
+    Friend WithEvents Processo As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
+    Friend WithEvents CNPJ As DataGridViewTextBoxColumn
 End Class

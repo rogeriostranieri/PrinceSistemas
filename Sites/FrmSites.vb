@@ -12,6 +12,9 @@ Public Class FrmSites
     Private Sub FrmSites_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Sites'. Você pode movê-la ou removê-la conforme necessário.
         Me.SitesTableAdapter.Fill(Me.PrinceDBDataSet.Sites)
+        ' Marcar o DataSet como não modificado ao abrir o formulário
+        Me.PrinceDBDataSet.Sites.AcceptChanges()
+
         ' Desabilitar o GroupBox2 ao iniciar
         GroupBox2.Enabled = False
         originalData = Me.PrinceDBDataSet.Sites.Copy() ' Copiar dados originais
@@ -111,15 +114,20 @@ Public Class FrmSites
     End Sub
 
     ' Evento ao fechar o formulário
-    Private Sub FrmPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' Verifica se houve alterações
-        If Not originalData.Equals(Me.PrinceDBDataSet.Sites) Then
+    Private Sub FrmSites_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Verifica se há alterações no DataSet
+        If Me.PrinceDBDataSet.HasChanges() Then
+            ' Pergunta ao usuário se deseja salvar as alterações
             Dim result As DialogResult = MessageBox.Show("Há alterações não salvas. Deseja salvar antes de sair?", "Alterações Detectadas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+
             If result = DialogResult.Yes Then
                 ' Chama o método Salvar
                 Salvar()
-                If Not originalData.Equals(Me.PrinceDBDataSet.Sites) Then
-                    e.Cancel = True ' Impedir fechamento se o salvamento não for bem-sucedido
+
+                ' Verifica se o DataSet ainda tem mudanças após salvar
+                If Me.PrinceDBDataSet.HasChanges() Then
+                    ' Impede o fechamento se o salvamento não for bem-sucedido
+                    e.Cancel = True
                 End If
             ElseIf result = DialogResult.Cancel Then
                 ' Cancela o fechamento do formulário
@@ -333,4 +341,45 @@ Public Class FrmSites
         Dim frmCidades As New FrmBrasilCidadesGeral()
         frmCidades.ShowDialog(Me) ' Abre o formulário como modal
     End Sub
+
+
+    Private estadosSiglas As New Dictionary(Of String, String) From {
+    {"Acre", "AC"},
+    {"Alagoas", "AL"},
+    {"Amazonas", "AM"},
+    {"Bahia", "BA"},
+    {"Ceará", "CE"},
+    {"Distrito Federal", "DF"},
+    {"Espírito Santo", "ES"},
+    {"Goiás", "GO"},
+    {"Maranhão", "MA"},
+    {"Mato Grosso", "MT"},
+    {"Mato Grosso do Sul", "MS"},
+    {"Minas Gerais", "MG"},
+    {"Pará", "PA"},
+    {"Paraíba", "PB"},
+    {"Paraná", "PR"},
+    {"Pernambuco", "PE"},
+    {"Piauí", "PI"},
+    {"Rio de Janeiro", "RJ"},
+    {"Rio Grande do Norte", "RN"},
+    {"Rio Grande do Sul", "RS"},
+    {"Rondônia", "RO"},
+    {"Roraima", "RR"},
+    {"Santa Catarina", "SC"},
+    {"São Paulo", "SP"},
+    {"Sergipe", "SE"},
+    {"Tocantins", "TO"}
+}
+
+
+    Private Sub EstadoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EstadoTextBox.TextChanged
+        Dim estadoNome As String = EstadoTextBox.Text.Trim()
+        If estadosSiglas.ContainsKey(estadoNome) Then
+            EstadoSiglaTextBox.Text = estadosSiglas(estadoNome)
+        Else
+            EstadoSiglaTextBox.Text = String.Empty ' Limpa o campo se o estado não for encontrado
+        End If
+    End Sub
+
 End Class

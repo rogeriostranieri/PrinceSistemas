@@ -29,6 +29,8 @@ Partial Class BoxJuntaComercial
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnInterno = New System.Windows.Forms.Button()
         Me.BtnExterno = New System.Windows.Forms.Button()
+        Me.BtnCopiaPRP = New System.Windows.Forms.Button()
+        Me.ComboBoxEscolhaProtocolo = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,7 +43,7 @@ Partial Class BoxJuntaComercial
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(238, 113)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(238, 166)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -111,6 +113,25 @@ Partial Class BoxJuntaComercial
         Me.BtnExterno.Text = "Abrir Externo"
         Me.BtnExterno.UseVisualStyleBackColor = False
         '
+        'BtnCopiaPRP
+        '
+        Me.BtnCopiaPRP.BackColor = System.Drawing.Color.Lavender
+        Me.BtnCopiaPRP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCopiaPRP.Location = New System.Drawing.Point(139, 124)
+        Me.BtnCopiaPRP.Name = "BtnCopiaPRP"
+        Me.BtnCopiaPRP.Size = New System.Drawing.Size(117, 28)
+        Me.BtnCopiaPRP.TabIndex = 16
+        Me.BtnCopiaPRP.Text = "Copiar Protocolo"
+        Me.BtnCopiaPRP.UseVisualStyleBackColor = False
+        '
+        'ComboBoxEscolhaProtocolo
+        '
+        Me.ComboBoxEscolhaProtocolo.FormattingEnabled = True
+        Me.ComboBoxEscolhaProtocolo.Location = New System.Drawing.Point(16, 129)
+        Me.ComboBoxEscolhaProtocolo.Name = "ComboBoxEscolhaProtocolo"
+        Me.ComboBoxEscolhaProtocolo.Size = New System.Drawing.Size(117, 21)
+        Me.ComboBoxEscolhaProtocolo.TabIndex = 17
+        '
         'BoxJuntaComercial
         '
         Me.AcceptButton = Me.OK_Button
@@ -119,7 +140,9 @@ Partial Class BoxJuntaComercial
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(396, 154)
+        Me.ClientSize = New System.Drawing.Size(396, 207)
+        Me.Controls.Add(Me.ComboBoxEscolhaProtocolo)
+        Me.Controls.Add(Me.BtnCopiaPRP)
         Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
@@ -146,4 +169,6 @@ Partial Class BoxJuntaComercial
     Friend WithEvents Label1 As Label
     Friend WithEvents BtnInterno As Button
     Friend WithEvents BtnExterno As Button
+    Friend WithEvents BtnCopiaPRP As Button
+    Friend WithEvents ComboBoxEscolhaProtocolo As ComboBox
 End Class

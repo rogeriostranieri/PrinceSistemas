@@ -273,6 +273,7 @@ Partial Class FrmAlvara
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarRegistro = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnNovaAlteracao = New System.Windows.Forms.Button()
         Me.Btnempresa = New System.Windows.Forms.Button()
@@ -310,7 +311,7 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
-        Me.BtnCopiarRegistro = New System.Windows.Forms.Button()
+        Me.BtnCadSite = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -929,6 +930,9 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
@@ -943,6 +947,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -2769,6 +2774,7 @@ Partial Class FrmAlvara
         '
         'TabPage14
         '
+        Me.TabPage14.Controls.Add(Me.BtnCadSite)
         Me.TabPage14.Controls.Add(Me.LinkLabel2)
         Me.TabPage14.Controls.Add(Me.BtnAnotacoesPref)
         Me.TabPage14.Controls.Add(Me.Button6)
@@ -3088,6 +3094,18 @@ Partial Class FrmAlvara
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
+        '
+        'BtnCopiarRegistro
+        '
+        Me.BtnCopiarRegistro.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistro.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCopiarRegistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRegistro.Location = New System.Drawing.Point(13, 100)
+        Me.BtnCopiarRegistro.Name = "BtnCopiarRegistro"
+        Me.BtnCopiarRegistro.Size = New System.Drawing.Size(69, 23)
+        Me.BtnCopiarRegistro.TabIndex = 78
+        Me.BtnCopiarRegistro.Text = "Copiar"
+        Me.BtnCopiarRegistro.UseVisualStyleBackColor = True
         '
         'BtnEditar
         '
@@ -3500,17 +3518,19 @@ Partial Class FrmAlvara
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
         '
-        'BtnCopiarRegistro
+        'BtnCadSite
         '
-        Me.BtnCopiarRegistro.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistro.BackgroundImage"), System.Drawing.Image)
-        Me.BtnCopiarRegistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCopiarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiarRegistro.Location = New System.Drawing.Point(13, 100)
-        Me.BtnCopiarRegistro.Name = "BtnCopiarRegistro"
-        Me.BtnCopiarRegistro.Size = New System.Drawing.Size(69, 23)
-        Me.BtnCopiarRegistro.TabIndex = 78
-        Me.BtnCopiarRegistro.Text = "Copiar"
-        Me.BtnCopiarRegistro.UseVisualStyleBackColor = True
+        Me.BtnCadSite.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.BtnCadSite.BackgroundImage = CType(resources.GetObject("BtnCadSite.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCadSite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCadSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCadSite.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCadSite.Location = New System.Drawing.Point(258, 22)
+        Me.BtnCadSite.Name = "BtnCadSite"
+        Me.BtnCadSite.Size = New System.Drawing.Size(155, 52)
+        Me.BtnCadSite.TabIndex = 81
+        Me.BtnCadSite.Text = "Cadastrar Sites"
+        Me.BtnCadSite.UseVisualStyleBackColor = False
         '
         'FrmAlvara
         '
@@ -3855,4 +3875,5 @@ Partial Class FrmAlvara
     Friend WithEvents AlvaraSistemaBindingSource As BindingSource
     Friend WithEvents AlvaraSistemaTableAdapter As PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter
     Friend WithEvents BtnCopiarRegistro As Button
+    Friend WithEvents BtnCadSite As Button
 End Class

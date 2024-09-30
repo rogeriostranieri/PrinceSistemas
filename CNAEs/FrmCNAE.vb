@@ -27,8 +27,11 @@ Public Class FrmCNAE
                     cmd.Parameters.AddWithValue("@CNAE", cnae)
                     Using reader As SqlDataReader = cmd.ExecuteReader()
                         If reader.Read() Then
-                            ' Monta o texto formatado
-                            Dim cnaeInfo As String = $"{reader("CNAE")} / Grau de Risco: {reader("GrauDeRisco")} / Descrição: {reader("Descricao")} / Observação: {reader("Condicionante")} {reader("GrauRiscoDesenq")}"
+                            ' Verifica se "Condicionante" tem valor, caso contrário, define como string vazia
+                            Dim observacao As String = If(IsDBNull(reader("Condicionante")) OrElse String.IsNullOrWhiteSpace(reader("Condicionante").ToString()), "", $" / Observação: {reader("Condicionante")} {reader("GrauRiscoDesenq")}")
+
+                            ' Monta o texto formatado sem "Observação: " se estiver vazio
+                            Dim cnaeInfo As String = $"{reader("CNAE")} / Grau de Risco: {reader("GrauDeRisco")} / Descrição: {reader("Descricao")}{observacao}"
 
                             ' Adiciona o parágrafo ao RichTextBox de resultado
                             Dim startIndex As Integer = RichTextBoxCNAEresultado.TextLength
@@ -40,8 +43,12 @@ Public Class FrmCNAE
                             ApplyFormattingToText(startIndex, reader("CNAE").ToString(), Nothing, Color.Black, FontStyle.Bold Or FontStyle.Underline)
                             ApplyFormattingToText(startIndex, "Grau de Risco: ", reader("GrauDeRisco").ToString(), Color.Red, FontStyle.Bold)
                             ApplyFormattingToText(startIndex, "Descrição: ", Nothing, Color.Black, FontStyle.Bold)
-                            ApplyFormattingToText(startIndex, "Observação: ", Nothing, Color.Black, FontStyle.Bold)
-                            ApplyFormattingToText(startIndex, "/", Nothing, Color.Black, FontStyle.Bold)
+
+                            ' Aplica formatação para "Observação: " e seu conteúdo somente se houver texto
+                            If Not String.IsNullOrWhiteSpace(observacao) Then
+                                ApplyFormattingToText(startIndex, "Observação: ", Nothing, Color.Black, FontStyle.Bold)
+                                ApplyFormattingToText(startIndex, reader("Condicionante").ToString(), reader("GrauRiscoDesenq").ToString(), Color.Black, FontStyle.Regular)
+                            End If
                         Else
                             ' Se não encontrar o CNAE, informa ao usuário
                             RichTextBoxCNAEresultado.AppendText($"CNAE {cnae} não encontrado no banco de dados." & vbCrLf)
@@ -51,6 +58,7 @@ Public Class FrmCNAE
             Next
         End Using
     End Sub
+
 
     Private Sub ApplyFormattingToText(startIndex As Integer, textToFind As String, appendText As String, color As Color, fontStyle As FontStyle)
         ' Método para encontrar e formatar texto específico dentro do RichTextBox

@@ -1414,6 +1414,12 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     TabControle.SelectTab(index)
                 Next
 
+                Dim tabsToSelect2 = {6}
+                For Each index In tabsToSelect2
+                    TabControl2.SelectTab(index)
+                Next
+
+
                 ' Capturar os valores dos campos
                 Dim A = NAlteracaoComboBox.Text.ToString()
                 Dim B = ProcessoComboBox.Text.ToString()
@@ -1421,10 +1427,15 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                 Dim D = MotivoRichTextBox.Text.ToString()
                 Dim F = ProtocoloJuntaComercialTextBox.Text.ToString()
                 Dim G = ProtocoloREDESIMTextBox.Text.ToString()
+                Dim RazaoAntiga = RazaoSocialAntigaTextBox.Text.ToString()
+                Dim RazaoAtual = RazaoSocialTextBox.Text.ToString()
+
 
                 ' Atualizar o histórico
                 HistoricoRichTextBox.AppendText(
                 "Histórico anterior, Salvo Dia: " & Format(Now, "dd/MM/yyyy") & " às " & Format(Now, "HH:mm") & ", com as seguintes informações:" & vbCrLf &
+                "Razao Social Atual: " & RazaoAtual & vbCrLf &
+                "Razao Social Antiga: " & RazaoAntiga & vbCrLf &
                 "Processo: " & A & " " & B & "." & vbCrLf &
                 "Iniciado o processo em: " & C & "." & vbCrLf &
                 "Motivo: " & D & "." & vbCrLf &
@@ -2921,12 +2932,9 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
     End Sub
 
     Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
-        'usar ModTexto Function TirarCaracteres sText dentro do RamoDeAtividadeRichTextBox
-        ' RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaTexto(RamoDeAtividadeRichTextBox.Text)
-        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaEnter(RamoDeAtividadeRichTextBox.Text)
         'LimpaCaracteres
-        ' RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaCaracteres(RamoDeAtividadeRichTextBox.Text)
-
+        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaEnter(RamoDeAtividadeRichTextBox.Text)
+        RamoDeAtividadeRichTextBox.Text = ModTexto.LimparTextoPersonalizado(RamoDeAtividadeRichTextBox.Text)
     End Sub
 
     Private Sub BtnConsultaOptante_Click(sender As Object, e As EventArgs) Handles BtnConsultaOptante.Click
@@ -3388,32 +3396,34 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnCopiarRegistroEmpresa_Click(sender As Object, e As EventArgs) Handles BtnCopiarRegistroEmpresa.Click
         Try
-            ' Verificar se há um registro selecionado no BindingSource
-            If Me.EmpresasBindingSource.Current Is Nothing Then
-                MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
+            If MsgBox("Deseja Copiar o atual registro para um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
 
-            ' Obter o registro atual da fonte de dados
-            Dim registroAtual As DataRowView = CType(Me.EmpresasBindingSource.Current, DataRowView)
-            Dim novaLinha As DataRow = PrinceDBDataSet.Empresas.NewRow()
-
-            ' Copiar os dados do registro atual para a nova linha
-            For Each column As DataColumn In PrinceDBDataSet.Empresas.Columns
-                ' Não copiar o ID (supondo que o ID seja auto-incremento ou gerado automaticamente)
-                If column.ColumnName <> "ID_Empresas" Then
-                    novaLinha(column.ColumnName) = registroAtual(column.ColumnName)
+                ' Verificar se há um registro selecionado no BindingSource
+                If Me.EmpresasBindingSource.Current Is Nothing Then
+                    MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
                 End If
-            Next
 
-            ' Adicionar a nova linha à tabela
-            PrinceDBDataSet.Empresas.Rows.Add(novaLinha)
+                ' Obter o registro atual da fonte de dados
+                Dim registroAtual As DataRowView = CType(Me.EmpresasBindingSource.Current, DataRowView)
+                Dim novaLinha As DataRow = PrinceDBDataSet.Empresas.NewRow()
 
-            ' Ajustar o BindingSource para a nova linha
-            Me.EmpresasBindingSource.Position = Me.EmpresasBindingSource.Count - 1
+                ' Copiar os dados do registro atual para a nova linha
+                For Each column As DataColumn In PrinceDBDataSet.Empresas.Columns
+                    ' Não copiar o ID (supondo que o ID seja auto-incremento ou gerado automaticamente)
+                    If column.ColumnName <> "ID_Empresas" Then
+                        novaLinha(column.ColumnName) = registroAtual(column.ColumnName)
+                    End If
+                Next
 
-            MessageBox.Show("Registro da empresa copiado com sucesso! Preencha os detalhes adicionais e salve.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ' Adicionar a nova linha à tabela
+                PrinceDBDataSet.Empresas.Rows.Add(novaLinha)
 
+                ' Ajustar o BindingSource para a nova linha
+                Me.EmpresasBindingSource.Position = Me.EmpresasBindingSource.Count - 1
+
+                MessageBox.Show("Registro da empresa copiado com sucesso! Preencha os detalhes adicionais e salve.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Catch ex As Exception
             MessageBox.Show("Erro ao copiar o registro da empresa: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -3422,5 +3432,17 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub BtnDataProtFedDBE_Click(sender As Object, e As EventArgs) Handles BtnDataProtFedDBE.Click
         DBEDataMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
 
+    End Sub
+
+    Private Sub BtnLimparRedeSimProt_Click(sender As Object, e As EventArgs) Handles BtnLimparRedeSimProt.Click
+        Try
+            If MsgBox("Deseja limpar o protocolo na Redesim/Federal?", MsgBoxStyle.YesNo, "Limpar") = MsgBoxResult.Yes Then
+                DBEProtocoloTextBox.Clear()
+                FederalProtocoloTextBox.Clear()
+                DBEDataMaskedTextBox.Clear()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao Limpar!" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

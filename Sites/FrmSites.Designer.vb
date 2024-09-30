@@ -32,6 +32,7 @@ Partial Class FrmSites
         Dim SiteAlvara1Label As System.Windows.Forms.Label
         Dim SiteAlvara2Label As System.Windows.Forms.Label
         Dim DistritoLabel As System.Windows.Forms.Label
+        Dim EstadoSiglaLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSites))
         Me.EstadoTextBox = New System.Windows.Forms.TextBox()
         Me.SitesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -51,12 +52,15 @@ Partial Class FrmSites
         Me.BtnExcluir = New System.Windows.Forms.Button()
         Me.BtnFechar = New System.Windows.Forms.Button()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxBuscaGeral = New System.Windows.Forms.TextBox()
         Me.SitesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.EstadoSigla = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.EstadoSiglaTextBox = New System.Windows.Forms.TextBox()
         Me.BtnAddNovamente = New System.Windows.Forms.Button()
         Me.BtnAbrir6 = New System.Windows.Forms.Button()
         Me.BtnAbrir5 = New System.Windows.Forms.Button()
@@ -66,11 +70,10 @@ Partial Class FrmSites
         Me.BtnAbrir1 = New System.Windows.Forms.Button()
         Me.DistritoTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.SitesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SitesTableAdapter()
-        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnCidades = New System.Windows.Forms.Button()
+        Me.SitesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SitesTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         EstadoLabel1 = New System.Windows.Forms.Label()
         CidadeLabel1 = New System.Windows.Forms.Label()
         SiteEstadoLabel = New System.Windows.Forms.Label()
@@ -80,6 +83,7 @@ Partial Class FrmSites
         SiteAlvara1Label = New System.Windows.Forms.Label()
         SiteAlvara2Label = New System.Windows.Forms.Label()
         DistritoLabel = New System.Windows.Forms.Label()
+        EstadoSiglaLabel = New System.Windows.Forms.Label()
         CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -180,6 +184,16 @@ Partial Class FrmSites
         DistritoLabel.Size = New System.Drawing.Size(59, 18)
         DistritoLabel.TabIndex = 20
         DistritoLabel.Text = "Distrito:"
+        '
+        'EstadoSiglaLabel
+        '
+        EstadoSiglaLabel.AutoSize = True
+        EstadoSiglaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EstadoSiglaLabel.Location = New System.Drawing.Point(286, 35)
+        EstadoSiglaLabel.Name = "EstadoSiglaLabel"
+        EstadoSiglaLabel.Size = New System.Drawing.Size(44, 18)
+        EstadoSiglaLabel.TabIndex = 54
+        EstadoSiglaLabel.Text = "Sigla:"
         '
         'EstadoTextBox
         '
@@ -294,9 +308,9 @@ Partial Class FrmSites
         Me.GroupBox5.Controls.Add(Me.BtnExcluir)
         Me.GroupBox5.Controls.Add(Me.BtnFechar)
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Location = New System.Drawing.Point(601, 3)
+        Me.GroupBox5.Location = New System.Drawing.Point(602, 3)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(89, 176)
+        Me.GroupBox5.Size = New System.Drawing.Size(88, 175)
         Me.GroupBox5.TabIndex = 58
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -371,10 +385,20 @@ Partial Class FrmSites
         Me.GroupBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(592, 176)
+        Me.GroupBox.Size = New System.Drawing.Size(593, 175)
         Me.GroupBox.TabIndex = 59
         Me.GroupBox.TabStop = False
         Me.GroupBox.Text = "Geral"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(11, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Buscar:"
         '
         'TextBoxBuscaGeral
         '
@@ -392,13 +416,21 @@ Partial Class FrmSites
         Me.SitesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.SitesDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.SitesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SitesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn10})
+        Me.SitesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EstadoSigla, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn10})
         Me.SitesDataGridView.DataSource = Me.SitesBindingSource
         Me.SitesDataGridView.Location = New System.Drawing.Point(15, 54)
         Me.SitesDataGridView.Name = "SitesDataGridView"
         Me.SitesDataGridView.ReadOnly = True
         Me.SitesDataGridView.Size = New System.Drawing.Size(545, 116)
         Me.SitesDataGridView.TabIndex = 0
+        '
+        'EstadoSigla
+        '
+        Me.EstadoSigla.DataPropertyName = "EstadoSigla"
+        Me.EstadoSigla.HeaderText = "Sigla"
+        Me.EstadoSigla.Name = "EstadoSigla"
+        Me.EstadoSigla.ReadOnly = True
+        Me.EstadoSigla.Width = 55
         '
         'DataGridViewTextBoxColumn2
         '
@@ -426,6 +458,8 @@ Partial Class FrmSites
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(EstadoSiglaLabel)
+        Me.GroupBox2.Controls.Add(Me.EstadoSiglaTextBox)
         Me.GroupBox2.Controls.Add(Me.BtnAddNovamente)
         Me.GroupBox2.Controls.Add(Me.BtnAbrir6)
         Me.GroupBox2.Controls.Add(Me.BtnAbrir5)
@@ -452,12 +486,23 @@ Partial Class FrmSites
         Me.GroupBox2.Controls.Add(SiteJuntaUnificadaLabel)
         Me.GroupBox2.Controls.Add(Me.SiteJuntaAntigaTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 185)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 184)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(592, 361)
+        Me.GroupBox2.Size = New System.Drawing.Size(593, 362)
         Me.GroupBox2.TabIndex = 60
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
+        '
+        'EstadoSiglaTextBox
+        '
+        Me.EstadoSiglaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "EstadoSigla", True))
+        Me.EstadoSiglaTextBox.Enabled = False
+        Me.EstadoSiglaTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadoSiglaTextBox.Location = New System.Drawing.Point(336, 29)
+        Me.EstadoSiglaTextBox.Name = "EstadoSiglaTextBox"
+        Me.EstadoSiglaTextBox.ReadOnly = True
+        Me.EstadoSiglaTextBox.Size = New System.Drawing.Size(53, 24)
+        Me.EstadoSiglaTextBox.TabIndex = 55
         '
         'BtnAddNovamente
         '
@@ -569,11 +614,37 @@ Partial Class FrmSites
         '
         Me.GroupBox3.Controls.Add(Me.GroupBox1)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.Location = New System.Drawing.Point(601, 185)
+        Me.GroupBox3.Location = New System.Drawing.Point(602, 184)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(89, 361)
+        Me.GroupBox3.Size = New System.Drawing.Size(88, 362)
         Me.GroupBox3.TabIndex = 61
         Me.GroupBox3.TabStop = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox1.Controls.Add(Me.BtnCidades)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(82, 343)
+        Me.GroupBox1.TabIndex = 59
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Extra"
+        '
+        'BtnCidades
+        '
+        Me.BtnCidades.BackgroundImage = CType(resources.GetObject("BtnCidades.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCidades.Location = New System.Drawing.Point(10, 18)
+        Me.BtnCidades.Name = "BtnCidades"
+        Me.BtnCidades.Size = New System.Drawing.Size(69, 23)
+        Me.BtnCidades.TabIndex = 77
+        Me.BtnCidades.Text = "Cidades"
+        Me.BtnCidades.UseVisualStyleBackColor = True
         '
         'SitesTableAdapter
         '
@@ -607,42 +678,6 @@ Partial Class FrmSites
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 18)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Buscar:"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.GroupBox1.Controls.Add(Me.BtnCidades)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(83, 342)
-        Me.GroupBox1.TabIndex = 59
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Extra"
-        '
-        'BtnCidades
-        '
-        Me.BtnCidades.BackgroundImage = CType(resources.GetObject("BtnCidades.BackgroundImage"), System.Drawing.Image)
-        Me.BtnCidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCidades.Location = New System.Drawing.Point(10, 18)
-        Me.BtnCidades.Name = "BtnCidades"
-        Me.BtnCidades.Size = New System.Drawing.Size(69, 23)
-        Me.BtnCidades.TabIndex = 77
-        Me.BtnCidades.Text = "Cidades"
-        Me.BtnCidades.UseVisualStyleBackColor = True
         '
         'FrmSites
         '
@@ -708,11 +743,13 @@ Partial Class FrmSites
     Friend WithEvents BtnAbrir2 As Button
     Friend WithEvents BtnAddNovamente As Button
     Friend WithEvents SitesDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents TextBoxBuscaGeral As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BtnCidades As Button
+    Friend WithEvents EstadoSiglaTextBox As TextBox
+    Friend WithEvents EstadoSigla As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
 End Class

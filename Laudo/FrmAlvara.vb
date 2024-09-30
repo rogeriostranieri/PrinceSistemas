@@ -643,7 +643,7 @@ Public Class FrmAlvara
         TabControlAcompanhamento.SelectTab(4)
     End Sub
 
-    Private Sub ALVARAEsconderAtalhosNavegadorPadrao()
+    Public Sub ALVARAEsconderAtalhosNavegadorPadrao()
         'Simples Nacional
         WebSiteGERAL.ToolStripDropDownButton2.Visible = False
         'RedeSim
@@ -680,55 +680,18 @@ Public Class FrmAlvara
             TabControlAcompanhamento.SelectTab(0)
             Dim NLaudo As String = NlaudoTextBox.Text
 
-            ' Copiar o número do laudo para a área de transferência
-            Clipboard.SetText(NLaudo)
-            MessageBox.Show("Número do Laudo Copiado = " & NLaudo, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
             ' Normalizar o texto da cidade para comparação
             Dim cidadeNormalizada As String = RemoveDiacritics(EndCidadeLabel2.Text).ToLower()
 
             ' Verificação baseada no modelo do sistema e na cidade
             Select Case ModeloSistemaComboBox.Text
                 Case "Alvará Antigo"
-                    If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        Select Case True
-                            Case cidadeNormalizada.Contains("maring")
-                                WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
-                        End Select
-                    Else
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        Select Case True
-                            Case cidadeNormalizada.Contains("maring")
-                                WebSiteGERAL.WebView.Source = New Uri("http://venus.maringa.pr.gov.br/laudosnew/consultar.php")
-                        End Select
-                    End If
-                    ALVARAEsconderAtalhosNavegadorPadrao()
+                    BoxJuntaComercialLaudo.Show()
+                    'ALVARAEsconderAtalhosNavegadorPadrao()
 
                 Case "Alvará Online"
-                    If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                        WebSiteGERAL.Focus()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        Select Case True
-                            Case cidadeNormalizada.Contains("maringa")
-                                WebSiteGERAL.WebView.Source = New Uri("http://www.maringa.pr.gov.br/fazendaonline")
-                            Case cidadeNormalizada.Contains("sarandi")
-                                WebSiteGERAL.WebView.Source = New Uri("https://sarandi.eloweb.net/WebEloAlvaraOnline/")
-                        End Select
-                    Else
-                        WebSiteGERAL.Show()
-                        WebSiteGERAL.MdiParent = MDIPrincipal
-                        Select Case True
-                            Case cidadeNormalizada.Contains("maringa")
-                                WebSiteGERAL.WebView.Source = New Uri("http://www.maringa.pr.gov.br/fazendaonline")
-                            Case cidadeNormalizada.Contains("sarandi")
-                                WebSiteGERAL.WebView.Source = New Uri("https://sarandi.eloweb.net/WebEloAlvaraOnline/")
-                        End Select
-                    End If
-                    ALVARAEsconderAtalhosNavegadorPadrao()
-
+                    BoxJuntaComercialLaudo.Show()
+                   ' ALVARAEsconderAtalhosNavegadorPadrao()
                 Case "Alvará Manual"
                     MessageBox.Show("Ligar ou Comparecer na Prefeitura da cidade onde foi solicitado", "Prince Ajuda")
 
@@ -736,29 +699,13 @@ Public Class FrmAlvara
                     MessageBox.Show("Consulta Prévia solicitada antes do pedido de alvará na Prefeitura", "Prince Ajuda")
 
                 Case "Empresa Fácil"
-                    Select Case EndEstadoLabel2.Text.Trim()
-                        Case "PR"
-                            BoxJuntaComercialLaudo.Show()
-                        Case "SC"
-                            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                                WebSiteGERAL.Focus()
-                                WebSiteGERAL.MdiParent = MDIPrincipal
-                                WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
-                            Else
-                                WebSiteGERAL.Show()
-                                WebSiteGERAL.MdiParent = MDIPrincipal
-                                WebSiteGERAL.WebView.Source = New Uri("http://regin.jucesc.sc.gov.br/requerimentoUniversal/Viabilidades.aspx")
-                            End If
-                        Case ""
-                            TabAlvara.SelectTab(0)
-                            TabControl2.SelectTab(1)
-                            If EndEstadoTextBox.Text = "" Then
-                                MessageBox.Show("Preencher o endereço completo e salvar para atualizar o formulário", "Prince Ajuda")
-                            Else
-                                MessageBox.Show("Estado Não cadastrado, favor contatar o administrador do sistema", "Prince Ajuda")
-                            End If
-                    End Select
+                    If String.IsNullOrWhiteSpace(EndEstadoLabel2.Text) Then
+                        MessageBox.Show("Estado e/ou cidade não cadastrados, favor contatar o administrador do sistema", "Prince Ajuda")
+                    Else
+                        BoxJuntaComercialLaudo.Show()
+                    End If
                     ALVARAEsconderAtalhosNavegadorPadrao()
+
 
                 Case "MEI - Dispensa de Alvará"
                     If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
@@ -775,6 +722,10 @@ Public Class FrmAlvara
                     ALVARAEsconderAtalhosNavegadorPadrao()
 
                 Case "MEI - Alvará Online"
+                    ' Copiar o número do laudo para a área de transferência
+                    Clipboard.SetText(NLaudo)
+                    MessageBox.Show("Número do Laudo Copiado = " & NLaudo, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                     If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
                         WebSiteGERAL.Focus()
                         WebSiteGERAL.MdiParent = MDIPrincipal
@@ -2071,4 +2022,23 @@ Public Class FrmAlvara
         End Try
     End Sub
 
+    Private Sub BtnCadSite_Click(sender As Object, e As EventArgs) Handles BtnCadSite.Click
+        TabAlvara.SelectTab(0)
+        TabControl2.SelectTab(1)
+
+        If Application.OpenForms.OfType(Of FrmSites)().Count() > 0 Then
+
+            FrmSites.Focus()
+            FrmSites.Close()
+            FrmSites.MdiParent = MDIPrincipal
+            FrmSites.Show()
+            FrmSites.Focus()
+
+        Else
+
+            FrmSites.MdiParent = MDIPrincipal
+            FrmSites.Show()
+
+        End If
+    End Sub
 End Class

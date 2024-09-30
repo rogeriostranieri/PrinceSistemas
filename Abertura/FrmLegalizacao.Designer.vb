@@ -124,6 +124,8 @@ Partial Class FrmLegalizacao
         Dim DBEProtocoloLabel As System.Windows.Forms.Label
         Dim DBEDataLabel As System.Windows.Forms.Label
         Dim FederalProtocoloLabel As System.Windows.Forms.Label
+        Dim EndCidadeLabel1 As System.Windows.Forms.Label
+        Dim EndEstadoLabel1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -185,14 +187,14 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarRamo = New System.Windows.Forms.Button()
         Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
-        Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button25 = New System.Windows.Forms.Button()
         Me.CNAESecundarioRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.RamoDeAtividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button25 = New System.Windows.Forms.Button()
+        Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.BtnMapa = New System.Windows.Forms.Button()
@@ -308,6 +310,7 @@ Partial Class FrmLegalizacao
         Me.BtnConsultaJunta = New System.Windows.Forms.Button()
         Me.ProtocoloJuntaComercialTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnLimparRedeSimProt = New System.Windows.Forms.Button()
         Me.BtnDataProtFedDBE = New System.Windows.Forms.Button()
         Me.FederalProtocoloTextBox = New System.Windows.Forms.TextBox()
         Me.DBEDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -407,7 +410,9 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.EndEstadoLabel2 = New System.Windows.Forms.Label()
         Me.BtnFiliais = New System.Windows.Forms.Button()
+        Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
         Me.LabelFilial = New System.Windows.Forms.Label()
         Me.BtnVerificar = New System.Windows.Forms.Button()
         Me.BtnAvancoRazao = New System.Windows.Forms.Button()
@@ -468,6 +473,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -569,6 +575,8 @@ Partial Class FrmLegalizacao
         DBEProtocoloLabel = New System.Windows.Forms.Label()
         DBEDataLabel = New System.Windows.Forms.Label()
         FederalProtocoloLabel = New System.Windows.Forms.Label()
+        EndCidadeLabel1 = New System.Windows.Forms.Label()
+        EndEstadoLabel1 = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -624,6 +632,7 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.SuspendLayout()
         Me.GroupBoxMenuBaixo.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'NomeFantasiaLabel
@@ -1430,11 +1439,11 @@ Partial Class FrmLegalizacao
         'PontoDeReferenciaLabel
         '
         PontoDeReferenciaLabel.AutoSize = True
-        PontoDeReferenciaLabel.Location = New System.Drawing.Point(426, 145)
+        PontoDeReferenciaLabel.Location = New System.Drawing.Point(440, 145)
         PontoDeReferenciaLabel.Name = "PontoDeReferenciaLabel"
-        PontoDeReferenciaLabel.Size = New System.Drawing.Size(111, 13)
+        PontoDeReferenciaLabel.Size = New System.Drawing.Size(97, 13)
         PontoDeReferenciaLabel.TabIndex = 39
-        PontoDeReferenciaLabel.Text = "Ponto de Referência?"
+        PontoDeReferenciaLabel.Text = "Atividade no local?"
         '
         'TipoUnidadeProdutivaLabel
         '
@@ -1511,7 +1520,7 @@ Partial Class FrmLegalizacao
         'DBEProtocoloLabel
         '
         DBEProtocoloLabel.AutoSize = True
-        DBEProtocoloLabel.Location = New System.Drawing.Point(55, 124)
+        DBEProtocoloLabel.Location = New System.Drawing.Point(44, 27)
         DBEProtocoloLabel.Name = "DBEProtocoloLabel"
         DBEProtocoloLabel.Size = New System.Drawing.Size(95, 13)
         DBEProtocoloLabel.TabIndex = 80
@@ -1520,7 +1529,7 @@ Partial Class FrmLegalizacao
         'DBEDataLabel
         '
         DBEDataLabel.AutoSize = True
-        DBEDataLabel.Location = New System.Drawing.Point(30, 175)
+        DBEDataLabel.Location = New System.Drawing.Point(19, 78)
         DBEDataLabel.Name = "DBEDataLabel"
         DBEDataLabel.Size = New System.Drawing.Size(118, 13)
         DBEDataLabel.TabIndex = 81
@@ -1529,11 +1538,29 @@ Partial Class FrmLegalizacao
         'FederalProtocoloLabel
         '
         FederalProtocoloLabel.AutoSize = True
-        FederalProtocoloLabel.Location = New System.Drawing.Point(10, 150)
+        FederalProtocoloLabel.Location = New System.Drawing.Point(-1, 53)
         FederalProtocoloLabel.Name = "FederalProtocoloLabel"
         FederalProtocoloLabel.Size = New System.Drawing.Size(134, 13)
         FederalProtocoloLabel.TabIndex = 82
         FederalProtocoloLabel.Text = "Protocolo Processo Digital:"
+        '
+        'EndCidadeLabel1
+        '
+        EndCidadeLabel1.AutoSize = True
+        EndCidadeLabel1.Location = New System.Drawing.Point(55, 191)
+        EndCidadeLabel1.Name = "EndCidadeLabel1"
+        EndCidadeLabel1.Size = New System.Drawing.Size(43, 13)
+        EndCidadeLabel1.TabIndex = 78
+        EndCidadeLabel1.Text = "Cidade:"
+        '
+        'EndEstadoLabel1
+        '
+        EndEstadoLabel1.AutoSize = True
+        EndEstadoLabel1.Location = New System.Drawing.Point(273, 191)
+        EndEstadoLabel1.Name = "EndEstadoLabel1"
+        EndEstadoLabel1.Size = New System.Drawing.Size(43, 13)
+        EndEstadoLabel1.TabIndex = 78
+        EndEstadoLabel1.Text = "Estado:"
         '
         'EmpresasBindingNavigator
         '
@@ -2101,6 +2128,10 @@ Partial Class FrmLegalizacao
         'TabPage13
         '
         Me.TabPage13.Controls.Add(Me.GroupBox1)
+        Me.TabPage13.Controls.Add(Me.Label6)
+        Me.TabPage13.Controls.Add(Me.Button4)
+        Me.TabPage13.Controls.Add(Me.Button25)
+        Me.TabPage13.Controls.Add(Me.CnaeSimples)
         Me.TabPage13.Location = New System.Drawing.Point(4, 25)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
@@ -2115,20 +2146,16 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.Controls.Add(Me.BtnCopiarRamo)
         Me.GroupBox1.Controls.Add(Me.BtnAtividadeLocal)
         Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
-        Me.GroupBox1.Controls.Add(Me.CnaeSimples)
         Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Button25)
         Me.GroupBox1.Controls.Add(Me.CNAESecundarioRichTextBox)
         Me.GroupBox1.Controls.Add(RamoDeAtividadeLabel)
         Me.GroupBox1.Controls.Add(Me.RamoDeAtividadeRichTextBox)
         Me.GroupBox1.Controls.Add(Me.CNAEPrincipalTextBox)
-        Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(CNAESecundarioLabel)
         Me.GroupBox1.Controls.Add(CNAEPrincipalLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(599, 190)
+        Me.GroupBox1.Size = New System.Drawing.Size(501, 190)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
@@ -2139,9 +2166,9 @@ Partial Class FrmLegalizacao
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(54, 146)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(66, 146)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(93, 23)
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(81, 38)
         Me.BtnGrauDeRisco.TabIndex = 82
         Me.BtnGrauDeRisco.Text = "Grau de Risco"
         Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
@@ -2183,17 +2210,6 @@ Partial Class FrmLegalizacao
         Me.BtnRemovCaract.Text = "Remove Caraceteres"
         Me.BtnRemovCaract.UseVisualStyleBackColor = False
         '
-        'CnaeSimples
-        '
-        Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
-        Me.CnaeSimples.Location = New System.Drawing.Point(511, 92)
-        Me.CnaeSimples.Name = "CnaeSimples"
-        Me.CnaeSimples.Size = New System.Drawing.Size(82, 49)
-        Me.CnaeSimples.TabIndex = 41
-        Me.CnaeSimples.Text = "Verificar no Simples Nacional"
-        Me.CnaeSimples.UseVisualStyleBackColor = False
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -2202,26 +2218,6 @@ Partial Class FrmLegalizacao
         Me.Label9.Size = New System.Drawing.Size(36, 13)
         Me.Label9.TabIndex = 40
         Me.Label9.Text = "CNAE"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(508, 13)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(75, 13)
-        Me.Label6.TabIndex = 35
-        Me.Label6.Text = "Buscar CNAE:"
-        '
-        'Button25
-        '
-        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(511, 62)
-        Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(82, 24)
-        Me.Button25.TabIndex = 34
-        Me.Button25.Text = "CNAE - MEI"
-        Me.Button25.UseVisualStyleBackColor = False
         '
         'CNAESecundarioRichTextBox
         '
@@ -2237,7 +2233,7 @@ Partial Class FrmLegalizacao
         Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
         Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(153, 32)
         Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
-        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(245, 137)
+        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(245, 152)
         Me.RamoDeAtividadeRichTextBox.TabIndex = 32
         Me.RamoDeAtividadeRichTextBox.Text = ""
         '
@@ -2249,16 +2245,47 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox.Size = New System.Drawing.Size(81, 20)
         Me.CNAEPrincipalTextBox.TabIndex = 32
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(523, 23)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(75, 13)
+        Me.Label6.TabIndex = 35
+        Me.Label6.Text = "Buscar CNAE:"
+        '
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button4.Location = New System.Drawing.Point(511, 32)
+        Me.Button4.Location = New System.Drawing.Point(526, 42)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(82, 24)
+        Me.Button4.Size = New System.Drawing.Size(87, 24)
         Me.Button4.TabIndex = 29
-        Me.Button4.Text = "CNAE - Geral"
+        Me.Button4.Text = "CNAE - Oficial"
         Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button25
+        '
+        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Button25.Location = New System.Drawing.Point(526, 72)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(87, 24)
+        Me.Button25.TabIndex = 34
+        Me.Button25.Text = "CNAE - MEI"
+        Me.Button25.UseVisualStyleBackColor = False
+        '
+        'CnaeSimples
+        '
+        Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
+        Me.CnaeSimples.Location = New System.Drawing.Point(526, 102)
+        Me.CnaeSimples.Name = "CnaeSimples"
+        Me.CnaeSimples.Size = New System.Drawing.Size(87, 66)
+        Me.CnaeSimples.TabIndex = 41
+        Me.CnaeSimples.Text = "CNAE compreende no Simples Nacional"
+        Me.CnaeSimples.UseVisualStyleBackColor = False
         '
         'TabPage14
         '
@@ -3518,13 +3545,7 @@ Partial Class FrmLegalizacao
         'TabPage4
         '
         Me.TabPage4.AutoScroll = True
-        Me.TabPage4.Controls.Add(Me.BtnDataProtFedDBE)
-        Me.TabPage4.Controls.Add(FederalProtocoloLabel)
-        Me.TabPage4.Controls.Add(Me.FederalProtocoloTextBox)
-        Me.TabPage4.Controls.Add(DBEDataLabel)
-        Me.TabPage4.Controls.Add(Me.DBEDataMaskedTextBox)
-        Me.TabPage4.Controls.Add(DBEProtocoloLabel)
-        Me.TabPage4.Controls.Add(Me.DBEProtocoloTextBox)
+        Me.TabPage4.Controls.Add(Me.GroupBox9)
         Me.TabPage4.Controls.Add(Me.BtnVerFederal)
         Me.TabPage4.Controls.Add(Me.BtnAnotacoesFederal)
         Me.TabPage4.Controls.Add(Me.BtnData4)
@@ -3547,10 +3568,20 @@ Partial Class FrmLegalizacao
         Me.TabPage4.Text = "Receita Federal"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'BtnLimparRedeSimProt
+        '
+        Me.BtnLimparRedeSimProt.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnLimparRedeSimProt.Location = New System.Drawing.Point(139, 101)
+        Me.BtnLimparRedeSimProt.Name = "BtnLimparRedeSimProt"
+        Me.BtnLimparRedeSimProt.Size = New System.Drawing.Size(50, 21)
+        Me.BtnLimparRedeSimProt.TabIndex = 85
+        Me.BtnLimparRedeSimProt.Text = "Limpar"
+        Me.BtnLimparRedeSimProt.UseVisualStyleBackColor = True
+        '
         'BtnDataProtFedDBE
         '
         Me.BtnDataProtFedDBE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnDataProtFedDBE.Location = New System.Drawing.Point(226, 171)
+        Me.BtnDataProtFedDBE.Location = New System.Drawing.Point(215, 74)
         Me.BtnDataProtFedDBE.Name = "BtnDataProtFedDBE"
         Me.BtnDataProtFedDBE.Size = New System.Drawing.Size(43, 21)
         Me.BtnDataProtFedDBE.TabIndex = 84
@@ -3560,7 +3591,7 @@ Partial Class FrmLegalizacao
         'FederalProtocoloTextBox
         '
         Me.FederalProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "FederalProtocolo", True))
-        Me.FederalProtocoloTextBox.Location = New System.Drawing.Point(150, 147)
+        Me.FederalProtocoloTextBox.Location = New System.Drawing.Point(139, 50)
         Me.FederalProtocoloTextBox.Name = "FederalProtocoloTextBox"
         Me.FederalProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
         Me.FederalProtocoloTextBox.TabIndex = 83
@@ -3568,7 +3599,7 @@ Partial Class FrmLegalizacao
         'DBEDataMaskedTextBox
         '
         Me.DBEDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEData", True))
-        Me.DBEDataMaskedTextBox.Location = New System.Drawing.Point(150, 172)
+        Me.DBEDataMaskedTextBox.Location = New System.Drawing.Point(139, 75)
         Me.DBEDataMaskedTextBox.Mask = "00/00/0000"
         Me.DBEDataMaskedTextBox.Name = "DBEDataMaskedTextBox"
         Me.DBEDataMaskedTextBox.Size = New System.Drawing.Size(70, 20)
@@ -3578,7 +3609,7 @@ Partial Class FrmLegalizacao
         'DBEProtocoloTextBox
         '
         Me.DBEProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEProtocolo", True))
-        Me.DBEProtocoloTextBox.Location = New System.Drawing.Point(150, 121)
+        Me.DBEProtocoloTextBox.Location = New System.Drawing.Point(139, 24)
         Me.DBEProtocoloTextBox.Name = "DBEProtocoloTextBox"
         Me.DBEProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
         Me.DBEProtocoloTextBox.TabIndex = 81
@@ -4387,7 +4418,6 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocialComboBox
         '
         Me.NovaRazaoSocialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial", True))
-        Me.NovaRazaoSocialComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.NovaRazaoSocialComboBox.FormattingEnabled = True
         Me.NovaRazaoSocialComboBox.Items.AddRange(New Object() {"Não", "Sim"})
         Me.NovaRazaoSocialComboBox.Location = New System.Drawing.Point(268, 129)
@@ -4534,6 +4564,9 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
@@ -4548,6 +4581,7 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -4583,7 +4617,11 @@ Partial Class FrmLegalizacao
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.EndEstadoLabel2)
+        Me.GroupBox2.Controls.Add(EndEstadoLabel1)
+        Me.GroupBox2.Controls.Add(EndCidadeLabel1)
         Me.GroupBox2.Controls.Add(Me.BtnFiliais)
+        Me.GroupBox2.Controls.Add(Me.EndCidadeLabel2)
         Me.GroupBox2.Controls.Add(Me.LabelFilial)
         Me.GroupBox2.Controls.Add(Me.BtnVerificar)
         Me.GroupBox2.Controls.Add(Me.BtnAvancoRazao)
@@ -4615,11 +4653,20 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 61)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 48)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(663, 194)
+        Me.GroupBox2.Size = New System.Drawing.Size(663, 207)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
+        '
+        'EndEstadoLabel2
+        '
+        Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndEstado", True))
+        Me.EndEstadoLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(322, 191)
+        Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
+        Me.EndEstadoLabel2.Size = New System.Drawing.Size(62, 16)
+        Me.EndEstadoLabel2.TabIndex = 79
         '
         'BtnFiliais
         '
@@ -4632,6 +4679,15 @@ Partial Class FrmLegalizacao
         Me.BtnFiliais.TabIndex = 78
         Me.BtnFiliais.Text = "1 Filiais"
         Me.BtnFiliais.UseVisualStyleBackColor = True
+        '
+        'EndCidadeLabel2
+        '
+        Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
+        Me.EndCidadeLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(100, 191)
+        Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
+        Me.EndCidadeLabel2.Size = New System.Drawing.Size(173, 16)
+        Me.EndCidadeLabel2.TabIndex = 79
         '
         'LabelFilial
         '
@@ -4868,7 +4924,7 @@ Partial Class FrmLegalizacao
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(6, 140)
+        Me.BtnExcluir.Location = New System.Drawing.Point(6, 143)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
         Me.BtnExcluir.TabIndex = 23
@@ -4892,7 +4948,7 @@ Partial Class FrmLegalizacao
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(6, 169)
+        Me.BtnFechar.Location = New System.Drawing.Point(6, 181)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
         Me.BtnFechar.TabIndex = 25
@@ -5105,7 +5161,6 @@ Partial Class FrmLegalizacao
         'AltConsolidadaComboBox
         '
         Me.AltConsolidadaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "AltConsolidada", True))
-        Me.AltConsolidadaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.AltConsolidadaComboBox.FormattingEnabled = True
         Me.AltConsolidadaComboBox.Items.AddRange(New Object() {"Não", "Sim"})
         Me.AltConsolidadaComboBox.Location = New System.Drawing.Point(65, 129)
@@ -5214,8 +5269,8 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 23)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.5641!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.4359!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.44186!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.55814!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 438.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(757, 721)
@@ -5231,9 +5286,9 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnFechar)
         Me.GroupBoxMenuCima.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(672, 61)
+        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(672, 48)
         Me.GroupBoxMenuCima.Name = "GroupBoxMenuCima"
-        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(82, 194)
+        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(82, 207)
         Me.GroupBoxMenuCima.TabIndex = 24
         Me.GroupBoxMenuCima.TabStop = False
         Me.GroupBoxMenuCima.Text = "MENU"
@@ -5243,7 +5298,7 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarRegistroEmpresa.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistroEmpresa.BackgroundImage"), System.Drawing.Image)
         Me.BtnCopiarRegistroEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarRegistroEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiarRegistroEmpresa.Location = New System.Drawing.Point(7, 105)
+        Me.BtnCopiarRegistroEmpresa.Location = New System.Drawing.Point(6, 115)
         Me.BtnCopiarRegistroEmpresa.Name = "BtnCopiarRegistroEmpresa"
         Me.BtnCopiarRegistroEmpresa.Size = New System.Drawing.Size(69, 23)
         Me.BtnCopiarRegistroEmpresa.TabIndex = 51
@@ -5285,7 +5340,7 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(663, 52)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(663, 39)
         Me.TableLayoutPanel2.TabIndex = 47
         '
         'Label8
@@ -5312,6 +5367,25 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox9.Controls.Add(Me.BtnLimparRedeSimProt)
+        Me.GroupBox9.Controls.Add(Me.BtnDataProtFedDBE)
+        Me.GroupBox9.Controls.Add(FederalProtocoloLabel)
+        Me.GroupBox9.Controls.Add(Me.FederalProtocoloTextBox)
+        Me.GroupBox9.Controls.Add(DBEDataLabel)
+        Me.GroupBox9.Controls.Add(Me.DBEDataMaskedTextBox)
+        Me.GroupBox9.Controls.Add(DBEProtocoloLabel)
+        Me.GroupBox9.Controls.Add(Me.DBEProtocoloTextBox)
+        Me.GroupBox9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 105)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(309, 128)
+        Me.GroupBox9.TabIndex = 86
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Protocolo Redesim / Federal"
         '
         'FrmLegalizacao
         '
@@ -5350,6 +5424,7 @@ Partial Class FrmLegalizacao
         Me.TabPage19.ResumeLayout(False)
         Me.TabPage19.PerformLayout()
         Me.TabPage13.ResumeLayout(False)
+        Me.TabPage13.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabPage14.ResumeLayout(False)
@@ -5420,6 +5495,8 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuBaixo.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -5768,4 +5845,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents DBEDataMaskedTextBox As MaskedTextBox
     Friend WithEvents DBEProtocoloTextBox As TextBox
     Friend WithEvents BtnDataProtFedDBE As Button
+    Friend WithEvents EndCidadeLabel2 As Label
+    Friend WithEvents EndEstadoLabel2 As Label
+    Friend WithEvents BtnLimparRedeSimProt As Button
+    Friend WithEvents GroupBox9 As GroupBox
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class BoxJuntaComercialLaudo
+Partial Class FrmAtalhoSites
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -29,9 +29,9 @@ Partial Class BoxJuntaComercialLaudo
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.BtnAlvaraExterno = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BtnAlvaraInterno = New System.Windows.Forms.Button()
+        Me.BtnLaudo = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,7 +39,7 @@ Partial Class BoxJuntaComercialLaudo
         '
         Me.BtnImportar.BackColor = System.Drawing.Color.Transparent
         Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnImportar.Location = New System.Drawing.Point(262, 48)
+        Me.BtnImportar.Location = New System.Drawing.Point(254, 46)
         Me.BtnImportar.Name = "BtnImportar"
         Me.BtnImportar.Size = New System.Drawing.Size(117, 50)
         Me.BtnImportar.TabIndex = 20
@@ -51,7 +51,7 @@ Partial Class BoxJuntaComercialLaudo
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(20, 11)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(332, 19)
         Me.Label1.TabIndex = 19
@@ -61,7 +61,7 @@ Partial Class BoxJuntaComercialLaudo
         '
         Me.BtnInterno.BackColor = System.Drawing.Color.Transparent
         Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInterno.Location = New System.Drawing.Point(139, 48)
+        Me.BtnInterno.Location = New System.Drawing.Point(131, 46)
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnInterno.TabIndex = 18
@@ -72,7 +72,7 @@ Partial Class BoxJuntaComercialLaudo
         '
         Me.BtnExterno.BackColor = System.Drawing.Color.Transparent
         Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExterno.Location = New System.Drawing.Point(16, 48)
+        Me.BtnExterno.Location = New System.Drawing.Point(8, 46)
         Me.BtnExterno.Name = "BtnExterno"
         Me.BtnExterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnExterno.TabIndex = 17
@@ -88,7 +88,7 @@ Partial Class BoxJuntaComercialLaudo
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(238, 202)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(242, 342)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -114,60 +114,55 @@ Partial Class BoxJuntaComercialLaudo
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
-        'BtnAlvaraExterno
+        'Button1
         '
-        Me.BtnAlvaraExterno.BackColor = System.Drawing.Color.Transparent
-        Me.BtnAlvaraExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAlvaraExterno.Location = New System.Drawing.Point(16, 133)
-        Me.BtnAlvaraExterno.Name = "BtnAlvaraExterno"
-        Me.BtnAlvaraExterno.Size = New System.Drawing.Size(117, 50)
-        Me.BtnAlvaraExterno.TabIndex = 21
-        Me.BtnAlvaraExterno.Text = "Abrir Externo"
-        Me.BtnAlvaraExterno.UseVisualStyleBackColor = False
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(8, 111)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(117, 50)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Abrir"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(20, 111)
+        Me.Label2.Location = New System.Drawing.Point(34, 182)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(242, 19)
+        Me.Label2.Size = New System.Drawing.Size(207, 19)
         Me.Label2.TabIndex = 22
-        Me.Label2.Text = "Deseja abrir Alvara da Prefeitura..."
+        Me.Label2.Text = "Laudos de Viabilidade / Alvará"
         '
-        'BtnAlvaraInterno
+        'BtnLaudo
         '
-        Me.BtnAlvaraInterno.BackColor = System.Drawing.Color.Transparent
-        Me.BtnAlvaraInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAlvaraInterno.Location = New System.Drawing.Point(139, 133)
-        Me.BtnAlvaraInterno.Name = "BtnAlvaraInterno"
-        Me.BtnAlvaraInterno.Size = New System.Drawing.Size(117, 50)
-        Me.BtnAlvaraInterno.TabIndex = 23
-        Me.BtnAlvaraInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.BtnAlvaraInterno.UseVisualStyleBackColor = False
+        Me.BtnLaudo.BackColor = System.Drawing.Color.Transparent
+        Me.BtnLaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLaudo.Location = New System.Drawing.Point(8, 235)
+        Me.BtnLaudo.Name = "BtnLaudo"
+        Me.BtnLaudo.Size = New System.Drawing.Size(117, 50)
+        Me.BtnLaudo.TabIndex = 23
+        Me.BtnLaudo.Text = "Abrir"
+        Me.BtnLaudo.UseVisualStyleBackColor = False
         '
-        'BoxJuntaComercialLaudo
+        'FrmAtalhoSites
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(396, 243)
-        Me.Controls.Add(Me.BtnAlvaraInterno)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(400, 383)
+        Me.Controls.Add(Me.BtnLaudo)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.BtnAlvaraExterno)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "BoxJuntaComercialLaudo"
-        Me.ShowIcon = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Box Empresa Fácil"
+        Me.Name = "FrmAtalhoSites"
+        Me.Text = "FrmAtalhoSites"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -181,7 +176,7 @@ Partial Class BoxJuntaComercialLaudo
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents OK_Button As Button
     Friend WithEvents Cancel_Button As Button
-    Friend WithEvents BtnAlvaraExterno As Button
+    Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents BtnAlvaraInterno As Button
+    Friend WithEvents BtnLaudo As Button
 End Class

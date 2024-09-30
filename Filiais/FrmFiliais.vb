@@ -105,6 +105,8 @@ Public Class FrmFiliais
                 frmAlvara.ComboBoxBuscaCNPJ.Text = cnpj
                 frmAlvara.BringToFront()
             End If
+            FrmLegalizacao.BtnEditar.PerformClick()
+            Me.Close()
         End If
     End Sub
 

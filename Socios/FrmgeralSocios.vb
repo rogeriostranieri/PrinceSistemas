@@ -94,7 +94,7 @@ Public Class FrmSociosGERAL
                 ListViewGeral.Items.Add(listItem)
             Next
             ' Atualizar o Label com o total de sócios
-            Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " sócios"
+            Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " Sócios"
         End Using
     End Sub
 
@@ -110,7 +110,7 @@ Public Class FrmSociosGERAL
         End If
 
         ' Atualizar o Label com o total de sócios filtrados
-        Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " sócios"
+        Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " Sócios"
     End Sub
 
     Private Sub BuscarSocios(ByVal termoBusca As String)
@@ -221,4 +221,23 @@ Public Class FrmSociosGERAL
         Me.Close()
     End Sub
 
+    Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
+        ' Verifica se a TextBox de busca contém texto
+        Dim termoBusca As String = TextBoxBusca.Text.Trim()
+
+        ' Se houver texto na TextBox, faz a busca e atualiza o ListView
+        If Not String.IsNullOrEmpty(termoBusca) Then
+            ' Atualiza a busca com base no termo atual
+            BuscarSocios(termoBusca)
+        Else
+            ' Se a TextBox estiver vazia, apenas recarrega todas as empresas
+            LoadSocios()
+        End If
+
+        ' Mensagem opcional para confirmar que a atualização foi feita
+        MessageBox.Show("Dados atualizados com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        ' Atualizar o Label com o total de empresas
+        Label2.Text = $"Total: {ListViewGeral.Items.Count} Socios"
+    End Sub
 End Class

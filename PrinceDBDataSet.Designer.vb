@@ -11940,6 +11940,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnDistrito As Global.System.Data.DataColumn
         
+        Private columnEstadoSigla As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -12056,6 +12058,14 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EstadoSiglaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstadoSigla
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -12092,9 +12102,9 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddSitesRow(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String) As SitesRow
+        Public Overloads Function AddSitesRow(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String) As SitesRow
             Dim rowSitesRow As SitesRow = CType(Me.NewRow,SitesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla}
             rowSitesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSitesRow)
             Return rowSitesRow
@@ -12133,6 +12143,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteAlvara1 = MyBase.Columns("SiteAlvara1")
             Me.columnSiteAlvara2 = MyBase.Columns("SiteAlvara2")
             Me.columnDistrito = MyBase.Columns("Distrito")
+            Me.columnEstadoSigla = MyBase.Columns("EstadoSigla")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12158,6 +12169,8 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnSiteAlvara2)
             Me.columnDistrito = New Global.System.Data.DataColumn("Distrito", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDistrito)
+            Me.columnEstadoSigla = New Global.System.Data.DataColumn("EstadoSigla", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstadoSigla)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Sites}, true))
             Me.columnID_Sites.AutoIncrement = true
             Me.columnID_Sites.AutoIncrementSeed = -1
@@ -12174,6 +12187,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteAlvara1.MaxLength = 2147483647
             Me.columnSiteAlvara2.MaxLength = 2147483647
             Me.columnDistrito.MaxLength = 2147483647
+            Me.columnEstadoSigla.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -24038,6 +24052,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EstadoSigla() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.EstadoSiglaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EstadoSigla' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.EstadoSiglaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstadoNull() As Boolean
             Return Me.IsNull(Me.tableSites.EstadoColumn)
         End Function
@@ -24142,6 +24171,18 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetDistritoNull()
             Me(Me.tableSites.DistritoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEstadoSiglaNull() As Boolean
+            Return Me.IsNull(Me.tableSites.EstadoSiglaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEstadoSiglaNull()
+            Me(Me.tableSites.EstadoSiglaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -40791,6 +40832,7 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SiteAlvara1", "SiteAlvara1")
             tableMapping.ColumnMappings.Add("SiteAlvara2", "SiteAlvara2")
             tableMapping.ColumnMappings.Add("Distrito", "Distrito")
+            tableMapping.ColumnMappings.Add("EstadoSigla", "EstadoSigla")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -40800,11 +40842,12 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Sites] ([Estado], [Cidade], [SiteEstado], [SiteCidade], [SiteJuntaUn"& _ 
-                "ificada], [SiteJuntaAntiga], [SiteAlvara1], [SiteAlvara2], [Distrito]) VALUES (@"& _ 
-                "Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJuntaUnificada, @SiteJuntaAntiga"& _ 
-                ", @SiteAlvara1, @SiteAlvara2, @Distrito);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, Site"& _ 
-                "Estado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara"& _ 
-                "2, Distrito FROM Sites WHERE (ID_Sites = SCOPE_IDENTITY())"
+                "ificada], [SiteJuntaAntiga], [SiteAlvara1], [SiteAlvara2], [Distrito], [EstadoSi"& _ 
+                "gla]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJuntaUnificada, @"& _ 
+                "SiteJuntaAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSigla);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT I"& _ 
+                "D_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAn"& _ 
+                "tiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla FROM Sites WHERE (ID_Sites"& _ 
+                " = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40815,15 +40858,16 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Distrito", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Distrito", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EstadoSigla", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EstadoSigla", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Sites] SET [Estado] = @Estado, [Cidade] = @Cidade, [SiteEstado] = @SiteEs"& _ 
                 "tado, [SiteCidade] = @SiteCidade, [SiteJuntaUnificada] = @SiteJuntaUnificada, [S"& _ 
                 "iteJuntaAntiga] = @SiteJuntaAntiga, [SiteAlvara1] = @SiteAlvara1, [SiteAlvara2] "& _ 
-                "= @SiteAlvara2, [Distrito] = @Distrito WHERE (([ID_Sites] = @Original_ID_Sites))"& _ 
-                ";"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, "& _ 
-                "SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito FROM Sites WHERE (ID_Sites ="& _ 
-                " @ID_Sites)"
+                "= @SiteAlvara2, [Distrito] = @Distrito, [EstadoSigla] = @EstadoSigla WHERE (([ID"& _ 
+                "_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, Si"& _ 
+                "teCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrit"& _ 
+                "o, EstadoSigla FROM Sites WHERE (ID_Sites = @ID_Sites)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40834,6 +40878,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Distrito", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Distrito", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EstadoSigla", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EstadoSigla", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Sites", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Sites", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -40932,7 +40977,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -40978,6 +41023,11 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = CType(Distrito,String)
             End If
+            If (EstadoSigla Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(EstadoSigla,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -40997,7 +41047,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal Original_ID_Sites As Integer, ByVal ID_Sites As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String, ByVal Original_ID_Sites As Integer, ByVal ID_Sites As Integer) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -41043,8 +41093,13 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Distrito,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ID_Sites,Integer)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(ID_Sites,Integer)
+            If (EstadoSigla Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(EstadoSigla,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID_Sites,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ID_Sites,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41064,8 +41119,8 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal Original_ID_Sites As Integer) As Integer
-            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, Original_ID_Sites, Original_ID_Sites)
+        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String, ByVal Original_ID_Sites As Integer) As Integer
+            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, Original_ID_Sites, Original_ID_Sites)
         End Function
     End Class
     

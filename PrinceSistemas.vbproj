@@ -440,6 +440,12 @@
     <Compile Include="Modulo\ModNumeroExtenso.vb" />
     <Compile Include="Modulo\ModProtecaoPrint.vb" />
     <Compile Include="Modulo\ModuloBuscaCEP.vb" />
+    <Compile Include="Navegadores Unificados\FrmAtalhoSites.Designer.vb">
+      <DependentUpon>FrmAtalhoSites.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Navegadores Unificados\FrmAtalhoSites.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Navegadores Unificados\FrmConsultaCNPJImportar.Designer.vb">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </Compile>
@@ -854,6 +860,9 @@
     <EmbeddedResource Include="Laudo\PrevFogo\FrmProtegeFacil.resx">
       <DependentUpon>FrmProtegeFacil.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navegadores Unificados\FrmAtalhoSites.resx">
+      <DependentUpon>FrmAtalhoSites.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\FrmConsultaCNPJImportar.resx">
       <DependentUpon>FrmConsultaCNPJImportar.vb</DependentUpon>
     </EmbeddedResource>
@@ -1100,13 +1109,13 @@
     <None Include="Resources\interrogacao.png" />
     <None Include="Resources\pasta.png" />
     <None Include="Resources\protocolo1.png" />
+    <Content Include="Laudo\AlvaraBackupCode.txt" />
     <Content Include="PARAFAZER.txt" />
     <None Include="Resources\birthday-congratulations.gif" />
     <None Include="Resources\fogos.gif" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abertura\WebLegalizacao\" />
     <Folder Include="TESTE\" />
   </ItemGroup>
   <ItemGroup>
