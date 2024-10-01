@@ -1012,16 +1012,10 @@ Public Class FrmAlvara
 
         Select Case ModeloSistemaComboBox.Text
             Case "Alvará Antigo"
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    url = "https://venus.maringa.pr.gov.br/laudosnew/requerimentos.php"
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    showMessage = True
-                    messageText = "Alvará precisa ser manualmente solicitado para o município de Sarandi"
-                End If
+                BoxJuntaComercialLaudo.Show()
 
             Case "Alvará Online"
-                showMessage = True
-                messageText = "Alvará precisa ser solicitado pelo PRP"
+                BoxJuntaComercialLaudo.Show()
 
             Case "Alvará Manual"
                 showMessage = True
@@ -1030,7 +1024,7 @@ Public Class FrmAlvara
 
             Case "Consulta Prévia"
                 showMessage = True
-                messageText = "Consulta Prévia realizada no site da prefeitura, antecipa a liberação do alvará ou Cadastro Imobiliário"
+                messageText = "Consulta Prévia realizada no site da prefeitura ou Junta-Unificada"
                 showWebSiteGERAL = False
 
             Case "Bombeiro Certificado"
@@ -1038,18 +1032,12 @@ Public Class FrmAlvara
                 showWebSiteGERAL = False
 
             Case "MEI - Dispensa de Alvará"
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    url = "https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0"
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    url = "http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e5s1"
-                End If
+                BoxJuntaComercialLaudo.Show()
+
 
             Case "MEI - Alvará Online"
-                If EndCidadeLabel2.Text.Contains("Maring") Then
-                    url = "https://sei.maringa.pr.gov.br/sei//controlador_externo.php?acao=usuario_externo_logar&id_orgao_acesso_externo=0"
-                ElseIf EndCidadeLabel2.Text.Contains("Sarandi") Then
-                    url = "http://200.233.108.153:8080/WebEloAlvaraOnline/app/consultaPrevia?execution=e5s1"
-                End If
+                BoxJuntaComercialLaudo.Show()
+
 
             Case Else
                 showMessage = True

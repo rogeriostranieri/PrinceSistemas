@@ -6,9 +6,8 @@ Imports System.Text.RegularExpressions
 Public Class FrmSites
     Private originalData As DataTable
     Private dadosAlterados As Boolean = False ' Variável para detectar alterações
-
-
     Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
+
     Private Sub FrmSites_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Sites'. Você pode movê-la ou removê-la conforme necessário.
         Me.SitesTableAdapter.Fill(Me.PrinceDBDataSet.Sites)
@@ -21,6 +20,83 @@ Public Class FrmSites
         Me.KeyPreview = True
 
     End Sub
+
+    Private Sub AbrirLink(textBox As TextBox)
+        If Not String.IsNullOrEmpty(textBox.Text) Then
+            Try
+                ' Abre o link no navegador padrão
+                Process.Start(textBox.Text)
+            Catch ex As Exception
+                ' Exibe uma mensagem de erro caso algo dê errado
+                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            ' Informa o usuário que o campo está vazio
+            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+
+    Private Sub TextBoxBuscaGeral_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuscaGeral.TextChanged
+        ' Obter o texto digitado no TextBoxBuscaGeral
+        Dim busca As String = TextBoxBuscaGeral.Text.Trim()
+
+
+        ' Aplicar o filtro se houver texto de busca, caso contrário, limpar o filtro
+        If Not String.IsNullOrEmpty(busca) Then
+            ' Filtro usando Estado, Cidade ou Distrito (insensível a maiúsculas/minúsculas)
+            SitesBindingSource.Filter = $"Estado LIKE '%{busca}%' OR Cidade LIKE '%{busca}%' OR Distrito LIKE '%{busca}%'"
+        Else
+            ' Se não houver texto, remover o filtro
+            SitesBindingSource.RemoveFilter()
+        End If
+    End Sub
+
+    Private Sub BtnCidades_Click(sender As Object, e As EventArgs) Handles BtnCidades.Click
+        Dim frmCidades As New FrmBrasilCidadesGeral()
+        frmCidades.ShowDialog(Me) ' Abre o formulário como modal
+    End Sub
+
+
+    Private estadosSiglas As New Dictionary(Of String, String) From {
+    {"Acre", "AC"},
+    {"Alagoas", "AL"},
+    {"Amazonas", "AM"},
+    {"Bahia", "BA"},
+    {"Ceará", "CE"},
+    {"Distrito Federal", "DF"},
+    {"Espírito Santo", "ES"},
+    {"Goiás", "GO"},
+    {"Maranhão", "MA"},
+    {"Mato Grosso", "MT"},
+    {"Mato Grosso do Sul", "MS"},
+    {"Minas Gerais", "MG"},
+    {"Pará", "PA"},
+    {"Paraíba", "PB"},
+    {"Paraná", "PR"},
+    {"Pernambuco", "PE"},
+    {"Piauí", "PI"},
+    {"Rio de Janeiro", "RJ"},
+    {"Rio Grande do Norte", "RN"},
+    {"Rio Grande do Sul", "RS"},
+    {"Rondônia", "RO"},
+    {"Roraima", "RR"},
+    {"Santa Catarina", "SC"},
+    {"São Paulo", "SP"},
+    {"Sergipe", "SE"},
+    {"Tocantins", "TO"}
+}
+
+
+    Private Sub EstadoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EstadoTextBox.TextChanged
+        Dim estadoNome As String = EstadoTextBox.Text.Trim()
+        If estadosSiglas.ContainsKey(estadoNome) Then
+            EstadoSiglaTextBox.Text = estadosSiglas(estadoNome)
+        Else
+            EstadoSiglaTextBox.Text = String.Empty ' Limpa o campo se o estado não for encontrado
+        End If
+    End Sub
+
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         If MsgBox("Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
             ' Adicionar um novo registro no BindingSource
@@ -230,156 +306,63 @@ Public Class FrmSites
 
     '////////////////////////////// BOTAO ABRIR SITES
     Private Sub BtnAbrir1_Click(sender As Object, e As EventArgs) Handles BtnAbrir1.Click
-        ' Verifica se o campo SiteEstadoTextBox não está vazio
-        If Not String.IsNullOrEmpty(SiteEstadoTextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteEstadoTextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteEstadoTextBox)
     End Sub
 
     Private Sub BtnAbrir2_Click(sender As Object, e As EventArgs) Handles BtnAbrir2.Click
-        If Not String.IsNullOrEmpty(SiteCidadeTextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteCidadeTextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteCidadeTextBox)
     End Sub
 
     Private Sub BtnAbrir3_Click(sender As Object, e As EventArgs) Handles BtnAbrir3.Click
-        If Not String.IsNullOrEmpty(SiteJuntaUnificadaTextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteJuntaUnificadaTextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteJuntaUnificadaTextBox)
     End Sub
 
     Private Sub BtnAbrir4_Click(sender As Object, e As EventArgs) Handles BtnAbrir4.Click
-        If Not String.IsNullOrEmpty(SiteJuntaAntigaTextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteJuntaAntigaTextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteJuntaAntigaTextBox)
     End Sub
 
     Private Sub BtnAbrir5_Click(sender As Object, e As EventArgs) Handles BtnAbrir5.Click
-        If Not String.IsNullOrEmpty(SiteAlvara1TextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteAlvara1TextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteAlvara1TextBox)
     End Sub
 
     Private Sub BtnAbrir6_Click(sender As Object, e As EventArgs) Handles BtnAbrir6.Click
-        If Not String.IsNullOrEmpty(SiteAlvara2TextBox.Text) Then
-            Try
-                ' Abre o link no navegador padrão
-                Process.Start(SiteAlvara2TextBox.Text)
-            Catch ex As Exception
-                ' Exibe uma mensagem de erro caso algo dê errado
-                MessageBox.Show("Não foi possível abrir o link. Verifique se o URL está correto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            ' Informa o usuário que o campo está vazio
-            MessageBox.Show("O campo do link está vazio. Insira um URL.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        AbrirLink(SiteAlvara2TextBox)
+    End Sub
+
+    Private Sub BtnAlvaraPedido1_Click(sender As Object, e As EventArgs) Handles BtnAlvaraPedido1.Click
+        'SiteAlvaraPedido1TextBox
+        AbrirLink(SiteAlvaraPedido1TextBox)
+
+    End Sub
+
+    Private Sub BtnAlvaraPedido2_Click(sender As Object, e As EventArgs) Handles BtnAlvaraPedido2.Click
+        'SiteAlvaraPedido2TextBox
+        AbrirLink(SiteAlvaraPedido2TextBox)
+
+    End Sub
+
+    Private Sub BtnPrefProtocolo_Click(sender As Object, e As EventArgs) Handles BtnPrefProtocolo.Click
+        'SitePrefProtocoloTextBox
+        AbrirLink(SitePrefProtocoloTextBox)
+    End Sub
+
+    Private Sub BtnSiteREDESIMProtocolo_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMProtocolo.Click
+        AbrirLink(SiteREDESIMProtocoloTextBox)
+    End Sub
+
+    Private Sub BtnSiteREDESIMConsultaCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMConsultaCNPJ.Click
+        AbrirLink(SiteREDESIMConsultaCNPJTextBox)
+    End Sub
+
+    Private Sub BtnSiteREDESIMAbrirCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMAbrirCNPJ.Click
+        AbrirLink(SiteREDESIMAbrirCNPJTextBox)
+    End Sub
+
+    Private Sub BtnSiteREDESIMMeuCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMMeuCNPJ.Click
+        AbrirLink(SiteREDESIMMeuCNPJTextBox)
     End Sub
 
     '///////////////////// FIM BOTAO
 
-    Private Sub TextBoxBuscaGeral_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuscaGeral.TextChanged
-        ' Obter o texto digitado no TextBoxBuscaGeral
-        Dim busca As String = TextBoxBuscaGeral.Text.Trim()
-
-
-        ' Aplicar o filtro se houver texto de busca, caso contrário, limpar o filtro
-        If Not String.IsNullOrEmpty(busca) Then
-            ' Filtro usando Estado, Cidade ou Distrito (insensível a maiúsculas/minúsculas)
-            SitesBindingSource.Filter = $"Estado LIKE '%{busca}%' OR Cidade LIKE '%{busca}%' OR Distrito LIKE '%{busca}%'"
-        Else
-            ' Se não houver texto, remover o filtro
-            SitesBindingSource.RemoveFilter()
-        End If
-    End Sub
-
-    Private Sub BtnCidades_Click(sender As Object, e As EventArgs) Handles BtnCidades.Click
-        Dim frmCidades As New FrmBrasilCidadesGeral()
-        frmCidades.ShowDialog(Me) ' Abre o formulário como modal
-    End Sub
-
-
-    Private estadosSiglas As New Dictionary(Of String, String) From {
-    {"Acre", "AC"},
-    {"Alagoas", "AL"},
-    {"Amazonas", "AM"},
-    {"Bahia", "BA"},
-    {"Ceará", "CE"},
-    {"Distrito Federal", "DF"},
-    {"Espírito Santo", "ES"},
-    {"Goiás", "GO"},
-    {"Maranhão", "MA"},
-    {"Mato Grosso", "MT"},
-    {"Mato Grosso do Sul", "MS"},
-    {"Minas Gerais", "MG"},
-    {"Pará", "PA"},
-    {"Paraíba", "PB"},
-    {"Paraná", "PR"},
-    {"Pernambuco", "PE"},
-    {"Piauí", "PI"},
-    {"Rio de Janeiro", "RJ"},
-    {"Rio Grande do Norte", "RN"},
-    {"Rio Grande do Sul", "RS"},
-    {"Rondônia", "RO"},
-    {"Roraima", "RR"},
-    {"Santa Catarina", "SC"},
-    {"São Paulo", "SP"},
-    {"Sergipe", "SE"},
-    {"Tocantins", "TO"}
-}
-
-
-    Private Sub EstadoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EstadoTextBox.TextChanged
-        Dim estadoNome As String = EstadoTextBox.Text.Trim()
-        If estadosSiglas.ContainsKey(estadoNome) Then
-            EstadoSiglaTextBox.Text = estadosSiglas(estadoNome)
-        Else
-            EstadoSiglaTextBox.Text = String.Empty ' Limpa o campo se o estado não for encontrado
-        End If
-    End Sub
 
 End Class

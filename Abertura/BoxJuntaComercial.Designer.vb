@@ -31,6 +31,7 @@ Partial Class BoxJuntaComercial
         Me.BtnExterno = New System.Windows.Forms.Button()
         Me.BtnCopiaPRP = New System.Windows.Forms.Button()
         Me.ComboBoxEscolhaProtocolo = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -117,7 +118,7 @@ Partial Class BoxJuntaComercial
         '
         Me.BtnCopiaPRP.BackColor = System.Drawing.Color.Lavender
         Me.BtnCopiaPRP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCopiaPRP.Location = New System.Drawing.Point(139, 124)
+        Me.BtnCopiaPRP.Location = New System.Drawing.Point(139, 126)
         Me.BtnCopiaPRP.Name = "BtnCopiaPRP"
         Me.BtnCopiaPRP.Size = New System.Drawing.Size(117, 28)
         Me.BtnCopiaPRP.TabIndex = 16
@@ -126,11 +127,24 @@ Partial Class BoxJuntaComercial
         '
         'ComboBoxEscolhaProtocolo
         '
+        Me.ComboBoxEscolhaProtocolo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxEscolhaProtocolo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.ComboBoxEscolhaProtocolo.FormattingEnabled = True
-        Me.ComboBoxEscolhaProtocolo.Location = New System.Drawing.Point(16, 129)
+        Me.ComboBoxEscolhaProtocolo.Location = New System.Drawing.Point(16, 131)
         Me.ComboBoxEscolhaProtocolo.Name = "ComboBoxEscolhaProtocolo"
         Me.ComboBoxEscolhaProtocolo.Size = New System.Drawing.Size(117, 21)
         Me.ComboBoxEscolhaProtocolo.TabIndex = 17
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(20, 104)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(187, 19)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Copiar Numero do Protocolo"
         '
         'BoxJuntaComercial
         '
@@ -141,6 +155,7 @@ Partial Class BoxJuntaComercial
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(396, 207)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBoxEscolhaProtocolo)
         Me.Controls.Add(Me.BtnCopiaPRP)
         Me.Controls.Add(Me.BtnImportar)
@@ -171,4 +186,5 @@ Partial Class BoxJuntaComercial
     Friend WithEvents BtnExterno As Button
     Friend WithEvents BtnCopiaPRP As Button
     Friend WithEvents ComboBoxEscolhaProtocolo As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

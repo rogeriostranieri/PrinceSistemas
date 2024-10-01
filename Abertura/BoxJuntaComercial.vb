@@ -187,6 +187,7 @@ Public Class BoxJuntaComercial
                     Clipboard.SetText(ProtocoloRedesim)
                     MessageBox.Show("Protocolo copiado para a área de transferência")
             End Select
+            Me.Focus()
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro inesperado: " & ex.Message)
         End Try
@@ -200,6 +201,15 @@ Public Class BoxJuntaComercial
         ComboBoxEscolhaProtocolo.SelectedIndex = 0
         ' Ou selecione um item específico pelo valor:
         ' ComboBoxEscolhaProtocolo.SelectedItem = "Redesim"
+        Try
+            ' Selecionar a aba correta nos TabControles
+            FrmLegalizacao.TabControle.SelectTab(1)
+            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControle.SelectTab(2)
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o Formulario Empresa, abrir para usar a função " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
 End Class

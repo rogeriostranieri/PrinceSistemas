@@ -11942,6 +11942,22 @@ Partial Public Class PrinceDBDataSet
         
         Private columnEstadoSigla As Global.System.Data.DataColumn
         
+        Private columnSiteAlvaraPedido1 As Global.System.Data.DataColumn
+        
+        Private columnSiteAlvaraPedido2 As Global.System.Data.DataColumn
+        
+        Private columnSitePrefProtocolo As Global.System.Data.DataColumn
+        
+        Private columnObservacoes As Global.System.Data.DataColumn
+        
+        Private columnSiteREDESIMProtocolo As Global.System.Data.DataColumn
+        
+        Private columnSiteREDESIMConsultaCNPJ As Global.System.Data.DataColumn
+        
+        Private columnSiteREDESIMAbrirCNPJ As Global.System.Data.DataColumn
+        
+        Private columnSiteREDESIMMeuCNPJ As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -12066,6 +12082,70 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteAlvaraPedido1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteAlvaraPedido1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteAlvaraPedido2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteAlvaraPedido2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SitePrefProtocoloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSitePrefProtocolo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ObservacoesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObservacoes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteREDESIMProtocoloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteREDESIMProtocolo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteREDESIMConsultaCNPJColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteREDESIMConsultaCNPJ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteREDESIMAbrirCNPJColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteREDESIMAbrirCNPJ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SiteREDESIMMeuCNPJColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSiteREDESIMMeuCNPJ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -12102,9 +12182,27 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddSitesRow(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String) As SitesRow
+        Public Overloads Function AddSitesRow( _
+                    ByVal Estado As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal SiteEstado As String,  _
+                    ByVal SiteCidade As String,  _
+                    ByVal SiteJuntaUnificada As String,  _
+                    ByVal SiteJuntaAntiga As String,  _
+                    ByVal SiteAlvara1 As String,  _
+                    ByVal SiteAlvara2 As String,  _
+                    ByVal Distrito As String,  _
+                    ByVal EstadoSigla As String,  _
+                    ByVal SiteAlvaraPedido1 As String,  _
+                    ByVal SiteAlvaraPedido2 As String,  _
+                    ByVal SitePrefProtocolo As String,  _
+                    ByVal Observacoes As String,  _
+                    ByVal SiteREDESIMProtocolo As String,  _
+                    ByVal SiteREDESIMConsultaCNPJ As String,  _
+                    ByVal SiteREDESIMAbrirCNPJ As String,  _
+                    ByVal SiteREDESIMMeuCNPJ As String) As SitesRow
             Dim rowSitesRow As SitesRow = CType(Me.NewRow,SitesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ}
             rowSitesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSitesRow)
             Return rowSitesRow
@@ -12144,6 +12242,14 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteAlvara2 = MyBase.Columns("SiteAlvara2")
             Me.columnDistrito = MyBase.Columns("Distrito")
             Me.columnEstadoSigla = MyBase.Columns("EstadoSigla")
+            Me.columnSiteAlvaraPedido1 = MyBase.Columns("SiteAlvaraPedido1")
+            Me.columnSiteAlvaraPedido2 = MyBase.Columns("SiteAlvaraPedido2")
+            Me.columnSitePrefProtocolo = MyBase.Columns("SitePrefProtocolo")
+            Me.columnObservacoes = MyBase.Columns("Observacoes")
+            Me.columnSiteREDESIMProtocolo = MyBase.Columns("SiteREDESIMProtocolo")
+            Me.columnSiteREDESIMConsultaCNPJ = MyBase.Columns("SiteREDESIMConsultaCNPJ")
+            Me.columnSiteREDESIMAbrirCNPJ = MyBase.Columns("SiteREDESIMAbrirCNPJ")
+            Me.columnSiteREDESIMMeuCNPJ = MyBase.Columns("SiteREDESIMMeuCNPJ")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12171,6 +12277,22 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnDistrito)
             Me.columnEstadoSigla = New Global.System.Data.DataColumn("EstadoSigla", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEstadoSigla)
+            Me.columnSiteAlvaraPedido1 = New Global.System.Data.DataColumn("SiteAlvaraPedido1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteAlvaraPedido1)
+            Me.columnSiteAlvaraPedido2 = New Global.System.Data.DataColumn("SiteAlvaraPedido2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteAlvaraPedido2)
+            Me.columnSitePrefProtocolo = New Global.System.Data.DataColumn("SitePrefProtocolo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSitePrefProtocolo)
+            Me.columnObservacoes = New Global.System.Data.DataColumn("Observacoes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObservacoes)
+            Me.columnSiteREDESIMProtocolo = New Global.System.Data.DataColumn("SiteREDESIMProtocolo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteREDESIMProtocolo)
+            Me.columnSiteREDESIMConsultaCNPJ = New Global.System.Data.DataColumn("SiteREDESIMConsultaCNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteREDESIMConsultaCNPJ)
+            Me.columnSiteREDESIMAbrirCNPJ = New Global.System.Data.DataColumn("SiteREDESIMAbrirCNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteREDESIMAbrirCNPJ)
+            Me.columnSiteREDESIMMeuCNPJ = New Global.System.Data.DataColumn("SiteREDESIMMeuCNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSiteREDESIMMeuCNPJ)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Sites}, true))
             Me.columnID_Sites.AutoIncrement = true
             Me.columnID_Sites.AutoIncrementSeed = -1
@@ -12188,6 +12310,14 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteAlvara2.MaxLength = 2147483647
             Me.columnDistrito.MaxLength = 2147483647
             Me.columnEstadoSigla.MaxLength = 2147483647
+            Me.columnSiteAlvaraPedido1.MaxLength = 2147483647
+            Me.columnSiteAlvaraPedido2.MaxLength = 2147483647
+            Me.columnSitePrefProtocolo.MaxLength = 2147483647
+            Me.columnObservacoes.MaxLength = 2147483647
+            Me.columnSiteREDESIMProtocolo.MaxLength = 2147483647
+            Me.columnSiteREDESIMConsultaCNPJ.MaxLength = 2147483647
+            Me.columnSiteREDESIMAbrirCNPJ.MaxLength = 2147483647
+            Me.columnSiteREDESIMMeuCNPJ.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -24067,6 +24197,126 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteAlvaraPedido1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteAlvaraPedido1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteAlvaraPedido1' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteAlvaraPedido1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteAlvaraPedido2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteAlvaraPedido2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteAlvaraPedido2' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteAlvaraPedido2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SitePrefProtocolo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SitePrefProtocoloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SitePrefProtocolo' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SitePrefProtocoloColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Observacoes() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.ObservacoesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Observacoes' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.ObservacoesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteREDESIMProtocolo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteREDESIMProtocoloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteREDESIMProtocolo' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteREDESIMProtocoloColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteREDESIMConsultaCNPJ() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteREDESIMConsultaCNPJColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteREDESIMConsultaCNPJ' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteREDESIMConsultaCNPJColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteREDESIMAbrirCNPJ() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteREDESIMAbrirCNPJColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteREDESIMAbrirCNPJ' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteREDESIMAbrirCNPJColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SiteREDESIMMeuCNPJ() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.SiteREDESIMMeuCNPJColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SiteREDESIMMeuCNPJ' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.SiteREDESIMMeuCNPJColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstadoNull() As Boolean
             Return Me.IsNull(Me.tableSites.EstadoColumn)
         End Function
@@ -24183,6 +24433,102 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetEstadoSiglaNull()
             Me(Me.tableSites.EstadoSiglaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteAlvaraPedido1Null() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteAlvaraPedido1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteAlvaraPedido1Null()
+            Me(Me.tableSites.SiteAlvaraPedido1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteAlvaraPedido2Null() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteAlvaraPedido2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteAlvaraPedido2Null()
+            Me(Me.tableSites.SiteAlvaraPedido2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSitePrefProtocoloNull() As Boolean
+            Return Me.IsNull(Me.tableSites.SitePrefProtocoloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSitePrefProtocoloNull()
+            Me(Me.tableSites.SitePrefProtocoloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsObservacoesNull() As Boolean
+            Return Me.IsNull(Me.tableSites.ObservacoesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetObservacoesNull()
+            Me(Me.tableSites.ObservacoesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteREDESIMProtocoloNull() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteREDESIMProtocoloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteREDESIMProtocoloNull()
+            Me(Me.tableSites.SiteREDESIMProtocoloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteREDESIMConsultaCNPJNull() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteREDESIMConsultaCNPJColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteREDESIMConsultaCNPJNull()
+            Me(Me.tableSites.SiteREDESIMConsultaCNPJColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteREDESIMAbrirCNPJNull() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteREDESIMAbrirCNPJColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteREDESIMAbrirCNPJNull()
+            Me(Me.tableSites.SiteREDESIMAbrirCNPJColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSiteREDESIMMeuCNPJNull() As Boolean
+            Return Me.IsNull(Me.tableSites.SiteREDESIMMeuCNPJColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSiteREDESIMMeuCNPJNull()
+            Me(Me.tableSites.SiteREDESIMMeuCNPJColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -40833,6 +41179,14 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SiteAlvara2", "SiteAlvara2")
             tableMapping.ColumnMappings.Add("Distrito", "Distrito")
             tableMapping.ColumnMappings.Add("EstadoSigla", "EstadoSigla")
+            tableMapping.ColumnMappings.Add("SiteAlvaraPedido1", "SiteAlvaraPedido1")
+            tableMapping.ColumnMappings.Add("SiteAlvaraPedido2", "SiteAlvaraPedido2")
+            tableMapping.ColumnMappings.Add("SitePrefProtocolo", "SitePrefProtocolo")
+            tableMapping.ColumnMappings.Add("Observacoes", "Observacoes")
+            tableMapping.ColumnMappings.Add("SiteREDESIMProtocolo", "SiteREDESIMProtocolo")
+            tableMapping.ColumnMappings.Add("SiteREDESIMConsultaCNPJ", "SiteREDESIMConsultaCNPJ")
+            tableMapping.ColumnMappings.Add("SiteREDESIMAbrirCNPJ", "SiteREDESIMAbrirCNPJ")
+            tableMapping.ColumnMappings.Add("SiteREDESIMMeuCNPJ", "SiteREDESIMMeuCNPJ")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -40843,11 +41197,17 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Sites] ([Estado], [Cidade], [SiteEstado], [SiteCidade], [SiteJuntaUn"& _ 
                 "ificada], [SiteJuntaAntiga], [SiteAlvara1], [SiteAlvara2], [Distrito], [EstadoSi"& _ 
-                "gla]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJuntaUnificada, @"& _ 
-                "SiteJuntaAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSigla);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT I"& _ 
-                "D_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAn"& _ 
-                "tiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla FROM Sites WHERE (ID_Sites"& _ 
-                " = SCOPE_IDENTITY())"
+                "gla], [SiteAlvaraPedido1], [SiteAlvaraPedido2], [SitePrefProtocolo], [Observacoe"& _ 
+                "s], [SiteREDESIMProtocolo], [SiteREDESIMConsultaCNPJ], [SiteREDESIMAbrirCNPJ], ["& _ 
+                "SiteREDESIMMeuCNPJ]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJu"& _ 
+                "ntaUnificada, @SiteJuntaAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSi"& _ 
+                "gla, @SiteAlvaraPedido1, @SiteAlvaraPedido2, @SitePrefProtocolo, @Observacoes, @"& _ 
+                "SiteREDESIMProtocolo, @SiteREDESIMConsultaCNPJ, @SiteREDESIMAbrirCNPJ, @SiteREDE"& _ 
+                "SIMMeuCNPJ);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJunta"& _ 
+                "Unificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, Sit"& _ 
+                "eAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMPr"& _ 
+                "otocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ FROM "& _ 
+                "Sites WHERE (ID_Sites = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40859,15 +41219,30 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Distrito", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Distrito", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EstadoSigla", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EstadoSigla", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvaraPedido1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvaraPedido1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvaraPedido2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvaraPedido2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SitePrefProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SitePrefProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacoes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacoes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMConsultaCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMConsultaCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMAbrirCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMAbrirCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMMeuCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMMeuCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Sites] SET [Estado] = @Estado, [Cidade] = @Cidade, [SiteEstado] = @SiteEs"& _ 
                 "tado, [SiteCidade] = @SiteCidade, [SiteJuntaUnificada] = @SiteJuntaUnificada, [S"& _ 
                 "iteJuntaAntiga] = @SiteJuntaAntiga, [SiteAlvara1] = @SiteAlvara1, [SiteAlvara2] "& _ 
-                "= @SiteAlvara2, [Distrito] = @Distrito, [EstadoSigla] = @EstadoSigla WHERE (([ID"& _ 
-                "_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, Si"& _ 
-                "teCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrit"& _ 
-                "o, EstadoSigla FROM Sites WHERE (ID_Sites = @ID_Sites)"
+                "= @SiteAlvara2, [Distrito] = @Distrito, [EstadoSigla] = @EstadoSigla, [SiteAlvar"& _ 
+                "aPedido1] = @SiteAlvaraPedido1, [SiteAlvaraPedido2] = @SiteAlvaraPedido2, [SiteP"& _ 
+                "refProtocolo] = @SitePrefProtocolo, [Observacoes] = @Observacoes, [SiteREDESIMPr"& _ 
+                "otocolo] = @SiteREDESIMProtocolo, [SiteREDESIMConsultaCNPJ] = @SiteREDESIMConsul"& _ 
+                "taCNPJ, [SiteREDESIMAbrirCNPJ] = @SiteREDESIMAbrirCNPJ, [SiteREDESIMMeuCNPJ] = @"& _ 
+                "SiteREDESIMMeuCNPJ WHERE (([ID_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, "& _ 
+                "Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, Sit"& _ 
+                "eAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedid"& _ 
+                "o2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNP"& _ 
+                "J, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ FROM Sites WHERE (ID_Sites = @ID_Sit"& _ 
+                "es)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40879,6 +41254,14 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvara2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvara2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Distrito", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Distrito", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EstadoSigla", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EstadoSigla", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvaraPedido1", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvaraPedido1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteAlvaraPedido2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteAlvaraPedido2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SitePrefProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SitePrefProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacoes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacoes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMConsultaCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMConsultaCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMAbrirCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMAbrirCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMMeuCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMMeuCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Sites", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Sites", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -40977,7 +41360,25 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String) As Integer
+        Public Overloads Overridable Function Insert( _
+                    ByVal Estado As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal SiteEstado As String,  _
+                    ByVal SiteCidade As String,  _
+                    ByVal SiteJuntaUnificada As String,  _
+                    ByVal SiteJuntaAntiga As String,  _
+                    ByVal SiteAlvara1 As String,  _
+                    ByVal SiteAlvara2 As String,  _
+                    ByVal Distrito As String,  _
+                    ByVal EstadoSigla As String,  _
+                    ByVal SiteAlvaraPedido1 As String,  _
+                    ByVal SiteAlvaraPedido2 As String,  _
+                    ByVal SitePrefProtocolo As String,  _
+                    ByVal Observacoes As String,  _
+                    ByVal SiteREDESIMProtocolo As String,  _
+                    ByVal SiteREDESIMConsultaCNPJ As String,  _
+                    ByVal SiteREDESIMAbrirCNPJ As String,  _
+                    ByVal SiteREDESIMMeuCNPJ As String) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -41028,6 +41429,46 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = CType(EstadoSigla,String)
             End If
+            If (SiteAlvaraPedido1 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(SiteAlvaraPedido1,String)
+            End If
+            If (SiteAlvaraPedido2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(SiteAlvaraPedido2,String)
+            End If
+            If (SitePrefProtocolo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(SitePrefProtocolo,String)
+            End If
+            If (Observacoes Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Observacoes,String)
+            End If
+            If (SiteREDESIMProtocolo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(SiteREDESIMProtocolo,String)
+            End If
+            If (SiteREDESIMConsultaCNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(SiteREDESIMConsultaCNPJ,String)
+            End If
+            If (SiteREDESIMAbrirCNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(SiteREDESIMAbrirCNPJ,String)
+            End If
+            If (SiteREDESIMMeuCNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(SiteREDESIMMeuCNPJ,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41047,7 +41488,27 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String, ByVal Original_ID_Sites As Integer, ByVal ID_Sites As Integer) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal Estado As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal SiteEstado As String,  _
+                    ByVal SiteCidade As String,  _
+                    ByVal SiteJuntaUnificada As String,  _
+                    ByVal SiteJuntaAntiga As String,  _
+                    ByVal SiteAlvara1 As String,  _
+                    ByVal SiteAlvara2 As String,  _
+                    ByVal Distrito As String,  _
+                    ByVal EstadoSigla As String,  _
+                    ByVal SiteAlvaraPedido1 As String,  _
+                    ByVal SiteAlvaraPedido2 As String,  _
+                    ByVal SitePrefProtocolo As String,  _
+                    ByVal Observacoes As String,  _
+                    ByVal SiteREDESIMProtocolo As String,  _
+                    ByVal SiteREDESIMConsultaCNPJ As String,  _
+                    ByVal SiteREDESIMAbrirCNPJ As String,  _
+                    ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal Original_ID_Sites As Integer,  _
+                    ByVal ID_Sites As Integer) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -41098,8 +41559,48 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(EstadoSigla,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID_Sites,Integer)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ID_Sites,Integer)
+            If (SiteAlvaraPedido1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(SiteAlvaraPedido1,String)
+            End If
+            If (SiteAlvaraPedido2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(SiteAlvaraPedido2,String)
+            End If
+            If (SitePrefProtocolo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(SitePrefProtocolo,String)
+            End If
+            If (Observacoes Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Observacoes,String)
+            End If
+            If (SiteREDESIMProtocolo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(SiteREDESIMProtocolo,String)
+            End If
+            If (SiteREDESIMConsultaCNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(SiteREDESIMConsultaCNPJ,String)
+            End If
+            If (SiteREDESIMAbrirCNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(SiteREDESIMAbrirCNPJ,String)
+            End If
+            If (SiteREDESIMMeuCNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(SiteREDESIMMeuCNPJ,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ID_Sites,Integer)
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(ID_Sites,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41119,8 +41620,27 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Estado As String, ByVal Cidade As String, ByVal SiteEstado As String, ByVal SiteCidade As String, ByVal SiteJuntaUnificada As String, ByVal SiteJuntaAntiga As String, ByVal SiteAlvara1 As String, ByVal SiteAlvara2 As String, ByVal Distrito As String, ByVal EstadoSigla As String, ByVal Original_ID_Sites As Integer) As Integer
-            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, Original_ID_Sites, Original_ID_Sites)
+        Public Overloads Overridable Function Update( _
+                    ByVal Estado As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal SiteEstado As String,  _
+                    ByVal SiteCidade As String,  _
+                    ByVal SiteJuntaUnificada As String,  _
+                    ByVal SiteJuntaAntiga As String,  _
+                    ByVal SiteAlvara1 As String,  _
+                    ByVal SiteAlvara2 As String,  _
+                    ByVal Distrito As String,  _
+                    ByVal EstadoSigla As String,  _
+                    ByVal SiteAlvaraPedido1 As String,  _
+                    ByVal SiteAlvaraPedido2 As String,  _
+                    ByVal SitePrefProtocolo As String,  _
+                    ByVal Observacoes As String,  _
+                    ByVal SiteREDESIMProtocolo As String,  _
+                    ByVal SiteREDESIMConsultaCNPJ As String,  _
+                    ByVal SiteREDESIMAbrirCNPJ As String,  _
+                    ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal Original_ID_Sites As Integer) As Integer
+            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, Original_ID_Sites, Original_ID_Sites)
         End Function
     End Class
     

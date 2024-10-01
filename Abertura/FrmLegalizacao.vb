@@ -813,67 +813,10 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
         Try
             If ProtocoloREDESIMTextBox.Text <> "" Then
-                'perguntar
-                Dim resposta As DialogResult = MessageBox.Show("Deseja abrir o site para consultar?", "Pergunta", MessageBoxButtons.YesNo)
-                If resposta = DialogResult.Yes Then
-                    ' Verifica se o formulário WebSiteGERAL já está aberto
-                    Dim webForm As WebSiteGERAL = Nothing
-
-                    For Each form As Form In Application.OpenForms
-                        If TypeOf form Is WebSiteGERAL Then
-                            webForm = DirectCast(form, WebSiteGERAL)
-                            Exit For
-                        End If
-                    Next
-
-                    ' Se o formulário estiver aberto, foca nele. Caso contrário, cria uma nova instância e abre.
-                    If webForm IsNot Nothing Then
-                        webForm.Focus()
-                        webForm.BringToFront()
-                    Else
-                        webForm = New WebSiteGERAL()
-                        webForm.Show()
-                    End If
-
-                    ' Define a URL para o WebView
-                    Dim ProtocoloREDESIM As String = ProtocoloREDESIMTextBox.Text
-                    webForm.WebView.Source = New Uri("https://servicos.receita.fazenda.gov.br/Servicos/fcpj/consulta.asp?Cod=&Ident=&prot=" & ProtocoloREDESIM)
-
-                    webForm.Focus()
-                    webForm.BringToFront()
-                Else
-                    ' Código para lidar com a resposta "Não"
-                End If
-
+                BoxREDESIM.Show()
 
             Else
-                '  BtnConsultaRedeSim.Text = "Solicitar"
-                Dim resposta As DialogResult = MessageBox.Show("Deseja abrir o site para Solicitar?", "Pergunta", MessageBoxButtons.YesNo)
-                If resposta = DialogResult.Yes Then
-                    ' Verifica se o formulário WebSiteGERAL já está aberto
-                    Dim webForm As WebSiteGERAL = Nothing
-
-                    For Each form As Form In Application.OpenForms
-                        If TypeOf form Is WebSiteGERAL Then
-                            webForm = DirectCast(form, WebSiteGERAL)
-                            Exit For
-                        End If
-                    Next
-
-                    ' Se o formulário estiver aberto, foca nele. Caso contrário, cria uma nova instância e abre.
-                    If webForm IsNot Nothing Then
-                        webForm.Focus()
-                        webForm.BringToFront()
-                    Else
-                        webForm = New WebSiteGERAL()
-                        webForm.Show()
-                    End If
-                    ' Define a URL para o WebView
-
-                    webForm.WebView.Source = New Uri("https://www.gov.br/empresas-e-negocios/pt-br/redesim/meu-cnpj")
-                Else
-                    ' Código para lidar com a resposta "Não"
-                End If
+                BoxREDESIM.Show()
 
 
             End If
@@ -3166,7 +3109,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
 
             If resultado IsNot Nothing Then
-                EnderecoTextBox.Text = resultado.logradouro
+                ' Modificar apenas a primeira letra para minúscula
+                EnderecoTextBox.Text = PrimeiraLetraMinuscula(resultado.logradouro)
                 EndComplementoTextBox.Text = resultado.complemento
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
@@ -3180,6 +3124,16 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
         End Try
     End Sub
+
+    ' Função que converte a primeira letra de um texto para minúscula
+    Private Function PrimeiraLetraMinuscula(texto As String) As String
+        ' Verificar se o texto não está vazio
+        If String.IsNullOrEmpty(texto) Then Return texto
+
+        ' Converter a primeira letra para minúscula e manter o restante do texto inalterado
+        Return Char.ToLower(texto(0)) & texto.Substring(1)
+    End Function
+
 
     Private Sub TabControle_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControle.Selecting
         ' Verifique se o índice da aba selecionada é 3 (PAGE4 é a quarta aba, então o índice é 3)
@@ -3445,4 +3399,82 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             MessageBox.Show("Erro ao Limpar!" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    Private Sub BtnArrumaEnd_Click(sender As Object, e As EventArgs) Handles BtnArrumaEnd.Click
+        Try
+            ' Obter os valores dos TextBoxes
+            Dim Endereco As String = EnderecoTextBox.Text
+            Dim Numero As String = EndNumeroTextBox.Text
+            Dim Complemento As String = EndComplementoTextBox.Text
+            Dim Bairro As String = EndBairroTextBox.Text
+            Dim CEP As String = EndCEPMaskedTextBox.Text
+            Dim Cidade As String = EndCidadeTextBox.Text
+            Dim UF As String = EndEstadoTextBox.Text
+
+            ' Formatar cada parte do endereço com a primeira letra das palavras em maiúscula
+            ' Para o endereço, vamos manter a primeira letra minúscula
+            Endereco = FormatarEnderecoComPrimeiraLetraMinuscula(Endereco)
+
+            ' Formatar as outras partes normalmente
+            Bairro = FormatTexto(Bairro)
+            Cidade = FormatTexto(Cidade)
+            Complemento = FormatTexto(Complemento) ' Formatar complemento se não estiver vazio
+
+            ' Atualizar os TextBoxes com os valores formatados
+            EnderecoTextBox.Text = Endereco
+            EndBairroTextBox.Text = Bairro
+            EndCidadeTextBox.Text = Cidade
+            EndCEPMaskedTextBox.Text = CEP ' O CEP não requer formatação adicional
+            EndEstadoTextBox.Text = UF ' O UF não requer formatação adicional
+
+            ' Formatar o complemento e o número, se existirem, e atualizar
+            If Not String.IsNullOrWhiteSpace(Numero) Then
+                EndNumeroTextBox.Text = Numero.Trim()
+            End If
+
+            If Not String.IsNullOrWhiteSpace(Complemento) Then
+                EndComplementoTextBox.Text = Complemento.Trim()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao Formatar endereço!" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ' Função que formata o endereço mantendo a primeira letra minúscula e as palavras seguintes em maiúsculas
+    Private Function FormatarEnderecoComPrimeiraLetraMinuscula(endereco As String) As String
+        Try
+            ' Transformar todas as palavras em minúsculas
+            Dim palavras As String() = endereco.ToLower().Split(" "c)
+
+            ' Formatar cada palavra com inicial maiúscula, exceto a primeira palavra
+            For i As Integer = 1 To palavras.Length - 1
+                If palavras(i).Length > 0 Then ' Verifica se a palavra não está vazia antes de acessar o índice
+                    palavras(i) = Char.ToUpper(palavras(i)(0)) & palavras(i).Substring(1)
+                End If
+            Next
+
+            ' Reunir as palavras em uma única string com a primeira palavra em minúscula
+            Return String.Join(" ", palavras)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao formata o endereço mantendo a primeira letra minúscula e as palavras seguintes em maiúsculas" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Function
+
+    ' Função para formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns)
+    Private Function FormatTexto(texto As String) As String
+        Try
+            ' Converter o texto para minúsculas e depois formatar as iniciais
+            Dim palavrasComuns As String() = {"de", "do", "da", "dos", "das"} ' Palavras que não devem ter a inicial maiúscula
+            Dim palavras As String() = texto.ToLower().Split(" "c) ' Dividir o texto em palavras
+            For i As Integer = 0 To palavras.Length - 1
+                If palavras(i).Length > 0 AndAlso Not palavrasComuns.Contains(palavras(i)) Then ' Verifica se a palavra não está vazia
+                    palavras(i) = Char.ToUpper(palavras(i)(0)) & palavras(i).Substring(1) ' Capitalizar a primeira letra
+                End If
+            Next
+            Return String.Join(" ", palavras) ' Reunir as palavras novamente em uma única string
+        Catch ex As Exception
+            MessageBox.Show("Erro ao formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns)" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Function
+
 End Class
