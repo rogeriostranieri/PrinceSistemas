@@ -37,12 +37,18 @@ Partial Class FrmSites
         Dim SiteAlvaraPedido2Label As System.Windows.Forms.Label
         Dim SitePrefProtocoloLabel As System.Windows.Forms.Label
         Dim ObservacoesLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSites))
-        Dim SiteREDESIMProtocoloLabel As System.Windows.Forms.Label
-        Dim SiteREDESIMConsultaCNPJLabel As System.Windows.Forms.Label
-        Dim SiteREDESIMAbrirCNPJLabel As System.Windows.Forms.Label
         Dim SiteREDESIMMeuCNPJLabel As System.Windows.Forms.Label
+        Dim SiteREDESIMAbrirCNPJLabel As System.Windows.Forms.Label
+        Dim SiteREDESIMConsultaCNPJLabel As System.Windows.Forms.Label
+        Dim SiteREDESIMProtocoloLabel As System.Windows.Forms.Label
+        Dim BombeiroConsultaLabel As System.Windows.Forms.Label
+        Dim BombeiroSolicitaLabel As System.Windows.Forms.Label
+        Dim BombeiroUnificadoLabel As System.Windows.Forms.Label
+        Dim BombeiroREDESIMLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSites))
         Me.EstadoTextBox = New System.Windows.Forms.TextBox()
+        Me.SitesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.CidadeTextBox = New System.Windows.Forms.TextBox()
         Me.SiteEstadoTextBox = New System.Windows.Forms.TextBox()
         Me.SiteCidadeTextBox = New System.Windows.Forms.TextBox()
@@ -62,11 +68,37 @@ Partial Class FrmSites
         Me.TextBoxBuscaGeral = New System.Windows.Forms.TextBox()
         Me.SitesDataGridView = New System.Windows.Forms.DataGridView()
         Me.EstadoSigla = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ObservacoesRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.BtnSiteREDESIMMeuCNPJ = New System.Windows.Forms.Button()
+        Me.BtnSiteREDESIMProtocolo = New System.Windows.Forms.Button()
+        Me.BtnSiteREDESIMAbrirCNPJ = New System.Windows.Forms.Button()
+        Me.BtnSiteREDESIMConsultaCNPJ = New System.Windows.Forms.Button()
+        Me.SiteREDESIMMeuCNPJTextBox = New System.Windows.Forms.TextBox()
+        Me.SiteREDESIMAbrirCNPJTextBox = New System.Windows.Forms.TextBox()
+        Me.SiteREDESIMConsultaCNPJTextBox = New System.Windows.Forms.TextBox()
+        Me.SiteREDESIMProtocoloTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnBombeiroREDESIM = New System.Windows.Forms.Button()
+        Me.BtnBombeiroUnificado = New System.Windows.Forms.Button()
+        Me.BombeiroREDESIMTextBox = New System.Windows.Forms.TextBox()
+        Me.BombeiroUnificadoTextBox = New System.Windows.Forms.TextBox()
+        Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
+        Me.BtnBombeiroConsulta = New System.Windows.Forms.Button()
+        Me.BtnBombeiroSolicita = New System.Windows.Forms.Button()
+        Me.BombeiroSolicitaTextBox = New System.Windows.Forms.TextBox()
+        Me.BombeiroConsultaTextBox = New System.Windows.Forms.TextBox()
         Me.BtnAbrir1 = New System.Windows.Forms.Button()
         Me.BtnAbrir4 = New System.Windows.Forms.Button()
         Me.BtnAbrir3 = New System.Windows.Forms.Button()
@@ -86,21 +118,8 @@ Partial Class FrmSites
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnCidades = New System.Windows.Forms.Button()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SitesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.SitesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SitesTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.SiteREDESIMProtocoloTextBox = New System.Windows.Forms.TextBox()
-        Me.SiteREDESIMConsultaCNPJTextBox = New System.Windows.Forms.TextBox()
-        Me.SiteREDESIMAbrirCNPJTextBox = New System.Windows.Forms.TextBox()
-        Me.SiteREDESIMMeuCNPJTextBox = New System.Windows.Forms.TextBox()
-        Me.BtnSiteREDESIMProtocolo = New System.Windows.Forms.Button()
-        Me.BtnSiteREDESIMAbrirCNPJ = New System.Windows.Forms.Button()
-        Me.BtnSiteREDESIMConsultaCNPJ = New System.Windows.Forms.Button()
-        Me.BtnSiteREDESIMMeuCNPJ = New System.Windows.Forms.Button()
         EstadoLabel1 = New System.Windows.Forms.Label()
         CidadeLabel1 = New System.Windows.Forms.Label()
         SiteEstadoLabel = New System.Windows.Forms.Label()
@@ -115,10 +134,16 @@ Partial Class FrmSites
         SiteAlvaraPedido2Label = New System.Windows.Forms.Label()
         SitePrefProtocoloLabel = New System.Windows.Forms.Label()
         ObservacoesLabel = New System.Windows.Forms.Label()
-        SiteREDESIMProtocoloLabel = New System.Windows.Forms.Label()
-        SiteREDESIMConsultaCNPJLabel = New System.Windows.Forms.Label()
-        SiteREDESIMAbrirCNPJLabel = New System.Windows.Forms.Label()
         SiteREDESIMMeuCNPJLabel = New System.Windows.Forms.Label()
+        SiteREDESIMAbrirCNPJLabel = New System.Windows.Forms.Label()
+        SiteREDESIMConsultaCNPJLabel = New System.Windows.Forms.Label()
+        SiteREDESIMProtocoloLabel = New System.Windows.Forms.Label()
+        BombeiroConsultaLabel = New System.Windows.Forms.Label()
+        BombeiroSolicitaLabel = New System.Windows.Forms.Label()
+        BombeiroUnificadoLabel = New System.Windows.Forms.Label()
+        BombeiroREDESIMLabel = New System.Windows.Forms.Label()
+        CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox.SuspendLayout()
@@ -126,12 +151,11 @@ Partial Class FrmSites
         Me.GroupBox2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EstadoLabel1
@@ -158,7 +182,7 @@ Partial Class FrmSites
         '
         SiteEstadoLabel.AutoSize = True
         SiteEstadoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        SiteEstadoLabel.Location = New System.Drawing.Point(84, 34)
+        SiteEstadoLabel.Location = New System.Drawing.Point(84, 13)
         SiteEstadoLabel.Name = "SiteEstadoLabel"
         SiteEstadoLabel.Size = New System.Drawing.Size(109, 18)
         SiteEstadoLabel.TabIndex = 9
@@ -178,7 +202,7 @@ Partial Class FrmSites
         '
         SiteJuntaUnificadaLabel.AutoSize = True
         SiteJuntaUnificadaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        SiteJuntaUnificadaLabel.Location = New System.Drawing.Point(49, 64)
+        SiteJuntaUnificadaLabel.Location = New System.Drawing.Point(49, 43)
         SiteJuntaUnificadaLabel.Name = "SiteJuntaUnificadaLabel"
         SiteJuntaUnificadaLabel.Size = New System.Drawing.Size(142, 18)
         SiteJuntaUnificadaLabel.TabIndex = 13
@@ -188,7 +212,7 @@ Partial Class FrmSites
         '
         SiteJuntaAntigaLabel.AutoSize = True
         SiteJuntaAntigaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        SiteJuntaAntigaLabel.Location = New System.Drawing.Point(70, 94)
+        SiteJuntaAntigaLabel.Location = New System.Drawing.Point(70, 73)
         SiteJuntaAntigaLabel.Name = "SiteJuntaAntigaLabel"
         SiteJuntaAntigaLabel.Size = New System.Drawing.Size(121, 18)
         SiteJuntaAntigaLabel.TabIndex = 15
@@ -273,6 +297,78 @@ Partial Class FrmSites
         ObservacoesLabel.TabIndex = 0
         ObservacoesLabel.Text = "Observações Gerais"
         '
+        'SiteREDESIMMeuCNPJLabel
+        '
+        SiteREDESIMMeuCNPJLabel.AutoSize = True
+        SiteREDESIMMeuCNPJLabel.Location = New System.Drawing.Point(30, 115)
+        SiteREDESIMMeuCNPJLabel.Name = "SiteREDESIMMeuCNPJLabel"
+        SiteREDESIMMeuCNPJLabel.Size = New System.Drawing.Size(157, 18)
+        SiteREDESIMMeuCNPJLabel.TabIndex = 68
+        SiteREDESIMMeuCNPJLabel.Text = "REDESIM Meu CNPJ:"
+        '
+        'SiteREDESIMAbrirCNPJLabel
+        '
+        SiteREDESIMAbrirCNPJLabel.AutoSize = True
+        SiteREDESIMAbrirCNPJLabel.Location = New System.Drawing.Point(29, 86)
+        SiteREDESIMAbrirCNPJLabel.Name = "SiteREDESIMAbrirCNPJLabel"
+        SiteREDESIMAbrirCNPJLabel.Size = New System.Drawing.Size(158, 18)
+        SiteREDESIMAbrirCNPJLabel.TabIndex = 66
+        SiteREDESIMAbrirCNPJLabel.Text = "REDESIM Abrir CNPJ:"
+        '
+        'SiteREDESIMConsultaCNPJLabel
+        '
+        SiteREDESIMConsultaCNPJLabel.AutoSize = True
+        SiteREDESIMConsultaCNPJLabel.Location = New System.Drawing.Point(3, 55)
+        SiteREDESIMConsultaCNPJLabel.Name = "SiteREDESIMConsultaCNPJLabel"
+        SiteREDESIMConsultaCNPJLabel.Size = New System.Drawing.Size(187, 18)
+        SiteREDESIMConsultaCNPJLabel.TabIndex = 64
+        SiteREDESIMConsultaCNPJLabel.Text = "REDESIM Consulta CNPJ:"
+        '
+        'SiteREDESIMProtocoloLabel
+        '
+        SiteREDESIMProtocoloLabel.AutoSize = True
+        SiteREDESIMProtocoloLabel.Location = New System.Drawing.Point(37, 25)
+        SiteREDESIMProtocoloLabel.Name = "SiteREDESIMProtocoloLabel"
+        SiteREDESIMProtocoloLabel.Size = New System.Drawing.Size(150, 18)
+        SiteREDESIMProtocoloLabel.TabIndex = 63
+        SiteREDESIMProtocoloLabel.Text = "REDESIM Protocolo:"
+        '
+        'BombeiroConsultaLabel
+        '
+        BombeiroConsultaLabel.AutoSize = True
+        BombeiroConsultaLabel.Location = New System.Drawing.Point(41, 134)
+        BombeiroConsultaLabel.Name = "BombeiroConsultaLabel"
+        BombeiroConsultaLabel.Size = New System.Drawing.Size(149, 18)
+        BombeiroConsultaLabel.TabIndex = 51
+        BombeiroConsultaLabel.Text = "Bombeiro - Consulta:"
+        '
+        'BombeiroSolicitaLabel
+        '
+        BombeiroSolicitaLabel.AutoSize = True
+        BombeiroSolicitaLabel.Location = New System.Drawing.Point(27, 104)
+        BombeiroSolicitaLabel.Name = "BombeiroSolicitaLabel"
+        BombeiroSolicitaLabel.Size = New System.Drawing.Size(163, 18)
+        BombeiroSolicitaLabel.TabIndex = 52
+        BombeiroSolicitaLabel.Text = "Bombeiro - Solicitação:"
+        '
+        'BombeiroUnificadoLabel
+        '
+        BombeiroUnificadoLabel.AutoSize = True
+        BombeiroUnificadoLabel.Location = New System.Drawing.Point(47, 164)
+        BombeiroUnificadoLabel.Name = "BombeiroUnificadoLabel"
+        BombeiroUnificadoLabel.Size = New System.Drawing.Size(143, 18)
+        BombeiroUnificadoLabel.TabIndex = 78
+        BombeiroUnificadoLabel.Text = "Bombeiro Unificado:"
+        '
+        'BombeiroREDESIMLabel
+        '
+        BombeiroREDESIMLabel.AutoSize = True
+        BombeiroREDESIMLabel.Location = New System.Drawing.Point(41, 194)
+        BombeiroREDESIMLabel.Name = "BombeiroREDESIMLabel"
+        BombeiroREDESIMLabel.Size = New System.Drawing.Size(149, 18)
+        BombeiroREDESIMLabel.TabIndex = 79
+        BombeiroREDESIMLabel.Text = "Bombeiro REDESIM:"
+        '
         'EstadoTextBox
         '
         Me.EstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "Estado", True))
@@ -281,6 +377,16 @@ Partial Class FrmSites
         Me.EstadoTextBox.Name = "EstadoTextBox"
         Me.EstadoTextBox.Size = New System.Drawing.Size(189, 24)
         Me.EstadoTextBox.TabIndex = 6
+        '
+        'SitesBindingSource
+        '
+        Me.SitesBindingSource.DataMember = "Sites"
+        Me.SitesBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'PrinceDBDataSet
+        '
+        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
+        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CidadeTextBox
         '
@@ -295,7 +401,7 @@ Partial Class FrmSites
         '
         Me.SiteEstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteEstado", True))
         Me.SiteEstadoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SiteEstadoTextBox.Location = New System.Drawing.Point(196, 32)
+        Me.SiteEstadoTextBox.Location = New System.Drawing.Point(196, 11)
         Me.SiteEstadoTextBox.Name = "SiteEstadoTextBox"
         Me.SiteEstadoTextBox.Size = New System.Drawing.Size(357, 24)
         Me.SiteEstadoTextBox.TabIndex = 10
@@ -313,7 +419,7 @@ Partial Class FrmSites
         '
         Me.SiteJuntaUnificadaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteJuntaUnificada", True))
         Me.SiteJuntaUnificadaTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SiteJuntaUnificadaTextBox.Location = New System.Drawing.Point(196, 62)
+        Me.SiteJuntaUnificadaTextBox.Location = New System.Drawing.Point(196, 41)
         Me.SiteJuntaUnificadaTextBox.Name = "SiteJuntaUnificadaTextBox"
         Me.SiteJuntaUnificadaTextBox.Size = New System.Drawing.Size(357, 24)
         Me.SiteJuntaUnificadaTextBox.TabIndex = 14
@@ -322,7 +428,7 @@ Partial Class FrmSites
         '
         Me.SiteJuntaAntigaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteJuntaAntiga", True))
         Me.SiteJuntaAntigaTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SiteJuntaAntigaTextBox.Location = New System.Drawing.Point(196, 92)
+        Me.SiteJuntaAntigaTextBox.Location = New System.Drawing.Point(196, 71)
         Me.SiteJuntaAntigaTextBox.Name = "SiteJuntaAntigaTextBox"
         Me.SiteJuntaAntigaTextBox.Size = New System.Drawing.Size(357, 24)
         Me.SiteJuntaAntigaTextBox.TabIndex = 16
@@ -350,8 +456,8 @@ Partial Class FrmSites
         Me.TableLayoutPanel1.AutoScroll = True
         Me.TableLayoutPanel1.AutoSize = True
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.33681!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.66319!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.56097!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.43902!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox5, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
@@ -360,9 +466,9 @@ Partial Class FrmSites
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.15118!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.84882!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(766, 593)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.00506!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.99494!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(820, 593)
         Me.TableLayoutPanel1.TabIndex = 21
         '
         'GroupBox5
@@ -376,9 +482,9 @@ Partial Class FrmSites
         Me.GroupBox5.Controls.Add(Me.BtnExcluir)
         Me.GroupBox5.Controls.Add(Me.BtnFechar)
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Location = New System.Drawing.Point(672, 3)
+        Me.GroupBox5.Location = New System.Drawing.Point(721, 3)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(91, 190)
+        Me.GroupBox5.Size = New System.Drawing.Size(96, 166)
         Me.GroupBox5.TabIndex = 58
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -426,7 +532,7 @@ Partial Class FrmSites
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(13, 117)
+        Me.BtnExcluir.Location = New System.Drawing.Point(13, 109)
         Me.BtnExcluir.Name = "BtnExcluir"
         Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
         Me.BtnExcluir.TabIndex = 47
@@ -438,7 +544,7 @@ Partial Class FrmSites
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(13, 146)
+        Me.BtnFechar.Location = New System.Drawing.Point(13, 138)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
         Me.BtnFechar.TabIndex = 49
@@ -453,7 +559,7 @@ Partial Class FrmSites
         Me.GroupBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(663, 190)
+        Me.GroupBox.Size = New System.Drawing.Size(712, 166)
         Me.GroupBox.TabIndex = 59
         Me.GroupBox.TabStop = False
         Me.GroupBox.Text = "Geral"
@@ -462,7 +568,7 @@ Partial Class FrmSites
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 26)
+        Me.Label1.Location = New System.Drawing.Point(11, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 18)
         Me.Label1.TabIndex = 2
@@ -471,7 +577,7 @@ Partial Class FrmSites
         'TextBoxBuscaGeral
         '
         Me.TextBoxBuscaGeral.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxBuscaGeral.Location = New System.Drawing.Point(77, 23)
+        Me.TextBoxBuscaGeral.Location = New System.Drawing.Point(77, 16)
         Me.TextBoxBuscaGeral.Name = "TextBoxBuscaGeral"
         Me.TextBoxBuscaGeral.Size = New System.Drawing.Size(483, 24)
         Me.TextBoxBuscaGeral.TabIndex = 1
@@ -486,7 +592,7 @@ Partial Class FrmSites
         Me.SitesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SitesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EstadoSigla, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn10})
         Me.SitesDataGridView.DataSource = Me.SitesBindingSource
-        Me.SitesDataGridView.Location = New System.Drawing.Point(15, 54)
+        Me.SitesDataGridView.Location = New System.Drawing.Point(15, 47)
         Me.SitesDataGridView.Name = "SitesDataGridView"
         Me.SitesDataGridView.ReadOnly = True
         Me.SitesDataGridView.Size = New System.Drawing.Size(545, 116)
@@ -499,6 +605,30 @@ Partial Class FrmSites
         Me.EstadoSigla.Name = "EstadoSigla"
         Me.EstadoSigla.ReadOnly = True
         Me.EstadoSigla.Width = 55
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Estado"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 65
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Cidade"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Cidade"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 65
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Distrito"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Distrito"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 64
         '
         'GroupBox2
         '
@@ -513,9 +643,9 @@ Partial Class FrmSites
         Me.GroupBox2.Controls.Add(EstadoLabel1)
         Me.GroupBox2.Controls.Add(Me.CidadeTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 199)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 175)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(663, 391)
+        Me.GroupBox2.Size = New System.Drawing.Size(712, 415)
         Me.GroupBox2.TabIndex = 60
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
@@ -523,13 +653,14 @@ Partial Class FrmSites
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(15, 115)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(648, 276)
+        Me.TabControl1.Size = New System.Drawing.Size(689, 300)
         Me.TabControl1.TabIndex = 56
         '
         'TabPage1
@@ -539,7 +670,7 @@ Partial Class FrmSites
         Me.TabPage1.Location = New System.Drawing.Point(4, 27)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(588, 207)
+        Me.TabPage1.Size = New System.Drawing.Size(681, 269)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Principal"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -553,21 +684,181 @@ Partial Class FrmSites
         Me.ObservacoesRichTextBox.TabIndex = 1
         Me.ObservacoesRichTextBox.Text = ""
         '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.LinkLabel4)
+        Me.TabPage4.Controls.Add(Me.LinkLabel3)
+        Me.TabPage4.Controls.Add(Me.LinkLabel2)
+        Me.TabPage4.Controls.Add(Me.LinkLabel1)
+        Me.TabPage4.Controls.Add(Me.BtnSiteREDESIMMeuCNPJ)
+        Me.TabPage4.Controls.Add(Me.BtnSiteREDESIMProtocolo)
+        Me.TabPage4.Controls.Add(Me.BtnSiteREDESIMAbrirCNPJ)
+        Me.TabPage4.Controls.Add(Me.BtnSiteREDESIMConsultaCNPJ)
+        Me.TabPage4.Controls.Add(SiteREDESIMMeuCNPJLabel)
+        Me.TabPage4.Controls.Add(Me.SiteREDESIMMeuCNPJTextBox)
+        Me.TabPage4.Controls.Add(SiteREDESIMAbrirCNPJLabel)
+        Me.TabPage4.Controls.Add(Me.SiteREDESIMAbrirCNPJTextBox)
+        Me.TabPage4.Controls.Add(SiteREDESIMConsultaCNPJLabel)
+        Me.TabPage4.Controls.Add(Me.SiteREDESIMConsultaCNPJTextBox)
+        Me.TabPage4.Controls.Add(SiteREDESIMProtocoloLabel)
+        Me.TabPage4.Controls.Add(Me.SiteREDESIMProtocoloTextBox)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(681, 269)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Federal"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'LinkLabel4
+        '
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel4.Location = New System.Drawing.Point(614, 117)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel4.TabIndex = 78
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "Padrão"
+        '
+        'LinkLabel3
+        '
+        Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel3.Location = New System.Drawing.Point(614, 87)
+        Me.LinkLabel3.Name = "LinkLabel3"
+        Me.LinkLabel3.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel3.TabIndex = 77
+        Me.LinkLabel3.TabStop = True
+        Me.LinkLabel3.Text = "Padrão"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel2.Location = New System.Drawing.Point(614, 57)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel2.TabIndex = 76
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Padrão"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel1.Location = New System.Drawing.Point(614, 28)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel1.TabIndex = 72
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Padrão"
+        '
+        'BtnSiteREDESIMMeuCNPJ
+        '
+        Me.BtnSiteREDESIMMeuCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMMeuCNPJ.BackgroundImage"), System.Drawing.Image)
+        Me.BtnSiteREDESIMMeuCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSiteREDESIMMeuCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSiteREDESIMMeuCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSiteREDESIMMeuCNPJ.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSiteREDESIMMeuCNPJ.Location = New System.Drawing.Point(561, 113)
+        Me.BtnSiteREDESIMMeuCNPJ.Name = "BtnSiteREDESIMMeuCNPJ"
+        Me.BtnSiteREDESIMMeuCNPJ.Size = New System.Drawing.Size(47, 24)
+        Me.BtnSiteREDESIMMeuCNPJ.TabIndex = 75
+        Me.BtnSiteREDESIMMeuCNPJ.Text = "Abrir"
+        Me.BtnSiteREDESIMMeuCNPJ.UseVisualStyleBackColor = True
+        '
+        'BtnSiteREDESIMProtocolo
+        '
+        Me.BtnSiteREDESIMProtocolo.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMProtocolo.BackgroundImage"), System.Drawing.Image)
+        Me.BtnSiteREDESIMProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSiteREDESIMProtocolo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSiteREDESIMProtocolo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSiteREDESIMProtocolo.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSiteREDESIMProtocolo.Location = New System.Drawing.Point(561, 23)
+        Me.BtnSiteREDESIMProtocolo.Name = "BtnSiteREDESIMProtocolo"
+        Me.BtnSiteREDESIMProtocolo.Size = New System.Drawing.Size(47, 24)
+        Me.BtnSiteREDESIMProtocolo.TabIndex = 71
+        Me.BtnSiteREDESIMProtocolo.Text = "Abrir"
+        Me.BtnSiteREDESIMProtocolo.UseVisualStyleBackColor = True
+        '
+        'BtnSiteREDESIMAbrirCNPJ
+        '
+        Me.BtnSiteREDESIMAbrirCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMAbrirCNPJ.BackgroundImage"), System.Drawing.Image)
+        Me.BtnSiteREDESIMAbrirCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSiteREDESIMAbrirCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSiteREDESIMAbrirCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSiteREDESIMAbrirCNPJ.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSiteREDESIMAbrirCNPJ.Location = New System.Drawing.Point(561, 84)
+        Me.BtnSiteREDESIMAbrirCNPJ.Name = "BtnSiteREDESIMAbrirCNPJ"
+        Me.BtnSiteREDESIMAbrirCNPJ.Size = New System.Drawing.Size(47, 24)
+        Me.BtnSiteREDESIMAbrirCNPJ.TabIndex = 74
+        Me.BtnSiteREDESIMAbrirCNPJ.Text = "Abrir"
+        Me.BtnSiteREDESIMAbrirCNPJ.UseVisualStyleBackColor = True
+        '
+        'BtnSiteREDESIMConsultaCNPJ
+        '
+        Me.BtnSiteREDESIMConsultaCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMConsultaCNPJ.BackgroundImage"), System.Drawing.Image)
+        Me.BtnSiteREDESIMConsultaCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSiteREDESIMConsultaCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSiteREDESIMConsultaCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSiteREDESIMConsultaCNPJ.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSiteREDESIMConsultaCNPJ.Location = New System.Drawing.Point(561, 54)
+        Me.BtnSiteREDESIMConsultaCNPJ.Name = "BtnSiteREDESIMConsultaCNPJ"
+        Me.BtnSiteREDESIMConsultaCNPJ.Size = New System.Drawing.Size(47, 24)
+        Me.BtnSiteREDESIMConsultaCNPJ.TabIndex = 73
+        Me.BtnSiteREDESIMConsultaCNPJ.Text = "Abrir"
+        Me.BtnSiteREDESIMConsultaCNPJ.UseVisualStyleBackColor = True
+        '
+        'SiteREDESIMMeuCNPJTextBox
+        '
+        Me.SiteREDESIMMeuCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMMeuCNPJ", True))
+        Me.SiteREDESIMMeuCNPJTextBox.Location = New System.Drawing.Point(193, 112)
+        Me.SiteREDESIMMeuCNPJTextBox.Name = "SiteREDESIMMeuCNPJTextBox"
+        Me.SiteREDESIMMeuCNPJTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.SiteREDESIMMeuCNPJTextBox.TabIndex = 70
+        '
+        'SiteREDESIMAbrirCNPJTextBox
+        '
+        Me.SiteREDESIMAbrirCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMAbrirCNPJ", True))
+        Me.SiteREDESIMAbrirCNPJTextBox.Location = New System.Drawing.Point(193, 82)
+        Me.SiteREDESIMAbrirCNPJTextBox.Name = "SiteREDESIMAbrirCNPJTextBox"
+        Me.SiteREDESIMAbrirCNPJTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.SiteREDESIMAbrirCNPJTextBox.TabIndex = 69
+        '
+        'SiteREDESIMConsultaCNPJTextBox
+        '
+        Me.SiteREDESIMConsultaCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMConsultaCNPJ", True))
+        Me.SiteREDESIMConsultaCNPJTextBox.Location = New System.Drawing.Point(193, 52)
+        Me.SiteREDESIMConsultaCNPJTextBox.Name = "SiteREDESIMConsultaCNPJTextBox"
+        Me.SiteREDESIMConsultaCNPJTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.SiteREDESIMConsultaCNPJTextBox.TabIndex = 67
+        '
+        'SiteREDESIMProtocoloTextBox
+        '
+        Me.SiteREDESIMProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMProtocolo", True))
+        Me.SiteREDESIMProtocoloTextBox.Location = New System.Drawing.Point(193, 22)
+        Me.SiteREDESIMProtocoloTextBox.Name = "SiteREDESIMProtocoloTextBox"
+        Me.SiteREDESIMProtocoloTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.SiteREDESIMProtocoloTextBox.TabIndex = 65
+        '
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
-        Me.TabPage2.Controls.Add(Me.BtnSiteREDESIMMeuCNPJ)
-        Me.TabPage2.Controls.Add(Me.BtnSiteREDESIMProtocolo)
-        Me.TabPage2.Controls.Add(Me.BtnSiteREDESIMAbrirCNPJ)
-        Me.TabPage2.Controls.Add(Me.BtnSiteREDESIMConsultaCNPJ)
-        Me.TabPage2.Controls.Add(SiteREDESIMMeuCNPJLabel)
-        Me.TabPage2.Controls.Add(Me.SiteREDESIMMeuCNPJTextBox)
-        Me.TabPage2.Controls.Add(SiteREDESIMAbrirCNPJLabel)
-        Me.TabPage2.Controls.Add(Me.SiteREDESIMAbrirCNPJTextBox)
-        Me.TabPage2.Controls.Add(SiteREDESIMConsultaCNPJLabel)
-        Me.TabPage2.Controls.Add(Me.SiteREDESIMConsultaCNPJTextBox)
-        Me.TabPage2.Controls.Add(SiteREDESIMProtocoloLabel)
-        Me.TabPage2.Controls.Add(Me.SiteREDESIMProtocoloTextBox)
+        Me.TabPage2.Controls.Add(Me.BtnBombeiroREDESIM)
+        Me.TabPage2.Controls.Add(Me.BtnBombeiroUnificado)
+        Me.TabPage2.Controls.Add(BombeiroREDESIMLabel)
+        Me.TabPage2.Controls.Add(Me.BombeiroREDESIMTextBox)
+        Me.TabPage2.Controls.Add(BombeiroUnificadoLabel)
+        Me.TabPage2.Controls.Add(Me.BombeiroUnificadoTextBox)
+        Me.TabPage2.Controls.Add(Me.LinkLabel6)
+        Me.TabPage2.Controls.Add(Me.LinkLabel5)
+        Me.TabPage2.Controls.Add(Me.BtnBombeiroConsulta)
+        Me.TabPage2.Controls.Add(Me.BtnBombeiroSolicita)
+        Me.TabPage2.Controls.Add(BombeiroSolicitaLabel)
+        Me.TabPage2.Controls.Add(Me.BombeiroSolicitaTextBox)
+        Me.TabPage2.Controls.Add(BombeiroConsultaLabel)
+        Me.TabPage2.Controls.Add(Me.BombeiroConsultaTextBox)
         Me.TabPage2.Controls.Add(SiteEstadoLabel)
         Me.TabPage2.Controls.Add(Me.BtnAbrir1)
         Me.TabPage2.Controls.Add(Me.SiteEstadoTextBox)
@@ -580,10 +871,120 @@ Partial Class FrmSites
         Me.TabPage2.Location = New System.Drawing.Point(4, 27)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(640, 245)
+        Me.TabPage2.Size = New System.Drawing.Size(681, 269)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Estado"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'BtnBombeiroREDESIM
+        '
+        Me.BtnBombeiroREDESIM.BackgroundImage = CType(resources.GetObject("BtnBombeiroREDESIM.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBombeiroREDESIM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnBombeiroREDESIM.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBombeiroREDESIM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBombeiroREDESIM.ForeColor = System.Drawing.Color.Blue
+        Me.BtnBombeiroREDESIM.Location = New System.Drawing.Point(564, 191)
+        Me.BtnBombeiroREDESIM.Name = "BtnBombeiroREDESIM"
+        Me.BtnBombeiroREDESIM.Size = New System.Drawing.Size(47, 24)
+        Me.BtnBombeiroREDESIM.TabIndex = 82
+        Me.BtnBombeiroREDESIM.Text = "Abrir"
+        Me.BtnBombeiroREDESIM.UseVisualStyleBackColor = True
+        '
+        'BtnBombeiroUnificado
+        '
+        Me.BtnBombeiroUnificado.BackgroundImage = CType(resources.GetObject("BtnBombeiroUnificado.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBombeiroUnificado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnBombeiroUnificado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBombeiroUnificado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBombeiroUnificado.ForeColor = System.Drawing.Color.Blue
+        Me.BtnBombeiroUnificado.Location = New System.Drawing.Point(564, 161)
+        Me.BtnBombeiroUnificado.Name = "BtnBombeiroUnificado"
+        Me.BtnBombeiroUnificado.Size = New System.Drawing.Size(47, 24)
+        Me.BtnBombeiroUnificado.TabIndex = 81
+        Me.BtnBombeiroUnificado.Text = "Abrir"
+        Me.BtnBombeiroUnificado.UseVisualStyleBackColor = True
+        '
+        'BombeiroREDESIMTextBox
+        '
+        Me.BombeiroREDESIMTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "BombeiroREDESIM", True))
+        Me.BombeiroREDESIMTextBox.Location = New System.Drawing.Point(196, 191)
+        Me.BombeiroREDESIMTextBox.Name = "BombeiroREDESIMTextBox"
+        Me.BombeiroREDESIMTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.BombeiroREDESIMTextBox.TabIndex = 80
+        '
+        'BombeiroUnificadoTextBox
+        '
+        Me.BombeiroUnificadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "BombeiroUnificado", True))
+        Me.BombeiroUnificadoTextBox.Location = New System.Drawing.Point(196, 161)
+        Me.BombeiroUnificadoTextBox.Name = "BombeiroUnificadoTextBox"
+        Me.BombeiroUnificadoTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.BombeiroUnificadoTextBox.TabIndex = 79
+        '
+        'LinkLabel6
+        '
+        Me.LinkLabel6.AutoSize = True
+        Me.LinkLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel6.Location = New System.Drawing.Point(617, 136)
+        Me.LinkLabel6.Name = "LinkLabel6"
+        Me.LinkLabel6.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel6.TabIndex = 78
+        Me.LinkLabel6.TabStop = True
+        Me.LinkLabel6.Text = "Padrão"
+        '
+        'LinkLabel5
+        '
+        Me.LinkLabel5.AutoSize = True
+        Me.LinkLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel5.Location = New System.Drawing.Point(617, 106)
+        Me.LinkLabel5.Name = "LinkLabel5"
+        Me.LinkLabel5.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel5.TabIndex = 77
+        Me.LinkLabel5.TabStop = True
+        Me.LinkLabel5.Text = "Padrão"
+        '
+        'BtnBombeiroConsulta
+        '
+        Me.BtnBombeiroConsulta.BackgroundImage = CType(resources.GetObject("BtnBombeiroConsulta.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBombeiroConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnBombeiroConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBombeiroConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBombeiroConsulta.ForeColor = System.Drawing.Color.Blue
+        Me.BtnBombeiroConsulta.Location = New System.Drawing.Point(564, 132)
+        Me.BtnBombeiroConsulta.Name = "BtnBombeiroConsulta"
+        Me.BtnBombeiroConsulta.Size = New System.Drawing.Size(47, 24)
+        Me.BtnBombeiroConsulta.TabIndex = 55
+        Me.BtnBombeiroConsulta.Text = "Abrir"
+        Me.BtnBombeiroConsulta.UseVisualStyleBackColor = True
+        '
+        'BtnBombeiroSolicita
+        '
+        Me.BtnBombeiroSolicita.BackgroundImage = CType(resources.GetObject("BtnBombeiroSolicita.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBombeiroSolicita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnBombeiroSolicita.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBombeiroSolicita.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBombeiroSolicita.ForeColor = System.Drawing.Color.Blue
+        Me.BtnBombeiroSolicita.Location = New System.Drawing.Point(564, 102)
+        Me.BtnBombeiroSolicita.Name = "BtnBombeiroSolicita"
+        Me.BtnBombeiroSolicita.Size = New System.Drawing.Size(47, 24)
+        Me.BtnBombeiroSolicita.TabIndex = 54
+        Me.BtnBombeiroSolicita.Text = "Abrir"
+        Me.BtnBombeiroSolicita.UseVisualStyleBackColor = True
+        '
+        'BombeiroSolicitaTextBox
+        '
+        Me.BombeiroSolicitaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "BombeiroSolicita", True))
+        Me.BombeiroSolicitaTextBox.Location = New System.Drawing.Point(196, 101)
+        Me.BombeiroSolicitaTextBox.Name = "BombeiroSolicitaTextBox"
+        Me.BombeiroSolicitaTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.BombeiroSolicitaTextBox.TabIndex = 53
+        '
+        'BombeiroConsultaTextBox
+        '
+        Me.BombeiroConsultaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "BombeiroConsulta", True))
+        Me.BombeiroConsultaTextBox.Location = New System.Drawing.Point(196, 131)
+        Me.BombeiroConsultaTextBox.Name = "BombeiroConsultaTextBox"
+        Me.BombeiroConsultaTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.BombeiroConsultaTextBox.TabIndex = 52
         '
         'BtnAbrir1
         '
@@ -592,7 +993,7 @@ Partial Class FrmSites
         Me.BtnAbrir1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAbrir1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAbrir1.ForeColor = System.Drawing.Color.Blue
-        Me.BtnAbrir1.Location = New System.Drawing.Point(564, 32)
+        Me.BtnAbrir1.Location = New System.Drawing.Point(564, 11)
         Me.BtnAbrir1.Name = "BtnAbrir1"
         Me.BtnAbrir1.Size = New System.Drawing.Size(47, 24)
         Me.BtnAbrir1.TabIndex = 48
@@ -606,7 +1007,7 @@ Partial Class FrmSites
         Me.BtnAbrir4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAbrir4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAbrir4.ForeColor = System.Drawing.Color.Blue
-        Me.BtnAbrir4.Location = New System.Drawing.Point(564, 93)
+        Me.BtnAbrir4.Location = New System.Drawing.Point(564, 72)
         Me.BtnAbrir4.Name = "BtnAbrir4"
         Me.BtnAbrir4.Size = New System.Drawing.Size(47, 24)
         Me.BtnAbrir4.TabIndex = 51
@@ -620,7 +1021,7 @@ Partial Class FrmSites
         Me.BtnAbrir3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAbrir3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAbrir3.ForeColor = System.Drawing.Color.Blue
-        Me.BtnAbrir3.Location = New System.Drawing.Point(564, 63)
+        Me.BtnAbrir3.Location = New System.Drawing.Point(564, 42)
         Me.BtnAbrir3.Name = "BtnAbrir3"
         Me.BtnAbrir3.Size = New System.Drawing.Size(47, 24)
         Me.BtnAbrir3.TabIndex = 50
@@ -650,7 +1051,7 @@ Partial Class FrmSites
         Me.TabPage3.Controls.Add(SiteAlvara2Label)
         Me.TabPage3.Location = New System.Drawing.Point(4, 27)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(588, 207)
+        Me.TabPage3.Size = New System.Drawing.Size(681, 269)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cidade"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -804,9 +1205,9 @@ Partial Class FrmSites
         '
         Me.GroupBox3.Controls.Add(Me.GroupBox1)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.Location = New System.Drawing.Point(672, 199)
+        Me.GroupBox3.Location = New System.Drawing.Point(721, 175)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(91, 391)
+        Me.GroupBox3.Size = New System.Drawing.Size(96, 415)
         Me.GroupBox3.TabIndex = 61
         Me.GroupBox3.TabStop = False
         '
@@ -819,7 +1220,7 @@ Partial Class FrmSites
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(85, 372)
+        Me.GroupBox1.Size = New System.Drawing.Size(90, 396)
         Me.GroupBox1.TabIndex = 59
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Extra"
@@ -835,40 +1236,6 @@ Partial Class FrmSites
         Me.BtnCidades.TabIndex = 77
         Me.BtnCidades.Text = "Cidades"
         Me.BtnCidades.UseVisualStyleBackColor = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Estado"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Estado"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 65
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Cidade"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Cidade"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 65
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Distrito"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Distrito"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 64
-        '
-        'SitesBindingSource
-        '
-        Me.SitesBindingSource.DataMember = "Sites"
-        Me.SitesBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'PrinceDBDataSet
-        '
-        Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
-        Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'SitesTableAdapter
         '
@@ -903,130 +1270,6 @@ Partial Class FrmSites
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'SiteREDESIMProtocoloLabel
-        '
-        SiteREDESIMProtocoloLabel.AutoSize = True
-        SiteREDESIMProtocoloLabel.Location = New System.Drawing.Point(40, 125)
-        SiteREDESIMProtocoloLabel.Name = "SiteREDESIMProtocoloLabel"
-        SiteREDESIMProtocoloLabel.Size = New System.Drawing.Size(150, 18)
-        SiteREDESIMProtocoloLabel.TabIndex = 51
-        SiteREDESIMProtocoloLabel.Text = "REDESIM Protocolo:"
-        '
-        'SiteREDESIMProtocoloTextBox
-        '
-        Me.SiteREDESIMProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMProtocolo", True))
-        Me.SiteREDESIMProtocoloTextBox.Location = New System.Drawing.Point(196, 122)
-        Me.SiteREDESIMProtocoloTextBox.Name = "SiteREDESIMProtocoloTextBox"
-        Me.SiteREDESIMProtocoloTextBox.Size = New System.Drawing.Size(357, 24)
-        Me.SiteREDESIMProtocoloTextBox.TabIndex = 52
-        '
-        'SiteREDESIMConsultaCNPJLabel
-        '
-        SiteREDESIMConsultaCNPJLabel.AutoSize = True
-        SiteREDESIMConsultaCNPJLabel.Location = New System.Drawing.Point(6, 155)
-        SiteREDESIMConsultaCNPJLabel.Name = "SiteREDESIMConsultaCNPJLabel"
-        SiteREDESIMConsultaCNPJLabel.Size = New System.Drawing.Size(187, 18)
-        SiteREDESIMConsultaCNPJLabel.TabIndex = 52
-        SiteREDESIMConsultaCNPJLabel.Text = "REDESIM Consulta CNPJ:"
-        '
-        'SiteREDESIMConsultaCNPJTextBox
-        '
-        Me.SiteREDESIMConsultaCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMConsultaCNPJ", True))
-        Me.SiteREDESIMConsultaCNPJTextBox.Location = New System.Drawing.Point(196, 152)
-        Me.SiteREDESIMConsultaCNPJTextBox.Name = "SiteREDESIMConsultaCNPJTextBox"
-        Me.SiteREDESIMConsultaCNPJTextBox.Size = New System.Drawing.Size(357, 24)
-        Me.SiteREDESIMConsultaCNPJTextBox.TabIndex = 53
-        '
-        'SiteREDESIMAbrirCNPJLabel
-        '
-        SiteREDESIMAbrirCNPJLabel.AutoSize = True
-        SiteREDESIMAbrirCNPJLabel.Location = New System.Drawing.Point(32, 186)
-        SiteREDESIMAbrirCNPJLabel.Name = "SiteREDESIMAbrirCNPJLabel"
-        SiteREDESIMAbrirCNPJLabel.Size = New System.Drawing.Size(158, 18)
-        SiteREDESIMAbrirCNPJLabel.TabIndex = 53
-        SiteREDESIMAbrirCNPJLabel.Text = "REDESIM Abrir CNPJ:"
-        '
-        'SiteREDESIMAbrirCNPJTextBox
-        '
-        Me.SiteREDESIMAbrirCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMAbrirCNPJ", True))
-        Me.SiteREDESIMAbrirCNPJTextBox.Location = New System.Drawing.Point(196, 182)
-        Me.SiteREDESIMAbrirCNPJTextBox.Name = "SiteREDESIMAbrirCNPJTextBox"
-        Me.SiteREDESIMAbrirCNPJTextBox.Size = New System.Drawing.Size(357, 24)
-        Me.SiteREDESIMAbrirCNPJTextBox.TabIndex = 54
-        '
-        'SiteREDESIMMeuCNPJLabel
-        '
-        SiteREDESIMMeuCNPJLabel.AutoSize = True
-        SiteREDESIMMeuCNPJLabel.Location = New System.Drawing.Point(33, 215)
-        SiteREDESIMMeuCNPJLabel.Name = "SiteREDESIMMeuCNPJLabel"
-        SiteREDESIMMeuCNPJLabel.Size = New System.Drawing.Size(157, 18)
-        SiteREDESIMMeuCNPJLabel.TabIndex = 54
-        SiteREDESIMMeuCNPJLabel.Text = "REDESIM Meu CNPJ:"
-        '
-        'SiteREDESIMMeuCNPJTextBox
-        '
-        Me.SiteREDESIMMeuCNPJTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "SiteREDESIMMeuCNPJ", True))
-        Me.SiteREDESIMMeuCNPJTextBox.Location = New System.Drawing.Point(196, 212)
-        Me.SiteREDESIMMeuCNPJTextBox.Name = "SiteREDESIMMeuCNPJTextBox"
-        Me.SiteREDESIMMeuCNPJTextBox.Size = New System.Drawing.Size(357, 24)
-        Me.SiteREDESIMMeuCNPJTextBox.TabIndex = 55
-        '
-        'BtnSiteREDESIMProtocolo
-        '
-        Me.BtnSiteREDESIMProtocolo.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMProtocolo.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSiteREDESIMProtocolo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSiteREDESIMProtocolo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSiteREDESIMProtocolo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSiteREDESIMProtocolo.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSiteREDESIMProtocolo.Location = New System.Drawing.Point(564, 123)
-        Me.BtnSiteREDESIMProtocolo.Name = "BtnSiteREDESIMProtocolo"
-        Me.BtnSiteREDESIMProtocolo.Size = New System.Drawing.Size(47, 24)
-        Me.BtnSiteREDESIMProtocolo.TabIndex = 56
-        Me.BtnSiteREDESIMProtocolo.Text = "Abrir"
-        Me.BtnSiteREDESIMProtocolo.UseVisualStyleBackColor = True
-        '
-        'BtnSiteREDESIMAbrirCNPJ
-        '
-        Me.BtnSiteREDESIMAbrirCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMAbrirCNPJ.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSiteREDESIMAbrirCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSiteREDESIMAbrirCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSiteREDESIMAbrirCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSiteREDESIMAbrirCNPJ.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSiteREDESIMAbrirCNPJ.Location = New System.Drawing.Point(564, 184)
-        Me.BtnSiteREDESIMAbrirCNPJ.Name = "BtnSiteREDESIMAbrirCNPJ"
-        Me.BtnSiteREDESIMAbrirCNPJ.Size = New System.Drawing.Size(47, 24)
-        Me.BtnSiteREDESIMAbrirCNPJ.TabIndex = 58
-        Me.BtnSiteREDESIMAbrirCNPJ.Text = "Abrir"
-        Me.BtnSiteREDESIMAbrirCNPJ.UseVisualStyleBackColor = True
-        '
-        'BtnSiteREDESIMConsultaCNPJ
-        '
-        Me.BtnSiteREDESIMConsultaCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMConsultaCNPJ.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSiteREDESIMConsultaCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSiteREDESIMConsultaCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSiteREDESIMConsultaCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSiteREDESIMConsultaCNPJ.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSiteREDESIMConsultaCNPJ.Location = New System.Drawing.Point(564, 154)
-        Me.BtnSiteREDESIMConsultaCNPJ.Name = "BtnSiteREDESIMConsultaCNPJ"
-        Me.BtnSiteREDESIMConsultaCNPJ.Size = New System.Drawing.Size(47, 24)
-        Me.BtnSiteREDESIMConsultaCNPJ.TabIndex = 57
-        Me.BtnSiteREDESIMConsultaCNPJ.Text = "Abrir"
-        Me.BtnSiteREDESIMConsultaCNPJ.UseVisualStyleBackColor = True
-        '
-        'BtnSiteREDESIMMeuCNPJ
-        '
-        Me.BtnSiteREDESIMMeuCNPJ.BackgroundImage = CType(resources.GetObject("BtnSiteREDESIMMeuCNPJ.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSiteREDESIMMeuCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSiteREDESIMMeuCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSiteREDESIMMeuCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSiteREDESIMMeuCNPJ.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSiteREDESIMMeuCNPJ.Location = New System.Drawing.Point(564, 213)
-        Me.BtnSiteREDESIMMeuCNPJ.Name = "BtnSiteREDESIMMeuCNPJ"
-        Me.BtnSiteREDESIMMeuCNPJ.Size = New System.Drawing.Size(47, 24)
-        Me.BtnSiteREDESIMMeuCNPJ.TabIndex = 59
-        Me.BtnSiteREDESIMMeuCNPJ.Text = "Abrir"
-        Me.BtnSiteREDESIMMeuCNPJ.UseVisualStyleBackColor = True
-        '
         'FrmSites
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1034,7 +1277,7 @@ Partial Class FrmSites
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(766, 593)
+        Me.ClientSize = New System.Drawing.Size(820, 593)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.KeyPreview = True
@@ -1044,6 +1287,8 @@ Partial Class FrmSites
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Controle Sites"
+        CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox.ResumeLayout(False)
@@ -1054,14 +1299,14 @@ Partial Class FrmSites
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1118,12 +1363,27 @@ Partial Class FrmSites
     Friend WithEvents SitePrefProtocoloTextBox As TextBox
     Friend WithEvents BtnPrefProtocolo As Button
     Friend WithEvents ObservacoesRichTextBox As RichTextBox
-    Friend WithEvents SiteREDESIMMeuCNPJTextBox As TextBox
-    Friend WithEvents SiteREDESIMAbrirCNPJTextBox As TextBox
-    Friend WithEvents SiteREDESIMConsultaCNPJTextBox As TextBox
-    Friend WithEvents SiteREDESIMProtocoloTextBox As TextBox
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents LinkLabel3 As LinkLabel
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents BtnSiteREDESIMMeuCNPJ As Button
     Friend WithEvents BtnSiteREDESIMProtocolo As Button
     Friend WithEvents BtnSiteREDESIMAbrirCNPJ As Button
     Friend WithEvents BtnSiteREDESIMConsultaCNPJ As Button
+    Friend WithEvents SiteREDESIMMeuCNPJTextBox As TextBox
+    Friend WithEvents SiteREDESIMAbrirCNPJTextBox As TextBox
+    Friend WithEvents SiteREDESIMConsultaCNPJTextBox As TextBox
+    Friend WithEvents SiteREDESIMProtocoloTextBox As TextBox
+    Friend WithEvents BtnBombeiroConsulta As Button
+    Friend WithEvents BtnBombeiroSolicita As Button
+    Friend WithEvents BombeiroSolicitaTextBox As TextBox
+    Friend WithEvents BombeiroConsultaTextBox As TextBox
+    Friend WithEvents LinkLabel6 As LinkLabel
+    Friend WithEvents LinkLabel5 As LinkLabel
+    Friend WithEvents BtnBombeiroREDESIM As Button
+    Friend WithEvents BtnBombeiroUnificado As Button
+    Friend WithEvents BombeiroREDESIMTextBox As TextBox
+    Friend WithEvents BombeiroUnificadoTextBox As TextBox
 End Class

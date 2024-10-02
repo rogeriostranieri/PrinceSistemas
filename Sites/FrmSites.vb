@@ -8,6 +8,20 @@ Public Class FrmSites
     Private dadosAlterados As Boolean = False ' Variável para detectar alterações
     Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
 
+    ' Substitui o método ProcessCmdKey para capturar a tecla ESC
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        ' Verifica se a tecla pressionada é ESC
+        If keyData = Keys.Escape Then
+            ' Fecha o formulário
+            Me.Close()
+            ' Retorna true para indicar que a tecla foi processada
+            Return True
+        End If
+        ' Chama o método base para qualquer outra tecla
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
+
+
     Private Sub FrmSites_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Sites'. Você pode movê-la ou removê-la conforme necessário.
         Me.SitesTableAdapter.Fill(Me.PrinceDBDataSet.Sites)
@@ -346,20 +360,66 @@ Public Class FrmSites
         AbrirLink(SitePrefProtocoloTextBox)
     End Sub
 
-    Private Sub BtnSiteREDESIMProtocolo_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMProtocolo.Click
+    Private Sub BtnSiteREDESIMProtocolo_Click(sender As Object, e As EventArgs)
         AbrirLink(SiteREDESIMProtocoloTextBox)
     End Sub
 
-    Private Sub BtnSiteREDESIMConsultaCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMConsultaCNPJ.Click
+    Private Sub BtnSiteREDESIMConsultaCNPJ_Click(sender As Object, e As EventArgs)
         AbrirLink(SiteREDESIMConsultaCNPJTextBox)
     End Sub
 
-    Private Sub BtnSiteREDESIMAbrirCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMAbrirCNPJ.Click
+    Private Sub BtnSiteREDESIMAbrirCNPJ_Click(sender As Object, e As EventArgs)
         AbrirLink(SiteREDESIMAbrirCNPJTextBox)
     End Sub
 
-    Private Sub BtnSiteREDESIMMeuCNPJ_Click(sender As Object, e As EventArgs) Handles BtnSiteREDESIMMeuCNPJ.Click
+    Private Sub BtnSiteREDESIMMeuCNPJ_Click(sender As Object, e As EventArgs)
         AbrirLink(SiteREDESIMMeuCNPJTextBox)
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        SiteREDESIMProtocoloTextBox.Text = "https://servicos.receita.fazenda.gov.br/Servicos/fcpj/consulta.asp?Cod=&Ident=&prot="
+    End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        SiteREDESIMConsultaCNPJTextBox.Text = "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp"
+    End Sub
+
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        SiteREDESIMAbrirCNPJTextBox.Text = "https://www.gov.br/empresas-e-negocios/pt-br/redesim/abrir-cnpj"
+    End Sub
+
+    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        SiteREDESIMMeuCNPJTextBox.Text = "https://www.gov.br/empresas-e-negocios/pt-br/redesim/meu-cnpj"
+    End Sub
+
+    Private Sub BtnBombeiroSolicita_Click(sender As Object, e As EventArgs) Handles BtnBombeiroSolicita.Click
+        AbrirLink(BombeiroSolicitaTextBox)
+
+    End Sub
+
+    Private Sub BtnBombeiroConsulta_Click(sender As Object, e As EventArgs) Handles BtnBombeiroConsulta.Click
+        AbrirLink(BombeiroConsultaTextBox)
+
+    End Sub
+
+    Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel5.LinkClicked
+        BombeiroSolicitaTextBox.Text = "https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Solicitacao-de-Vistoria"
+
+    End Sub
+
+    Private Sub LinkLabel6_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel6.LinkClicked
+        BombeiroConsultaTextBox.Text = "https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Acompanhar-Processo"
+
+    End Sub
+
+    Private Sub BtnBombeiroUnificado_Click(sender As Object, e As EventArgs) Handles BtnBombeiroUnificado.Click
+        AbrirLink(BombeiroUnificadoTextBox)
+
+    End Sub
+
+    Private Sub BtnBombeiroREDESIM_Click(sender As Object, e As EventArgs) Handles BtnBombeiroREDESIM.Click
+        AbrirLink(BombeiroREDESIMTextBox)
+
     End Sub
 
     '///////////////////// FIM BOTAO

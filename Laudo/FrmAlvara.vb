@@ -1957,6 +1957,8 @@ Public Class FrmAlvara
         If resultado = DialogResult.Yes Then
             Dim frmMultaBombeiro As New FrmMultaBombeiro()
             frmMultaBombeiro.Show()
+            BombeiroDataMultaMaskedTextBox.Enabled = True
+            BombeiroDataMultaMaskedTextBox.Visible = True
         Else
             BombeiroMulta()
         End If

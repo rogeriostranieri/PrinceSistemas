@@ -11958,6 +11958,14 @@ Partial Public Class PrinceDBDataSet
         
         Private columnSiteREDESIMMeuCNPJ As Global.System.Data.DataColumn
         
+        Private columnBombeiroConsulta As Global.System.Data.DataColumn
+        
+        Private columnBombeiroSolicita As Global.System.Data.DataColumn
+        
+        Private columnBombeiroUnificado As Global.System.Data.DataColumn
+        
+        Private columnBombeiroREDESIM As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -12146,6 +12154,38 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroConsultaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroConsulta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroSolicitaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroSolicita
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroUnificadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroUnificado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroREDESIMColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroREDESIM
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -12200,9 +12240,13 @@ Partial Public Class PrinceDBDataSet
                     ByVal SiteREDESIMProtocolo As String,  _
                     ByVal SiteREDESIMConsultaCNPJ As String,  _
                     ByVal SiteREDESIMAbrirCNPJ As String,  _
-                    ByVal SiteREDESIMMeuCNPJ As String) As SitesRow
+                    ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal BombeiroConsulta As String,  _
+                    ByVal BombeiroSolicita As String,  _
+                    ByVal BombeiroUnificado As String,  _
+                    ByVal BombeiroREDESIM As String) As SitesRow
             Dim rowSitesRow As SitesRow = CType(Me.NewRow,SitesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM}
             rowSitesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSitesRow)
             Return rowSitesRow
@@ -12250,6 +12294,10 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteREDESIMConsultaCNPJ = MyBase.Columns("SiteREDESIMConsultaCNPJ")
             Me.columnSiteREDESIMAbrirCNPJ = MyBase.Columns("SiteREDESIMAbrirCNPJ")
             Me.columnSiteREDESIMMeuCNPJ = MyBase.Columns("SiteREDESIMMeuCNPJ")
+            Me.columnBombeiroConsulta = MyBase.Columns("BombeiroConsulta")
+            Me.columnBombeiroSolicita = MyBase.Columns("BombeiroSolicita")
+            Me.columnBombeiroUnificado = MyBase.Columns("BombeiroUnificado")
+            Me.columnBombeiroREDESIM = MyBase.Columns("BombeiroREDESIM")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12293,6 +12341,14 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnSiteREDESIMAbrirCNPJ)
             Me.columnSiteREDESIMMeuCNPJ = New Global.System.Data.DataColumn("SiteREDESIMMeuCNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSiteREDESIMMeuCNPJ)
+            Me.columnBombeiroConsulta = New Global.System.Data.DataColumn("BombeiroConsulta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroConsulta)
+            Me.columnBombeiroSolicita = New Global.System.Data.DataColumn("BombeiroSolicita", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroSolicita)
+            Me.columnBombeiroUnificado = New Global.System.Data.DataColumn("BombeiroUnificado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroUnificado)
+            Me.columnBombeiroREDESIM = New Global.System.Data.DataColumn("BombeiroREDESIM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroREDESIM)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Sites}, true))
             Me.columnID_Sites.AutoIncrement = true
             Me.columnID_Sites.AutoIncrementSeed = -1
@@ -12318,6 +12374,10 @@ Partial Public Class PrinceDBDataSet
             Me.columnSiteREDESIMConsultaCNPJ.MaxLength = 2147483647
             Me.columnSiteREDESIMAbrirCNPJ.MaxLength = 2147483647
             Me.columnSiteREDESIMMeuCNPJ.MaxLength = 2147483647
+            Me.columnBombeiroConsulta.MaxLength = 2147483647
+            Me.columnBombeiroSolicita.MaxLength = 2147483647
+            Me.columnBombeiroUnificado.MaxLength = 2147483647
+            Me.columnBombeiroREDESIM.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -24317,6 +24377,66 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroConsulta() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.BombeiroConsultaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroConsulta' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.BombeiroConsultaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroSolicita() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.BombeiroSolicitaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroSolicita' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.BombeiroSolicitaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroUnificado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.BombeiroUnificadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroUnificado' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.BombeiroUnificadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroREDESIM() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.BombeiroREDESIMColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroREDESIM' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.BombeiroREDESIMColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstadoNull() As Boolean
             Return Me.IsNull(Me.tableSites.EstadoColumn)
         End Function
@@ -24529,6 +24649,54 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetSiteREDESIMMeuCNPJNull()
             Me(Me.tableSites.SiteREDESIMMeuCNPJColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroConsultaNull() As Boolean
+            Return Me.IsNull(Me.tableSites.BombeiroConsultaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroConsultaNull()
+            Me(Me.tableSites.BombeiroConsultaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroSolicitaNull() As Boolean
+            Return Me.IsNull(Me.tableSites.BombeiroSolicitaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroSolicitaNull()
+            Me(Me.tableSites.BombeiroSolicitaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroUnificadoNull() As Boolean
+            Return Me.IsNull(Me.tableSites.BombeiroUnificadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroUnificadoNull()
+            Me(Me.tableSites.BombeiroUnificadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroREDESIMNull() As Boolean
+            Return Me.IsNull(Me.tableSites.BombeiroREDESIMColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroREDESIMNull()
+            Me(Me.tableSites.BombeiroREDESIMColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -41187,6 +41355,10 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SiteREDESIMConsultaCNPJ", "SiteREDESIMConsultaCNPJ")
             tableMapping.ColumnMappings.Add("SiteREDESIMAbrirCNPJ", "SiteREDESIMAbrirCNPJ")
             tableMapping.ColumnMappings.Add("SiteREDESIMMeuCNPJ", "SiteREDESIMMeuCNPJ")
+            tableMapping.ColumnMappings.Add("BombeiroConsulta", "BombeiroConsulta")
+            tableMapping.ColumnMappings.Add("BombeiroSolicita", "BombeiroSolicita")
+            tableMapping.ColumnMappings.Add("BombeiroUnificado", "BombeiroUnificado")
+            tableMapping.ColumnMappings.Add("BombeiroREDESIM", "BombeiroREDESIM")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -41199,15 +41371,18 @@ Namespace PrinceDBDataSetTableAdapters
                 "ificada], [SiteJuntaAntiga], [SiteAlvara1], [SiteAlvara2], [Distrito], [EstadoSi"& _ 
                 "gla], [SiteAlvaraPedido1], [SiteAlvaraPedido2], [SitePrefProtocolo], [Observacoe"& _ 
                 "s], [SiteREDESIMProtocolo], [SiteREDESIMConsultaCNPJ], [SiteREDESIMAbrirCNPJ], ["& _ 
-                "SiteREDESIMMeuCNPJ]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJu"& _ 
+                "SiteREDESIMMeuCNPJ], [BombeiroConsulta], [BombeiroSolicita], [BombeiroUnificado]"& _ 
+                ", [BombeiroREDESIM]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJu"& _ 
                 "ntaUnificada, @SiteJuntaAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSi"& _ 
                 "gla, @SiteAlvaraPedido1, @SiteAlvaraPedido2, @SitePrefProtocolo, @Observacoes, @"& _ 
                 "SiteREDESIMProtocolo, @SiteREDESIMConsultaCNPJ, @SiteREDESIMAbrirCNPJ, @SiteREDE"& _ 
-                "SIMMeuCNPJ);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJunta"& _ 
-                "Unificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, Sit"& _ 
-                "eAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMPr"& _ 
-                "otocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ FROM "& _ 
-                "Sites WHERE (ID_Sites = SCOPE_IDENTITY())"
+                "SIMMeuCNPJ, @BombeiroConsulta, @BombeiroSolicita, @BombeiroUnificado, @BombeiroR"& _ 
+                "EDESIM);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnif"& _ 
+                "icada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlv"& _ 
+                "araPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtoc"& _ 
+                "olo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, Bombeiro"& _ 
+                "Consulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM FROM Sites WHERE "& _ 
+                "(ID_Sites = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -41227,6 +41402,10 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMConsultaCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMConsultaCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMAbrirCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMAbrirCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMMeuCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMMeuCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroConsulta", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroConsulta", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSolicita", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSolicita", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroUnificado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroUnificado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroREDESIM", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroREDESIM", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Sites] SET [Estado] = @Estado, [Cidade] = @Cidade, [SiteEstado] = @SiteEs"& _ 
@@ -41237,12 +41416,14 @@ Namespace PrinceDBDataSetTableAdapters
                 "refProtocolo] = @SitePrefProtocolo, [Observacoes] = @Observacoes, [SiteREDESIMPr"& _ 
                 "otocolo] = @SiteREDESIMProtocolo, [SiteREDESIMConsultaCNPJ] = @SiteREDESIMConsul"& _ 
                 "taCNPJ, [SiteREDESIMAbrirCNPJ] = @SiteREDESIMAbrirCNPJ, [SiteREDESIMMeuCNPJ] = @"& _ 
-                "SiteREDESIMMeuCNPJ WHERE (([ID_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, "& _ 
+                "SiteREDESIMMeuCNPJ, [BombeiroConsulta] = @BombeiroConsulta, [BombeiroSolicita] ="& _ 
+                " @BombeiroSolicita, [BombeiroUnificado] = @BombeiroUnificado, [BombeiroREDESIM] "& _ 
+                "= @BombeiroREDESIM WHERE (([ID_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, "& _ 
                 "Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, Sit"& _ 
                 "eAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedid"& _ 
                 "o2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNP"& _ 
-                "J, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ FROM Sites WHERE (ID_Sites = @ID_Sit"& _ 
-                "es)"
+                "J, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita,"& _ 
+                " BombeiroUnificado, BombeiroREDESIM FROM Sites WHERE (ID_Sites = @ID_Sites)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -41262,6 +41443,10 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMConsultaCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMConsultaCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMAbrirCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMAbrirCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SiteREDESIMMeuCNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SiteREDESIMMeuCNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroConsulta", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroConsulta", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSolicita", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSolicita", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroUnificado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroUnificado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroREDESIM", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroREDESIM", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Sites", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Sites", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -41378,7 +41563,11 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal SiteREDESIMProtocolo As String,  _
                     ByVal SiteREDESIMConsultaCNPJ As String,  _
                     ByVal SiteREDESIMAbrirCNPJ As String,  _
-                    ByVal SiteREDESIMMeuCNPJ As String) As Integer
+                    ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal BombeiroConsulta As String,  _
+                    ByVal BombeiroSolicita As String,  _
+                    ByVal BombeiroUnificado As String,  _
+                    ByVal BombeiroREDESIM As String) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -41469,6 +41658,26 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(17).Value = CType(SiteREDESIMMeuCNPJ,String)
             End If
+            If (BombeiroConsulta Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(BombeiroConsulta,String)
+            End If
+            If (BombeiroSolicita Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(BombeiroSolicita,String)
+            End If
+            If (BombeiroUnificado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(BombeiroUnificado,String)
+            End If
+            If (BombeiroREDESIM Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(BombeiroREDESIM,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41507,6 +41716,10 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal SiteREDESIMConsultaCNPJ As String,  _
                     ByVal SiteREDESIMAbrirCNPJ As String,  _
                     ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal BombeiroConsulta As String,  _
+                    ByVal BombeiroSolicita As String,  _
+                    ByVal BombeiroUnificado As String,  _
+                    ByVal BombeiroREDESIM As String,  _
                     ByVal Original_ID_Sites As Integer,  _
                     ByVal ID_Sites As Integer) As Integer
             If (Estado Is Nothing) Then
@@ -41599,8 +41812,28 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(SiteREDESIMMeuCNPJ,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ID_Sites,Integer)
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(ID_Sites,Integer)
+            If (BombeiroConsulta Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(BombeiroConsulta,String)
+            End If
+            If (BombeiroSolicita Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(BombeiroSolicita,String)
+            End If
+            If (BombeiroUnificado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(BombeiroUnificado,String)
+            End If
+            If (BombeiroREDESIM Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(BombeiroREDESIM,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ID_Sites,Integer)
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(ID_Sites,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41639,8 +41872,12 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal SiteREDESIMConsultaCNPJ As String,  _
                     ByVal SiteREDESIMAbrirCNPJ As String,  _
                     ByVal SiteREDESIMMeuCNPJ As String,  _
+                    ByVal BombeiroConsulta As String,  _
+                    ByVal BombeiroSolicita As String,  _
+                    ByVal BombeiroUnificado As String,  _
+                    ByVal BombeiroREDESIM As String,  _
                     ByVal Original_ID_Sites As Integer) As Integer
-            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, Original_ID_Sites, Original_ID_Sites)
+            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM, Original_ID_Sites, Original_ID_Sites)
         End Function
     End Class
     

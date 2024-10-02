@@ -119,11 +119,13 @@ Public Class BoxREDESIM
                 Dim url As String = site & ProtocoloRedesim
                 ' Abrir no navegador externo
                 System.Diagnostics.Process.Start(url)
+
             Else
                 MessageBox.Show("Estado ou cidade não encontrados na tabela Sites.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 FrmSites.Show()
                 FrmSites.Focus()
             End If
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show("Erro ao abrir o site no navegador externo: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -142,6 +144,7 @@ Public Class BoxREDESIM
                     WebSiteGERAL = New WebSiteGERAL()
                     WebSiteGERAL.MdiParent = MDIPrincipal
                     WebSiteGERAL.Show()
+                    Me.Close()
                 End If
 
                 ' Concatenar o Protocolo ao site e abrir no WebView
@@ -155,6 +158,7 @@ Public Class BoxREDESIM
                 MessageBox.Show("Estado ou cidade não encontrados na tabela Sites.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 FrmSites.Show()
                 FrmSites.Focus()
+                Me.Close()
             End If
         Catch ex As Exception
             MessageBox.Show("Erro ao abrir o site no navegador interno: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
