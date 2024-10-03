@@ -1022,4 +1022,8 @@ Public Class MDIPrincipal
             FrmSites.Show()
         End If
     End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        FrmCNAEoficial.Show()
+    End Sub
 End Class

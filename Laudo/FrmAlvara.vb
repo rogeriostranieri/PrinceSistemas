@@ -815,6 +815,7 @@ Public Class FrmAlvara
             DataCriadoMaskedTextBox.Text = DateTime.Now.ToString()
 
             Editar()
+            MatrizComboBox.SelectedIndex = 0
 
         Else
 

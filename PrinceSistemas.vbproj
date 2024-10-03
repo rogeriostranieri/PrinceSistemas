@@ -364,6 +364,18 @@
     <Compile Include="CNAEs\FrmCNAEescolha.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CNAEs\FrmCNAEoficial.Designer.vb">
+      <DependentUpon>FrmCNAEoficial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEoficial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEOficialEscolha.Designer.vb">
+      <DependentUpon>FrmCNAEOficialEscolha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEOficialEscolha.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
     </Compile>
@@ -833,6 +845,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CNAEs\FrmCNAEescolha.resx">
       <DependentUpon>FrmCNAEescolha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAEoficial.resx">
+      <DependentUpon>FrmCNAEoficial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAEOficialEscolha.resx">
+      <DependentUpon>FrmCNAEOficialEscolha.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>

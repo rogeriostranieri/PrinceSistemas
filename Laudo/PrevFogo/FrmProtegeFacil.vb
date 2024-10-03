@@ -56,7 +56,18 @@ Public Class FrmProtegeFacil
 
             ' Determinar se é "Solicitar" ou "Acompanhar" com base no ComboBox
             Dim tipoSolicitacao As String = ComboBox1.SelectedItem.ToString()
-            Dim colunaConsulta As String = If(tipoSolicitacao = "Solicitar", "BombeiroSolicita", "BombeiroConsulta")
+
+            ' Verificar se o tipo de solicitação é "Solicitar" e se o ModeloSistemaComboBox contém palavras-chave específicas
+            Dim modeloSistema As String = FrmAlvara.ModeloSistemaComboBox.Text
+            Dim colunaConsulta As String
+
+            If tipoSolicitacao = "Solicitar" AndAlso (modeloSistema.Contains("Empresa Fácil") OrElse modeloSistema.Contains("Unificado") OrElse modeloSistema.Contains("Junta Comercial")) Then
+                ' Se o tipo de solicitação for "Solicitar" e contiver palavras-chave específicas, usar a coluna "BombeiroREDESIM"
+                colunaConsulta = "BombeiroREDESIM"
+            Else
+                ' Caso contrário, usar as colunas padrões
+                colunaConsulta = If(tipoSolicitacao = "Solicitar", "BombeiroSolicita", "BombeiroConsulta")
+            End If
 
             ' Conectar ao banco de dados para buscar a URL correspondente
             Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
@@ -76,13 +87,21 @@ Public Class FrmProtegeFacil
             ' Verificar se foi retornada uma URL
             If String.IsNullOrEmpty(url) Then
                 MsgBox("URL não encontrada para a cidade e estado informados.")
-                Return
+                Try
+                    ' Verificar se o formulário FrmAlvara está aberto e selecionar as abas corretas
+                    FrmAlvara.TabAlvara.SelectTab(0) ' Selecionar a primeira aba do TabAlvara
+                    FrmAlvara.TabControl2.SelectTab(1) ' Selecionar a segunda aba do TabControl2
+                Catch ex As Exception
+                    ' Tratar erro se o formulário ou abas não estiverem acessíveis
+                    MessageBox.Show("Formulário Alvara/Laudo não está aberto! " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.Close()
+                End Try
+                'Return
+                Me.Close()
             End If
 
-            ' Verificar se o tipo de solicitação é "Solicitar" e se o ModeloSistemaComboBox contém palavras-chave específicas
-            Dim modeloSistema As String = FrmAlvara.ModeloSistemaComboBox.Text
-            If tipoSolicitacao = "Solicitar" AndAlso (modeloSistema.Contains("Empresa Fácil") OrElse modeloSistema.Contains("Unificado") OrElse modeloSistema.Contains("Junta Comercial")) Then
-                ' Adicionar o valor de NLaudo à URL
+            ' Adicionar o valor de NLaudo à URL se for uma solicitação com modelo específico
+            If tipoSolicitacao = "Solicitar" AndAlso colunaConsulta = "BombeiroREDESIM" Then
                 url &= NLaudo
             End If
 
@@ -99,6 +118,7 @@ Public Class FrmProtegeFacil
             MsgBox("Ocorreu um erro ao abrir o site: " & ex.Message)
         End Try
     End Sub
+
 
     ' Método auxiliar para abrir o formulário WebSiteGERAL com a URL fornecida
     Private Sub AbrirFormularioInterno(url As String)

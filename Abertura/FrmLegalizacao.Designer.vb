@@ -196,6 +196,7 @@ Partial Class FrmLegalizacao
         Me.Button25 = New System.Windows.Forms.Button()
         Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnArrumaEnd = New System.Windows.Forms.Button()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.BtnMapa = New System.Windows.Forms.Button()
         Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
@@ -474,7 +475,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnArrumaEnd = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2335,6 +2335,17 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'BtnArrumaEnd
+        '
+        Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnArrumaEnd.Location = New System.Drawing.Point(10, 167)
+        Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
+        Me.BtnArrumaEnd.Size = New System.Drawing.Size(102, 25)
+        Me.BtnArrumaEnd.TabIndex = 76
+        Me.BtnArrumaEnd.Text = "Arrumar Endereço"
+        Me.BtnArrumaEnd.UseVisualStyleBackColor = True
         '
         'BtnCopiaCEP
         '
@@ -4684,10 +4695,11 @@ Partial Class FrmLegalizacao
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndEstado", True))
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EndEstadoLabel2.ForeColor = System.Drawing.Color.DarkRed
         Me.EndEstadoLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.EndEstadoLabel2.Location = New System.Drawing.Point(322, 188)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
-        Me.EndEstadoLabel2.Size = New System.Drawing.Size(62, 18)
+        Me.EndEstadoLabel2.Size = New System.Drawing.Size(39, 18)
         Me.EndEstadoLabel2.TabIndex = 79
         Me.EndEstadoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -4707,6 +4719,7 @@ Partial Class FrmLegalizacao
         '
         Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.DarkRed
         Me.EndCidadeLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.EndCidadeLabel2.Location = New System.Drawing.Point(100, 188)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
@@ -5392,17 +5405,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'BtnArrumaEnd
-        '
-        Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnArrumaEnd.Location = New System.Drawing.Point(10, 167)
-        Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
-        Me.BtnArrumaEnd.Size = New System.Drawing.Size(102, 25)
-        Me.BtnArrumaEnd.TabIndex = 76
-        Me.BtnArrumaEnd.Text = "Arrumar Endereço"
-        Me.BtnArrumaEnd.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '

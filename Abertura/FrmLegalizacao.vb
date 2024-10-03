@@ -1,29 +1,28 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Windows.Forms
+
 
 Public Class FrmLegalizacao
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
-
-    'Bloqueando para edição
     Private Sub Bloquear()
-        Dim o As Object
-        For Each o In Me.Controls
-            If TypeOf o Is TextBox Then
-                DirectCast(o, TextBox).Enabled = False
-            End If
+        ' Bloqueando todos os TextBox para edição, utilizando o namespace completo
+        For Each txt As System.Windows.Forms.TextBox In Me.Controls.OfType(Of System.Windows.Forms.TextBox)()
+            txt.Enabled = False
         Next
     End Sub
 
     Private Sub Desbloquear()
-        Dim o As Object
-        For Each o In Me.Controls
-            If TypeOf o Is TextBox Then
-                DirectCast(o, TextBox).Enabled = True
-            End If
+        ' Desbloqueando todos os TextBox para edição, utilizando o namespace completo
+        For Each txt As System.Windows.Forms.TextBox In Me.Controls.OfType(Of System.Windows.Forms.TextBox)()
+            txt.Enabled = True
         Next
     End Sub
+
+
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -981,7 +980,10 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     ' Preencher campos com a data e hora atuais
                     EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
+                    SEDEComboBox.SelectedIndex = 0
                     HabilitaEdicao()
+
+
                 End If
             End If
 

@@ -205,26 +205,40 @@ Public Class FrmSites
 
     ' Evento ao fechar o formulário
     Private Sub FrmSites_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' Verifica se há alterações no DataSet
-        If Me.PrinceDBDataSet.HasChanges() Then
-            ' Pergunta ao usuário se deseja salvar as alterações
-            Dim result As DialogResult = MessageBox.Show("Há alterações não salvas. Deseja salvar antes de sair?", "Alterações Detectadas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        ' Verifica se houve alterações no formulário em comparação ao banco de dados
+        Dim changedRecords As System.Data.DataTable
 
-            If result = DialogResult.Yes Then
-                ' Chama o método Salvar
-                Salvar()
+        ' Finaliza edições pendentes no BindingSource e obtém as alterações
+        Me.SitesBindingSource.EndEdit()
+        changedRecords = PrinceDBDataSet.Sites.GetChanges()
 
-                ' Verifica se o DataSet ainda tem mudanças após salvar
-                If Me.PrinceDBDataSet.HasChanges() Then
-                    ' Impede o fechamento se o salvamento não for bem-sucedido
-                    e.Cancel = True
-                End If
-            ElseIf result = DialogResult.Cancel Then
-                ' Cancela o fechamento do formulário
+        ' Verifica se há registros alterados
+        If Not (changedRecords Is Nothing) AndAlso (changedRecords.Rows.Count > 0) Then
+            ' Mostra a quantidade de alterações feitas e os IDs dos registros alterados
+            Dim message As String = "Foram feitas " & changedRecords.Rows.Count & " alterações no cadastro dos sites." & vbCrLf & "Deseja salvar as alterações?"
+            Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+
+            If result = DialogResult.Cancel Then
+                ' Se o usuário cancelar, desfaz as alterações e recarrega os dados
                 e.Cancel = True
+                Me.PrinceDBDataSet.Sites.RejectChanges()
+                Me.SitesTableAdapter.Fill(Me.PrinceDBDataSet.Sites)
+            ElseIf result = DialogResult.Yes Then
+                Try
+                    ' Salva as alterações no banco de dados
+                    Me.Validate()
+                    Me.SitesBindingSource.EndEdit()
+                    Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+
+                Catch exc As Exception
+                    MessageBox.Show("Ocorreu um erro ao atualizar os dados:" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    e.Cancel = True ' Cancela o fechamento se o salvamento falhar
+                End Try
             End If
         End If
     End Sub
+
+
 
     ' Evento para o botão de salvar
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
@@ -376,19 +390,19 @@ Public Class FrmSites
         AbrirLink(SiteREDESIMMeuCNPJTextBox)
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         SiteREDESIMProtocoloTextBox.Text = "https://servicos.receita.fazenda.gov.br/Servicos/fcpj/consulta.asp?Cod=&Ident=&prot="
     End Sub
 
-    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         SiteREDESIMConsultaCNPJTextBox.Text = "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp"
     End Sub
 
-    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
         SiteREDESIMAbrirCNPJTextBox.Text = "https://www.gov.br/empresas-e-negocios/pt-br/redesim/abrir-cnpj"
     End Sub
 
-    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
         SiteREDESIMMeuCNPJTextBox.Text = "https://www.gov.br/empresas-e-negocios/pt-br/redesim/meu-cnpj"
     End Sub
 
@@ -421,6 +435,17 @@ Public Class FrmSites
         AbrirLink(BombeiroREDESIMTextBox)
 
     End Sub
+
+    Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
+
+    End Sub
+
+    Private Sub LinkLabel8_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel8.LinkClicked
+        BombeiroREDESIMTextBox.Text = "https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoriaRedeSIM.do?action=iniciarProcesso&protocolo="
+
+    End Sub
+    '
+
 
     '///////////////////// FIM BOTAO
 

@@ -120,6 +120,8 @@ Partial Class FrmSites
         Me.BtnCidades = New System.Windows.Forms.Button()
         Me.SitesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SitesTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.LinkLabel7 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel8 = New System.Windows.Forms.LinkLabel()
         EstadoLabel1 = New System.Windows.Forms.Label()
         CidadeLabel1 = New System.Windows.Forms.Label()
         SiteEstadoLabel = New System.Windows.Forms.Label()
@@ -845,6 +847,8 @@ Partial Class FrmSites
         'TabPage2
         '
         Me.TabPage2.AutoScroll = True
+        Me.TabPage2.Controls.Add(Me.LinkLabel8)
+        Me.TabPage2.Controls.Add(Me.LinkLabel7)
         Me.TabPage2.Controls.Add(Me.BtnBombeiroREDESIM)
         Me.TabPage2.Controls.Add(Me.BtnBombeiroUnificado)
         Me.TabPage2.Controls.Add(BombeiroREDESIMLabel)
@@ -1270,6 +1274,28 @@ Partial Class FrmSites
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'LinkLabel7
+        '
+        Me.LinkLabel7.AutoSize = True
+        Me.LinkLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel7.Location = New System.Drawing.Point(617, 167)
+        Me.LinkLabel7.Name = "LinkLabel7"
+        Me.LinkLabel7.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel7.TabIndex = 83
+        Me.LinkLabel7.TabStop = True
+        Me.LinkLabel7.Text = "Padrão"
+        '
+        'LinkLabel8
+        '
+        Me.LinkLabel8.AutoSize = True
+        Me.LinkLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel8.Location = New System.Drawing.Point(617, 197)
+        Me.LinkLabel8.Name = "LinkLabel8"
+        Me.LinkLabel8.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel8.TabIndex = 84
+        Me.LinkLabel8.TabStop = True
+        Me.LinkLabel8.Text = "Padrão"
+        '
         'FrmSites
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1386,4 +1412,6 @@ Partial Class FrmSites
     Friend WithEvents BtnBombeiroUnificado As Button
     Friend WithEvents BombeiroREDESIMTextBox As TextBox
     Friend WithEvents BombeiroUnificadoTextBox As TextBox
+    Friend WithEvents LinkLabel7 As LinkLabel
+    Friend WithEvents LinkLabel8 As LinkLabel
 End Class
