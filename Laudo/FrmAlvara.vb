@@ -468,7 +468,7 @@ Public Class FrmAlvara
 
                             ' Verificar se o salvamento foi bem-sucedido
                             If rowsAffected > 0 Then
-                                MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                'MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Else
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
@@ -481,7 +481,7 @@ Public Class FrmAlvara
                         End Try
 
                         ' Perguntar ao usuário se deseja ver detalhes das alterações
-                        If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                             MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
                 End Select

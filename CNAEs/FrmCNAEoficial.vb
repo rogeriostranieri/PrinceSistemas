@@ -3,7 +3,17 @@
 Public Class FrmCNAEoficial
     ' String de conexão com o banco de dados
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        ' Verifica se a tecla pressionada é a tecla Esc
+        If keyData = Keys.Escape Then
+            ' Fecha o formulário
+            Me.Close()
+            Return True
+        End If
 
+        ' Se não for a tecla Esc, usa o comportamento padrão
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
     Private Sub FrmCNAEoficial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Configura o ListView no modo de exibição de detalhes (colunas)
         ListViewCNAEs.View = View.Details
@@ -116,6 +126,7 @@ Public Class FrmCNAEoficial
                 MessageBox.Show("Este CNAE não pode ser utilizado, pois a Subclasse é nula.", "Subclasse Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
+            '//////////////// inicio posicionamento
 
             ' Verifica se o formulário FrmCNAEOficialEscolha já está aberto e ativa o formulário
             If Application.OpenForms.OfType(Of FrmCNAEOficialEscolha)().Any() Then
@@ -125,6 +136,26 @@ Public Class FrmCNAEoficial
                 ' Se não estiver aberto, abre o formulário FrmCNAEOficialEscolha diretamente
                 FrmCNAEOficialEscolha.Show()
             End If
+
+            ' Define ambos os formulários como StartPosition.Manual para permitir ajustes manuais
+            Me.StartPosition = FormStartPosition.Manual
+            FrmCNAEOficialEscolha.StartPosition = FormStartPosition.Manual
+
+            ' Calcula o tamanho total dos dois formulários lado a lado
+            Dim totalWidth As Integer = Me.Width + FrmCNAEOficialEscolha.Width
+            Dim screenWidth As Integer = Screen.PrimaryScreen.WorkingArea.Width
+            Dim screenHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
+
+            ' Calcula a posição inicial para que ambos os formulários fiquem centralizados como um conjunto
+            Dim startingX As Integer = (screenWidth - totalWidth) \ 2
+            Dim startingY As Integer = (screenHeight - Me.Height) \ 2
+
+            ' Posiciona o formulário atual (Me) à esquerda
+            Me.Location = New Point(startingX, startingY)
+
+            ' Posiciona o FrmCNAEOficialEscolha à direita do formulário atual (Me)
+            FrmCNAEOficialEscolha.Location = New Point(Me.Location.X + Me.Width, startingY)
+            '//////////////// fim posicionamento
 
             ' Obtém o conteúdo atual do RichTextBox
             Dim tipoCNAE As String = ComboBoxTipoCNAE.SelectedItem.ToString()
@@ -217,5 +248,7 @@ Public Class FrmCNAEoficial
         End If
     End Sub
 
-
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
 End Class

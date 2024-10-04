@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms
+Imports System.Globalization
 
 
 Public Class FrmLegalizacao
@@ -127,7 +128,7 @@ Public Class FrmLegalizacao
                             Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
 
                             If rowsAffected > 0 Then
-                                MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                '  MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Else
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
@@ -151,7 +152,7 @@ Public Class FrmLegalizacao
                         End Try
 
                         ' Perguntar ao usuário se deseja ver detalhes das alterações
-                        If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                             MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
                 End Select
@@ -697,15 +698,10 @@ Public Class FrmLegalizacao
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
 
-        If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
-
+        If Application.OpenForms.OfType(Of FrmCNAEAberturaEscolha)().Count() > 0 Then
+            FrmCNAEAberturaEscolha.Focus()
         Else
-            WebSiteGERAL.Show()
-            WebSiteGERAL.MdiParent = MDIPrincipal
-            WebSiteGERAL.WebView.Source = New Uri("https://concla.ibge.gov.br/busca-online-cnae.html")
+            FrmCNAEAberturaEscolha.Show()
         End If
 
     End Sub
@@ -2721,14 +2717,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             e.Handled = True
         End If
     End Sub
-    'CapitalSTextBox validar em reais
-    Private Sub CapitalSTextBox_LostFocus(sender As Object, e As EventArgs) Handles CapitalSTextBox.LostFocus, CapitalSTextBox.Leave
-        If CapitalSTextBox.Text = "" Then
-            CapitalSTextBox.Text = "0,00"
-        Else
-            CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
-        End If
-    End Sub
+
 
     'CapitalITextBox
     Private Sub CapitalITextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CapitalITextBox.KeyPress
@@ -2779,33 +2768,28 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         End If
     End Sub
 
-
     Private Sub BtnPreencherCapital_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles BtnPreencherCapital.LinkClicked
-        'verificar se tem valor dentro do CapitalSTextBox
-        'CapitalITextBox colocar igual CapitalSTextBox
-        'CapitalQuotaValorTextBox colocar valor R$ 1,00
-        'CapitaQuotaTotalTextBox igual CapitalSTextBox mas sem os "R$ " e apos ",00"
-        If CapitalSTextBox.Text = "" Then
-            'mgsbox add valor
-            MsgBox("Adicione o valor do capital social", MsgBoxStyle.Exclamation, "Atenção")
-            'focus
-            CapitalSTextBox.Focus()
-        Else
-            'tirar ".00"
-            'CapitalSTextBox.Text = CapitalSTextBox.Text.Replace(",00", "").Replace(".00", "").Replace(" ", "")
-            'CapitalITextBox colocar igual CapitalSTextBox
-            CapitalITextBox.Text = CapitalSTextBox.Text
-            'CapitalQuotaValorTextBox colocar valor R$ 1,00
-            CapitalQuotaValorTextBox.Text = "R$ 1,00"
-            'CapitaQuotaTotalTextBox igual CapitalSTextBox mas sem os "R$ " e apos ",00"
-            ' Dim CapitalSemNada As String = CapitalSTextBox.Text.Replace("R$ ", "").Replace(",00", "")
-            CapitaQuotaTotalTextBox.Text = CapitalSTextBox.Text
+        Static valorFormatado As Boolean = False ' Flag para controlar se o valor já foi formatado
 
-            'mudar para reais
-            CapitalSTextBox.Text = FormatCurrency(CapitalSTextBox.Text)
-            CapitalITextBox.Text = FormatCurrency(CapitalITextBox.Text)
-            CapitaQuotaTotalTextBox.Text = FormatCurrency(CapitaQuotaTotalTextBox.Text)
-            DataExcSocialMaskedTextBox.Text = "31/12"
+        ' Verifica se o valor foi alterado e formata se necessário
+        If CapitalSTextBox.Text <> "" Then
+            Dim valorCapital As Decimal
+
+            If Decimal.TryParse(CapitalSTextBox.Text.Replace("R$", "").Replace(",", "."), valorCapital) Then
+                ' Valor válido, prosseguir com o cálculo
+                CapitalSTextBox.Text = FormatCurrency(valorCapital, 2) ' Formata com 2 casas decimais
+                CapitalITextBox.Text = FormatCurrency(valorCapital, 2) ' Formata com 2 casas decimais
+                CapitalQuotaValorTextBox.Text = "R$ 1,00"
+                CapitaQuotaTotalTextBox.Text = valorCapital.ToString("N0") ' Formata como número inteiro
+
+                ' Lógica para calcular o valor total da cota de capital (se necessário)
+                ' ...
+
+                valorFormatado = True ' Marca o valor como formatado
+            Else
+                MessageBox.Show("Digite um valor numérico válido para o Capital Social.", "Erro", CType(MsgBoxStyle.Exclamation, MessageBoxButtons))
+                CapitalSTextBox.Focus()
+            End If
         End If
     End Sub
 
@@ -3479,4 +3463,142 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End Try
     End Function
 
+
+
+    'Private Sub BtnCopiarCapital_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapital.Click
+    '
+    ' End Sub
+
+
+    'CapitalSTextBox
+    'CapitalQuotaValorTextBox
+    'ambos textbox vai ter valor numerico em formato da moeda 
+    'a moeda vai estar antes do numeros exemplo "R$ 10.000,00" entao precisa de um private so para reconhecer todas as moedas 
+    'vai precisar escrever por exetenso o numero entre parenteses assim como a moeda, exemplo = "R$ 1.000,00 (um mil reais)"
+    ' deverar depois colocar no meu copiar o seguinte texto, EXEMPLO: "O capital social será R$ 50.000,00 (cinquenta mil reais) divididos em 50.000 (cinquenta mil) quotas de valor nominal R$1,00 (um real)" onde vai subistituir os numeros pelos que tem na textbox e tambem a moeda tambem
+    ' Dim unidades As String() = {"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
+    ' Dim dezenas As String() = {"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
+    ' Dim especiais As String() = {"dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"}
+    'CultureInfo para moedas em reais ou dolar ou outra moeda pois vai ter cifrao antes dos numeroes
+
+    '///////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////////////////////'
+    '////////////////////////////////////////////////////////////////////////////////
+
+
+    Private Sub BtnCopiarCapital_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapital.Click
+        ' Obtém os valores dos TextBox
+        Dim capitalString As String = CapitalSTextBox.Text
+        Dim quotaString As String = CapitaQuotaTotalTextBox.Text ' Valor total de quotas
+        Dim quotaValorString As String = CapitalQuotaValorTextBox.Text ' Valor nominal das quotas
+
+        ' Extraindo os valores numéricos
+        Dim capitalValor As Decimal = ExtractNumericValue(capitalString)
+        Dim quotaTotal As Decimal = ExtractNumericValue(quotaString)
+        Dim quotaValor As Decimal = ExtractNumericValue(quotaValorString)
+
+        ' Convertendo para texto por extenso com moeda
+        Dim capitalExtenso As String = NumberToWordsWithCurrency(capitalValor)
+        Dim quotaExtenso As String = NumberToWords(quotaTotal) ' Extenso do número de quotas, sem unidade de moeda
+        Dim quotaValorExtenso As String = NumberToWordsWithCurrency(quotaValor) ' Extenso com unidade monetária
+
+        ' Montagem do resultado final
+        Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
+                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
+                                  $"{quotaValorString} ({quotaValorExtenso})"
+
+        ' Exibir o resultado
+        MessageBox.Show(resultado)
+        Dim TextoFinal As String = resultado
+        My.Computer.Clipboard.SetText(TextoFinal)
+    End Sub
+
+    ' Função para extrair o valor numérico de uma string com formato de moeda
+    Private Function ExtractNumericValue(moeda As String) As Decimal
+        ' Remover o símbolo da moeda e formatar o número para Decimal
+        Dim valor As String = moeda.Replace("R$", "").Trim().Replace(".", "").Replace(",", ".")
+        Return Decimal.Parse(valor, CultureInfo.InvariantCulture)
+    End Function
+
+    ' Função para converter números em texto por extenso com unidade monetária
+    Private Function NumberToWordsWithCurrency(value As Decimal) As String
+        Dim inteiro As Long = CLng(Math.Floor(value))
+        Dim valorExtenso As String = NumberToWords(inteiro)
+
+        ' Se o valor inteiro for 1, usar "real", caso contrário, "reais"
+        Dim unidadeMonetaria As String = If(inteiro = 1, "real", "reais")
+
+        ' Adicionar extenso de centavos, se houver
+        Dim centavos As Long = CLng((value - inteiro) * 100)
+        If centavos > 0 Then
+            valorExtenso &= $" e {NumberToWords(centavos)} centavos"
+        End If
+
+        Return valorExtenso & $" {unidadeMonetaria}"
+    End Function
+
+    ' Função para converter números em texto por extenso
+    Private Function NumberToWords(value As Decimal) As String
+        Dim unidades As String() = {"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
+        Dim dezenas As String() = {"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
+        Dim especiais As String() = {"dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"}
+        Dim centenas As String() = {"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}
+
+        Dim inteiro As Long = CLng(Math.Floor(value))
+        Dim centavos As Long = CLng((value - inteiro) * 100)
+
+        Dim partes As New List(Of String)
+
+        If inteiro > 0 Then
+            ' Verificar milhares
+            If inteiro >= 1000 Then
+                Dim milhar As Long = inteiro \ 1000
+                partes.Add(NumberToWords(milhar) & " mil")
+                inteiro -= milhar * 1000
+            End If
+
+            ' Verificar centenas
+            If inteiro >= 100 Then
+                Dim centena As Long = inteiro \ 100
+                If centena = 1 AndAlso inteiro Mod 100 = 0 Then
+                    partes.Add("cem") ' "Cem" é usado quando o valor é exatamente 100
+                Else
+                    partes.Add(centenas(centena))
+                End If
+                inteiro -= centena * 100
+            End If
+
+            ' Verificar dezenas
+            If inteiro >= 20 Then
+                partes.Add(dezenas(inteiro \ 10))
+                inteiro -= (inteiro \ 10) * 10
+            ElseIf inteiro >= 10 Then
+                partes.Add(especiais(inteiro - 10))
+                inteiro = 0
+            End If
+
+            ' Verificar unidades
+            If inteiro > 0 Then
+                partes.Add(unidades(inteiro))
+            End If
+        End If
+
+        ' Construir a string final e adicionar "e" entre as partes, se necessário
+        Dim resultado As String = String.Empty
+        If partes.Count = 1 Then
+            resultado = partes(0)
+        ElseIf partes.Count = 2 Then
+            resultado = partes(0) & " e " & partes(1)
+        ElseIf partes.Count >= 3 Then
+            resultado = String.Join(", ", partes.Take(partes.Count - 1)) & " e " & partes.Last()
+        End If
+
+        ' Adicionar a palavra "centavos" se houver centavos
+        If centavos > 0 Then
+            Dim centavosExtenso As String = If(centavos = 1, "centavo", "centavos")
+            resultado &= $" e {NumberToWords(centavos)} {centavosExtenso}"
+        End If
+
+        Return resultado.Trim()
+    End Function
 End Class

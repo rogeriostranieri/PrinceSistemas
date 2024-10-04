@@ -225,6 +225,7 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiarCapital = New System.Windows.Forms.Button()
         Me.BtnRemoveSocios = New System.Windows.Forms.Button()
         Me.BtnPreencherCapital = New System.Windows.Forms.LinkLabel()
         Me.CapitaQuotaTotalTextBox = New System.Windows.Forms.TextBox()
@@ -2607,6 +2608,7 @@ Partial Class FrmLegalizacao
         'TabPage16
         '
         Me.TabPage16.AutoScroll = True
+        Me.TabPage16.Controls.Add(Me.BtnCopiarCapital)
         Me.TabPage16.Controls.Add(Me.BtnRemoveSocios)
         Me.TabPage16.Controls.Add(Me.BtnPreencherCapital)
         Me.TabPage16.Controls.Add(CapitaQuotaTotalLabel)
@@ -2629,6 +2631,20 @@ Partial Class FrmLegalizacao
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
+        '
+        'BtnCopiarCapital
+        '
+        Me.BtnCopiarCapital.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnCopiarCapital.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCopiarCapital.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiarCapital.Location = New System.Drawing.Point(541, 17)
+        Me.BtnCopiarCapital.Name = "BtnCopiarCapital"
+        Me.BtnCopiarCapital.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCopiarCapital.TabIndex = 66
+        Me.BtnCopiarCapital.Text = "Copiar"
+        Me.BtnCopiarCapital.UseVisualStyleBackColor = True
         '
         'BtnRemoveSocios
         '
@@ -4602,6 +4618,7 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -5869,4 +5886,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnLimparRedeSimProt As Button
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents BtnArrumaEnd As Button
+    Friend WithEvents BtnCopiarCapital As Button
 End Class

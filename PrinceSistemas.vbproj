@@ -215,6 +215,12 @@
     <Compile Include="Abertura\FormEmpresaFacil\FormadeAtuacao.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\FrmCNAEAberturaEscolha.Designer.vb">
+      <DependentUpon>FrmCNAEAberturaEscolha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmCNAEAberturaEscolha.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administração Controle\FrmAlvaraSistema.Designer.vb">
       <DependentUpon>FrmAlvaraSistema.vb</DependentUpon>
     </Compile>
@@ -773,6 +779,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abertura\FormEmpresaFacil\FormadeAtuacao.resx">
       <DependentUpon>FormadeAtuacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmCNAEAberturaEscolha.resx">
+      <DependentUpon>FrmCNAEAberturaEscolha.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administração Controle\FrmAlvaraSistema.resx">
       <DependentUpon>FrmAlvaraSistema.vb</DependentUpon>

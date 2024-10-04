@@ -1023,7 +1023,11 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        FrmCNAEoficial.Show()
+    Private Sub IBGECONCLAToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IBGECONCLAToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmCNAEoficial)().Count() > 0 Then
+            FrmCNAEoficial.Focus()
+        Else
+            FrmCNAEoficial.Show()
+        End If
     End Sub
 End Class
