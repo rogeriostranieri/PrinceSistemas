@@ -3601,4 +3601,33 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
         Return resultado.Trim()
     End Function
+
+    Private Sub CNAESecundarioRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles CNAESecundarioRichTextBox.TextChanged
+        ' Conta as linhas dividindo o texto por quebras de linha (cobrindo todos os tipos de delimitadores)
+        Dim linhas As Integer = CNAESecundarioRichTextBox.Text.Split({vbCr, vbLf}, StringSplitOptions.RemoveEmptyEntries).Length
+
+        ' Verifica se há linhas e atualiza o Label com o total de linhas
+        LblTotalCnae.Text = If(linhas > 0, linhas.ToString(), "0")
+    End Sub
+
+    Private Sub BtnCopiarPRP_Click(sender As Object, e As EventArgs) Handles BtnCopiarPRP.Click
+        ' Copia o conteúdo de ProtocoloJuntaComercialTextBox para a área de transferência
+        If Not String.IsNullOrEmpty(ProtocoloJuntaComercialTextBox.Text) Then
+            Clipboard.SetText(ProtocoloJuntaComercialTextBox.Text)
+            'MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show("O campo Protocolo Junta Comercial está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub BtnCopiarREDESIM_Click(sender As Object, e As EventArgs) Handles BtnCopiarREDESIM.Click
+        ' Copia o conteúdo de ProtocoloREDESIMTextBox para a área de transferência
+        If Not String.IsNullOrEmpty(ProtocoloREDESIMTextBox.Text) Then
+            Clipboard.SetText(ProtocoloREDESIMTextBox.Text)
+            ' MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show("O campo Protocolo REDESIM está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
 End Class

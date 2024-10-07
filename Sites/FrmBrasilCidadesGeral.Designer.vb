@@ -25,9 +25,13 @@ Partial Class FrmBrasilCidadesGeral
         Me.components = New System.ComponentModel.Container()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.TxtEncontrato = New System.Windows.Forms.Label()
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.BrasilDistritosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BrasilDistritosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BrasilDistritosTableAdapter()
@@ -36,10 +40,6 @@ Partial Class FrmBrasilCidadesGeral
         Me.BrasilMunicipiosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BrasilMunicipiosTableAdapter()
         Me.BrasilEstadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BrasilMunicipiosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TxtEncontrato = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +81,36 @@ Partial Class FrmBrasilCidadesGeral
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(92, 16)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(218, 20)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Buscar Localidade - Brasil"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(9, 104)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(117, 20)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Cidade/Distrito:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(62, 62)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(64, 20)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Estado:"
+        '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -93,6 +123,7 @@ Partial Class FrmBrasilCidadesGeral
         '
         Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(132, 59)
@@ -110,6 +141,16 @@ Partial Class FrmBrasilCidadesGeral
         Me.ListView1.Size = New System.Drawing.Size(402, 256)
         Me.ListView1.TabIndex = 1
         Me.ListView1.UseCompatibleStateImageBehavior = False
+        '
+        'TxtEncontrato
+        '
+        Me.TxtEncontrato.AutoSize = True
+        Me.TxtEncontrato.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEncontrato.Location = New System.Drawing.Point(3, 424)
+        Me.TxtEncontrato.Name = "TxtEncontrato"
+        Me.TxtEncontrato.Size = New System.Drawing.Size(88, 20)
+        Me.TxtEncontrato.TabIndex = 5
+        Me.TxtEncontrato.Text = "Encontrato"
         '
         'PrinceDBDataSet
         '
@@ -138,6 +179,7 @@ Partial Class FrmBrasilCidadesGeral
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -171,46 +213,6 @@ Partial Class FrmBrasilCidadesGeral
         '
         Me.BrasilMunicipiosBindingSource.DataMember = "BrasilMunicipios"
         Me.BrasilMunicipiosBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(62, 62)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 20)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Estado:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 104)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(117, 20)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Cidade/Distrito:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(92, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(218, 20)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Buscar Localidade - Brasil"
-        '
-        'TxtEncontrato
-        '
-        Me.TxtEncontrato.AutoSize = True
-        Me.TxtEncontrato.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtEncontrato.Location = New System.Drawing.Point(3, 424)
-        Me.TxtEncontrato.Name = "TxtEncontrato"
-        Me.TxtEncontrato.Size = New System.Drawing.Size(88, 20)
-        Me.TxtEncontrato.TabIndex = 5
-        Me.TxtEncontrato.Text = "Encontrato"
         '
         'FrmBrasilCidadesGeral
         '

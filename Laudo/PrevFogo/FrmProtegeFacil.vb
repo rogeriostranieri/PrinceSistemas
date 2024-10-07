@@ -38,11 +38,13 @@ Public Class FrmProtegeFacil
     ' Botão para abrir no navegador interno (WebView no WebSiteGERAL)
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
         AbrirURL(False)
+        Me.Close()
     End Sub
 
     ' Botão para abrir no navegador externo
     Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
         AbrirURL(True)
+        Me.Close()
     End Sub
 
     ' Método principal para abrir a URL no navegador interno ou externo

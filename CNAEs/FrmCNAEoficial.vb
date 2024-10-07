@@ -248,7 +248,9 @@ Public Class FrmCNAEoficial
         End If
     End Sub
 
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click, Cancel_Button.Click, OK_Button.Click
         Me.Close()
     End Sub
+
+
 End Class
