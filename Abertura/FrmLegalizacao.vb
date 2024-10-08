@@ -56,7 +56,8 @@ Public Class FrmLegalizacao
     Public Sub SalvarExterno()
         Salvar()
     End Sub
-
+    ' Variável para controlar o fechamento do formulário
+    Private cancelarFechamento As Boolean = False
     Private Sub Salvar()
         Try
             ' Finalizar edição e obter registros alterados
@@ -100,7 +101,9 @@ Public Class FrmLegalizacao
                 Select Case result
                     Case DialogResult.Cancel
                         ' Ação para Cancelar
-                        Return
+                        'Return
+                        ' Define a variável como True para indicar que o fechamento foi cancelado.
+                        cancelarFechamento = True
 
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
@@ -115,6 +118,7 @@ Public Class FrmLegalizacao
                         ' Recarregar dados
                         Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
                         Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+                        cancelarFechamento = False
 
                     Case DialogResult.Yes
                         ' Salvar alterações
@@ -155,6 +159,8 @@ Public Class FrmLegalizacao
                         If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                             MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
+                        cancelarFechamento = False
+
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -1021,6 +1027,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub Legalizacao_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Salvar()
+        ' Verifica se o fechamento foi cancelado.
+        If cancelarFechamento Then
+            ' Cancela o fechamento do formulário.
+            e.Cancel = True
+            ' Exibe uma mensagem para indicar que o fechamento foi interrompido.
+            MessageBox.Show("O fechamento foi cancelado.", "Fechamento Interrompido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
 
         ' Fechar formulários e diálogos auxiliares se estiverem abertos
         If FrmEventos.Visible Then FrmEventos.Close()

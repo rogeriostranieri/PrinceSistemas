@@ -426,6 +426,12 @@
   <metadata name="EndEstadoLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <metadata name="ProcessoLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="NAlteracaoLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <metadata name="EmpresasBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>190, 56</value>
   </metadata>
@@ -488,7 +494,7 @@
   <metadata name="PrinceDBDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>389, 56</value>
   </metadata>
-  <data name="BtnAnotacoesFederal.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnAnotacoesLEgalizacao.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABdwAAARlCAMAAACUWfVfAAAABGdBTUEAALGPC/xhBQAAAUFQTFRFv8jU
         wMnVwcrVwcrWwsvWwsvXw8vXw8zXw8zYxMzYxM3YxM3Zxc3Zxc7Zxc7axs7axs/axs/bx8/bx9DbyNDc
@@ -5275,7 +5281,7 @@
   <metadata name="ToolTipDICAS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>587, 95</value>
   </metadata>
-  <data name="BtnAnotacoesLEgalizacao.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnAnotacoesFederal.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABdwAAARlCAMAAACUWfVfAAAABGdBTUEAALGPC/xhBQAAAUFQTFRFv8jU
         wMnVwcrVwcrWwsvWwsvXw8vXw8zXw8zYxMzYxM3YxM3Zxc3Zxc7Zxc7axs7axs/axs/bx8/bx9DbyNDc

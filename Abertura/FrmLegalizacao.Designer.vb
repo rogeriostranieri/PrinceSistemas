@@ -126,6 +126,8 @@ Partial Class FrmLegalizacao
         Dim FederalProtocoloLabel As System.Windows.Forms.Label
         Dim EndCidadeLabel1 As System.Windows.Forms.Label
         Dim EndEstadoLabel1 As System.Windows.Forms.Label
+        Dim ProcessoLabel1 As System.Windows.Forms.Label
+        Dim NAlteracaoLabel1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -243,9 +245,12 @@ Partial Class FrmLegalizacao
         Me.BtnUsarRazao2 = New System.Windows.Forms.Button()
         Me.BtnUsarRazao1 = New System.Windows.Forms.Button()
         Me.RazaoSocialAntigaLabel = New System.Windows.Forms.Label()
+        Me.LinkLabelMudarRazaoSocial = New System.Windows.Forms.LinkLabel()
         Me.BtnImportarRazaoSocial = New System.Windows.Forms.Button()
         Me.RazaoSocialAntigaTextBox = New System.Windows.Forms.TextBox()
+        Me.LabelNovaRazaoFinal = New System.Windows.Forms.Label()
         Me.NomeFantasiaTextBox1 = New System.Windows.Forms.TextBox()
+        Me.NovaRazaoSocialFinalTextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial3TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial2TextBox = New System.Windows.Forms.TextBox()
         Me.NovaRazaoSocial1TextBox = New System.Windows.Forms.TextBox()
@@ -264,14 +269,12 @@ Partial Class FrmLegalizacao
         Me.DadosComplAtividadeComboBox = New System.Windows.Forms.ComboBox()
         Me.DadosComplEstabelecimentoComboBox = New System.Windows.Forms.ComboBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiarPRP = New System.Windows.Forms.Button()
         Me.BtnVerEmpresaFacil = New System.Windows.Forms.Button()
         Me.LinkLabeLPrazoEmpresaFacil = New System.Windows.Forms.LinkLabel()
         Me.BtnAnotacoesLEgalizacao = New System.Windows.Forms.Button()
         Me.BtnData3 = New System.Windows.Forms.Button()
         Me.BtnData2 = New System.Windows.Forms.Button()
-        Me.LinkLabelMudarRazaoSocial = New System.Windows.Forms.LinkLabel()
-        Me.LabelNovaRazaoFinal = New System.Windows.Forms.Label()
-        Me.NovaRazaoSocialFinalTextBox = New System.Windows.Forms.TextBox()
         Me.Button48 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -284,6 +287,8 @@ Partial Class FrmLegalizacao
         Me.NRegistroAltTextBox = New System.Windows.Forms.TextBox()
         Me.DataRegistroAltMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.NAlteracaoLabel2 = New System.Windows.Forms.Label()
+        Me.ProcessoLabel2 = New System.Windows.Forms.Label()
         Me.BtnArrumar = New System.Windows.Forms.Button()
         Me.Button41 = New System.Windows.Forms.Button()
         Me.Button40 = New System.Windows.Forms.Button()
@@ -313,6 +318,7 @@ Partial Class FrmLegalizacao
         Me.BtnConsultaJunta = New System.Windows.Forms.Button()
         Me.ProtocoloJuntaComercialTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiarREDESIM = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.BtnLimparRedeSimProt = New System.Windows.Forms.Button()
         Me.BtnDataProtFedDBE = New System.Windows.Forms.Button()
@@ -477,8 +483,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnCopiarPRP = New System.Windows.Forms.Button()
-        Me.BtnCopiarREDESIM = New System.Windows.Forms.Button()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -582,6 +587,8 @@ Partial Class FrmLegalizacao
         FederalProtocoloLabel = New System.Windows.Forms.Label()
         EndCidadeLabel1 = New System.Windows.Forms.Label()
         EndEstadoLabel1 = New System.Windows.Forms.Label()
+        ProcessoLabel1 = New System.Windows.Forms.Label()
+        NAlteracaoLabel1 = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -976,7 +983,7 @@ Partial Class FrmLegalizacao
         'ArquivoContratoLabel
         '
         ArquivoContratoLabel.AutoSize = True
-        ArquivoContratoLabel.Location = New System.Drawing.Point(6, 8)
+        ArquivoContratoLabel.Location = New System.Drawing.Point(6, 45)
         ArquivoContratoLabel.Name = "ArquivoContratoLabel"
         ArquivoContratoLabel.Size = New System.Drawing.Size(104, 13)
         ArquivoContratoLabel.TabIndex = 36
@@ -1129,7 +1136,7 @@ Partial Class FrmLegalizacao
         'PastaDocumentosLabel
         '
         PastaDocumentosLabel.AutoSize = True
-        PastaDocumentosLabel.Location = New System.Drawing.Point(6, 85)
+        PastaDocumentosLabel.Location = New System.Drawing.Point(6, 122)
         PastaDocumentosLabel.Name = "PastaDocumentosLabel"
         PastaDocumentosLabel.Size = New System.Drawing.Size(120, 13)
         PastaDocumentosLabel.TabIndex = 42
@@ -1300,7 +1307,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial1Label
         '
         NovaRazaoSocial1Label.AutoSize = True
-        NovaRazaoSocial1Label.Location = New System.Drawing.Point(8, 59)
+        NovaRazaoSocial1Label.Location = New System.Drawing.Point(34, 54)
         NovaRazaoSocial1Label.Name = "NovaRazaoSocial1Label"
         NovaRazaoSocial1Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial1Label.TabIndex = 0
@@ -1309,7 +1316,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial2Label
         '
         NovaRazaoSocial2Label.AutoSize = True
-        NovaRazaoSocial2Label.Location = New System.Drawing.Point(8, 85)
+        NovaRazaoSocial2Label.Location = New System.Drawing.Point(34, 80)
         NovaRazaoSocial2Label.Name = "NovaRazaoSocial2Label"
         NovaRazaoSocial2Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial2Label.TabIndex = 2
@@ -1318,7 +1325,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial3Label
         '
         NovaRazaoSocial3Label.AutoSize = True
-        NovaRazaoSocial3Label.Location = New System.Drawing.Point(8, 111)
+        NovaRazaoSocial3Label.Location = New System.Drawing.Point(34, 106)
         NovaRazaoSocial3Label.Name = "NovaRazaoSocial3Label"
         NovaRazaoSocial3Label.Size = New System.Drawing.Size(117, 13)
         NovaRazaoSocial3Label.TabIndex = 4
@@ -1336,7 +1343,7 @@ Partial Class FrmLegalizacao
         'NomeFantasiaLabel1
         '
         NomeFantasiaLabel1.AutoSize = True
-        NomeFantasiaLabel1.Location = New System.Drawing.Point(38, 138)
+        NomeFantasiaLabel1.Location = New System.Drawing.Point(64, 133)
         NomeFantasiaLabel1.Name = "NomeFantasiaLabel1"
         NomeFantasiaLabel1.Size = New System.Drawing.Size(81, 13)
         NomeFantasiaLabel1.TabIndex = 8
@@ -1566,6 +1573,26 @@ Partial Class FrmLegalizacao
         EndEstadoLabel1.Size = New System.Drawing.Size(43, 13)
         EndEstadoLabel1.TabIndex = 78
         EndEstadoLabel1.Text = "Estado:"
+        '
+        'ProcessoLabel1
+        '
+        ProcessoLabel1.AutoSize = True
+        ProcessoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ProcessoLabel1.Location = New System.Drawing.Point(10, 13)
+        ProcessoLabel1.Name = "ProcessoLabel1"
+        ProcessoLabel1.Size = New System.Drawing.Size(65, 18)
+        ProcessoLabel1.TabIndex = 48
+        ProcessoLabel1.Text = "Processo:"
+        '
+        'NAlteracaoLabel1
+        '
+        NAlteracaoLabel1.AutoSize = True
+        NAlteracaoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        NAlteracaoLabel1.Location = New System.Drawing.Point(190, 13)
+        NAlteracaoLabel1.Name = "NAlteracaoLabel1"
+        NAlteracaoLabel1.Size = New System.Drawing.Size(28, 18)
+        NAlteracaoLabel1.TabIndex = 49
+        NAlteracaoLabel1.Text = "Nº:"
         '
         'EmpresasBindingNavigator
         '
@@ -2758,10 +2785,13 @@ Partial Class FrmLegalizacao
         Me.TabPage18.Controls.Add(Me.BtnUsarRazao2)
         Me.TabPage18.Controls.Add(Me.BtnUsarRazao1)
         Me.TabPage18.Controls.Add(Me.RazaoSocialAntigaLabel)
+        Me.TabPage18.Controls.Add(Me.LinkLabelMudarRazaoSocial)
         Me.TabPage18.Controls.Add(Me.BtnImportarRazaoSocial)
         Me.TabPage18.Controls.Add(Me.RazaoSocialAntigaTextBox)
+        Me.TabPage18.Controls.Add(Me.LabelNovaRazaoFinal)
         Me.TabPage18.Controls.Add(NomeFantasiaLabel1)
         Me.TabPage18.Controls.Add(Me.NomeFantasiaTextBox1)
+        Me.TabPage18.Controls.Add(Me.NovaRazaoSocialFinalTextBox)
         Me.TabPage18.Controls.Add(NovaRazaoSocial3Label)
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial3TextBox)
         Me.TabPage18.Controls.Add(NovaRazaoSocial2Label)
@@ -2778,7 +2808,7 @@ Partial Class FrmLegalizacao
         'BtnLimpaCaractRazao
         '
         Me.BtnLimpaCaractRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(540, 54)
+        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(550, 49)
         Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
         Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
         Me.BtnLimpaCaractRazao.TabIndex = 51
@@ -2788,7 +2818,7 @@ Partial Class FrmLegalizacao
         'BtnUsarNomeFantasia
         '
         Me.BtnUsarNomeFantasia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarNomeFantasia.Location = New System.Drawing.Point(477, 135)
+        Me.BtnUsarNomeFantasia.Location = New System.Drawing.Point(503, 130)
         Me.BtnUsarNomeFantasia.Name = "BtnUsarNomeFantasia"
         Me.BtnUsarNomeFantasia.Size = New System.Drawing.Size(40, 23)
         Me.BtnUsarNomeFantasia.TabIndex = 50
@@ -2798,7 +2828,7 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao3
         '
         Me.BtnUsarRazao3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao3.Location = New System.Drawing.Point(477, 106)
+        Me.BtnUsarRazao3.Location = New System.Drawing.Point(503, 101)
         Me.BtnUsarRazao3.Name = "BtnUsarRazao3"
         Me.BtnUsarRazao3.Size = New System.Drawing.Size(40, 23)
         Me.BtnUsarRazao3.TabIndex = 49
@@ -2808,7 +2838,7 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao2
         '
         Me.BtnUsarRazao2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao2.Location = New System.Drawing.Point(477, 80)
+        Me.BtnUsarRazao2.Location = New System.Drawing.Point(503, 75)
         Me.BtnUsarRazao2.Name = "BtnUsarRazao2"
         Me.BtnUsarRazao2.Size = New System.Drawing.Size(40, 23)
         Me.BtnUsarRazao2.TabIndex = 48
@@ -2818,7 +2848,7 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao1
         '
         Me.BtnUsarRazao1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao1.Location = New System.Drawing.Point(477, 54)
+        Me.BtnUsarRazao1.Location = New System.Drawing.Point(503, 49)
         Me.BtnUsarRazao1.Name = "BtnUsarRazao1"
         Me.BtnUsarRazao1.Size = New System.Drawing.Size(40, 23)
         Me.BtnUsarRazao1.TabIndex = 47
@@ -2828,17 +2858,28 @@ Partial Class FrmLegalizacao
         'RazaoSocialAntigaLabel
         '
         Me.RazaoSocialAntigaLabel.AutoSize = True
-        Me.RazaoSocialAntigaLabel.Location = New System.Drawing.Point(13, 19)
+        Me.RazaoSocialAntigaLabel.Location = New System.Drawing.Point(39, 14)
         Me.RazaoSocialAntigaLabel.Name = "RazaoSocialAntigaLabel"
         Me.RazaoSocialAntigaLabel.Size = New System.Drawing.Size(106, 13)
         Me.RazaoSocialAntigaLabel.TabIndex = 46
         Me.RazaoSocialAntigaLabel.Text = "Razão Social Antiga:"
         '
+        'LinkLabelMudarRazaoSocial
+        '
+        Me.LinkLabelMudarRazaoSocial.AutoSize = True
+        Me.LinkLabelMudarRazaoSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.LinkLabelMudarRazaoSocial.Location = New System.Drawing.Point(508, 163)
+        Me.LinkLabelMudarRazaoSocial.Name = "LinkLabelMudarRazaoSocial"
+        Me.LinkLabelMudarRazaoSocial.Size = New System.Drawing.Size(101, 13)
+        Me.LinkLabelMudarRazaoSocial.TabIndex = 50
+        Me.LinkLabelMudarRazaoSocial.TabStop = True
+        Me.LinkLabelMudarRazaoSocial.Text = "Mudar Razão Social"
+        '
         'BtnImportarRazaoSocial
         '
         Me.BtnImportarRazaoSocial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnImportarRazaoSocial.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(477, 14)
+        Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(503, 9)
         Me.BtnImportarRazaoSocial.Name = "BtnImportarRazaoSocial"
         Me.BtnImportarRazaoSocial.Size = New System.Drawing.Size(62, 23)
         Me.BtnImportarRazaoSocial.TabIndex = 45
@@ -2848,23 +2889,40 @@ Partial Class FrmLegalizacao
         'RazaoSocialAntigaTextBox
         '
         Me.RazaoSocialAntigaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RazaoSocialAntiga", True))
-        Me.RazaoSocialAntigaTextBox.Location = New System.Drawing.Point(125, 16)
+        Me.RazaoSocialAntigaTextBox.Location = New System.Drawing.Point(151, 11)
         Me.RazaoSocialAntigaTextBox.Name = "RazaoSocialAntigaTextBox"
         Me.RazaoSocialAntigaTextBox.Size = New System.Drawing.Size(346, 20)
         Me.RazaoSocialAntigaTextBox.TabIndex = 10
         '
+        'LabelNovaRazaoFinal
+        '
+        Me.LabelNovaRazaoFinal.AutoSize = True
+        Me.LabelNovaRazaoFinal.Location = New System.Drawing.Point(3, 159)
+        Me.LabelNovaRazaoFinal.Name = "LabelNovaRazaoFinal"
+        Me.LabelNovaRazaoFinal.Size = New System.Drawing.Size(147, 13)
+        Me.LabelNovaRazaoFinal.TabIndex = 49
+        Me.LabelNovaRazaoFinal.Text = "Resultado- nova razão social:"
+        '
         'NomeFantasiaTextBox1
         '
         Me.NomeFantasiaTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
-        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(125, 135)
+        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(151, 130)
         Me.NomeFantasiaTextBox1.Name = "NomeFantasiaTextBox1"
         Me.NomeFantasiaTextBox1.Size = New System.Drawing.Size(346, 20)
         Me.NomeFantasiaTextBox1.TabIndex = 9
         '
+        'NovaRazaoSocialFinalTextBox
+        '
+        Me.NovaRazaoSocialFinalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocialFinal", True))
+        Me.NovaRazaoSocialFinalTextBox.Location = New System.Drawing.Point(151, 156)
+        Me.NovaRazaoSocialFinalTextBox.Name = "NovaRazaoSocialFinalTextBox"
+        Me.NovaRazaoSocialFinalTextBox.Size = New System.Drawing.Size(346, 20)
+        Me.NovaRazaoSocialFinalTextBox.TabIndex = 48
+        '
         'NovaRazaoSocial3TextBox
         '
         Me.NovaRazaoSocial3TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial3", True))
-        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(125, 108)
+        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(151, 103)
         Me.NovaRazaoSocial3TextBox.Name = "NovaRazaoSocial3TextBox"
         Me.NovaRazaoSocial3TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial3TextBox.TabIndex = 5
@@ -2872,7 +2930,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial2TextBox
         '
         Me.NovaRazaoSocial2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial2", True))
-        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(125, 82)
+        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(151, 77)
         Me.NovaRazaoSocial2TextBox.Name = "NovaRazaoSocial2TextBox"
         Me.NovaRazaoSocial2TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial2TextBox.TabIndex = 3
@@ -2880,7 +2938,7 @@ Partial Class FrmLegalizacao
         'NovaRazaoSocial1TextBox
         '
         Me.NovaRazaoSocial1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial1", True))
-        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(125, 56)
+        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(151, 51)
         Me.NovaRazaoSocial1TextBox.Name = "NovaRazaoSocial1TextBox"
         Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(346, 20)
         Me.NovaRazaoSocial1TextBox.TabIndex = 1
@@ -3055,9 +3113,6 @@ Partial Class FrmLegalizacao
         Me.TabPage3.Controls.Add(Me.BtnAnotacoesLEgalizacao)
         Me.TabPage3.Controls.Add(Me.BtnData3)
         Me.TabPage3.Controls.Add(Me.BtnData2)
-        Me.TabPage3.Controls.Add(Me.LinkLabelMudarRazaoSocial)
-        Me.TabPage3.Controls.Add(Me.LabelNovaRazaoFinal)
-        Me.TabPage3.Controls.Add(Me.NovaRazaoSocialFinalTextBox)
         Me.TabPage3.Controls.Add(Me.Button48)
         Me.TabPage3.Controls.Add(Me.TabControl1)
         Me.TabPage3.Controls.Add(Me.Button30)
@@ -3078,6 +3133,16 @@ Partial Class FrmLegalizacao
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Empresa Fácil"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'BtnCopiarPRP
+        '
+        Me.BtnCopiarPRP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarPRP.Location = New System.Drawing.Point(265, 36)
+        Me.BtnCopiarPRP.Name = "BtnCopiarPRP"
+        Me.BtnCopiarPRP.Size = New System.Drawing.Size(46, 21)
+        Me.BtnCopiarPRP.TabIndex = 81
+        Me.BtnCopiarPRP.Text = "Copiar"
+        Me.BtnCopiarPRP.UseVisualStyleBackColor = True
         '
         'BtnVerEmpresaFacil
         '
@@ -3107,7 +3172,7 @@ Partial Class FrmLegalizacao
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoesLEgalizacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(536, 11)
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(230, 114)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
         Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(73, 23)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 71
@@ -3134,39 +3199,11 @@ Partial Class FrmLegalizacao
         Me.BtnData2.Text = "Agora"
         Me.BtnData2.UseVisualStyleBackColor = True
         '
-        'LinkLabelMudarRazaoSocial
-        '
-        Me.LinkLabelMudarRazaoSocial.AutoSize = True
-        Me.LinkLabelMudarRazaoSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.LinkLabelMudarRazaoSocial.Location = New System.Drawing.Point(198, 135)
-        Me.LinkLabelMudarRazaoSocial.Name = "LinkLabelMudarRazaoSocial"
-        Me.LinkLabelMudarRazaoSocial.Size = New System.Drawing.Size(101, 13)
-        Me.LinkLabelMudarRazaoSocial.TabIndex = 50
-        Me.LinkLabelMudarRazaoSocial.TabStop = True
-        Me.LinkLabelMudarRazaoSocial.Text = "Mudar Razão Social"
-        '
-        'LabelNovaRazaoFinal
-        '
-        Me.LabelNovaRazaoFinal.AutoSize = True
-        Me.LabelNovaRazaoFinal.Location = New System.Drawing.Point(8, 99)
-        Me.LabelNovaRazaoFinal.Name = "LabelNovaRazaoFinal"
-        Me.LabelNovaRazaoFinal.Size = New System.Drawing.Size(147, 13)
-        Me.LabelNovaRazaoFinal.TabIndex = 49
-        Me.LabelNovaRazaoFinal.Text = "Resultado- nova razão social:"
-        '
-        'NovaRazaoSocialFinalTextBox
-        '
-        Me.NovaRazaoSocialFinalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocialFinal", True))
-        Me.NovaRazaoSocialFinalTextBox.Location = New System.Drawing.Point(14, 115)
-        Me.NovaRazaoSocialFinalTextBox.Name = "NovaRazaoSocialFinalTextBox"
-        Me.NovaRazaoSocialFinalTextBox.Size = New System.Drawing.Size(285, 20)
-        Me.NovaRazaoSocialFinalTextBox.TabIndex = 48
-        '
         'Button48
         '
         Me.Button48.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button48.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button48.Location = New System.Drawing.Point(320, 10)
+        Me.Button48.Location = New System.Drawing.Point(14, 113)
         Me.Button48.Name = "Button48"
         Me.Button48.Size = New System.Drawing.Size(60, 24)
         Me.Button48.TabIndex = 47
@@ -3175,24 +3212,25 @@ Partial Class FrmLegalizacao
         '
         'TabControl1
         '
+        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons
         Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage20)
         Me.TabControl1.Controls.Add(Me.TabPage11)
-        Me.TabControl1.Location = New System.Drawing.Point(317, 43)
+        Me.TabControl1.Location = New System.Drawing.Point(317, 10)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(292, 190)
+        Me.TabControl1.Size = New System.Drawing.Size(292, 223)
         Me.TabControl1.TabIndex = 46
         '
         'TabPage9
         '
         Me.TabPage9.Controls.Add(Me.GroupBox6)
         Me.TabPage9.Controls.Add(Me.GroupBox5)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 25)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(284, 164)
+        Me.TabPage9.Size = New System.Drawing.Size(284, 194)
         Me.TabPage9.TabIndex = 1
         Me.TabPage9.Text = "NIRE"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -3285,6 +3323,12 @@ Partial Class FrmLegalizacao
         '
         'TabPage8
         '
+        Me.TabPage8.AutoScroll = True
+        Me.TabPage8.Controls.Add(Me.GroupBox13)
+        Me.TabPage8.Controls.Add(NAlteracaoLabel1)
+        Me.TabPage8.Controls.Add(Me.NAlteracaoLabel2)
+        Me.TabPage8.Controls.Add(ProcessoLabel1)
+        Me.TabPage8.Controls.Add(Me.ProcessoLabel2)
         Me.TabPage8.Controls.Add(Me.BtnArrumar)
         Me.TabPage8.Controls.Add(Me.Button41)
         Me.TabPage8.Controls.Add(Me.Button40)
@@ -3296,18 +3340,40 @@ Partial Class FrmLegalizacao
         Me.TabPage8.Controls.Add(PastaDocumentosLabel)
         Me.TabPage8.Controls.Add(Me.ArquivoContratoTextBox)
         Me.TabPage8.Controls.Add(Me.Button38)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 25)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(284, 164)
+        Me.TabPage8.Size = New System.Drawing.Size(284, 194)
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Arquivos"
         Me.TabPage8.UseVisualStyleBackColor = True
         '
+        'NAlteracaoLabel2
+        '
+        Me.NAlteracaoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NAlteracao", True))
+        Me.NAlteracaoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NAlteracaoLabel2.ForeColor = System.Drawing.Color.Red
+        Me.NAlteracaoLabel2.Location = New System.Drawing.Point(215, 8)
+        Me.NAlteracaoLabel2.Name = "NAlteracaoLabel2"
+        Me.NAlteracaoLabel2.Size = New System.Drawing.Size(52, 21)
+        Me.NAlteracaoLabel2.TabIndex = 50
+        Me.NAlteracaoLabel2.Text = "0______"
+        '
+        'ProcessoLabel2
+        '
+        Me.ProcessoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
+        Me.ProcessoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProcessoLabel2.ForeColor = System.Drawing.Color.Red
+        Me.ProcessoLabel2.Location = New System.Drawing.Point(76, 8)
+        Me.ProcessoLabel2.Name = "ProcessoLabel2"
+        Me.ProcessoLabel2.Size = New System.Drawing.Size(100, 21)
+        Me.ProcessoLabel2.TabIndex = 49
+        Me.ProcessoLabel2.Text = "0_____________________"
+        '
         'BtnArrumar
         '
         Me.BtnArrumar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnArrumar.Location = New System.Drawing.Point(213, 127)
+        Me.BtnArrumar.Location = New System.Drawing.Point(213, 164)
         Me.BtnArrumar.Name = "BtnArrumar"
         Me.BtnArrumar.Size = New System.Drawing.Size(55, 23)
         Me.BtnArrumar.TabIndex = 48
@@ -3317,7 +3383,7 @@ Partial Class FrmLegalizacao
         'Button41
         '
         Me.Button41.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button41.Location = New System.Drawing.Point(77, 127)
+        Me.Button41.Location = New System.Drawing.Point(77, 164)
         Me.Button41.Name = "Button41"
         Me.Button41.Size = New System.Drawing.Size(62, 23)
         Me.Button41.TabIndex = 47
@@ -3327,7 +3393,7 @@ Partial Class FrmLegalizacao
         'Button40
         '
         Me.Button40.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button40.Location = New System.Drawing.Point(77, 49)
+        Me.Button40.Location = New System.Drawing.Point(77, 86)
         Me.Button40.Name = "Button40"
         Me.Button40.Size = New System.Drawing.Size(62, 23)
         Me.Button40.TabIndex = 46
@@ -3337,7 +3403,7 @@ Partial Class FrmLegalizacao
         'Button31
         '
         Me.Button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button31.Location = New System.Drawing.Point(9, 127)
+        Me.Button31.Location = New System.Drawing.Point(9, 164)
         Me.Button31.Name = "Button31"
         Me.Button31.Size = New System.Drawing.Size(62, 23)
         Me.Button31.TabIndex = 45
@@ -3347,7 +3413,7 @@ Partial Class FrmLegalizacao
         'PastaDocumentosTextBox
         '
         Me.PastaDocumentosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PastaDocumentos", True))
-        Me.PastaDocumentosTextBox.Location = New System.Drawing.Point(9, 101)
+        Me.PastaDocumentosTextBox.Location = New System.Drawing.Point(9, 138)
         Me.PastaDocumentosTextBox.Name = "PastaDocumentosTextBox"
         Me.PastaDocumentosTextBox.Size = New System.Drawing.Size(256, 20)
         Me.PastaDocumentosTextBox.TabIndex = 43
@@ -3355,7 +3421,7 @@ Partial Class FrmLegalizacao
         'Button15
         '
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button15.Location = New System.Drawing.Point(9, 49)
+        Me.Button15.Location = New System.Drawing.Point(9, 86)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(62, 23)
         Me.Button15.TabIndex = 40
@@ -3365,7 +3431,7 @@ Partial Class FrmLegalizacao
         'Button14
         '
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Location = New System.Drawing.Point(145, 49)
+        Me.Button14.Location = New System.Drawing.Point(145, 86)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(62, 23)
         Me.Button14.TabIndex = 36
@@ -3375,7 +3441,7 @@ Partial Class FrmLegalizacao
         'ArquivoContratoTextBox
         '
         Me.ArquivoContratoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ArquivoContrato", True))
-        Me.ArquivoContratoTextBox.Location = New System.Drawing.Point(9, 24)
+        Me.ArquivoContratoTextBox.Location = New System.Drawing.Point(9, 61)
         Me.ArquivoContratoTextBox.Name = "ArquivoContratoTextBox"
         Me.ArquivoContratoTextBox.Size = New System.Drawing.Size(256, 20)
         Me.ArquivoContratoTextBox.TabIndex = 37
@@ -3383,7 +3449,7 @@ Partial Class FrmLegalizacao
         'Button38
         '
         Me.Button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button38.Location = New System.Drawing.Point(145, 127)
+        Me.Button38.Location = New System.Drawing.Point(145, 164)
         Me.Button38.Name = "Button38"
         Me.Button38.Size = New System.Drawing.Size(62, 23)
         Me.Button38.TabIndex = 44
@@ -3400,9 +3466,9 @@ Partial Class FrmLegalizacao
         Me.TabPage20.Controls.Add(Me.BtnAbrirDoc)
         Me.TabPage20.Controls.Add(Label10)
         Me.TabPage20.Controls.Add(Me.BtnSalvarDoc)
-        Me.TabPage20.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage20.Location = New System.Drawing.Point(4, 25)
         Me.TabPage20.Name = "TabPage20"
-        Me.TabPage20.Size = New System.Drawing.Size(284, 164)
+        Me.TabPage20.Size = New System.Drawing.Size(284, 194)
         Me.TabPage20.TabIndex = 3
         Me.TabPage20.Text = "Anexo"
         Me.TabPage20.UseVisualStyleBackColor = True
@@ -3468,10 +3534,10 @@ Partial Class FrmLegalizacao
         'TabPage11
         '
         Me.TabPage11.Controls.Add(Me.GroupBox3)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 25)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(284, 164)
+        Me.TabPage11.Size = New System.Drawing.Size(284, 194)
         Me.TabPage11.TabIndex = 2
         Me.TabPage11.Text = "Ajuda"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -3521,7 +3587,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button12.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button12.Location = New System.Drawing.Point(386, 10)
+        Me.Button12.Location = New System.Drawing.Point(80, 113)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(145, 24)
         Me.Button12.TabIndex = 35
@@ -3612,6 +3678,16 @@ Partial Class FrmLegalizacao
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Receita Federal"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'BtnCopiarREDESIM
+        '
+        Me.BtnCopiarREDESIM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarREDESIM.Location = New System.Drawing.Point(265, 36)
+        Me.BtnCopiarREDESIM.Name = "BtnCopiarREDESIM"
+        Me.BtnCopiarREDESIM.Size = New System.Drawing.Size(47, 21)
+        Me.BtnCopiarREDESIM.TabIndex = 87
+        Me.BtnCopiarREDESIM.Text = "Copiar"
+        Me.BtnCopiarREDESIM.UseVisualStyleBackColor = True
         '
         'GroupBox9
         '
@@ -5439,25 +5515,14 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnCopiarPRP
+        'GroupBox13
         '
-        Me.BtnCopiarPRP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarPRP.Location = New System.Drawing.Point(265, 36)
-        Me.BtnCopiarPRP.Name = "BtnCopiarPRP"
-        Me.BtnCopiarPRP.Size = New System.Drawing.Size(46, 21)
-        Me.BtnCopiarPRP.TabIndex = 81
-        Me.BtnCopiarPRP.Text = "Copiar"
-        Me.BtnCopiarPRP.UseVisualStyleBackColor = True
-        '
-        'BtnCopiarREDESIM
-        '
-        Me.BtnCopiarREDESIM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarREDESIM.Location = New System.Drawing.Point(265, 36)
-        Me.BtnCopiarREDESIM.Name = "BtnCopiarREDESIM"
-        Me.BtnCopiarREDESIM.Size = New System.Drawing.Size(47, 21)
-        Me.BtnCopiarREDESIM.TabIndex = 87
-        Me.BtnCopiarREDESIM.Text = "Copiar"
-        Me.BtnCopiarREDESIM.UseVisualStyleBackColor = True
+        Me.GroupBox13.BackColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox13.Location = New System.Drawing.Point(6, 34)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(261, 10)
+        Me.GroupBox13.TabIndex = 51
+        Me.GroupBox13.TabStop = False
         '
         'FrmLegalizacao
         '
@@ -5926,4 +5991,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents LblTotalCnae As Label
     Friend WithEvents BtnCopiarPRP As Button
     Friend WithEvents BtnCopiarREDESIM As Button
+    Friend WithEvents ProcessoLabel2 As Label
+    Friend WithEvents NAlteracaoLabel2 As Label
+    Friend WithEvents GroupBox13 As GroupBox
 End Class

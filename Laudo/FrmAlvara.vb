@@ -406,7 +406,8 @@ Public Class FrmAlvara
     End Sub
 
     ' INICIO SALVAR
-
+    ' Variável para controlar o fechamento do formulário
+    Private cancelarFechamento As Boolean = False
     Private Sub Salvar()
         Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
 
@@ -455,11 +456,15 @@ Public Class FrmAlvara
                 Select Case result
                     Case DialogResult.Cancel
                         ' Não faça nada, apenas sair do método
-                        Exit Sub
+                        ' Exit Sub
+                        ' Define a variável como True para indicar que o fechamento foi cancelado.
+                        cancelarFechamento = True
 
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
                         ReverterAlteracoes()
+                        cancelarFechamento = False
+
 
                     Case DialogResult.Yes
                         Try
@@ -484,6 +489,8 @@ Public Class FrmAlvara
                         If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                             MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
+                        cancelarFechamento = False
+
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -848,6 +855,14 @@ Public Class FrmAlvara
 
     Private Sub LaudosConsulta_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Salvar()
+
+        ' Verifica se o fechamento foi cancelado.
+        If cancelarFechamento Then
+            ' Cancela o fechamento do formulário.
+            e.Cancel = True
+            ' Exibe uma mensagem para indicar que o fechamento foi interrompido.
+            MessageBox.Show("O fechamento foi cancelado.", "Fechamento Interrompido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
 
