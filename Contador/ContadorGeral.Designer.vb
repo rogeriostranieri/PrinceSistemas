@@ -547,7 +547,7 @@ Partial Class ContadorGeral
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(73, 22)
         Me.Button3.TabIndex = 38
-        Me.Button3.Text = "Buscar CEP"
+        Me.Button3.Text = "Preencher"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -865,9 +865,13 @@ Partial Class ContadorGeral
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Me.ContadorTableAdapter
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -879,6 +883,7 @@ Partial Class ContadorGeral
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete

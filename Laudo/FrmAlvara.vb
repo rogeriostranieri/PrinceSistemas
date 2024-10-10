@@ -966,7 +966,11 @@ Public Class FrmAlvara
 
             If resultado IsNot Nothing Then
                 EnderecoTextBox.Text = resultado.logradouro
-                EndCompTextBox.Text = resultado.complemento
+                If EndCompTextBox.Text = "" Then
+                    EndCompTextBox.Text = resultado.complemento
+                Else
+                    'nao faz nada
+                End If
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf
@@ -1148,6 +1152,7 @@ Public Class FrmAlvara
                 SituacaoComboBox.SelectedIndex = 0
                 'Limpando as BOX
                 NlaudoTextBox.Text = ""
+                NlaudoSecundarioTextBox.Text = ""
                 ModeloSistemaComboBox.Text = ""
                 NaturezaDoPedidoRichTextBox.Text = ""
 
@@ -1231,35 +1236,43 @@ Public Class FrmAlvara
         If ModeloSistemaComboBox.Text = "Consulta Prévia" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Online" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Antigo" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Empresa Fácil" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "Alvará Manual" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = False
 
         ElseIf ModeloSistemaComboBox.Text = "MEI - Dispensa de Alvará" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         ElseIf ModeloSistemaComboBox.Text = "MEI - Alvará Online" Then
             NlaudoLabel.Visible = True
             NlaudoTextBox.Visible = True
+            NlaudoSecundarioTextBox.Visible = True
             ButtonConsultar.Visible = True
         Else
             NlaudoLabel.Visible = False
             NlaudoTextBox.Visible = False
+            NlaudoSecundarioTextBox.Visible = False
             ButtonConsultar.Visible = False
 
         End If
@@ -2046,5 +2059,9 @@ Public Class FrmAlvara
             FrmSites.Show()
 
         End If
+    End Sub
+
+    Private Sub NlaudoSecundarioTextBox_TextChanged(sender As Object, e As EventArgs) Handles NlaudoSecundarioTextBox.TextChanged
+        NlaudoSecundarioTextBox.Text = NlaudoSecundarioTextBox.Text.Replace(" ", "")
     End Sub
 End Class

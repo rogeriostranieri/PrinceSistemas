@@ -296,7 +296,11 @@ Public Class FrmSocios
 
             If resultado IsNot Nothing Then
                 RUATextBox.Text = resultado.logradouro
-                ComplementoTextBox.Text = resultado.complemento
+                If ComplementoTextBox.Text = "" Then
+                    ComplementoTextBox.Text = resultado.complemento
+                Else
+                    'nao faz nada
+                End If
                 CidadeTextBox.Text = resultado.localidade
                 BairroTextBox.Text = resultado.bairro
                 EstadoTextBox.Text = resultado.uf

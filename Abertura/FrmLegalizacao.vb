@@ -3111,7 +3111,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             If resultado IsNot Nothing Then
                 ' Modificar apenas a primeira letra para minúscula
                 EnderecoTextBox.Text = PrimeiraLetraMinuscula(resultado.logradouro)
-                EndComplementoTextBox.Text = resultado.complemento
+                'EndComplementoTextBox.Text = resultado.complemento
+                If EndComplementoTextBox.Text = "" Then
+                    EndComplementoTextBox.Text = resultado.complemento
+                Else
+                    'nao faz nada
+                End If
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf

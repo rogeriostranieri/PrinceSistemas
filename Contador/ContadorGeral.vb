@@ -56,7 +56,11 @@
 
             If resultado IsNot Nothing Then
                 EnderecoTextBox.Text = resultado.logradouro
-                EndCompTextBox.Text = resultado.complemento
+                If EndCompTextBox.Text = "" Then
+                    EndCompTextBox.Text = resultado.complemento
+                Else
+                    'nao faz nada
+                End If
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf

@@ -66,6 +66,7 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarCPF = New System.Windows.Forms.Button()
         Me.BtnAtalhoConjuge = New System.Windows.Forms.Button()
         Me.BtnAtalhoEndereco = New System.Windows.Forms.Button()
         Me.BtnCopiarSenhaGov = New System.Windows.Forms.Button()
@@ -160,7 +161,6 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnCopiarCPF = New System.Windows.Forms.Button()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -550,9 +550,13 @@ Partial Class FrmSocios
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -564,6 +568,7 @@ Partial Class FrmSocios
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -577,7 +582,7 @@ Partial Class FrmSocios
         Me.TabControl1.Location = New System.Drawing.Point(3, 98)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(591, 322)
+        Me.TabControl1.Size = New System.Drawing.Size(591, 321)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
@@ -586,7 +591,7 @@ Partial Class FrmSocios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(583, 296)
+        Me.TabPage1.Size = New System.Drawing.Size(583, 295)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -639,10 +644,21 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxDadosPessoais.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 290)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(577, 289)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
+        '
+        'BtnCopiarCPF
+        '
+        Me.BtnCopiarCPF.BackColor = System.Drawing.Color.Azure
+        Me.BtnCopiarCPF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarCPF.Location = New System.Drawing.Point(220, 23)
+        Me.BtnCopiarCPF.Name = "BtnCopiarCPF"
+        Me.BtnCopiarCPF.Size = New System.Drawing.Size(46, 20)
+        Me.BtnCopiarCPF.TabIndex = 67
+        Me.BtnCopiarCPF.Text = "Copiar"
+        Me.BtnCopiarCPF.UseVisualStyleBackColor = False
         '
         'BtnAtalhoConjuge
         '
@@ -888,7 +904,7 @@ Partial Class FrmSocios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(583, 297)
+        Me.TabPage2.Size = New System.Drawing.Size(583, 295)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -925,7 +941,7 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxOutrosDados.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 291)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(577, 289)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
@@ -1072,7 +1088,7 @@ Partial Class FrmSocios
         Me.TabPage3.Controls.Add(Me.GroupBoxConjuge)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(583, 297)
+        Me.TabPage3.Size = New System.Drawing.Size(583, 296)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Cônjuge"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1089,7 +1105,7 @@ Partial Class FrmSocios
         Me.GroupBoxConjuge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxConjuge.Location = New System.Drawing.Point(0, 0)
         Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
-        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 297)
+        Me.GroupBoxConjuge.Size = New System.Drawing.Size(583, 296)
         Me.GroupBoxConjuge.TabIndex = 4
         Me.GroupBoxConjuge.TabStop = False
         Me.GroupBoxConjuge.Text = "Dado do Cônjuge"
@@ -1143,7 +1159,7 @@ Partial Class FrmSocios
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(583, 297)
+        Me.TabPage4.Size = New System.Drawing.Size(583, 296)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "Outros Dados"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1155,7 +1171,7 @@ Partial Class FrmSocios
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(577, 291)
+        Me.GroupBox4.Size = New System.Drawing.Size(577, 290)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
@@ -1178,7 +1194,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 426)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 425)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(593, 56)
         Me.GroupBox2.TabIndex = 58
@@ -1297,7 +1313,7 @@ Partial Class FrmSocios
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(602, 98)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(93, 322)
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 321)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -1399,7 +1415,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.BtnADDSocioCapital)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 488)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(602, 487)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Size = New System.Drawing.Size(93, 218)
         Me.GroupBoxMenuCapitalSocial.TabIndex = 63
@@ -1459,9 +1475,9 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
         Me.GroupBoxCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 488)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(3, 487)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
-        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 287)
+        Me.GroupBoxCapitalSocial.Size = New System.Drawing.Size(593, 288)
         Me.GroupBoxCapitalSocial.TabIndex = 64
         Me.GroupBoxCapitalSocial.TabStop = False
         '
@@ -1644,17 +1660,6 @@ Partial Class FrmSocios
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'BtnCopiarCPF
-        '
-        Me.BtnCopiarCPF.BackColor = System.Drawing.Color.Azure
-        Me.BtnCopiarCPF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarCPF.Location = New System.Drawing.Point(220, 23)
-        Me.BtnCopiarCPF.Name = "BtnCopiarCPF"
-        Me.BtnCopiarCPF.Size = New System.Drawing.Size(46, 20)
-        Me.BtnCopiarCPF.TabIndex = 67
-        Me.BtnCopiarCPF.Text = "Copiar"
-        Me.BtnCopiarCPF.UseVisualStyleBackColor = False
         '
         'FrmSocios
         '

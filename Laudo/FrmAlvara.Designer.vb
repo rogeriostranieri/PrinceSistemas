@@ -77,6 +77,7 @@ Partial Class FrmAlvara
         Dim ReciboProcessoLabel As System.Windows.Forms.Label
         Dim MatrizLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
+        Dim NlaudoSecundarioLabel As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -246,6 +247,7 @@ Partial Class FrmAlvara
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.BtnContLigacao = New System.Windows.Forms.Button()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnCadSite = New System.Windows.Forms.Button()
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.BtnAnotacoesPref = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -311,7 +313,7 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
-        Me.BtnCadSite = New System.Windows.Forms.Button()
+        Me.NlaudoSecundarioTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -365,6 +367,7 @@ Partial Class FrmAlvara
         NumeroProcessoLabel = New System.Windows.Forms.Label()
         ReciboProcessoLabel = New System.Windows.Forms.Label()
         MatrizLabel = New System.Windows.Forms.Label()
+        NlaudoSecundarioLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -501,7 +504,7 @@ Partial Class FrmAlvara
         'ModeloSistemaLabel
         '
         ModeloSistemaLabel.AutoSize = True
-        ModeloSistemaLabel.Location = New System.Drawing.Point(55, 49)
+        ModeloSistemaLabel.Location = New System.Drawing.Point(56, 75)
         ModeloSistemaLabel.Name = "ModeloSistemaLabel"
         ModeloSistemaLabel.Size = New System.Drawing.Size(47, 13)
         ModeloSistemaLabel.TabIndex = 38
@@ -838,7 +841,7 @@ Partial Class FrmAlvara
         'BombeiroSituacaoLabel
         '
         BombeiroSituacaoLabel.AutoSize = True
-        BombeiroSituacaoLabel.Location = New System.Drawing.Point(4, 90)
+        BombeiroSituacaoLabel.Location = New System.Drawing.Point(4, 102)
         BombeiroSituacaoLabel.Name = "BombeiroSituacaoLabel"
         BombeiroSituacaoLabel.Size = New System.Drawing.Size(99, 13)
         BombeiroSituacaoLabel.TabIndex = 75
@@ -936,6 +939,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -1887,7 +1891,7 @@ Partial Class FrmAlvara
         '
         Me.ModeloSistemaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "ModeloSistema", True))
         Me.ModeloSistemaComboBox.FormattingEnabled = True
-        Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(103, 46)
+        Me.ModeloSistemaComboBox.Location = New System.Drawing.Point(104, 72)
         Me.ModeloSistemaComboBox.Name = "ModeloSistemaComboBox"
         Me.ModeloSistemaComboBox.Size = New System.Drawing.Size(178, 21)
         Me.ModeloSistemaComboBox.TabIndex = 39
@@ -2113,7 +2117,9 @@ Partial Class FrmAlvara
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(NlaudoSecundarioLabel)
         Me.GroupBox4.Controls.Add(Me.BtnVerObsGeral)
+        Me.GroupBox4.Controls.Add(Me.NlaudoSecundarioTextBox)
         Me.GroupBox4.Controls.Add(Me.ObservacaoRichTextBox)
         Me.GroupBox4.Controls.Add(Me.BtnAnotacoes)
         Me.GroupBox4.Controls.Add(Me.NlaudoLabel)
@@ -2185,7 +2191,7 @@ Partial Class FrmAlvara
         Me.BtnBombVer.BackgroundImage = CType(resources.GetObject("BtnBombVer.BackgroundImage"), System.Drawing.Image)
         Me.BtnBombVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnBombVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBombVer.Location = New System.Drawing.Point(287, 87)
+        Me.BtnBombVer.Location = New System.Drawing.Point(287, 99)
         Me.BtnBombVer.Name = "BtnBombVer"
         Me.BtnBombVer.Size = New System.Drawing.Size(41, 21)
         Me.BtnBombVer.TabIndex = 77
@@ -2196,7 +2202,7 @@ Partial Class FrmAlvara
         '
         Me.BombeiroSituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "BombeiroSituacao", True))
         Me.BombeiroSituacaoComboBox.FormattingEnabled = True
-        Me.BombeiroSituacaoComboBox.Location = New System.Drawing.Point(103, 87)
+        Me.BombeiroSituacaoComboBox.Location = New System.Drawing.Point(103, 99)
         Me.BombeiroSituacaoComboBox.Name = "BombeiroSituacaoComboBox"
         Me.BombeiroSituacaoComboBox.Size = New System.Drawing.Size(175, 21)
         Me.BombeiroSituacaoComboBox.TabIndex = 76
@@ -2785,6 +2791,20 @@ Partial Class FrmAlvara
         Me.TabPage14.Text = "Procedimento"
         Me.TabPage14.UseVisualStyleBackColor = True
         '
+        'BtnCadSite
+        '
+        Me.BtnCadSite.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.BtnCadSite.BackgroundImage = CType(resources.GetObject("BtnCadSite.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCadSite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCadSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCadSite.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCadSite.Location = New System.Drawing.Point(258, 22)
+        Me.BtnCadSite.Name = "BtnCadSite"
+        Me.BtnCadSite.Size = New System.Drawing.Size(155, 52)
+        Me.BtnCadSite.TabIndex = 81
+        Me.BtnCadSite.Text = "Cadastrar Sites"
+        Me.BtnCadSite.UseVisualStyleBackColor = False
+        '
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
@@ -3022,7 +3042,7 @@ Partial Class FrmAlvara
         Me.ButtonSolicitar.BackgroundImage = CType(resources.GetObject("ButtonSolicitar.BackgroundImage"), System.Drawing.Image)
         Me.ButtonSolicitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonSolicitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonSolicitar.Location = New System.Drawing.Point(288, 44)
+        Me.ButtonSolicitar.Location = New System.Drawing.Point(289, 70)
         Me.ButtonSolicitar.Name = "ButtonSolicitar"
         Me.ButtonSolicitar.Size = New System.Drawing.Size(78, 24)
         Me.ButtonSolicitar.TabIndex = 51
@@ -3518,19 +3538,22 @@ Partial Class FrmAlvara
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
         '
-        'BtnCadSite
+        'NlaudoSecundarioLabel
         '
-        Me.BtnCadSite.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.BtnCadSite.BackgroundImage = CType(resources.GetObject("BtnCadSite.BackgroundImage"), System.Drawing.Image)
-        Me.BtnCadSite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCadSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCadSite.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCadSite.Location = New System.Drawing.Point(258, 22)
-        Me.BtnCadSite.Name = "BtnCadSite"
-        Me.BtnCadSite.Size = New System.Drawing.Size(155, 52)
-        Me.BtnCadSite.TabIndex = 81
-        Me.BtnCadSite.Text = "Cadastrar Sites"
-        Me.BtnCadSite.UseVisualStyleBackColor = False
+        NlaudoSecundarioLabel.AutoSize = True
+        NlaudoSecundarioLabel.Location = New System.Drawing.Point(20, 49)
+        NlaudoSecundarioLabel.Name = "NlaudoSecundarioLabel"
+        NlaudoSecundarioLabel.Size = New System.Drawing.Size(83, 13)
+        NlaudoSecundarioLabel.TabIndex = 57
+        NlaudoSecundarioLabel.Text = "2º Nº do Laudo:"
+        '
+        'NlaudoSecundarioTextBox
+        '
+        Me.NlaudoSecundarioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NlaudoSecundario", True))
+        Me.NlaudoSecundarioTextBox.Location = New System.Drawing.Point(103, 46)
+        Me.NlaudoSecundarioTextBox.Name = "NlaudoSecundarioTextBox"
+        Me.NlaudoSecundarioTextBox.Size = New System.Drawing.Size(101, 20)
+        Me.NlaudoSecundarioTextBox.TabIndex = 58
         '
         'FrmAlvara
         '
@@ -3876,4 +3899,5 @@ Partial Class FrmAlvara
     Friend WithEvents AlvaraSistemaTableAdapter As PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter
     Friend WithEvents BtnCopiarRegistro As Button
     Friend WithEvents BtnCadSite As Button
+    Friend WithEvents NlaudoSecundarioTextBox As TextBox
 End Class
