@@ -3,11 +3,24 @@ Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms
 Imports System.Globalization
+Imports System.Text.RegularExpressions
+Imports System.Text
+
 
 
 Public Class FrmLegalizacao
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
+
+    '//////////////////////// importar FEDERAL CNPJ
+
+
+
+    '/////////////////// FIM IMPORTAR FEDERAL
+
+
+
 
     Private Sub Bloquear()
         ' Bloqueando todos os TextBox para edição, utilizando o namespace completo
@@ -1636,23 +1649,6 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     End Sub
 
-    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs)
-        Try
-            NomeFantasiaTextBox1.Text = NomeFantasiaTextBox.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub NomeFantasiaTextBox1_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox1.TextChanged
-        Try
-            NomeFantasiaTextBox.Text = NomeFantasiaTextBox1.Text
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Private Sub BtnCopiarSenhaGov_Click(sender As Object, e As EventArgs) Handles BtnCopiarSenhaGov.Click
         Dim Senha As String = SenhaGovTextBox.Text
@@ -3621,13 +3617,18 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Return resultado.Trim()
     End Function
 
+
+
     Private Sub CNAESecundarioRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles CNAESecundarioRichTextBox.TextChanged
         ' Conta as linhas dividindo o texto por quebras de linha (cobrindo todos os tipos de delimitadores)
         Dim linhas As Integer = CNAESecundarioRichTextBox.Text.Split({vbCr, vbLf}, StringSplitOptions.RemoveEmptyEntries).Length
 
         ' Verifica se há linhas e atualiza o Label com o total de linhas
-        LblTotalCnae.Text = If(linhas > 0, linhas.ToString(), "0")
+        LblTotalCnae.Text = If(linhas > 0, linhas.ToString(), "0") & " -"
     End Sub
+
+
+
 
     Private Sub BtnCopiarPRP_Click(sender As Object, e As EventArgs) Handles BtnCopiarPRP.Click
         ' Copia o conteúdo de ProtocoloJuntaComercialTextBox para a área de transferência
@@ -3649,4 +3650,129 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
+    Private Function RemoverCaracteresEspeciais(texto As String) As String
+        ' Remove acentos e caracteres especiais
+        Dim normalizedString As String = texto.Normalize(NormalizationForm.FormD)
+        Dim regex As New Regex("[^a-zA-Z0-9\s]")
+        Return regex.Replace(normalizedString, "").ToUpper()
+    End Function
+
+    Private Sub RazaoSocialAntigaTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialAntigaTextBox.TextChanged
+        RazaoSocialAntigaTextBox.Text = RemoverCaracteresEspeciais(RazaoSocialAntigaTextBox.Text)
+        RazaoSocialAntigaTextBox.SelectionStart = RazaoSocialAntigaTextBox.Text.Length ' Manter o cursor no final
+    End Sub
+
+    Private Sub NovaRazaoSocial1TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial1TextBox.TextChanged
+        NovaRazaoSocial1TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial1TextBox.Text)
+        NovaRazaoSocial1TextBox.SelectionStart = NovaRazaoSocial1TextBox.Text.Length
+    End Sub
+
+    Private Sub NovaRazaoSocial2TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial2TextBox.TextChanged
+        NovaRazaoSocial2TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial2TextBox.Text)
+        NovaRazaoSocial2TextBox.SelectionStart = NovaRazaoSocial2TextBox.Text.Length
+    End Sub
+
+    Private Sub NovaRazaoSocial3TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial3TextBox.TextChanged
+        NovaRazaoSocial3TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial3TextBox.Text)
+        NovaRazaoSocial3TextBox.SelectionStart = NovaRazaoSocial3TextBox.Text.Length
+    End Sub
+
+    Private Sub NomeFantasiaTextBox1_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox1.TextChanged
+        NomeFantasiaTextBox1.Text = RemoverCaracteresEspeciais(NomeFantasiaTextBox1.Text)
+        NomeFantasiaTextBox1.SelectionStart = NomeFantasiaTextBox1.Text.Length
+    End Sub
+
+    Private Sub NovaRazaoSocialFinalTextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialFinalTextBox.TextChanged
+        NovaRazaoSocialFinalTextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocialFinalTextBox.Text)
+        NovaRazaoSocialFinalTextBox.SelectionStart = NovaRazaoSocialFinalTextBox.Text.Length
+    End Sub
+
+    Private Sub RamoDeAtividadeRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles RamoDeAtividadeRichTextBox.TextChanged
+        ' Contar o número de caracteres no RichTextBox
+        Dim totalCaracteres As Integer = RamoDeAtividadeRichTextBox.Text.Length
+
+        ' Exibir o total de caracteres no label
+        LblContagemRamo.Text = "Total: " & totalCaracteres.ToString() & " / 7000" & " caracteres."
+
+        ' Verificar se o número de caracteres excede 7000
+        If totalCaracteres > 7000 Then
+            ' Mudar a cor do texto do label para vermelho
+            LblContagemRamo.ForeColor = Color.Red
+        Else
+            ' Caso contrário, manter a cor do texto preta
+            LblContagemRamo.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
+        If EndCidadeTextBox.Text = "MARINGA" Then
+            EndCidadeTextBox.Text = "Maringá"
+        ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
+            EndCidadeTextBox.Text = "Paiçandu"
+        End If
+    End Sub
+
+    '////////////////////////// ARRUMAR CNAE PRINCIPAL E SECUNDARIO'
+
+
+    Public Sub ArrumaCNAEPrincipal()
+        ' Remove espaços extras
+        Dim cnae As String = CNAEPrincipalTextBox.Text.Trim()
+
+        ' Verifica se já está formatado corretamente (no padrão XXXX-X/XX)
+        If Not System.Text.RegularExpressions.Regex.IsMatch(cnae, "^\d{4}-\d/\d{2}$") Then
+            ' Remove todos os caracteres que não são números
+            cnae = New String(cnae.Where(AddressOf Char.IsDigit).ToArray())
+
+            ' Verifica se o CNAE tem pelo menos 7 dígitos
+            If cnae.Length >= 7 Then
+                ' Aplica o formato XXXX-X/XX
+                Dim cnaeFormatado As String = cnae.Substring(0, 4) & "-" & cnae.Substring(4, 1) & "/" & cnae.Substring(5, 2)
+
+                ' Atualiza o TextBox com o CNAE formatado
+                CNAEPrincipalTextBox.Text = cnaeFormatado
+            End If
+        End If
+    End Sub
+
+
+    Public Sub ArrumaCNAESecundario()
+        ' Divide o texto por linhas
+        Dim cnaes As String() = CNAESecundarioRichTextBox.Text.Split({vbCr, vbLf}, StringSplitOptions.RemoveEmptyEntries)
+
+        ' Variável para armazenar os CNAEs formatados
+        Dim cnaesFormatados As New List(Of String)
+
+        ' Loop para formatar cada linha
+        For Each cnae In cnaes
+            ' Remove espaços extras
+            cnae = cnae.Trim()
+
+            ' Verifica se já está formatado corretamente (no padrão XXXX-X/XX)
+            If Not System.Text.RegularExpressions.Regex.IsMatch(cnae, "^\d{4}-\d/\d{2}$") Then
+                ' Remove todos os caracteres que não são números
+                cnae = New String(cnae.Where(AddressOf Char.IsDigit).ToArray())
+
+                ' Verifica se o CNAE tem pelo menos 7 dígitos
+                If cnae.Length >= 7 Then
+                    ' Aplica o formato XXXX-X/XX
+                    Dim cnaeFormatado As String = cnae.Substring(0, 4) & "-" & cnae.Substring(4, 1) & "/" & cnae.Substring(5, 2)
+                    cnaesFormatados.Add(cnaeFormatado)
+                Else
+                    ' Se o CNAE for inválido, simplesmente adiciona o texto sem formatação
+                    cnaesFormatados.Add(cnae)
+                End If
+            Else
+                ' Se já estiver formatado corretamente, apenas adiciona
+                cnaesFormatados.Add(cnae)
+            End If
+        Next
+
+        ' Atualiza o conteúdo do RichTextBox com os CNAEs formatados
+        CNAESecundarioRichTextBox.Text = String.Join(Environment.NewLine, cnaesFormatados)
+
+        ' Atualiza o Label com o total de linhas (CNAEs)
+        LblTotalCnae.Text = cnaesFormatados.Count.ToString()
+    End Sub
+    '////////////////////////// FIM ARRUMAR CNAE PRINCIPAL E SECUNDARIO
 End Class

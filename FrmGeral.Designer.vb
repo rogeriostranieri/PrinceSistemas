@@ -85,6 +85,7 @@ Partial Class FrmGeral
         Me.ListViewGeral.Location = New System.Drawing.Point(12, 96)
         Me.ListViewGeral.Name = "ListViewGeral"
         Me.ListViewGeral.Size = New System.Drawing.Size(472, 464)
+        Me.ListViewGeral.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.ListViewGeral.TabIndex = 17
         Me.ListViewGeral.UseCompatibleStateImageBehavior = False
         '

@@ -31,9 +31,9 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnImportar = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
+        Me.BtnImportarFederal = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -46,19 +46,22 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(230, 113)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(165, 349)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(219, 45)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
+        Me.OK_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OK_Button.Location = New System.Drawing.Point(4, 5)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
+        Me.OK_Button.Size = New System.Drawing.Size(100, 35)
         Me.OK_Button.TabIndex = 0
         Me.OK_Button.Text = "OK"
         '
@@ -66,30 +69,36 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(76, 3)
+        Me.Cancel_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cancel_Button.Location = New System.Drawing.Point(114, 5)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
+        Me.Cancel_Button.Size = New System.Drawing.Size(100, 35)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
         'BtnExterno
         '
-        Me.BtnExterno.BackColor = System.Drawing.Color.Transparent
-        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExterno.Location = New System.Drawing.Point(12, 56)
+        Me.BtnExterno.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.BtnExterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExterno.Location = New System.Drawing.Point(18, 72)
+        Me.BtnExterno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnExterno.Name = "BtnExterno"
-        Me.BtnExterno.Size = New System.Drawing.Size(117, 50)
+        Me.BtnExterno.Size = New System.Drawing.Size(176, 77)
         Me.BtnExterno.TabIndex = 1
         Me.BtnExterno.Text = "Abrir Externo"
         Me.BtnExterno.UseVisualStyleBackColor = False
         '
         'BtnInterno
         '
-        Me.BtnInterno.BackColor = System.Drawing.Color.Transparent
-        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInterno.Location = New System.Drawing.Point(135, 56)
+        Me.BtnInterno.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.BtnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnInterno.Location = New System.Drawing.Point(202, 72)
+        Me.BtnInterno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnInterno.Name = "BtnInterno"
-        Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
+        Me.BtnInterno.Size = New System.Drawing.Size(176, 77)
         Me.BtnInterno.TabIndex = 2
         Me.BtnInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.BtnInterno.UseVisualStyleBackColor = False
@@ -98,52 +107,72 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 19)
+        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(42, 32)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(216, 19)
+        Me.Label1.Size = New System.Drawing.Size(312, 27)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Deseja abrir a consulta CNPJ..."
         '
         'BtnImportar
         '
-        Me.BtnImportar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnImportar.Location = New System.Drawing.Point(258, 56)
+        Me.BtnImportar.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.BtnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportar.Location = New System.Drawing.Point(18, 224)
+        Me.BtnImportar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnImportar.Name = "BtnImportar"
-        Me.BtnImportar.Size = New System.Drawing.Size(117, 50)
+        Me.BtnImportar.Size = New System.Drawing.Size(176, 77)
         Me.BtnImportar.TabIndex = 4
-        Me.BtnImportar.Text = "Importar Dados"
+        Me.BtnImportar.Text = "Importar Dados Completo"
         Me.BtnImportar.UseVisualStyleBackColor = False
         '
-        'WebView21
+        'BtnImportarFederal
         '
-        Me.WebView21.AllowExternalDrop = True
-        Me.WebView21.CreationProperties = Nothing
-        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
-        Me.WebView21.Location = New System.Drawing.Point(12, 119)
-        Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(75, 23)
-        Me.WebView21.TabIndex = 6
-        Me.WebView21.ZoomFactor = 1.0R
+        Me.BtnImportarFederal.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.BtnImportarFederal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnImportarFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportarFederal.Location = New System.Drawing.Point(202, 224)
+        Me.BtnImportarFederal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnImportarFederal.Name = "BtnImportarFederal"
+        Me.BtnImportarFederal.Size = New System.Drawing.Size(176, 77)
+        Me.BtnImportarFederal.TabIndex = 8
+        Me.BtnImportarFederal.Text = "Importar Dados FEDERAL"
+        Me.BtnImportarFederal.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(42, 192)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(316, 27)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Deseja abrir a importar CNPJ..."
         '
         'BoxConsultaCNPJEmpresa
         '
         Me.AcceptButton = Me.OK_Button
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(388, 154)
-        Me.Controls.Add(Me.WebView21)
+        Me.ClientSize = New System.Drawing.Size(402, 412)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.BtnImportarFederal)
         Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "BoxConsultaCNPJEmpresa"
@@ -151,7 +180,6 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta CNPJ - Prince Sistemas"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,5 +192,6 @@ Partial Class BoxConsultaCNPJEmpresa
     Friend WithEvents Label1 As Label
     Friend WithEvents BtnImportar As Button
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
+    Friend WithEvents BtnImportarFederal As Button
+    Friend WithEvents Label2 As Label
 End Class

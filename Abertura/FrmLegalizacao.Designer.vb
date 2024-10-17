@@ -128,6 +128,7 @@ Partial Class FrmLegalizacao
         Dim EndEstadoLabel1 As System.Windows.Forms.Label
         Dim ProcessoLabel1 As System.Windows.Forms.Label
         Dim NAlteracaoLabel1 As System.Windows.Forms.Label
+        Dim SenhasDeAcessoLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -185,6 +186,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LblContagemRamo = New System.Windows.Forms.Label()
         Me.LblTotalCnae = New System.Windows.Forms.Label()
         Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         Me.BtnCopiarRamo = New System.Windows.Forms.Button()
@@ -287,6 +289,7 @@ Partial Class FrmLegalizacao
         Me.NRegistroAltTextBox = New System.Windows.Forms.TextBox()
         Me.DataRegistroAltMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.NAlteracaoLabel2 = New System.Windows.Forms.Label()
         Me.ProcessoLabel2 = New System.Windows.Forms.Label()
         Me.BtnArrumar = New System.Windows.Forms.Button()
@@ -389,15 +392,17 @@ Partial Class FrmLegalizacao
         Me.Button32 = New System.Windows.Forms.Button()
         Me.BombeiroJuntaComboBox = New System.Windows.Forms.ComboBox()
         Me.PrefeituraObsRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.BtnAnotacoesDemais = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPage23 = New System.Windows.Forms.TabPage()
+        Me.SenhasDeAcessoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage17 = New System.Windows.Forms.TabPage()
         Me.ProcuracaoDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ProcuracaoNMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ProcuracaoComboBox = New System.Windows.Forms.ComboBox()
         Me.Button45 = New System.Windows.Forms.Button()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnAnotacoesDemais = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NovaRazaoSocialComboBox = New System.Windows.Forms.ComboBox()
         Me.AvisarDiaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -483,7 +488,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -589,6 +593,7 @@ Partial Class FrmLegalizacao
         EndEstadoLabel1 = New System.Windows.Forms.Label()
         ProcessoLabel1 = New System.Windows.Forms.Label()
         NAlteracaoLabel1 = New System.Windows.Forms.Label()
+        SenhasDeAcessoLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -629,8 +634,9 @@ Partial Class FrmLegalizacao
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.TabPage6.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.TabPage23.SuspendLayout()
         Me.TabPage17.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1594,6 +1600,16 @@ Partial Class FrmLegalizacao
         NAlteracaoLabel1.TabIndex = 49
         NAlteracaoLabel1.Text = "Nº:"
         '
+        'SenhasDeAcessoLabel
+        '
+        SenhasDeAcessoLabel.AutoSize = True
+        SenhasDeAcessoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        SenhasDeAcessoLabel.Location = New System.Drawing.Point(9, 17)
+        SenhasDeAcessoLabel.Name = "SenhasDeAcessoLabel"
+        SenhasDeAcessoLabel.Size = New System.Drawing.Size(240, 20)
+        SenhasDeAcessoLabel.TabIndex = 0
+        SenhasDeAcessoLabel.Text = "Senhas De Acesso da Empresa:"
+        '
         'EmpresasBindingNavigator
         '
         Me.EmpresasBindingNavigator.AddNewItem = Nothing
@@ -1730,8 +1746,9 @@ Partial Class FrmLegalizacao
         Me.TabControle.Controls.Add(Me.TabPage5)
         Me.TabControle.Controls.Add(Me.TabPage7)
         Me.TabControle.Controls.Add(Me.TabPage6)
-        Me.TabControle.Controls.Add(Me.TabPage2)
+        Me.TabControle.Controls.Add(Me.TabPage23)
         Me.TabControle.Controls.Add(Me.TabPage17)
+        Me.TabControle.Controls.Add(Me.TabPage2)
         Me.TabControle.Location = New System.Drawing.Point(6, 163)
         Me.TabControle.Name = "TabControle"
         Me.TabControle.SelectedIndex = 0
@@ -2174,6 +2191,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LblContagemRamo)
         Me.GroupBox1.Controls.Add(Me.LblTotalCnae)
         Me.GroupBox1.Controls.Add(Me.BtnGrauDeRisco)
         Me.GroupBox1.Controls.Add(Me.BtnCopiarRamo)
@@ -2193,15 +2211,24 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
         '
+        'LblContagemRamo
+        '
+        Me.LblContagemRamo.AutoSize = True
+        Me.LblContagemRamo.Location = New System.Drawing.Point(171, 171)
+        Me.LblContagemRamo.Name = "LblContagemRamo"
+        Me.LblContagemRamo.Size = New System.Drawing.Size(55, 13)
+        Me.LblContagemRamo.TabIndex = 84
+        Me.LblContagemRamo.Text = "Contagem"
+        '
         'LblTotalCnae
         '
         Me.LblTotalCnae.AutoSize = True
         Me.LblTotalCnae.Location = New System.Drawing.Point(3, 58)
         Me.LblTotalCnae.Name = "LblTotalCnae"
-        Me.LblTotalCnae.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.LblTotalCnae.Size = New System.Drawing.Size(19, 13)
         Me.LblTotalCnae.TabIndex = 83
         Me.LblTotalCnae.Text = "00"
+        Me.LblTotalCnae.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'BtnGrauDeRisco
         '
@@ -2276,7 +2303,7 @@ Partial Class FrmLegalizacao
         Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
         Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(171, 32)
         Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
-        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(245, 152)
+        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(245, 137)
         Me.RamoDeAtividadeRichTextBox.TabIndex = 32
         Me.RamoDeAtividadeRichTextBox.Text = ""
         '
@@ -3347,6 +3374,15 @@ Partial Class FrmLegalizacao
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Arquivos"
         Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.BackColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox13.Location = New System.Drawing.Point(6, 34)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(261, 10)
+        Me.GroupBox13.TabIndex = 51
+        Me.GroupBox13.TabStop = False
         '
         'NAlteracaoLabel2
         '
@@ -4450,48 +4486,27 @@ Partial Class FrmLegalizacao
         Me.PrefeituraObsRichTextBox.TabIndex = 40
         Me.PrefeituraObsRichTextBox.Text = ""
         '
-        'TabPage2
+        'TabPage23
         '
-        Me.TabPage2.Controls.Add(Me.BtnAnotacoesDemais)
-        Me.TabPage2.Controls.Add(Me.Button9)
-        Me.TabPage2.Controls.Add(HistoricoLabel)
-        Me.TabPage2.Controls.Add(Me.HistoricoRichTextBox)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(637, 239)
-        Me.TabPage2.TabIndex = 8
-        Me.TabPage2.Text = "Histórico"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.TabPage23.Controls.Add(SenhasDeAcessoLabel)
+        Me.TabPage23.Controls.Add(Me.SenhasDeAcessoRichTextBox)
+        Me.TabPage23.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage23.Name = "TabPage23"
+        Me.TabPage23.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage23.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage23.TabIndex = 10
+        Me.TabPage23.Text = "Senhas"
+        Me.TabPage23.UseVisualStyleBackColor = True
         '
-        'BtnAnotacoesDemais
+        'SenhasDeAcessoRichTextBox
         '
-        Me.BtnAnotacoesDemais.BackgroundImage = CType(resources.GetObject("BtnAnotacoesDemais.BackgroundImage"), System.Drawing.Image)
-        Me.BtnAnotacoesDemais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(492, 79)
-        Me.BtnAnotacoesDemais.Name = "BtnAnotacoesDemais"
-        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(108, 23)
-        Me.BtnAnotacoesDemais.TabIndex = 75
-        Me.BtnAnotacoesDemais.Text = "Anotações"
-        Me.BtnAnotacoesDemais.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button9.Location = New System.Drawing.Point(490, 34)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(110, 39)
-        Me.Button9.TabIndex = 50
-        Me.Button9.Text = "Voltar para Aba Geral"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'HistoricoRichTextBox
-        '
-        Me.HistoricoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Historico", True))
-        Me.HistoricoRichTextBox.Location = New System.Drawing.Point(18, 34)
-        Me.HistoricoRichTextBox.Name = "HistoricoRichTextBox"
-        Me.HistoricoRichTextBox.Size = New System.Drawing.Size(451, 180)
-        Me.HistoricoRichTextBox.TabIndex = 1
-        Me.HistoricoRichTextBox.Text = ""
+        Me.SenhasDeAcessoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SenhasDeAcesso", True))
+        Me.SenhasDeAcessoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SenhasDeAcessoRichTextBox.Location = New System.Drawing.Point(13, 40)
+        Me.SenhasDeAcessoRichTextBox.Name = "SenhasDeAcessoRichTextBox"
+        Me.SenhasDeAcessoRichTextBox.Size = New System.Drawing.Size(602, 183)
+        Me.SenhasDeAcessoRichTextBox.TabIndex = 1
+        Me.SenhasDeAcessoRichTextBox.Text = ""
         '
         'TabPage17
         '
@@ -4549,6 +4564,49 @@ Partial Class FrmLegalizacao
         Me.Button45.TabIndex = 41
         Me.Button45.Text = "Solicitar"
         Me.Button45.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.BtnAnotacoesDemais)
+        Me.TabPage2.Controls.Add(Me.Button9)
+        Me.TabPage2.Controls.Add(HistoricoLabel)
+        Me.TabPage2.Controls.Add(Me.HistoricoRichTextBox)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage2.TabIndex = 8
+        Me.TabPage2.Text = "Histórico"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'BtnAnotacoesDemais
+        '
+        Me.BtnAnotacoesDemais.BackgroundImage = CType(resources.GetObject("BtnAnotacoesDemais.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAnotacoesDemais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(492, 79)
+        Me.BtnAnotacoesDemais.Name = "BtnAnotacoesDemais"
+        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(108, 23)
+        Me.BtnAnotacoesDemais.TabIndex = 75
+        Me.BtnAnotacoesDemais.Text = "Anotações"
+        Me.BtnAnotacoesDemais.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Button9.Location = New System.Drawing.Point(490, 34)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(110, 39)
+        Me.Button9.TabIndex = 50
+        Me.Button9.Text = "Voltar para Aba Geral"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'HistoricoRichTextBox
+        '
+        Me.HistoricoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Historico", True))
+        Me.HistoricoRichTextBox.Location = New System.Drawing.Point(18, 34)
+        Me.HistoricoRichTextBox.Name = "HistoricoRichTextBox"
+        Me.HistoricoRichTextBox.Size = New System.Drawing.Size(451, 180)
+        Me.HistoricoRichTextBox.TabIndex = 1
+        Me.HistoricoRichTextBox.Text = ""
         '
         'LaudosBindingSource
         '
@@ -5515,15 +5573,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'GroupBox13
-        '
-        Me.GroupBox13.BackColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox13.Location = New System.Drawing.Point(6, 34)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(261, 10)
-        Me.GroupBox13.TabIndex = 51
-        Me.GroupBox13.TabStop = False
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5612,10 +5661,12 @@ Partial Class FrmLegalizacao
         Me.GroupBox8.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
+        Me.TabPage23.ResumeLayout(False)
+        Me.TabPage23.PerformLayout()
         Me.TabPage17.ResumeLayout(False)
         Me.TabPage17.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5994,4 +6045,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents ProcessoLabel2 As Label
     Friend WithEvents NAlteracaoLabel2 As Label
     Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents LblContagemRamo As Label
+    Friend WithEvents TabPage23 As TabPage
+    Friend WithEvents SenhasDeAcessoRichTextBox As RichTextBox
 End Class

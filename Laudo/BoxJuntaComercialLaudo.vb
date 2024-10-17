@@ -29,6 +29,9 @@ Public Class BoxJuntaComercialLaudo
         ComboBox1.Items.Add("Solicitar Alvara Novo")
         ComboBox1.Items.Add("Protocolar Prefeitura")
 
+        UsarLaudoCheck.Checked = False
+        CopiarLaudoCheck.Checked = True
+
         ' Verificar se o formulário FrmAlvara está aberto
         Dim frmAlvara = Application.OpenForms().OfType(Of FrmAlvara)().FirstOrDefault()
 
@@ -70,16 +73,28 @@ Public Class BoxJuntaComercialLaudo
                 End If
             End If
 
+
+            Copiar()
+
         Else
-            ' Se o FrmAlvara não estiver aberto, mostrar mensagem de erro
-            MessageBox.Show("O formulário FrmAlvara não está aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ' Se o FrmAlvara não estiver aberto, mostrar mensagem de erro
+                MessageBox.Show("O formulário FrmAlvara não está aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             ' Definir seleção padrão do ComboBox
             ComboBox1.SelectedIndex = 0
         End If
+        ComboBox1.Focus()
     End Sub
 
 
+    Private Sub Copiar()
+        If CopiarLaudoCheck.Checked = True Then
+            ' Copiar o conteúdo do NlaudoTextBox para a área de transferência
+            Clipboard.SetText(FrmAlvara.NlaudoTextBox.Text)
+        Else
+            ' Caso a checkbox não esteja marcada, você pode adicionar outra lógica aqui, se necessário
+        End If
+    End Sub
 
     '///////////////////////////////////////////
 
@@ -132,12 +147,19 @@ Public Class BoxJuntaComercialLaudo
                     command.Parameters.AddWithValue("@cidade", cidade)
 
                     ' Executar a consulta e obter o site
-                    Dim siteJuntaUnificada As String = Convert.ToString(command.ExecuteScalar())
+                    Dim siteUnificada As String = Convert.ToString(command.ExecuteScalar())
 
                     ' Se o site foi encontrado, concatenar o Protocolo e abrir o link
-                    If Not String.IsNullOrEmpty(siteJuntaUnificada) Then
-                        ' Concatenar o protocolo à URL do site
-                        Dim url As String = siteJuntaUnificada & "" & Protocolo
+                    If Not String.IsNullOrEmpty(siteUnificada) Then
+                        ' Declarar a variável url fora do If
+                        Dim url As String = siteUnificada
+
+                        ' Verificar se o CheckBox UsarLaudoCheck está marcado
+                        If UsarLaudoCheck.Checked Then
+                            ' Concatenar o protocolo à URL do site se estiver marcado
+                            url &= Protocolo
+                        End If
+
 
                         If interno Then
                             ' Abrir no WebSiteGERAL se for interno
@@ -187,13 +209,15 @@ Public Class BoxJuntaComercialLaudo
 
         ' Evento do botão BtnExterno para abrir no navegador externo
         Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
-            AbrirSite(False) ' Abrir no navegador externo
-        End Sub
+        AbrirSite(False) ' Abrir no navegador externo
+        Copiar()
+    End Sub
 
         ' Evento do botão BtnInterno para abrir no WebSiteGERAL
         Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
-            AbrirSite(True) ' Abrir no navegador interno
-        End Sub
+        AbrirSite(True) ' Abrir no navegador interno
+        Copiar()
+    End Sub
 
 
 End Class

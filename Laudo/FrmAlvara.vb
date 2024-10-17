@@ -842,9 +842,16 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
+        Dim razaosocial As String = RazaoSocialTextBox.Text
         Salvar()
-        '  PreSalvar()
+        If RazaoSocialTextBox.Text <> "" Then
+            ComboBoxBuscaAlvara.Text = razaosocial
+            ComboBoxBuscaAlvara.Focus()
+            InicializarControles()
 
+        Else
+            Me.Close()
+        End If
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click

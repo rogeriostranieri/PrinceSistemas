@@ -148,11 +148,82 @@ Public Class FrmGeral
 
 
 
-
-
     Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
         Dim termoBusca As String = TextBoxBusca.Text.Trim()
 
+        ' Limpar o ListView antes de exibir os resultados
+        ListViewGeral.Items.Clear()
+
+        ' Se o campo de busca estiver vazio, exibe todas as empresas
+        If String.IsNullOrEmpty(termoBusca) Then
+            For Each row As DataRow In allEmpresas.Rows
+                Dim tipo As String = If(row("TipoOriginal") IsNot DBNull.Value, row("TipoOriginal").ToString(), "Matriz")
+                Dim razaoSocial As String = If(row("RazaoSocial") IsNot DBNull.Value, row("RazaoSocial").ToString(), "Sem Razão Social")
+                Dim cnpj As String = If(row("CNPJ") IsNot DBNull.Value, row("CNPJ").ToString(), "Sem CNPJ")
+                Dim sourceTables As String = row("SourceTables").ToString()
+
+                ' Criar o ListViewItem com o tipo (SEDE/Matriz)
+                Dim listItem As New ListViewItem(tipo)
+                listItem.SubItems.Add(razaoSocial)
+                listItem.SubItems.Add(cnpj)
+                listItem.Tag = New With {.CNPJ = cnpj, .SourceTables = sourceTables, .TipoOriginal = tipo}
+
+                ' Adicionar o item ao ListView
+                ListViewGeral.Items.Add(listItem)
+            Next
+        Else
+            ' Dividir o termo de busca em palavras, levando em conta os espaços
+            Dim termosBusca As String() = termoBusca.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries)
+
+            ' Normalizar cada termo de busca (remover acentos e símbolos)
+            For i As Integer = 0 To termosBusca.Length - 1
+                termosBusca(i) = RemoverAcentos(termosBusca(i).ToLower())
+                termosBusca(i) = RemoverSimbolos(termosBusca(i))
+            Next
+
+            ' Adicionar os resultados filtrados ao ListView
+            For Each row As DataRow In allEmpresas.Rows
+                Dim tipo As String = If(row("TipoOriginal") IsNot DBNull.Value, row("TipoOriginal").ToString(), "Matriz")
+                Dim razaoSocial As String = If(row("RazaoSocial") IsNot DBNull.Value, row("RazaoSocial").ToString(), "Sem Razão Social")
+                Dim cnpj As String = If(row("CNPJ") IsNot DBNull.Value, row("CNPJ").ToString(), "Sem CNPJ")
+                Dim sourceTables As String = row("SourceTables").ToString()
+
+                ' Normalizar os campos para facilitar a busca
+                Dim razaoSocialNormalized As String = RemoverAcentos(razaoSocial.ToLower())
+                Dim cnpjNormalized As String = RemoverSimbolos(cnpj)
+
+                ' Verifica se todos os termos de busca estão presentes na razão social ou no CNPJ
+                Dim encontrou As Boolean = True
+                For Each termo In termosBusca
+                    If Not (razaoSocialNormalized.Contains(termo) OrElse cnpjNormalized.Contains(termo)) Then
+                        encontrou = False
+                        Exit For
+                    End If
+                Next
+
+                If encontrou Then
+                    ' Criar o ListViewItem com o tipo (SEDE/Matriz)
+                    Dim listItem As New ListViewItem(tipo)
+                    listItem.SubItems.Add(razaoSocial)
+                    listItem.SubItems.Add(cnpj)
+                    listItem.Tag = New With {.CNPJ = cnpj, .SourceTables = sourceTables, .TipoOriginal = tipo}
+
+                    ' Adicionar o item ao ListView
+                    ListViewGeral.Items.Add(listItem)
+                End If
+            Next
+        End If
+
+        ' Atualizar o Label com o total de empresas filtradas ou todas
+        Label2.Text = $"Total: {ListViewGeral.Items.Count} empresas"
+    End Sub
+
+
+
+    '//////////////////////////////// TEXT BOX BUSCA
+    Private Sub BackupTextbox()
+        'Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
+        Dim termoBusca As String = TextBoxBusca.Text.Trim()
         ' Se a caixa de busca estiver vazia, recarregar todas as empresas
         If String.IsNullOrEmpty(termoBusca) Then
             LoadEmpresas()
@@ -160,7 +231,9 @@ Public Class FrmGeral
             ' Caso contrário, filtrar empresas com base no termo de busca
             BuscarEmpresas(termoBusca)
         End If
-
+        ' Ordenar os itens no ListView em ordem alfabética (ascendente)
+        ListViewGeral.Sorting = SortOrder.Ascending
+        ListViewGeral.Sort()
         ' Atualizar o Label com o total de empresas filtradas
         Label2.Text = "Total: " & ListViewGeral.Items.Count.ToString() & " empresas"
     End Sub
@@ -213,27 +286,28 @@ Public Class FrmGeral
 
 
 
+    '///////////////////////////////////////     Function //////////////////////////////
 
-
-    Private Function RemoverSimbolos(texto As String) As String
-        Return New String(texto.Where(Function(c) Char.IsLetterOrDigit(c)).ToArray())
-    End Function
-
-
-
-    Private Function RemoverAcentos(texto As String) As String
-        Dim normalizedString As String = texto.Normalize(NormalizationForm.FormD)
+    ' Função para remover acentos
+    Private Function RemoverAcentos(input As String) As String
+        Dim normalizedString As String = input.Normalize(System.Text.NormalizationForm.FormD)
         Dim sb As New System.Text.StringBuilder()
-
         For Each c As Char In normalizedString
-            If System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) <> System.Globalization.UnicodeCategory.NonSpacingMark Then
+            If Globalization.CharUnicodeInfo.GetUnicodeCategory(c) <> Globalization.UnicodeCategory.NonSpacingMark Then
                 sb.Append(c)
             End If
         Next
-
-        Return sb.ToString().Normalize(NormalizationForm.FormC)
+        Return sb.ToString()
     End Function
 
+    ' Função para remover símbolos (como pontuações, traços, etc.)
+    Private Function RemoverSimbolos(input As String) As String
+        Return New String(input.Where(Function(c) Char.IsLetterOrDigit(c) OrElse Char.IsWhiteSpace(c)).ToArray())
+    End Function
+
+
+
+    '///////////////////////////////////////  FIM   Function //////////////////////////////
 
     Private Sub ListViewGeral_MouseMove(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseMove
         Dim item As ListViewItem = ListViewGeral.GetItemAt(e.X, e.Y)

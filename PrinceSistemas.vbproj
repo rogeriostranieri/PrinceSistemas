@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.AspNetCore.Components.WebView.8.0.10\build\Microsoft.AspNetCore.Components.WebView.props" Condition="Exists('packages\Microsoft.AspNetCore.Components.WebView.8.0.10\build\Microsoft.AspNetCore.Components.WebView.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -105,8 +106,14 @@
     <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.2792.45, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.WebView2.1.0.2792.45\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -380,6 +387,12 @@
       <DependentUpon>FrmCNAEOficialEscolha.vb</DependentUpon>
     </Compile>
     <Compile Include="CNAEs\FrmCNAEOficialEscolha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta CNPJ\FrmExtraiCNPJ.Designer.vb">
+      <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta CNPJ\FrmExtraiCNPJ.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="eMail\FrmEmailCaixaDeSaida.Designer.vb">
@@ -861,6 +874,9 @@
     <EmbeddedResource Include="CNAEs\FrmCNAEOficialEscolha.resx">
       <DependentUpon>FrmCNAEOficialEscolha.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consulta CNPJ\FrmExtraiCNPJ.resx">
+      <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="eMail\FrmEmailCaixaDeSaida.resx">
       <DependentUpon>FrmEmailCaixaDeSaida.vb</DependentUpon>
     </EmbeddedResource>
@@ -1174,5 +1190,6 @@
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.AspNetCore.Components.WebView.8.0.10\build\Microsoft.AspNetCore.Components.WebView.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.AspNetCore.Components.WebView.8.0.10\build\Microsoft.AspNetCore.Components.WebView.props'))" />
   </Target>
 </Project>

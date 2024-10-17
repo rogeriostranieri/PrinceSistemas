@@ -76,8 +76,8 @@ Partial Class FrmAlvara
         Dim NumeroProcessoLabel As System.Windows.Forms.Label
         Dim ReciboProcessoLabel As System.Windows.Forms.Label
         Dim MatrizLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Dim NlaudoSecundarioLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -189,6 +189,7 @@ Partial Class FrmAlvara
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.BtnVerObsGeral = New System.Windows.Forms.Button()
+        Me.NlaudoSecundarioTextBox = New System.Windows.Forms.TextBox()
         Me.ObservacaoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAnotacoes = New System.Windows.Forms.Button()
         Me.NlaudoLabel = New System.Windows.Forms.Label()
@@ -313,7 +314,6 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
-        Me.NlaudoSecundarioTextBox = New System.Windows.Forms.TextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -789,9 +789,9 @@ Partial Class FrmAlvara
         NaturezaDoPedidoOBSLabel.AutoSize = True
         NaturezaDoPedidoOBSLabel.Location = New System.Drawing.Point(14, 19)
         NaturezaDoPedidoOBSLabel.Name = "NaturezaDoPedidoOBSLabel"
-        NaturezaDoPedidoOBSLabel.Size = New System.Drawing.Size(32, 13)
+        NaturezaDoPedidoOBSLabel.Size = New System.Drawing.Size(185, 13)
         NaturezaDoPedidoOBSLabel.TabIndex = 29
-        NaturezaDoPedidoOBSLabel.Text = "OBS:"
+        NaturezaDoPedidoOBSLabel.Text = "Observação para colocar no LAUDO:"
         '
         'ProtocoloTipoLabel
         '
@@ -911,6 +911,15 @@ Partial Class FrmAlvara
         MatrizLabel.Size = New System.Drawing.Size(39, 13)
         MatrizLabel.TabIndex = 57
         MatrizLabel.Text = "SEDE:"
+        '
+        'NlaudoSecundarioLabel
+        '
+        NlaudoSecundarioLabel.AutoSize = True
+        NlaudoSecundarioLabel.Location = New System.Drawing.Point(20, 49)
+        NlaudoSecundarioLabel.Name = "NlaudoSecundarioLabel"
+        NlaudoSecundarioLabel.Size = New System.Drawing.Size(83, 13)
+        NlaudoSecundarioLabel.TabIndex = 57
+        NlaudoSecundarioLabel.Text = "2º Nº do Laudo:"
         '
         'PrinceDBDataSet
         '
@@ -2154,6 +2163,14 @@ Partial Class FrmAlvara
         Me.BtnVerObsGeral.Text = "Ver Completo"
         Me.BtnVerObsGeral.UseVisualStyleBackColor = True
         '
+        'NlaudoSecundarioTextBox
+        '
+        Me.NlaudoSecundarioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NlaudoSecundario", True))
+        Me.NlaudoSecundarioTextBox.Location = New System.Drawing.Point(103, 46)
+        Me.NlaudoSecundarioTextBox.Name = "NlaudoSecundarioTextBox"
+        Me.NlaudoSecundarioTextBox.Size = New System.Drawing.Size(101, 20)
+        Me.NlaudoSecundarioTextBox.TabIndex = 58
+        '
         'ObservacaoRichTextBox
         '
         Me.ObservacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Observacao", True))
@@ -2275,6 +2292,7 @@ Partial Class FrmAlvara
         'NaturezaDoPedidoOBSRichTextBox
         '
         Me.NaturezaDoPedidoOBSRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NaturezaDoPedidoOBS", True))
+        Me.NaturezaDoPedidoOBSRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NaturezaDoPedidoOBSRichTextBox.Location = New System.Drawing.Point(17, 35)
         Me.NaturezaDoPedidoOBSRichTextBox.Name = "NaturezaDoPedidoOBSRichTextBox"
         Me.NaturezaDoPedidoOBSRichTextBox.Size = New System.Drawing.Size(514, 129)
@@ -3537,23 +3555,6 @@ Partial Class FrmAlvara
         'AlvaraSistemaTableAdapter
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
-        '
-        'NlaudoSecundarioLabel
-        '
-        NlaudoSecundarioLabel.AutoSize = True
-        NlaudoSecundarioLabel.Location = New System.Drawing.Point(20, 49)
-        NlaudoSecundarioLabel.Name = "NlaudoSecundarioLabel"
-        NlaudoSecundarioLabel.Size = New System.Drawing.Size(83, 13)
-        NlaudoSecundarioLabel.TabIndex = 57
-        NlaudoSecundarioLabel.Text = "2º Nº do Laudo:"
-        '
-        'NlaudoSecundarioTextBox
-        '
-        Me.NlaudoSecundarioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "NlaudoSecundario", True))
-        Me.NlaudoSecundarioTextBox.Location = New System.Drawing.Point(103, 46)
-        Me.NlaudoSecundarioTextBox.Name = "NlaudoSecundarioTextBox"
-        Me.NlaudoSecundarioTextBox.Size = New System.Drawing.Size(101, 20)
-        Me.NlaudoSecundarioTextBox.TabIndex = 58
         '
         'FrmAlvara
         '

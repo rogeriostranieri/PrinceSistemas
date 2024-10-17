@@ -7707,6 +7707,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnFederalProtocolo As Global.System.Data.DataColumn
         
+        Private columnSenhasDeAcesso As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -8839,6 +8841,14 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SenhasDeAcessoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSenhasDeAcesso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9011,9 +9021,10 @@ Partial Public Class PrinceDBDataSet
                     ByVal AjudaTipodeUnidade As String,  _
                     ByVal DBEProtocolo As String,  _
                     ByVal DBEData As String,  _
-                    ByVal FederalProtocolo As String) As EmpresasRow
+                    ByVal FederalProtocolo As String,  _
+                    ByVal SenhasDeAcesso As String) As EmpresasRow
             Dim rowEmpresasRow As EmpresasRow = CType(Me.NewRow,EmpresasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo}
+            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso}
             rowEmpresasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmpresasRow)
             Return rowEmpresasRow
@@ -9179,6 +9190,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnDBEProtocolo = MyBase.Columns("DBEProtocolo")
             Me.columnDBEData = MyBase.Columns("DBEData")
             Me.columnFederalProtocolo = MyBase.Columns("FederalProtocolo")
+            Me.columnSenhasDeAcesso = MyBase.Columns("SenhasDeAcesso")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9458,6 +9470,8 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnDBEData)
             Me.columnFederalProtocolo = New Global.System.Data.DataColumn("FederalProtocolo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFederalProtocolo)
+            Me.columnSenhasDeAcesso = New Global.System.Data.DataColumn("SenhasDeAcesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSenhasDeAcesso)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Empresas}, true))
             Me.columnID_Empresas.AutoIncrement = true
             Me.columnID_Empresas.AutoIncrementSeed = -1
@@ -9599,6 +9613,7 @@ Partial Public Class PrinceDBDataSet
             Me.columnDBEProtocolo.MaxLength = 2147483647
             Me.columnDBEData.MaxLength = 2147483647
             Me.columnFederalProtocolo.MaxLength = 2147483647
+            Me.columnSenhasDeAcesso.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -21529,6 +21544,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SenhasDeAcesso() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.SenhasDeAcessoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'SenhasDeAcesso' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.SenhasDeAcessoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsRazaoSocialNull() As Boolean
             Return Me.IsNull(Me.tableEmpresas.RazaoSocialColumn)
         End Function
@@ -23157,6 +23187,18 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetFederalProtocoloNull()
             Me(Me.tableEmpresas.FederalProtocoloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSenhasDeAcessoNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.SenhasDeAcessoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSenhasDeAcessoNull()
+            Me(Me.tableEmpresas.SenhasDeAcessoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -35994,6 +36036,7 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("DBEProtocolo", "DBEProtocolo")
             tableMapping.ColumnMappings.Add("DBEData", "DBEData")
             tableMapping.ColumnMappings.Add("FederalProtocolo", "FederalProtocolo")
+            tableMapping.ColumnMappings.Add("SenhasDeAcesso", "SenhasDeAcesso")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -36161,57 +36204,58 @@ Namespace PrinceDBDataSetTableAdapters
                 "ia], [TipoUnidadeProdutiva], [FormaDeAtuacao], [DadosComplEstabelecimento], [Dad"& _ 
                 "osComplAtividade], [DadosComplPavimentos], [DadosComplPessoas], [DadosComplSubso"& _ 
                 "lo], [DadosComplLiquido], [DadosComplGLP], [AjudaTipodeUnidade], [DBEProtocolo],"& _ 
-                " [DBEData], [FederalProtocolo]) VALUES (@RazaoSocial, @NomeFantasia, @CNPJ, @End"& _ 
-                "ereco, @EndNumero, @EndBairro, @EndComplemento, @EndCEP, @EndCidade, @EndEstado,"& _ 
-                " @EndPais, @EmpTel1, @EmpTel2, @EmpEmail, @PaginaWeb, @IE, @IM, @NaturezaJuridic"& _ 
-                "a, @EmpInicioAtividade, @EmpCriado, @Processo, @Status, @NIRE, @CNAEPrincipal, @"& _ 
-                "CNAESecundario, @RamoDeAtividade, @ResponsavelCPF, @ResponsavelNome, @ProtocoloJ"& _ 
-                "untaComercial, @Geral, @Lembrete, @ProtocoloREDESIM, @DataProtREDESIM, @DataProt"& _ 
-                "JuntaComercial, @DataPedidoIE, @AvisarDia, @PrazoSimples, @NireAlt, @JuntaObs, @"& _ 
-                "NRegistroAlt, @DataRegistroAlt, @NireAntigos, @NAlteracao, @RedeSimObs, @Estadua"& _ 
-                "lObs, @PrefeituraObs, @CodigoSimples, @CPFResponsavel, @NomeResponsavel, @Arquiv"& _ 
-                "oContrato, @Procedimento, @Prioridade, @RegimeFederal, @PorteDaEmpresa, @TipoDeE"& _ 
-                "mpresa, @AltConsolidada, @Motivo, @DataMotivo, @IEComprovante, @IEInicioAtividad"& _ 
-                "e, @IEVencPedido, @BombeiroJunta, @IEjunta, @ProtJuntaFinal, @Tituloeleitor, @ar"& _ 
-                "ea, @area2, @ObsSimples, @DataSimples, @DataUltdefSimples, @OrgãoPedSimples, @Pa"& _ 
-                "staDocumentos, @RespRG, @Historico, @AltProt, @CapitalS, @CapitalI, @DataExcSoci"& _ 
-                "al, @CNHnumero, @CNHexp, @CNHdataexp, @RespMae, @RespDataNasc, @CadImob, @EndZon"& _ 
-                "a, @EndQuadra, @EndData, @RespRgSigla, @Procuracao, @ProcuracaoN, @ProcuracaoDat"& _ 
-                "a, @NovaRazaoSocial1, @NovaRazaoSocial2, @NovaRazaoSocial3, @NovaRazaoSocial, @E"& _ 
-                "ventos, @SenhaGov, @RespPai, @NIRERegistro, @NIRERegistroData, @NovaRazaoSocialF"& _ 
-                "inal, @IEOnline, @IETipo, @IEeProcNum, @IEDataAltSolicitado, @SistemaExterno, @N"& _ 
-                "ireData, @DadosSocios, @QuantidadeSocios, @DocContratos, @RazaoSocialAntiga, @Si"& _ 
-                "tuacaoCadastral, @DivisaoCapitalSocios, @CapitalQuotaValor, @CapitaQuotaTotal, @"& _ 
-                "CPFdoCONJUGE, @NOMEdoCONJUGE, @ResponsavelOrgaoRG, @ResponsavelEstadoOrgaoRG, @N"& _ 
-                "umeroProcesso, @ReciboProcesso, @SEDE, @PontoDeReferencia, @TipoUnidadeProdutiva"& _ 
-                ", @FormaDeAtuacao, @DadosComplEstabelecimento, @DadosComplAtividade, @DadosCompl"& _ 
-                "Pavimentos, @DadosComplPessoas, @DadosComplSubsolo, @DadosComplLiquido, @DadosCo"& _ 
-                "mplGLP, @AjudaTipodeUnidade, @DBEProtocolo, @DBEData, @FederalProtocolo);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
-                "T ID_Empresas, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, "& _ 
-                "EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmai"& _ 
-                "l, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo,"& _ 
-                " Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, R"& _ 
-                "esponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, Data"& _ 
-                "ProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, Nire"& _ 
-                "Alt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimOb"& _ 
-                "s, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, A"& _ 
-                "rquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeE"& _ 
-                "mpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IE"& _ 
-                "VencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, "& _ 
-                "ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, Re"& _ 
-                "spRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, "& _ 
-                "CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgS"& _ 
-                "igla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial"& _ 
-                "2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, "& _ 
-                "NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltS"& _ 
-                "olicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos"& _ 
-                ", RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor,"& _ 
-                " CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelE"& _ 
-                "stadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnida"& _ 
-                "deProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, Dad"& _ 
-                "osComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, Dado"& _ 
-                "sComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo FROM Empr"& _ 
-                "esas WHERE (ID_Empresas = SCOPE_IDENTITY())"
+                " [DBEData], [FederalProtocolo], [SenhasDeAcesso]) VALUES (@RazaoSocial, @NomeFan"& _ 
+                "tasia, @CNPJ, @Endereco, @EndNumero, @EndBairro, @EndComplemento, @EndCEP, @EndC"& _ 
+                "idade, @EndEstado, @EndPais, @EmpTel1, @EmpTel2, @EmpEmail, @PaginaWeb, @IE, @IM"& _ 
+                ", @NaturezaJuridica, @EmpInicioAtividade, @EmpCriado, @Processo, @Status, @NIRE,"& _ 
+                " @CNAEPrincipal, @CNAESecundario, @RamoDeAtividade, @ResponsavelCPF, @Responsave"& _ 
+                "lNome, @ProtocoloJuntaComercial, @Geral, @Lembrete, @ProtocoloREDESIM, @DataProt"& _ 
+                "REDESIM, @DataProtJuntaComercial, @DataPedidoIE, @AvisarDia, @PrazoSimples, @Nir"& _ 
+                "eAlt, @JuntaObs, @NRegistroAlt, @DataRegistroAlt, @NireAntigos, @NAlteracao, @Re"& _ 
+                "deSimObs, @EstadualObs, @PrefeituraObs, @CodigoSimples, @CPFResponsavel, @NomeRe"& _ 
+                "sponsavel, @ArquivoContrato, @Procedimento, @Prioridade, @RegimeFederal, @PorteD"& _ 
+                "aEmpresa, @TipoDeEmpresa, @AltConsolidada, @Motivo, @DataMotivo, @IEComprovante,"& _ 
+                " @IEInicioAtividade, @IEVencPedido, @BombeiroJunta, @IEjunta, @ProtJuntaFinal, @"& _ 
+                "Tituloeleitor, @area, @area2, @ObsSimples, @DataSimples, @DataUltdefSimples, @Or"& _ 
+                "gãoPedSimples, @PastaDocumentos, @RespRG, @Historico, @AltProt, @CapitalS, @Capi"& _ 
+                "talI, @DataExcSocial, @CNHnumero, @CNHexp, @CNHdataexp, @RespMae, @RespDataNasc,"& _ 
+                " @CadImob, @EndZona, @EndQuadra, @EndData, @RespRgSigla, @Procuracao, @Procuraca"& _ 
+                "oN, @ProcuracaoData, @NovaRazaoSocial1, @NovaRazaoSocial2, @NovaRazaoSocial3, @N"& _ 
+                "ovaRazaoSocial, @Eventos, @SenhaGov, @RespPai, @NIRERegistro, @NIRERegistroData,"& _ 
+                " @NovaRazaoSocialFinal, @IEOnline, @IETipo, @IEeProcNum, @IEDataAltSolicitado, @"& _ 
+                "SistemaExterno, @NireData, @DadosSocios, @QuantidadeSocios, @DocContratos, @Raza"& _ 
+                "oSocialAntiga, @SituacaoCadastral, @DivisaoCapitalSocios, @CapitalQuotaValor, @C"& _ 
+                "apitaQuotaTotal, @CPFdoCONJUGE, @NOMEdoCONJUGE, @ResponsavelOrgaoRG, @Responsave"& _ 
+                "lEstadoOrgaoRG, @NumeroProcesso, @ReciboProcesso, @SEDE, @PontoDeReferencia, @Ti"& _ 
+                "poUnidadeProdutiva, @FormaDeAtuacao, @DadosComplEstabelecimento, @DadosComplAtiv"& _ 
+                "idade, @DadosComplPavimentos, @DadosComplPessoas, @DadosComplSubsolo, @DadosComp"& _ 
+                "lLiquido, @DadosComplGLP, @AjudaTipodeUnidade, @DBEProtocolo, @DBEData, @Federal"& _ 
+                "Protocolo, @SenhasDeAcesso);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, RazaoSocial, NomeFantasia, CNP"& _ 
+                "J, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado,"& _ 
+                " EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpIn"& _ 
+                "icioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario,"& _ 
+                " RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Gera"& _ 
+                "l, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedi"& _ 
+                "doIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt,"& _ 
+                " NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples,"& _ 
+                " CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, Reg"& _ 
+                "imeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, I"& _ 
+                "EComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJunta"& _ 
+                "Final, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, O"& _ 
+                "rgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI,"& _ 
+                " DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, E"& _ 
+                "ndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData"& _ 
+                ", NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos"& _ 
+                ", SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnl"& _ 
+                "ine, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSoc"& _ 
+                "ios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, Divis"& _ 
+                "aoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUG"& _ 
+                "E, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso,"& _ 
+                " SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabe"& _ 
+                "lecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosCo"& _ 
+                "mplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, "& _ 
+                "DBEData, FederalProtocolo, SenhasDeAcesso FROM Empresas WHERE (ID_Empresas = SCO"& _ 
+                "PE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeFantasia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeFantasia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -36349,6 +36393,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DBEProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DBEProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DBEData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DBEData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SenhasDeAcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SenhasDeAcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Empresas] SET [RazaoSocial] = @RazaoSocial, [NomeFantasia] = @NomeFantasi"& _ 
@@ -36405,82 +36450,83 @@ Namespace PrinceDBDataSetTableAdapters
                 " = @DadosComplPessoas, [DadosComplSubsolo] = @DadosComplSubsolo, [DadosComplLiqu"& _ 
                 "ido] = @DadosComplLiquido, [DadosComplGLP] = @DadosComplGLP, [AjudaTipodeUnidade"& _ 
                 "] = @AjudaTipodeUnidade, [DBEProtocolo] = @DBEProtocolo, [DBEData] = @DBEData, ["& _ 
-                "FederalProtocolo] = @FederalProtocolo WHERE (([ID_Empresas] = @Original_ID_Empre"& _ 
-                "sas) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AN"& _ 
-                "D ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Ende"& _ 
-                "reco)) AND ((@IsNull_EndNumero = 1 AND [EndNumero] IS NULL) OR ([EndNumero] = @O"& _ 
-                "riginal_EndNumero)) AND ((@IsNull_EndBairro = 1 AND [EndBairro] IS NULL) OR ([En"& _ 
-                "dBairro] = @Original_EndBairro)) AND ((@IsNull_EndComplemento = 1 AND [EndComple"& _ 
-                "mento] IS NULL) OR ([EndComplemento] = @Original_EndComplemento)) AND ((@IsNull_"& _ 
-                "EndCEP = 1 AND [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP)) AND ((@IsNull"& _ 
-                "_EndCidade = 1 AND [EndCidade] IS NULL) OR ([EndCidade] = @Original_EndCidade)) "& _ 
-                "AND ((@IsNull_EndEstado = 1 AND [EndEstado] IS NULL) OR ([EndEstado] = @Original"& _ 
-                "_EndEstado)) AND ((@IsNull_EndPais = 1 AND [EndPais] IS NULL) OR ([EndPais] = @O"& _ 
-                "riginal_EndPais)) AND ((@IsNull_EmpTel1 = 1 AND [EmpTel1] IS NULL) OR ([EmpTel1]"& _ 
-                " = @Original_EmpTel1)) AND ((@IsNull_EmpTel2 = 1 AND [EmpTel2] IS NULL) OR ([Emp"& _ 
-                "Tel2] = @Original_EmpTel2)) AND ((@IsNull_EmpEmail = 1 AND [EmpEmail] IS NULL) O"& _ 
-                "R ([EmpEmail] = @Original_EmpEmail)) AND ((@IsNull_PaginaWeb = 1 AND [PaginaWeb]"& _ 
-                " IS NULL) OR ([PaginaWeb] = @Original_PaginaWeb)) AND ((@IsNull_IE = 1 AND [IE] "& _ 
-                "IS NULL) OR ([IE] = @Original_IE)) AND ((@IsNull_IM = 1 AND [IM] IS NULL) OR ([I"& _ 
-                "M] = @Original_IM)) AND ((@IsNull_EmpInicioAtividade = 1 AND [EmpInicioAtividade"& _ 
-                "] IS NULL) OR ([EmpInicioAtividade] = @Original_EmpInicioAtividade)) AND ((@IsNu"& _ 
-                "ll_EmpCriado = 1 AND [EmpCriado] IS NULL) OR ([EmpCriado] = @Original_EmpCriado)"& _ 
-                ") AND ((@IsNull_Processo = 1 AND [Processo] IS NULL) OR ([Processo] = @Original_"& _ 
-                "Processo)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Origin"& _ 
-                "al_Status)) AND ((@IsNull_NIRE = 1 AND [NIRE] IS NULL) OR ([NIRE] = @Original_NI"& _ 
-                "RE)) AND ((@IsNull_CNAEPrincipal = 1 AND [CNAEPrincipal] IS NULL) OR ([CNAEPrinc"& _ 
-                "ipal] = @Original_CNAEPrincipal)) AND ((@IsNull_ResponsavelCPF = 1 AND [Responsa"& _ 
-                "velCPF] IS NULL) OR ([ResponsavelCPF] = @Original_ResponsavelCPF)) AND ((@IsNull"& _ 
-                "_ProtocoloJuntaComercial = 1 AND [ProtocoloJuntaComercial] IS NULL) OR ([Protoco"& _ 
-                "loJuntaComercial] = @Original_ProtocoloJuntaComercial)) AND ((@IsNull_Lembrete ="& _ 
-                " 1 AND [Lembrete] IS NULL) OR ([Lembrete] = @Original_Lembrete)) AND ((@IsNull_P"& _ 
-                "rotocoloREDESIM = 1 AND [ProtocoloREDESIM] IS NULL) OR ([ProtocoloREDESIM] = @Or"& _ 
-                "iginal_ProtocoloREDESIM)) AND ((@IsNull_DataProtREDESIM = 1 AND [DataProtREDESIM"& _ 
-                "] IS NULL) OR ([DataProtREDESIM] = @Original_DataProtREDESIM)) AND ((@IsNull_Dat"& _ 
-                "aProtJuntaComercial = 1 AND [DataProtJuntaComercial] IS NULL) OR ([DataProtJunta"& _ 
-                "Comercial] = @Original_DataProtJuntaComercial)) AND ((@IsNull_DataPedidoIE = 1 A"& _ 
-                "ND [DataPedidoIE] IS NULL) OR ([DataPedidoIE] = @Original_DataPedidoIE)) AND ((@"& _ 
-                "IsNull_AvisarDia = 1 AND [AvisarDia] IS NULL) OR ([AvisarDia] = @Original_Avisar"& _ 
-                "Dia)) AND ((@IsNull_PrazoSimples = 1 AND [PrazoSimples] IS NULL) OR ([PrazoSimpl"& _ 
-                "es] = @Original_PrazoSimples)) AND ((@IsNull_NireAlt = 1 AND [NireAlt] IS NULL) "& _ 
-                "OR ([NireAlt] = @Original_NireAlt)) AND ((@IsNull_NRegistroAlt = 1 AND [NRegistr"& _ 
-                "oAlt] IS NULL) OR ([NRegistroAlt] = @Original_NRegistroAlt)) AND ((@IsNull_DataR"& _ 
-                "egistroAlt = 1 AND [DataRegistroAlt] IS NULL) OR ([DataRegistroAlt] = @Original_"& _ 
-                "DataRegistroAlt)) AND ((@IsNull_NAlteracao = 1 AND [NAlteracao] IS NULL) OR ([NA"& _ 
-                "lteracao] = @Original_NAlteracao)) AND ((@IsNull_Prioridade = 1 AND [Prioridade]"& _ 
-                " IS NULL) OR ([Prioridade] = @Original_Prioridade)) AND ((@IsNull_AltConsolidada"& _ 
-                " = 1 AND [AltConsolidada] IS NULL) OR ([AltConsolidada] = @Original_AltConsolida"& _ 
-                "da)) AND ((@IsNull_IEVencPedido = 1 AND [IEVencPedido] IS NULL) OR ([IEVencPedid"& _ 
-                "o] = @Original_IEVencPedido)) AND ((@IsNull_AltProt = 1 AND [AltProt] IS NULL) O"& _ 
-                "R ([AltProt] = @Original_AltProt)) AND ((@IsNull_CadImob = 1 AND [CadImob] IS NU"& _ 
-                "LL) OR ([CadImob] = @Original_CadImob)) AND ((@IsNull_NireData = 1 AND [NireData"& _ 
-                "] IS NULL) OR ([NireData] = @Original_NireData)) AND ((@IsNull_QuantidadeSocios "& _ 
-                "= 1 AND [QuantidadeSocios] IS NULL) OR ([QuantidadeSocios] = @Original_Quantidad"& _ 
-                "eSocios)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndN"& _ 
-                "umero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1"& _ 
-                ", EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, Em"& _ 
-                "pCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade,"& _ 
-                " ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, Prot"& _ 
-                "ocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, "& _ 
-                "PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAl"& _ 
-                "teracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, "& _ 
-                "NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, Porte"& _ 
-                "DaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEI"& _ 
-                "nicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloelei"& _ 
-                "tor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, P"& _ 
-                "astaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, C"& _ 
-                "NHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra"& _ 
-                ", EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial"& _ 
-                "1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespP"& _ 
-                "ai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeP"& _ 
-                "rocNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSo"& _ 
-                "cios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, "& _ 
-                "CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrg"& _ 
-                "aoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeRef"& _ 
-                "erencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosC"& _ 
-                "omplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, Dados"& _ 
-                "ComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalP"& _ 
-                "rotocolo FROM Empresas WHERE (ID_Empresas = @ID_Empresas)"
+                "FederalProtocolo] = @FederalProtocolo, [SenhasDeAcesso] = @SenhasDeAcesso WHERE "& _ 
+                "(([ID_Empresas] = @Original_ID_Empresas) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NU"& _ 
+                "LL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS N"& _ 
+                "ULL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_EndNumero = 1 AND [EndN"& _ 
+                "umero] IS NULL) OR ([EndNumero] = @Original_EndNumero)) AND ((@IsNull_EndBairro "& _ 
+                "= 1 AND [EndBairro] IS NULL) OR ([EndBairro] = @Original_EndBairro)) AND ((@IsNu"& _ 
+                "ll_EndComplemento = 1 AND [EndComplemento] IS NULL) OR ([EndComplemento] = @Orig"& _ 
+                "inal_EndComplemento)) AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) OR ([EndCEP"& _ 
+                "] = @Original_EndCEP)) AND ((@IsNull_EndCidade = 1 AND [EndCidade] IS NULL) OR ("& _ 
+                "[EndCidade] = @Original_EndCidade)) AND ((@IsNull_EndEstado = 1 AND [EndEstado] "& _ 
+                "IS NULL) OR ([EndEstado] = @Original_EndEstado)) AND ((@IsNull_EndPais = 1 AND ["& _ 
+                "EndPais] IS NULL) OR ([EndPais] = @Original_EndPais)) AND ((@IsNull_EmpTel1 = 1 "& _ 
+                "AND [EmpTel1] IS NULL) OR ([EmpTel1] = @Original_EmpTel1)) AND ((@IsNull_EmpTel2"& _ 
+                " = 1 AND [EmpTel2] IS NULL) OR ([EmpTel2] = @Original_EmpTel2)) AND ((@IsNull_Em"& _ 
+                "pEmail = 1 AND [EmpEmail] IS NULL) OR ([EmpEmail] = @Original_EmpEmail)) AND ((@"& _ 
+                "IsNull_PaginaWeb = 1 AND [PaginaWeb] IS NULL) OR ([PaginaWeb] = @Original_Pagina"& _ 
+                "Web)) AND ((@IsNull_IE = 1 AND [IE] IS NULL) OR ([IE] = @Original_IE)) AND ((@Is"& _ 
+                "Null_IM = 1 AND [IM] IS NULL) OR ([IM] = @Original_IM)) AND ((@IsNull_EmpInicioA"& _ 
+                "tividade = 1 AND [EmpInicioAtividade] IS NULL) OR ([EmpInicioAtividade] = @Origi"& _ 
+                "nal_EmpInicioAtividade)) AND ((@IsNull_EmpCriado = 1 AND [EmpCriado] IS NULL) OR"& _ 
+                " ([EmpCriado] = @Original_EmpCriado)) AND ((@IsNull_Processo = 1 AND [Processo] "& _ 
+                "IS NULL) OR ([Processo] = @Original_Processo)) AND ((@IsNull_Status = 1 AND [Sta"& _ 
+                "tus] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_NIRE = 1 AND [NIRE"& _ 
+                "] IS NULL) OR ([NIRE] = @Original_NIRE)) AND ((@IsNull_CNAEPrincipal = 1 AND [CN"& _ 
+                "AEPrincipal] IS NULL) OR ([CNAEPrincipal] = @Original_CNAEPrincipal)) AND ((@IsN"& _ 
+                "ull_ResponsavelCPF = 1 AND [ResponsavelCPF] IS NULL) OR ([ResponsavelCPF] = @Ori"& _ 
+                "ginal_ResponsavelCPF)) AND ((@IsNull_ProtocoloJuntaComercial = 1 AND [ProtocoloJ"& _ 
+                "untaComercial] IS NULL) OR ([ProtocoloJuntaComercial] = @Original_ProtocoloJunta"& _ 
+                "Comercial)) AND ((@IsNull_Lembrete = 1 AND [Lembrete] IS NULL) OR ([Lembrete] = "& _ 
+                "@Original_Lembrete)) AND ((@IsNull_ProtocoloREDESIM = 1 AND [ProtocoloREDESIM] I"& _ 
+                "S NULL) OR ([ProtocoloREDESIM] = @Original_ProtocoloREDESIM)) AND ((@IsNull_Data"& _ 
+                "ProtREDESIM = 1 AND [DataProtREDESIM] IS NULL) OR ([DataProtREDESIM] = @Original"& _ 
+                "_DataProtREDESIM)) AND ((@IsNull_DataProtJuntaComercial = 1 AND [DataProtJuntaCo"& _ 
+                "mercial] IS NULL) OR ([DataProtJuntaComercial] = @Original_DataProtJuntaComercia"& _ 
+                "l)) AND ((@IsNull_DataPedidoIE = 1 AND [DataPedidoIE] IS NULL) OR ([DataPedidoIE"& _ 
+                "] = @Original_DataPedidoIE)) AND ((@IsNull_AvisarDia = 1 AND [AvisarDia] IS NULL"& _ 
+                ") OR ([AvisarDia] = @Original_AvisarDia)) AND ((@IsNull_PrazoSimples = 1 AND [Pr"& _ 
+                "azoSimples] IS NULL) OR ([PrazoSimples] = @Original_PrazoSimples)) AND ((@IsNull"& _ 
+                "_NireAlt = 1 AND [NireAlt] IS NULL) OR ([NireAlt] = @Original_NireAlt)) AND ((@I"& _ 
+                "sNull_NRegistroAlt = 1 AND [NRegistroAlt] IS NULL) OR ([NRegistroAlt] = @Origina"& _ 
+                "l_NRegistroAlt)) AND ((@IsNull_DataRegistroAlt = 1 AND [DataRegistroAlt] IS NULL"& _ 
+                ") OR ([DataRegistroAlt] = @Original_DataRegistroAlt)) AND ((@IsNull_NAlteracao ="& _ 
+                " 1 AND [NAlteracao] IS NULL) OR ([NAlteracao] = @Original_NAlteracao)) AND ((@Is"& _ 
+                "Null_Prioridade = 1 AND [Prioridade] IS NULL) OR ([Prioridade] = @Original_Prior"& _ 
+                "idade)) AND ((@IsNull_AltConsolidada = 1 AND [AltConsolidada] IS NULL) OR ([AltC"& _ 
+                "onsolidada] = @Original_AltConsolidada)) AND ((@IsNull_IEVencPedido = 1 AND [IEV"& _ 
+                "encPedido] IS NULL) OR ([IEVencPedido] = @Original_IEVencPedido)) AND ((@IsNull_"& _ 
+                "AltProt = 1 AND [AltProt] IS NULL) OR ([AltProt] = @Original_AltProt)) AND ((@Is"& _ 
+                "Null_CadImob = 1 AND [CadImob] IS NULL) OR ([CadImob] = @Original_CadImob)) AND "& _ 
+                "((@IsNull_NireData = 1 AND [NireData] IS NULL) OR ([NireData] = @Original_NireDa"& _ 
+                "ta)) AND ((@IsNull_QuantidadeSocios = 1 AND [QuantidadeSocios] IS NULL) OR ([Qua"& _ 
+                "ntidadeSocios] = @Original_QuantidadeSocios)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, RazaoSocial"& _ 
+                ", NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, En"& _ 
+                "dCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, Natu"& _ 
+                "rezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincip"& _ 
+                "al, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJ"& _ 
+                "untaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJunta"& _ 
+                "Comercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAl"& _ 
+                "t, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, Prefeitura"& _ 
+                "Obs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimen"& _ 
+                "to, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Mo"& _ 
+                "tivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta,"& _ 
+                " IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, D"& _ 
+                "ataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, "& _ 
+                "CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespD"& _ 
+                "ataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, Procurac"& _ 
+                "aoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaR"& _ 
+                "azaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRaza"& _ 
+                "oSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno,"& _ 
+                " NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, Situa"& _ 
+                "caoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCO"& _ 
+                "NJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProces"& _ 
+                "so, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuaca"& _ 
+                "o, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosCo"& _ 
+                "mplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnid"& _ 
+                "ade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso FROM Empresas WHERE"& _ 
+                " (ID_Empresas = @ID_Empresas)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeFantasia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeFantasia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -36618,6 +36664,7 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DBEProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DBEProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DBEData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DBEData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SenhasDeAcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SenhasDeAcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Empresas", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Empresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -36743,9 +36790,9 @@ Namespace PrinceDBDataSetTableAdapters
                 "aComercial, ProtocoloREDESIM, QuantidadeSocios, RamoDeAtividade, RazaoSocial, Ra"& _ 
                 "zaoSocialAntiga, ReciboProcesso, RedeSimObs, RegimeFederal, RespDataNasc, RespMa"& _ 
                 "e, RespPai, RespRG, RespRgSigla, ResponsavelCPF, ResponsavelEstadoOrgaoRG, Respo"& _ 
-                "nsavelNome, ResponsavelOrgaoRG, SEDE, SenhaGov, SistemaExterno, SituacaoCadastra"& _ 
-                "l, Status, TipoDeEmpresa, TipoUnidadeProdutiva, Tituloeleitor, area, area2 FROM "& _ 
-                "Empresas WHERE (RazaoSocial = @RazaoSocial)"
+                "nsavelNome, ResponsavelOrgaoRG, SEDE, SenhaGov, SenhasDeAcesso, SistemaExterno, "& _ 
+                "SituacaoCadastral, Status, TipoDeEmpresa, TipoUnidadeProdutiva, Tituloeleitor, a"& _ 
+                "rea, area2 FROM Empresas WHERE (RazaoSocial = @RazaoSocial)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -37326,7 +37373,8 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal AjudaTipodeUnidade As String,  _
                     ByVal DBEProtocolo As String,  _
                     ByVal DBEData As String,  _
-                    ByVal FederalProtocolo As String) As Integer
+                    ByVal FederalProtocolo As String,  _
+                    ByVal SenhasDeAcesso As String) As Integer
             If (RazaoSocial Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -38007,6 +38055,11 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(135).Value = CType(FederalProtocolo,String)
             End If
+            If (SenhasDeAcesso Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(136).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(136).Value = CType(SenhasDeAcesso,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -38163,6 +38216,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal DBEProtocolo As String,  _
                     ByVal DBEData As String,  _
                     ByVal FederalProtocolo As String,  _
+                    ByVal SenhasDeAcesso As String,  _
                     ByVal Original_ID_Empresas As Short,  _
                     ByVal Original_CNPJ As String,  _
                     ByVal Original_Endereco As String,  _
@@ -38886,295 +38940,300 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(135).Value = CType(FederalProtocolo,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_ID_Empresas,Short)
-            If (Original_CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
+            If (SenhasDeAcesso Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_CNPJ,String)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(SenhasDeAcesso,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_ID_Empresas,Short)
+            If (Original_CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(139).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_CNPJ,String)
             End If
             If (Original_Endereco Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_Endereco,String)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_Endereco,String)
             End If
             If (Original_EndNumero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_EndNumero,String)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_EndNumero,String)
             End If
             If (Original_EndBairro Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_EndBairro,String)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_EndBairro,String)
             End If
             If (Original_EndComplemento Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(147).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_EndComplemento,String)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_EndComplemento,String)
             End If
             If (Original_EndCEP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(149).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_EndCEP,String)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_EndCEP,String)
             End If
             If (Original_EndCidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(151).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_EndCidade,String)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_EndCidade,String)
             End If
             If (Original_EndEstado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_EndEstado,String)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_EndEstado,String)
             End If
             If (Original_EndPais Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_EndPais,String)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_EndPais,String)
             End If
             If (Original_EmpTel1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(157).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_EmpTel1,String)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_EmpTel1,String)
             End If
             If (Original_EmpTel2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_EmpTel2,String)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_EmpTel2,String)
             End If
             If (Original_EmpEmail Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_EmpEmail,String)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_EmpEmail,String)
             End If
             If (Original_PaginaWeb Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(163).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_PaginaWeb,String)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_PaginaWeb,String)
             End If
             If (Original_IE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(165).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_IE,String)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_IE,String)
             End If
             If (Original_IM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_IM,String)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(Original_IM,String)
             End If
             If (Original_EmpInicioAtividade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_EmpInicioAtividade,String)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(Original_EmpInicioAtividade,String)
             End If
             If (Original_EmpCriado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(171).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_EmpCriado,String)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(Original_EmpCriado,String)
             End If
             If (Original_Processo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(173).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_Processo,String)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(Original_Processo,String)
             End If
             If (Original_Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(175).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(Original_Status,String)
             End If
             If (Original_NIRE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(177).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_NIRE,String)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(Original_NIRE,String)
             End If
             If (Original_CNAEPrincipal Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(179).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_CNAEPrincipal,String)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(Original_CNAEPrincipal,String)
             End If
             If (Original_ResponsavelCPF Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(181).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(Original_ResponsavelCPF,String)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(Original_ResponsavelCPF,String)
             End If
             If (Original_ProtocoloJuntaComercial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(183).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_ProtocoloJuntaComercial,String)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(Original_ProtocoloJuntaComercial,String)
             End If
             If (Original_Lembrete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(185).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_Lembrete,String)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(Original_Lembrete,String)
             End If
             If (Original_ProtocoloREDESIM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(187).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_ProtocoloREDESIM,String)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(Original_ProtocoloREDESIM,String)
             End If
             If (Original_DataProtREDESIM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(189).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(Original_DataProtREDESIM,String)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(Original_DataProtREDESIM,String)
             End If
             If (Original_DataProtJuntaComercial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(191).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(Original_DataProtJuntaComercial,String)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(Original_DataProtJuntaComercial,String)
             End If
             If (Original_DataPedidoIE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(193).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_DataPedidoIE,String)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(Original_DataPedidoIE,String)
             End If
             If (Original_AvisarDia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(195).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(Original_AvisarDia,String)
+                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(Original_AvisarDia,String)
             End If
             If (Original_PrazoSimples Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(197).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(Original_PrazoSimples,String)
+                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(Original_PrazoSimples,String)
             End If
             If (Original_NireAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(198).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(199).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(Original_NireAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(Original_NireAlt,String)
             End If
             If (Original_NRegistroAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(200).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(201).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(Original_NRegistroAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(Original_NRegistroAlt,String)
             End If
             If (Original_DataRegistroAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(202).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(203).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(Original_DataRegistroAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(Original_DataRegistroAlt,String)
             End If
             If (Original_NAlteracao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(204).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(205).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(Original_NAlteracao,String)
+                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(Original_NAlteracao,String)
             End If
             If (Original_Prioridade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(206).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(207).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(Original_Prioridade,String)
+                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(Original_Prioridade,String)
             End If
             If (Original_AltConsolidada Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(208).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(209).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(Original_AltConsolidada,String)
+                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(Original_AltConsolidada,String)
             End If
             If (Original_IEVencPedido Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(210).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(211).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(Original_IEVencPedido,String)
+                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(Original_IEVencPedido,String)
             End If
             If (Original_AltProt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(212).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(213).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(Original_AltProt,String)
+                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(Original_AltProt,String)
             End If
             If (Original_CadImob Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(214).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(215).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(Original_CadImob,String)
+                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(Original_CadImob,String)
             End If
             If (Original_NireData.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(Original_NireData.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(Original_NireData.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(216).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(217).Value = Global.System.DBNull.Value
             End If
             If (Original_QuantidadeSocios Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(218).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(219).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(Original_QuantidadeSocios,String)
+                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(Original_QuantidadeSocios,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(219).Value = CType(ID_Empresas,Short)
+            Me.Adapter.UpdateCommand.Parameters(220).Value = CType(ID_Empresas,Short)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -39331,6 +39390,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal DBEProtocolo As String,  _
                     ByVal DBEData As String,  _
                     ByVal FederalProtocolo As String,  _
+                    ByVal SenhasDeAcesso As String,  _
                     ByVal Original_ID_Empresas As Short,  _
                     ByVal Original_CNPJ As String,  _
                     ByVal Original_Endereco As String,  _
@@ -39373,7 +39433,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal Original_CadImob As String,  _
                     ByVal Original_NireData As Global.System.Nullable(Of Date),  _
                     ByVal Original_QuantidadeSocios As String) As Integer
-            Return Me.Update(RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, Original_ID_Empresas, Original_CNPJ, Original_Endereco, Original_EndNumero, Original_EndBairro, Original_EndComplemento, Original_EndCEP, Original_EndCidade, Original_EndEstado, Original_EndPais, Original_EmpTel1, Original_EmpTel2, Original_EmpEmail, Original_PaginaWeb, Original_IE, Original_IM, Original_EmpInicioAtividade, Original_EmpCriado, Original_Processo, Original_Status, Original_NIRE, Original_CNAEPrincipal, Original_ResponsavelCPF, Original_ProtocoloJuntaComercial, Original_Lembrete, Original_ProtocoloREDESIM, Original_DataProtREDESIM, Original_DataProtJuntaComercial, Original_DataPedidoIE, Original_AvisarDia, Original_PrazoSimples, Original_NireAlt, Original_NRegistroAlt, Original_DataRegistroAlt, Original_NAlteracao, Original_Prioridade, Original_AltConsolidada, Original_IEVencPedido, Original_AltProt, Original_CadImob, Original_NireData, Original_QuantidadeSocios, Original_ID_Empresas)
+            Return Me.Update(RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, Original_ID_Empresas, Original_CNPJ, Original_Endereco, Original_EndNumero, Original_EndBairro, Original_EndComplemento, Original_EndCEP, Original_EndCidade, Original_EndEstado, Original_EndPais, Original_EmpTel1, Original_EmpTel2, Original_EmpEmail, Original_PaginaWeb, Original_IE, Original_IM, Original_EmpInicioAtividade, Original_EmpCriado, Original_Processo, Original_Status, Original_NIRE, Original_CNAEPrincipal, Original_ResponsavelCPF, Original_ProtocoloJuntaComercial, Original_Lembrete, Original_ProtocoloREDESIM, Original_DataProtREDESIM, Original_DataProtJuntaComercial, Original_DataPedidoIE, Original_AvisarDia, Original_PrazoSimples, Original_NireAlt, Original_NRegistroAlt, Original_DataRegistroAlt, Original_NAlteracao, Original_Prioridade, Original_AltConsolidada, Original_IEVencPedido, Original_AltProt, Original_CadImob, Original_NireData, Original_QuantidadeSocios, Original_ID_Empresas)
         End Function
     End Class
     

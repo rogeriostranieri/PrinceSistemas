@@ -137,4 +137,24 @@ Public Class FrmEscolha
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Me.Close()
     End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Try
+            ' Pergunta se o usuário deseja remover os caracteres especiais
+            Dim result As DialogResult = MessageBox.Show("Deseja copiar o CNPJ sem caracteres especiais (pontos, traços, barras)?", "Confirmar Cópia", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            Dim cnpjParaCopiar As String = selectedCNPJ
+
+            ' Se o usuário escolher "Sim", remover os caracteres especiais
+            If result = DialogResult.Yes Then
+                cnpjParaCopiar = selectedCNPJ.Replace(".", "").Replace("-", "").Replace("/", "")
+            End If
+
+            ' Copia o CNPJ para a área de transferência
+            Clipboard.SetText(cnpjParaCopiar)
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao copiar o CNPJ: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

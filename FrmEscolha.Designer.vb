@@ -26,6 +26,7 @@ Partial Class FrmEscolha
         Me.BtnAlvara = New System.Windows.Forms.Button()
         Me.LabelCNPJ = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,6 +78,16 @@ Partial Class FrmEscolha
         Me.PictureBox2.TabIndex = 16
         Me.PictureBox2.TabStop = False
         '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(9, 198)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(67, 13)
+        Me.LinkLabel1.TabIndex = 17
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Copiar CNPJ"
+        '
         'FrmEscolha
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -84,6 +95,7 @@ Partial Class FrmEscolha
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(239, 237)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.LabelCNPJ)
         Me.Controls.Add(Me.BtnAlvara)
@@ -107,4 +119,5 @@ Partial Class FrmEscolha
     Friend WithEvents BtnAlvara As Button
     Friend WithEvents LabelCNPJ As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class
