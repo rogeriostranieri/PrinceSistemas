@@ -620,6 +620,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.TabPage8.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
         Me.TabPage20.SuspendLayout()
         CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage11.SuspendLayout()
@@ -1584,7 +1585,7 @@ Partial Class FrmLegalizacao
         '
         ProcessoLabel1.AutoSize = True
         ProcessoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ProcessoLabel1.Location = New System.Drawing.Point(10, 13)
+        ProcessoLabel1.Location = New System.Drawing.Point(6, 11)
         ProcessoLabel1.Name = "ProcessoLabel1"
         ProcessoLabel1.Size = New System.Drawing.Size(65, 18)
         ProcessoLabel1.TabIndex = 48
@@ -1594,7 +1595,7 @@ Partial Class FrmLegalizacao
         '
         NAlteracaoLabel1.AutoSize = True
         NAlteracaoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        NAlteracaoLabel1.Location = New System.Drawing.Point(190, 13)
+        NAlteracaoLabel1.Location = New System.Drawing.Point(186, 11)
         NAlteracaoLabel1.Name = "NAlteracaoLabel1"
         NAlteracaoLabel1.Size = New System.Drawing.Size(28, 18)
         NAlteracaoLabel1.TabIndex = 49
@@ -3351,11 +3352,6 @@ Partial Class FrmLegalizacao
         'TabPage8
         '
         Me.TabPage8.AutoScroll = True
-        Me.TabPage8.Controls.Add(Me.GroupBox13)
-        Me.TabPage8.Controls.Add(NAlteracaoLabel1)
-        Me.TabPage8.Controls.Add(Me.NAlteracaoLabel2)
-        Me.TabPage8.Controls.Add(ProcessoLabel1)
-        Me.TabPage8.Controls.Add(Me.ProcessoLabel2)
         Me.TabPage8.Controls.Add(Me.BtnArrumar)
         Me.TabPage8.Controls.Add(Me.Button41)
         Me.TabPage8.Controls.Add(Me.Button40)
@@ -3367,6 +3363,7 @@ Partial Class FrmLegalizacao
         Me.TabPage8.Controls.Add(PastaDocumentosLabel)
         Me.TabPage8.Controls.Add(Me.ArquivoContratoTextBox)
         Me.TabPage8.Controls.Add(Me.Button38)
+        Me.TabPage8.Controls.Add(Me.GroupBox13)
         Me.TabPage8.Location = New System.Drawing.Point(4, 25)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
@@ -3377,10 +3374,14 @@ Partial Class FrmLegalizacao
         '
         'GroupBox13
         '
-        Me.GroupBox13.BackColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox13.Location = New System.Drawing.Point(6, 34)
+        Me.GroupBox13.BackColor = System.Drawing.Color.LightCyan
+        Me.GroupBox13.Controls.Add(NAlteracaoLabel1)
+        Me.GroupBox13.Controls.Add(ProcessoLabel1)
+        Me.GroupBox13.Controls.Add(Me.NAlteracaoLabel2)
+        Me.GroupBox13.Controls.Add(Me.ProcessoLabel2)
+        Me.GroupBox13.Location = New System.Drawing.Point(6, 3)
         Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(261, 10)
+        Me.GroupBox13.Size = New System.Drawing.Size(272, 41)
         Me.GroupBox13.TabIndex = 51
         Me.GroupBox13.TabStop = False
         '
@@ -3389,7 +3390,7 @@ Partial Class FrmLegalizacao
         Me.NAlteracaoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NAlteracao", True))
         Me.NAlteracaoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NAlteracaoLabel2.ForeColor = System.Drawing.Color.Red
-        Me.NAlteracaoLabel2.Location = New System.Drawing.Point(215, 8)
+        Me.NAlteracaoLabel2.Location = New System.Drawing.Point(211, 6)
         Me.NAlteracaoLabel2.Name = "NAlteracaoLabel2"
         Me.NAlteracaoLabel2.Size = New System.Drawing.Size(52, 21)
         Me.NAlteracaoLabel2.TabIndex = 50
@@ -3400,7 +3401,7 @@ Partial Class FrmLegalizacao
         Me.ProcessoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
         Me.ProcessoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProcessoLabel2.ForeColor = System.Drawing.Color.Red
-        Me.ProcessoLabel2.Location = New System.Drawing.Point(76, 8)
+        Me.ProcessoLabel2.Location = New System.Drawing.Point(72, 6)
         Me.ProcessoLabel2.Name = "ProcessoLabel2"
         Me.ProcessoLabel2.Size = New System.Drawing.Size(100, 21)
         Me.ProcessoLabel2.TabIndex = 49
@@ -5635,6 +5636,8 @@ Partial Class FrmLegalizacao
         Me.GroupBox5.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
         Me.TabPage20.ResumeLayout(False)
         Me.TabPage20.PerformLayout()
         CType(Me.AnexoBoxPicture, System.ComponentModel.ISupportInitialize).EndInit()

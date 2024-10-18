@@ -2525,9 +2525,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
         ProcessoMudar()
         StatusMudar()
-
+        MudaContratoAviso()
     End Sub
 
+    Private Sub MudaContratoAviso()
+        ProcessoLabel2.Text = ProcessoComboBox.Text
+        NAlteracaoLabel2.Text = NAlteracaoComboBox.Text
+    End Sub
 
     Private Sub StatusComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StatusComboBox.SelectedIndexChanged
 

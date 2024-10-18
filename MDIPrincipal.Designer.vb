@@ -35,7 +35,11 @@ Partial Class MDIPrincipal
         Me.ContadorToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControleGeral = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NovoCadastroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlvaraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NovoCadastroToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SóciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SitesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CNAEsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -171,15 +175,41 @@ Partial Class MDIPrincipal
         '
         'EmpresasToolStripMenuItem2
         '
+        Me.EmpresasToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoCadastroToolStripMenuItem, Me.ConsultarToolStripMenuItem})
         Me.EmpresasToolStripMenuItem2.Name = "EmpresasToolStripMenuItem2"
         Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.EmpresasToolStripMenuItem2.Text = "Empresas"
         '
+        'NovoCadastroToolStripMenuItem
+        '
+        Me.NovoCadastroToolStripMenuItem.Name = "NovoCadastroToolStripMenuItem"
+        Me.NovoCadastroToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.NovoCadastroToolStripMenuItem.Text = "Novo Cadastro"
+        '
+        'ConsultarToolStripMenuItem
+        '
+        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.ConsultarToolStripMenuItem.Text = "Consultar"
+        '
         'AlvaraToolStripMenuItem
         '
+        Me.AlvaraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoCadastroToolStripMenuItem1, Me.ConsultarToolStripMenuItem1})
         Me.AlvaraToolStripMenuItem.Name = "AlvaraToolStripMenuItem"
         Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AlvaraToolStripMenuItem.Text = "Alvara"
+        '
+        'NovoCadastroToolStripMenuItem1
+        '
+        Me.NovoCadastroToolStripMenuItem1.Name = "NovoCadastroToolStripMenuItem1"
+        Me.NovoCadastroToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.NovoCadastroToolStripMenuItem1.Text = "Novo Cadastro"
+        '
+        'ConsultarToolStripMenuItem1
+        '
+        Me.ConsultarToolStripMenuItem1.Name = "ConsultarToolStripMenuItem1"
+        Me.ConsultarToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ConsultarToolStripMenuItem1.Text = "Consultar"
         '
         'SóciosToolStripMenuItem
         '
@@ -203,13 +233,13 @@ Partial Class MDIPrincipal
         'IBGECONCLAToolStripMenuItem
         '
         Me.IBGECONCLAToolStripMenuItem.Name = "IBGECONCLAToolStripMenuItem"
-        Me.IBGECONCLAToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.IBGECONCLAToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.IBGECONCLAToolStripMenuItem.Text = "IBGE - CONCLA"
         '
         'MaringáPRToolStripMenuItem
         '
         Me.MaringáPRToolStripMenuItem.Name = "MaringáPRToolStripMenuItem"
-        Me.MaringáPRToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MaringáPRToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.MaringáPRToolStripMenuItem.Text = "Maringá-PR"
         '
         'ToolStripSeparator14
@@ -702,4 +732,8 @@ Partial Class MDIPrincipal
     Friend WithEvents TodasCidadesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SitesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IBGECONCLAToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NovoCadastroToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NovoCadastroToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ConsultarToolStripMenuItem1 As ToolStripMenuItem
 End Class

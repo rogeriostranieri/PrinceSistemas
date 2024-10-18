@@ -85,29 +85,41 @@ Public Class FrmFiliais
 
     ' Evento de clique duplo na célula do DataGridView
     Private Sub DataGridViewEmpresa_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewEmpresa.CellDoubleClick
-        If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-            ' Obtém o valor da Razão Social e CNPJ da célula clicada
-            Dim razaoSocial As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells("RazaoSocial").Value.ToString()
-            Dim cnpj As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells("CNPJ").Value.ToString()
+        Try
 
-            If TypeOf _chamador Is FrmLegalizacao Then
-                ' Se o FrmLegalizacao estiver aberto, atualiza os ComboBox e traz o formulário para frente
-                Dim frmLegalizacao As FrmLegalizacao = DirectCast(_chamador, FrmLegalizacao)
-                frmLegalizacao.SalvarExterno()
-                frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
-                frmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpj
-                frmLegalizacao.BringToFront()
-            ElseIf TypeOf _chamador Is FrmAlvara Then
-                ' Se o FrmAlvara estiver aberto, atualiza os ComboBox e traz o formulário para frente
-                Dim frmAlvara As FrmAlvara = DirectCast(_chamador, FrmAlvara)
-                frmAlvara.SalvarExterno()
-                frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
-                frmAlvara.ComboBoxBuscaCNPJ.Text = cnpj
-                frmAlvara.BringToFront()
+
+            If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
+                ' Obtém o valor da Razão Social e CNPJ da célula clicada
+                Dim razaoSocial As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells("RazaoSocial").Value.ToString()
+                Dim cnpj As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells("CNPJ").Value.ToString()
+
+                If TypeOf _chamador Is FrmLegalizacao Then
+                    ' Se o FrmLegalizacao estiver aberto, atualiza os ComboBox e traz o formulário para frente
+                    Dim frmLegalizacao As FrmLegalizacao = DirectCast(_chamador, FrmLegalizacao)
+                    frmLegalizacao.SalvarExterno()
+                    frmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocial
+                    frmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpj
+                    frmLegalizacao.ComboBoxBuscaCNPJ.Text = Focus()
+                    frmLegalizacao.BringToFront()
+                ElseIf TypeOf _chamador Is FrmAlvara Then
+                    ' Se o FrmAlvara estiver aberto, atualiza os ComboBox e traz o formulário para frente
+                    Dim frmAlvara As FrmAlvara = DirectCast(_chamador, FrmAlvara)
+                    frmAlvara.SalvarExterno()
+                    frmAlvara.ComboBoxBuscaAlvara.Text = razaoSocial
+                    frmAlvara.ComboBoxBuscaCNPJ.Text = cnpj
+                    frmAlvara.ComboBoxBuscaCNPJ.Text = Focus()
+                    frmAlvara.BringToFront()
+                Else
+                    MsgBox("Erro ao abrir o Formulario da Empresa ou Alvara, verificar se esta aberto ", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                End If
+                FrmLegalizacao.BtnEditar.PerformClick()
+                Me.Close()
             End If
-            FrmLegalizacao.BtnEditar.PerformClick()
-            Me.Close()
-        End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o Formulario, contate o adminsitrador! " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
     End Sub
 
 

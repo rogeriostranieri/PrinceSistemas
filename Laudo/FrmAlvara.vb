@@ -793,7 +793,7 @@ Public Class FrmAlvara
     End Sub
 
 
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
             Salvar()
 

@@ -852,65 +852,6 @@ Public Class MDIPrincipal
     End Sub
 
 
-    Private Sub EmpresasToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem2.Click
-        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
-            '  Dim Sair As String
-            '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-            FrmLegalizacao.Focus()
-            ' FrmLegalizacao.MdiParent = Me
-
-
-
-        Else
-
-            ' FrmLegalizacao.MdiParent = Me
-            FrmLegalizacao.Show()
-
-
-        End If
-    End Sub
-
-    Private Sub AlvaraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlvaraToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-            'fecha o formulario de consulta e depois abre o cadastro
-            FrmAlvara.Close()
-
-            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-                '  Dim Sair As String
-                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-                FrmAlvara.Focus()
-                ' FrmContatos.MdiParent = MDIMenu
-
-
-            Else
-
-                'FrmContatos.MdiParent = MDIMenu
-                FrmAlvara.Show()
-
-
-            End If
-        Else
-            'se nao tiver consulta aberto ele nao faz nd e verifica o cadastro e continua
-            If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-                '  Dim Sair As String
-                '  Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-                FrmAlvara.Focus()
-                ' FrmContatos.MdiParent = MDIMenu
-
-
-            Else
-
-                'FrmContatos.MdiParent = MDIMenu
-                FrmAlvara.Show()
-
-
-            End If
-
-        End If
-    End Sub
 
     Private Sub SóciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SóciosToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
@@ -1028,6 +969,44 @@ Public Class MDIPrincipal
             FrmCNAEoficial.Focus()
         Else
             FrmCNAEoficial.Show()
+        End If
+    End Sub
+
+    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+            FrmLegalizacao.Focus()
+        Else
+            FrmLegalizacao.Show()
+            FrmLegalizacao.BtnEditar.PerformClick()
+        End If
+    End Sub
+
+    Private Sub NovoCadastroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NovoCadastroToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+            FrmLegalizacao.Focus()
+            FrmLegalizacao.BtnNovo.PerformClick()
+        Else
+            FrmLegalizacao.Show()
+            FrmLegalizacao.BtnNovo.PerformClick()
+        End If
+    End Sub
+
+    Private Sub ConsultarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem1.Click
+        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+            FrmAlvara.Focus()
+        Else
+            FrmAlvara.Show()
+            FrmAlvara.BtnEditar.PerformClick()
+        End If
+    End Sub
+
+    Private Sub NovoCadastroToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NovoCadastroToolStripMenuItem1.Click
+        If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
+            FrmAlvara.Focus()
+            FrmAlvara.BtnNovo.PerformClick()
+        Else
+            FrmAlvara.Show()
+            FrmAlvara.BtnNovo.PerformClick()
         End If
     End Sub
 End Class

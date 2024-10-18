@@ -174,7 +174,7 @@ Partial Class FrmAlvara
         Me.Button19 = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
-        Me.Button16 = New System.Windows.Forms.Button()
+        Me.BtnNovo = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.LabelSetranDataProvisorio = New System.Windows.Forms.Label()
         Me.LabelSanitarioDataProvisorio = New System.Windows.Forms.Label()
@@ -1982,18 +1982,18 @@ Partial Class FrmAlvara
         Me.Button17.Text = "Excluir"
         Me.Button17.UseVisualStyleBackColor = True
         '
-        'Button16
+        'BtnNovo
         '
-        Me.Button16.BackgroundImage = CType(resources.GetObject("Button16.BackgroundImage"), System.Drawing.Image)
-        Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button16.ForeColor = System.Drawing.Color.Green
-        Me.Button16.Location = New System.Drawing.Point(13, 15)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(69, 22)
-        Me.Button16.TabIndex = 46
-        Me.Button16.Text = "Novo"
-        Me.Button16.UseVisualStyleBackColor = True
+        Me.BtnNovo.BackgroundImage = CType(resources.GetObject("BtnNovo.BackgroundImage"), System.Drawing.Image)
+        Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovo.ForeColor = System.Drawing.Color.Green
+        Me.BtnNovo.Location = New System.Drawing.Point(13, 15)
+        Me.BtnNovo.Name = "BtnNovo"
+        Me.BtnNovo.Size = New System.Drawing.Size(69, 22)
+        Me.BtnNovo.TabIndex = 46
+        Me.BtnNovo.Text = "Novo"
+        Me.BtnNovo.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -3121,7 +3121,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBox5.Controls.Add(Me.BtnCopiarRegistro)
         Me.GroupBox5.Controls.Add(Me.BtnEditar)
-        Me.GroupBox5.Controls.Add(Me.Button16)
+        Me.GroupBox5.Controls.Add(Me.BtnNovo)
         Me.GroupBox5.Controls.Add(Me.BtnSalvar)
         Me.GroupBox5.Controls.Add(Me.Button17)
         Me.GroupBox5.Controls.Add(Me.Button19)
@@ -3716,7 +3716,7 @@ Partial Class FrmAlvara
     Friend WithEvents Button19 As Button
     Friend WithEvents BtnSalvar As Button
     Friend WithEvents Button17 As Button
-    Friend WithEvents Button16 As Button
+    Friend WithEvents BtnNovo As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button11 As Button
     Friend WithEvents Label3 As Label
