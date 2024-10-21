@@ -37,6 +37,8 @@ Partial Class FrmControleEventosEmpresa
         Me.ReceitaFederal = New System.Windows.Forms.CheckBox()
         Me.EmpresaFacil = New System.Windows.Forms.CheckBox()
         Me.GroupBoxTopo = New System.Windows.Forms.GroupBox()
+        Me.EventosEmpresaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.EventosComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
@@ -54,6 +56,7 @@ Partial Class FrmControleEventosEmpresa
         CType(Me.EventosEmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxTopo.SuspendLayout()
+        CType(Me.EventosEmpresaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -103,9 +106,9 @@ Partial Class FrmControleEventosEmpresa
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.851!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.149!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(685, 291)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.14161!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.85839!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(685, 387)
         Me.TableLayoutPanel1.TabIndex = 61
         '
         'GroupBoxMeio
@@ -119,9 +122,9 @@ Partial Class FrmControleEventosEmpresa
         Me.GroupBoxMeio.Controls.Add(Me.ReceitaFederal)
         Me.GroupBoxMeio.Controls.Add(Me.EmpresaFacil)
         Me.GroupBoxMeio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMeio.Location = New System.Drawing.Point(3, 142)
+        Me.GroupBoxMeio.Location = New System.Drawing.Point(3, 255)
         Me.GroupBoxMeio.Name = "GroupBoxMeio"
-        Me.GroupBoxMeio.Size = New System.Drawing.Size(595, 146)
+        Me.GroupBoxMeio.Size = New System.Drawing.Size(595, 129)
         Me.GroupBoxMeio.TabIndex = 61
         Me.GroupBoxMeio.TabStop = False
         '
@@ -195,15 +198,38 @@ Partial Class FrmControleEventosEmpresa
         'GroupBoxTopo
         '
         Me.GroupBoxTopo.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBoxTopo.Controls.Add(Me.EventosEmpresaDataGridView)
         Me.GroupBoxTopo.Controls.Add(Me.Label1)
         Me.GroupBoxTopo.Controls.Add(Me.EventosComboBox)
         Me.GroupBoxTopo.Controls.Add(EventosLabel1)
         Me.GroupBoxTopo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxTopo.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxTopo.Name = "GroupBoxTopo"
-        Me.GroupBoxTopo.Size = New System.Drawing.Size(595, 133)
+        Me.GroupBoxTopo.Size = New System.Drawing.Size(595, 246)
         Me.GroupBoxTopo.TabIndex = 61
         Me.GroupBoxTopo.TabStop = False
+        '
+        'EventosEmpresaDataGridView
+        '
+        Me.EventosEmpresaDataGridView.AllowUserToAddRows = False
+        Me.EventosEmpresaDataGridView.AllowUserToDeleteRows = False
+        Me.EventosEmpresaDataGridView.AutoGenerateColumns = False
+        Me.EventosEmpresaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.EventosEmpresaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
+        Me.EventosEmpresaDataGridView.DataSource = Me.EventosEmpresaBindingSource
+        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(14, 111)
+        Me.EventosEmpresaDataGridView.Name = "EventosEmpresaDataGridView"
+        Me.EventosEmpresaDataGridView.ReadOnly = True
+        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(568, 128)
+        Me.EventosEmpresaDataGridView.TabIndex = 54
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Eventos"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Eventos"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 500
         '
         'Label1
         '
@@ -237,9 +263,9 @@ Partial Class FrmControleEventosEmpresa
         Me.GroupBoxMenu.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenu.Controls.Add(Me.BtnNovo)
         Me.GroupBoxMenu.Controls.Add(Me.BtnExcluir)
-        Me.GroupBoxMenu.Location = New System.Drawing.Point(604, 142)
+        Me.GroupBoxMenu.Location = New System.Drawing.Point(604, 255)
         Me.GroupBoxMenu.Name = "GroupBoxMenu"
-        Me.GroupBoxMenu.Size = New System.Drawing.Size(78, 145)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(78, 129)
         Me.GroupBoxMenu.TabIndex = 61
         Me.GroupBoxMenu.TabStop = False
         '
@@ -299,10 +325,18 @@ Partial Class FrmControleEventosEmpresa
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -314,6 +348,7 @@ Partial Class FrmControleEventosEmpresa
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -324,7 +359,7 @@ Partial Class FrmControleEventosEmpresa
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(685, 291)
+        Me.ClientSize = New System.Drawing.Size(685, 387)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.KeyPreview = True
         Me.MaximizeBox = False
@@ -340,6 +375,7 @@ Partial Class FrmControleEventosEmpresa
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxTopo.ResumeLayout(False)
         Me.GroupBoxTopo.PerformLayout()
+        CType(Me.EventosEmpresaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -364,4 +400,6 @@ Partial Class FrmControleEventosEmpresa
     Friend WithEvents EventosEmpresaBindingSource As BindingSource
     Friend WithEvents EventosEmpresaTableAdapter As PrinceDBDataSetTableAdapters.EventosEmpresaTableAdapter
     Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents EventosEmpresaDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
 End Class

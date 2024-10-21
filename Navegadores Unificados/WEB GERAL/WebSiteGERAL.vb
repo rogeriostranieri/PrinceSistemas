@@ -170,19 +170,27 @@ Public Class WebSiteGERAL
         Try
             LogMsg("WebView_CoreWebView2InitializationCompleted")
 
-            Try
-                LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
-            Catch ex As Exception
-                LogMsg(ex.Message)
-                Me.Close()
-            End Try
-            'subscribe to CoreWebView2 event(s) (add event handlers) 
+            ' Verificar se CoreWebView2 e Environment foram inicializados
+            If WebView.CoreWebView2 IsNot Nothing AndAlso WebView.CoreWebView2.Environment IsNot Nothing Then
+                Try
+                    LogMsg("UserDataFolder: " & WebView.CoreWebView2.Environment.UserDataFolder.ToString())
+                Catch ex As Exception
+                    LogMsg("Erro ao acessar UserDataFolder: " & ex.Message)
+                    Me.Close()
+                End Try
+            Else
+                LogMsg("CoreWebView2 ou Environment ainda não estão inicializados.")
+            End If
+
+            ' Inscrever-se nos eventos do CoreWebView2
             AddHandler WebView.CoreWebView2.HistoryChanged, AddressOf CoreWebView2_HistoryChanged
+
         Catch ex As Exception
-            LogMsg(ex.Message)
+            LogMsg("Erro na inicialização do WebView2: " & ex.Message)
             Me.Close()
         End Try
     End Sub
+
 
     Private Sub CoreWebView2_HistoryChanged(sender As Object, e As Object)
         'LogMsg("CoreWebView2_HistoryChanged")

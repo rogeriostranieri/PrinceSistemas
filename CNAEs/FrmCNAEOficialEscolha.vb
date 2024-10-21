@@ -112,8 +112,9 @@ Public Class FrmCNAEOficialEscolha
             End If
         Else
             MessageBox.Show("Campos vazios, negado a exportação!", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
+            Exit Sub
         End If
+        Me.Close()
     End Sub
 
     Private Sub BtnMostrar_Click(sender As Object, e As EventArgs) Handles BtnMostrar.Click

@@ -55,13 +55,15 @@
     Private Sub FrmControleEventosEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.EventosEmpresa'. Você pode movê-la ou removê-la conforme necessário.
         Me.EventosEmpresaTableAdapter.Fill(Me.PrinceDBDataSet.EventosEmpresa)
-        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.EventosEmpresa'. Você pode movê-la ou removê-la conforme necessário.
-        Me.EventosEmpresaTableAdapter.Fill(Me.PrinceDBDataSet.EventosEmpresa)
-
+        EmpresaFacil.Checked = True
+        ReceitaFederal.Checked = False
+        ReceitaEstadual.Checked = False
+        PrefeituraMunicipal.Checked = False
     End Sub
 
 
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
+        Salvar()
         'adicionar novo registro e pergunta antes
         If MessageBox.Show("Deseja adicionar um novo registro?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             Me.EventosEmpresaBindingSource.AddNew()
@@ -70,6 +72,8 @@
             ReceitaFederal.Checked = False
             ReceitaEstadual.Checked = False
             PrefeituraMunicipal.Checked = False
+            EventosEmpresaDataGridView.Visible = False
+            EventosComboBox.Visible = False
         End If
 
     End Sub
@@ -83,6 +87,12 @@
         EventosComboBox.Text = Nome
         'select
         EventosComboBox.SelectedValue = Nome
+        EventosEmpresaDataGridView.Visible = True
+        EventosComboBox.Visible = True
+        EmpresaFacil.Checked = True
+        ReceitaFederal.Checked = False
+        ReceitaEstadual.Checked = False
+        PrefeituraMunicipal.Checked = False
     End Sub
 
     Private Sub BtnExcluir_Click(sender As Object, e As EventArgs) Handles BtnExcluir.Click
@@ -98,4 +108,57 @@
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
         Me.Close()
     End Sub
+
+    Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles EmpresaFacil.CheckedChanged, ReceitaFederal.CheckedChanged, ReceitaEstadual.CheckedChanged, PrefeituraMunicipal.CheckedChanged
+        ' Verifica qual CheckBox foi marcado
+        Dim currentCheckBox As CheckBox = CType(sender, CheckBox)
+
+        ' Desmarca os outros CheckBoxes
+        If currentCheckBox.Checked Then
+            If currentCheckBox IsNot EmpresaFacil Then EmpresaFacil.Checked = False
+            If currentCheckBox IsNot ReceitaFederal Then ReceitaFederal.Checked = False
+            If currentCheckBox IsNot ReceitaEstadual Then ReceitaEstadual.Checked = False
+            If currentCheckBox IsNot PrefeituraMunicipal Then PrefeituraMunicipal.Checked = False
+        End If
+
+        ' Aplica o filtro após a alteração
+        AplicarFiltroEventos()
+    End Sub
+
+
+    Private Sub AplicarFiltroEventos()
+        ' Cria uma string para o filtro
+        Dim filter As String = String.Empty
+
+        ' Adiciona condições ao filtro baseado nos CheckBoxes
+        If EmpresaFacil.Checked Then
+            filter &= "EmpresaFacil = 'Checked' "
+        End If
+        If ReceitaFederal.Checked Then
+            If filter.Length > 0 Then filter &= "AND "
+            filter &= "ReceitaFederal = 'Checked' "
+        End If
+        If ReceitaEstadual.Checked Then
+            If filter.Length > 0 Then filter &= "AND "
+            filter &= "ReceitaEstadual = 'Checked' "
+        End If
+        If PrefeituraMunicipal.Checked Then
+            If filter.Length > 0 Then filter &= "AND "
+            filter &= "PrefeituraMunicipal = 'Checked' "
+        End If
+
+        ' Aplica o filtro ao BindingSource
+        If filter.Length > 0 Then
+            EventosEmpresaBindingSource.Filter = filter
+        Else
+            EventosEmpresaBindingSource.RemoveFilter()
+        End If
+    End Sub
+
+
+
+
+
+
+
 End Class

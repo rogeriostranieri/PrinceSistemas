@@ -44,8 +44,25 @@ Public Class FrmCNAEoficial
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
         ' Chama o método para buscar os CNAEs ao clicar no botão
         Dim searchText As String = TextBoxBusca.Text.Trim()
+
+        ' Verifica se o texto contém apenas números
+        If searchText.All(Function(c) Char.IsDigit(c)) Then
+            ' Remove todos os caracteres que não sejam números (só por segurança)
+            searchText = New String(searchText.Where(Function(c) Char.IsDigit(c)).ToArray())
+
+            ' Se o texto tiver exatamente 7 dígitos, formata como XXXX-X/XX
+            If searchText.Length = 7 Then
+                searchText = searchText.Substring(0, 4) & "-" & searchText.Substring(4, 1) & "/" & searchText.Substring(5, 2)
+            End If
+
+            ' Atualiza o TextBoxBusca com o texto formatado
+            TextBoxBusca.Text = searchText
+        End If
+
+        ' Chama o método para fazer a busca com o texto (numérico ou não)
         SearchCNAE(searchText)
     End Sub
+
 
     Private Sub SearchCNAE(searchText As String)
         ' Limpa todos os itens atuais antes de realizar a busca
@@ -252,5 +269,7 @@ Public Class FrmCNAEoficial
         Me.Close()
     End Sub
 
-
+    Private Sub TextBoxBusca_MouseEnter(sender As Object, e As EventArgs) Handles TextBoxBusca.MouseEnter
+        TextBoxBusca.Text = ""
+    End Sub
 End Class

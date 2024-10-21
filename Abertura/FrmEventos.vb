@@ -19,6 +19,21 @@
 
         'aumentar a fonte da letra para 11 no data gridview
         EventosEmpresaDataGridView.Font = New Font("Microsoft Sans Serif", 11, FontStyle.Regular)
+
+    End Sub
+
+
+    ' Evento disparado quando a edição de uma linha é validada
+    Private Sub Organizar()
+        ' Verifique se a coluna com DataPropertyName "Eventos" existe
+        Dim colunaEventos = EventosEmpresaDataGridView.Columns.Cast(Of DataGridViewColumn)().FirstOrDefault(Function(c) c.DataPropertyName = "Eventos")
+
+        If colunaEventos IsNot Nothing Then
+            ' Ordenar automaticamente pela coluna "Eventos" em ordem crescente
+            EventosEmpresaDataGridView.Sort(colunaEventos, System.ComponentModel.ListSortDirection.Ascending)
+        Else
+            ' MessageBox.Show("A coluna com DataPropertyName 'Eventos' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     '////////////////////////////////// CHECK BOX //////////////////////////////
@@ -60,7 +75,7 @@
             'tirar tudo de dentro do DataGridView
             Me.EventosEmpresaDataGridView.DataSource = Nothing
         End If
-
+        Organizar()
     End Sub
 
     Private Sub ReceitaFederal_CheckedChanged(sender As Object, e As EventArgs) Handles ReceitaFederal.CheckedChanged
@@ -100,6 +115,7 @@
             'tirar tudo de dentro do DataGridView
             Me.EventosEmpresaDataGridView.DataSource = Nothing
         End If
+        Organizar()
     End Sub
 
     Private Sub ReceitaEstadual_CheckedChanged(sender As Object, e As EventArgs) Handles ReceitaEstadual.CheckedChanged
@@ -138,6 +154,7 @@
             'tirar tudo de dentro do DataGridView
             Me.EventosEmpresaDataGridView.DataSource = Nothing
         End If
+        Organizar()
     End Sub
 
     Private Sub PrefeituraMunicipal_CheckedChanged(sender As Object, e As EventArgs) Handles PrefeituraMunicipal.CheckedChanged
@@ -176,6 +193,7 @@
             'tirar tudo de dentro do DataGridView
             Me.EventosEmpresaDataGridView.DataSource = Nothing
         End If
+        Organizar()
     End Sub
 
     '//////////////////////////////////// FIM CHECK BOX //////////////////////////
@@ -200,7 +218,7 @@
             Me.EventosEmpresaDataGridView.Refresh()
             'se nao desfazer filtro
         End If
-
+        Organizar()
     End Sub
 
     Private Sub EventosEmpresaDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EventosEmpresaDataGridView.CellContentDoubleClick

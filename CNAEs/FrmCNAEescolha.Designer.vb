@@ -34,7 +34,7 @@ Partial Class FrmCNAEescolha
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(89, 173)
+        Me.BtnFechar.Location = New System.Drawing.Point(298, -2)
         Me.BtnFechar.Name = "BtnFechar"
         Me.BtnFechar.Size = New System.Drawing.Size(134, 60)
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -46,7 +46,7 @@ Partial Class FrmCNAEescolha
         Me.BtnConsulta.BackColor = System.Drawing.Color.Azure
         Me.BtnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.BtnConsulta.Location = New System.Drawing.Point(12, 95)
+        Me.BtnConsulta.Location = New System.Drawing.Point(221, 87)
         Me.BtnConsulta.Name = "BtnConsulta"
         Me.BtnConsulta.Size = New System.Drawing.Size(211, 77)
         Me.BtnConsulta.TabIndex = 18
@@ -58,7 +58,7 @@ Partial Class FrmCNAEescolha
         Me.BtnBuscar.BackColor = System.Drawing.Color.Azure
         Me.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBuscar.Location = New System.Drawing.Point(12, 12)
+        Me.BtnBuscar.Location = New System.Drawing.Point(4, 87)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(211, 77)
         Me.BtnBuscar.TabIndex = 17
@@ -70,7 +70,7 @@ Partial Class FrmCNAEescolha
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(237, 235)
+        Me.ClientSize = New System.Drawing.Size(439, 235)
         Me.Controls.Add(Me.BtnFechar)
         Me.Controls.Add(Me.BtnConsulta)
         Me.Controls.Add(Me.BtnBuscar)

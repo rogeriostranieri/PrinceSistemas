@@ -2789,15 +2789,39 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         If CapitalSTextBox.Text <> "" Then
             Dim valorCapital As Decimal
 
-            If Decimal.TryParse(CapitalSTextBox.Text.Replace("R$", "").Replace(",", "."), valorCapital) Then
-                ' Valor válido, prosseguir com o cálculo
-                CapitalSTextBox.Text = FormatCurrency(valorCapital, 2) ' Formata com 2 casas decimais
-                CapitalITextBox.Text = FormatCurrency(valorCapital, 2) ' Formata com 2 casas decimais
-                CapitalQuotaValorTextBox.Text = "R$ 1,00"
-                CapitaQuotaTotalTextBox.Text = valorCapital.ToString("N0") ' Formata como número inteiro
+            ' Tenta analisar o valor no formato brasileiro (com vírgula para decimais)
+            Dim culturaBR As Globalization.CultureInfo = Globalization.CultureInfo.GetCultureInfo("pt-BR")
 
-                ' Lógica para calcular o valor total da cota de capital (se necessário)
-                ' ...
+            If Decimal.TryParse(CapitalSTextBox.Text.Replace("R$", "").Trim(),
+                            Globalization.NumberStyles.Currency,
+                            culturaBR,
+                            valorCapital) Then
+
+                ' Formata o valor atual do capital
+                CapitalSTextBox.Text = valorCapital.ToString("C2", culturaBR) ' Formata como moeda com 2 casas decimais
+                CapitalITextBox.Text = valorCapital.ToString("C2", culturaBR) ' Formata como moeda com 2 casas decimais
+                CapitalQuotaValorTextBox.Text = "R$ 1,00"
+                CapitaQuotaTotalTextBox.Text = valorCapital.ToString("N0", culturaBR) ' Formata como número inteiro
+
+                ' Verifica se o CapitalAntigoMudouCheckBox está marcado
+                If CapitalAntigoMudouCheckBox.Checked Then
+                    ' Exibe e formata o campo de capital antigo
+                    CapitalSocialAntigoLabel.Visible = True
+                    CapitalSocialAntigoTextBox.Visible = True
+
+                    ' Mantém o valor antigo sem alterar
+                    ' Adiciona a formatação "R$" ao valor antigo, se necessário
+                    If Not CapitalSocialAntigoTextBox.Text.Contains("R$") Then
+                        Dim valorAntigo As Decimal
+                        If Decimal.TryParse(CapitalSocialAntigoTextBox.Text.Replace("R$", "").Trim(),
+                                        Globalization.NumberStyles.Currency,
+                                        culturaBR,
+                                        valorAntigo) Then
+                            ' Atualiza o valor no campo antigo, se necessário
+                            CapitalSocialAntigoTextBox.Text = valorAntigo.ToString("C2", culturaBR)
+                        End If
+                    End If
+                End If
 
                 valorFormatado = True ' Marca o valor como formatado
             Else
@@ -2806,6 +2830,8 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             End If
         End If
     End Sub
+
+
 
     Private Sub BtnRemoveSocios_Click(sender As Object, e As EventArgs) Handles BtnRemoveSocios.Click
         'perguntar se deseja limpar os dados
@@ -3521,16 +3547,34 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Dim quotaExtenso As String = NumberToWords(quotaTotal) ' Extenso do número de quotas, sem unidade de moeda
         Dim quotaValorExtenso As String = NumberToWordsWithCurrency(quotaValor) ' Extenso com unidade monetária
 
-        ' Montagem do resultado final
-        Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
+        ' Verifica se o CapitalAntigoMudouCheckBox está marcado
+        If CapitalAntigoMudouCheckBox.Checked Then
+            ' Se o capital mudou, incluir a informação do capital antigo
+            Dim capitalAntigoString As String = CapitalSocialAntigoTextBox.Text
+            Dim capitalAntigoValor As Decimal = ExtractNumericValue(capitalAntigoString)
+            Dim capitalAntigoExtenso As String = NumberToWordsWithCurrency(capitalAntigoValor)
+
+            ' Montagem do texto com capital antigo e o novo
+            Dim resultado As String = $"O capital social era de {capitalAntigoString} ({capitalAntigoExtenso}), " &
+                                  $"dividido em {capitalAntigoString} ({capitalAntigoExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso}), " &
+                                  $"foi aumentado para {capitalString} ({capitalExtenso}), " &
+                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso})"
+
+            ' Exibir o resultado e copiar para a área de transferência
+            MessageBox.Show(resultado)
+            My.Computer.Clipboard.SetText(resultado)
+        Else
+            ' Montagem do texto normal sem capital antigo
+            Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
                                   $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
                                   $"{quotaValorString} ({quotaValorExtenso})"
 
-        ' Exibir o resultado
-        MessageBox.Show(resultado)
-        Dim TextoFinal As String = resultado
-        My.Computer.Clipboard.SetText(TextoFinal)
+            ' Exibir o resultado e copiar para a área de transferência
+            MessageBox.Show(resultado)
+            My.Computer.Clipboard.SetText(resultado)
+        End If
     End Sub
+
 
     ' Função para extrair o valor numérico de uma string com formato de moeda
     Private Function ExtractNumericValue(moeda As String) As Decimal
@@ -3778,5 +3822,58 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ' Atualiza o Label com o total de linhas (CNAEs)
         LblTotalCnae.Text = cnaesFormatados.Count.ToString()
     End Sub
+
+    Private Sub LblLinkArrumarCNAE_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LblLinkArrumarCNAE.LinkClicked
+        ' Limpar caracteres e formatar o CNAEPrincipalTextBox
+        If CNAEPrincipalTextBox.Text.Length >= 7 Then
+            Dim cnaePrincipal As String = CNAEPrincipalTextBox.Text
+            ' Manter apenas números e formatar como XXXX-X/XX
+            cnaePrincipal = New String(cnaePrincipal.Where(Function(c) Char.IsDigit(c)).ToArray())
+            If cnaePrincipal.Length = 7 Then
+                CNAEPrincipalTextBox.Text = cnaePrincipal.Substring(0, 4) & "-" & cnaePrincipal.Substring(4, 1) & "/" & cnaePrincipal.Substring(5, 2)
+            Else
+                MessageBox.Show("CNAE Principal inválido. Deve conter 7 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+
+        ' Verificar linha por linha no CNAESecundarioRichTextBox
+        Dim linhasSecundarias As String() = CNAESecundarioRichTextBox.Lines
+        Dim cnaesFormatados As New List(Of String)
+
+        For Each linha As String In linhasSecundarias
+            ' Manter apenas números e formatar como XXXX-X/XX
+            Dim cnaeSecundario As String = New String(linha.Where(Function(c) Char.IsDigit(c)).ToArray())
+            If cnaeSecundario.Length = 7 Then
+                cnaesFormatados.Add(cnaeSecundario.Substring(0, 4) & "-" & cnaeSecundario.Substring(4, 1) & "/" & cnaeSecundario.Substring(5, 2))
+            ElseIf Not String.IsNullOrWhiteSpace(linha) Then
+                MessageBox.Show($"CNAE Secundário inválido: {linha}. Deve conter 7 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Next
+
+        ' Atualizar o conteúdo do CNAESecundarioRichTextBox com os CNAEs formatados
+        CNAESecundarioRichTextBox.Lines = cnaesFormatados.ToArray()
+    End Sub
+
     '////////////////////////// FIM ARRUMAR CNAE PRINCIPAL E SECUNDARIO
+
+    Private Sub CapitalAntigoMudouCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles CapitalAntigoMudouCheckBox.CheckedChanged
+        ' Verifica se o checkbox está marcado
+        If CapitalAntigoMudouCheckBox.Checked Then
+            ' Se marcado, torna os controles visíveis
+            CapitalSocialAntigoLabel.Visible = True
+            CapitalSocialAntigoTextBox.Visible = True
+        Else
+            ' Se desmarcado, oculta os controles
+            CapitalSocialAntigoLabel.Visible = False
+            CapitalSocialAntigoTextBox.Visible = False
+        End If
+    End Sub
+
+
+
+
+
+
+
+
 End Class

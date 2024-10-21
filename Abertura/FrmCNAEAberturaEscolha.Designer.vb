@@ -42,7 +42,7 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(176, 69)
         Me.BtnInterno.TabIndex = 17
-        Me.BtnInterno.Text = "Abrir Interno"
+        Me.BtnInterno.Text = "Abrir Sistema Interno"
         Me.BtnInterno.UseVisualStyleBackColor = False
         '
         'BtnExterno
@@ -60,7 +60,7 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnExterno.Name = "BtnExterno"
         Me.BtnExterno.Size = New System.Drawing.Size(176, 69)
         Me.BtnExterno.TabIndex = 16
-        Me.BtnExterno.Text = "Abrir Externo"
+        Me.BtnExterno.Text = "Abrir Site Oficial"
         Me.BtnExterno.UseVisualStyleBackColor = False
         '
         'Label6

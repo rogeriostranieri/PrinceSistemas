@@ -78,6 +78,8 @@
     End Sub
 
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
+        Salvar()
+
         If MsgBox(" Deseja criar um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
             Me.Validate()
             Me.CADstatusBindingSource.AddNew()

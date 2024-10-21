@@ -47,7 +47,7 @@ Partial Class FrmCNAEoficial
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(352, 614)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(352, 679)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -91,18 +91,18 @@ Partial Class FrmCNAEoficial
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 12)
+        Me.Label1.Location = New System.Drawing.Point(97, 51)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 25)
+        Me.Label1.Size = New System.Drawing.Size(255, 25)
         Me.Label1.TabIndex = 24
-        Me.Label1.Text = "Todos CNAE"
+        Me.Label1.Text = "Todos CNAE - OFICIAL"
         '
         'TextBoxBusca
         '
         Me.TextBoxBusca.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxBusca.Location = New System.Drawing.Point(12, 55)
+        Me.TextBoxBusca.Location = New System.Drawing.Point(12, 109)
         Me.TextBoxBusca.Name = "TextBoxBusca"
-        Me.TextBoxBusca.Size = New System.Drawing.Size(314, 31)
+        Me.TextBoxBusca.Size = New System.Drawing.Size(380, 31)
         Me.TextBoxBusca.TabIndex = 23
         Me.TextBoxBusca.Text = "Digite aqui o que deseja busca"
         '
@@ -110,7 +110,7 @@ Partial Class FrmCNAEoficial
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(14, 602)
+        Me.Label2.Location = New System.Drawing.Point(14, 656)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(230, 13)
         Me.Label2.TabIndex = 27
@@ -118,9 +118,11 @@ Partial Class FrmCNAEoficial
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(333, 57)
+        Me.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBuscar.Location = New System.Drawing.Point(398, 109)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBuscar.Size = New System.Drawing.Size(89, 33)
         Me.BtnBuscar.TabIndex = 28
         Me.BtnBuscar.Text = "Buscar"
         Me.BtnBuscar.UseVisualStyleBackColor = True
@@ -128,7 +130,7 @@ Partial Class FrmCNAEoficial
         'ListViewCNAEs
         '
         Me.ListViewCNAEs.HideSelection = False
-        Me.ListViewCNAEs.Location = New System.Drawing.Point(12, 185)
+        Me.ListViewCNAEs.Location = New System.Drawing.Point(12, 239)
         Me.ListViewCNAEs.Name = "ListViewCNAEs"
         Me.ListViewCNAEs.Size = New System.Drawing.Size(475, 414)
         Me.ListViewCNAEs.TabIndex = 29
@@ -139,7 +141,7 @@ Partial Class FrmCNAEoficial
         Me.ComboBoxTipoCNAE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxTipoCNAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBoxTipoCNAE.FormattingEnabled = True
-        Me.ComboBoxTipoCNAE.Location = New System.Drawing.Point(12, 124)
+        Me.ComboBoxTipoCNAE.Location = New System.Drawing.Point(12, 178)
         Me.ComboBoxTipoCNAE.Name = "ComboBoxTipoCNAE"
         Me.ComboBoxTipoCNAE.Size = New System.Drawing.Size(160, 26)
         Me.ComboBoxTipoCNAE.TabIndex = 30
@@ -149,7 +151,7 @@ Partial Class FrmCNAEoficial
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(8, 102)
+        Me.Label3.Location = New System.Drawing.Point(8, 156)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(311, 19)
         Me.Label3.TabIndex = 31
@@ -160,7 +162,7 @@ Partial Class FrmCNAEoficial
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 163)
+        Me.Label4.Location = New System.Drawing.Point(8, 217)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(334, 19)
         Me.Label4.TabIndex = 32
@@ -176,7 +178,7 @@ Partial Class FrmCNAEoficial
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(499, 646)
+        Me.ClientSize = New System.Drawing.Size(499, 711)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ComboBoxTipoCNAE)
