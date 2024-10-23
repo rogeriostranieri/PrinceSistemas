@@ -1971,7 +1971,7 @@ Partial Class FrmAlvara
         '
         'Button17
         '
-        Me.Button17.BackgroundImage = CType(resources.GetObject("Button17.BackgroundImage"), System.Drawing.Image)
+        Me.Button17.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBtnFechar
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -3197,7 +3197,7 @@ Partial Class FrmAlvara
         'Button12
         '
         Me.Button12.BackColor = System.Drawing.Color.Transparent
-        Me.Button12.BackgroundImage = CType(resources.GetObject("Button12.BackgroundImage"), System.Drawing.Image)
+        Me.Button12.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBotaoNormalNovo1
         Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Location = New System.Drawing.Point(191, 59)
@@ -3210,7 +3210,7 @@ Partial Class FrmAlvara
         'Button15
         '
         Me.Button15.BackColor = System.Drawing.Color.Transparent
-        Me.Button15.BackgroundImage = CType(resources.GetObject("Button15.BackgroundImage"), System.Drawing.Image)
+        Me.Button15.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

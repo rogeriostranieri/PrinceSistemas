@@ -202,34 +202,58 @@
 
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        'carrega dados
-        'buscar dentro do gridview o texto digitado mas observando quem esta marcado chekbox
+        ' Carrega dados
+        Dim textoBusca As String = RemoverAcentos(TextBox1.Text)
+
+        ' Verifica se a Checkbox correspondente está marcada e aplica o filtro
         If EmpresaFacil.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "EmpresaFacil = 'Checked' AND Eventos LIKE '%" & TextBox1.Text & "%'"
+            Me.EventosEmpresaBindingSource.Filter = "EmpresaFacil = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
             Me.EventosEmpresaDataGridView.Refresh()
         ElseIf ReceitaFederal.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "ReceitaFederal = 'Checked' AND Eventos LIKE '%" & TextBox1.Text & "%'"
+            Me.EventosEmpresaBindingSource.Filter = "ReceitaFederal = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
             Me.EventosEmpresaDataGridView.Refresh()
         ElseIf ReceitaEstadual.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "ReceitaEstadual = 'Checked' AND Eventos LIKE '%" & TextBox1.Text & "%'"
+            Me.EventosEmpresaBindingSource.Filter = "ReceitaEstadual = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
             Me.EventosEmpresaDataGridView.Refresh()
         ElseIf PrefeituraMunicipal.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "PrefeituraMunicipal = 'Checked' AND Eventos LIKE '%" & TextBox1.Text & "%'"
+            Me.EventosEmpresaBindingSource.Filter = "PrefeituraMunicipal = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
             Me.EventosEmpresaDataGridView.Refresh()
-            'se nao desfazer filtro
+        Else
+            ' Se nenhuma checkbox estiver marcada, desfaz o filtro
+            Me.EventosEmpresaBindingSource.RemoveFilter()
         End If
+
         Organizar()
     End Sub
 
+    ' Função para remover acentos
+    Private Function RemoverAcentos(texto As String) As String
+        Dim caracteresAcentuados As Char() = {"á", "é", "í", "ó", "ú", "ã", "õ", "â", "ê", "î", "ô", "û", "ç"}
+        Dim caracteresSemAcento As Char() = {"a", "e", "i", "o", "u", "a", "o", "a", "e", "i", "o", "u", "c"}
+
+        For i As Integer = 0 To caracteresAcentuados.Length - 1
+            texto = texto.Replace(caracteresAcentuados(i), caracteresSemAcento(i))
+        Next
+
+        Return texto
+    End Function
+
+
     Private Sub EventosEmpresaDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EventosEmpresaDataGridView.CellContentDoubleClick
-        'ao clicar adicionar o Evento dentro do FrmLegalizacao.MotivoRichTextBox,
-        'verificar antes se tem texto no FrmLegalizacao.MotivoRichTextBox e adicionar na proxima linha
+        ' Adiciona o Evento dentro do FrmLegalizacao.MotivoRichTextBox
+        ' Verifica antes se tem texto no FrmLegalizacao.MotivoRichTextBox e adiciona na próxima linha
+        Dim textoEvento As String = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value.ToString()
+
         If FrmLegalizacao.MotivoRichTextBox.Text = "" Then
-            FrmLegalizacao.MotivoRichTextBox.Text = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value
+            FrmLegalizacao.MotivoRichTextBox.Text = textoEvento
         Else
-            FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text & vbCrLf & EventosEmpresaDataGridView.CurrentRow.Cells(0).Value
+            FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text & vbCrLf & textoEvento
         End If
+
+        ' Mensagem de confirmação
+        MessageBox.Show("Texto adicionado: " & textoEvento, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 
     Private Sub BtnLimparEventos_Click(sender As Object, e As EventArgs) Handles BtnLimparEventos.Click
         'perguntar se deseja FrmLegalizacao.MotivoRichTextBox.Clear()
@@ -247,5 +271,6 @@
         Else
             FrmControleEventosEmpresa.Show()
         End If
+        Me.Close()
     End Sub
 End Class

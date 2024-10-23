@@ -449,22 +449,26 @@ Public Class FrmAlvara
                     changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
                 Next
 
-                ' Mostrar a quantidade de alterações e o resumo das mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
+                ' Perguntar ao usuário se deseja ver os detalhes das alterações antes de salvar
+                Dim verDetalhes As DialogResult = MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                If verDetalhes = DialogResult.Yes Then
+                    MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+                ' Perguntar ao usuário se deseja salvar as alterações
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
                     Case DialogResult.Cancel
                         ' Não faça nada, apenas sair do método
-                        ' Exit Sub
-                        ' Define a variável como True para indicar que o fechamento foi cancelado.
                         cancelarFechamento = True
 
                     Case DialogResult.No
                         ' Reverter mudanças e desativar edição
                         ReverterAlteracoes()
                         cancelarFechamento = False
-
 
                     Case DialogResult.Yes
                         Try
@@ -473,7 +477,7 @@ Public Class FrmAlvara
 
                             ' Verificar se o salvamento foi bem-sucedido
                             If rowsAffected > 0 Then
-                                'MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                ' MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Else
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
@@ -484,13 +488,7 @@ Public Class FrmAlvara
                         Catch exc As Exception
                             MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
-
-                        ' Perguntar ao usuário se deseja ver detalhes das alterações
-                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        End If
                         cancelarFechamento = False
-
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -500,6 +498,7 @@ Public Class FrmAlvara
             MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 
@@ -953,10 +952,16 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        Dim CNPJ As String = CNPJMaskedTextBox.Text
-        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
-
+        Try
+            Dim CNPJ As String = CNPJMaskedTextBox.Text
+            If MessageBox.Show("Deseja Copiar o CNPJ apenas os numeros?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+                Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+            Else
+                Clipboard.SetText(CNPJ)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click

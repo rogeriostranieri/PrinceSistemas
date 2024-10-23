@@ -10508,6 +10508,10 @@ Partial Public Class PrinceDBDataSet
         
         Private columnPrefeituraMunicipal As Global.System.Data.DataColumn
         
+        Private columnEventosDescriçãoTitulo As Global.System.Data.DataColumn
+        
+        Private columnEventosDescrição As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -10592,6 +10596,22 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EventosDescriçãoTituloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEventosDescriçãoTitulo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EventosDescriçãoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEventosDescrição
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -10628,9 +10648,9 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddEventosEmpresaRow(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String) As EventosEmpresaRow
+        Public Overloads Function AddEventosEmpresaRow(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal EventosDescriçãoTitulo As String, ByVal EventosDescrição As String) As EventosEmpresaRow
             Dim rowEventosEmpresaRow As EventosEmpresaRow = CType(Me.NewRow,EventosEmpresaRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Eventos, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Eventos, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal, EventosDescriçãoTitulo, EventosDescrição}
             rowEventosEmpresaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEventosEmpresaRow)
             Return rowEventosEmpresaRow
@@ -10665,6 +10685,8 @@ Partial Public Class PrinceDBDataSet
             Me.columnReceitaFederal = MyBase.Columns("ReceitaFederal")
             Me.columnReceitaEstadual = MyBase.Columns("ReceitaEstadual")
             Me.columnPrefeituraMunicipal = MyBase.Columns("PrefeituraMunicipal")
+            Me.columnEventosDescriçãoTitulo = MyBase.Columns("EventosDescriçãoTitulo")
+            Me.columnEventosDescrição = MyBase.Columns("EventosDescrição")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10682,6 +10704,10 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnReceitaEstadual)
             Me.columnPrefeituraMunicipal = New Global.System.Data.DataColumn("PrefeituraMunicipal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPrefeituraMunicipal)
+            Me.columnEventosDescriçãoTitulo = New Global.System.Data.DataColumn("EventosDescriçãoTitulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEventosDescriçãoTitulo)
+            Me.columnEventosDescrição = New Global.System.Data.DataColumn("EventosDescrição", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEventosDescrição)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_EventosEmpresa}, true))
             Me.columnID_EventosEmpresa.AutoIncrement = true
             Me.columnID_EventosEmpresa.AutoIncrementSeed = -1
@@ -10694,6 +10720,8 @@ Partial Public Class PrinceDBDataSet
             Me.columnReceitaFederal.MaxLength = 2147483647
             Me.columnReceitaEstadual.MaxLength = 2147483647
             Me.columnPrefeituraMunicipal.MaxLength = 2147483647
+            Me.columnEventosDescriçãoTitulo.MaxLength = 2147483647
+            Me.columnEventosDescrição.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -24226,6 +24254,36 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EventosDescriçãoTitulo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEventosEmpresa.EventosDescriçãoTituloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EventosDescriçãoTitulo' na tabela 'EventosEmpresa' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEventosEmpresa.EventosDescriçãoTituloColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property EventosDescrição() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEventosEmpresa.EventosDescriçãoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'EventosDescrição' na tabela 'EventosEmpresa' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEventosEmpresa.EventosDescriçãoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEventosNull() As Boolean
             Return Me.IsNull(Me.tableEventosEmpresa.EventosColumn)
         End Function
@@ -24282,6 +24340,30 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetPrefeituraMunicipalNull()
             Me(Me.tableEventosEmpresa.PrefeituraMunicipalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEventosDescriçãoTituloNull() As Boolean
+            Return Me.IsNull(Me.tableEventosEmpresa.EventosDescriçãoTituloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEventosDescriçãoTituloNull()
+            Me(Me.tableEventosEmpresa.EventosDescriçãoTituloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEventosDescriçãoNull() As Boolean
+            Return Me.IsNull(Me.tableEventosEmpresa.EventosDescriçãoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEventosDescriçãoNull()
+            Me(Me.tableEventosEmpresa.EventosDescriçãoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -40486,6 +40568,8 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("ReceitaFederal", "ReceitaFederal")
             tableMapping.ColumnMappings.Add("ReceitaEstadual", "ReceitaEstadual")
             tableMapping.ColumnMappings.Add("PrefeituraMunicipal", "PrefeituraMunicipal")
+            tableMapping.ColumnMappings.Add("EventosDescriçãoTitulo", "EventosDescriçãoTitulo")
+            tableMapping.ColumnMappings.Add("EventosDescrição", "EventosDescrição")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -40496,30 +40580,38 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [EventosEmpresa] ([Eventos], [EmpresaFacil], [ReceitaFederal], [Recei"& _ 
-                "taEstadual], [PrefeituraMunicipal]) VALUES (@Eventos, @EmpresaFacil, @ReceitaFed"& _ 
-                "eral, @ReceitaEstadual, @PrefeituraMunicipal);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_EventosEmpresa, Evento"& _ 
-                "s, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal FROM Event"& _ 
-                "osEmpresa WHERE (ID_EventosEmpresa = SCOPE_IDENTITY())"
+                "taEstadual], [PrefeituraMunicipal], [EventosDescriçãoTitulo], [EventosDescrição]"& _ 
+                ") VALUES (@Eventos, @EmpresaFacil, @ReceitaFederal, @ReceitaEstadual, @Prefeitur"& _ 
+                "aMunicipal, @EventosDescriçãoTitulo, @EventosDescrição);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_EventosEmpre"& _ 
+                "sa, Eventos, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal,"& _ 
+                " EventosDescriçãoTitulo, EventosDescrição FROM EventosEmpresa WHERE (ID_EventosE"& _ 
+                "mpresa = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Eventos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Eventos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaFacil", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaFacil", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceitaFederal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceitaFederal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceitaEstadual", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceitaEstadual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrefeituraMunicipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrefeituraMunicipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EventosDescriçãoTitulo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EventosDescriçãoTitulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EventosDescrição", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EventosDescrição", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [EventosEmpresa] SET [Eventos] = @Eventos, [EmpresaFacil] = @EmpresaFacil,"& _ 
                 " [ReceitaFederal] = @ReceitaFederal, [ReceitaEstadual] = @ReceitaEstadual, [Pref"& _ 
-                "eituraMunicipal] = @PrefeituraMunicipal WHERE (([ID_EventosEmpresa] = @Original_"& _ 
-                "ID_EventosEmpresa));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_EventosEmpresa, Eventos, EmpresaFacil, ReceitaFe"& _ 
-                "deral, ReceitaEstadual, PrefeituraMunicipal FROM EventosEmpresa WHERE (ID_Evento"& _ 
-                "sEmpresa = @ID_EventosEmpresa)"
+                "eituraMunicipal] = @PrefeituraMunicipal, [EventosDescriçãoTitulo] = @EventosDesc"& _ 
+                "riçãoTitulo, [EventosDescrição] = @EventosDescrição WHERE (([ID_EventosEmpresa] "& _ 
+                "= @Original_ID_EventosEmpresa));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_EventosEmpresa, Eventos, EmpresaFaci"& _ 
+                "l, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal, EventosDescriçãoTitulo,"& _ 
+                " EventosDescrição FROM EventosEmpresa WHERE (ID_EventosEmpresa = @ID_EventosEmpr"& _ 
+                "esa)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Eventos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Eventos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaFacil", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaFacil", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceitaFederal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceitaFederal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceitaEstadual", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceitaEstadual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrefeituraMunicipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrefeituraMunicipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EventosDescriçãoTitulo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EventosDescriçãoTitulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EventosDescrição", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EventosDescrição", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_EventosEmpresa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_EventosEmpresa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_EventosEmpresa", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_EventosEmpresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -40541,11 +40633,12 @@ Namespace PrinceDBDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT * FROM EventosEmpresa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (EmpresaFacil = @EmpresaFacil OR @Empre"& _ 
-                "saFacil IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    AND (ReceitaFederal = @ReceitaFederal OR @ReceitaFederal I"& _ 
-                "S NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    AND (ReceitaEstadual = @ReceitaEstadual OR @ReceitaEstadual IS NULL"& _ 
-                ")"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    AND (PrefeituraMunicipal = @PrefeituraMunicipal OR @PrefeituraMunicipal I"& _ 
-                "S NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(1).CommandText = "SELECT EmpresaFacil, Eventos, EventosDescrição, EventosDescriçãoTitulo, ID_Evento"& _ 
+                "sEmpresa, PrefeituraMunicipal, ReceitaEstadual, ReceitaFederal FROM EventosEmpre"& _ 
+                "sa WHERE (EmpresaFacil = @EmpresaFacil OR @EmpresaFacil IS NULL) AND (ReceitaFed"& _ 
+                "eral = @ReceitaFederal OR @ReceitaFederal IS NULL) AND (ReceitaEstadual = @Recei"& _ 
+                "taEstadual OR @ReceitaEstadual IS NULL) AND (PrefeituraMunicipal = @PrefeituraMu"& _ 
+                "nicipal OR @PrefeituraMunicipal IS NULL)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaFacil", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaFacil", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceitaFederal", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceitaFederal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40694,7 +40787,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal EventosDescriçãoTitulo As String, ByVal EventosDescrição As String) As Integer
             If (Eventos Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -40720,6 +40813,16 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(PrefeituraMunicipal,String)
             End If
+            If (EventosDescriçãoTitulo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EventosDescriçãoTitulo,String)
+            End If
+            If (EventosDescrição Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(EventosDescrição,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -40739,7 +40842,7 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal Original_ID_EventosEmpresa As Integer, ByVal ID_EventosEmpresa As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal EventosDescriçãoTitulo As String, ByVal EventosDescrição As String, ByVal Original_ID_EventosEmpresa As Integer, ByVal ID_EventosEmpresa As Integer) As Integer
             If (Eventos Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -40765,8 +40868,18 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(PrefeituraMunicipal,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID_EventosEmpresa,Integer)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ID_EventosEmpresa,Integer)
+            If (EventosDescriçãoTitulo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EventosDescriçãoTitulo,String)
+            End If
+            If (EventosDescrição Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(EventosDescrição,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_EventosEmpresa,Integer)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ID_EventosEmpresa,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -40786,8 +40899,8 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal Original_ID_EventosEmpresa As Integer) As Integer
-            Return Me.Update(Eventos, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal, Original_ID_EventosEmpresa, Original_ID_EventosEmpresa)
+        Public Overloads Overridable Function Update(ByVal Eventos As String, ByVal EmpresaFacil As String, ByVal ReceitaFederal As String, ByVal ReceitaEstadual As String, ByVal PrefeituraMunicipal As String, ByVal EventosDescriçãoTitulo As String, ByVal EventosDescrição As String, ByVal Original_ID_EventosEmpresa As Integer) As Integer
+            Return Me.Update(Eventos, EmpresaFacil, ReceitaFederal, ReceitaEstadual, PrefeituraMunicipal, EventosDescriçãoTitulo, EventosDescrição, Original_ID_EventosEmpresa, Original_ID_EventosEmpresa)
         End Function
     End Class
     

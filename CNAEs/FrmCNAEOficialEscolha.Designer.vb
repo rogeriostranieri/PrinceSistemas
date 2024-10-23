@@ -124,40 +124,46 @@ Partial Class FrmCNAEOficialEscolha
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Adicionar_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(469, 507)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(439, 492)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(174, 34)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(204, 34)
         Me.TableLayoutPanel1.TabIndex = 48
         '
         'Adicionar_Button
         '
-        Me.Adicionar_Button.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Adicionar_Button.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBotaoColorido2
+        Me.Adicionar_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Adicionar_Button.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Adicionar_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Adicionar_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Adicionar_Button.Location = New System.Drawing.Point(3, 3)
         Me.Adicionar_Button.Name = "Adicionar_Button"
-        Me.Adicionar_Button.Size = New System.Drawing.Size(81, 28)
+        Me.Adicionar_Button.Size = New System.Drawing.Size(96, 28)
         Me.Adicionar_Button.TabIndex = 0
         Me.Adicionar_Button.Text = "Adicionar"
         '
         'Cancel_Button
         '
-        Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Cancel_Button.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBtnFechar
+        Me.Cancel_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cancel_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Cancel_Button.Location = New System.Drawing.Point(90, 3)
+        Me.Cancel_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cancel_Button.Location = New System.Drawing.Point(105, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(81, 28)
+        Me.Cancel_Button.Size = New System.Drawing.Size(96, 28)
         Me.Cancel_Button.TabIndex = 1
-        Me.Cancel_Button.Text = "Cancelar"
+        Me.Cancel_Button.Text = "Fechar"
         '
         'TodosCNAERichTextBox
         '
-        Me.TodosCNAERichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TodosCNAERichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TodosCNAERichTextBox.Location = New System.Drawing.Point(12, 12)
         Me.TodosCNAERichTextBox.Name = "TodosCNAERichTextBox"
-        Me.TodosCNAERichTextBox.Size = New System.Drawing.Size(617, 127)
+        Me.TodosCNAERichTextBox.Size = New System.Drawing.Size(617, 145)
         Me.TodosCNAERichTextBox.TabIndex = 49
         Me.TodosCNAERichTextBox.Text = ""
         '
@@ -165,7 +171,7 @@ Partial Class FrmCNAEOficialEscolha
         '
         Me.BtnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnMostrar.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnMostrar.Location = New System.Drawing.Point(231, 145)
+        Me.BtnMostrar.Location = New System.Drawing.Point(231, 163)
         Me.BtnMostrar.Name = "BtnMostrar"
         Me.BtnMostrar.Size = New System.Drawing.Size(177, 47)
         Me.BtnMostrar.TabIndex = 50
@@ -180,7 +186,7 @@ Partial Class FrmCNAEOficialEscolha
         Me.AutoSize = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(643, 544)
+        Me.ClientSize = New System.Drawing.Size(643, 529)
         Me.Controls.Add(Me.BtnMostrar)
         Me.Controls.Add(Me.TodosCNAERichTextBox)
         Me.Controls.Add(Me.TableLayoutPanel1)

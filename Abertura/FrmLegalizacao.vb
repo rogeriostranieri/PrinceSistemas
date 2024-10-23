@@ -107,15 +107,18 @@ Public Class FrmLegalizacao
                     changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
                 Next
 
+                ' Perguntar ao usuário se deseja ver detalhes das alterações
+                If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                    MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 ' Mostrar a quantidade de alterações e o resumo das mudanças
-                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription
                 Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
 
                 Select Case result
                     Case DialogResult.Cancel
                         ' Ação para Cancelar
-                        'Return
-                        ' Define a variável como True para indicar que o fechamento foi cancelado.
                         cancelarFechamento = True
 
                     Case DialogResult.No
@@ -145,7 +148,7 @@ Public Class FrmLegalizacao
                             Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
 
                             If rowsAffected > 0 Then
-                                '  MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                ' MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Else
                                 MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             End If
@@ -168,12 +171,7 @@ Public Class FrmLegalizacao
                             MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End Try
 
-                        ' Perguntar ao usuário se deseja ver detalhes das alterações
-                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        End If
                         cancelarFechamento = False
-
                 End Select
             Else
                 ' Não há alterações, apenas desativar edição
@@ -193,6 +191,7 @@ Public Class FrmLegalizacao
             MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
 
 
@@ -1506,12 +1505,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub Button43_Click(sender As Object, e As EventArgs) Handles Button43.Click
         Try
             Dim CNPJ As String = CNPJMaskedTextBox.Text
-            'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-            Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
-
+            If MessageBox.Show("Deseja Copiar o CNPJ apenas os numeros?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
+                Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+            Else
+                Clipboard.SetText(CNPJ)
+            End If
         Catch ex As Exception
             MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
         End Try
     End Sub
 
@@ -3487,9 +3487,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             ' Reunir as palavras em uma única string com a primeira palavra em minúscula
             Return String.Join(" ", palavras)
         Catch ex As Exception
-            MessageBox.Show("Erro ao formata o endereço mantendo a primeira letra minúscula e as palavras seguintes em maiúsculas" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro ao formatar o endereço mantendo a primeira letra minúscula e as palavras seguintes em maiúsculas: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Retornar uma string vazia ou o valor original em caso de erro
+            Return endereco ' ou Return String.Empty
         End Try
     End Function
+
 
     ' Função para formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns)
     Private Function FormatTexto(texto As String) As String
@@ -3504,9 +3507,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Next
             Return String.Join(" ", palavras) ' Reunir as palavras novamente em uma única string
         Catch ex As Exception
-            MessageBox.Show("Erro ao formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns)" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro ao formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns): " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Retornar o valor original ou uma string vazia em caso de erro
+            Return texto ' ou Return String.Empty
         End Try
     End Function
+
 
 
 
@@ -3554,11 +3560,14 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Dim capitalAntigoValor As Decimal = ExtractNumericValue(capitalAntigoString)
             Dim capitalAntigoExtenso As String = NumberToWordsWithCurrency(capitalAntigoValor)
 
+            ' Remover o símbolo de reais do capital antigo para a parte "dividido em"
+            Dim capitalAntigoSemMoeda As String = capitalAntigoValor.ToString("N2")
+
             ' Montagem do texto com capital antigo e o novo
             Dim resultado As String = $"O capital social era de {capitalAntigoString} ({capitalAntigoExtenso}), " &
-                                  $"dividido em {capitalAntigoString} ({capitalAntigoExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso}), " &
-                                  $"foi aumentado para {capitalString} ({capitalExtenso}), " &
-                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso})"
+                              $"dividido em {capitalAntigoSemMoeda} quotas de valor nominal {quotaValorString} ({quotaValorExtenso}), " &
+                              $"foi aumentado para {capitalString} ({capitalExtenso}), " &
+                              $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso})"
 
             ' Exibir o resultado e copiar para a área de transferência
             MessageBox.Show(resultado)
@@ -3566,14 +3575,15 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Else
             ' Montagem do texto normal sem capital antigo
             Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
-                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
-                                  $"{quotaValorString} ({quotaValorExtenso})"
+                              $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
+                              $"{quotaValorString} ({quotaValorExtenso})"
 
             ' Exibir o resultado e copiar para a área de transferência
             MessageBox.Show(resultado)
             My.Computer.Clipboard.SetText(resultado)
         End If
     End Sub
+
 
 
     ' Função para extrair o valor numérico de uma string com formato de moeda
@@ -3698,40 +3708,52 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
-    Private Function RemoverCaracteresEspeciais(texto As String) As String
-        ' Remove acentos e caracteres especiais
+    Private Function RemoverCaracteresInvisiveis(texto As String) As String
+        ' Normaliza o texto para remover combinações de caracteres
         Dim normalizedString As String = texto.Normalize(NormalizationForm.FormD)
-        Dim regex As New Regex("[^a-zA-Z0-9\s]")
-        Return regex.Replace(normalizedString, "").ToUpper()
+
+        ' Filtra os caracteres invisíveis (caracteres de controle e outros não imprimíveis)
+        Dim resultado As New StringBuilder()
+
+        For Each c As Char In normalizedString
+            ' Adiciona o caractere ao resultado se não for um caractere de controle
+            If Not Char.IsControl(c) Then
+                resultado.Append(c)
+            End If
+        Next
+
+        ' Retorna o texto com os caracteres invisíveis removidos, mantendo os outros
+        Return resultado.ToString().ToUpper()
     End Function
 
+
     Private Sub RazaoSocialAntigaTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialAntigaTextBox.TextChanged
-        RazaoSocialAntigaTextBox.Text = RemoverCaracteresEspeciais(RazaoSocialAntigaTextBox.Text)
+        RazaoSocialAntigaTextBox.Text = RemoverCaracteresInvisiveis(RazaoSocialAntigaTextBox.Text)
         RazaoSocialAntigaTextBox.SelectionStart = RazaoSocialAntigaTextBox.Text.Length ' Manter o cursor no final
     End Sub
 
     Private Sub NovaRazaoSocial1TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial1TextBox.TextChanged
-        NovaRazaoSocial1TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial1TextBox.Text)
+        NovaRazaoSocial1TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial1TextBox.Text)
         NovaRazaoSocial1TextBox.SelectionStart = NovaRazaoSocial1TextBox.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocial2TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial2TextBox.TextChanged
-        NovaRazaoSocial2TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial2TextBox.Text)
+        NovaRazaoSocial2TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial2TextBox.Text)
         NovaRazaoSocial2TextBox.SelectionStart = NovaRazaoSocial2TextBox.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocial3TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial3TextBox.TextChanged
-        NovaRazaoSocial3TextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocial3TextBox.Text)
+        NovaRazaoSocial3TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial3TextBox.Text)
         NovaRazaoSocial3TextBox.SelectionStart = NovaRazaoSocial3TextBox.Text.Length
     End Sub
 
     Private Sub NomeFantasiaTextBox1_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox1.TextChanged
-        NomeFantasiaTextBox1.Text = RemoverCaracteresEspeciais(NomeFantasiaTextBox1.Text)
+        NomeFantasiaTextBox1.Text = RemoverCaracteresInvisiveis(NomeFantasiaTextBox1.Text)
         NomeFantasiaTextBox1.SelectionStart = NomeFantasiaTextBox1.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocialFinalTextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialFinalTextBox.TextChanged
-        NovaRazaoSocialFinalTextBox.Text = RemoverCaracteresEspeciais(NovaRazaoSocialFinalTextBox.Text)
+        NovaRazaoSocialFinalTextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocialFinalTextBox.Text)
         NovaRazaoSocialFinalTextBox.SelectionStart = NovaRazaoSocialFinalTextBox.Text.Length
     End Sub
 
@@ -3857,23 +3879,52 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     '////////////////////////// FIM ARRUMAR CNAE PRINCIPAL E SECUNDARIO
 
     Private Sub CapitalAntigoMudouCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles CapitalAntigoMudouCheckBox.CheckedChanged
+        ' Verifica se o CheckBox está no estado Indeterminate
+        If CapitalAntigoMudouCheckBox.CheckState = CheckState.Indeterminate Then
+            ' Define o estado como Unchecked
+            CapitalAntigoMudouCheckBox.CheckState = CheckState.Unchecked
+        End If
+
         ' Verifica se o checkbox está marcado
         If CapitalAntigoMudouCheckBox.Checked Then
             ' Se marcado, torna os controles visíveis
             CapitalSocialAntigoLabel.Visible = True
             CapitalSocialAntigoTextBox.Visible = True
+            BtnCopiarCapitalFinal.Visible = True
         Else
             ' Se desmarcado, oculta os controles
             CapitalSocialAntigoLabel.Visible = False
             CapitalSocialAntigoTextBox.Visible = False
+            BtnCopiarCapitalFinal.Visible = False
         End If
     End Sub
 
+    Private Sub BtnCopiarCapitalFinal_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapitalFinal.Click
+        ' Obtém os valores dos TextBox
+        Dim capitalString As String = CapitalSTextBox.Text
+        Dim quotaString As String = CapitaQuotaTotalTextBox.Text ' Valor total de quotas
+        Dim quotaValorString As String = CapitalQuotaValorTextBox.Text ' Valor nominal das quotas
 
+        ' Extraindo os valores numéricos
+        Dim capitalValor As Decimal = ExtractNumericValue(capitalString)
+        Dim quotaTotal As Decimal = ExtractNumericValue(quotaString)
+        Dim quotaValor As Decimal = ExtractNumericValue(quotaValorString)
 
+        ' Convertendo para texto por extenso com moeda
+        Dim capitalExtenso As String = NumberToWordsWithCurrency(capitalValor)
+        Dim quotaExtenso As String = NumberToWords(quotaTotal) ' Extenso do número de quotas, sem unidade de moeda
+        Dim quotaValorExtenso As String = NumberToWordsWithCurrency(quotaValor) ' Extenso com unidade monetária
 
+        ' Verifica se o CapitalAntigoMudouCheckBox está marcado
 
+        ' Montagem do texto normal sem capital antigo
+        Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
+                              $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
+                              $"{quotaValorString} ({quotaValorExtenso})"
 
+            ' Exibir o resultado e copiar para a área de transferência
+            MessageBox.Show(resultado)
+            My.Computer.Clipboard.SetText(resultado)
 
-
+    End Sub
 End Class

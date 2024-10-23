@@ -1,0 +1,92 @@
+﻿  Private Sub Salvar()
+        Dim CNPJdaEmpresa As String = CNPJMaskedTextBox.Text
+
+        Try
+            ' Forçar a validação e finalizar edição nos controles ligados ao BindingSource
+            Me.Validate()
+            Me.LaudosBindingSource.EndEdit()
+
+            ' Obter as mudanças no DataSet
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Laudos.GetChanges()
+
+            ' Verificar se há alterações reais no DataSet
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+                ' Criar strings para armazenar o resumo e os detalhes das mudanças
+                Dim changesDescription As String = ""
+                Dim detailedChanges As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    ' Adiciona o ID do laudo ao resumo
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Laudos").ToString() & vbCrLf
+
+                    Dim columnChangesCount As Integer = 0
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        ' Verificar se o registro não é novo antes de acessar dados originais
+                        If row.RowState <> DataRowState.Added Then
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                columnChangesCount += 1
+                                detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Else
+                            columnChangesCount += 1
+                            detailedChanges &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+
+                    changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
+                Next
+
+                ' Mostrar a quantidade de alterações e o resumo das mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Não faça nada, apenas sair do método
+                        ' Exit Sub
+                        ' Define a variável como True para indicar que o fechamento foi cancelado.
+                        cancelarFechamento = True
+
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
+                        ReverterAlteracoes()
+                        cancelarFechamento = False
+
+
+                    Case DialogResult.Yes
+                        Try
+                            ' Salvar alterações
+                            Dim rowsAffected As Integer = Me.LaudosTableAdapter.Update(Me.PrinceDBDataSet.Laudos)
+
+                            ' Verificar se o salvamento foi bem-sucedido
+                            If rowsAffected > 0 Then
+                                'MessageBox.Show("Alterações salvas com sucesso.", "Prince Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
+                            ' Sincronizar e desativar edição
+                            SincronizarDados()
+
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+
+                        ' Perguntar ao usuário se deseja ver detalhes das alterações
+                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                        cancelarFechamento = False
+
+                End Select
+            Else
+                ' Não há alterações, apenas desativar edição
+                DesativarEdicao()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar." & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub

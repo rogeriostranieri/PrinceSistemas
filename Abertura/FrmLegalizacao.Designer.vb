@@ -230,6 +230,8 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiarCapitalFinal = New System.Windows.Forms.Button()
+        Me.LinkLabelAumentoCapital = New System.Windows.Forms.LinkLabel()
         Me.CapitalSocialAntigoLabel = New System.Windows.Forms.Label()
         Me.CapitalSocialAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.CapitalAntigoMudouCheckBox = New System.Windows.Forms.CheckBox()
@@ -491,7 +493,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LinkLabelAumentoCapital = New System.Windows.Forms.LinkLabel()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1968,7 +1969,7 @@ Partial Class FrmLegalizacao
         'BtnCopiarSenhaGov
         '
         Me.BtnCopiarSenhaGov.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCopiarSenhaGov.BackgroundImage = CType(resources.GetObject("BtnCopiarSenhaGov.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCopiarSenhaGov.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.BtnCopiarSenhaGov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarSenhaGov.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCopiarSenhaGov.Location = New System.Drawing.Point(367, 143)
@@ -2006,7 +2007,7 @@ Partial Class FrmLegalizacao
         'Button44
         '
         Me.Button44.BackColor = System.Drawing.Color.Transparent
-        Me.Button44.BackgroundImage = CType(resources.GetObject("Button44.BackgroundImage"), System.Drawing.Image)
+        Me.Button44.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.Button44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button44.Location = New System.Drawing.Point(141, 142)
@@ -2295,6 +2296,8 @@ Partial Class FrmLegalizacao
         'BtnCopiarRamo
         '
         Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCopiarRamo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarRamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnCopiarRamo.Location = New System.Drawing.Point(518, 154)
@@ -2451,6 +2454,8 @@ Partial Class FrmLegalizacao
         '
         'BtnCopiaEndereco
         '
+        Me.BtnCopiaEndereco.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiaEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
         Me.BtnCopiaEndereco.Location = New System.Drawing.Point(540, 167)
@@ -2686,6 +2691,7 @@ Partial Class FrmLegalizacao
         'TabPage16
         '
         Me.TabPage16.AutoScroll = True
+        Me.TabPage16.Controls.Add(Me.BtnCopiarCapitalFinal)
         Me.TabPage16.Controls.Add(Me.LinkLabelAumentoCapital)
         Me.TabPage16.Controls.Add(Me.CapitalSocialAntigoLabel)
         Me.TabPage16.Controls.Add(Me.CapitalSocialAntigoTextBox)
@@ -2713,6 +2719,30 @@ Partial Class FrmLegalizacao
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
+        '
+        'BtnCopiarCapitalFinal
+        '
+        Me.BtnCopiarCapitalFinal.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarCapitalFinal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarCapitalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarCapitalFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCopiarCapitalFinal.ForeColor = System.Drawing.Color.Black
+        Me.BtnCopiarCapitalFinal.Location = New System.Drawing.Point(541, 50)
+        Me.BtnCopiarCapitalFinal.Name = "BtnCopiarCapitalFinal"
+        Me.BtnCopiarCapitalFinal.Size = New System.Drawing.Size(75, 44)
+        Me.BtnCopiarCapitalFinal.TabIndex = 71
+        Me.BtnCopiarCapitalFinal.Text = "Copiar Final"
+        Me.BtnCopiarCapitalFinal.UseVisualStyleBackColor = True
+        '
+        'LinkLabelAumentoCapital
+        '
+        Me.LinkLabelAumentoCapital.AutoSize = True
+        Me.LinkLabelAumentoCapital.Location = New System.Drawing.Point(110, 100)
+        Me.LinkLabelAumentoCapital.Name = "LinkLabelAumentoCapital"
+        Me.LinkLabelAumentoCapital.Size = New System.Drawing.Size(127, 13)
+        Me.LinkLabelAumentoCapital.TabIndex = 70
+        Me.LinkLabelAumentoCapital.TabStop = True
+        Me.LinkLabelAumentoCapital.Text = "Exemplo Aumento Capital"
         '
         'CapitalSocialAntigoLabel
         '
@@ -2745,7 +2775,7 @@ Partial Class FrmLegalizacao
         '
         'BtnCopiarCapital
         '
-        Me.BtnCopiarCapital.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnCopiarCapital.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.BtnCopiarCapital.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2882,7 +2912,7 @@ Partial Class FrmLegalizacao
         Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
         Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
         Me.BtnLimpaCaractRazao.TabIndex = 51
-        Me.BtnLimpaCaractRazao.Text = "Limpar Caracteres"
+        Me.BtnLimpaCaractRazao.Text = "Arrumar"
         Me.BtnLimpaCaractRazao.UseVisualStyleBackColor = True
         '
         'BtnUsarNomeFantasia
@@ -3206,6 +3236,8 @@ Partial Class FrmLegalizacao
         '
         'BtnCopiarPRP
         '
+        Me.BtnCopiarPRP.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarPRP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarPRP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarPRP.Location = New System.Drawing.Point(265, 36)
         Me.BtnCopiarPRP.Name = "BtnCopiarPRP"
@@ -3760,6 +3792,8 @@ Partial Class FrmLegalizacao
         '
         'BtnCopiarREDESIM
         '
+        Me.BtnCopiarREDESIM.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarREDESIM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarREDESIM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarREDESIM.Location = New System.Drawing.Point(265, 36)
         Me.BtnCopiarREDESIM.Name = "BtnCopiarREDESIM"
@@ -4784,7 +4818,7 @@ Partial Class FrmLegalizacao
         '
         'Button2
         '
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBotaoNormalNovo
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(212, 60)
@@ -5036,7 +5070,7 @@ Partial Class FrmLegalizacao
         'Button43
         '
         Me.Button43.BackColor = System.Drawing.Color.Transparent
-        Me.Button43.BackgroundImage = CType(resources.GetObject("Button43.BackgroundImage"), System.Drawing.Image)
+        Me.Button43.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.Button43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button43.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -5168,7 +5202,7 @@ Partial Class FrmLegalizacao
         '
         'BtnExcluir
         '
-        Me.BtnExcluir.BackgroundImage = CType(resources.GetObject("BtnExcluir.BackgroundImage"), System.Drawing.Image)
+        Me.BtnExcluir.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBtnFechar
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -5615,16 +5649,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'LinkLabelAumentoCapital
-        '
-        Me.LinkLabelAumentoCapital.AutoSize = True
-        Me.LinkLabelAumentoCapital.Location = New System.Drawing.Point(110, 100)
-        Me.LinkLabelAumentoCapital.Name = "LinkLabelAumentoCapital"
-        Me.LinkLabelAumentoCapital.Size = New System.Drawing.Size(127, 13)
-        Me.LinkLabelAumentoCapital.TabIndex = 70
-        Me.LinkLabelAumentoCapital.TabStop = True
-        Me.LinkLabelAumentoCapital.Text = "Exemplo Aumento Capital"
         '
         'FrmLegalizacao
         '
@@ -6106,4 +6130,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents CapitalSocialAntigoTextBox As TextBox
     Friend WithEvents CapitalSocialAntigoLabel As Label
     Friend WithEvents LinkLabelAumentoCapital As LinkLabel
+    Friend WithEvents BtnCopiarCapitalFinal As Button
 End Class

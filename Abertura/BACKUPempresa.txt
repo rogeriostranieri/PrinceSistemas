@@ -1,0 +1,174 @@
+﻿ Private Sub Salvar()
+        Try
+            ' Finalizar edição e obter registros alterados
+            Me.EmpresasBindingSource.EndEdit()
+            Dim changedRecords As System.Data.DataTable = PrinceDBDataSet.Empresas.GetChanges()
+
+            ' Verificar se há alterações para salvar
+            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
+                ' Criar strings para armazenar o resumo e os detalhes das mudanças
+                Dim changesDescription As String = ""
+                Dim detailedChanges As String = ""
+
+                ' Iterar sobre as linhas alteradas
+                For Each row As DataRow In changedRecords.Rows
+                    ' Adiciona o ID da empresa ao resumo
+                    changesDescription &= "Alterações na linha com ID: " & row("ID_Empresas").ToString() & vbCrLf
+
+                    Dim columnChangesCount As Integer = 0
+
+                    ' Iterar sobre as colunas para identificar as mudanças
+                    For Each column As DataColumn In changedRecords.Columns
+                        ' Verificar se o registro não é novo antes de acessar dados originais
+                        If row.RowState <> DataRowState.Added Then
+                            If Not row(column, DataRowVersion.Original).Equals(row(column, DataRowVersion.Current)) Then
+                                columnChangesCount += 1
+                                detailedChanges &= "  - " & column.ColumnName & ": " & row(column, DataRowVersion.Original).ToString() & " => " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                            End If
+                        Else
+                            columnChangesCount += 1
+                            detailedChanges &= "  - " & column.ColumnName & ": Novo valor: " & row(column, DataRowVersion.Current).ToString() & vbCrLf
+                        End If
+                    Next
+
+                    changesDescription &= "  (" & columnChangesCount & " mudanças)" & vbCrLf
+                Next
+
+                ' Mostrar a quantidade de alterações e o resumo das mudanças
+                Dim message As String = "Foram feitas " & changedRecords.Rows.Count.ToString() & " alterações." & vbCrLf & "Deseja salvar as alterações?" & vbCrLf & vbCrLf & changesDescription & vbCrLf & ""
+                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
+                Select Case result
+                    Case DialogResult.Cancel
+                        ' Ação para Cancelar
+                        'Return
+                        ' Define a variável como True para indicar que o fechamento foi cancelado.
+                        cancelarFechamento = True
+
+                    Case DialogResult.No
+                        ' Reverter mudanças e desativar edição
+                        PrinceDBDataSet.Empresas.RejectChanges()
+                        Application.DoEvents()
+
+                        BtnEditar.Text = "Editar"
+                        BtnExcluir.Enabled = True
+                        GroupBox2.Enabled = False
+                        GroupBox10.Enabled = False
+
+                        ' Recarregar dados
+                        Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
+                        Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+                        cancelarFechamento = False
+
+                    Case DialogResult.Yes
+                        ' Salvar alterações
+                        Try
+                            MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
+
+                            Me.Validate()
+                            Me.EmpresasBindingSource.EndEdit()
+
+                            ' Tente atualizar o DataSet
+                            Dim rowsAffected As Integer = Me.EmpresasTableAdapter.Update(Me.PrinceDBDataSet.Empresas)
+
+                            If rowsAffected > 0 Then
+                                '  MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                MessageBox.Show("Nenhuma alteração foi salva.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+
+                            Application.DoEvents()
+
+                            ' Ajustar a interface após salvar
+                            BtnEditar.Text = "Editar"
+                            GroupBox2.Enabled = False
+                            GroupBox10.Enabled = False
+                            BtnExcluir.Enabled = True
+
+                            ' Focar na empresa atual no combobox de busca
+                            Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                            ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                            ComboBoxBuscaEmpresa.Focus()
+                            RazaoSocialTextBox.Focus()
+
+                        Catch exc As Exception
+                            MessageBox.Show("Ocorreu um erro ao atualizar" & vbCrLf & exc.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+
+                        ' Perguntar ao usuário se deseja ver detalhes das alterações
+                        If MessageBox.Show("Alterações salvas com sucesso! Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            MessageBox.Show(detailedChanges, "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                        cancelarFechamento = False
+
+                End Select
+            Else
+                ' Não há alterações, apenas desativar edição
+                BtnEditar.Text = "Editar"
+                GroupBox2.Enabled = False
+                GroupBox10.Enabled = False
+                BtnExcluir.Enabled = True
+
+                ' Focar na empresa atual
+                Dim NomeEmpresa As String = RazaoSocialTextBox.Text
+                ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                ComboBoxBuscaEmpresa.Focus()
+                RazaoSocialTextBox.Focus()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao salvar" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+
+
+
+
+
+
+
+
+     Private Sub BtnCopiarCapital_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapital.Click
+        ' Obtém os valores dos TextBox
+        Dim capitalString As String = CapitalSTextBox.Text
+        Dim quotaString As String = CapitaQuotaTotalTextBox.Text ' Valor total de quotas
+        Dim quotaValorString As String = CapitalQuotaValorTextBox.Text ' Valor nominal das quotas
+
+        ' Extraindo os valores numéricos
+        Dim capitalValor As Decimal = ExtractNumericValue(capitalString)
+        Dim quotaTotal As Decimal = ExtractNumericValue(quotaString)
+        Dim quotaValor As Decimal = ExtractNumericValue(quotaValorString)
+
+        ' Convertendo para texto por extenso com moeda
+        Dim capitalExtenso As String = NumberToWordsWithCurrency(capitalValor)
+        Dim quotaExtenso As String = NumberToWords(quotaTotal) ' Extenso do número de quotas, sem unidade de moeda
+        Dim quotaValorExtenso As String = NumberToWordsWithCurrency(quotaValor) ' Extenso com unidade monetária
+
+        ' Verifica se o CapitalAntigoMudouCheckBox está marcado
+        If CapitalAntigoMudouCheckBox.Checked Then
+            ' Se o capital mudou, incluir a informação do capital antigo
+            Dim capitalAntigoString As String = CapitalSocialAntigoTextBox.Text
+            Dim capitalAntigoValor As Decimal = ExtractNumericValue(capitalAntigoString)
+            Dim capitalAntigoExtenso As String = NumberToWordsWithCurrency(capitalAntigoValor)
+
+            ' Montagem do texto com capital antigo e o novo
+            Dim resultado As String = $"O capital social era de {capitalAntigoString} ({capitalAntigoExtenso}), " &
+                                  $"dividido em {capitalAntigoString} ({capitalAntigoExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso}), " &
+                                  $"foi aumentado para {capitalString} ({capitalExtenso}), " &
+                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal {quotaValorString} ({quotaValorExtenso})"
+
+            ' Exibir o resultado e copiar para a área de transferência
+            MessageBox.Show(resultado)
+            My.Computer.Clipboard.SetText(resultado)
+        Else
+            ' Montagem do texto normal sem capital antigo
+            Dim resultado As String = $"O capital social será {capitalString} ({capitalExtenso}) " &
+                                  $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
+                                  $"{quotaValorString} ({quotaValorExtenso})"
+
+            ' Exibir o resultado e copiar para a área de transferência
+            MessageBox.Show(resultado)
+            My.Computer.Clipboard.SetText(resultado)
+        End If
+    End Sub
