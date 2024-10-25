@@ -1,4 +1,9 @@
 ﻿Public Class FrmEventos
+
+    Private listaOriginal As List(Of DataRowView)
+    Private tabelaOriginal As DataTable
+
+
     'ao apertar ESC fechar
     Private Sub FrmEventos_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
@@ -20,21 +25,14 @@
         'aumentar a fonte da letra para 11 no data gridview
         EventosEmpresaDataGridView.Font = New Font("Microsoft Sans Serif", 11, FontStyle.Regular)
 
+        ' Armazena a lista original dos dados
+        listaOriginal = Me.EventosEmpresaBindingSource.List.Cast(Of DataRowView)().ToList()
+        ' Clona o DataTable do BindingSource para manter a lista original
+        tabelaOriginal = CType(Me.PrinceDBDataSet.Tables("EventosEmpresa"), DataTable).Copy()
+
     End Sub
 
 
-    ' Evento disparado quando a edição de uma linha é validada
-    Private Sub Organizar()
-        ' Verifique se a coluna com DataPropertyName "Eventos" existe
-        Dim colunaEventos = EventosEmpresaDataGridView.Columns.Cast(Of DataGridViewColumn)().FirstOrDefault(Function(c) c.DataPropertyName = "Eventos")
-
-        If colunaEventos IsNot Nothing Then
-            ' Ordenar automaticamente pela coluna "Eventos" em ordem crescente
-            EventosEmpresaDataGridView.Sort(colunaEventos, System.ComponentModel.ListSortDirection.Ascending)
-        Else
-            ' MessageBox.Show("A coluna com DataPropertyName 'Eventos' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
 
     '////////////////////////////////// CHECK BOX //////////////////////////////
     Private Sub EmpresaFacil_CheckedChanged(sender As Object, e As EventArgs) Handles EmpresaFacil.CheckedChanged
@@ -198,33 +196,51 @@
 
     '//////////////////////////////////// FIM CHECK BOX //////////////////////////
 
-
-
-
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        ' Carrega dados
-        Dim textoBusca As String = RemoverAcentos(TextBox1.Text)
+        ' Carrega o texto de busca sem acentos
+        Dim textoBusca As String = RemoverAcentos(TextBox1.Text).ToLower()
 
-        ' Verifica se a Checkbox correspondente está marcada e aplica o filtro
-        If EmpresaFacil.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "EmpresaFacil = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
-            Me.EventosEmpresaDataGridView.Refresh()
-        ElseIf ReceitaFederal.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "ReceitaFederal = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
-            Me.EventosEmpresaDataGridView.Refresh()
-        ElseIf ReceitaEstadual.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "ReceitaEstadual = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
-            Me.EventosEmpresaDataGridView.Refresh()
-        ElseIf PrefeituraMunicipal.Checked = True Then
-            Me.EventosEmpresaBindingSource.Filter = "PrefeituraMunicipal = 'Checked' AND RemoverAcentos(Eventos) LIKE '%" & textoBusca & "%'"
-            Me.EventosEmpresaDataGridView.Refresh()
+        ' Define o filtro de acordo com as CheckBoxes
+        Dim filtroColuna As String = ""
+        If EmpresaFacil.Checked Then
+            filtroColuna = "EmpresaFacil"
+        ElseIf ReceitaFederal.Checked Then
+            filtroColuna = "ReceitaFederal"
+        ElseIf ReceitaEstadual.Checked Then
+            filtroColuna = "ReceitaEstadual"
+        ElseIf PrefeituraMunicipal.Checked Then
+            filtroColuna = "PrefeituraMunicipal"
+        End If
+
+        ' Aplica o filtro somente se uma das CheckBoxes estiver marcada
+        If filtroColuna <> "" Then
+            ' Cria um filtro para o BindingSource usando o DataTable original
+            Dim filtro = $"{filtroColuna} = 'Checked' AND CONVERT(Eventos, 'System.String') LIKE '%{textoBusca}%'"
+
+            ' Atualiza o BindingSource com o filtro
+            Me.EventosEmpresaBindingSource.Filter = filtro
         Else
-            ' Se nenhuma checkbox estiver marcada, desfaz o filtro
+            ' Se nenhuma checkbox estiver marcada, remove o filtro e restaura todos os dados
             Me.EventosEmpresaBindingSource.RemoveFilter()
         End If
 
+        Me.EventosEmpresaDataGridView.Refresh()
         Organizar()
     End Sub
+
+    ' Função para organizar (ordenar) a lista ao aplicar o filtro
+    Private Sub Organizar()
+        ' Verifique se a coluna com DataPropertyName "Eventos" existe
+        Dim colunaEventos = EventosEmpresaDataGridView.Columns.Cast(Of DataGridViewColumn)().FirstOrDefault(Function(c) c.DataPropertyName = "Eventos")
+
+        If colunaEventos IsNot Nothing Then
+            ' Ordena automaticamente pela coluna "Eventos" em ordem crescente
+            EventosEmpresaDataGridView.Sort(colunaEventos, System.ComponentModel.ListSortDirection.Ascending)
+        End If
+    End Sub
+
+    '///////////////////////////////////////////////
+
 
     ' Função para remover acentos
     Private Function RemoverAcentos(texto As String) As String

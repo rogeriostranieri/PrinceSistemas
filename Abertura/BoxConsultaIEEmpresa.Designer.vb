@@ -39,9 +39,10 @@ Partial Class BoxConsultaIEEmpresa
         Me.WebView21.AllowExternalDrop = True
         Me.WebView21.CreationProperties = Nothing
         Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
-        Me.WebView21.Location = New System.Drawing.Point(10, 110)
+        Me.WebView21.Location = New System.Drawing.Point(13, 135)
+        Me.WebView21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(75, 23)
+        Me.WebView21.Size = New System.Drawing.Size(100, 28)
         Me.WebView21.TabIndex = 12
         Me.WebView21.ZoomFactor = 1.0R
         '
@@ -49,9 +50,10 @@ Partial Class BoxConsultaIEEmpresa
         '
         Me.BtnImportar.BackColor = System.Drawing.Color.Transparent
         Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnImportar.Location = New System.Drawing.Point(256, 47)
+        Me.BtnImportar.Location = New System.Drawing.Point(341, 58)
+        Me.BtnImportar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnImportar.Name = "BtnImportar"
-        Me.BtnImportar.Size = New System.Drawing.Size(117, 50)
+        Me.BtnImportar.Size = New System.Drawing.Size(156, 62)
         Me.BtnImportar.TabIndex = 11
         Me.BtnImportar.Text = "Importar Dados"
         Me.BtnImportar.UseVisualStyleBackColor = False
@@ -61,7 +63,8 @@ Partial Class BoxConsultaIEEmpresa
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 10)
+        Me.Label1.Location = New System.Drawing.Point(19, 12)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(280, 19)
         Me.Label1.TabIndex = 10
@@ -71,9 +74,10 @@ Partial Class BoxConsultaIEEmpresa
         '
         Me.BtnInterno.BackColor = System.Drawing.Color.Transparent
         Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInterno.Location = New System.Drawing.Point(133, 47)
+        Me.BtnInterno.Location = New System.Drawing.Point(177, 58)
+        Me.BtnInterno.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnInterno.Name = "BtnInterno"
-        Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
+        Me.BtnInterno.Size = New System.Drawing.Size(156, 62)
         Me.BtnInterno.TabIndex = 9
         Me.BtnInterno.Text = "Abrir Interno" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.BtnInterno.UseVisualStyleBackColor = False
@@ -82,9 +86,10 @@ Partial Class BoxConsultaIEEmpresa
         '
         Me.BtnExterno.BackColor = System.Drawing.Color.Transparent
         Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExterno.Location = New System.Drawing.Point(10, 47)
+        Me.BtnExterno.Location = New System.Drawing.Point(13, 58)
+        Me.BtnExterno.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnExterno.Name = "BtnExterno"
-        Me.BtnExterno.Size = New System.Drawing.Size(117, 50)
+        Me.BtnExterno.Size = New System.Drawing.Size(156, 62)
         Me.BtnExterno.TabIndex = 8
         Me.BtnExterno.Text = "Abrir Externo"
         Me.BtnExterno.UseVisualStyleBackColor = False
@@ -99,19 +104,21 @@ Partial Class BoxConsultaIEEmpresa
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(231, 108)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(308, 133)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(195, 36)
         Me.TableLayoutPanel1.TabIndex = 7
         '
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(4, 4)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
+        Me.OK_Button.Size = New System.Drawing.Size(89, 28)
         Me.OK_Button.TabIndex = 0
         Me.OK_Button.Text = "OK"
         '
@@ -119,29 +126,32 @@ Partial Class BoxConsultaIEEmpresa
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(76, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(101, 4)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
+        Me.Cancel_Button.Size = New System.Drawing.Size(89, 28)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
         'BoxConsultaIEEmpresa
         '
         Me.AcceptButton = Me.OK_Button
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(384, 144)
+        Me.ClientSize = New System.Drawing.Size(512, 177)
         Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.BtnImportar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "BoxConsultaIEEmpresa"

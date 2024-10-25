@@ -34,6 +34,8 @@ Partial Class FrmEventos
         Me.EventosEmpresaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EventosEmpresaTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.EventosEmpresaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EventosDescrição = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmpresaFacil = New System.Windows.Forms.CheckBox()
         Me.ReceitaFederal = New System.Windows.Forms.CheckBox()
         Me.ReceitaEstadual = New System.Windows.Forms.CheckBox()
@@ -41,8 +43,6 @@ Partial Class FrmEventos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BtnLimparEventos = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EventosDescrição = New System.Windows.Forms.DataGridViewTextBoxColumn()
         EventosLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +56,8 @@ Partial Class FrmEventos
         EventosLabel.AutoSize = True
         EventosLabel.BackColor = System.Drawing.Color.Transparent
         EventosLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EventosLabel.Location = New System.Drawing.Point(12, 101)
+        EventosLabel.Location = New System.Drawing.Point(14, 93)
+        EventosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EventosLabel.Name = "EventosLabel"
         EventosLabel.Size = New System.Drawing.Size(293, 18)
         EventosLabel.TabIndex = 2
@@ -67,7 +68,8 @@ Partial Class FrmEventos
         Label3.AutoSize = True
         Label3.BackColor = System.Drawing.Color.Transparent
         Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label3.Location = New System.Drawing.Point(12, 208)
+        Label3.Location = New System.Drawing.Point(14, 216)
+        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(91, 18)
         Label3.TabIndex = 17
@@ -78,7 +80,8 @@ Partial Class FrmEventos
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 18)
+        Me.Label1.Location = New System.Drawing.Point(13, 21)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(205, 24)
         Me.Label1.TabIndex = 4
@@ -87,9 +90,10 @@ Partial Class FrmEventos
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(15, 179)
+        Me.TextBox1.Location = New System.Drawing.Point(18, 183)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(680, 24)
+        Me.TextBox1.Size = New System.Drawing.Size(793, 24)
         Me.TextBox1.TabIndex = 8
         '
         'Label2
@@ -97,7 +101,8 @@ Partial Class FrmEventos
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 160)
+        Me.Label2.Location = New System.Drawing.Point(14, 161)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 18)
         Me.Label2.TabIndex = 9
@@ -109,9 +114,10 @@ Partial Class FrmEventos
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(458, -2)
+        Me.BtnFechar.Location = New System.Drawing.Point(655, -1)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(134, 60)
+        Me.BtnFechar.Size = New System.Drawing.Size(156, 69)
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnFechar.TabIndex = 15
         Me.BtnFechar.TabStop = False
@@ -169,96 +175,12 @@ Partial Class FrmEventos
         Me.EventosEmpresaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EventosEmpresaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.EventosDescrição})
         Me.EventosEmpresaDataGridView.DataSource = Me.EventosEmpresaBindingSource
-        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(15, 229)
+        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(18, 240)
+        Me.EventosEmpresaDataGridView.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EventosEmpresaDataGridView.Name = "EventosEmpresaDataGridView"
         Me.EventosEmpresaDataGridView.ReadOnly = True
-        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(680, 233)
+        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(793, 269)
         Me.EventosEmpresaDataGridView.TabIndex = 16
-        '
-        'EmpresaFacil
-        '
-        Me.EmpresaFacil.AutoSize = True
-        Me.EmpresaFacil.BackColor = System.Drawing.Color.Transparent
-        Me.EmpresaFacil.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmpresaFacil.Location = New System.Drawing.Point(28, 128)
-        Me.EmpresaFacil.Name = "EmpresaFacil"
-        Me.EmpresaFacil.Size = New System.Drawing.Size(122, 22)
-        Me.EmpresaFacil.TabIndex = 18
-        Me.EmpresaFacil.Text = "Empresa Fácil"
-        Me.EmpresaFacil.UseVisualStyleBackColor = False
-        '
-        'ReceitaFederal
-        '
-        Me.ReceitaFederal.AutoSize = True
-        Me.ReceitaFederal.BackColor = System.Drawing.Color.Transparent
-        Me.ReceitaFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReceitaFederal.Location = New System.Drawing.Point(166, 128)
-        Me.ReceitaFederal.Name = "ReceitaFederal"
-        Me.ReceitaFederal.Size = New System.Drawing.Size(130, 22)
-        Me.ReceitaFederal.TabIndex = 19
-        Me.ReceitaFederal.Text = "Receita Federal"
-        Me.ReceitaFederal.UseVisualStyleBackColor = False
-        '
-        'ReceitaEstadual
-        '
-        Me.ReceitaEstadual.AutoSize = True
-        Me.ReceitaEstadual.BackColor = System.Drawing.Color.Transparent
-        Me.ReceitaEstadual.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReceitaEstadual.Location = New System.Drawing.Point(315, 128)
-        Me.ReceitaEstadual.Name = "ReceitaEstadual"
-        Me.ReceitaEstadual.Size = New System.Drawing.Size(138, 22)
-        Me.ReceitaEstadual.TabIndex = 20
-        Me.ReceitaEstadual.Text = "Receita Estadual"
-        Me.ReceitaEstadual.UseVisualStyleBackColor = False
-        '
-        'PrefeituraMunicipal
-        '
-        Me.PrefeituraMunicipal.AutoSize = True
-        Me.PrefeituraMunicipal.BackColor = System.Drawing.Color.Transparent
-        Me.PrefeituraMunicipal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrefeituraMunicipal.Location = New System.Drawing.Point(469, 128)
-        Me.PrefeituraMunicipal.Name = "PrefeituraMunicipal"
-        Me.PrefeituraMunicipal.Size = New System.Drawing.Size(156, 22)
-        Me.PrefeituraMunicipal.TabIndex = 21
-        Me.PrefeituraMunicipal.Text = "Prefeitura Municipal"
-        Me.PrefeituraMunicipal.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 465)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(235, 18)
-        Me.Label4.TabIndex = 22
-        Me.Label4.Text = "* Clique duas vezes para adicionar"
-        '
-        'BtnLimparEventos
-        '
-        Me.BtnLimparEventos.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnLimparEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLimparEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnLimparEventos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnLimparEventos.Location = New System.Drawing.Point(579, 468)
-        Me.BtnLimparEventos.Name = "BtnLimparEventos"
-        Me.BtnLimparEventos.Size = New System.Drawing.Size(116, 28)
-        Me.BtnLimparEventos.TabIndex = 46
-        Me.BtnLimparEventos.Text = "Limpar Eventos"
-        Me.BtnLimparEventos.UseVisualStyleBackColor = False
-        '
-        'BtnEditar
-        '
-        Me.BtnEditar.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditar.ForeColor = System.Drawing.Color.Blue
-        Me.BtnEditar.Location = New System.Drawing.Point(457, 468)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(116, 28)
-        Me.BtnEditar.TabIndex = 47
-        Me.BtnEditar.Text = "Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'DataGridViewTextBoxColumn2
         '
@@ -276,13 +198,105 @@ Partial Class FrmEventos
         Me.EventosDescrição.ReadOnly = True
         Me.EventosDescrição.Width = 230
         '
+        'EmpresaFacil
+        '
+        Me.EmpresaFacil.AutoSize = True
+        Me.EmpresaFacil.BackColor = System.Drawing.Color.Transparent
+        Me.EmpresaFacil.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmpresaFacil.Location = New System.Drawing.Point(33, 124)
+        Me.EmpresaFacil.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.EmpresaFacil.Name = "EmpresaFacil"
+        Me.EmpresaFacil.Size = New System.Drawing.Size(122, 22)
+        Me.EmpresaFacil.TabIndex = 18
+        Me.EmpresaFacil.Text = "Empresa Fácil"
+        Me.EmpresaFacil.UseVisualStyleBackColor = False
+        '
+        'ReceitaFederal
+        '
+        Me.ReceitaFederal.AutoSize = True
+        Me.ReceitaFederal.BackColor = System.Drawing.Color.Transparent
+        Me.ReceitaFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReceitaFederal.Location = New System.Drawing.Point(194, 124)
+        Me.ReceitaFederal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ReceitaFederal.Name = "ReceitaFederal"
+        Me.ReceitaFederal.Size = New System.Drawing.Size(130, 22)
+        Me.ReceitaFederal.TabIndex = 19
+        Me.ReceitaFederal.Text = "Receita Federal"
+        Me.ReceitaFederal.UseVisualStyleBackColor = False
+        '
+        'ReceitaEstadual
+        '
+        Me.ReceitaEstadual.AutoSize = True
+        Me.ReceitaEstadual.BackColor = System.Drawing.Color.Transparent
+        Me.ReceitaEstadual.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReceitaEstadual.Location = New System.Drawing.Point(368, 124)
+        Me.ReceitaEstadual.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ReceitaEstadual.Name = "ReceitaEstadual"
+        Me.ReceitaEstadual.Size = New System.Drawing.Size(138, 22)
+        Me.ReceitaEstadual.TabIndex = 20
+        Me.ReceitaEstadual.Text = "Receita Estadual"
+        Me.ReceitaEstadual.UseVisualStyleBackColor = False
+        '
+        'PrefeituraMunicipal
+        '
+        Me.PrefeituraMunicipal.AutoSize = True
+        Me.PrefeituraMunicipal.BackColor = System.Drawing.Color.Transparent
+        Me.PrefeituraMunicipal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrefeituraMunicipal.Location = New System.Drawing.Point(547, 124)
+        Me.PrefeituraMunicipal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.PrefeituraMunicipal.Name = "PrefeituraMunicipal"
+        Me.PrefeituraMunicipal.Size = New System.Drawing.Size(156, 22)
+        Me.PrefeituraMunicipal.TabIndex = 21
+        Me.PrefeituraMunicipal.Text = "Prefeitura Municipal"
+        Me.PrefeituraMunicipal.UseVisualStyleBackColor = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(14, 513)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(235, 18)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "* Clique duas vezes para adicionar"
+        '
+        'BtnLimparEventos
+        '
+        Me.BtnLimparEventos.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnLimparEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLimparEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLimparEventos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnLimparEventos.Location = New System.Drawing.Point(676, 516)
+        Me.BtnLimparEventos.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnLimparEventos.Name = "BtnLimparEventos"
+        Me.BtnLimparEventos.Size = New System.Drawing.Size(135, 32)
+        Me.BtnLimparEventos.TabIndex = 46
+        Me.BtnLimparEventos.Text = "Limpar Eventos"
+        Me.BtnLimparEventos.UseVisualStyleBackColor = False
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditar.ForeColor = System.Drawing.Color.Blue
+        Me.BtnEditar.Location = New System.Drawing.Point(533, 516)
+        Me.BtnEditar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(135, 32)
+        Me.BtnEditar.TabIndex = 47
+        Me.BtnEditar.Text = "Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = False
+        '
         'FrmEventos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(711, 505)
+        Me.ClientSize = New System.Drawing.Size(830, 559)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnLimparEventos)
         Me.Controls.Add(Me.Label4)
@@ -297,8 +311,10 @@ Partial Class FrmEventos
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(EventosLabel)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmEventos"

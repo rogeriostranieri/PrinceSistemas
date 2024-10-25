@@ -72,12 +72,22 @@ Public Class FrmBuscaEmpresas
     End Sub
 
     Private Sub TxtPesquisaCNPJ_TextChanged(sender As Object, e As EventArgs) Handles TxtPesquisaCNPJ.TextChanged
-        'Limpar Antes e reinicia o filtro
+        ' Limpar antes e reiniciar o filtro
         EmpresasBindingSource.RemoveFilter()
 
-        'Filtra o DataGridView
-        EmpresasBindingSource.Filter = "CNPJ like '%" & TxtPesquisaCNPJ.Text & "%'"
-        'esconder aa coluna 
+        ' Variável para armazenar o texto do TextBox
+        Dim textoBusca As String = TxtPesquisaCNPJ.Text
+
+        ' Verifica se o texto contém apenas números e tem 14 dígitos
+        If IsNumeric(textoBusca) AndAlso textoBusca.Length = 14 Then
+            ' Formata o texto como CNPJ
+            textoBusca = FormatCNPJ(textoBusca)
+        End If
+
+        ' Filtra o DataGridView usando o valor formatado
+        EmpresasBindingSource.Filter = "CNPJ LIKE '%" & textoBusca & "%'"
+
+        ' Esconde as colunas especificadas
         EmpresasDataGridView.Columns(1).Visible = True
         EmpresasDataGridView.Columns(2).Visible = False
         EmpresasDataGridView.Columns(3).Visible = False
@@ -85,9 +95,18 @@ Public Class FrmBuscaEmpresas
         EmpresasDataGridView.Columns(5).Visible = False
         EmpresasDataGridView.Columns(6).Visible = False
         EmpresasDataGridView.Columns(7).Visible = False
-        'auto organizar tamanho da coluna
+
+        ' Organizar automaticamente o tamanho da coluna
         Organizar()
     End Sub
+
+    ' Função para formatar o texto como CNPJ no formato XX.XXX.XXX/XXXX-XX
+    Private Function FormatCNPJ(cnpj As String) As String
+        Return $"{cnpj.Substring(0, 2)}.{cnpj.Substring(2, 3)}.{cnpj.Substring(5, 3)}/{cnpj.Substring(8, 4)}-{cnpj.Substring(12, 2)}"
+    End Function
+
+
+
 
     Private Sub TextBoxResponsavel_TextChanged(sender As Object, e As EventArgs) Handles TextBoxResponsavel.TextChanged
         'Limpar Antes e reinicia o filtro

@@ -40,18 +40,20 @@ Partial Class FrmCalculadoraCapital
         '
         'TextBoxCapitalSocial
         '
-        Me.TextBoxCapitalSocial.Location = New System.Drawing.Point(138, 38)
+        Me.TextBoxCapitalSocial.Location = New System.Drawing.Point(184, 47)
+        Me.TextBoxCapitalSocial.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBoxCapitalSocial.Name = "TextBoxCapitalSocial"
-        Me.TextBoxCapitalSocial.Size = New System.Drawing.Size(140, 20)
+        Me.TextBoxCapitalSocial.Size = New System.Drawing.Size(185, 22)
         Me.TextBoxCapitalSocial.TabIndex = 0
         Me.TextBoxCapitalSocial.Text = "0"
         '
         'ButtonPorcentagem
         '
         Me.ButtonPorcentagem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonPorcentagem.Location = New System.Drawing.Point(422, 218)
+        Me.ButtonPorcentagem.Location = New System.Drawing.Point(563, 268)
+        Me.ButtonPorcentagem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ButtonPorcentagem.Name = "ButtonPorcentagem"
-        Me.ButtonPorcentagem.Size = New System.Drawing.Size(97, 29)
+        Me.ButtonPorcentagem.Size = New System.Drawing.Size(129, 36)
         Me.ButtonPorcentagem.TabIndex = 2
         Me.ButtonPorcentagem.Text = "Calcular"
         Me.ButtonPorcentagem.UseVisualStyleBackColor = True
@@ -61,7 +63,8 @@ Partial Class FrmCalculadoraCapital
         Me.LblCapTotal.AutoSize = True
         Me.LblCapTotal.BackColor = System.Drawing.Color.Transparent
         Me.LblCapTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblCapTotal.Location = New System.Drawing.Point(5, 42)
+        Me.LblCapTotal.Location = New System.Drawing.Point(7, 52)
+        Me.LblCapTotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblCapTotal.Name = "LblCapTotal"
         Me.LblCapTotal.Size = New System.Drawing.Size(127, 16)
         Me.LblCapTotal.TabIndex = 4
@@ -72,9 +75,10 @@ Partial Class FrmCalculadoraCapital
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnSocio, Me.ColumnPorcentagem, Me.ColumnAntigo, Me.ColumnNovo, Me.GanhaEPerca})
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 62)
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 76)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(514, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(685, 185)
         Me.DataGridView1.TabIndex = 5
         '
         'ColumnSocio
@@ -106,9 +110,10 @@ Partial Class FrmCalculadoraCapital
         'ButtonLimpar
         '
         Me.ButtonLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLimpar.Location = New System.Drawing.Point(319, 219)
+        Me.ButtonLimpar.Location = New System.Drawing.Point(425, 270)
+        Me.ButtonLimpar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ButtonLimpar.Name = "ButtonLimpar"
-        Me.ButtonLimpar.Size = New System.Drawing.Size(97, 29)
+        Me.ButtonLimpar.Size = New System.Drawing.Size(129, 36)
         Me.ButtonLimpar.TabIndex = 7
         Me.ButtonLimpar.Text = "Limpar Tudo"
         Me.ButtonLimpar.UseVisualStyleBackColor = True
@@ -119,6 +124,7 @@ Partial Class FrmCalculadoraCapital
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(1, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(283, 24)
         Me.Label1.TabIndex = 34
@@ -130,20 +136,21 @@ Partial Class FrmCalculadoraCapital
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(399, 0)
+        Me.BtnFechar.Location = New System.Drawing.Point(532, 0)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(120, 56)
+        Me.BtnFechar.Size = New System.Drawing.Size(160, 69)
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnFechar.TabIndex = 35
         Me.BtnFechar.TabStop = False
         '
         'FrmCalculadoraCapital
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(526, 252)
+        Me.ClientSize = New System.Drawing.Size(701, 310)
         Me.Controls.Add(Me.BtnFechar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ButtonLimpar)
@@ -151,8 +158,10 @@ Partial Class FrmCalculadoraCapital
         Me.Controls.Add(Me.LblCapTotal)
         Me.Controls.Add(Me.ButtonPorcentagem)
         Me.Controls.Add(Me.TextBoxCapitalSocial)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmCalculadoraCapital"

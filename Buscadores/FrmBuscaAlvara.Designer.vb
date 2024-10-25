@@ -25,8 +25,10 @@ Partial Class FrmBuscaAlvara
         Me.components = New System.ComponentModel.Container()
         Dim EndCidadeLabel As System.Windows.Forms.Label
         Dim Label6 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
         Dim Label7 As System.Windows.Forms.Label
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBuscaAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -44,6 +46,7 @@ Partial Class FrmBuscaAlvara
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxHistorico = New System.Windows.Forms.TextBox()
         Me.TxtEstado = New System.Windows.Forms.TextBox()
         Me.TxtCidade = New System.Windows.Forms.TextBox()
         Me.ButtonLimpar = New System.Windows.Forms.Button()
@@ -65,7 +68,6 @@ Partial Class FrmBuscaAlvara
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.CADSituacaoAlvaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CADSituacaoAlvaraTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.CADSituacaoAlvaraTableAdapter()
-        Me.TextBoxHistorico = New System.Windows.Forms.TextBox()
         EndCidadeLabel = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -99,6 +101,16 @@ Partial Class FrmBuscaAlvara
         Label6.TabIndex = 35
         Label6.Text = "Sigla do Estado :"
         '
+        'Label7
+        '
+        Label7.AutoSize = True
+        Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label7.Location = New System.Drawing.Point(8, 270)
+        Label7.Name = "Label7"
+        Label7.Size = New System.Drawing.Size(179, 20)
+        Label7.TabIndex = 37
+        Label7.Text = "Historico de protocolos :"
+        '
         'PrinceDBDataSet
         '
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
@@ -120,9 +132,13 @@ Partial Class FrmBuscaAlvara
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -134,6 +150,7 @@ Partial Class FrmBuscaAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -147,10 +164,26 @@ Partial Class FrmBuscaAlvara
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Requerente, Me.CMC, Me.Nlaudo, Me.EndCidade, Me.EndEstado, Me.Situacao})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.LaudosDataGridView.DefaultCellStyle = DataGridViewCellStyle1
         Me.LaudosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LaudosDataGridView.Location = New System.Drawing.Point(493, 75)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.LaudosDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.LaudosDataGridView.Size = New System.Drawing.Size(526, 337)
         Me.LaudosDataGridView.TabIndex = 1
         '
@@ -289,6 +322,14 @@ Partial Class FrmBuscaAlvara
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Digite aonde deseja localizar"
+        '
+        'TextBoxHistorico
+        '
+        Me.TextBoxHistorico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxHistorico.Location = New System.Drawing.Point(185, 268)
+        Me.TextBoxHistorico.Name = "TextBoxHistorico"
+        Me.TextBoxHistorico.Size = New System.Drawing.Size(288, 24)
+        Me.TextBoxHistorico.TabIndex = 38
         '
         'TxtEstado
         '
@@ -485,24 +526,6 @@ Partial Class FrmBuscaAlvara
         'CADSituacaoAlvaraTableAdapter
         '
         Me.CADSituacaoAlvaraTableAdapter.ClearBeforeFill = True
-        '
-        'TextBoxHistorico
-        '
-        Me.TextBoxHistorico.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxHistorico.Location = New System.Drawing.Point(185, 268)
-        Me.TextBoxHistorico.Name = "TextBoxHistorico"
-        Me.TextBoxHistorico.Size = New System.Drawing.Size(288, 24)
-        Me.TextBoxHistorico.TabIndex = 38
-        '
-        'Label7
-        '
-        Label7.AutoSize = True
-        Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label7.Location = New System.Drawing.Point(8, 270)
-        Label7.Name = "Label7"
-        Label7.Size = New System.Drawing.Size(179, 20)
-        Label7.TabIndex = 37
-        Label7.Text = "Historico de protocolos :"
         '
         'FrmBuscaAlvara
         '

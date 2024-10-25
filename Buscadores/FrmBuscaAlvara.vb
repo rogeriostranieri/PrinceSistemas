@@ -108,10 +108,22 @@
     End Sub
 
     Private Sub TxtPesquisaCNPJ_TextChanged(sender As Object, e As EventArgs) Handles TxtPesquisaCNPJ.TextChanged
+        ' Limpar antes e reiniciar o filtro
         RemoverFiltro()
-        'Filtra o DataGridView
-        LaudosBindingSource.Filter = "CNPJ like '%" & TxtPesquisaCNPJ.Text & "%'"
-        'esconder aa coluna 
+
+        ' Variável para armazenar o texto do TextBox
+        Dim textoBusca As String = TxtPesquisaCNPJ.Text
+
+        ' Verifica se o texto contém apenas números e tem 14 dígitos
+        If IsNumeric(textoBusca) AndAlso textoBusca.Length = 14 Then
+            ' Formata o texto como CNPJ
+            textoBusca = FormatCNPJ(textoBusca)
+        End If
+
+        ' Filtra o DataGridView usando o valor formatado
+        LaudosBindingSource.Filter = "CNPJ LIKE '%" & textoBusca & "%'"
+
+        ' Esconde as colunas especificadas
         LaudosDataGridView.Columns(0).Visible = True
         LaudosDataGridView.Columns(1).Visible = True
         LaudosDataGridView.Columns(2).Visible = False
@@ -120,9 +132,15 @@
         LaudosDataGridView.Columns(5).Visible = True
         LaudosDataGridView.Columns(6).Visible = True
 
-        'auto organizar tamanho da coluna
+        ' Organizar automaticamente o tamanho da coluna
         Organizar()
     End Sub
+
+    ' Função para formatar o texto como CNPJ no formato XX.XXX.XXX/XXXX-XX
+    Private Function FormatCNPJ(cnpj As String) As String
+        Return $"{cnpj.Substring(0, 2)}.{cnpj.Substring(2, 3)}.{cnpj.Substring(5, 3)}/{cnpj.Substring(8, 4)}-{cnpj.Substring(12, 2)}"
+    End Function
+
 
     Private Sub TextBoxRequerente_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRequerente.TextChanged
         RemoverFiltro()

@@ -37,9 +37,10 @@ Partial Class FrmSociosGERAL
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(40, 567)
+        Me.Label2.Location = New System.Drawing.Point(47, 654)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.Size = New System.Drawing.Size(45, 15)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Label2"
         '
@@ -47,18 +48,20 @@ Partial Class FrmSociosGERAL
         '
         Me.BtnAtualizar.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.atualizar_azu
         Me.BtnAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAtualizar.Location = New System.Drawing.Point(10, 562)
+        Me.BtnAtualizar.Location = New System.Drawing.Point(12, 648)
+        Me.BtnAtualizar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAtualizar.Name = "BtnAtualizar"
-        Me.BtnAtualizar.Size = New System.Drawing.Size(24, 23)
+        Me.BtnAtualizar.Size = New System.Drawing.Size(28, 27)
         Me.BtnAtualizar.TabIndex = 25
         Me.BtnAtualizar.TabStop = False
         '
         'ListViewGeral
         '
         Me.ListViewGeral.HideSelection = False
-        Me.ListViewGeral.Location = New System.Drawing.Point(10, 95)
+        Me.ListViewGeral.Location = New System.Drawing.Point(12, 110)
+        Me.ListViewGeral.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ListViewGeral.Name = "ListViewGeral"
-        Me.ListViewGeral.Size = New System.Drawing.Size(472, 464)
+        Me.ListViewGeral.Size = New System.Drawing.Size(550, 535)
         Me.ListViewGeral.TabIndex = 24
         Me.ListViewGeral.UseCompatibleStateImageBehavior = False
         '
@@ -68,9 +71,10 @@ Partial Class FrmSociosGERAL
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(356, -2)
+        Me.PictureBox2.Location = New System.Drawing.Point(415, -2)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(134, 60)
+        Me.PictureBox2.Size = New System.Drawing.Size(156, 69)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 22
         Me.PictureBox2.TabStop = False
@@ -79,7 +83,8 @@ Partial Class FrmSociosGERAL
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(10, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 17)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(155, 25)
         Me.Label1.TabIndex = 21
@@ -88,24 +93,27 @@ Partial Class FrmSociosGERAL
         'TextBoxBusca
         '
         Me.TextBoxBusca.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxBusca.Location = New System.Drawing.Point(10, 58)
+        Me.TextBoxBusca.Location = New System.Drawing.Point(12, 67)
+        Me.TextBoxBusca.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBoxBusca.Name = "TextBoxBusca"
-        Me.TextBoxBusca.Size = New System.Drawing.Size(472, 31)
+        Me.TextBoxBusca.Size = New System.Drawing.Size(550, 31)
         Me.TextBoxBusca.TabIndex = 20
         '
         'FrmSociosGERAL
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(500, 590)
+        Me.ClientSize = New System.Drawing.Size(583, 681)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnAtualizar)
         Me.Controls.Add(Me.ListViewGeral)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxBusca)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmSociosGERAL"

@@ -36,7 +36,8 @@ Partial Class FrmBuscaCNAE
         '
         Me.LinkLabelEditor.AutoSize = True
         Me.LinkLabelEditor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabelEditor.Location = New System.Drawing.Point(378, 566)
+        Me.LinkLabelEditor.Location = New System.Drawing.Point(617, 659)
+        Me.LinkLabelEditor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelEditor.Name = "LinkLabelEditor"
         Me.LinkLabelEditor.Size = New System.Drawing.Size(103, 18)
         Me.LinkLabelEditor.TabIndex = 21
@@ -49,9 +50,10 @@ Partial Class FrmBuscaCNAE
         Me.BtnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnClose.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnClose.Location = New System.Drawing.Point(355, 2)
+        Me.BtnClose.Location = New System.Drawing.Point(532, 3)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(134, 60)
+        Me.BtnClose.Size = New System.Drawing.Size(201, 83)
         Me.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnClose.TabIndex = 20
         Me.BtnClose.TabStop = False
@@ -60,7 +62,8 @@ Partial Class FrmBuscaCNAE
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 21)
+        Me.Label1.Location = New System.Drawing.Point(14, 29)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(146, 25)
         Me.Label1.TabIndex = 19
@@ -69,32 +72,36 @@ Partial Class FrmBuscaCNAE
         'TextBoxBusca
         '
         Me.TextBoxBusca.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxBusca.Location = New System.Drawing.Point(9, 64)
+        Me.TextBoxBusca.Location = New System.Drawing.Point(14, 89)
+        Me.TextBoxBusca.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBoxBusca.Name = "TextBoxBusca"
-        Me.TextBoxBusca.Size = New System.Drawing.Size(472, 31)
+        Me.TextBoxBusca.Size = New System.Drawing.Size(706, 31)
         Me.TextBoxBusca.TabIndex = 17
         '
         'ListViewCNAEs
         '
         Me.ListViewCNAEs.HideSelection = False
-        Me.ListViewCNAEs.Location = New System.Drawing.Point(9, 101)
+        Me.ListViewCNAEs.Location = New System.Drawing.Point(14, 140)
+        Me.ListViewCNAEs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ListViewCNAEs.Name = "ListViewCNAEs"
-        Me.ListViewCNAEs.Size = New System.Drawing.Size(472, 464)
+        Me.ListViewCNAEs.Size = New System.Drawing.Size(706, 515)
         Me.ListViewCNAEs.TabIndex = 22
         Me.ListViewCNAEs.UseCompatibleStateImageBehavior = False
         '
         'FrmBuscaCNAE
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.ClientSize = New System.Drawing.Size(490, 593)
+        Me.ClientSize = New System.Drawing.Size(735, 680)
         Me.Controls.Add(Me.ListViewCNAEs)
         Me.Controls.Add(Me.LinkLabelEditor)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxBusca)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmBuscaCNAE"

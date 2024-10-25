@@ -34,9 +34,10 @@ Partial Class FrmCNAEescolha
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.BtnFechar.Location = New System.Drawing.Point(107, -2)
+        Me.BtnFechar.Location = New System.Drawing.Point(125, -2)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(134, 60)
+        Me.BtnFechar.Size = New System.Drawing.Size(156, 69)
         Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnFechar.TabIndex = 19
         Me.BtnFechar.TabStop = False
@@ -46,9 +47,10 @@ Partial Class FrmCNAEescolha
         Me.BtnConsulta.BackColor = System.Drawing.Color.Azure
         Me.BtnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.BtnConsulta.Location = New System.Drawing.Point(12, 63)
+        Me.BtnConsulta.Location = New System.Drawing.Point(14, 73)
+        Me.BtnConsulta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsulta.Name = "BtnConsulta"
-        Me.BtnConsulta.Size = New System.Drawing.Size(211, 77)
+        Me.BtnConsulta.Size = New System.Drawing.Size(246, 89)
         Me.BtnConsulta.TabIndex = 18
         Me.BtnConsulta.Text = "Consultar"
         Me.BtnConsulta.UseVisualStyleBackColor = False
@@ -58,23 +60,26 @@ Partial Class FrmCNAEescolha
         Me.BtnBuscar.BackColor = System.Drawing.Color.Azure
         Me.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBuscar.Location = New System.Drawing.Point(12, 146)
+        Me.BtnBuscar.Location = New System.Drawing.Point(14, 168)
+        Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(211, 77)
+        Me.BtnBuscar.Size = New System.Drawing.Size(246, 89)
         Me.BtnBuscar.TabIndex = 17
         Me.BtnBuscar.Text = "Buscar"
         Me.BtnBuscar.UseVisualStyleBackColor = False
         '
         'FrmCNAEescolha
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(234, 235)
+        Me.ClientSize = New System.Drawing.Size(273, 271)
         Me.Controls.Add(Me.BtnFechar)
         Me.Controls.Add(Me.BtnConsulta)
         Me.Controls.Add(Me.BtnBuscar)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmCNAEescolha"

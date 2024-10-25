@@ -91,9 +91,10 @@ Partial Class Telefones
         '
         NomeLabel.AutoSize = True
         NomeLabel.BackColor = System.Drawing.Color.Transparent
-        NomeLabel.Location = New System.Drawing.Point(34, 50)
+        NomeLabel.Location = New System.Drawing.Point(45, 62)
+        NomeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeLabel.Name = "NomeLabel"
-        NomeLabel.Size = New System.Drawing.Size(38, 13)
+        NomeLabel.Size = New System.Drawing.Size(47, 16)
         NomeLabel.TabIndex = 1
         NomeLabel.Text = "Nome:"
         '
@@ -101,9 +102,10 @@ Partial Class Telefones
         '
         Telefone1Label.AutoSize = True
         Telefone1Label.BackColor = System.Drawing.Color.Transparent
-        Telefone1Label.Location = New System.Drawing.Point(20, 73)
+        Telefone1Label.Location = New System.Drawing.Point(27, 90)
+        Telefone1Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Telefone1Label.Name = "Telefone1Label"
-        Telefone1Label.Size = New System.Drawing.Size(52, 13)
+        Telefone1Label.Size = New System.Drawing.Size(64, 16)
         Telefone1Label.TabIndex = 3
         Telefone1Label.Text = "Telefone:"
         '
@@ -111,9 +113,10 @@ Partial Class Telefones
         '
         TelefoneOutrosLabel.AutoSize = True
         TelefoneOutrosLabel.BackColor = System.Drawing.Color.Transparent
-        TelefoneOutrosLabel.Location = New System.Drawing.Point(13, 102)
+        TelefoneOutrosLabel.Location = New System.Drawing.Point(17, 126)
+        TelefoneOutrosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TelefoneOutrosLabel.Name = "TelefoneOutrosLabel"
-        TelefoneOutrosLabel.Size = New System.Drawing.Size(57, 13)
+        TelefoneOutrosLabel.Size = New System.Drawing.Size(71, 16)
         TelefoneOutrosLabel.TabIndex = 5
         TelefoneOutrosLabel.Text = "Telefones:"
         '
@@ -121,79 +124,87 @@ Partial Class Telefones
         '
         ObsLabel.AutoSize = True
         ObsLabel.BackColor = System.Drawing.Color.Transparent
-        ObsLabel.Location = New System.Drawing.Point(167, 76)
+        ObsLabel.Location = New System.Drawing.Point(223, 94)
+        ObsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ObsLabel.Name = "ObsLabel"
-        ObsLabel.Size = New System.Drawing.Size(29, 13)
+        ObsLabel.Size = New System.Drawing.Size(35, 16)
         ObsLabel.TabIndex = 7
         ObsLabel.Text = "Obs:"
         '
         'CEPLabel
         '
         CEPLabel.AutoSize = True
-        CEPLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        CEPLabel.Location = New System.Drawing.Point(46, 25)
+        CEPLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        CEPLabel.Location = New System.Drawing.Point(61, 31)
+        CEPLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CEPLabel.Name = "CEPLabel"
-        CEPLabel.Size = New System.Drawing.Size(31, 13)
+        CEPLabel.Size = New System.Drawing.Size(37, 16)
         CEPLabel.TabIndex = 9
         CEPLabel.Text = "CEP:"
         '
         'EndereçoLabel
         '
         EndereçoLabel.AutoSize = True
-        EndereçoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndereçoLabel.Location = New System.Drawing.Point(13, 51)
+        EndereçoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EndereçoLabel.Location = New System.Drawing.Point(17, 63)
+        EndereçoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndereçoLabel.Name = "EndereçoLabel"
-        EndereçoLabel.Size = New System.Drawing.Size(64, 13)
+        EndereçoLabel.Size = New System.Drawing.Size(80, 16)
         EndereçoLabel.TabIndex = 11
         EndereçoLabel.Text = "Logradouro:"
         '
         'NumeroLabel
         '
         NumeroLabel.AutoSize = True
-        NumeroLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        NumeroLabel.Location = New System.Drawing.Point(344, 51)
+        NumeroLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        NumeroLabel.Location = New System.Drawing.Point(459, 63)
+        NumeroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NumeroLabel.Name = "NumeroLabel"
-        NumeroLabel.Size = New System.Drawing.Size(47, 13)
+        NumeroLabel.Size = New System.Drawing.Size(58, 16)
         NumeroLabel.TabIndex = 13
         NumeroLabel.Text = "Numero:"
         '
         'ComplementoLabel
         '
         ComplementoLabel.AutoSize = True
-        ComplementoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ComplementoLabel.Location = New System.Drawing.Point(3, 77)
+        ComplementoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ComplementoLabel.Location = New System.Drawing.Point(4, 95)
+        ComplementoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ComplementoLabel.Name = "ComplementoLabel"
-        ComplementoLabel.Size = New System.Drawing.Size(74, 13)
+        ComplementoLabel.Size = New System.Drawing.Size(94, 16)
         ComplementoLabel.TabIndex = 15
         ComplementoLabel.Text = "Complemento:"
         '
         'BairroLabel
         '
         BairroLabel.AutoSize = True
-        BairroLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        BairroLabel.Location = New System.Drawing.Point(260, 77)
+        BairroLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        BairroLabel.Location = New System.Drawing.Point(347, 95)
+        BairroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         BairroLabel.Name = "BairroLabel"
-        BairroLabel.Size = New System.Drawing.Size(37, 13)
+        BairroLabel.Size = New System.Drawing.Size(46, 16)
         BairroLabel.TabIndex = 17
         BairroLabel.Text = "Bairro:"
         '
         'CidadeLabel
         '
         CidadeLabel.AutoSize = True
-        CidadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        CidadeLabel.Location = New System.Drawing.Point(34, 103)
+        CidadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        CidadeLabel.Location = New System.Drawing.Point(45, 127)
+        CidadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CidadeLabel.Name = "CidadeLabel"
-        CidadeLabel.Size = New System.Drawing.Size(43, 13)
+        CidadeLabel.Size = New System.Drawing.Size(54, 16)
         CidadeLabel.TabIndex = 19
         CidadeLabel.Text = "Cidade:"
         '
         'EstadoLabel
         '
         EstadoLabel.AutoSize = True
-        EstadoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EstadoLabel.Location = New System.Drawing.Point(192, 103)
+        EstadoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EstadoLabel.Location = New System.Drawing.Point(256, 127)
+        EstadoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EstadoLabel.Name = "EstadoLabel"
-        EstadoLabel.Size = New System.Drawing.Size(43, 13)
+        EstadoLabel.Size = New System.Drawing.Size(53, 16)
         EstadoLabel.TabIndex = 21
         EstadoLabel.Text = "Estado:"
         '
@@ -201,9 +212,10 @@ Partial Class Telefones
         '
         EmailLabel.AutoSize = True
         EmailLabel.BackColor = System.Drawing.Color.Transparent
-        EmailLabel.Location = New System.Drawing.Point(34, 204)
+        EmailLabel.Location = New System.Drawing.Point(45, 251)
+        EmailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(38, 13)
+        EmailLabel.Size = New System.Drawing.Size(47, 16)
         EmailLabel.TabIndex = 23
         EmailLabel.Text = "e-Mail:"
         '
@@ -211,18 +223,20 @@ Partial Class Telefones
         '
         SiteLabel.AutoSize = True
         SiteLabel.BackColor = System.Drawing.Color.Transparent
-        SiteLabel.Location = New System.Drawing.Point(21, 230)
+        SiteLabel.Location = New System.Drawing.Point(28, 283)
+        SiteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SiteLabel.Name = "SiteLabel"
-        SiteLabel.Size = New System.Drawing.Size(51, 13)
+        SiteLabel.Size = New System.Drawing.Size(62, 16)
         SiteLabel.TabIndex = 25
         SiteLabel.Text = "WebSite:"
         '
         'NomeTextBox
         '
         Me.NomeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Nome", True))
-        Me.NomeTextBox.Location = New System.Drawing.Point(78, 47)
+        Me.NomeTextBox.Location = New System.Drawing.Point(104, 58)
+        Me.NomeTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NomeTextBox.Name = "NomeTextBox"
-        Me.NomeTextBox.Size = New System.Drawing.Size(382, 20)
+        Me.NomeTextBox.Size = New System.Drawing.Size(539, 22)
         Me.NomeTextBox.TabIndex = 2
         '
         'TelefonesBindingSource
@@ -238,115 +252,128 @@ Partial Class Telefones
         'Telefone1MaskedTextBox
         '
         Me.Telefone1MaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Telefone1", True))
-        Me.Telefone1MaskedTextBox.Location = New System.Drawing.Point(78, 73)
+        Me.Telefone1MaskedTextBox.Location = New System.Drawing.Point(104, 90)
+        Me.Telefone1MaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Telefone1MaskedTextBox.Mask = "(99) 0000-0000"
         Me.Telefone1MaskedTextBox.Name = "Telefone1MaskedTextBox"
-        Me.Telefone1MaskedTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.Telefone1MaskedTextBox.Size = New System.Drawing.Size(109, 22)
         Me.Telefone1MaskedTextBox.TabIndex = 4
         '
         'TelefoneOutrosRichTextBox
         '
         Me.TelefoneOutrosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "TelefoneOutros", True))
-        Me.TelefoneOutrosRichTextBox.Location = New System.Drawing.Point(78, 99)
+        Me.TelefoneOutrosRichTextBox.Location = New System.Drawing.Point(104, 122)
+        Me.TelefoneOutrosRichTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TelefoneOutrosRichTextBox.Name = "TelefoneOutrosRichTextBox"
-        Me.TelefoneOutrosRichTextBox.Size = New System.Drawing.Size(83, 96)
+        Me.TelefoneOutrosRichTextBox.Size = New System.Drawing.Size(109, 117)
         Me.TelefoneOutrosRichTextBox.TabIndex = 6
         Me.TelefoneOutrosRichTextBox.Text = ""
         '
         'ObsRichTextBox
         '
         Me.ObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Obs", True))
-        Me.ObsRichTextBox.Location = New System.Drawing.Point(202, 76)
+        Me.ObsRichTextBox.Location = New System.Drawing.Point(269, 94)
+        Me.ObsRichTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ObsRichTextBox.Name = "ObsRichTextBox"
-        Me.ObsRichTextBox.Size = New System.Drawing.Size(258, 119)
+        Me.ObsRichTextBox.Size = New System.Drawing.Size(374, 146)
         Me.ObsRichTextBox.TabIndex = 8
         Me.ObsRichTextBox.Text = ""
         '
         'CEPMaskedTextBox
         '
         Me.CEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "CEP", True))
-        Me.CEPMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CEPMaskedTextBox.Location = New System.Drawing.Point(83, 22)
+        Me.CEPMaskedTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CEPMaskedTextBox.Location = New System.Drawing.Point(111, 27)
+        Me.CEPMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CEPMaskedTextBox.Name = "CEPMaskedTextBox"
-        Me.CEPMaskedTextBox.Size = New System.Drawing.Size(74, 20)
+        Me.CEPMaskedTextBox.Size = New System.Drawing.Size(97, 22)
         Me.CEPMaskedTextBox.TabIndex = 10
         '
         'EndereçoTextBox
         '
         Me.EndereçoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Endereço", True))
-        Me.EndereçoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndereçoTextBox.Location = New System.Drawing.Point(83, 48)
+        Me.EndereçoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EndereçoTextBox.Location = New System.Drawing.Point(111, 59)
+        Me.EndereçoTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.EndereçoTextBox.Name = "EndereçoTextBox"
-        Me.EndereçoTextBox.Size = New System.Drawing.Size(260, 20)
+        Me.EndereçoTextBox.Size = New System.Drawing.Size(345, 22)
         Me.EndereçoTextBox.TabIndex = 12
         '
         'NumeroTextBox
         '
         Me.NumeroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Numero", True))
-        Me.NumeroTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumeroTextBox.Location = New System.Drawing.Point(391, 48)
+        Me.NumeroTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumeroTextBox.Location = New System.Drawing.Point(521, 59)
+        Me.NumeroTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NumeroTextBox.Name = "NumeroTextBox"
-        Me.NumeroTextBox.Size = New System.Drawing.Size(56, 20)
+        Me.NumeroTextBox.Size = New System.Drawing.Size(73, 22)
         Me.NumeroTextBox.TabIndex = 14
         '
         'ComplementoTextBox
         '
         Me.ComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Complemento", True))
-        Me.ComplementoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComplementoTextBox.Location = New System.Drawing.Point(83, 74)
+        Me.ComplementoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComplementoTextBox.Location = New System.Drawing.Point(111, 91)
+        Me.ComplementoTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComplementoTextBox.Name = "ComplementoTextBox"
-        Me.ComplementoTextBox.Size = New System.Drawing.Size(171, 20)
+        Me.ComplementoTextBox.Size = New System.Drawing.Size(227, 22)
         Me.ComplementoTextBox.TabIndex = 16
         '
         'BairroTextBox
         '
         Me.BairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Bairro", True))
-        Me.BairroTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BairroTextBox.Location = New System.Drawing.Point(298, 74)
+        Me.BairroTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BairroTextBox.Location = New System.Drawing.Point(397, 91)
+        Me.BairroTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BairroTextBox.Name = "BairroTextBox"
-        Me.BairroTextBox.Size = New System.Drawing.Size(149, 20)
+        Me.BairroTextBox.Size = New System.Drawing.Size(197, 22)
         Me.BairroTextBox.TabIndex = 18
         '
         'CidadeTextBox
         '
         Me.CidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Cidade", True))
-        Me.CidadeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CidadeTextBox.Location = New System.Drawing.Point(83, 100)
+        Me.CidadeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CidadeTextBox.Location = New System.Drawing.Point(111, 123)
+        Me.CidadeTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CidadeTextBox.Name = "CidadeTextBox"
-        Me.CidadeTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CidadeTextBox.Size = New System.Drawing.Size(132, 22)
         Me.CidadeTextBox.TabIndex = 20
         '
         'EstadoTextBox
         '
         Me.EstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "Estado", True))
-        Me.EstadoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstadoTextBox.Location = New System.Drawing.Point(241, 100)
+        Me.EstadoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadoTextBox.Location = New System.Drawing.Point(321, 123)
+        Me.EstadoTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.EstadoTextBox.Name = "EstadoTextBox"
-        Me.EstadoTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EstadoTextBox.Size = New System.Drawing.Size(132, 22)
         Me.EstadoTextBox.TabIndex = 22
         '
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(78, 201)
+        Me.EmailTextBox.Location = New System.Drawing.Point(104, 247)
+        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(214, 20)
+        Me.EmailTextBox.Size = New System.Drawing.Size(539, 22)
         Me.EmailTextBox.TabIndex = 24
         '
         'SiteTextBox
         '
         Me.SiteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TelefonesBindingSource, "site", True))
-        Me.SiteTextBox.Location = New System.Drawing.Point(78, 227)
+        Me.SiteTextBox.Location = New System.Drawing.Point(104, 279)
+        Me.SiteTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SiteTextBox.Name = "SiteTextBox"
-        Me.SiteTextBox.Size = New System.Drawing.Size(214, 20)
+        Me.SiteTextBox.Size = New System.Drawing.Size(539, 22)
         Me.SiteTextBox.TabIndex = 26
         '
         'Button3
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(163, 22)
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(217, 27)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(73, 19)
+        Me.Button3.Size = New System.Drawing.Size(97, 23)
         Me.Button3.TabIndex = 27
         Me.Button3.Text = "Buscar CEP"
         Me.Button3.UseVisualStyleBackColor = True
@@ -369,10 +396,12 @@ Partial Class Telefones
         Me.GroupBox1.Controls.Add(Me.EndereçoTextBox)
         Me.GroupBox1.Controls.Add(CEPLabel)
         Me.GroupBox1.Controls.Add(Me.CEPMaskedTextBox)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 271)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 334)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(452, 143)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(603, 176)
         Me.GroupBox1.TabIndex = 28
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Endereço"
@@ -384,45 +413,51 @@ Partial Class Telefones
         Me.GroupBox5.Controls.Add(Me.Button18)
         Me.GroupBox5.Controls.Add(Me.Button17)
         Me.GroupBox5.Controls.Add(Me.Button19)
-        Me.GroupBox5.Location = New System.Drawing.Point(504, 28)
+        Me.GroupBox5.Location = New System.Drawing.Point(672, 34)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(94, 160)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Size = New System.Drawing.Size(125, 197)
         Me.GroupBox5.TabIndex = 58
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
         '
         'Button16
         '
-        Me.Button16.Location = New System.Drawing.Point(13, 19)
+        Me.Button16.Location = New System.Drawing.Point(17, 23)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(69, 22)
+        Me.Button16.Size = New System.Drawing.Size(92, 27)
         Me.Button16.TabIndex = 46
         Me.Button16.Text = "Novo"
         Me.Button16.UseVisualStyleBackColor = True
         '
         'Button18
         '
-        Me.Button18.Location = New System.Drawing.Point(13, 47)
+        Me.Button18.Location = New System.Drawing.Point(17, 58)
+        Me.Button18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(69, 23)
+        Me.Button18.Size = New System.Drawing.Size(92, 28)
         Me.Button18.TabIndex = 48
         Me.Button18.Text = "Salvar"
         Me.Button18.UseVisualStyleBackColor = True
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(13, 92)
+        Me.Button17.Location = New System.Drawing.Point(17, 113)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(69, 23)
+        Me.Button17.Size = New System.Drawing.Size(92, 28)
         Me.Button17.TabIndex = 47
         Me.Button17.Text = "Excluir"
         Me.Button17.UseVisualStyleBackColor = True
         '
         'Button19
         '
-        Me.Button19.Location = New System.Drawing.Point(13, 121)
+        Me.Button19.Location = New System.Drawing.Point(17, 149)
+        Me.Button19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(69, 23)
+        Me.Button19.Size = New System.Drawing.Size(92, 28)
         Me.Button19.TabIndex = 49
         Me.Button19.Text = "Fechar"
         Me.Button19.UseVisualStyleBackColor = True
@@ -432,7 +467,7 @@ Partial Class Telefones
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ComboBoxBusca, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.CboCidadeOrgao})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(598, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(797, 25)
         Me.ToolStrip1.TabIndex = 59
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -448,7 +483,7 @@ Partial Class Telefones
         Me.ComboBoxBusca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxBusca.FlatStyle = System.Windows.Forms.FlatStyle.Standard
         Me.ComboBoxBusca.Name = "ComboBoxBusca"
-        Me.ComboBoxBusca.Size = New System.Drawing.Size(260, 25)
+        Me.ComboBoxBusca.Size = New System.Drawing.Size(345, 25)
         '
         'ToolStripSeparator1
         '
@@ -466,7 +501,7 @@ Partial Class Telefones
         Me.CboCidadeOrgao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CboCidadeOrgao.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CboCidadeOrgao.Name = "CboCidadeOrgao"
-        Me.CboCidadeOrgao.Size = New System.Drawing.Size(100, 25)
+        Me.CboCidadeOrgao.Size = New System.Drawing.Size(133, 25)
         '
         'TelefonesTableAdapter
         '
@@ -474,31 +509,41 @@ Partial Class Telefones
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
         Me.TableAdapterManager.eMailTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.EventosEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.LaudosTableAdapter = Nothing
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Me.TelefonesTableAdapter
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Telefones
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(598, 427)
+        Me.ClientSize = New System.Drawing.Size(797, 526)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
@@ -514,9 +559,11 @@ Partial Class Telefones
         Me.Controls.Add(Me.Telefone1MaskedTextBox)
         Me.Controls.Add(NomeLabel)
         Me.Controls.Add(Me.NomeTextBox)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Telefones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Telefones dos Órgãos Governamentais"

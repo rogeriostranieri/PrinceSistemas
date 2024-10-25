@@ -36,17 +36,19 @@ Partial Class FrmCNAE
         '
         'RichTextBoxCNAEBusca
         '
-        Me.RichTextBoxCNAEBusca.Location = New System.Drawing.Point(12, 110)
+        Me.RichTextBoxCNAEBusca.Location = New System.Drawing.Point(16, 135)
+        Me.RichTextBoxCNAEBusca.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RichTextBoxCNAEBusca.Name = "RichTextBoxCNAEBusca"
-        Me.RichTextBoxCNAEBusca.Size = New System.Drawing.Size(116, 203)
+        Me.RichTextBoxCNAEBusca.Size = New System.Drawing.Size(153, 249)
         Me.RichTextBoxCNAEBusca.TabIndex = 0
         Me.RichTextBoxCNAEBusca.Text = ""
         '
         'RichTextBoxCNAEresultado
         '
-        Me.RichTextBoxCNAEresultado.Location = New System.Drawing.Point(134, 110)
+        Me.RichTextBoxCNAEresultado.Location = New System.Drawing.Point(179, 135)
+        Me.RichTextBoxCNAEresultado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RichTextBoxCNAEresultado.Name = "RichTextBoxCNAEresultado"
-        Me.RichTextBoxCNAEresultado.Size = New System.Drawing.Size(781, 203)
+        Me.RichTextBoxCNAEresultado.Size = New System.Drawing.Size(951, 249)
         Me.RichTextBoxCNAEresultado.TabIndex = 1
         Me.RichTextBoxCNAEresultado.Text = ""
         '
@@ -57,9 +59,10 @@ Partial Class FrmCNAE
         Me.BtnConsultar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnConsultar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConsultar.Location = New System.Drawing.Point(12, 316)
+        Me.BtnConsultar.Location = New System.Drawing.Point(16, 389)
+        Me.BtnConsultar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnConsultar.Name = "BtnConsultar"
-        Me.BtnConsultar.Size = New System.Drawing.Size(116, 36)
+        Me.BtnConsultar.Size = New System.Drawing.Size(155, 44)
         Me.BtnConsultar.TabIndex = 2
         Me.BtnConsultar.Text = "Buscar"
         Me.BtnConsultar.UseVisualStyleBackColor = True
@@ -68,7 +71,8 @@ Partial Class FrmCNAE
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(8, 87)
+        Me.Label1.Location = New System.Drawing.Point(11, 107)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 20)
         Me.Label1.TabIndex = 3
@@ -78,7 +82,8 @@ Partial Class FrmCNAE
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(130, 87)
+        Me.Label2.Location = New System.Drawing.Point(173, 107)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(91, 20)
         Me.Label2.TabIndex = 4
@@ -87,9 +92,10 @@ Partial Class FrmCNAE
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(541, 316)
+        Me.Label3.Location = New System.Drawing.Point(659, 388)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(374, 13)
+        Me.Label3.Size = New System.Drawing.Size(471, 16)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "*Até momento apenas Grau de Risco para CNAE na prefeitura de Maringá-PR"
         '
@@ -100,9 +106,10 @@ Partial Class FrmCNAE
         Me.BtnTodosCNAE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnTodosCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnTodosCNAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnTodosCNAE.Location = New System.Drawing.Point(736, 68)
+        Me.BtnTodosCNAE.Location = New System.Drawing.Point(891, 83)
+        Me.BtnTodosCNAE.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnTodosCNAE.Name = "BtnTodosCNAE"
-        Me.BtnTodosCNAE.Size = New System.Drawing.Size(179, 36)
+        Me.BtnTodosCNAE.Size = New System.Drawing.Size(239, 44)
         Me.BtnTodosCNAE.TabIndex = 7
         Me.BtnTodosCNAE.Text = "Ver todos CNAE"
         Me.BtnTodosCNAE.UseVisualStyleBackColor = True
@@ -113,9 +120,10 @@ Partial Class FrmCNAE
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(800, -3)
+        Me.PictureBox2.Location = New System.Drawing.Point(951, 1)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(134, 60)
+        Me.PictureBox2.Size = New System.Drawing.Size(179, 74)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 15
         Me.PictureBox2.TabStop = False
@@ -123,20 +131,21 @@ Partial Class FrmCNAE
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Constantia", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(152, 9)
+        Me.Label4.Font = New System.Drawing.Font("Constantia", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(9, 20)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(516, 26)
+        Me.Label4.Size = New System.Drawing.Size(663, 33)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Consultar Grau de Risco - Fiscalização da Prefeitura"
         '
         'FrmCNAE
         '
         Me.AcceptButton = Me.BtnConsultar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ClientSize = New System.Drawing.Size(929, 384)
+        Me.ClientSize = New System.Drawing.Size(1143, 443)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.BtnTodosCNAE)
@@ -146,7 +155,9 @@ Partial Class FrmCNAE
         Me.Controls.Add(Me.BtnConsultar)
         Me.Controls.Add(Me.RichTextBoxCNAEresultado)
         Me.Controls.Add(Me.RichTextBoxCNAEBusca)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmCNAE"

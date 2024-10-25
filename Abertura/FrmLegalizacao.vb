@@ -3075,15 +3075,20 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub BtnLimpaCaractRazao_Click(sender As Object, e As EventArgs) Handles BtnLimpaCaractRazao.Click
-        'trocar ç por c, Ç por C, . "", , "", õ por o, Õ por O.
-        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
-        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
-        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.Replace("ç", "c").Replace("Ç", "C").Replace("õ", "o").Replace("Õ", "O").Replace("Ã", "A").Replace("ã", "a")
-        'retirar ponto e virgulas apenas do final
-        NovaRazaoSocial1TextBox.Text = NovaRazaoSocial1TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
-        NovaRazaoSocial2TextBox.Text = NovaRazaoSocial2TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
-        NovaRazaoSocial3TextBox.Text = NovaRazaoSocial3TextBox.Text.TrimEnd(New Char() {";"c, "."c, ","c})
+        ' Converte o texto para maiúsculas e remove espaços extras e quebras de linha
+        NovaRazaoSocial1TextBox.Text = LimparTexto(NovaRazaoSocial1TextBox.Text)
+        NovaRazaoSocial2TextBox.Text = LimparTexto(NovaRazaoSocial2TextBox.Text)
+        NovaRazaoSocial3TextBox.Text = LimparTexto(NovaRazaoSocial3TextBox.Text)
+        NomeFantasiaTextBox1.Text = LimparTexto(NomeFantasiaTextBox1.Text)
+        NovaRazaoSocialFinalTextBox.Text = LimparTexto(NovaRazaoSocialFinalTextBox.Text)
+        RazaoSocialAntigaTextBox.Text = LimparTexto(RazaoSocialAntigaTextBox.Text)
     End Sub
+
+    ' Função auxiliar para converter o texto para maiúsculas e remover espaços e quebras de linha
+    Private Function LimparTexto(texto As String) As String
+        Return texto.ToUpper().Trim().Replace(vbCr, "").Replace(vbLf, "")
+    End Function
+
 
     Private Sub BtnVerificar_Click(sender As Object, e As EventArgs) Handles BtnVerificar.Click
         ' Chamar o método de verificação

@@ -662,927 +662,1030 @@ Partial Class FrmLegalizacao
         'NomeFantasiaLabel
         '
         NomeFantasiaLabel.AutoSize = True
-        NomeFantasiaLabel.Location = New System.Drawing.Point(12, 117)
+        NomeFantasiaLabel.Location = New System.Drawing.Point(14, 120)
+        NomeFantasiaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeFantasiaLabel.Name = "NomeFantasiaLabel"
-        NomeFantasiaLabel.Size = New System.Drawing.Size(81, 13)
+        NomeFantasiaLabel.Size = New System.Drawing.Size(94, 15)
         NomeFantasiaLabel.TabIndex = 3
         NomeFantasiaLabel.Text = "Nome Fantasia:"
         '
         'CNPJLabel
         '
         CNPJLabel.AutoSize = True
-        CNPJLabel.Location = New System.Drawing.Point(56, 65)
+        CNPJLabel.Location = New System.Drawing.Point(65, 66)
+        CNPJLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNPJLabel.Name = "CNPJLabel"
-        CNPJLabel.Size = New System.Drawing.Size(37, 13)
+        CNPJLabel.Size = New System.Drawing.Size(41, 15)
         CNPJLabel.TabIndex = 5
         CNPJLabel.Text = "CNPJ:"
         '
         'StatusLabel
         '
         StatusLabel.AutoSize = True
-        StatusLabel.Location = New System.Drawing.Point(361, 19)
+        StatusLabel.Location = New System.Drawing.Point(522, 22)
+        StatusLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         StatusLabel.Name = "StatusLabel"
-        StatusLabel.Size = New System.Drawing.Size(40, 13)
+        StatusLabel.Size = New System.Drawing.Size(44, 15)
         StatusLabel.TabIndex = 9
         StatusLabel.Text = "Status:"
         '
         'ProcessoLabel
         '
         ProcessoLabel.AutoSize = True
-        ProcessoLabel.Location = New System.Drawing.Point(11, 106)
+        ProcessoLabel.Location = New System.Drawing.Point(13, 117)
+        ProcessoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcessoLabel.Name = "ProcessoLabel"
-        ProcessoLabel.Size = New System.Drawing.Size(54, 13)
+        ProcessoLabel.Size = New System.Drawing.Size(61, 15)
         ProcessoLabel.TabIndex = 11
         ProcessoLabel.Text = "Processo:"
         '
         'ProtocoloJuntaComercialLabel
         '
         ProtocoloJuntaComercialLabel.AutoSize = True
-        ProtocoloJuntaComercialLabel.Location = New System.Drawing.Point(29, 40)
+        ProtocoloJuntaComercialLabel.Location = New System.Drawing.Point(34, 99)
+        ProtocoloJuntaComercialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProtocoloJuntaComercialLabel.Name = "ProtocoloJuntaComercialLabel"
-        ProtocoloJuntaComercialLabel.Size = New System.Drawing.Size(55, 13)
+        ProtocoloJuntaComercialLabel.Size = New System.Drawing.Size(62, 15)
         ProtocoloJuntaComercialLabel.TabIndex = 0
         ProtocoloJuntaComercialLabel.Text = "Protocolo:"
         '
         'GeralLabel
         '
         GeralLabel.AutoSize = True
-        GeralLabel.Location = New System.Drawing.Point(337, 135)
+        GeralLabel.Location = New System.Drawing.Point(393, 156)
+        GeralLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         GeralLabel.Name = "GeralLabel"
-        GeralLabel.Size = New System.Drawing.Size(106, 13)
+        GeralLabel.Size = New System.Drawing.Size(120, 15)
         GeralLabel.TabIndex = 0
         GeralLabel.Text = "Observações Gerais:"
         '
         'EnderecoLabel
         '
         EnderecoLabel.AutoSize = True
-        EnderecoLabel.Location = New System.Drawing.Point(7, 43)
+        EnderecoLabel.Location = New System.Drawing.Point(6, 75)
+        EnderecoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EnderecoLabel.Name = "EnderecoLabel"
-        EnderecoLabel.Size = New System.Drawing.Size(56, 13)
+        EnderecoLabel.Size = New System.Drawing.Size(63, 15)
         EnderecoLabel.TabIndex = 0
         EnderecoLabel.Text = "Endereco:"
         '
         'EndNumeroLabel
         '
         EndNumeroLabel.AutoSize = True
-        EndNumeroLabel.Location = New System.Drawing.Point(507, 43)
+        EndNumeroLabel.Location = New System.Drawing.Point(642, 76)
+        EndNumeroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndNumeroLabel.Name = "EndNumeroLabel"
-        EndNumeroLabel.Size = New System.Drawing.Size(47, 13)
+        EndNumeroLabel.Size = New System.Drawing.Size(55, 15)
         EndNumeroLabel.TabIndex = 2
         EndNumeroLabel.Text = "Numero:"
         '
         'EndBairroLabel
         '
         EndBairroLabel.AutoSize = True
-        EndBairroLabel.Location = New System.Drawing.Point(23, 68)
+        EndBairroLabel.Location = New System.Drawing.Point(27, 103)
+        EndBairroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndBairroLabel.Name = "EndBairroLabel"
-        EndBairroLabel.Size = New System.Drawing.Size(37, 13)
+        EndBairroLabel.Size = New System.Drawing.Size(43, 15)
         EndBairroLabel.TabIndex = 4
         EndBairroLabel.Text = "Bairro:"
         '
         'EndComplementoLabel
         '
         EndComplementoLabel.AutoSize = True
-        EndComplementoLabel.Location = New System.Drawing.Point(340, 68)
+        EndComplementoLabel.Location = New System.Drawing.Point(434, 104)
+        EndComplementoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndComplementoLabel.Name = "EndComplementoLabel"
-        EndComplementoLabel.Size = New System.Drawing.Size(74, 13)
+        EndComplementoLabel.Size = New System.Drawing.Size(88, 15)
         EndComplementoLabel.TabIndex = 6
         EndComplementoLabel.Text = "Complemento:"
         '
         'EndCEPLabel
         '
         EndCEPLabel.AutoSize = True
-        EndCEPLabel.Location = New System.Drawing.Point(29, 17)
+        EndCEPLabel.Location = New System.Drawing.Point(34, 45)
+        EndCEPLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndCEPLabel.Name = "EndCEPLabel"
-        EndCEPLabel.Size = New System.Drawing.Size(31, 13)
+        EndCEPLabel.Size = New System.Drawing.Size(34, 15)
         EndCEPLabel.TabIndex = 8
         EndCEPLabel.Text = "CEP:"
         '
         'EndCidadeLabel
         '
         EndCidadeLabel.AutoSize = True
-        EndCidadeLabel.Location = New System.Drawing.Point(20, 120)
+        EndCidadeLabel.Location = New System.Drawing.Point(19, 130)
+        EndCidadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndCidadeLabel.Name = "EndCidadeLabel"
-        EndCidadeLabel.Size = New System.Drawing.Size(43, 13)
+        EndCidadeLabel.Size = New System.Drawing.Size(49, 15)
         EndCidadeLabel.TabIndex = 10
         EndCidadeLabel.Text = "Cidade:"
         '
         'EndEstadoLabel
         '
         EndEstadoLabel.AutoSize = True
-        EndEstadoLabel.Location = New System.Drawing.Point(215, 120)
+        EndEstadoLabel.Location = New System.Drawing.Point(238, 130)
+        EndEstadoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndEstadoLabel.Name = "EndEstadoLabel"
-        EndEstadoLabel.Size = New System.Drawing.Size(43, 13)
+        EndEstadoLabel.Size = New System.Drawing.Size(48, 15)
         EndEstadoLabel.TabIndex = 12
         EndEstadoLabel.Text = "Estado:"
         '
         'EndPaisLabel
         '
         EndPaisLabel.AutoSize = True
-        EndPaisLabel.Location = New System.Drawing.Point(308, 120)
+        EndPaisLabel.Location = New System.Drawing.Point(346, 130)
+        EndPaisLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndPaisLabel.Name = "EndPaisLabel"
-        EndPaisLabel.Size = New System.Drawing.Size(32, 13)
+        EndPaisLabel.Size = New System.Drawing.Size(34, 15)
         EndPaisLabel.TabIndex = 14
         EndPaisLabel.Text = "País:"
         '
         'EmpTel1Label
         '
         EmpTel1Label.AutoSize = True
-        EmpTel1Label.Location = New System.Drawing.Point(9, 15)
+        EmpTel1Label.Location = New System.Drawing.Point(10, 17)
+        EmpTel1Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpTel1Label.Name = "EmpTel1Label"
-        EmpTel1Label.Size = New System.Drawing.Size(61, 13)
+        EmpTel1Label.Size = New System.Drawing.Size(68, 15)
         EmpTel1Label.TabIndex = 13
         EmpTel1Label.Text = "Telefone 1:"
         '
         'EmpTel2Label
         '
         EmpTel2Label.AutoSize = True
-        EmpTel2Label.Location = New System.Drawing.Point(9, 41)
+        EmpTel2Label.Location = New System.Drawing.Point(10, 47)
+        EmpTel2Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpTel2Label.Name = "EmpTel2Label"
-        EmpTel2Label.Size = New System.Drawing.Size(61, 13)
+        EmpTel2Label.Size = New System.Drawing.Size(68, 15)
         EmpTel2Label.TabIndex = 15
         EmpTel2Label.Text = "Telefone 2:"
         '
         'EmpEmailLabel
         '
         EmpEmailLabel.AutoSize = True
-        EmpEmailLabel.Location = New System.Drawing.Point(36, 67)
+        EmpEmailLabel.Location = New System.Drawing.Point(42, 77)
+        EmpEmailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpEmailLabel.Name = "EmpEmailLabel"
-        EmpEmailLabel.Size = New System.Drawing.Size(35, 13)
+        EmpEmailLabel.Size = New System.Drawing.Size(41, 15)
         EmpEmailLabel.TabIndex = 21
         EmpEmailLabel.Text = "eMail:"
         '
         'PaginaWebLabel
         '
         PaginaWebLabel.AutoSize = True
-        PaginaWebLabel.Location = New System.Drawing.Point(40, 97)
+        PaginaWebLabel.Location = New System.Drawing.Point(47, 112)
+        PaginaWebLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PaginaWebLabel.Name = "PaginaWebLabel"
-        PaginaWebLabel.Size = New System.Drawing.Size(33, 13)
+        PaginaWebLabel.Size = New System.Drawing.Size(35, 15)
         PaginaWebLabel.TabIndex = 23
         PaginaWebLabel.Text = "Web:"
         '
         'EmpCriadoLabel
         '
         EmpCriadoLabel.AutoSize = True
-        EmpCriadoLabel.Location = New System.Drawing.Point(1, 19)
+        EmpCriadoLabel.Location = New System.Drawing.Point(1, 22)
+        EmpCriadoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpCriadoLabel.Name = "EmpCriadoLabel"
-        EmpCriadoLabel.Size = New System.Drawing.Size(64, 13)
+        EmpCriadoLabel.Size = New System.Drawing.Size(74, 15)
         EmpCriadoLabel.TabIndex = 13
         EmpCriadoLabel.Text = "Iniciado em:"
         '
         'DataProtJuntaComercialLabel
         '
         DataProtJuntaComercialLabel.AutoSize = True
-        DataProtJuntaComercialLabel.Location = New System.Drawing.Point(20, 14)
+        DataProtJuntaComercialLabel.Location = New System.Drawing.Point(23, 69)
+        DataProtJuntaComercialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataProtJuntaComercialLabel.Name = "DataProtJuntaComercialLabel"
-        DataProtJuntaComercialLabel.Size = New System.Drawing.Size(64, 13)
+        DataProtJuntaComercialLabel.Size = New System.Drawing.Size(73, 15)
         DataProtJuntaComercialLabel.TabIndex = 3
         DataProtJuntaComercialLabel.Text = "Iniciado dia:"
         '
         'DataPedidoIELabel
         '
         DataPedidoIELabel.AutoSize = True
-        DataPedidoIELabel.Location = New System.Drawing.Point(34, 70)
+        DataPedidoIELabel.Location = New System.Drawing.Point(40, 81)
+        DataPedidoIELabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataPedidoIELabel.Name = "DataPedidoIELabel"
-        DataPedidoIELabel.Size = New System.Drawing.Size(73, 13)
+        DataPedidoIELabel.Size = New System.Drawing.Size(84, 15)
         DataPedidoIELabel.TabIndex = 0
         DataPedidoIELabel.Text = "Solicitado dia:"
         '
         'IELabel
         '
         IELabel.AutoSize = True
-        IELabel.Location = New System.Drawing.Point(401, 65)
+        IELabel.Location = New System.Drawing.Point(468, 66)
+        IELabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IELabel.Name = "IELabel"
-        IELabel.Size = New System.Drawing.Size(97, 13)
+        IELabel.Size = New System.Drawing.Size(110, 15)
         IELabel.TabIndex = 2
         IELabel.Text = "Inscrição Estadual:"
         '
         'NIRELabel
         '
         NIRELabel.AutoSize = True
-        NIRELabel.Location = New System.Drawing.Point(4, 19)
+        NIRELabel.Location = New System.Drawing.Point(5, 22)
+        NIRELabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NIRELabel.Name = "NIRELabel"
-        NIRELabel.Size = New System.Drawing.Size(54, 13)
+        NIRELabel.Size = New System.Drawing.Size(58, 15)
         NIRELabel.TabIndex = 21
         NIRELabel.Text = "Nº. NIRE:"
         '
         'NireDataLabel
         '
         NireDataLabel.AutoSize = True
-        NireDataLabel.Location = New System.Drawing.Point(25, 42)
+        NireDataLabel.Location = New System.Drawing.Point(29, 48)
+        NireDataLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NireDataLabel.Name = "NireDataLabel"
-        NireDataLabel.Size = New System.Drawing.Size(33, 13)
+        NireDataLabel.Size = New System.Drawing.Size(36, 15)
         NireDataLabel.TabIndex = 22
         NireDataLabel.Text = "Data:"
         '
         'RamoDeAtividadeLabel
         '
         RamoDeAtividadeLabel.AutoSize = True
-        RamoDeAtividadeLabel.Location = New System.Drawing.Point(171, 43)
+        RamoDeAtividadeLabel.Location = New System.Drawing.Point(200, 50)
+        RamoDeAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RamoDeAtividadeLabel.Name = "RamoDeAtividadeLabel"
-        RamoDeAtividadeLabel.Size = New System.Drawing.Size(102, 13)
+        RamoDeAtividadeLabel.Size = New System.Drawing.Size(115, 15)
         RamoDeAtividadeLabel.TabIndex = 30
         RamoDeAtividadeLabel.Text = "Ramo De Atividade:"
         '
         'CNAESecundarioLabel
         '
         CNAESecundarioLabel.AutoSize = True
-        CNAESecundarioLabel.Location = New System.Drawing.Point(21, 79)
+        CNAESecundarioLabel.Location = New System.Drawing.Point(24, 91)
+        CNAESecundarioLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNAESecundarioLabel.Name = "CNAESecundarioLabel"
-        CNAESecundarioLabel.Size = New System.Drawing.Size(64, 13)
+        CNAESecundarioLabel.Size = New System.Drawing.Size(73, 15)
         CNAESecundarioLabel.TabIndex = 26
         CNAESecundarioLabel.Text = "Secundário:"
         '
         'CNAEPrincipalLabel
         '
         CNAEPrincipalLabel.AutoSize = True
-        CNAEPrincipalLabel.Location = New System.Drawing.Point(35, 58)
+        CNAEPrincipalLabel.Location = New System.Drawing.Point(41, 67)
+        CNAEPrincipalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNAEPrincipalLabel.Name = "CNAEPrincipalLabel"
-        CNAEPrincipalLabel.Size = New System.Drawing.Size(50, 13)
+        CNAEPrincipalLabel.Size = New System.Drawing.Size(58, 15)
         CNAEPrincipalLabel.TabIndex = 25
         CNAEPrincipalLabel.Text = "Principal:"
         '
         'EmpInicioAtividadeLabel
         '
         EmpInicioAtividadeLabel.AutoSize = True
-        EmpInicioAtividadeLabel.Location = New System.Drawing.Point(480, 12)
+        EmpInicioAtividadeLabel.Location = New System.Drawing.Point(665, 9)
+        EmpInicioAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpInicioAtividadeLabel.Name = "EmpInicioAtividadeLabel"
-        EmpInicioAtividadeLabel.Size = New System.Drawing.Size(109, 13)
+        EmpInicioAtividadeLabel.Size = New System.Drawing.Size(120, 15)
         EmpInicioAtividadeLabel.TabIndex = 24
         EmpInicioAtividadeLabel.Text = "Início das Atividades:"
         '
         'NaturezaJuridicaLabel
         '
         NaturezaJuridicaLabel.AutoSize = True
-        NaturezaJuridicaLabel.Location = New System.Drawing.Point(7, 143)
+        NaturezaJuridicaLabel.Location = New System.Drawing.Point(8, 147)
+        NaturezaJuridicaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NaturezaJuridicaLabel.Name = "NaturezaJuridicaLabel"
-        NaturezaJuridicaLabel.Size = New System.Drawing.Size(92, 13)
+        NaturezaJuridicaLabel.Size = New System.Drawing.Size(106, 15)
         NaturezaJuridicaLabel.TabIndex = 22
         NaturezaJuridicaLabel.Text = "Natureza Juridica:"
         '
         'JuntaObsLabel
         '
         JuntaObsLabel.AutoSize = True
-        JuntaObsLabel.Location = New System.Drawing.Point(6, 146)
+        JuntaObsLabel.Location = New System.Drawing.Point(7, 168)
+        JuntaObsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         JuntaObsLabel.Name = "JuntaObsLabel"
-        JuntaObsLabel.Size = New System.Drawing.Size(29, 13)
+        JuntaObsLabel.Size = New System.Drawing.Size(32, 15)
         JuntaObsLabel.TabIndex = 29
         JuntaObsLabel.Text = "Obs:"
         '
         'DataRegistroAltLabel
         '
         DataRegistroAltLabel.AutoSize = True
-        DataRegistroAltLabel.Location = New System.Drawing.Point(48, 42)
+        DataRegistroAltLabel.Location = New System.Drawing.Point(56, 48)
+        DataRegistroAltLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataRegistroAltLabel.Name = "DataRegistroAltLabel"
-        DataRegistroAltLabel.Size = New System.Drawing.Size(75, 13)
+        DataRegistroAltLabel.Size = New System.Drawing.Size(85, 15)
         DataRegistroAltLabel.TabIndex = 30
         DataRegistroAltLabel.Text = "Data Registro:"
         '
         'NRegistroAltLabel
         '
         NRegistroAltLabel.AutoSize = True
-        NRegistroAltLabel.Location = New System.Drawing.Point(68, 19)
+        NRegistroAltLabel.Location = New System.Drawing.Point(79, 22)
+        NRegistroAltLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NRegistroAltLabel.Name = "NRegistroAltLabel"
-        NRegistroAltLabel.Size = New System.Drawing.Size(55, 13)
+        NRegistroAltLabel.Size = New System.Drawing.Size(62, 15)
         NRegistroAltLabel.TabIndex = 31
         NRegistroAltLabel.Text = "Protocolo:"
         '
         'RedeSimObsLabel
         '
         RedeSimObsLabel.AutoSize = True
-        RedeSimObsLabel.Location = New System.Drawing.Point(327, 8)
+        RedeSimObsLabel.Location = New System.Drawing.Point(478, 15)
+        RedeSimObsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RedeSimObsLabel.Name = "RedeSimObsLabel"
-        RedeSimObsLabel.Size = New System.Drawing.Size(73, 13)
+        RedeSimObsLabel.Size = New System.Drawing.Size(81, 15)
         RedeSimObsLabel.TabIndex = 30
         RedeSimObsLabel.Text = "Observações:"
         '
         'EstadualObsLabel
         '
         EstadualObsLabel.AutoSize = True
-        EstadualObsLabel.Location = New System.Drawing.Point(335, 14)
+        EstadualObsLabel.Location = New System.Drawing.Point(391, 16)
+        EstadualObsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EstadualObsLabel.Name = "EstadualObsLabel"
-        EstadualObsLabel.Size = New System.Drawing.Size(73, 13)
+        EstadualObsLabel.Size = New System.Drawing.Size(81, 15)
         EstadualObsLabel.TabIndex = 4
         EstadualObsLabel.Text = "Observações:"
         '
         'PrefeituraObsLabel
         '
         PrefeituraObsLabel.AutoSize = True
-        PrefeituraObsLabel.Location = New System.Drawing.Point(14, 101)
+        PrefeituraObsLabel.Location = New System.Drawing.Point(16, 117)
+        PrefeituraObsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PrefeituraObsLabel.Name = "PrefeituraObsLabel"
-        PrefeituraObsLabel.Size = New System.Drawing.Size(73, 13)
+        PrefeituraObsLabel.Size = New System.Drawing.Size(81, 15)
         PrefeituraObsLabel.TabIndex = 39
         PrefeituraObsLabel.Text = "Observações:"
         '
         'PrazoSimplesLabel
         '
         PrazoSimplesLabel.AutoSize = True
-        PrazoSimplesLabel.Location = New System.Drawing.Point(9, 53)
+        PrazoSimplesLabel.Location = New System.Drawing.Point(10, 61)
+        PrazoSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PrazoSimplesLabel.Name = "PrazoSimplesLabel"
-        PrazoSimplesLabel.Size = New System.Drawing.Size(76, 13)
+        PrazoSimplesLabel.Size = New System.Drawing.Size(90, 15)
         PrazoSimplesLabel.TabIndex = 28
         PrazoSimplesLabel.Text = "Prazo Simples:"
         '
         'CodigoSimplesLabel
         '
         CodigoSimplesLabel.AutoSize = True
-        CodigoSimplesLabel.Location = New System.Drawing.Point(104, 10)
+        CodigoSimplesLabel.Location = New System.Drawing.Point(121, 20)
+        CodigoSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CodigoSimplesLabel.Name = "CodigoSimplesLabel"
-        CodigoSimplesLabel.Size = New System.Drawing.Size(97, 13)
+        CodigoSimplesLabel.Size = New System.Drawing.Size(114, 15)
         CodigoSimplesLabel.TabIndex = 32
         CodigoSimplesLabel.Text = "Código do Simples:"
         '
         'ArquivoContratoLabel
         '
         ArquivoContratoLabel.AutoSize = True
-        ArquivoContratoLabel.Location = New System.Drawing.Point(6, 45)
+        ArquivoContratoLabel.Location = New System.Drawing.Point(7, 52)
+        ArquivoContratoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ArquivoContratoLabel.Name = "ArquivoContratoLabel"
-        ArquivoContratoLabel.Size = New System.Drawing.Size(104, 13)
+        ArquivoContratoLabel.Size = New System.Drawing.Size(116, 15)
         ArquivoContratoLabel.TabIndex = 36
         ArquivoContratoLabel.Text = "Arquivo do Contrato:"
         '
         'ProcedimentoLabel
         '
         ProcedimentoLabel.AutoSize = True
-        ProcedimentoLabel.Location = New System.Drawing.Point(337, 14)
+        ProcedimentoLabel.Location = New System.Drawing.Point(393, 16)
+        ProcedimentoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcedimentoLabel.Name = "ProcedimentoLabel"
-        ProcedimentoLabel.Size = New System.Drawing.Size(125, 13)
+        ProcedimentoLabel.Size = New System.Drawing.Size(145, 15)
         ProcedimentoLabel.TabIndex = 2
         ProcedimentoLabel.Text = "Procedimento detalhado:"
         '
         'RegimeFederalLabel
         '
         RegimeFederalLabel.AutoSize = True
-        RegimeFederalLabel.Location = New System.Drawing.Point(429, 171)
+        RegimeFederalLabel.Location = New System.Drawing.Point(325, 177)
+        RegimeFederalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RegimeFederalLabel.Name = "RegimeFederalLabel"
-        RegimeFederalLabel.Size = New System.Drawing.Size(84, 13)
+        RegimeFederalLabel.Size = New System.Drawing.Size(99, 15)
         RegimeFederalLabel.TabIndex = 27
         RegimeFederalLabel.Text = "Regime Federal:"
         '
         'TipoDeEmpresaLabel
         '
         TipoDeEmpresaLabel.AutoSize = True
-        TipoDeEmpresaLabel.Location = New System.Drawing.Point(62, 38)
+        TipoDeEmpresaLabel.Location = New System.Drawing.Point(72, 38)
+        TipoDeEmpresaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TipoDeEmpresaLabel.Name = "TipoDeEmpresaLabel"
-        TipoDeEmpresaLabel.Size = New System.Drawing.Size(31, 13)
+        TipoDeEmpresaLabel.Size = New System.Drawing.Size(34, 15)
         TipoDeEmpresaLabel.TabIndex = 29
         TipoDeEmpresaLabel.Text = "Tipo:"
         '
         'CPFResponsavelLabel
         '
         CPFResponsavelLabel.AutoSize = True
-        CPFResponsavelLabel.Location = New System.Drawing.Point(24, 146)
+        CPFResponsavelLabel.Location = New System.Drawing.Point(27, 167)
+        CPFResponsavelLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CPFResponsavelLabel.Name = "CPFResponsavelLabel"
-        CPFResponsavelLabel.Size = New System.Drawing.Size(30, 13)
+        CPFResponsavelLabel.Size = New System.Drawing.Size(33, 15)
         CPFResponsavelLabel.TabIndex = 34
         CPFResponsavelLabel.Text = "CPF:"
         '
         'NomeResponsavelLabel
         '
         NomeResponsavelLabel.AutoSize = True
-        NomeResponsavelLabel.Location = New System.Drawing.Point(16, 18)
+        NomeResponsavelLabel.Location = New System.Drawing.Point(18, 19)
+        NomeResponsavelLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeResponsavelLabel.Name = "NomeResponsavelLabel"
-        NomeResponsavelLabel.Size = New System.Drawing.Size(38, 13)
+        NomeResponsavelLabel.Size = New System.Drawing.Size(44, 15)
         NomeResponsavelLabel.TabIndex = 33
         NomeResponsavelLabel.Text = "Nome:"
         '
         'IEComprovanteLabel
         '
         IEComprovanteLabel.AutoSize = True
-        IEComprovanteLabel.Location = New System.Drawing.Point(5, 97)
+        IEComprovanteLabel.Location = New System.Drawing.Point(6, 112)
+        IEComprovanteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IEComprovanteLabel.Name = "IEComprovanteLabel"
-        IEComprovanteLabel.Size = New System.Drawing.Size(103, 13)
+        IEComprovanteLabel.Size = New System.Drawing.Size(116, 15)
         IEComprovanteLabel.TabIndex = 24
         IEComprovanteLabel.Text = "Nº do Comprovante:"
         '
         'IEjuntaLabel
         '
         IEjuntaLabel.AutoSize = True
-        IEjuntaLabel.Location = New System.Drawing.Point(13, 21)
+        IEjuntaLabel.Location = New System.Drawing.Point(15, 24)
+        IEjuntaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IEjuntaLabel.Name = "IEjuntaLabel"
-        IEjuntaLabel.Size = New System.Drawing.Size(115, 13)
+        IEjuntaLabel.Size = New System.Drawing.Size(130, 15)
         IEjuntaLabel.TabIndex = 36
         IEjuntaLabel.Text = "Vinculo da Solicitação:"
         '
         'BombeiroJuntaLabel
         '
         BombeiroJuntaLabel.AutoSize = True
-        BombeiroJuntaLabel.Location = New System.Drawing.Point(9, 42)
+        BombeiroJuntaLabel.Location = New System.Drawing.Point(10, 48)
+        BombeiroJuntaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         BombeiroJuntaLabel.Name = "BombeiroJuntaLabel"
-        BombeiroJuntaLabel.Size = New System.Drawing.Size(115, 13)
+        BombeiroJuntaLabel.Size = New System.Drawing.Size(130, 15)
         BombeiroJuntaLabel.TabIndex = 40
         BombeiroJuntaLabel.Text = "Vinculo da Solicitação:"
         '
         'ProtJuntaFinalLabel
         '
         ProtJuntaFinalLabel.AutoSize = True
-        ProtJuntaFinalLabel.Location = New System.Drawing.Point(17, 66)
+        ProtJuntaFinalLabel.Location = New System.Drawing.Point(20, 129)
+        ProtJuntaFinalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProtJuntaFinalLabel.Name = "ProtJuntaFinalLabel"
-        ProtJuntaFinalLabel.Size = New System.Drawing.Size(67, 13)
+        ProtJuntaFinalLabel.Size = New System.Drawing.Size(76, 15)
         ProtJuntaFinalLabel.TabIndex = 40
         ProtJuntaFinalLabel.Text = "Protocolado:"
         '
         'TituloeleitorLabel
         '
         TituloeleitorLabel.AutoSize = True
-        TituloeleitorLabel.Location = New System.Drawing.Point(184, 95)
+        TituloeleitorLabel.Location = New System.Drawing.Point(360, 112)
+        TituloeleitorLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TituloeleitorLabel.Name = "TituloeleitorLabel"
-        TituloeleitorLabel.Size = New System.Drawing.Size(85, 13)
+        TituloeleitorLabel.Size = New System.Drawing.Size(95, 15)
         TituloeleitorLabel.TabIndex = 37
         TituloeleitorLabel.Text = "Título de Eleitor:"
         '
         'ObsSimplesLabel
         '
         ObsSimplesLabel.AutoSize = True
-        ObsSimplesLabel.Location = New System.Drawing.Point(8, 128)
+        ObsSimplesLabel.Location = New System.Drawing.Point(9, 148)
+        ObsSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ObsSimplesLabel.Name = "ObsSimplesLabel"
-        ObsSimplesLabel.Size = New System.Drawing.Size(29, 13)
+        ObsSimplesLabel.Size = New System.Drawing.Size(32, 15)
         ObsSimplesLabel.TabIndex = 48
         ObsSimplesLabel.Text = "Obs:"
         '
         'AreaLabel
         '
         AreaLabel.AutoSize = True
-        AreaLabel.Location = New System.Drawing.Point(5, 145)
+        AreaLabel.Location = New System.Drawing.Point(329, 157)
+        AreaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         AreaLabel.Name = "AreaLabel"
-        AreaLabel.Size = New System.Drawing.Size(101, 13)
+        AreaLabel.Size = New System.Drawing.Size(117, 15)
         AreaLabel.TabIndex = 26
         AreaLabel.Text = "Área do Imóvel (m²):"
         '
         'Area2Label
         '
         Area2Label.AutoSize = True
-        Area2Label.Location = New System.Drawing.Point(171, 147)
+        Area2Label.Location = New System.Drawing.Point(522, 158)
+        Area2Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Area2Label.Name = "Area2Label"
-        Area2Label.Size = New System.Drawing.Size(148, 13)
+        Area2Label.Size = New System.Drawing.Size(173, 15)
         Area2Label.TabIndex = 28
         Area2Label.Text = "Área do Estabelecimento (m²):"
         '
         'DataSimplesLabel
         '
         DataSimplesLabel.AutoSize = True
-        DataSimplesLabel.Location = New System.Drawing.Point(88, 79)
+        DataSimplesLabel.Location = New System.Drawing.Point(103, 99)
+        DataSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataSimplesLabel.Name = "DataSimplesLabel"
-        DataSimplesLabel.Size = New System.Drawing.Size(113, 13)
+        DataSimplesLabel.Size = New System.Drawing.Size(131, 15)
         DataSimplesLabel.TabIndex = 49
         DataSimplesLabel.Text = "Finalização do pedido:"
         '
         'DataUltdefSimplesLabel
         '
         DataUltdefSimplesLabel.AutoSize = True
-        DataUltdefSimplesLabel.Location = New System.Drawing.Point(6, 32)
+        DataUltdefSimplesLabel.Location = New System.Drawing.Point(7, 45)
+        DataUltdefSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataUltdefSimplesLabel.Name = "DataUltdefSimplesLabel"
-        DataUltdefSimplesLabel.Size = New System.Drawing.Size(196, 13)
+        DataUltdefSimplesLabel.Size = New System.Drawing.Size(228, 15)
         DataUltdefSimplesLabel.TabIndex = 51
         DataUltdefSimplesLabel.Text = "Data do último deferimento de inscrição:"
         '
         'OrgãoPedSimplesLabel
         '
         OrgãoPedSimplesLabel.AutoSize = True
-        OrgãoPedSimplesLabel.Location = New System.Drawing.Point(69, 57)
+        OrgãoPedSimplesLabel.Location = New System.Drawing.Point(80, 74)
+        OrgãoPedSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         OrgãoPedSimplesLabel.Name = "OrgãoPedSimplesLabel"
-        OrgãoPedSimplesLabel.Size = New System.Drawing.Size(133, 13)
+        OrgãoPedSimplesLabel.Size = New System.Drawing.Size(152, 15)
         OrgãoPedSimplesLabel.TabIndex = 52
         OrgãoPedSimplesLabel.Text = "Tipo de Inscrição utilizada:"
         '
         'PastaDocumentosLabel
         '
         PastaDocumentosLabel.AutoSize = True
-        PastaDocumentosLabel.Location = New System.Drawing.Point(6, 122)
+        PastaDocumentosLabel.Location = New System.Drawing.Point(7, 141)
+        PastaDocumentosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PastaDocumentosLabel.Name = "PastaDocumentosLabel"
-        PastaDocumentosLabel.Size = New System.Drawing.Size(120, 13)
+        PastaDocumentosLabel.Size = New System.Drawing.Size(137, 15)
         PastaDocumentosLabel.TabIndex = 42
         PastaDocumentosLabel.Text = "Pasta dos Documentos:"
         '
         'RespRGLabel
         '
         RespRGLabel.AutoSize = True
-        RespRGLabel.Location = New System.Drawing.Point(22, 120)
+        RespRGLabel.Location = New System.Drawing.Point(25, 137)
+        RespRGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RespRGLabel.Name = "RespRGLabel"
-        RespRGLabel.Size = New System.Drawing.Size(32, 13)
+        RespRGLabel.Size = New System.Drawing.Size(34, 15)
         RespRGLabel.TabIndex = 38
         RespRGLabel.Text = "R.G.:"
         '
         'HistoricoLabel
         '
         HistoricoLabel.AutoSize = True
-        HistoricoLabel.Location = New System.Drawing.Point(15, 18)
+        HistoricoLabel.Location = New System.Drawing.Point(18, 21)
+        HistoricoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         HistoricoLabel.Name = "HistoricoLabel"
-        HistoricoLabel.Size = New System.Drawing.Size(110, 13)
+        HistoricoLabel.Size = New System.Drawing.Size(128, 15)
         HistoricoLabel.TabIndex = 0
         HistoricoLabel.Text = "Histórico da Empresa:"
         '
         'AltProtLabel
         '
         AltProtLabel.AutoSize = True
-        AltProtLabel.Location = New System.Drawing.Point(41, 19)
+        AltProtLabel.Location = New System.Drawing.Point(48, 22)
+        AltProtLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         AltProtLabel.Name = "AltProtLabel"
-        AltProtLabel.Size = New System.Drawing.Size(22, 13)
+        AltProtLabel.Size = New System.Drawing.Size(23, 15)
         AltProtLabel.TabIndex = 49
         AltProtLabel.Text = "Alt."
         '
         'CapitalSLabel
         '
         CapitalSLabel.AutoSize = True
-        CapitalSLabel.Location = New System.Drawing.Point(37, 31)
+        CapitalSLabel.Location = New System.Drawing.Point(43, 36)
+        CapitalSLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalSLabel.Name = "CapitalSLabel"
-        CapitalSLabel.Size = New System.Drawing.Size(74, 13)
+        CapitalSLabel.Size = New System.Drawing.Size(85, 15)
         CapitalSLabel.TabIndex = 0
         CapitalSLabel.Text = "Capital Social:"
         '
         'CapitalILabel
         '
         CapitalILabel.AutoSize = True
-        CapitalILabel.Location = New System.Drawing.Point(6, 57)
+        CapitalILabel.Location = New System.Drawing.Point(7, 66)
+        CapitalILabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalILabel.Name = "CapitalILabel"
-        CapitalILabel.Size = New System.Drawing.Size(105, 13)
+        CapitalILabel.Size = New System.Drawing.Size(122, 15)
         CapitalILabel.TabIndex = 2
         CapitalILabel.Text = "Capital Integralizado:"
         '
         'DataExcSocialLabel
         '
         DataExcSocialLabel.AutoSize = True
-        DataExcSocialLabel.Location = New System.Drawing.Point(328, 81)
+        DataExcSocialLabel.Location = New System.Drawing.Point(383, 93)
+        DataExcSocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataExcSocialLabel.Name = "DataExcSocialLabel"
-        DataExcSocialLabel.Size = New System.Drawing.Size(128, 13)
+        DataExcSocialLabel.Size = New System.Drawing.Size(143, 15)
         DataExcSocialLabel.TabIndex = 4
         DataExcSocialLabel.Text = "Data de Exercício Social:"
         '
         'RespMaeLabel
         '
         RespMaeLabel.AutoSize = True
-        RespMaeLabel.Location = New System.Drawing.Point(21, 44)
+        RespMaeLabel.Location = New System.Drawing.Point(24, 49)
+        RespMaeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RespMaeLabel.Name = "RespMaeLabel"
-        RespMaeLabel.Size = New System.Drawing.Size(31, 13)
+        RespMaeLabel.Size = New System.Drawing.Size(35, 15)
         RespMaeLabel.TabIndex = 40
         RespMaeLabel.Text = "Mãe:"
         '
         'RespDataNascLabel
         '
         RespDataNascLabel.AutoSize = True
-        RespDataNascLabel.Location = New System.Drawing.Point(5, 95)
+        RespDataNascLabel.Location = New System.Drawing.Point(5, 108)
+        RespDataNascLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RespDataNascLabel.Name = "RespDataNascLabel"
-        RespDataNascLabel.Size = New System.Drawing.Size(107, 13)
+        RespDataNascLabel.Size = New System.Drawing.Size(122, 15)
         RespDataNascLabel.TabIndex = 41
         RespDataNascLabel.Text = "Data de Nascimento:"
         '
         'CNHnumeroLabel
         '
         CNHnumeroLabel.AutoSize = True
-        CNHnumeroLabel.Location = New System.Drawing.Point(3, 172)
+        CNHnumeroLabel.Location = New System.Drawing.Point(3, 197)
+        CNHnumeroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHnumeroLabel.Name = "CNHnumeroLabel"
-        CNHnumeroLabel.Size = New System.Drawing.Size(51, 13)
+        CNHnumeroLabel.Size = New System.Drawing.Size(55, 15)
         CNHnumeroLabel.TabIndex = 42
         CNHnumeroLabel.Text = "CNH N.º:"
         '
         'CNHexpLabel
         '
         CNHexpLabel.AutoSize = True
-        CNHexpLabel.Location = New System.Drawing.Point(157, 174)
+        CNHexpLabel.Location = New System.Drawing.Point(182, 199)
+        CNHexpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHexpLabel.Name = "CNHexpLabel"
-        CNHexpLabel.Size = New System.Drawing.Size(54, 13)
+        CNHexpLabel.Size = New System.Drawing.Size(62, 15)
         CNHexpLabel.TabIndex = 43
         CNHexpLabel.Text = "Expedida:"
         '
         'CNHdataexpLabel
         '
         CNHdataexpLabel.AutoSize = True
-        CNHdataexpLabel.Location = New System.Drawing.Point(289, 174)
+        CNHdataexpLabel.Location = New System.Drawing.Point(336, 199)
+        CNHdataexpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHdataexpLabel.Name = "CNHdataexpLabel"
-        CNHdataexpLabel.Size = New System.Drawing.Size(69, 13)
+        CNHdataexpLabel.Size = New System.Drawing.Size(77, 15)
         CNHdataexpLabel.TabIndex = 44
         CNHdataexpLabel.Text = "data de exp.:"
         '
         'CadImobLabel
         '
         CadImobLabel.AutoSize = True
-        CadImobLabel.Location = New System.Drawing.Point(373, 17)
+        CadImobLabel.Location = New System.Drawing.Point(9, 11)
+        CadImobLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CadImobLabel.Name = "CadImobLabel"
-        CadImobLabel.Size = New System.Drawing.Size(101, 13)
+        CadImobLabel.Size = New System.Drawing.Size(120, 15)
         CadImobLabel.TabIndex = 29
         CadImobLabel.Text = "Cadastro Imobiliário:"
         '
         'EndZonaLabel
         '
         EndZonaLabel.AutoSize = True
-        EndZonaLabel.Location = New System.Drawing.Point(25, 94)
+        EndZonaLabel.Location = New System.Drawing.Point(30, 157)
+        EndZonaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndZonaLabel.Name = "EndZonaLabel"
-        EndZonaLabel.Size = New System.Drawing.Size(35, 13)
+        EndZonaLabel.Size = New System.Drawing.Size(38, 15)
         EndZonaLabel.TabIndex = 30
         EndZonaLabel.Text = "Zona:"
         '
         'EndQuadraLabel
         '
         EndQuadraLabel.AutoSize = True
-        EndQuadraLabel.Location = New System.Drawing.Point(122, 94)
+        EndQuadraLabel.Location = New System.Drawing.Point(124, 157)
+        EndQuadraLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndQuadraLabel.Name = "EndQuadraLabel"
-        EndQuadraLabel.Size = New System.Drawing.Size(45, 13)
+        EndQuadraLabel.Size = New System.Drawing.Size(51, 15)
         EndQuadraLabel.TabIndex = 31
         EndQuadraLabel.Text = "Quadra:"
         '
         'EndDataLabel
         '
         EndDataLabel.AutoSize = True
-        EndDataLabel.Location = New System.Drawing.Point(223, 94)
+        EndDataLabel.Location = New System.Drawing.Point(230, 157)
+        EndDataLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndDataLabel.Name = "EndDataLabel"
-        EndDataLabel.Size = New System.Drawing.Size(33, 13)
+        EndDataLabel.Size = New System.Drawing.Size(36, 15)
         EndDataLabel.TabIndex = 32
         EndDataLabel.Text = "Data:"
         '
         'ProcuracaoLabel
         '
         ProcuracaoLabel.AutoSize = True
-        ProcuracaoLabel.Location = New System.Drawing.Point(12, 50)
+        ProcuracaoLabel.Location = New System.Drawing.Point(14, 58)
+        ProcuracaoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcuracaoLabel.Name = "ProcuracaoLabel"
-        ProcuracaoLabel.Size = New System.Drawing.Size(125, 13)
+        ProcuracaoLabel.Size = New System.Drawing.Size(141, 15)
         ProcuracaoLabel.TabIndex = 41
         ProcuracaoLabel.Text = "Situação da Procuracao:"
         '
         'ProcuracaoNLabel
         '
         ProcuracaoNLabel.AutoSize = True
-        ProcuracaoNLabel.Location = New System.Drawing.Point(39, 94)
+        ProcuracaoNLabel.Location = New System.Drawing.Point(46, 108)
+        ProcuracaoNLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcuracaoNLabel.Name = "ProcuracaoNLabel"
-        ProcuracaoNLabel.Size = New System.Drawing.Size(98, 13)
+        ProcuracaoNLabel.Size = New System.Drawing.Size(109, 15)
         ProcuracaoNLabel.TabIndex = 42
         ProcuracaoNLabel.Text = "Nº. da Procuração:"
         '
         'ProcuracaoDataLabel
         '
         ProcuracaoDataLabel.AutoSize = True
-        ProcuracaoDataLabel.Location = New System.Drawing.Point(36, 142)
+        ProcuracaoDataLabel.Location = New System.Drawing.Point(42, 164)
+        ProcuracaoDataLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcuracaoDataLabel.Name = "ProcuracaoDataLabel"
-        ProcuracaoDataLabel.Size = New System.Drawing.Size(101, 13)
+        ProcuracaoDataLabel.Size = New System.Drawing.Size(114, 15)
         ProcuracaoDataLabel.TabIndex = 43
         ProcuracaoDataLabel.Text = "Data da solicitação:"
         '
         'NovaRazaoSocial1Label
         '
         NovaRazaoSocial1Label.AutoSize = True
-        NovaRazaoSocial1Label.Location = New System.Drawing.Point(34, 54)
+        NovaRazaoSocial1Label.Location = New System.Drawing.Point(40, 62)
+        NovaRazaoSocial1Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NovaRazaoSocial1Label.Name = "NovaRazaoSocial1Label"
-        NovaRazaoSocial1Label.Size = New System.Drawing.Size(117, 13)
+        NovaRazaoSocial1Label.Size = New System.Drawing.Size(132, 15)
         NovaRazaoSocial1Label.TabIndex = 0
         NovaRazaoSocial1Label.Text = "Razão Social Opção 1:"
         '
         'NovaRazaoSocial2Label
         '
         NovaRazaoSocial2Label.AutoSize = True
-        NovaRazaoSocial2Label.Location = New System.Drawing.Point(34, 80)
+        NovaRazaoSocial2Label.Location = New System.Drawing.Point(40, 92)
+        NovaRazaoSocial2Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NovaRazaoSocial2Label.Name = "NovaRazaoSocial2Label"
-        NovaRazaoSocial2Label.Size = New System.Drawing.Size(117, 13)
+        NovaRazaoSocial2Label.Size = New System.Drawing.Size(132, 15)
         NovaRazaoSocial2Label.TabIndex = 2
         NovaRazaoSocial2Label.Text = "Razão Social Opção 2:"
         '
         'NovaRazaoSocial3Label
         '
         NovaRazaoSocial3Label.AutoSize = True
-        NovaRazaoSocial3Label.Location = New System.Drawing.Point(34, 106)
+        NovaRazaoSocial3Label.Location = New System.Drawing.Point(40, 122)
+        NovaRazaoSocial3Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NovaRazaoSocial3Label.Name = "NovaRazaoSocial3Label"
-        NovaRazaoSocial3Label.Size = New System.Drawing.Size(117, 13)
+        NovaRazaoSocial3Label.Size = New System.Drawing.Size(132, 15)
         NovaRazaoSocial3Label.TabIndex = 4
         NovaRazaoSocial3Label.Text = "Razão Social Opção 3:"
         '
         'AvisarDiaLabel
         '
         AvisarDiaLabel.AutoSize = True
-        AvisarDiaLabel.Location = New System.Drawing.Point(7, 43)
+        AvisarDiaLabel.Location = New System.Drawing.Point(8, 50)
+        AvisarDiaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         AvisarDiaLabel.Name = "AvisarDiaLabel"
-        AvisarDiaLabel.Size = New System.Drawing.Size(58, 13)
+        AvisarDiaLabel.Size = New System.Drawing.Size(64, 15)
         AvisarDiaLabel.TabIndex = 20
         AvisarDiaLabel.Text = "Avisar Dia:"
         '
         'NomeFantasiaLabel1
         '
         NomeFantasiaLabel1.AutoSize = True
-        NomeFantasiaLabel1.Location = New System.Drawing.Point(64, 133)
+        NomeFantasiaLabel1.Location = New System.Drawing.Point(75, 153)
+        NomeFantasiaLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeFantasiaLabel1.Name = "NomeFantasiaLabel1"
-        NomeFantasiaLabel1.Size = New System.Drawing.Size(81, 13)
+        NomeFantasiaLabel1.Size = New System.Drawing.Size(94, 15)
         NomeFantasiaLabel1.TabIndex = 8
         NomeFantasiaLabel1.Text = "Nome Fantasia:"
         '
         'RespPaiLabel
         '
         RespPaiLabel.AutoSize = True
-        RespPaiLabel.Location = New System.Drawing.Point(29, 70)
+        RespPaiLabel.Location = New System.Drawing.Point(33, 79)
+        RespPaiLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RespPaiLabel.Name = "RespPaiLabel"
-        RespPaiLabel.Size = New System.Drawing.Size(25, 13)
+        RespPaiLabel.Size = New System.Drawing.Size(28, 15)
         RespPaiLabel.TabIndex = 66
         RespPaiLabel.Text = "Pai:"
         '
         'IEOnlineLabel
         '
         IEOnlineLabel.AutoSize = True
-        IEOnlineLabel.Location = New System.Drawing.Point(63, 17)
+        IEOnlineLabel.Location = New System.Drawing.Point(74, 20)
+        IEOnlineLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IEOnlineLabel.Name = "IEOnlineLabel"
-        IEOnlineLabel.Size = New System.Drawing.Size(43, 13)
+        IEOnlineLabel.Size = New System.Drawing.Size(49, 15)
         IEOnlineLabel.TabIndex = 38
         IEOnlineLabel.Text = "Pedido:"
         '
         'IETipoLabel
         '
         IETipoLabel.AutoSize = True
-        IETipoLabel.Location = New System.Drawing.Point(205, 17)
+        IETipoLabel.Location = New System.Drawing.Point(239, 20)
+        IETipoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IETipoLabel.Name = "IETipoLabel"
-        IETipoLabel.Size = New System.Drawing.Size(31, 13)
+        IETipoLabel.Size = New System.Drawing.Size(34, 15)
         IETipoLabel.TabIndex = 39
         IETipoLabel.Text = "Tipo:"
         '
         'IEeProcNumLabel
         '
         IEeProcNumLabel.AutoSize = True
-        IEeProcNumLabel.Location = New System.Drawing.Point(32, 153)
+        IEeProcNumLabel.Location = New System.Drawing.Point(37, 177)
+        IEeProcNumLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IEeProcNumLabel.Name = "IEeProcNumLabel"
-        IEeProcNumLabel.Size = New System.Drawing.Size(75, 13)
+        IEeProcNumLabel.Size = New System.Drawing.Size(84, 15)
         IEeProcNumLabel.TabIndex = 40
         IEeProcNumLabel.Text = "eProcesso Nº:"
         '
         'Label10
         '
         Label10.AutoSize = True
-        Label10.Location = New System.Drawing.Point(11, 53)
+        Label10.Location = New System.Drawing.Point(13, 61)
+        Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label10.Name = "Label10"
-        Label10.Size = New System.Drawing.Size(50, 13)
+        Label10.Size = New System.Drawing.Size(56, 15)
         Label10.TabIndex = 47
         Label10.Text = "Contrato:"
         '
         'DivisaoCapitalSociosLabel
         '
         DivisaoCapitalSociosLabel.AutoSize = True
-        DivisaoCapitalSociosLabel.Location = New System.Drawing.Point(6, 115)
+        DivisaoCapitalSociosLabel.Location = New System.Drawing.Point(7, 133)
+        DivisaoCapitalSociosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DivisaoCapitalSociosLabel.Name = "DivisaoCapitalSociosLabel"
-        DivisaoCapitalSociosLabel.Size = New System.Drawing.Size(127, 13)
+        DivisaoCapitalSociosLabel.Size = New System.Drawing.Size(145, 15)
         DivisaoCapitalSociosLabel.TabIndex = 60
         DivisaoCapitalSociosLabel.Text = "Divisão de Capital Social:"
         '
         'CapitalQuotaValorLabel
         '
         CapitalQuotaValorLabel.AutoSize = True
-        CapitalQuotaValorLabel.Location = New System.Drawing.Point(250, 31)
+        CapitalQuotaValorLabel.Location = New System.Drawing.Point(292, 36)
+        CapitalQuotaValorLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalQuotaValorLabel.Name = "CapitalQuotaValorLabel"
-        CapitalQuotaValorLabel.Size = New System.Drawing.Size(130, 13)
+        CapitalQuotaValorLabel.Size = New System.Drawing.Size(151, 15)
         CapitalQuotaValorLabel.TabIndex = 61
         CapitalQuotaValorLabel.Text = "Valor nominal das Quotas "
         '
         'CapitaQuotaTotalLabel
         '
         CapitaQuotaTotalLabel.AutoSize = True
-        CapitaQuotaTotalLabel.Location = New System.Drawing.Point(286, 57)
+        CapitaQuotaTotalLabel.Location = New System.Drawing.Point(334, 66)
+        CapitaQuotaTotalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitaQuotaTotalLabel.Name = "CapitaQuotaTotalLabel"
-        CapitaQuotaTotalLabel.Size = New System.Drawing.Size(91, 13)
+        CapitaQuotaTotalLabel.Size = New System.Drawing.Size(102, 15)
         CapitaQuotaTotalLabel.TabIndex = 62
         CapitaQuotaTotalLabel.Text = "Total das Quotas:"
         '
         'ResponsavelOrgaoRGLabel
         '
         ResponsavelOrgaoRGLabel.AutoSize = True
-        ResponsavelOrgaoRGLabel.Location = New System.Drawing.Point(159, 120)
+        ResponsavelOrgaoRGLabel.Location = New System.Drawing.Point(185, 137)
+        ResponsavelOrgaoRGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ResponsavelOrgaoRGLabel.Name = "ResponsavelOrgaoRGLabel"
-        ResponsavelOrgaoRGLabel.Size = New System.Drawing.Size(39, 13)
+        ResponsavelOrgaoRGLabel.Size = New System.Drawing.Size(44, 15)
         ResponsavelOrgaoRGLabel.TabIndex = 68
         ResponsavelOrgaoRGLabel.Text = "Orgão:"
         '
         'ResponsavelEstadoOrgaoRGLabel
         '
         ResponsavelEstadoOrgaoRGLabel.AutoSize = True
-        ResponsavelEstadoOrgaoRGLabel.Location = New System.Drawing.Point(257, 120)
+        ResponsavelEstadoOrgaoRGLabel.Location = New System.Drawing.Point(299, 137)
+        ResponsavelEstadoOrgaoRGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ResponsavelEstadoOrgaoRGLabel.Name = "ResponsavelEstadoOrgaoRGLabel"
-        ResponsavelEstadoOrgaoRGLabel.Size = New System.Drawing.Size(43, 13)
+        ResponsavelEstadoOrgaoRGLabel.Size = New System.Drawing.Size(48, 15)
         ResponsavelEstadoOrgaoRGLabel.TabIndex = 69
         ResponsavelEstadoOrgaoRGLabel.Text = "Estado:"
         '
         'SEDELabel
         '
         SEDELabel.AutoSize = True
-        SEDELabel.Location = New System.Drawing.Point(475, 117)
+        SEDELabel.Location = New System.Drawing.Point(554, 120)
+        SEDELabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SEDELabel.Name = "SEDELabel"
-        SEDELabel.Size = New System.Drawing.Size(39, 13)
+        SEDELabel.Size = New System.Drawing.Size(43, 15)
         SEDELabel.TabIndex = 67
         SEDELabel.Text = "SEDE:"
         '
         'PontoDeReferenciaLabel
         '
         PontoDeReferenciaLabel.AutoSize = True
-        PontoDeReferenciaLabel.Location = New System.Drawing.Point(440, 145)
+        PontoDeReferenciaLabel.Location = New System.Drawing.Point(296, 10)
+        PontoDeReferenciaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PontoDeReferenciaLabel.Name = "PontoDeReferenciaLabel"
-        PontoDeReferenciaLabel.Size = New System.Drawing.Size(97, 13)
+        PontoDeReferenciaLabel.Size = New System.Drawing.Size(109, 15)
         PontoDeReferenciaLabel.TabIndex = 39
         PontoDeReferenciaLabel.Text = "Atividade no local?"
         '
         'TipoUnidadeProdutivaLabel
         '
         TipoUnidadeProdutivaLabel.AutoSize = True
-        TipoUnidadeProdutivaLabel.Location = New System.Drawing.Point(11, 19)
+        TipoUnidadeProdutivaLabel.Location = New System.Drawing.Point(13, 22)
+        TipoUnidadeProdutivaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TipoUnidadeProdutivaLabel.Name = "TipoUnidadeProdutivaLabel"
-        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(145, 13)
+        TipoUnidadeProdutivaLabel.Size = New System.Drawing.Size(168, 15)
         TipoUnidadeProdutivaLabel.TabIndex = 0
         TipoUnidadeProdutivaLabel.Text = "Tipo de unidade da empresa:"
         '
         'DadosComplSubsoloLabel
         '
         DadosComplSubsoloLabel.AutoSize = True
-        DadosComplSubsoloLabel.Location = New System.Drawing.Point(19, 114)
+        DadosComplSubsoloLabel.Location = New System.Drawing.Point(22, 132)
+        DadosComplSubsoloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplSubsoloLabel.Name = "DadosComplSubsoloLabel"
-        DadosComplSubsoloLabel.Size = New System.Drawing.Size(316, 13)
+        DadosComplSubsoloLabel.Size = New System.Drawing.Size(365, 15)
         DadosComplSubsoloLabel.TabIndex = 22
         DadosComplSubsoloLabel.Text = "A edificação possui subsolo com uso distinto de estacionamento?"
         '
         'DadosComplPessoasLabel
         '
         DadosComplPessoasLabel.AutoSize = True
-        DadosComplPessoasLabel.Location = New System.Drawing.Point(19, 93)
+        DadosComplPessoasLabel.Location = New System.Drawing.Point(22, 107)
+        DadosComplPessoasLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplPessoasLabel.Name = "DadosComplPessoasLabel"
-        DadosComplPessoasLabel.Size = New System.Drawing.Size(224, 13)
+        DadosComplPessoasLabel.Size = New System.Drawing.Size(264, 15)
         DadosComplPessoasLabel.TabIndex = 19
         DadosComplPessoasLabel.Text = "Quantidade máxima de pessoas no ambiente?"
         '
         'DadosComplPavimentosLabel
         '
         DadosComplPavimentosLabel.AutoSize = True
-        DadosComplPavimentosLabel.Location = New System.Drawing.Point(19, 65)
+        DadosComplPavimentosLabel.Location = New System.Drawing.Point(22, 75)
+        DadosComplPavimentosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplPavimentosLabel.Name = "DadosComplPavimentosLabel"
-        DadosComplPavimentosLabel.Size = New System.Drawing.Size(203, 13)
+        DadosComplPavimentosLabel.Size = New System.Drawing.Size(232, 15)
         DadosComplPavimentosLabel.TabIndex = 18
         DadosComplPavimentosLabel.Text = "A edificação possui quantos pavimentos?"
         '
         'DadosComplAtividadeLabel
         '
         DadosComplAtividadeLabel.AutoSize = True
-        DadosComplAtividadeLabel.Location = New System.Drawing.Point(19, 40)
+        DadosComplAtividadeLabel.Location = New System.Drawing.Point(22, 46)
+        DadosComplAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplAtividadeLabel.Name = "DadosComplAtividadeLabel"
-        DadosComplAtividadeLabel.Size = New System.Drawing.Size(305, 13)
+        DadosComplAtividadeLabel.Size = New System.Drawing.Size(354, 15)
         DadosComplAtividadeLabel.TabIndex = 16
         DadosComplAtividadeLabel.Text = "As atividades serão exercidas na residência do empreendedor?"
         '
         'DadosComplEstabelecimentoLabel
         '
         DadosComplEstabelecimentoLabel.AutoSize = True
-        DadosComplEstabelecimentoLabel.Location = New System.Drawing.Point(19, 15)
+        DadosComplEstabelecimentoLabel.Location = New System.Drawing.Point(22, 17)
+        DadosComplEstabelecimentoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplEstabelecimentoLabel.Name = "DadosComplEstabelecimentoLabel"
-        DadosComplEstabelecimentoLabel.Size = New System.Drawing.Size(191, 13)
+        DadosComplEstabelecimentoLabel.Size = New System.Drawing.Size(219, 15)
         DadosComplEstabelecimentoLabel.TabIndex = 14
         DadosComplEstabelecimentoLabel.Text = "O estabelecimento é inócuo ou virtual?"
         '
         'DadosComplLiquidoLabel
         '
         DadosComplLiquidoLabel.AutoSize = True
-        DadosComplLiquidoLabel.Location = New System.Drawing.Point(19, 139)
+        DadosComplLiquidoLabel.Location = New System.Drawing.Point(22, 160)
+        DadosComplLiquidoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplLiquidoLabel.Name = "DadosComplLiquidoLabel"
-        DadosComplLiquidoLabel.Size = New System.Drawing.Size(285, 13)
+        DadosComplLiquidoLabel.Size = New System.Drawing.Size(329, 15)
         DadosComplLiquidoLabel.TabIndex = 23
         DadosComplLiquidoLabel.Text = "Quantidade em litros de líquido inflamável ou combustível?"
         '
         'DadosComplGLPLabel
         '
         DadosComplGLPLabel.AutoSize = True
-        DadosComplGLPLabel.Location = New System.Drawing.Point(19, 163)
+        DadosComplGLPLabel.Location = New System.Drawing.Point(22, 188)
+        DadosComplGLPLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplGLPLabel.Name = "DadosComplGLPLabel"
-        DadosComplGLPLabel.Size = New System.Drawing.Size(299, 13)
+        DadosComplGLPLabel.Size = New System.Drawing.Size(349, 15)
         DadosComplGLPLabel.TabIndex = 24
         DadosComplGLPLabel.Text = "Quantidade em quilos(kg) de gás liquefeito de petróleo (GLP)?"
         '
         'DBEProtocoloLabel
         '
         DBEProtocoloLabel.AutoSize = True
-        DBEProtocoloLabel.Location = New System.Drawing.Point(44, 27)
+        DBEProtocoloLabel.Location = New System.Drawing.Point(51, 31)
+        DBEProtocoloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DBEProtocoloLabel.Name = "DBEProtocoloLabel"
-        DBEProtocoloLabel.Size = New System.Drawing.Size(95, 13)
+        DBEProtocoloLabel.Size = New System.Drawing.Size(106, 15)
         DBEProtocoloLabel.TabIndex = 80
         DBEProtocoloLabel.Text = "DBE Nº Protocolo:"
         '
         'DBEDataLabel
         '
         DBEDataLabel.AutoSize = True
-        DBEDataLabel.Location = New System.Drawing.Point(19, 78)
+        DBEDataLabel.Location = New System.Drawing.Point(22, 90)
+        DBEDataLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DBEDataLabel.Name = "DBEDataLabel"
-        DBEDataLabel.Size = New System.Drawing.Size(118, 13)
+        DBEDataLabel.Size = New System.Drawing.Size(133, 15)
         DBEDataLabel.TabIndex = 81
         DBEDataLabel.Text = "DBE Data Protocolado:"
         '
         'FederalProtocoloLabel
         '
         FederalProtocoloLabel.AutoSize = True
-        FederalProtocoloLabel.Location = New System.Drawing.Point(-1, 53)
+        FederalProtocoloLabel.Location = New System.Drawing.Point(-1, 61)
+        FederalProtocoloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         FederalProtocoloLabel.Name = "FederalProtocoloLabel"
-        FederalProtocoloLabel.Size = New System.Drawing.Size(134, 13)
+        FederalProtocoloLabel.Size = New System.Drawing.Size(154, 15)
         FederalProtocoloLabel.TabIndex = 82
         FederalProtocoloLabel.Text = "Protocolo Processo Digital:"
         '
         'EndCidadeLabel1
         '
         EndCidadeLabel1.AutoSize = True
-        EndCidadeLabel1.Location = New System.Drawing.Point(55, 191)
+        EndCidadeLabel1.Location = New System.Drawing.Point(64, 200)
+        EndCidadeLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndCidadeLabel1.Name = "EndCidadeLabel1"
-        EndCidadeLabel1.Size = New System.Drawing.Size(43, 13)
+        EndCidadeLabel1.Size = New System.Drawing.Size(49, 15)
         EndCidadeLabel1.TabIndex = 78
         EndCidadeLabel1.Text = "Cidade:"
         '
         'EndEstadoLabel1
         '
         EndEstadoLabel1.AutoSize = True
-        EndEstadoLabel1.Location = New System.Drawing.Point(273, 191)
+        EndEstadoLabel1.Location = New System.Drawing.Point(318, 200)
+        EndEstadoLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndEstadoLabel1.Name = "EndEstadoLabel1"
-        EndEstadoLabel1.Size = New System.Drawing.Size(43, 13)
+        EndEstadoLabel1.Size = New System.Drawing.Size(48, 15)
         EndEstadoLabel1.TabIndex = 78
         EndEstadoLabel1.Text = "Estado:"
         '
@@ -1590,7 +1693,8 @@ Partial Class FrmLegalizacao
         '
         ProcessoLabel1.AutoSize = True
         ProcessoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ProcessoLabel1.Location = New System.Drawing.Point(6, 11)
+        ProcessoLabel1.Location = New System.Drawing.Point(7, 13)
+        ProcessoLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProcessoLabel1.Name = "ProcessoLabel1"
         ProcessoLabel1.Size = New System.Drawing.Size(65, 18)
         ProcessoLabel1.TabIndex = 48
@@ -1600,7 +1704,8 @@ Partial Class FrmLegalizacao
         '
         NAlteracaoLabel1.AutoSize = True
         NAlteracaoLabel1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        NAlteracaoLabel1.Location = New System.Drawing.Point(186, 11)
+        NAlteracaoLabel1.Location = New System.Drawing.Point(217, 13)
+        NAlteracaoLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NAlteracaoLabel1.Name = "NAlteracaoLabel1"
         NAlteracaoLabel1.Size = New System.Drawing.Size(28, 18)
         NAlteracaoLabel1.TabIndex = 49
@@ -1610,7 +1715,8 @@ Partial Class FrmLegalizacao
         '
         SenhasDeAcessoLabel.AutoSize = True
         SenhasDeAcessoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        SenhasDeAcessoLabel.Location = New System.Drawing.Point(9, 17)
+        SenhasDeAcessoLabel.Location = New System.Drawing.Point(10, 20)
+        SenhasDeAcessoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SenhasDeAcessoLabel.Name = "SenhasDeAcessoLabel"
         SenhasDeAcessoLabel.Size = New System.Drawing.Size(240, 20)
         SenhasDeAcessoLabel.TabIndex = 0
@@ -1632,7 +1738,7 @@ Partial Class FrmLegalizacao
         Me.EmpresasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.EmpresasBindingNavigator.Name = "EmpresasBindingNavigator"
         Me.EmpresasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(757, 23)
+        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(967, 23)
         Me.EmpresasBindingNavigator.Stretch = True
         Me.EmpresasBindingNavigator.TabIndex = 0
         Me.EmpresasBindingNavigator.Text = "BindingNavigator1"
@@ -1719,18 +1825,20 @@ Partial Class FrmLegalizacao
         'RazaoSocialTextBox
         '
         Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RazaoSocial", True))
-        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(99, 88)
+        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(115, 90)
+        Me.RazaoSocialTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(557, 20)
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(649, 21)
         Me.RazaoSocialTextBox.TabIndex = 2
         '
         'CNPJMaskedTextBox
         '
         Me.CNPJMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNPJ", True))
-        Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(99, 62)
+        Me.CNPJMaskedTextBox.Location = New System.Drawing.Point(115, 63)
+        Me.CNPJMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNPJMaskedTextBox.Mask = "99,999,999/9999-99"
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
-        Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(107, 20)
+        Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(124, 21)
         Me.CNPJMaskedTextBox.TabIndex = 6
         '
         'CADstatusBindingSource
@@ -1755,10 +1863,12 @@ Partial Class FrmLegalizacao
         Me.TabControle.Controls.Add(Me.TabPage23)
         Me.TabControle.Controls.Add(Me.TabPage17)
         Me.TabControle.Controls.Add(Me.TabPage2)
-        Me.TabControle.Location = New System.Drawing.Point(6, 163)
+        Me.TabControle.Location = New System.Drawing.Point(3, 174)
+        Me.TabControle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabControle.Multiline = True
         Me.TabControle.Name = "TabControle"
         Me.TabControle.SelectedIndex = 0
-        Me.TabControle.Size = New System.Drawing.Size(645, 265)
+        Me.TabControle.Size = New System.Drawing.Size(857, 312)
         Me.TabControle.TabIndex = 11
         '
         'TabPage1
@@ -1773,10 +1883,11 @@ Partial Class FrmLegalizacao
         Me.TabPage1.Controls.Add(Me.ProcedimentoRichTextBox)
         Me.TabPage1.Controls.Add(GeralLabel)
         Me.TabPage1.Controls.Add(Me.GeralRichTextBox)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage1.Size = New System.Drawing.Size(849, 284)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Geral"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1786,9 +1897,10 @@ Partial Class FrmLegalizacao
         Me.BtnVerObsGeral.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnVerObsGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerObsGeral.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerObsGeral.Location = New System.Drawing.Point(601, 211)
+        Me.BtnVerObsGeral.Location = New System.Drawing.Point(803, 243)
+        Me.BtnVerObsGeral.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerObsGeral.Name = "BtnVerObsGeral"
-        Me.BtnVerObsGeral.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerObsGeral.Size = New System.Drawing.Size(38, 25)
         Me.BtnVerObsGeral.TabIndex = 79
         Me.BtnVerObsGeral.Text = "Ver"
         Me.BtnVerObsGeral.UseVisualStyleBackColor = False
@@ -1798,9 +1910,10 @@ Partial Class FrmLegalizacao
         Me.BtnVerProcedimento.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnVerProcedimento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerProcedimento.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerProcedimento.Location = New System.Drawing.Point(601, 109)
+        Me.BtnVerProcedimento.Location = New System.Drawing.Point(803, 126)
+        Me.BtnVerProcedimento.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerProcedimento.Name = "BtnVerProcedimento"
-        Me.BtnVerProcedimento.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerProcedimento.Size = New System.Drawing.Size(38, 25)
         Me.BtnVerProcedimento.TabIndex = 78
         Me.BtnVerProcedimento.Text = "Ver"
         Me.BtnVerProcedimento.UseVisualStyleBackColor = False
@@ -1808,9 +1921,10 @@ Partial Class FrmLegalizacao
         'MotivoLabel
         '
         Me.MotivoLabel.AutoSize = True
-        Me.MotivoLabel.Location = New System.Drawing.Point(6, 14)
+        Me.MotivoLabel.Location = New System.Drawing.Point(7, 16)
+        Me.MotivoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.MotivoLabel.Name = "MotivoLabel"
-        Me.MotivoLabel.Size = New System.Drawing.Size(93, 13)
+        Me.MotivoLabel.Size = New System.Drawing.Size(102, 15)
         Me.MotivoLabel.TabIndex = 41
         Me.MotivoLabel.Text = "Eventos e Motivo:"
         '
@@ -1820,9 +1934,10 @@ Partial Class FrmLegalizacao
         Me.Button46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button46.ForeColor = System.Drawing.Color.Crimson
-        Me.Button46.Location = New System.Drawing.Point(191, 195)
+        Me.Button46.Location = New System.Drawing.Point(235, 225)
+        Me.Button46.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button46.Name = "Button46"
-        Me.Button46.Size = New System.Drawing.Size(121, 38)
+        Me.Button46.Size = New System.Drawing.Size(141, 44)
         Me.Button46.TabIndex = 42
         Me.Button46.Text = "Limpar Eventos"
         Me.Button46.UseVisualStyleBackColor = True
@@ -1833,9 +1948,10 @@ Partial Class FrmLegalizacao
         Me.BtnListaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnListaEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnListaEventos.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnListaEventos.Location = New System.Drawing.Point(6, 195)
+        Me.BtnListaEventos.Location = New System.Drawing.Point(7, 225)
+        Me.BtnListaEventos.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnListaEventos.Name = "BtnListaEventos"
-        Me.BtnListaEventos.Size = New System.Drawing.Size(121, 38)
+        Me.BtnListaEventos.Size = New System.Drawing.Size(141, 44)
         Me.BtnListaEventos.TabIndex = 41
         Me.BtnListaEventos.Text = "Lista de Eventos"
         Me.BtnListaEventos.UseVisualStyleBackColor = True
@@ -1843,27 +1959,30 @@ Partial Class FrmLegalizacao
         'MotivoRichTextBox
         '
         Me.MotivoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Motivo", True))
-        Me.MotivoRichTextBox.Location = New System.Drawing.Point(6, 30)
+        Me.MotivoRichTextBox.Location = New System.Drawing.Point(7, 35)
+        Me.MotivoRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MotivoRichTextBox.Name = "MotivoRichTextBox"
-        Me.MotivoRichTextBox.Size = New System.Drawing.Size(306, 159)
+        Me.MotivoRichTextBox.Size = New System.Drawing.Size(369, 183)
         Me.MotivoRichTextBox.TabIndex = 43
         Me.MotivoRichTextBox.Text = ""
         '
         'ProcedimentoRichTextBox
         '
         Me.ProcedimentoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Procedimento", True))
-        Me.ProcedimentoRichTextBox.Location = New System.Drawing.Point(337, 30)
+        Me.ProcedimentoRichTextBox.Location = New System.Drawing.Point(393, 35)
+        Me.ProcedimentoRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProcedimentoRichTextBox.Name = "ProcedimentoRichTextBox"
-        Me.ProcedimentoRichTextBox.Size = New System.Drawing.Size(265, 101)
+        Me.ProcedimentoRichTextBox.Size = New System.Drawing.Size(402, 116)
         Me.ProcedimentoRichTextBox.TabIndex = 3
         Me.ProcedimentoRichTextBox.Text = ""
         '
         'GeralRichTextBox
         '
         Me.GeralRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Geral", True))
-        Me.GeralRichTextBox.Location = New System.Drawing.Point(337, 151)
+        Me.GeralRichTextBox.Location = New System.Drawing.Point(393, 174)
+        Me.GeralRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GeralRichTextBox.Name = "GeralRichTextBox"
-        Me.GeralRichTextBox.Size = New System.Drawing.Size(265, 82)
+        Me.GeralRichTextBox.Size = New System.Drawing.Size(402, 94)
         Me.GeralRichTextBox.TabIndex = 1
         Me.GeralRichTextBox.Text = ""
         '
@@ -1871,9 +1990,10 @@ Partial Class FrmLegalizacao
         '
         Me.TabPage10.AutoScroll = True
         Me.TabPage10.Controls.Add(Me.TabControl2)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage10.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage10.Size = New System.Drawing.Size(849, 284)
         Me.TabPage10.TabIndex = 6
         Me.TabPage10.Text = "Dados"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -1890,10 +2010,13 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Controls.Add(Me.TabPage18)
         Me.TabControl2.Controls.Add(Me.TabPage21)
         Me.TabControl2.Controls.Add(Me.TabPage22)
-        Me.TabControl2.Location = New System.Drawing.Point(4, 9)
+        Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl2.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(630, 227)
+        Me.TabControl2.Size = New System.Drawing.Size(849, 284)
         Me.TabControl2.TabIndex = 36
         '
         'TabPage12
@@ -1928,10 +2051,11 @@ Partial Class FrmLegalizacao
         Me.TabPage12.Controls.Add(CPFResponsavelLabel)
         Me.TabPage12.Controls.Add(CNHexpLabel)
         Me.TabPage12.Controls.Add(CNHdataexpLabel)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage12.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage12.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage12.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage12.Size = New System.Drawing.Size(841, 227)
         Me.TabPage12.TabIndex = 0
         Me.TabPage12.Text = "Responsável"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1939,17 +2063,19 @@ Partial Class FrmLegalizacao
         'ResponsavelEstadoOrgaoRGTextBox
         '
         Me.ResponsavelEstadoOrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ResponsavelEstadoOrgaoRG", True))
-        Me.ResponsavelEstadoOrgaoRGTextBox.Location = New System.Drawing.Point(300, 117)
+        Me.ResponsavelEstadoOrgaoRGTextBox.Location = New System.Drawing.Point(349, 133)
+        Me.ResponsavelEstadoOrgaoRGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ResponsavelEstadoOrgaoRGTextBox.Name = "ResponsavelEstadoOrgaoRGTextBox"
-        Me.ResponsavelEstadoOrgaoRGTextBox.Size = New System.Drawing.Size(41, 20)
+        Me.ResponsavelEstadoOrgaoRGTextBox.Size = New System.Drawing.Size(47, 21)
         Me.ResponsavelEstadoOrgaoRGTextBox.TabIndex = 70
         '
         'ResponsavelOrgaoRGTextBox
         '
         Me.ResponsavelOrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ResponsavelOrgaoRG", True))
-        Me.ResponsavelOrgaoRGTextBox.Location = New System.Drawing.Point(198, 117)
+        Me.ResponsavelOrgaoRGTextBox.Location = New System.Drawing.Point(230, 133)
+        Me.ResponsavelOrgaoRGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ResponsavelOrgaoRGTextBox.Name = "ResponsavelOrgaoRGTextBox"
-        Me.ResponsavelOrgaoRGTextBox.Size = New System.Drawing.Size(53, 20)
+        Me.ResponsavelOrgaoRGTextBox.Size = New System.Drawing.Size(61, 21)
         Me.ResponsavelOrgaoRGTextBox.TabIndex = 69
         '
         'BtnImportarSocioAdm
@@ -1959,9 +2085,10 @@ Partial Class FrmLegalizacao
         Me.BtnImportarSocioAdm.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnImportarSocioAdm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnImportarSocioAdm.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(499, 12)
+        Me.BtnImportarSocioAdm.Location = New System.Drawing.Point(696, 15)
+        Me.BtnImportarSocioAdm.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnImportarSocioAdm.Name = "BtnImportarSocioAdm"
-        Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(110, 49)
+        Me.BtnImportarSocioAdm.Size = New System.Drawing.Size(128, 57)
         Me.BtnImportarSocioAdm.TabIndex = 7
         Me.BtnImportarSocioAdm.Text = "Adicionar/Abrir Socio"
         Me.BtnImportarSocioAdm.UseVisualStyleBackColor = True
@@ -1972,9 +2099,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarSenhaGov.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.BtnCopiarSenhaGov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarSenhaGov.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCopiarSenhaGov.Location = New System.Drawing.Point(367, 143)
+        Me.BtnCopiarSenhaGov.Location = New System.Drawing.Point(428, 163)
+        Me.BtnCopiarSenhaGov.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarSenhaGov.Name = "BtnCopiarSenhaGov"
-        Me.BtnCopiarSenhaGov.Size = New System.Drawing.Size(42, 22)
+        Me.BtnCopiarSenhaGov.Size = New System.Drawing.Size(49, 25)
         Me.BtnCopiarSenhaGov.TabIndex = 68
         Me.BtnCopiarSenhaGov.Text = "Copiar"
         Me.BtnCopiarSenhaGov.UseVisualStyleBackColor = False
@@ -1982,26 +2110,29 @@ Partial Class FrmLegalizacao
         'SenhaGovLabel
         '
         Me.SenhaGovLabel.AutoSize = True
-        Me.SenhaGovLabel.Location = New System.Drawing.Point(187, 147)
+        Me.SenhaGovLabel.Location = New System.Drawing.Point(218, 168)
+        Me.SenhaGovLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SenhaGovLabel.Name = "SenhaGovLabel"
-        Me.SenhaGovLabel.Size = New System.Drawing.Size(77, 13)
+        Me.SenhaGovLabel.Size = New System.Drawing.Size(85, 15)
         Me.SenhaGovLabel.TabIndex = 66
         Me.SenhaGovLabel.Text = "Senha Gov.Br:"
         '
         'SenhaGovTextBox
         '
         Me.SenhaGovTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SenhaGov", True))
-        Me.SenhaGovTextBox.Location = New System.Drawing.Point(264, 144)
+        Me.SenhaGovTextBox.Location = New System.Drawing.Point(307, 164)
+        Me.SenhaGovTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SenhaGovTextBox.Name = "SenhaGovTextBox"
-        Me.SenhaGovTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.SenhaGovTextBox.Size = New System.Drawing.Size(116, 21)
         Me.SenhaGovTextBox.TabIndex = 65
         '
         'RespPaiTextBox
         '
         Me.RespPaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespPai", True))
-        Me.RespPaiTextBox.Location = New System.Drawing.Point(54, 67)
+        Me.RespPaiTextBox.Location = New System.Drawing.Point(62, 75)
+        Me.RespPaiTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RespPaiTextBox.Name = "RespPaiTextBox"
-        Me.RespPaiTextBox.Size = New System.Drawing.Size(367, 20)
+        Me.RespPaiTextBox.Size = New System.Drawing.Size(532, 21)
         Me.RespPaiTextBox.TabIndex = 67
         '
         'Button44
@@ -2010,9 +2141,10 @@ Partial Class FrmLegalizacao
         Me.Button44.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.Button44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button44.Location = New System.Drawing.Point(141, 142)
+        Me.Button44.Location = New System.Drawing.Point(164, 162)
+        Me.Button44.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button44.Name = "Button44"
-        Me.Button44.Size = New System.Drawing.Size(42, 22)
+        Me.Button44.Size = New System.Drawing.Size(49, 25)
         Me.Button44.TabIndex = 63
         Me.Button44.Text = "Copiar"
         Me.Button44.UseVisualStyleBackColor = False
@@ -2020,78 +2152,87 @@ Partial Class FrmLegalizacao
         'CNHdataexpMaskedTextBox
         '
         Me.CNHdataexpMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNHdataexp", True))
-        Me.CNHdataexpMaskedTextBox.Location = New System.Drawing.Point(356, 171)
+        Me.CNHdataexpMaskedTextBox.Location = New System.Drawing.Point(415, 195)
+        Me.CNHdataexpMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHdataexpMaskedTextBox.Mask = "00/00/0000"
         Me.CNHdataexpMaskedTextBox.Name = "CNHdataexpMaskedTextBox"
-        Me.CNHdataexpMaskedTextBox.Size = New System.Drawing.Size(66, 20)
+        Me.CNHdataexpMaskedTextBox.Size = New System.Drawing.Size(76, 21)
         Me.CNHdataexpMaskedTextBox.TabIndex = 45
         Me.CNHdataexpMaskedTextBox.ValidatingType = GetType(Date)
         '
         'CNHexpTextBox
         '
         Me.CNHexpTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNHexp", True))
-        Me.CNHexpTextBox.Location = New System.Drawing.Point(209, 171)
+        Me.CNHexpTextBox.Location = New System.Drawing.Point(243, 195)
+        Me.CNHexpTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHexpTextBox.Name = "CNHexpTextBox"
-        Me.CNHexpTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.CNHexpTextBox.Size = New System.Drawing.Size(88, 21)
         Me.CNHexpTextBox.TabIndex = 44
         '
         'CNHnumeroTextBox
         '
         Me.CNHnumeroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNHnumero", True))
-        Me.CNHnumeroTextBox.Location = New System.Drawing.Point(54, 169)
+        Me.CNHnumeroTextBox.Location = New System.Drawing.Point(62, 193)
+        Me.CNHnumeroTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHnumeroTextBox.Name = "CNHnumeroTextBox"
-        Me.CNHnumeroTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CNHnumeroTextBox.Size = New System.Drawing.Size(116, 21)
         Me.CNHnumeroTextBox.TabIndex = 43
         '
         'RespDataNascMaskedTextBox
         '
         Me.RespDataNascMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespDataNasc", True))
-        Me.RespDataNascMaskedTextBox.Location = New System.Drawing.Point(112, 92)
+        Me.RespDataNascMaskedTextBox.Location = New System.Drawing.Point(130, 104)
+        Me.RespDataNascMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RespDataNascMaskedTextBox.Mask = "00/00/0000"
         Me.RespDataNascMaskedTextBox.Name = "RespDataNascMaskedTextBox"
-        Me.RespDataNascMaskedTextBox.Size = New System.Drawing.Size(68, 20)
+        Me.RespDataNascMaskedTextBox.Size = New System.Drawing.Size(79, 21)
         Me.RespDataNascMaskedTextBox.TabIndex = 42
         Me.RespDataNascMaskedTextBox.ValidatingType = GetType(Date)
         '
         'RespMaeTextBox
         '
         Me.RespMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespMae", True))
-        Me.RespMaeTextBox.Location = New System.Drawing.Point(54, 41)
+        Me.RespMaeTextBox.Location = New System.Drawing.Point(62, 45)
+        Me.RespMaeTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RespMaeTextBox.Name = "RespMaeTextBox"
-        Me.RespMaeTextBox.Size = New System.Drawing.Size(367, 20)
+        Me.RespMaeTextBox.Size = New System.Drawing.Size(532, 21)
         Me.RespMaeTextBox.TabIndex = 41
         '
         'NomeResponsavelTextBox
         '
         Me.NomeResponsavelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeResponsavel", True))
-        Me.NomeResponsavelTextBox.Location = New System.Drawing.Point(54, 15)
+        Me.NomeResponsavelTextBox.Location = New System.Drawing.Point(62, 15)
+        Me.NomeResponsavelTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomeResponsavelTextBox.Name = "NomeResponsavelTextBox"
-        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(367, 20)
+        Me.NomeResponsavelTextBox.Size = New System.Drawing.Size(532, 21)
         Me.NomeResponsavelTextBox.TabIndex = 34
         '
         'RespRGTextBox
         '
         Me.RespRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RespRG", True))
-        Me.RespRGTextBox.Location = New System.Drawing.Point(54, 117)
+        Me.RespRGTextBox.Location = New System.Drawing.Point(62, 133)
+        Me.RespRGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RespRGTextBox.Name = "RespRGTextBox"
-        Me.RespRGTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.RespRGTextBox.Size = New System.Drawing.Size(116, 21)
         Me.RespRGTextBox.TabIndex = 39
         '
         'TituloeleitorTextBox
         '
         Me.TituloeleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Tituloeleitor", True))
-        Me.TituloeleitorTextBox.Location = New System.Drawing.Point(266, 92)
+        Me.TituloeleitorTextBox.Location = New System.Drawing.Point(456, 108)
+        Me.TituloeleitorTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TituloeleitorTextBox.Name = "TituloeleitorTextBox"
-        Me.TituloeleitorTextBox.Size = New System.Drawing.Size(119, 20)
+        Me.TituloeleitorTextBox.Size = New System.Drawing.Size(138, 21)
         Me.TituloeleitorTextBox.TabIndex = 38
         '
         'CPFResponsavelMaskedTextBox
         '
         Me.CPFResponsavelMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CPFResponsavel", True))
-        Me.CPFResponsavelMaskedTextBox.Location = New System.Drawing.Point(54, 143)
+        Me.CPFResponsavelMaskedTextBox.Location = New System.Drawing.Point(62, 163)
+        Me.CPFResponsavelMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CPFResponsavelMaskedTextBox.Mask = "000,000,000-00"
         Me.CPFResponsavelMaskedTextBox.Name = "CPFResponsavelMaskedTextBox"
-        Me.CPFResponsavelMaskedTextBox.Size = New System.Drawing.Size(85, 20)
+        Me.CPFResponsavelMaskedTextBox.Size = New System.Drawing.Size(98, 21)
         Me.CPFResponsavelMaskedTextBox.TabIndex = 35
         '
         'TabPage19
@@ -2104,28 +2245,31 @@ Partial Class FrmLegalizacao
         Me.TabPage19.Controls.Add(Me.QuantidadeSociosTextBox)
         Me.TabPage19.Controls.Add(Me.BtnAdicionarSocio)
         Me.TabPage19.Controls.Add(Me.DadosSociosRichTextBox)
-        Me.TabPage19.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage19.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage19.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage19.Name = "TabPage19"
-        Me.TabPage19.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage19.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage19.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage19.Size = New System.Drawing.Size(841, 227)
         Me.TabPage19.TabIndex = 6
         Me.TabPage19.Text = "Dados dos Sócios"
         Me.TabPage19.UseVisualStyleBackColor = True
         '
         'BtnAddmaisSocio
         '
-        Me.BtnAddmaisSocio.Location = New System.Drawing.Point(514, 135)
+        Me.BtnAddmaisSocio.Location = New System.Drawing.Point(747, 156)
+        Me.BtnAddmaisSocio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAddmaisSocio.Name = "BtnAddmaisSocio"
-        Me.BtnAddmaisSocio.Size = New System.Drawing.Size(35, 23)
+        Me.BtnAddmaisSocio.Size = New System.Drawing.Size(41, 27)
         Me.BtnAddmaisSocio.TabIndex = 7
         Me.BtnAddmaisSocio.Text = "+1"
         Me.BtnAddmaisSocio.UseVisualStyleBackColor = True
         '
         'BtnLimparSocio
         '
-        Me.BtnLimparSocio.Location = New System.Drawing.Point(514, 162)
+        Me.BtnLimparSocio.Location = New System.Drawing.Point(747, 187)
+        Me.BtnLimparSocio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimparSocio.Name = "BtnLimparSocio"
-        Me.BtnLimparSocio.Size = New System.Drawing.Size(35, 23)
+        Me.BtnLimparSocio.Size = New System.Drawing.Size(41, 27)
         Me.BtnLimparSocio.TabIndex = 6
         Me.BtnLimparSocio.Text = "-1"
         Me.BtnLimparSocio.UseVisualStyleBackColor = True
@@ -2134,9 +2278,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnLimparSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnLimparSocios.ForeColor = System.Drawing.Color.Crimson
-        Me.BtnLimparSocios.Location = New System.Drawing.Point(473, 65)
+        Me.BtnLimparSocios.Location = New System.Drawing.Point(699, 75)
+        Me.BtnLimparSocios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimparSocios.Name = "BtnLimparSocios"
-        Me.BtnLimparSocios.Size = New System.Drawing.Size(80, 23)
+        Me.BtnLimparSocios.Size = New System.Drawing.Size(93, 27)
         Me.BtnLimparSocios.TabIndex = 5
         Me.BtnLimparSocios.Text = "Limpar Tudo"
         Me.BtnLimparSocios.UseVisualStyleBackColor = True
@@ -2144,9 +2289,10 @@ Partial Class FrmLegalizacao
         'LblQuantidadeSocios
         '
         Me.LblQuantidadeSocios.AutoSize = True
-        Me.LblQuantidadeSocios.Location = New System.Drawing.Point(468, 119)
+        Me.LblQuantidadeSocios.Location = New System.Drawing.Point(693, 137)
+        Me.LblQuantidadeSocios.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblQuantidadeSocios.Name = "LblQuantidadeSocios"
-        Me.LblQuantidadeSocios.Size = New System.Drawing.Size(88, 13)
+        Me.LblQuantidadeSocios.Size = New System.Drawing.Size(100, 15)
         Me.LblQuantidadeSocios.TabIndex = 4
         Me.LblQuantidadeSocios.Text = "Total Cadastrado"
         '
@@ -2154,19 +2300,21 @@ Partial Class FrmLegalizacao
         '
         Me.QuantidadeSociosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "QuantidadeSocios", True))
         Me.QuantidadeSociosTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantidadeSociosTextBox.Location = New System.Drawing.Point(472, 148)
+        Me.QuantidadeSociosTextBox.Location = New System.Drawing.Point(698, 171)
+        Me.QuantidadeSociosTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.QuantidadeSociosTextBox.Name = "QuantidadeSociosTextBox"
         Me.QuantidadeSociosTextBox.ReadOnly = True
-        Me.QuantidadeSociosTextBox.Size = New System.Drawing.Size(39, 22)
+        Me.QuantidadeSociosTextBox.Size = New System.Drawing.Size(45, 22)
         Me.QuantidadeSociosTextBox.TabIndex = 3
         '
         'BtnAdicionarSocio
         '
         Me.BtnAdicionarSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAdicionarSocio.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnAdicionarSocio.Location = New System.Drawing.Point(473, 11)
+        Me.BtnAdicionarSocio.Location = New System.Drawing.Point(699, 13)
+        Me.BtnAdicionarSocio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAdicionarSocio.Name = "BtnAdicionarSocio"
-        Me.BtnAdicionarSocio.Size = New System.Drawing.Size(80, 48)
+        Me.BtnAdicionarSocio.Size = New System.Drawing.Size(93, 55)
         Me.BtnAdicionarSocio.TabIndex = 2
         Me.BtnAdicionarSocio.Text = "Adicionar Sócios(as)"
         Me.BtnAdicionarSocio.UseVisualStyleBackColor = True
@@ -2174,19 +2322,21 @@ Partial Class FrmLegalizacao
         'DadosSociosRichTextBox
         '
         Me.DadosSociosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosSocios", True))
-        Me.DadosSociosRichTextBox.Location = New System.Drawing.Point(8, 11)
+        Me.DadosSociosRichTextBox.Location = New System.Drawing.Point(9, 13)
+        Me.DadosSociosRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosSociosRichTextBox.Name = "DadosSociosRichTextBox"
-        Me.DadosSociosRichTextBox.Size = New System.Drawing.Size(457, 174)
+        Me.DadosSociosRichTextBox.Size = New System.Drawing.Size(665, 200)
         Me.DadosSociosRichTextBox.TabIndex = 1
         Me.DadosSociosRichTextBox.Text = ""
         '
         'TabPage13
         '
         Me.TabPage13.Controls.Add(Me.GroupBox1)
-        Me.TabPage13.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage13.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage13.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage13.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage13.Size = New System.Drawing.Size(841, 227)
         Me.TabPage13.TabIndex = 1
         Me.TabPage13.Text = "Ramo/CNAE"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -2210,9 +2360,12 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.Controls.Add(Me.CNAEPrincipalTextBox)
         Me.GroupBox1.Controls.Add(CNAESecundarioLabel)
         Me.GroupBox1.Controls.Add(CNAEPrincipalLabel)
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 4)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(4, 3)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(606, 190)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(833, 221)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
@@ -2220,9 +2373,10 @@ Partial Class FrmLegalizacao
         'LblLinkArrumarCNAE
         '
         Me.LblLinkArrumarCNAE.AutoSize = True
-        Me.LblLinkArrumarCNAE.Location = New System.Drawing.Point(40, 105)
+        Me.LblLinkArrumarCNAE.Location = New System.Drawing.Point(41, 171)
+        Me.LblLinkArrumarCNAE.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblLinkArrumarCNAE.Name = "LblLinkArrumarCNAE"
-        Me.LblLinkArrumarCNAE.Size = New System.Drawing.Size(43, 13)
+        Me.LblLinkArrumarCNAE.Size = New System.Drawing.Size(51, 15)
         Me.LblLinkArrumarCNAE.TabIndex = 85
         Me.LblLinkArrumarCNAE.TabStop = True
         Me.LblLinkArrumarCNAE.Text = "Arrumar"
@@ -2231,9 +2385,10 @@ Partial Class FrmLegalizacao
         '
         Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
-        Me.CnaeSimples.Location = New System.Drawing.Point(518, 13)
+        Me.CnaeSimples.Location = New System.Drawing.Point(724, 67)
+        Me.CnaeSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CnaeSimples.Name = "CnaeSimples"
-        Me.CnaeSimples.Size = New System.Drawing.Size(82, 50)
+        Me.CnaeSimples.Size = New System.Drawing.Size(101, 46)
         Me.CnaeSimples.TabIndex = 41
         Me.CnaeSimples.Text = "CNAE Simples Nacional"
         Me.CnaeSimples.UseVisualStyleBackColor = False
@@ -2244,9 +2399,10 @@ Partial Class FrmLegalizacao
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(80, 168)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(93, 194)
+        Me.BtnGrauDeRisco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(85, 21)
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(99, 24)
         Me.BtnGrauDeRisco.TabIndex = 82
         Me.BtnGrauDeRisco.Text = "Grau de Risco"
         Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
@@ -2255,7 +2411,8 @@ Partial Class FrmLegalizacao
         '
         Me.LblContagemRamo.AutoSize = True
         Me.LblContagemRamo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblContagemRamo.Location = New System.Drawing.Point(171, 173)
+        Me.LblContagemRamo.Location = New System.Drawing.Point(200, 200)
+        Me.LblContagemRamo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblContagemRamo.Name = "LblContagemRamo"
         Me.LblContagemRamo.Size = New System.Drawing.Size(64, 15)
         Me.LblContagemRamo.TabIndex = 84
@@ -2265,9 +2422,10 @@ Partial Class FrmLegalizacao
         '
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(101, 13)
+        Me.Button25.Location = New System.Drawing.Point(118, 15)
+        Me.Button25.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(87, 24)
+        Me.Button25.Size = New System.Drawing.Size(102, 28)
         Me.Button25.TabIndex = 34
         Me.Button25.Text = "CNAE - MEI"
         Me.Button25.UseVisualStyleBackColor = False
@@ -2276,9 +2434,10 @@ Partial Class FrmLegalizacao
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button4.Location = New System.Drawing.Point(8, 13)
+        Me.Button4.Location = New System.Drawing.Point(9, 15)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(87, 24)
+        Me.Button4.Size = New System.Drawing.Size(102, 28)
         Me.Button4.TabIndex = 29
         Me.Button4.Text = "CNAE - Oficial"
         Me.Button4.UseVisualStyleBackColor = False
@@ -2286,9 +2445,10 @@ Partial Class FrmLegalizacao
         'LblTotalCnae
         '
         Me.LblTotalCnae.AutoSize = True
-        Me.LblTotalCnae.Location = New System.Drawing.Point(5, 79)
+        Me.LblTotalCnae.Location = New System.Drawing.Point(6, 91)
+        Me.LblTotalCnae.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblTotalCnae.Name = "LblTotalCnae"
-        Me.LblTotalCnae.Size = New System.Drawing.Size(19, 13)
+        Me.LblTotalCnae.Size = New System.Drawing.Size(21, 15)
         Me.LblTotalCnae.TabIndex = 83
         Me.LblTotalCnae.Text = "00"
         Me.LblTotalCnae.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -2300,9 +2460,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarRamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiarRamo.Location = New System.Drawing.Point(518, 154)
+        Me.BtnCopiarRamo.Location = New System.Drawing.Point(724, 172)
+        Me.BtnCopiarRamo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
-        Me.BtnCopiarRamo.Size = New System.Drawing.Size(82, 23)
+        Me.BtnCopiarRamo.Size = New System.Drawing.Size(104, 27)
         Me.BtnCopiarRamo.TabIndex = 51
         Me.BtnCopiarRamo.Text = "Copiar Ramo"
         Me.BtnCopiarRamo.UseVisualStyleBackColor = False
@@ -2313,9 +2474,10 @@ Partial Class FrmLegalizacao
         Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
         Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
-        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(518, 69)
+        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(724, 15)
+        Me.BtnAtividadeLocal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
-        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(82, 40)
+        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(101, 46)
         Me.BtnAtividadeLocal.TabIndex = 50
         Me.BtnAtividadeLocal.Text = "Atividade no local ?"
         Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
@@ -2325,9 +2487,10 @@ Partial Class FrmLegalizacao
         Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnRemovCaract.Location = New System.Drawing.Point(518, 113)
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(724, 119)
+        Me.BtnRemovCaract.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnRemovCaract.Name = "BtnRemovCaract"
-        Me.BtnRemovCaract.Size = New System.Drawing.Size(82, 37)
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(104, 43)
         Me.BtnRemovCaract.TabIndex = 49
         Me.BtnRemovCaract.Text = "Remove Caraceteres"
         Me.BtnRemovCaract.UseVisualStyleBackColor = False
@@ -2335,9 +2498,10 @@ Partial Class FrmLegalizacao
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(89, 43)
+        Me.Label9.Location = New System.Drawing.Point(104, 50)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(36, 13)
+        Me.Label9.Size = New System.Drawing.Size(39, 15)
         Me.Label9.TabIndex = 40
         Me.Label9.Text = "CNAE"
         '
@@ -2345,9 +2509,10 @@ Partial Class FrmLegalizacao
         '
         Me.CNAESecundarioRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAESecundario", True))
         Me.CNAESecundarioRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CNAESecundarioRichTextBox.Location = New System.Drawing.Point(84, 79)
+        Me.CNAESecundarioRichTextBox.Location = New System.Drawing.Point(98, 91)
+        Me.CNAESecundarioRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNAESecundarioRichTextBox.Name = "CNAESecundarioRichTextBox"
-        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(81, 83)
+        Me.CNAESecundarioRichTextBox.Size = New System.Drawing.Size(94, 95)
         Me.CNAESecundarioRichTextBox.TabIndex = 33
         Me.CNAESecundarioRichTextBox.Text = ""
         '
@@ -2355,9 +2520,10 @@ Partial Class FrmLegalizacao
         '
         Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
         Me.RamoDeAtividadeRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(171, 56)
+        Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(200, 65)
+        Me.RamoDeAtividadeRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
-        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(341, 117)
+        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(516, 134)
         Me.RamoDeAtividadeRichTextBox.TabIndex = 32
         Me.RamoDeAtividadeRichTextBox.Text = ""
         '
@@ -2365,9 +2531,10 @@ Partial Class FrmLegalizacao
         '
         Me.CNAEPrincipalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEPrincipal", True))
         Me.CNAEPrincipalTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CNAEPrincipalTextBox.Location = New System.Drawing.Point(84, 56)
+        Me.CNAEPrincipalTextBox.Location = New System.Drawing.Point(98, 65)
+        Me.CNAEPrincipalTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNAEPrincipalTextBox.Name = "CNAEPrincipalTextBox"
-        Me.CNAEPrincipalTextBox.Size = New System.Drawing.Size(81, 21)
+        Me.CNAEPrincipalTextBox.Size = New System.Drawing.Size(94, 21)
         Me.CNAEPrincipalTextBox.TabIndex = 32
         '
         'TabPage14
@@ -2411,9 +2578,10 @@ Partial Class FrmLegalizacao
         Me.TabPage14.Controls.Add(EndEstadoLabel)
         Me.TabPage14.Controls.Add(EndCidadeLabel)
         Me.TabPage14.Controls.Add(CadImobLabel)
-        Me.TabPage14.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage14.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage14.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage14.Size = New System.Drawing.Size(841, 227)
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -2422,9 +2590,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnArrumaEnd.Location = New System.Drawing.Point(10, 167)
+        Me.BtnArrumaEnd.Location = New System.Drawing.Point(12, 193)
+        Me.BtnArrumaEnd.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
-        Me.BtnArrumaEnd.Size = New System.Drawing.Size(102, 25)
+        Me.BtnArrumaEnd.Size = New System.Drawing.Size(119, 29)
         Me.BtnArrumaEnd.TabIndex = 76
         Me.BtnArrumaEnd.Text = "Arrumar Endereço"
         Me.BtnArrumaEnd.UseVisualStyleBackColor = True
@@ -2433,9 +2602,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnCopiaCEP.BackColor = System.Drawing.Color.Azure
         Me.BtnCopiaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiaCEP.Location = New System.Drawing.Point(210, 11)
+        Me.BtnCopiaCEP.Location = New System.Drawing.Point(232, 38)
+        Me.BtnCopiaCEP.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiaCEP.Name = "BtnCopiaCEP"
-        Me.BtnCopiaCEP.Size = New System.Drawing.Size(73, 25)
+        Me.BtnCopiaCEP.Size = New System.Drawing.Size(85, 27)
         Me.BtnCopiaCEP.TabIndex = 75
         Me.BtnCopiaCEP.Text = "Copiar CEP"
         Me.BtnCopiaCEP.UseVisualStyleBackColor = False
@@ -2445,9 +2615,10 @@ Partial Class FrmLegalizacao
         Me.BtnMapa.BackColor = System.Drawing.Color.Azure
         Me.BtnMapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnMapa.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnMapa.Location = New System.Drawing.Point(308, 168)
+        Me.BtnMapa.Location = New System.Drawing.Point(465, 194)
+        Me.BtnMapa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnMapa.Name = "BtnMapa"
-        Me.BtnMapa.Size = New System.Drawing.Size(52, 25)
+        Me.BtnMapa.Size = New System.Drawing.Size(61, 29)
         Me.BtnMapa.TabIndex = 72
         Me.BtnMapa.Text = "Mapa"
         Me.BtnMapa.UseVisualStyleBackColor = False
@@ -2458,9 +2629,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiaEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(540, 167)
+        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(736, 193)
+        Me.BtnCopiaEndereco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
-        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(75, 25)
+        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(88, 29)
         Me.BtnCopiaEndereco.TabIndex = 71
         Me.BtnCopiaEndereco.Text = "Copiar Tudo"
         Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
@@ -2472,9 +2644,10 @@ Partial Class FrmLegalizacao
         Me.BtnAjudaAréa.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAjudaAréa.FlatAppearance.BorderSize = 0
         Me.BtnAjudaAréa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAjudaAréa.Location = New System.Drawing.Point(386, 140)
+        Me.BtnAjudaAréa.Location = New System.Drawing.Point(780, 151)
+        Me.BtnAjudaAréa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAjudaAréa.Name = "BtnAjudaAréa"
-        Me.BtnAjudaAréa.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaAréa.Size = New System.Drawing.Size(31, 27)
         Me.BtnAjudaAréa.TabIndex = 70
         Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaAréa, "Consulta Optante do Simples Nacional Federal")
         Me.BtnAjudaAréa.UseVisualStyleBackColor = True
@@ -2484,9 +2657,10 @@ Partial Class FrmLegalizacao
         Me.BtnDadosComplementares.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnDadosComplementares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnDadosComplementares.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnDadosComplementares.Location = New System.Drawing.Point(364, 167)
+        Me.BtnDadosComplementares.Location = New System.Drawing.Point(531, 193)
+        Me.BtnDadosComplementares.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnDadosComplementares.Name = "BtnDadosComplementares"
-        Me.BtnDadosComplementares.Size = New System.Drawing.Size(171, 26)
+        Me.BtnDadosComplementares.Size = New System.Drawing.Size(200, 30)
         Me.BtnDadosComplementares.TabIndex = 44
         Me.BtnDadosComplementares.Text = "Forma de Atividade da Empresa"
         Me.BtnDadosComplementares.UseVisualStyleBackColor = False
@@ -2496,9 +2670,10 @@ Partial Class FrmLegalizacao
         Me.PontoDeReferenciaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PontoDeReferencia", True))
         Me.PontoDeReferenciaComboBox.FormattingEnabled = True
         Me.PontoDeReferenciaComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.PontoDeReferenciaComboBox.Location = New System.Drawing.Point(540, 139)
+        Me.PontoDeReferenciaComboBox.Location = New System.Drawing.Point(411, 7)
+        Me.PontoDeReferenciaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PontoDeReferenciaComboBox.Name = "PontoDeReferenciaComboBox"
-        Me.PontoDeReferenciaComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.PontoDeReferenciaComboBox.Size = New System.Drawing.Size(70, 23)
         Me.PontoDeReferenciaComboBox.TabIndex = 40
         Me.ToolTipDICAS.SetToolTip(Me.PontoDeReferenciaComboBox, "Apenas ponto de referencia sem atividade no local ?")
         '
@@ -2506,9 +2681,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnCorreios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCorreios.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCorreios.Location = New System.Drawing.Point(242, 168)
+        Me.BtnCorreios.Location = New System.Drawing.Point(388, 194)
+        Me.BtnCorreios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCorreios.Name = "BtnCorreios"
-        Me.BtnCorreios.Size = New System.Drawing.Size(62, 25)
+        Me.BtnCorreios.Size = New System.Drawing.Size(72, 29)
         Me.BtnCorreios.TabIndex = 39
         Me.BtnCorreios.Text = "Correios"
         Me.BtnCorreios.UseVisualStyleBackColor = True
@@ -2516,123 +2692,138 @@ Partial Class FrmLegalizacao
         'EndPaisTextBox
         '
         Me.EndPaisTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndPais", True))
-        Me.EndPaisTextBox.Location = New System.Drawing.Point(346, 117)
+        Me.EndPaisTextBox.Location = New System.Drawing.Point(391, 127)
+        Me.EndPaisTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndPaisTextBox.Name = "EndPaisTextBox"
-        Me.EndPaisTextBox.Size = New System.Drawing.Size(94, 20)
+        Me.EndPaisTextBox.Size = New System.Drawing.Size(109, 21)
         Me.EndPaisTextBox.TabIndex = 38
         '
         'EndCidadeTextBox
         '
         Me.EndCidadeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCidade", True))
-        Me.EndCidadeTextBox.Location = New System.Drawing.Point(69, 117)
+        Me.EndCidadeTextBox.Location = New System.Drawing.Point(67, 127)
+        Me.EndCidadeTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndCidadeTextBox.Name = "EndCidadeTextBox"
-        Me.EndCidadeTextBox.Size = New System.Drawing.Size(141, 20)
+        Me.EndCidadeTextBox.Size = New System.Drawing.Size(164, 21)
         Me.EndCidadeTextBox.TabIndex = 37
         '
         'EndComplementoTextBox
         '
         Me.EndComplementoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndComplemento", True))
-        Me.EndComplementoTextBox.Location = New System.Drawing.Point(415, 65)
+        Me.EndComplementoTextBox.Location = New System.Drawing.Point(525, 101)
+        Me.EndComplementoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndComplementoTextBox.Name = "EndComplementoTextBox"
-        Me.EndComplementoTextBox.Size = New System.Drawing.Size(190, 20)
+        Me.EndComplementoTextBox.Size = New System.Drawing.Size(247, 21)
         Me.EndComplementoTextBox.TabIndex = 36
         '
         'EndBairroTextBox
         '
         Me.EndBairroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndBairro", True))
-        Me.EndBairroTextBox.Location = New System.Drawing.Point(69, 65)
+        Me.EndBairroTextBox.Location = New System.Drawing.Point(67, 100)
+        Me.EndBairroTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndBairroTextBox.Name = "EndBairroTextBox"
-        Me.EndBairroTextBox.Size = New System.Drawing.Size(214, 20)
+        Me.EndBairroTextBox.Size = New System.Drawing.Size(359, 21)
         Me.EndBairroTextBox.TabIndex = 35
         '
         'EnderecoTextBox
         '
         Me.EnderecoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Endereco", True))
-        Me.EnderecoTextBox.Location = New System.Drawing.Point(69, 40)
+        Me.EnderecoTextBox.Location = New System.Drawing.Point(67, 71)
+        Me.EnderecoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EnderecoTextBox.Name = "EnderecoTextBox"
-        Me.EnderecoTextBox.Size = New System.Drawing.Size(432, 20)
+        Me.EnderecoTextBox.Size = New System.Drawing.Size(567, 21)
         Me.EnderecoTextBox.TabIndex = 34
         '
         'EndDataTextBox
         '
         Me.EndDataTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndData", True))
-        Me.EndDataTextBox.Location = New System.Drawing.Point(262, 91)
+        Me.EndDataTextBox.Location = New System.Drawing.Point(267, 154)
+        Me.EndDataTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndDataTextBox.Name = "EndDataTextBox"
-        Me.EndDataTextBox.Size = New System.Drawing.Size(47, 20)
+        Me.EndDataTextBox.Size = New System.Drawing.Size(54, 21)
         Me.EndDataTextBox.TabIndex = 33
         '
         'EndQuadraTextBox
         '
         Me.EndQuadraTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndQuadra", True))
-        Me.EndQuadraTextBox.Location = New System.Drawing.Point(170, 91)
+        Me.EndQuadraTextBox.Location = New System.Drawing.Point(175, 154)
+        Me.EndQuadraTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndQuadraTextBox.Name = "EndQuadraTextBox"
-        Me.EndQuadraTextBox.Size = New System.Drawing.Size(47, 20)
+        Me.EndQuadraTextBox.Size = New System.Drawing.Size(54, 21)
         Me.EndQuadraTextBox.TabIndex = 32
         '
         'EndZonaTextBox
         '
         Me.EndZonaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndZona", True))
-        Me.EndZonaTextBox.Location = New System.Drawing.Point(69, 91)
+        Me.EndZonaTextBox.Location = New System.Drawing.Point(68, 154)
+        Me.EndZonaTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndZonaTextBox.Name = "EndZonaTextBox"
-        Me.EndZonaTextBox.Size = New System.Drawing.Size(47, 20)
+        Me.EndZonaTextBox.Size = New System.Drawing.Size(54, 21)
         Me.EndZonaTextBox.TabIndex = 31
         '
         'CadImobTextBox
         '
         Me.CadImobTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CadImob", True))
-        Me.CadImobTextBox.Location = New System.Drawing.Point(472, 14)
+        Me.CadImobTextBox.Location = New System.Drawing.Point(125, 7)
+        Me.CadImobTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CadImobTextBox.Name = "CadImobTextBox"
-        Me.CadImobTextBox.Size = New System.Drawing.Size(133, 20)
+        Me.CadImobTextBox.Size = New System.Drawing.Size(154, 21)
         Me.CadImobTextBox.TabIndex = 30
         '
         'EndCEPMaskedTextBox
         '
         Me.EndCEPMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndCEP", True))
-        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(69, 14)
+        Me.EndCEPMaskedTextBox.Location = New System.Drawing.Point(67, 41)
+        Me.EndCEPMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndCEPMaskedTextBox.Mask = "00000-000"
         Me.EndCEPMaskedTextBox.Name = "EndCEPMaskedTextBox"
-        Me.EndCEPMaskedTextBox.Size = New System.Drawing.Size(62, 20)
+        Me.EndCEPMaskedTextBox.Size = New System.Drawing.Size(72, 21)
         Me.EndCEPMaskedTextBox.TabIndex = 9
         '
         'Area2TextBox
         '
         Me.Area2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area2", True))
-        Me.Area2TextBox.Location = New System.Drawing.Point(319, 142)
+        Me.Area2TextBox.Location = New System.Drawing.Point(698, 154)
+        Me.Area2TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Area2TextBox.Name = "Area2TextBox"
-        Me.Area2TextBox.Size = New System.Drawing.Size(64, 20)
+        Me.Area2TextBox.Size = New System.Drawing.Size(74, 21)
         Me.Area2TextBox.TabIndex = 29
         '
         'AreaTextBox
         '
         Me.AreaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "area", True))
-        Me.AreaTextBox.Location = New System.Drawing.Point(106, 142)
+        Me.AreaTextBox.Location = New System.Drawing.Point(448, 154)
+        Me.AreaTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AreaTextBox.Name = "AreaTextBox"
-        Me.AreaTextBox.Size = New System.Drawing.Size(63, 20)
+        Me.AreaTextBox.Size = New System.Drawing.Size(73, 21)
         Me.AreaTextBox.TabIndex = 27
         '
         'EndEstadoTextBox
         '
         Me.EndEstadoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndEstado", True))
-        Me.EndEstadoTextBox.Location = New System.Drawing.Point(264, 117)
+        Me.EndEstadoTextBox.Location = New System.Drawing.Point(295, 127)
+        Me.EndEstadoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndEstadoTextBox.Name = "EndEstadoTextBox"
-        Me.EndEstadoTextBox.Size = New System.Drawing.Size(40, 20)
+        Me.EndEstadoTextBox.Size = New System.Drawing.Size(46, 21)
         Me.EndEstadoTextBox.TabIndex = 14
         '
         'EndNumeroTextBox
         '
         Me.EndNumeroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EndNumero", True))
-        Me.EndNumeroTextBox.Location = New System.Drawing.Point(556, 40)
+        Me.EndNumeroTextBox.Location = New System.Drawing.Point(698, 72)
+        Me.EndNumeroTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EndNumeroTextBox.Name = "EndNumeroTextBox"
-        Me.EndNumeroTextBox.Size = New System.Drawing.Size(49, 20)
+        Me.EndNumeroTextBox.Size = New System.Drawing.Size(74, 21)
         Me.EndNumeroTextBox.TabIndex = 3
         '
         'BtnBuscaCEP
         '
         Me.BtnBuscaCEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBuscaCEP.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnBuscaCEP.Location = New System.Drawing.Point(135, 11)
+        Me.BtnBuscaCEP.Location = New System.Drawing.Point(145, 38)
+        Me.BtnBuscaCEP.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnBuscaCEP.Name = "BtnBuscaCEP"
-        Me.BtnBuscaCEP.Size = New System.Drawing.Size(69, 23)
+        Me.BtnBuscaCEP.Size = New System.Drawing.Size(80, 27)
         Me.BtnBuscaCEP.TabIndex = 16
         Me.BtnBuscaCEP.Text = "Preencher"
         Me.BtnBuscaCEP.UseVisualStyleBackColor = True
@@ -2647,9 +2838,10 @@ Partial Class FrmLegalizacao
         Me.TabPage15.Controls.Add(Me.EmpTel2TextBox)
         Me.TabPage15.Controls.Add(EmpTel2Label)
         Me.TabPage15.Controls.Add(EmpEmailLabel)
-        Me.TabPage15.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage15.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage15.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage15.Size = New System.Drawing.Size(841, 227)
         Me.TabPage15.TabIndex = 3
         Me.TabPage15.Text = "Telefone/Outros"
         Me.TabPage15.UseVisualStyleBackColor = True
@@ -2657,35 +2849,39 @@ Partial Class FrmLegalizacao
         'EmpTel1TextBox
         '
         Me.EmpTel1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpTel1", True))
-        Me.EmpTel1TextBox.Location = New System.Drawing.Point(79, 12)
+        Me.EmpTel1TextBox.Location = New System.Drawing.Point(92, 14)
+        Me.EmpTel1TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpTel1TextBox.Name = "EmpTel1TextBox"
-        Me.EmpTel1TextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EmpTel1TextBox.Size = New System.Drawing.Size(116, 21)
         Me.EmpTel1TextBox.TabIndex = 14
         '
         'EmpEmailTextBox
         '
         Me.EmpEmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpEmail", True))
-        Me.EmpEmailTextBox.Location = New System.Drawing.Point(79, 64)
+        Me.EmpEmailTextBox.Location = New System.Drawing.Point(92, 74)
+        Me.EmpEmailTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpEmailTextBox.MaxLength = 1000
         Me.EmpEmailTextBox.Name = "EmpEmailTextBox"
-        Me.EmpEmailTextBox.Size = New System.Drawing.Size(309, 20)
+        Me.EmpEmailTextBox.Size = New System.Drawing.Size(360, 21)
         Me.EmpEmailTextBox.TabIndex = 22
         '
         'PaginaWebTextBox
         '
         Me.PaginaWebTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PaginaWeb", True))
-        Me.PaginaWebTextBox.Location = New System.Drawing.Point(79, 90)
+        Me.PaginaWebTextBox.Location = New System.Drawing.Point(92, 104)
+        Me.PaginaWebTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PaginaWebTextBox.MaxLength = 1000
         Me.PaginaWebTextBox.Name = "PaginaWebTextBox"
-        Me.PaginaWebTextBox.Size = New System.Drawing.Size(309, 20)
+        Me.PaginaWebTextBox.Size = New System.Drawing.Size(360, 21)
         Me.PaginaWebTextBox.TabIndex = 24
         '
         'EmpTel2TextBox
         '
         Me.EmpTel2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpTel2", True))
-        Me.EmpTel2TextBox.Location = New System.Drawing.Point(79, 38)
+        Me.EmpTel2TextBox.Location = New System.Drawing.Point(92, 44)
+        Me.EmpTel2TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpTel2TextBox.Name = "EmpTel2TextBox"
-        Me.EmpTel2TextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EmpTel2TextBox.Size = New System.Drawing.Size(116, 21)
         Me.EmpTel2TextBox.TabIndex = 16
         '
         'TabPage16
@@ -2712,10 +2908,11 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Controls.Add(Me.DataExcSocialMaskedTextBox)
         Me.TabPage16.Controls.Add(CapitalILabel)
         Me.TabPage16.Controls.Add(CapitalSLabel)
-        Me.TabPage16.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage16.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage16.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage16.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage16.Size = New System.Drawing.Size(841, 227)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -2727,9 +2924,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarCapitalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarCapitalFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCopiarCapitalFinal.ForeColor = System.Drawing.Color.Black
-        Me.BtnCopiarCapitalFinal.Location = New System.Drawing.Point(541, 50)
+        Me.BtnCopiarCapitalFinal.Location = New System.Drawing.Point(631, 58)
+        Me.BtnCopiarCapitalFinal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarCapitalFinal.Name = "BtnCopiarCapitalFinal"
-        Me.BtnCopiarCapitalFinal.Size = New System.Drawing.Size(75, 44)
+        Me.BtnCopiarCapitalFinal.Size = New System.Drawing.Size(88, 51)
         Me.BtnCopiarCapitalFinal.TabIndex = 71
         Me.BtnCopiarCapitalFinal.Text = "Copiar Final"
         Me.BtnCopiarCapitalFinal.UseVisualStyleBackColor = True
@@ -2737,9 +2935,10 @@ Partial Class FrmLegalizacao
         'LinkLabelAumentoCapital
         '
         Me.LinkLabelAumentoCapital.AutoSize = True
-        Me.LinkLabelAumentoCapital.Location = New System.Drawing.Point(110, 100)
+        Me.LinkLabelAumentoCapital.Location = New System.Drawing.Point(128, 115)
+        Me.LinkLabelAumentoCapital.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelAumentoCapital.Name = "LinkLabelAumentoCapital"
-        Me.LinkLabelAumentoCapital.Size = New System.Drawing.Size(127, 13)
+        Me.LinkLabelAumentoCapital.Size = New System.Drawing.Size(149, 15)
         Me.LinkLabelAumentoCapital.TabIndex = 70
         Me.LinkLabelAumentoCapital.TabStop = True
         Me.LinkLabelAumentoCapital.Text = "Exemplo Aumento Capital"
@@ -2747,9 +2946,10 @@ Partial Class FrmLegalizacao
         'CapitalSocialAntigoLabel
         '
         Me.CapitalSocialAntigoLabel.AutoSize = True
-        Me.CapitalSocialAntigoLabel.Location = New System.Drawing.Point(10, 83)
+        Me.CapitalSocialAntigoLabel.Location = New System.Drawing.Point(12, 96)
+        Me.CapitalSocialAntigoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.CapitalSocialAntigoLabel.Name = "CapitalSocialAntigoLabel"
-        Me.CapitalSocialAntigoLabel.Size = New System.Drawing.Size(107, 13)
+        Me.CapitalSocialAntigoLabel.Size = New System.Drawing.Size(122, 15)
         Me.CapitalSocialAntigoLabel.TabIndex = 69
         Me.CapitalSocialAntigoLabel.Text = "Capital Social Antigo:"
         '
@@ -2757,18 +2957,20 @@ Partial Class FrmLegalizacao
         '
         Me.CapitalSocialAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalSocialAntigo", True))
         Me.CapitalSocialAntigoTextBox.ForeColor = System.Drawing.Color.Red
-        Me.CapitalSocialAntigoTextBox.Location = New System.Drawing.Point(117, 80)
+        Me.CapitalSocialAntigoTextBox.Location = New System.Drawing.Point(136, 92)
+        Me.CapitalSocialAntigoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalSocialAntigoTextBox.Name = "CapitalSocialAntigoTextBox"
-        Me.CapitalSocialAntigoTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitalSocialAntigoTextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitalSocialAntigoTextBox.TabIndex = 68
         '
         'CapitalAntigoMudouCheckBox
         '
         Me.CapitalAntigoMudouCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "CapitalAntigoMudou", True))
         Me.CapitalAntigoMudouCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CapitalAntigoMudouCheckBox.Location = New System.Drawing.Point(7, 5)
+        Me.CapitalAntigoMudouCheckBox.Location = New System.Drawing.Point(8, 6)
+        Me.CapitalAntigoMudouCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalAntigoMudouCheckBox.Name = "CapitalAntigoMudouCheckBox"
-        Me.CapitalAntigoMudouCheckBox.Size = New System.Drawing.Size(76, 24)
+        Me.CapitalAntigoMudouCheckBox.Size = New System.Drawing.Size(89, 28)
         Me.CapitalAntigoMudouCheckBox.TabIndex = 67
         Me.CapitalAntigoMudouCheckBox.Text = "Mudou?"
         Me.CapitalAntigoMudouCheckBox.UseVisualStyleBackColor = True
@@ -2780,9 +2982,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCopiarCapital.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiarCapital.Location = New System.Drawing.Point(541, 17)
+        Me.BtnCopiarCapital.Location = New System.Drawing.Point(631, 20)
+        Me.BtnCopiarCapital.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarCapital.Name = "BtnCopiarCapital"
-        Me.BtnCopiarCapital.Size = New System.Drawing.Size(75, 24)
+        Me.BtnCopiarCapital.Size = New System.Drawing.Size(88, 28)
         Me.BtnCopiarCapital.TabIndex = 66
         Me.BtnCopiarCapital.Text = "Copiar"
         Me.BtnCopiarCapital.UseVisualStyleBackColor = True
@@ -2793,9 +2996,10 @@ Partial Class FrmLegalizacao
         Me.BtnRemoveSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnRemoveSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemoveSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveSocios.Location = New System.Drawing.Point(504, 162)
+        Me.BtnRemoveSocios.Location = New System.Drawing.Point(588, 187)
+        Me.BtnRemoveSocios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnRemoveSocios.Name = "BtnRemoveSocios"
-        Me.BtnRemoveSocios.Size = New System.Drawing.Size(35, 31)
+        Me.BtnRemoveSocios.Size = New System.Drawing.Size(41, 36)
         Me.BtnRemoveSocios.TabIndex = 65
         Me.ToolTipDICAS.SetToolTip(Me.BtnRemoveSocios, "Remover Sócio")
         Me.BtnRemoveSocios.UseVisualStyleBackColor = True
@@ -2803,9 +3007,10 @@ Partial Class FrmLegalizacao
         'BtnPreencherCapital
         '
         Me.BtnPreencherCapital.AutoSize = True
-        Me.BtnPreencherCapital.Location = New System.Drawing.Point(178, 12)
+        Me.BtnPreencherCapital.Location = New System.Drawing.Point(208, 14)
+        Me.BtnPreencherCapital.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.BtnPreencherCapital.Name = "BtnPreencherCapital"
-        Me.BtnPreencherCapital.Size = New System.Drawing.Size(56, 13)
+        Me.BtnPreencherCapital.Size = New System.Drawing.Size(64, 15)
         Me.BtnPreencherCapital.TabIndex = 64
         Me.BtnPreencherCapital.TabStop = True
         Me.BtnPreencherCapital.Text = "Preencher"
@@ -2813,27 +3018,30 @@ Partial Class FrmLegalizacao
         'CapitaQuotaTotalTextBox
         '
         Me.CapitaQuotaTotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitaQuotaTotal", True))
-        Me.CapitaQuotaTotalTextBox.Location = New System.Drawing.Point(383, 54)
+        Me.CapitaQuotaTotalTextBox.Location = New System.Drawing.Point(447, 62)
+        Me.CapitaQuotaTotalTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitaQuotaTotalTextBox.Name = "CapitaQuotaTotalTextBox"
-        Me.CapitaQuotaTotalTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitaQuotaTotalTextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitaQuotaTotalTextBox.TabIndex = 63
         '
         'CapitalQuotaValorTextBox
         '
         Me.CapitalQuotaValorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalQuotaValor", True))
-        Me.CapitalQuotaValorTextBox.Location = New System.Drawing.Point(383, 28)
+        Me.CapitalQuotaValorTextBox.Location = New System.Drawing.Point(447, 32)
+        Me.CapitalQuotaValorTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalQuotaValorTextBox.Name = "CapitalQuotaValorTextBox"
-        Me.CapitalQuotaValorTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitalQuotaValorTextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitalQuotaValorTextBox.TabIndex = 62
         '
         'DivisaoCapitalSociosRichTextBox
         '
         Me.DivisaoCapitalSociosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DivisaoCapitalSocios", True))
         Me.DivisaoCapitalSociosRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DivisaoCapitalSociosRichTextBox.Location = New System.Drawing.Point(9, 129)
+        Me.DivisaoCapitalSociosRichTextBox.Location = New System.Drawing.Point(10, 149)
+        Me.DivisaoCapitalSociosRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DivisaoCapitalSociosRichTextBox.Name = "DivisaoCapitalSociosRichTextBox"
         Me.DivisaoCapitalSociosRichTextBox.ReadOnly = True
-        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(491, 65)
+        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(572, 74)
         Me.DivisaoCapitalSociosRichTextBox.TabIndex = 61
         Me.DivisaoCapitalSociosRichTextBox.Text = ""
         '
@@ -2843,9 +3051,10 @@ Partial Class FrmLegalizacao
         Me.BtnAddSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddSocios.Location = New System.Drawing.Point(504, 126)
+        Me.BtnAddSocios.Location = New System.Drawing.Point(588, 145)
+        Me.BtnAddSocios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAddSocios.Name = "BtnAddSocios"
-        Me.BtnAddSocios.Size = New System.Drawing.Size(35, 31)
+        Me.BtnAddSocios.Size = New System.Drawing.Size(41, 36)
         Me.BtnAddSocios.TabIndex = 60
         Me.ToolTipDICAS.SetToolTip(Me.BtnAddSocios, "Adicionar Sócio")
         Me.BtnAddSocios.UseVisualStyleBackColor = True
@@ -2853,26 +3062,29 @@ Partial Class FrmLegalizacao
         'CapitalITextBox
         '
         Me.CapitalITextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalI", True))
-        Me.CapitalITextBox.Location = New System.Drawing.Point(117, 54)
+        Me.CapitalITextBox.Location = New System.Drawing.Point(136, 62)
+        Me.CapitalITextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalITextBox.Name = "CapitalITextBox"
-        Me.CapitalITextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitalITextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitalITextBox.TabIndex = 9
         '
         'CapitalSTextBox
         '
         Me.CapitalSTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalS", True))
-        Me.CapitalSTextBox.Location = New System.Drawing.Point(117, 28)
+        Me.CapitalSTextBox.Location = New System.Drawing.Point(136, 32)
+        Me.CapitalSTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalSTextBox.Name = "CapitalSTextBox"
-        Me.CapitalSTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.CapitalSTextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitalSTextBox.TabIndex = 7
         '
         'DataExcSocialMaskedTextBox
         '
         Me.DataExcSocialMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataExcSocial", True))
-        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(456, 78)
+        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(532, 90)
+        Me.DataExcSocialMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataExcSocialMaskedTextBox.Mask = "99/99"
         Me.DataExcSocialMaskedTextBox.Name = "DataExcSocialMaskedTextBox"
-        Me.DataExcSocialMaskedTextBox.Size = New System.Drawing.Size(44, 20)
+        Me.DataExcSocialMaskedTextBox.Size = New System.Drawing.Size(51, 21)
         Me.DataExcSocialMaskedTextBox.TabIndex = 5
         Me.DataExcSocialMaskedTextBox.Text = "3112"
         '
@@ -2898,9 +3110,10 @@ Partial Class FrmLegalizacao
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial2TextBox)
         Me.TabPage18.Controls.Add(NovaRazaoSocial1Label)
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial1TextBox)
-        Me.TabPage18.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage18.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage18.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage18.Name = "TabPage18"
-        Me.TabPage18.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage18.Size = New System.Drawing.Size(841, 227)
         Me.TabPage18.TabIndex = 5
         Me.TabPage18.Text = "Busca de Nome"
         Me.TabPage18.UseVisualStyleBackColor = True
@@ -2908,9 +3121,10 @@ Partial Class FrmLegalizacao
         'BtnLimpaCaractRazao
         '
         Me.BtnLimpaCaractRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(550, 49)
+        Me.BtnLimpaCaractRazao.Location = New System.Drawing.Point(642, 57)
+        Me.BtnLimpaCaractRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimpaCaractRazao.Name = "BtnLimpaCaractRazao"
-        Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(69, 49)
+        Me.BtnLimpaCaractRazao.Size = New System.Drawing.Size(80, 57)
         Me.BtnLimpaCaractRazao.TabIndex = 51
         Me.BtnLimpaCaractRazao.Text = "Arrumar"
         Me.BtnLimpaCaractRazao.UseVisualStyleBackColor = True
@@ -2918,9 +3132,10 @@ Partial Class FrmLegalizacao
         'BtnUsarNomeFantasia
         '
         Me.BtnUsarNomeFantasia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarNomeFantasia.Location = New System.Drawing.Point(503, 130)
+        Me.BtnUsarNomeFantasia.Location = New System.Drawing.Point(587, 150)
+        Me.BtnUsarNomeFantasia.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnUsarNomeFantasia.Name = "BtnUsarNomeFantasia"
-        Me.BtnUsarNomeFantasia.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarNomeFantasia.Size = New System.Drawing.Size(47, 27)
         Me.BtnUsarNomeFantasia.TabIndex = 50
         Me.BtnUsarNomeFantasia.Text = "Usar"
         Me.BtnUsarNomeFantasia.UseVisualStyleBackColor = True
@@ -2928,9 +3143,10 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao3
         '
         Me.BtnUsarRazao3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao3.Location = New System.Drawing.Point(503, 101)
+        Me.BtnUsarRazao3.Location = New System.Drawing.Point(587, 117)
+        Me.BtnUsarRazao3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnUsarRazao3.Name = "BtnUsarRazao3"
-        Me.BtnUsarRazao3.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao3.Size = New System.Drawing.Size(47, 27)
         Me.BtnUsarRazao3.TabIndex = 49
         Me.BtnUsarRazao3.Text = "Usar"
         Me.BtnUsarRazao3.UseVisualStyleBackColor = True
@@ -2938,9 +3154,10 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao2
         '
         Me.BtnUsarRazao2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao2.Location = New System.Drawing.Point(503, 75)
+        Me.BtnUsarRazao2.Location = New System.Drawing.Point(587, 87)
+        Me.BtnUsarRazao2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnUsarRazao2.Name = "BtnUsarRazao2"
-        Me.BtnUsarRazao2.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao2.Size = New System.Drawing.Size(47, 27)
         Me.BtnUsarRazao2.TabIndex = 48
         Me.BtnUsarRazao2.Text = "Usar"
         Me.BtnUsarRazao2.UseVisualStyleBackColor = True
@@ -2948,9 +3165,10 @@ Partial Class FrmLegalizacao
         'BtnUsarRazao1
         '
         Me.BtnUsarRazao1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUsarRazao1.Location = New System.Drawing.Point(503, 49)
+        Me.BtnUsarRazao1.Location = New System.Drawing.Point(587, 57)
+        Me.BtnUsarRazao1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnUsarRazao1.Name = "BtnUsarRazao1"
-        Me.BtnUsarRazao1.Size = New System.Drawing.Size(40, 23)
+        Me.BtnUsarRazao1.Size = New System.Drawing.Size(47, 27)
         Me.BtnUsarRazao1.TabIndex = 47
         Me.BtnUsarRazao1.Text = "Usar"
         Me.BtnUsarRazao1.UseVisualStyleBackColor = True
@@ -2958,9 +3176,10 @@ Partial Class FrmLegalizacao
         'RazaoSocialAntigaLabel
         '
         Me.RazaoSocialAntigaLabel.AutoSize = True
-        Me.RazaoSocialAntigaLabel.Location = New System.Drawing.Point(39, 14)
+        Me.RazaoSocialAntigaLabel.Location = New System.Drawing.Point(46, 16)
+        Me.RazaoSocialAntigaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.RazaoSocialAntigaLabel.Name = "RazaoSocialAntigaLabel"
-        Me.RazaoSocialAntigaLabel.Size = New System.Drawing.Size(106, 13)
+        Me.RazaoSocialAntigaLabel.Size = New System.Drawing.Size(120, 15)
         Me.RazaoSocialAntigaLabel.TabIndex = 46
         Me.RazaoSocialAntigaLabel.Text = "Razão Social Antiga:"
         '
@@ -2968,7 +3187,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabelMudarRazaoSocial.AutoSize = True
         Me.LinkLabelMudarRazaoSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.LinkLabelMudarRazaoSocial.Location = New System.Drawing.Point(508, 163)
+        Me.LinkLabelMudarRazaoSocial.Location = New System.Drawing.Point(593, 188)
+        Me.LinkLabelMudarRazaoSocial.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelMudarRazaoSocial.Name = "LinkLabelMudarRazaoSocial"
         Me.LinkLabelMudarRazaoSocial.Size = New System.Drawing.Size(101, 13)
         Me.LinkLabelMudarRazaoSocial.TabIndex = 50
@@ -2979,9 +3199,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnImportarRazaoSocial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnImportarRazaoSocial.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(503, 9)
+        Me.BtnImportarRazaoSocial.Location = New System.Drawing.Point(587, 10)
+        Me.BtnImportarRazaoSocial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnImportarRazaoSocial.Name = "BtnImportarRazaoSocial"
-        Me.BtnImportarRazaoSocial.Size = New System.Drawing.Size(62, 23)
+        Me.BtnImportarRazaoSocial.Size = New System.Drawing.Size(72, 27)
         Me.BtnImportarRazaoSocial.TabIndex = 45
         Me.BtnImportarRazaoSocial.Text = "Importar"
         Me.BtnImportarRazaoSocial.UseVisualStyleBackColor = True
@@ -2989,58 +3210,65 @@ Partial Class FrmLegalizacao
         'RazaoSocialAntigaTextBox
         '
         Me.RazaoSocialAntigaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RazaoSocialAntiga", True))
-        Me.RazaoSocialAntigaTextBox.Location = New System.Drawing.Point(151, 11)
+        Me.RazaoSocialAntigaTextBox.Location = New System.Drawing.Point(176, 13)
+        Me.RazaoSocialAntigaTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RazaoSocialAntigaTextBox.Name = "RazaoSocialAntigaTextBox"
-        Me.RazaoSocialAntigaTextBox.Size = New System.Drawing.Size(346, 20)
+        Me.RazaoSocialAntigaTextBox.Size = New System.Drawing.Size(403, 21)
         Me.RazaoSocialAntigaTextBox.TabIndex = 10
         '
         'LabelNovaRazaoFinal
         '
         Me.LabelNovaRazaoFinal.AutoSize = True
-        Me.LabelNovaRazaoFinal.Location = New System.Drawing.Point(3, 159)
+        Me.LabelNovaRazaoFinal.Location = New System.Drawing.Point(4, 183)
+        Me.LabelNovaRazaoFinal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelNovaRazaoFinal.Name = "LabelNovaRazaoFinal"
-        Me.LabelNovaRazaoFinal.Size = New System.Drawing.Size(147, 13)
+        Me.LabelNovaRazaoFinal.Size = New System.Drawing.Size(168, 15)
         Me.LabelNovaRazaoFinal.TabIndex = 49
         Me.LabelNovaRazaoFinal.Text = "Resultado- nova razão social:"
         '
         'NomeFantasiaTextBox1
         '
         Me.NomeFantasiaTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
-        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(151, 130)
+        Me.NomeFantasiaTextBox1.Location = New System.Drawing.Point(176, 150)
+        Me.NomeFantasiaTextBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomeFantasiaTextBox1.Name = "NomeFantasiaTextBox1"
-        Me.NomeFantasiaTextBox1.Size = New System.Drawing.Size(346, 20)
+        Me.NomeFantasiaTextBox1.Size = New System.Drawing.Size(403, 21)
         Me.NomeFantasiaTextBox1.TabIndex = 9
         '
         'NovaRazaoSocialFinalTextBox
         '
         Me.NovaRazaoSocialFinalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocialFinal", True))
-        Me.NovaRazaoSocialFinalTextBox.Location = New System.Drawing.Point(151, 156)
+        Me.NovaRazaoSocialFinalTextBox.Location = New System.Drawing.Point(176, 180)
+        Me.NovaRazaoSocialFinalTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NovaRazaoSocialFinalTextBox.Name = "NovaRazaoSocialFinalTextBox"
-        Me.NovaRazaoSocialFinalTextBox.Size = New System.Drawing.Size(346, 20)
+        Me.NovaRazaoSocialFinalTextBox.Size = New System.Drawing.Size(403, 21)
         Me.NovaRazaoSocialFinalTextBox.TabIndex = 48
         '
         'NovaRazaoSocial3TextBox
         '
         Me.NovaRazaoSocial3TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial3", True))
-        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(151, 103)
+        Me.NovaRazaoSocial3TextBox.Location = New System.Drawing.Point(176, 119)
+        Me.NovaRazaoSocial3TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NovaRazaoSocial3TextBox.Name = "NovaRazaoSocial3TextBox"
-        Me.NovaRazaoSocial3TextBox.Size = New System.Drawing.Size(346, 20)
+        Me.NovaRazaoSocial3TextBox.Size = New System.Drawing.Size(403, 21)
         Me.NovaRazaoSocial3TextBox.TabIndex = 5
         '
         'NovaRazaoSocial2TextBox
         '
         Me.NovaRazaoSocial2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial2", True))
-        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(151, 77)
+        Me.NovaRazaoSocial2TextBox.Location = New System.Drawing.Point(176, 89)
+        Me.NovaRazaoSocial2TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NovaRazaoSocial2TextBox.Name = "NovaRazaoSocial2TextBox"
-        Me.NovaRazaoSocial2TextBox.Size = New System.Drawing.Size(346, 20)
+        Me.NovaRazaoSocial2TextBox.Size = New System.Drawing.Size(403, 21)
         Me.NovaRazaoSocial2TextBox.TabIndex = 3
         '
         'NovaRazaoSocial1TextBox
         '
         Me.NovaRazaoSocial1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial1", True))
-        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(151, 51)
+        Me.NovaRazaoSocial1TextBox.Location = New System.Drawing.Point(176, 59)
+        Me.NovaRazaoSocial1TextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NovaRazaoSocial1TextBox.Name = "NovaRazaoSocial1TextBox"
-        Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(346, 20)
+        Me.NovaRazaoSocial1TextBox.Size = New System.Drawing.Size(403, 21)
         Me.NovaRazaoSocial1TextBox.TabIndex = 1
         '
         'TabPage21
@@ -3052,10 +3280,11 @@ Partial Class FrmLegalizacao
         Me.TabPage21.Controls.Add(Me.TipoUnidadeProdutivaRichTextBox)
         Me.TabPage21.Controls.Add(Me.FormaDeAtuacaoLabel)
         Me.TabPage21.Controls.Add(TipoUnidadeProdutivaLabel)
-        Me.TabPage21.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage21.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage21.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage21.Name = "TabPage21"
-        Me.TabPage21.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage21.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage21.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage21.Size = New System.Drawing.Size(841, 227)
         Me.TabPage21.TabIndex = 7
         Me.TabPage21.Text = "Atuação da Empresa"
         Me.TabPage21.UseVisualStyleBackColor = True
@@ -3067,9 +3296,10 @@ Partial Class FrmLegalizacao
         Me.BtnAjudaEmpresaFacilFormaAtuacao.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAjudaEmpresaFacilFormaAtuacao.FlatAppearance.BorderSize = 0
         Me.BtnAjudaEmpresaFacilFormaAtuacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAjudaEmpresaFacilFormaAtuacao.Location = New System.Drawing.Point(485, 12)
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Location = New System.Drawing.Point(566, 14)
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAjudaEmpresaFacilFormaAtuacao.Name = "BtnAjudaEmpresaFacilFormaAtuacao"
-        Me.BtnAjudaEmpresaFacilFormaAtuacao.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaEmpresaFacilFormaAtuacao.Size = New System.Drawing.Size(31, 27)
         Me.BtnAjudaEmpresaFacilFormaAtuacao.TabIndex = 72
         Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaEmpresaFacilFormaAtuacao, "Mostrar Razão Social Completa")
         Me.BtnAjudaEmpresaFacilFormaAtuacao.UseVisualStyleBackColor = True
@@ -3081,9 +3311,10 @@ Partial Class FrmLegalizacao
         Me.BtnAjudaEmpresaFacilTipoUnidade.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAjudaEmpresaFacilTipoUnidade.FlatAppearance.BorderSize = 0
         Me.BtnAjudaEmpresaFacilTipoUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAjudaEmpresaFacilTipoUnidade.Location = New System.Drawing.Point(153, 12)
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Location = New System.Drawing.Point(178, 14)
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAjudaEmpresaFacilTipoUnidade.Name = "BtnAjudaEmpresaFacilTipoUnidade"
-        Me.BtnAjudaEmpresaFacilTipoUnidade.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAjudaEmpresaFacilTipoUnidade.Size = New System.Drawing.Size(31, 27)
         Me.BtnAjudaEmpresaFacilTipoUnidade.TabIndex = 71
         Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaEmpresaFacilTipoUnidade, "Mostrar Razão Social Completa")
         Me.BtnAjudaEmpresaFacilTipoUnidade.UseVisualStyleBackColor = True
@@ -3092,9 +3323,10 @@ Partial Class FrmLegalizacao
         '
         Me.FormaDeAtuacaoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "FormaDeAtuacao", True))
         Me.FormaDeAtuacaoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormaDeAtuacaoRichTextBox.Location = New System.Drawing.Point(329, 35)
+        Me.FormaDeAtuacaoRichTextBox.Location = New System.Drawing.Point(384, 40)
+        Me.FormaDeAtuacaoRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.FormaDeAtuacaoRichTextBox.Name = "FormaDeAtuacaoRichTextBox"
-        Me.FormaDeAtuacaoRichTextBox.Size = New System.Drawing.Size(262, 138)
+        Me.FormaDeAtuacaoRichTextBox.Size = New System.Drawing.Size(316, 159)
         Me.FormaDeAtuacaoRichTextBox.TabIndex = 6
         Me.FormaDeAtuacaoRichTextBox.Text = ""
         '
@@ -3102,18 +3334,20 @@ Partial Class FrmLegalizacao
         '
         Me.TipoUnidadeProdutivaRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "TipoUnidadeProdutiva", True))
         Me.TipoUnidadeProdutivaRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TipoUnidadeProdutivaRichTextBox.Location = New System.Drawing.Point(14, 35)
+        Me.TipoUnidadeProdutivaRichTextBox.Location = New System.Drawing.Point(16, 40)
+        Me.TipoUnidadeProdutivaRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TipoUnidadeProdutivaRichTextBox.Name = "TipoUnidadeProdutivaRichTextBox"
-        Me.TipoUnidadeProdutivaRichTextBox.Size = New System.Drawing.Size(262, 138)
+        Me.TipoUnidadeProdutivaRichTextBox.Size = New System.Drawing.Size(316, 159)
         Me.TipoUnidadeProdutivaRichTextBox.TabIndex = 5
         Me.TipoUnidadeProdutivaRichTextBox.Text = ""
         '
         'FormaDeAtuacaoLabel
         '
         Me.FormaDeAtuacaoLabel.AutoSize = True
-        Me.FormaDeAtuacaoLabel.Location = New System.Drawing.Point(326, 19)
+        Me.FormaDeAtuacaoLabel.Location = New System.Drawing.Point(380, 22)
+        Me.FormaDeAtuacaoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.FormaDeAtuacaoLabel.Name = "FormaDeAtuacaoLabel"
-        Me.FormaDeAtuacaoLabel.Size = New System.Drawing.Size(154, 13)
+        Me.FormaDeAtuacaoLabel.Size = New System.Drawing.Size(179, 15)
         Me.FormaDeAtuacaoLabel.TabIndex = 4
         Me.FormaDeAtuacaoLabel.Text = "Forma de atuação da empresa:"
         '
@@ -3134,10 +3368,11 @@ Partial Class FrmLegalizacao
         Me.TabPage22.Controls.Add(Me.DadosComplAtividadeComboBox)
         Me.TabPage22.Controls.Add(DadosComplEstabelecimentoLabel)
         Me.TabPage22.Controls.Add(Me.DadosComplEstabelecimentoComboBox)
-        Me.TabPage22.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage22.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage22.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage22.Name = "TabPage22"
-        Me.TabPage22.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage22.Size = New System.Drawing.Size(622, 198)
+        Me.TabPage22.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage22.Size = New System.Drawing.Size(841, 227)
         Me.TabPage22.TabIndex = 8
         Me.TabPage22.Text = "Dados Complementares"
         Me.TabPage22.UseVisualStyleBackColor = True
@@ -3145,17 +3380,19 @@ Partial Class FrmLegalizacao
         'DadosComplGLPTextBox
         '
         Me.DadosComplGLPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplGLP", True))
-        Me.DadosComplGLPTextBox.Location = New System.Drawing.Point(342, 160)
+        Me.DadosComplGLPTextBox.Location = New System.Drawing.Point(399, 185)
+        Me.DadosComplGLPTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplGLPTextBox.Name = "DadosComplGLPTextBox"
-        Me.DadosComplGLPTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplGLPTextBox.Size = New System.Drawing.Size(88, 21)
         Me.DadosComplGLPTextBox.TabIndex = 25
         '
         'DadosComplLiquidoTextBox
         '
         Me.DadosComplLiquidoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplLiquido", True))
-        Me.DadosComplLiquidoTextBox.Location = New System.Drawing.Point(342, 136)
+        Me.DadosComplLiquidoTextBox.Location = New System.Drawing.Point(399, 157)
+        Me.DadosComplLiquidoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplLiquidoTextBox.Name = "DadosComplLiquidoTextBox"
-        Me.DadosComplLiquidoTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplLiquidoTextBox.Size = New System.Drawing.Size(88, 21)
         Me.DadosComplLiquidoTextBox.TabIndex = 24
         '
         'DadosComplSubsoloComboBox
@@ -3163,25 +3400,28 @@ Partial Class FrmLegalizacao
         Me.DadosComplSubsoloComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplSubsolo", True))
         Me.DadosComplSubsoloComboBox.FormattingEnabled = True
         Me.DadosComplSubsoloComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.DadosComplSubsoloComboBox.Location = New System.Drawing.Point(342, 111)
+        Me.DadosComplSubsoloComboBox.Location = New System.Drawing.Point(399, 128)
+        Me.DadosComplSubsoloComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplSubsoloComboBox.Name = "DadosComplSubsoloComboBox"
-        Me.DadosComplSubsoloComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplSubsoloComboBox.Size = New System.Drawing.Size(88, 23)
         Me.DadosComplSubsoloComboBox.TabIndex = 23
         '
         'DadosComplPessoasTextBox
         '
         Me.DadosComplPessoasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPessoas", True))
-        Me.DadosComplPessoasTextBox.Location = New System.Drawing.Point(342, 86)
+        Me.DadosComplPessoasTextBox.Location = New System.Drawing.Point(399, 99)
+        Me.DadosComplPessoasTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplPessoasTextBox.Name = "DadosComplPessoasTextBox"
-        Me.DadosComplPessoasTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplPessoasTextBox.Size = New System.Drawing.Size(88, 21)
         Me.DadosComplPessoasTextBox.TabIndex = 21
         '
         'DadosComplPavimentosTextBox
         '
         Me.DadosComplPavimentosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPavimentos", True))
-        Me.DadosComplPavimentosTextBox.Location = New System.Drawing.Point(342, 62)
+        Me.DadosComplPavimentosTextBox.Location = New System.Drawing.Point(399, 72)
+        Me.DadosComplPavimentosTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplPavimentosTextBox.Name = "DadosComplPavimentosTextBox"
-        Me.DadosComplPavimentosTextBox.Size = New System.Drawing.Size(76, 20)
+        Me.DadosComplPavimentosTextBox.Size = New System.Drawing.Size(88, 21)
         Me.DadosComplPavimentosTextBox.TabIndex = 20
         '
         'DadosComplAtividadeComboBox
@@ -3189,9 +3429,10 @@ Partial Class FrmLegalizacao
         Me.DadosComplAtividadeComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplAtividade", True))
         Me.DadosComplAtividadeComboBox.FormattingEnabled = True
         Me.DadosComplAtividadeComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.DadosComplAtividadeComboBox.Location = New System.Drawing.Point(342, 37)
+        Me.DadosComplAtividadeComboBox.Location = New System.Drawing.Point(399, 43)
+        Me.DadosComplAtividadeComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplAtividadeComboBox.Name = "DadosComplAtividadeComboBox"
-        Me.DadosComplAtividadeComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplAtividadeComboBox.Size = New System.Drawing.Size(88, 23)
         Me.DadosComplAtividadeComboBox.TabIndex = 17
         '
         'DadosComplEstabelecimentoComboBox
@@ -3199,9 +3440,10 @@ Partial Class FrmLegalizacao
         Me.DadosComplEstabelecimentoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplEstabelecimento", True))
         Me.DadosComplEstabelecimentoComboBox.FormattingEnabled = True
         Me.DadosComplEstabelecimentoComboBox.Items.AddRange(New Object() {"Inócuo", "Virtual"})
-        Me.DadosComplEstabelecimentoComboBox.Location = New System.Drawing.Point(342, 12)
+        Me.DadosComplEstabelecimentoComboBox.Location = New System.Drawing.Point(399, 14)
+        Me.DadosComplEstabelecimentoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplEstabelecimentoComboBox.Name = "DadosComplEstabelecimentoComboBox"
-        Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(76, 21)
+        Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(88, 23)
         Me.DadosComplEstabelecimentoComboBox.TabIndex = 15
         '
         'TabPage3
@@ -3227,9 +3469,10 @@ Partial Class FrmLegalizacao
         Me.TabPage3.Controls.Add(Me.BtnConsultaJunta)
         Me.TabPage3.Controls.Add(ProtocoloJuntaComercialLabel)
         Me.TabPage3.Controls.Add(Me.ProtocoloJuntaComercialTextBox)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage3.Size = New System.Drawing.Size(849, 284)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Empresa Fácil"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3239,9 +3482,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarPRP.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.BtnCopiarPRP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarPRP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarPRP.Location = New System.Drawing.Point(265, 36)
+        Me.BtnCopiarPRP.Location = New System.Drawing.Point(309, 95)
+        Me.BtnCopiarPRP.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarPRP.Name = "BtnCopiarPRP"
-        Me.BtnCopiarPRP.Size = New System.Drawing.Size(46, 21)
+        Me.BtnCopiarPRP.Size = New System.Drawing.Size(54, 24)
         Me.BtnCopiarPRP.TabIndex = 81
         Me.BtnCopiarPRP.Text = "Copiar"
         Me.BtnCopiarPRP.UseVisualStyleBackColor = True
@@ -3251,9 +3495,10 @@ Partial Class FrmLegalizacao
         Me.BtnVerEmpresaFacil.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnVerEmpresaFacil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerEmpresaFacil.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerEmpresaFacil.Location = New System.Drawing.Point(284, 207)
+        Me.BtnVerEmpresaFacil.Location = New System.Drawing.Point(428, 242)
+        Me.BtnVerEmpresaFacil.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerEmpresaFacil.Name = "BtnVerEmpresaFacil"
-        Me.BtnVerEmpresaFacil.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerEmpresaFacil.Size = New System.Drawing.Size(38, 25)
         Me.BtnVerEmpresaFacil.TabIndex = 80
         Me.BtnVerEmpresaFacil.Text = "Ver"
         Me.BtnVerEmpresaFacil.UseVisualStyleBackColor = False
@@ -3262,7 +3507,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabeLPrazoEmpresaFacil.AutoSize = True
         Me.LinkLabeLPrazoEmpresaFacil.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.LinkLabeLPrazoEmpresaFacil.Location = New System.Drawing.Point(249, 91)
+        Me.LinkLabeLPrazoEmpresaFacil.Location = New System.Drawing.Point(304, 154)
+        Me.LinkLabeLPrazoEmpresaFacil.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabeLPrazoEmpresaFacil.Name = "LinkLabeLPrazoEmpresaFacil"
         Me.LinkLabeLPrazoEmpresaFacil.Size = New System.Drawing.Size(59, 13)
         Me.LinkLabeLPrazoEmpresaFacil.TabIndex = 72
@@ -3274,9 +3520,10 @@ Partial Class FrmLegalizacao
         Me.BtnAnotacoesLEgalizacao.BackgroundImage = CType(resources.GetObject("BtnAnotacoesLEgalizacao.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesLEgalizacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAnotacoesLEgalizacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(230, 114)
+        Me.BtnAnotacoesLEgalizacao.Location = New System.Drawing.Point(261, 8)
+        Me.BtnAnotacoesLEgalizacao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesLEgalizacao.Name = "BtnAnotacoesLEgalizacao"
-        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(73, 23)
+        Me.BtnAnotacoesLEgalizacao.Size = New System.Drawing.Size(85, 28)
         Me.BtnAnotacoesLEgalizacao.TabIndex = 71
         Me.BtnAnotacoesLEgalizacao.Text = "Anotações"
         Me.BtnAnotacoesLEgalizacao.UseVisualStyleBackColor = True
@@ -3284,9 +3531,10 @@ Partial Class FrmLegalizacao
         'BtnData3
         '
         Me.BtnData3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData3.Location = New System.Drawing.Point(265, 62)
+        Me.BtnData3.Location = New System.Drawing.Point(309, 125)
+        Me.BtnData3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnData3.Name = "BtnData3"
-        Me.BtnData3.Size = New System.Drawing.Size(46, 21)
+        Me.BtnData3.Size = New System.Drawing.Size(54, 24)
         Me.BtnData3.TabIndex = 52
         Me.BtnData3.Text = "Agora"
         Me.BtnData3.UseVisualStyleBackColor = True
@@ -3294,9 +3542,10 @@ Partial Class FrmLegalizacao
         'BtnData2
         '
         Me.BtnData2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData2.Location = New System.Drawing.Point(265, 10)
+        Me.BtnData2.Location = New System.Drawing.Point(309, 65)
+        Me.BtnData2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnData2.Name = "BtnData2"
-        Me.BtnData2.Size = New System.Drawing.Size(46, 21)
+        Me.BtnData2.Size = New System.Drawing.Size(54, 24)
         Me.BtnData2.TabIndex = 51
         Me.BtnData2.Text = "Agora"
         Me.BtnData2.UseVisualStyleBackColor = True
@@ -3305,9 +3554,10 @@ Partial Class FrmLegalizacao
         '
         Me.Button48.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button48.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button48.Location = New System.Drawing.Point(14, 113)
+        Me.Button48.Location = New System.Drawing.Point(9, 8)
+        Me.Button48.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button48.Name = "Button48"
-        Me.Button48.Size = New System.Drawing.Size(60, 24)
+        Me.Button48.Size = New System.Drawing.Size(70, 28)
         Me.Button48.TabIndex = 47
         Me.Button48.Text = "Eventos"
         Me.Button48.UseVisualStyleBackColor = True
@@ -3319,20 +3569,22 @@ Partial Class FrmLegalizacao
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage20)
         Me.TabControl1.Controls.Add(Me.TabPage11)
-        Me.TabControl1.Location = New System.Drawing.Point(317, 10)
+        Me.TabControl1.Location = New System.Drawing.Point(487, 16)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(292, 223)
+        Me.TabControl1.Size = New System.Drawing.Size(341, 257)
         Me.TabControl1.TabIndex = 46
         '
         'TabPage9
         '
         Me.TabPage9.Controls.Add(Me.GroupBox6)
         Me.TabPage9.Controls.Add(Me.GroupBox5)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(284, 194)
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage9.Size = New System.Drawing.Size(333, 226)
         Me.TabPage9.TabIndex = 1
         Me.TabPage9.Text = "NIRE"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -3344,9 +3596,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox6.Controls.Add(Me.NireDataMaskedTextBox)
         Me.GroupBox6.Controls.Add(NIRELabel)
         Me.GroupBox6.Controls.Add(Me.NIRETextBox)
-        Me.GroupBox6.Location = New System.Drawing.Point(14, 7)
+        Me.GroupBox6.Location = New System.Drawing.Point(16, 8)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(221, 67)
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox6.Size = New System.Drawing.Size(258, 77)
         Me.GroupBox6.TabIndex = 34
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Nire Abertura"
@@ -3355,9 +3609,10 @@ Partial Class FrmLegalizacao
         '
         Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button22.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button22.Location = New System.Drawing.Point(154, 16)
+        Me.Button22.Location = New System.Drawing.Point(180, 18)
+        Me.Button22.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button22.Name = "Button22"
-        Me.Button22.Size = New System.Drawing.Size(62, 38)
+        Me.Button22.Size = New System.Drawing.Size(72, 44)
         Me.Button22.TabIndex = 41
         Me.Button22.Text = "Simples Nacional"
         Me.Button22.UseVisualStyleBackColor = True
@@ -3365,19 +3620,21 @@ Partial Class FrmLegalizacao
         'NireDataMaskedTextBox
         '
         Me.NireDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NireData", True))
-        Me.NireDataMaskedTextBox.Location = New System.Drawing.Point(64, 39)
+        Me.NireDataMaskedTextBox.Location = New System.Drawing.Point(75, 45)
+        Me.NireDataMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NireDataMaskedTextBox.Mask = "00/00/0000"
         Me.NireDataMaskedTextBox.Name = "NireDataMaskedTextBox"
-        Me.NireDataMaskedTextBox.Size = New System.Drawing.Size(69, 20)
+        Me.NireDataMaskedTextBox.Size = New System.Drawing.Size(80, 21)
         Me.NireDataMaskedTextBox.TabIndex = 23
         Me.NireDataMaskedTextBox.ValidatingType = GetType(Date)
         '
         'NIRETextBox
         '
         Me.NIRETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NIRE", True))
-        Me.NIRETextBox.Location = New System.Drawing.Point(64, 16)
+        Me.NIRETextBox.Location = New System.Drawing.Point(75, 18)
+        Me.NIRETextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NIRETextBox.Name = "NIRETextBox"
-        Me.NIRETextBox.Size = New System.Drawing.Size(87, 20)
+        Me.NIRETextBox.Size = New System.Drawing.Size(101, 21)
         Me.NIRETextBox.TabIndex = 22
         '
         'GroupBox5
@@ -3388,9 +3645,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox5.Controls.Add(DataRegistroAltLabel)
         Me.GroupBox5.Controls.Add(Me.NRegistroAltTextBox)
         Me.GroupBox5.Controls.Add(Me.DataRegistroAltMaskedTextBox)
-        Me.GroupBox5.Location = New System.Drawing.Point(14, 85)
+        Me.GroupBox5.Location = New System.Drawing.Point(16, 98)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(221, 67)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox5.Size = New System.Drawing.Size(258, 77)
         Me.GroupBox5.TabIndex = 33
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Alteração / Baixa"
@@ -3400,26 +3659,29 @@ Partial Class FrmLegalizacao
         Me.AltProtComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "AltProt", True))
         Me.AltProtComboBox.FormattingEnabled = True
         Me.AltProtComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22+"})
-        Me.AltProtComboBox.Location = New System.Drawing.Point(4, 15)
+        Me.AltProtComboBox.Location = New System.Drawing.Point(5, 17)
+        Me.AltProtComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AltProtComboBox.Name = "AltProtComboBox"
-        Me.AltProtComboBox.Size = New System.Drawing.Size(34, 21)
+        Me.AltProtComboBox.Size = New System.Drawing.Size(39, 23)
         Me.AltProtComboBox.TabIndex = 50
         '
         'NRegistroAltTextBox
         '
         Me.NRegistroAltTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NRegistroAlt", True))
-        Me.NRegistroAltTextBox.Location = New System.Drawing.Point(129, 16)
+        Me.NRegistroAltTextBox.Location = New System.Drawing.Point(150, 18)
+        Me.NRegistroAltTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NRegistroAltTextBox.Name = "NRegistroAltTextBox"
-        Me.NRegistroAltTextBox.Size = New System.Drawing.Size(87, 20)
+        Me.NRegistroAltTextBox.Size = New System.Drawing.Size(101, 21)
         Me.NRegistroAltTextBox.TabIndex = 32
         '
         'DataRegistroAltMaskedTextBox
         '
         Me.DataRegistroAltMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataRegistroAlt", True))
-        Me.DataRegistroAltMaskedTextBox.Location = New System.Drawing.Point(129, 39)
+        Me.DataRegistroAltMaskedTextBox.Location = New System.Drawing.Point(150, 45)
+        Me.DataRegistroAltMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataRegistroAltMaskedTextBox.Mask = "00/00/0000"
         Me.DataRegistroAltMaskedTextBox.Name = "DataRegistroAltMaskedTextBox"
-        Me.DataRegistroAltMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.DataRegistroAltMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.DataRegistroAltMaskedTextBox.TabIndex = 31
         Me.DataRegistroAltMaskedTextBox.ValidatingType = GetType(Date)
         '
@@ -3438,10 +3700,11 @@ Partial Class FrmLegalizacao
         Me.TabPage8.Controls.Add(Me.ArquivoContratoTextBox)
         Me.TabPage8.Controls.Add(Me.Button38)
         Me.TabPage8.Controls.Add(Me.GroupBox13)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(284, 194)
+        Me.TabPage8.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage8.Size = New System.Drawing.Size(333, 226)
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Arquivos"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -3449,9 +3712,10 @@ Partial Class FrmLegalizacao
         'BtnArrumar
         '
         Me.BtnArrumar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnArrumar.Location = New System.Drawing.Point(213, 164)
+        Me.BtnArrumar.Location = New System.Drawing.Point(248, 189)
+        Me.BtnArrumar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnArrumar.Name = "BtnArrumar"
-        Me.BtnArrumar.Size = New System.Drawing.Size(55, 23)
+        Me.BtnArrumar.Size = New System.Drawing.Size(64, 27)
         Me.BtnArrumar.TabIndex = 48
         Me.BtnArrumar.Text = "Importar"
         Me.BtnArrumar.UseVisualStyleBackColor = True
@@ -3459,9 +3723,10 @@ Partial Class FrmLegalizacao
         'Button41
         '
         Me.Button41.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button41.Location = New System.Drawing.Point(77, 164)
+        Me.Button41.Location = New System.Drawing.Point(90, 189)
+        Me.Button41.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button41.Name = "Button41"
-        Me.Button41.Size = New System.Drawing.Size(62, 23)
+        Me.Button41.Size = New System.Drawing.Size(72, 27)
         Me.Button41.TabIndex = 47
         Me.Button41.Text = "Limpar"
         Me.Button41.UseVisualStyleBackColor = True
@@ -3469,9 +3734,10 @@ Partial Class FrmLegalizacao
         'Button40
         '
         Me.Button40.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button40.Location = New System.Drawing.Point(77, 86)
+        Me.Button40.Location = New System.Drawing.Point(90, 99)
+        Me.Button40.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button40.Name = "Button40"
-        Me.Button40.Size = New System.Drawing.Size(62, 23)
+        Me.Button40.Size = New System.Drawing.Size(72, 27)
         Me.Button40.TabIndex = 46
         Me.Button40.Text = "Limpar"
         Me.Button40.UseVisualStyleBackColor = True
@@ -3479,9 +3745,10 @@ Partial Class FrmLegalizacao
         'Button31
         '
         Me.Button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button31.Location = New System.Drawing.Point(9, 164)
+        Me.Button31.Location = New System.Drawing.Point(10, 189)
+        Me.Button31.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button31.Name = "Button31"
-        Me.Button31.Size = New System.Drawing.Size(62, 23)
+        Me.Button31.Size = New System.Drawing.Size(72, 27)
         Me.Button31.TabIndex = 45
         Me.Button31.Text = "Procurar"
         Me.Button31.UseVisualStyleBackColor = True
@@ -3489,17 +3756,19 @@ Partial Class FrmLegalizacao
         'PastaDocumentosTextBox
         '
         Me.PastaDocumentosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PastaDocumentos", True))
-        Me.PastaDocumentosTextBox.Location = New System.Drawing.Point(9, 138)
+        Me.PastaDocumentosTextBox.Location = New System.Drawing.Point(10, 159)
+        Me.PastaDocumentosTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PastaDocumentosTextBox.Name = "PastaDocumentosTextBox"
-        Me.PastaDocumentosTextBox.Size = New System.Drawing.Size(256, 20)
+        Me.PastaDocumentosTextBox.Size = New System.Drawing.Size(298, 21)
         Me.PastaDocumentosTextBox.TabIndex = 43
         '
         'Button15
         '
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button15.Location = New System.Drawing.Point(9, 86)
+        Me.Button15.Location = New System.Drawing.Point(10, 99)
+        Me.Button15.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(62, 23)
+        Me.Button15.Size = New System.Drawing.Size(72, 27)
         Me.Button15.TabIndex = 40
         Me.Button15.Text = "Procurar"
         Me.Button15.UseVisualStyleBackColor = True
@@ -3507,9 +3776,10 @@ Partial Class FrmLegalizacao
         'Button14
         '
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Location = New System.Drawing.Point(145, 86)
+        Me.Button14.Location = New System.Drawing.Point(169, 99)
+        Me.Button14.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(62, 23)
+        Me.Button14.Size = New System.Drawing.Size(72, 27)
         Me.Button14.TabIndex = 36
         Me.Button14.Text = "Abrir"
         Me.Button14.UseVisualStyleBackColor = True
@@ -3517,17 +3787,19 @@ Partial Class FrmLegalizacao
         'ArquivoContratoTextBox
         '
         Me.ArquivoContratoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ArquivoContrato", True))
-        Me.ArquivoContratoTextBox.Location = New System.Drawing.Point(9, 61)
+        Me.ArquivoContratoTextBox.Location = New System.Drawing.Point(10, 70)
+        Me.ArquivoContratoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ArquivoContratoTextBox.Name = "ArquivoContratoTextBox"
-        Me.ArquivoContratoTextBox.Size = New System.Drawing.Size(256, 20)
+        Me.ArquivoContratoTextBox.Size = New System.Drawing.Size(298, 21)
         Me.ArquivoContratoTextBox.TabIndex = 37
         '
         'Button38
         '
         Me.Button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button38.Location = New System.Drawing.Point(145, 164)
+        Me.Button38.Location = New System.Drawing.Point(169, 189)
+        Me.Button38.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button38.Name = "Button38"
-        Me.Button38.Size = New System.Drawing.Size(62, 23)
+        Me.Button38.Size = New System.Drawing.Size(72, 27)
         Me.Button38.TabIndex = 44
         Me.Button38.Text = "Abrir"
         Me.Button38.UseVisualStyleBackColor = True
@@ -3539,9 +3811,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox13.Controls.Add(ProcessoLabel1)
         Me.GroupBox13.Controls.Add(Me.NAlteracaoLabel2)
         Me.GroupBox13.Controls.Add(Me.ProcessoLabel2)
-        Me.GroupBox13.Location = New System.Drawing.Point(6, 3)
+        Me.GroupBox13.Location = New System.Drawing.Point(7, 3)
+        Me.GroupBox13.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(272, 41)
+        Me.GroupBox13.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox13.Size = New System.Drawing.Size(317, 47)
         Me.GroupBox13.TabIndex = 51
         Me.GroupBox13.TabStop = False
         '
@@ -3550,9 +3824,10 @@ Partial Class FrmLegalizacao
         Me.NAlteracaoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NAlteracao", True))
         Me.NAlteracaoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NAlteracaoLabel2.ForeColor = System.Drawing.Color.Red
-        Me.NAlteracaoLabel2.Location = New System.Drawing.Point(211, 6)
+        Me.NAlteracaoLabel2.Location = New System.Drawing.Point(246, 7)
+        Me.NAlteracaoLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.NAlteracaoLabel2.Name = "NAlteracaoLabel2"
-        Me.NAlteracaoLabel2.Size = New System.Drawing.Size(52, 21)
+        Me.NAlteracaoLabel2.Size = New System.Drawing.Size(61, 24)
         Me.NAlteracaoLabel2.TabIndex = 50
         Me.NAlteracaoLabel2.Text = "0______"
         '
@@ -3561,9 +3836,10 @@ Partial Class FrmLegalizacao
         Me.ProcessoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
         Me.ProcessoLabel2.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProcessoLabel2.ForeColor = System.Drawing.Color.Red
-        Me.ProcessoLabel2.Location = New System.Drawing.Point(72, 6)
+        Me.ProcessoLabel2.Location = New System.Drawing.Point(84, 7)
+        Me.ProcessoLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ProcessoLabel2.Name = "ProcessoLabel2"
-        Me.ProcessoLabel2.Size = New System.Drawing.Size(100, 21)
+        Me.ProcessoLabel2.Size = New System.Drawing.Size(117, 24)
         Me.ProcessoLabel2.TabIndex = 49
         Me.ProcessoLabel2.Text = "0_____________________"
         '
@@ -3577,9 +3853,10 @@ Partial Class FrmLegalizacao
         Me.TabPage20.Controls.Add(Me.BtnAbrirDoc)
         Me.TabPage20.Controls.Add(Label10)
         Me.TabPage20.Controls.Add(Me.BtnSalvarDoc)
-        Me.TabPage20.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage20.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage20.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage20.Name = "TabPage20"
-        Me.TabPage20.Size = New System.Drawing.Size(284, 194)
+        Me.TabPage20.Size = New System.Drawing.Size(333, 226)
         Me.TabPage20.TabIndex = 3
         Me.TabPage20.Text = "Anexo"
         Me.TabPage20.UseVisualStyleBackColor = True
@@ -3587,27 +3864,30 @@ Partial Class FrmLegalizacao
         'BtnImportarAnexo
         '
         Me.BtnImportarAnexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnImportarAnexo.Location = New System.Drawing.Point(13, 124)
+        Me.BtnImportarAnexo.Location = New System.Drawing.Point(15, 143)
+        Me.BtnImportarAnexo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnImportarAnexo.Name = "BtnImportarAnexo"
-        Me.BtnImportarAnexo.Size = New System.Drawing.Size(84, 23)
+        Me.BtnImportarAnexo.Size = New System.Drawing.Size(98, 27)
         Me.BtnImportarAnexo.TabIndex = 60
         Me.BtnImportarAnexo.Text = "Auto Importar"
         Me.BtnImportarAnexo.UseVisualStyleBackColor = True
         '
         'AnexoBoxPicture
         '
-        Me.AnexoBoxPicture.Location = New System.Drawing.Point(215, 3)
+        Me.AnexoBoxPicture.Location = New System.Drawing.Point(251, 3)
+        Me.AnexoBoxPicture.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AnexoBoxPicture.Name = "AnexoBoxPicture"
-        Me.AnexoBoxPicture.Size = New System.Drawing.Size(66, 40)
+        Me.AnexoBoxPicture.Size = New System.Drawing.Size(77, 46)
         Me.AnexoBoxPicture.TabIndex = 59
         Me.AnexoBoxPicture.TabStop = False
         '
         'DocContratosLinkLabel
         '
         Me.DocContratosLinkLabel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DocContratos", True))
-        Me.DocContratosLinkLabel.Location = New System.Drawing.Point(62, 53)
+        Me.DocContratosLinkLabel.Location = New System.Drawing.Point(72, 61)
+        Me.DocContratosLinkLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DocContratosLinkLabel.Name = "DocContratosLinkLabel"
-        Me.DocContratosLinkLabel.Size = New System.Drawing.Size(100, 23)
+        Me.DocContratosLinkLabel.Size = New System.Drawing.Size(117, 27)
         Me.DocContratosLinkLabel.TabIndex = 58
         Me.DocContratosLinkLabel.TabStop = True
         Me.DocContratosLinkLabel.Text = "Contrato Anexado"
@@ -3615,9 +3895,10 @@ Partial Class FrmLegalizacao
         'BtnApagaAnexo
         '
         Me.BtnApagaAnexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApagaAnexo.Location = New System.Drawing.Point(193, 95)
+        Me.BtnApagaAnexo.Location = New System.Drawing.Point(225, 110)
+        Me.BtnApagaAnexo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnApagaAnexo.Name = "BtnApagaAnexo"
-        Me.BtnApagaAnexo.Size = New System.Drawing.Size(84, 23)
+        Me.BtnApagaAnexo.Size = New System.Drawing.Size(98, 27)
         Me.BtnApagaAnexo.TabIndex = 55
         Me.BtnApagaAnexo.Text = "Apagar Anexo"
         Me.BtnApagaAnexo.UseVisualStyleBackColor = True
@@ -3625,9 +3906,10 @@ Partial Class FrmLegalizacao
         'BtnAbrirDoc
         '
         Me.BtnAbrirDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAbrirDoc.Location = New System.Drawing.Point(103, 95)
+        Me.BtnAbrirDoc.Location = New System.Drawing.Point(120, 110)
+        Me.BtnAbrirDoc.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAbrirDoc.Name = "BtnAbrirDoc"
-        Me.BtnAbrirDoc.Size = New System.Drawing.Size(84, 23)
+        Me.BtnAbrirDoc.Size = New System.Drawing.Size(98, 27)
         Me.BtnAbrirDoc.TabIndex = 53
         Me.BtnAbrirDoc.Text = "Abrir"
         Me.BtnAbrirDoc.UseVisualStyleBackColor = True
@@ -3635,9 +3917,10 @@ Partial Class FrmLegalizacao
         'BtnSalvarDoc
         '
         Me.BtnSalvarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSalvarDoc.Location = New System.Drawing.Point(13, 95)
+        Me.BtnSalvarDoc.Location = New System.Drawing.Point(15, 110)
+        Me.BtnSalvarDoc.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnSalvarDoc.Name = "BtnSalvarDoc"
-        Me.BtnSalvarDoc.Size = New System.Drawing.Size(84, 23)
+        Me.BtnSalvarDoc.Size = New System.Drawing.Size(98, 27)
         Me.BtnSalvarDoc.TabIndex = 48
         Me.BtnSalvarDoc.Text = "Anexar"
         Me.BtnSalvarDoc.UseVisualStyleBackColor = True
@@ -3645,10 +3928,11 @@ Partial Class FrmLegalizacao
         'TabPage11
         '
         Me.TabPage11.Controls.Add(Me.GroupBox3)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(284, 194)
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage11.Size = New System.Drawing.Size(333, 226)
         Me.TabPage11.TabIndex = 2
         Me.TabPage11.Text = "Ajuda"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -3657,9 +3941,11 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox3.Controls.Add(Me.LinkLabel2)
         Me.GroupBox3.Controls.Add(Me.LinkLabel1)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 20)
+        Me.GroupBox3.Location = New System.Drawing.Point(7, 23)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(221, 67)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox3.Size = New System.Drawing.Size(258, 77)
         Me.GroupBox3.TabIndex = 29
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ajuda"
@@ -3667,9 +3953,10 @@ Partial Class FrmLegalizacao
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(9, 39)
+        Me.LinkLabel2.Location = New System.Drawing.Point(10, 45)
+        Me.LinkLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(144, 13)
+        Me.LinkLabel2.Size = New System.Drawing.Size(162, 15)
         Me.LinkLabel2.TabIndex = 29
         Me.LinkLabel2.TabStop = True
         Me.LinkLabel2.Text = "Eventos que precisa de PRP"
@@ -3677,9 +3964,10 @@ Partial Class FrmLegalizacao
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(8, 19)
+        Me.LinkLabel1.Location = New System.Drawing.Point(9, 22)
+        Me.LinkLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(180, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(196, 15)
         Me.LinkLabel1.TabIndex = 28
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "CANCELADA - ART.60 LEI 8934/94"
@@ -3687,9 +3975,10 @@ Partial Class FrmLegalizacao
         'Button30
         '
         Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button30.Location = New System.Drawing.Point(196, 63)
+        Me.Button30.Location = New System.Drawing.Point(229, 126)
+        Me.Button30.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button30.Name = "Button30"
-        Me.Button30.Size = New System.Drawing.Size(65, 20)
+        Me.Button30.Size = New System.Drawing.Size(76, 23)
         Me.Button30.TabIndex = 42
         Me.Button30.Text = "Detalhes"
         Me.Button30.UseVisualStyleBackColor = True
@@ -3698,9 +3987,10 @@ Partial Class FrmLegalizacao
         '
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button12.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button12.Location = New System.Drawing.Point(80, 113)
+        Me.Button12.Location = New System.Drawing.Point(86, 8)
+        Me.Button12.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(145, 24)
+        Me.Button12.Size = New System.Drawing.Size(169, 28)
         Me.Button12.TabIndex = 35
         Me.Button12.Text = "Responsável pela Empresa"
         Me.Button12.UseVisualStyleBackColor = True
@@ -3708,28 +3998,31 @@ Partial Class FrmLegalizacao
         'ProtJuntaFinalMaskedTextBox
         '
         Me.ProtJuntaFinalMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ProtJuntaFinal", True))
-        Me.ProtJuntaFinalMaskedTextBox.Location = New System.Drawing.Point(90, 63)
+        Me.ProtJuntaFinalMaskedTextBox.Location = New System.Drawing.Point(105, 126)
+        Me.ProtJuntaFinalMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProtJuntaFinalMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.ProtJuntaFinalMaskedTextBox.Name = "ProtJuntaFinalMaskedTextBox"
-        Me.ProtJuntaFinalMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.ProtJuntaFinalMaskedTextBox.Size = New System.Drawing.Size(116, 21)
         Me.ProtJuntaFinalMaskedTextBox.TabIndex = 41
         Me.ProtJuntaFinalMaskedTextBox.ValidatingType = GetType(Date)
         '
         'JuntaObsRichTextBox
         '
         Me.JuntaObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "JuntaObs", True))
-        Me.JuntaObsRichTextBox.Location = New System.Drawing.Point(14, 162)
+        Me.JuntaObsRichTextBox.Location = New System.Drawing.Point(16, 187)
+        Me.JuntaObsRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.JuntaObsRichTextBox.Name = "JuntaObsRichTextBox"
-        Me.JuntaObsRichTextBox.Size = New System.Drawing.Size(270, 70)
+        Me.JuntaObsRichTextBox.Size = New System.Drawing.Size(404, 86)
         Me.JuntaObsRichTextBox.TabIndex = 30
         Me.JuntaObsRichTextBox.Text = ""
         '
         'Button6
         '
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button6.Location = New System.Drawing.Point(196, 10)
+        Me.Button6.Location = New System.Drawing.Point(229, 65)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(65, 20)
+        Me.Button6.Size = New System.Drawing.Size(76, 23)
         Me.Button6.TabIndex = 21
         Me.Button6.Text = "Detalhes"
         Me.Button6.UseVisualStyleBackColor = True
@@ -3737,10 +4030,11 @@ Partial Class FrmLegalizacao
         'DataProtJuntaComercialMaskedTextBox
         '
         Me.DataProtJuntaComercialMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataProtJuntaComercial", True))
-        Me.DataProtJuntaComercialMaskedTextBox.Location = New System.Drawing.Point(90, 11)
+        Me.DataProtJuntaComercialMaskedTextBox.Location = New System.Drawing.Point(105, 66)
+        Me.DataProtJuntaComercialMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataProtJuntaComercialMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataProtJuntaComercialMaskedTextBox.Name = "DataProtJuntaComercialMaskedTextBox"
-        Me.DataProtJuntaComercialMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.DataProtJuntaComercialMaskedTextBox.Size = New System.Drawing.Size(116, 21)
         Me.DataProtJuntaComercialMaskedTextBox.TabIndex = 6
         Me.DataProtJuntaComercialMaskedTextBox.ValidatingType = GetType(Date)
         '
@@ -3748,9 +4042,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnConsultaJunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnConsultaJunta.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnConsultaJunta.Location = New System.Drawing.Point(196, 35)
+        Me.BtnConsultaJunta.Location = New System.Drawing.Point(229, 93)
+        Me.BtnConsultaJunta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultaJunta.Name = "BtnConsultaJunta"
-        Me.BtnConsultaJunta.Size = New System.Drawing.Size(65, 22)
+        Me.BtnConsultaJunta.Size = New System.Drawing.Size(76, 25)
         Me.BtnConsultaJunta.TabIndex = 2
         Me.BtnConsultaJunta.Text = "Consultar"
         Me.BtnConsultaJunta.UseVisualStyleBackColor = True
@@ -3758,9 +4053,10 @@ Partial Class FrmLegalizacao
         'ProtocoloJuntaComercialTextBox
         '
         Me.ProtocoloJuntaComercialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ProtocoloJuntaComercial", True))
-        Me.ProtocoloJuntaComercialTextBox.Location = New System.Drawing.Point(90, 37)
+        Me.ProtocoloJuntaComercialTextBox.Location = New System.Drawing.Point(105, 96)
+        Me.ProtocoloJuntaComercialTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProtocoloJuntaComercialTextBox.Name = "ProtocoloJuntaComercialTextBox"
-        Me.ProtocoloJuntaComercialTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.ProtocoloJuntaComercialTextBox.Size = New System.Drawing.Size(116, 21)
         Me.ProtocoloJuntaComercialTextBox.TabIndex = 1
         '
         'TabPage4
@@ -3783,9 +4079,10 @@ Partial Class FrmLegalizacao
         Me.TabPage4.Controls.Add(Me.Button7)
         Me.TabPage4.Controls.Add(Me.DataProtREDESIMMaskedTextBox)
         Me.TabPage4.Controls.Add(Me.ProtocoloREDESIMTextBox)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage4.Size = New System.Drawing.Size(849, 284)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Receita Federal"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -3795,9 +4092,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarREDESIM.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.BtnCopiarREDESIM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarREDESIM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarREDESIM.Location = New System.Drawing.Point(265, 36)
+        Me.BtnCopiarREDESIM.Location = New System.Drawing.Point(309, 89)
+        Me.BtnCopiarREDESIM.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarREDESIM.Name = "BtnCopiarREDESIM"
-        Me.BtnCopiarREDESIM.Size = New System.Drawing.Size(47, 21)
+        Me.BtnCopiarREDESIM.Size = New System.Drawing.Size(55, 24)
         Me.BtnCopiarREDESIM.TabIndex = 87
         Me.BtnCopiarREDESIM.Text = "Copiar"
         Me.BtnCopiarREDESIM.UseVisualStyleBackColor = True
@@ -3814,9 +4112,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox9.Controls.Add(DBEProtocoloLabel)
         Me.GroupBox9.Controls.Add(Me.DBEProtocoloTextBox)
         Me.GroupBox9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 105)
+        Me.GroupBox9.Location = New System.Drawing.Point(4, 130)
+        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(309, 128)
+        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox9.Size = New System.Drawing.Size(360, 148)
         Me.GroupBox9.TabIndex = 86
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Protocolo Redesim / Federal"
@@ -3824,9 +4124,10 @@ Partial Class FrmLegalizacao
         'BtnLimparRedeSimProt
         '
         Me.BtnLimparRedeSimProt.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnLimparRedeSimProt.Location = New System.Drawing.Point(139, 101)
+        Me.BtnLimparRedeSimProt.Location = New System.Drawing.Point(162, 117)
+        Me.BtnLimparRedeSimProt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimparRedeSimProt.Name = "BtnLimparRedeSimProt"
-        Me.BtnLimparRedeSimProt.Size = New System.Drawing.Size(50, 21)
+        Me.BtnLimparRedeSimProt.Size = New System.Drawing.Size(58, 24)
         Me.BtnLimparRedeSimProt.TabIndex = 85
         Me.BtnLimparRedeSimProt.Text = "Limpar"
         Me.BtnLimparRedeSimProt.UseVisualStyleBackColor = True
@@ -3834,9 +4135,10 @@ Partial Class FrmLegalizacao
         'BtnDataProtFedDBE
         '
         Me.BtnDataProtFedDBE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnDataProtFedDBE.Location = New System.Drawing.Point(215, 74)
+        Me.BtnDataProtFedDBE.Location = New System.Drawing.Point(251, 85)
+        Me.BtnDataProtFedDBE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnDataProtFedDBE.Name = "BtnDataProtFedDBE"
-        Me.BtnDataProtFedDBE.Size = New System.Drawing.Size(43, 21)
+        Me.BtnDataProtFedDBE.Size = New System.Drawing.Size(50, 24)
         Me.BtnDataProtFedDBE.TabIndex = 84
         Me.BtnDataProtFedDBE.Text = "Agora"
         Me.BtnDataProtFedDBE.UseVisualStyleBackColor = True
@@ -3844,27 +4146,30 @@ Partial Class FrmLegalizacao
         'FederalProtocoloTextBox
         '
         Me.FederalProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "FederalProtocolo", True))
-        Me.FederalProtocoloTextBox.Location = New System.Drawing.Point(139, 50)
+        Me.FederalProtocoloTextBox.Location = New System.Drawing.Point(162, 58)
+        Me.FederalProtocoloTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.FederalProtocoloTextBox.Name = "FederalProtocoloTextBox"
-        Me.FederalProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.FederalProtocoloTextBox.Size = New System.Drawing.Size(191, 21)
         Me.FederalProtocoloTextBox.TabIndex = 83
         '
         'DBEDataMaskedTextBox
         '
         Me.DBEDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEData", True))
-        Me.DBEDataMaskedTextBox.Location = New System.Drawing.Point(139, 75)
+        Me.DBEDataMaskedTextBox.Location = New System.Drawing.Point(162, 87)
+        Me.DBEDataMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DBEDataMaskedTextBox.Mask = "00/00/0000"
         Me.DBEDataMaskedTextBox.Name = "DBEDataMaskedTextBox"
-        Me.DBEDataMaskedTextBox.Size = New System.Drawing.Size(70, 20)
+        Me.DBEDataMaskedTextBox.Size = New System.Drawing.Size(81, 21)
         Me.DBEDataMaskedTextBox.TabIndex = 82
         Me.DBEDataMaskedTextBox.ValidatingType = GetType(Date)
         '
         'DBEProtocoloTextBox
         '
         Me.DBEProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DBEProtocolo", True))
-        Me.DBEProtocoloTextBox.Location = New System.Drawing.Point(139, 24)
+        Me.DBEProtocoloTextBox.Location = New System.Drawing.Point(162, 28)
+        Me.DBEProtocoloTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DBEProtocoloTextBox.Name = "DBEProtocoloTextBox"
-        Me.DBEProtocoloTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.DBEProtocoloTextBox.Size = New System.Drawing.Size(191, 21)
         Me.DBEProtocoloTextBox.TabIndex = 81
         '
         'BtnVerFederal
@@ -3872,9 +4177,10 @@ Partial Class FrmLegalizacao
         Me.BtnVerFederal.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnVerFederal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerFederal.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerFederal.Location = New System.Drawing.Point(597, 22)
+        Me.BtnVerFederal.Location = New System.Drawing.Point(792, 31)
+        Me.BtnVerFederal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerFederal.Name = "BtnVerFederal"
-        Me.BtnVerFederal.Size = New System.Drawing.Size(33, 22)
+        Me.BtnVerFederal.Size = New System.Drawing.Size(38, 25)
         Me.BtnVerFederal.TabIndex = 80
         Me.BtnVerFederal.Text = "Ver"
         Me.BtnVerFederal.UseVisualStyleBackColor = False
@@ -3883,9 +4189,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesFederal.BackgroundImage = CType(resources.GetObject("BtnAnotacoesFederal.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesFederal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesFederal.Location = New System.Drawing.Point(239, 63)
+        Me.BtnAnotacoesFederal.Location = New System.Drawing.Point(261, 8)
+        Me.BtnAnotacoesFederal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesFederal.Name = "BtnAnotacoesFederal"
-        Me.BtnAnotacoesFederal.Size = New System.Drawing.Size(69, 24)
+        Me.BtnAnotacoesFederal.Size = New System.Drawing.Size(85, 28)
         Me.BtnAnotacoesFederal.TabIndex = 72
         Me.BtnAnotacoesFederal.Text = "Anotações"
         Me.BtnAnotacoesFederal.UseVisualStyleBackColor = True
@@ -3893,9 +4200,10 @@ Partial Class FrmLegalizacao
         'BtnData4
         '
         Me.BtnData4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData4.Location = New System.Drawing.Point(265, 11)
+        Me.BtnData4.Location = New System.Drawing.Point(309, 60)
+        Me.BtnData4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnData4.Name = "BtnData4"
-        Me.BtnData4.Size = New System.Drawing.Size(47, 21)
+        Me.BtnData4.Size = New System.Drawing.Size(55, 24)
         Me.BtnData4.TabIndex = 52
         Me.BtnData4.Text = "Agora"
         Me.BtnData4.UseVisualStyleBackColor = True
@@ -3903,9 +4211,10 @@ Partial Class FrmLegalizacao
         'Button47
         '
         Me.Button47.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button47.Location = New System.Drawing.Point(24, 63)
+        Me.Button47.Location = New System.Drawing.Point(9, 8)
+        Me.Button47.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button47.Name = "Button47"
-        Me.Button47.Size = New System.Drawing.Size(60, 24)
+        Me.Button47.Size = New System.Drawing.Size(70, 28)
         Me.Button47.TabIndex = 41
         Me.Button47.Text = "Eventos"
         Me.Button47.UseVisualStyleBackColor = True
@@ -3917,9 +4226,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox7.Controls.Add(Me.LinkLabel13)
         Me.GroupBox7.Controls.Add(Me.LinkLabel8)
         Me.GroupBox7.Controls.Add(Me.LinkLabel12)
-        Me.GroupBox7.Location = New System.Drawing.Point(326, 194)
+        Me.GroupBox7.Location = New System.Drawing.Point(476, 233)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(305, 38)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox7.Size = New System.Drawing.Size(356, 44)
         Me.GroupBox7.TabIndex = 40
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Serviços REDESIM - Links"
@@ -3928,7 +4239,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel15.AutoSize = True
         Me.LinkLabel15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel15.Location = New System.Drawing.Point(136, 16)
+        Me.LinkLabel15.Location = New System.Drawing.Point(159, 18)
+        Me.LinkLabel15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel15.Name = "LinkLabel15"
         Me.LinkLabel15.Size = New System.Drawing.Size(38, 15)
         Me.LinkLabel15.TabIndex = 32
@@ -3939,7 +4251,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel14.AutoSize = True
         Me.LinkLabel14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel14.Location = New System.Drawing.Point(244, 16)
+        Me.LinkLabel14.Location = New System.Drawing.Point(285, 18)
+        Me.LinkLabel14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel14.Name = "LinkLabel14"
         Me.LinkLabel14.Size = New System.Drawing.Size(56, 15)
         Me.LinkLabel14.TabIndex = 31
@@ -3950,7 +4263,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel13.AutoSize = True
         Me.LinkLabel13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel13.Location = New System.Drawing.Point(178, 16)
+        Me.LinkLabel13.Location = New System.Drawing.Point(208, 18)
+        Me.LinkLabel13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel13.Name = "LinkLabel13"
         Me.LinkLabel13.Size = New System.Drawing.Size(65, 15)
         Me.LinkLabel13.TabIndex = 30
@@ -3961,7 +4275,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel8.AutoSize = True
         Me.LinkLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel8.Location = New System.Drawing.Point(13, 16)
+        Me.LinkLabel8.Location = New System.Drawing.Point(15, 18)
+        Me.LinkLabel8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel8.Name = "LinkLabel8"
         Me.LinkLabel8.Size = New System.Drawing.Size(53, 15)
         Me.LinkLabel8.TabIndex = 29
@@ -3972,7 +4287,8 @@ Partial Class FrmLegalizacao
         '
         Me.LinkLabel12.AutoSize = True
         Me.LinkLabel12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel12.Location = New System.Drawing.Point(72, 16)
+        Me.LinkLabel12.Location = New System.Drawing.Point(84, 18)
+        Me.LinkLabel12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel12.Name = "LinkLabel12"
         Me.LinkLabel12.Size = New System.Drawing.Size(58, 15)
         Me.LinkLabel12.TabIndex = 28
@@ -3982,27 +4298,30 @@ Partial Class FrmLegalizacao
         'ProtocoloREDESIMLabel
         '
         Me.ProtocoloREDESIMLabel.AutoSize = True
-        Me.ProtocoloREDESIMLabel.Location = New System.Drawing.Point(29, 41)
+        Me.ProtocoloREDESIMLabel.Location = New System.Drawing.Point(34, 94)
+        Me.ProtocoloREDESIMLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ProtocoloREDESIMLabel.Name = "ProtocoloREDESIMLabel"
-        Me.ProtocoloREDESIMLabel.Size = New System.Drawing.Size(55, 13)
+        Me.ProtocoloREDESIMLabel.Size = New System.Drawing.Size(62, 15)
         Me.ProtocoloREDESIMLabel.TabIndex = 39
         Me.ProtocoloREDESIMLabel.Text = "Protocolo:"
         '
         'DataProtREDESIMLabel
         '
         Me.DataProtREDESIMLabel.AutoSize = True
-        Me.DataProtREDESIMLabel.Location = New System.Drawing.Point(11, 15)
+        Me.DataProtREDESIMLabel.Location = New System.Drawing.Point(13, 64)
+        Me.DataProtREDESIMLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DataProtREDESIMLabel.Name = "DataProtREDESIMLabel"
-        Me.DataProtREDESIMLabel.Size = New System.Drawing.Size(73, 13)
+        Me.DataProtREDESIMLabel.Size = New System.Drawing.Size(84, 15)
         Me.DataProtREDESIMLabel.TabIndex = 38
         Me.DataProtREDESIMLabel.Text = "Solicitado dia:"
         '
         'Button13
         '
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button13.Location = New System.Drawing.Point(90, 63)
+        Me.Button13.Location = New System.Drawing.Point(86, 8)
+        Me.Button13.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(145, 24)
+        Me.Button13.Size = New System.Drawing.Size(169, 28)
         Me.Button13.TabIndex = 36
         Me.Button13.Text = "Responsável pela Empresa"
         Me.Button13.UseVisualStyleBackColor = True
@@ -4010,9 +4329,10 @@ Partial Class FrmLegalizacao
         'RedeSimObsRichTextBox
         '
         Me.RedeSimObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RedeSimObs", True))
-        Me.RedeSimObsRichTextBox.Location = New System.Drawing.Point(326, 24)
+        Me.RedeSimObsRichTextBox.Location = New System.Drawing.Point(476, 34)
+        Me.RedeSimObsRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RedeSimObsRichTextBox.Name = "RedeSimObsRichTextBox"
-        Me.RedeSimObsRichTextBox.Size = New System.Drawing.Size(265, 96)
+        Me.RedeSimObsRichTextBox.Size = New System.Drawing.Size(308, 110)
         Me.RedeSimObsRichTextBox.TabIndex = 31
         Me.RedeSimObsRichTextBox.Text = ""
         '
@@ -4020,9 +4340,11 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox4.Controls.Add(Me.LinkLabel3)
         Me.GroupBox4.Controls.Add(Me.LinkLabel4)
-        Me.GroupBox4.Location = New System.Drawing.Point(326, 126)
+        Me.GroupBox4.Location = New System.Drawing.Point(476, 154)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(305, 62)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox4.Size = New System.Drawing.Size(356, 72)
         Me.GroupBox4.TabIndex = 30
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Ajuda"
@@ -4030,9 +4352,10 @@ Partial Class FrmLegalizacao
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
-        Me.LinkLabel3.Location = New System.Drawing.Point(9, 39)
+        Me.LinkLabel3.Location = New System.Drawing.Point(10, 45)
+        Me.LinkLabel3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel3.Name = "LinkLabel3"
-        Me.LinkLabel3.Size = New System.Drawing.Size(144, 13)
+        Me.LinkLabel3.Size = New System.Drawing.Size(162, 15)
         Me.LinkLabel3.TabIndex = 29
         Me.LinkLabel3.TabStop = True
         Me.LinkLabel3.Text = "Eventos que precisa de PRP"
@@ -4040,9 +4363,10 @@ Partial Class FrmLegalizacao
         'LinkLabel4
         '
         Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.Location = New System.Drawing.Point(8, 19)
+        Me.LinkLabel4.Location = New System.Drawing.Point(9, 22)
+        Me.LinkLabel4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.Size = New System.Drawing.Size(180, 13)
+        Me.LinkLabel4.Size = New System.Drawing.Size(196, 15)
         Me.LinkLabel4.TabIndex = 28
         Me.LinkLabel4.TabStop = True
         Me.LinkLabel4.Text = "CANCELADA - ART.60 LEI 8934/94"
@@ -4051,9 +4375,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnConsultaRedeSim.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnConsultaRedeSim.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnConsultaRedeSim.Location = New System.Drawing.Point(196, 35)
+        Me.BtnConsultaRedeSim.Location = New System.Drawing.Point(229, 87)
+        Me.BtnConsultaRedeSim.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultaRedeSim.Name = "BtnConsultaRedeSim"
-        Me.BtnConsultaRedeSim.Size = New System.Drawing.Size(65, 22)
+        Me.BtnConsultaRedeSim.Size = New System.Drawing.Size(76, 25)
         Me.BtnConsultaRedeSim.TabIndex = 23
         Me.BtnConsultaRedeSim.Text = "Solicitar"
         Me.BtnConsultaRedeSim.UseVisualStyleBackColor = True
@@ -4061,9 +4386,10 @@ Partial Class FrmLegalizacao
         'Button7
         '
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button7.Location = New System.Drawing.Point(196, 10)
+        Me.Button7.Location = New System.Drawing.Point(229, 59)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(65, 22)
+        Me.Button7.Size = New System.Drawing.Size(76, 25)
         Me.Button7.TabIndex = 22
         Me.Button7.Text = "Detalhes"
         Me.Button7.UseVisualStyleBackColor = True
@@ -4071,19 +4397,21 @@ Partial Class FrmLegalizacao
         'DataProtREDESIMMaskedTextBox
         '
         Me.DataProtREDESIMMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataProtREDESIM", True))
-        Me.DataProtREDESIMMaskedTextBox.Location = New System.Drawing.Point(90, 12)
+        Me.DataProtREDESIMMaskedTextBox.Location = New System.Drawing.Point(105, 61)
+        Me.DataProtREDESIMMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataProtREDESIMMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataProtREDESIMMaskedTextBox.Name = "DataProtREDESIMMaskedTextBox"
-        Me.DataProtREDESIMMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.DataProtREDESIMMaskedTextBox.Size = New System.Drawing.Size(116, 21)
         Me.DataProtREDESIMMaskedTextBox.TabIndex = 4
         Me.DataProtREDESIMMaskedTextBox.ValidatingType = GetType(Date)
         '
         'ProtocoloREDESIMTextBox
         '
         Me.ProtocoloREDESIMTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ProtocoloREDESIM", True))
-        Me.ProtocoloREDESIMTextBox.Location = New System.Drawing.Point(90, 37)
+        Me.ProtocoloREDESIMTextBox.Location = New System.Drawing.Point(105, 90)
+        Me.ProtocoloREDESIMTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProtocoloREDESIMTextBox.Name = "ProtocoloREDESIMTextBox"
-        Me.ProtocoloREDESIMTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.ProtocoloREDESIMTextBox.Size = New System.Drawing.Size(116, 21)
         Me.ProtocoloREDESIMTextBox.TabIndex = 1
         '
         'TabPage5
@@ -4094,9 +4422,10 @@ Partial Class FrmLegalizacao
         Me.TabPage5.Controls.Add(Me.IEjuntaComboBox)
         Me.TabPage5.Controls.Add(IEjuntaLabel)
         Me.TabPage5.Controls.Add(Me.Button11)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage5.Size = New System.Drawing.Size(849, 284)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Receita Estadual"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -4105,9 +4434,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesEstadual.BackgroundImage = CType(resources.GetObject("BtnAnotacoesEstadual.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesEstadual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesEstadual.Location = New System.Drawing.Point(439, 12)
+        Me.BtnAnotacoesEstadual.Location = New System.Drawing.Point(512, 14)
+        Me.BtnAnotacoesEstadual.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesEstadual.Name = "BtnAnotacoesEstadual"
-        Me.BtnAnotacoesEstadual.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesEstadual.Size = New System.Drawing.Size(80, 27)
         Me.BtnAnotacoesEstadual.TabIndex = 73
         Me.BtnAnotacoesEstadual.Text = "Anotações"
         Me.BtnAnotacoesEstadual.UseVisualStyleBackColor = True
@@ -4115,9 +4445,10 @@ Partial Class FrmLegalizacao
         'Button33
         '
         Me.Button33.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button33.Location = New System.Drawing.Point(318, 18)
+        Me.Button33.Location = New System.Drawing.Point(371, 21)
+        Me.Button33.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button33.Name = "Button33"
-        Me.Button33.Size = New System.Drawing.Size(98, 21)
+        Me.Button33.Size = New System.Drawing.Size(114, 24)
         Me.Button33.TabIndex = 44
         Me.Button33.Text = "Empresa Fácil"
         Me.Button33.UseVisualStyleBackColor = True
@@ -4142,18 +4473,21 @@ Partial Class FrmLegalizacao
         Me.GroupBox12.Controls.Add(Me.IEComprovanteTextBox)
         Me.GroupBox12.Controls.Add(Me.DataPedidoIEMaskedTextBox)
         Me.GroupBox12.Controls.Add(DataPedidoIELabel)
-        Me.GroupBox12.Location = New System.Drawing.Point(8, 48)
+        Me.GroupBox12.Location = New System.Drawing.Point(9, 55)
+        Me.GroupBox12.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(589, 188)
+        Me.GroupBox12.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox12.Size = New System.Drawing.Size(687, 217)
         Me.GroupBox12.TabIndex = 27
         Me.GroupBox12.TabStop = False
         '
         'BtnConsultaeProcessoEstado
         '
         Me.BtnConsultaeProcessoEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnConsultaeProcessoEstado.Location = New System.Drawing.Point(214, 148)
+        Me.BtnConsultaeProcessoEstado.Location = New System.Drawing.Point(250, 171)
+        Me.BtnConsultaeProcessoEstado.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultaeProcessoEstado.Name = "BtnConsultaeProcessoEstado"
-        Me.BtnConsultaeProcessoEstado.Size = New System.Drawing.Size(65, 22)
+        Me.BtnConsultaeProcessoEstado.Size = New System.Drawing.Size(76, 25)
         Me.BtnConsultaeProcessoEstado.TabIndex = 43
         Me.BtnConsultaeProcessoEstado.Text = "Solicitar"
         Me.BtnConsultaeProcessoEstado.UseVisualStyleBackColor = True
@@ -4161,18 +4495,20 @@ Partial Class FrmLegalizacao
         'DatadeInicioIE
         '
         Me.DatadeInicioIE.AutoSize = True
-        Me.DatadeInicioIE.Location = New System.Drawing.Point(28, 44)
+        Me.DatadeInicioIE.Location = New System.Drawing.Point(33, 51)
+        Me.DatadeInicioIE.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DatadeInicioIE.Name = "DatadeInicioIE"
-        Me.DatadeInicioIE.Size = New System.Drawing.Size(78, 13)
+        Me.DatadeInicioIE.Size = New System.Drawing.Size(85, 15)
         Me.DatadeInicioIE.TabIndex = 42
         Me.DatadeInicioIE.Text = "Data de Início:"
         '
         'IEeProcNumTextBox
         '
         Me.IEeProcNumTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEeProcNum", True))
-        Me.IEeProcNumTextBox.Location = New System.Drawing.Point(108, 150)
+        Me.IEeProcNumTextBox.Location = New System.Drawing.Point(126, 173)
+        Me.IEeProcNumTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEeProcNumTextBox.Name = "IEeProcNumTextBox"
-        Me.IEeProcNumTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.IEeProcNumTextBox.Size = New System.Drawing.Size(116, 21)
         Me.IEeProcNumTextBox.TabIndex = 41
         '
         'IETipoComboBox
@@ -4180,17 +4516,19 @@ Partial Class FrmLegalizacao
         Me.IETipoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IETipo", True))
         Me.IETipoComboBox.FormattingEnabled = True
         Me.IETipoComboBox.Items.AddRange(New Object() {"Abertura", "Alteração", "Baixa", "Reativação"})
-        Me.IETipoComboBox.Location = New System.Drawing.Point(236, 14)
+        Me.IETipoComboBox.Location = New System.Drawing.Point(275, 16)
+        Me.IETipoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IETipoComboBox.Name = "IETipoComboBox"
-        Me.IETipoComboBox.Size = New System.Drawing.Size(91, 21)
+        Me.IETipoComboBox.Size = New System.Drawing.Size(106, 23)
         Me.IETipoComboBox.TabIndex = 40
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 123)
+        Me.Label7.Location = New System.Drawing.Point(7, 142)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(241, 13)
+        Me.Label7.Size = New System.Drawing.Size(279, 15)
         Me.Label7.TabIndex = 38
         Me.Label7.Text = "Prazo Máximo Para a Entrega da Documentação:"
         '
@@ -4199,27 +4537,30 @@ Partial Class FrmLegalizacao
         Me.IEOnlineComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEOnline", True))
         Me.IEOnlineComboBox.FormattingEnabled = True
         Me.IEOnlineComboBox.Items.AddRange(New Object() {"X", "Online", "eProcesso", "Manual"})
-        Me.IEOnlineComboBox.Location = New System.Drawing.Point(108, 14)
+        Me.IEOnlineComboBox.Location = New System.Drawing.Point(126, 16)
+        Me.IEOnlineComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEOnlineComboBox.Name = "IEOnlineComboBox"
-        Me.IEOnlineComboBox.Size = New System.Drawing.Size(83, 21)
+        Me.IEOnlineComboBox.Size = New System.Drawing.Size(96, 23)
         Me.IEOnlineComboBox.TabIndex = 39
         '
         'IEVencPedidoMaskedTextBox
         '
         Me.IEVencPedidoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEVencPedido", True))
-        Me.IEVencPedidoMaskedTextBox.Location = New System.Drawing.Point(247, 117)
+        Me.IEVencPedidoMaskedTextBox.Location = New System.Drawing.Point(288, 135)
+        Me.IEVencPedidoMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEVencPedidoMaskedTextBox.Mask = "00/00/0000"
         Me.IEVencPedidoMaskedTextBox.Name = "IEVencPedidoMaskedTextBox"
-        Me.IEVencPedidoMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.IEVencPedidoMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.IEVencPedidoMaskedTextBox.TabIndex = 29
         Me.IEVencPedidoMaskedTextBox.ValidatingType = GetType(Date)
         '
         'Button23
         '
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button23.Location = New System.Drawing.Point(214, 67)
+        Me.Button23.Location = New System.Drawing.Point(250, 77)
+        Me.Button23.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button23.Name = "Button23"
-        Me.Button23.Size = New System.Drawing.Size(57, 20)
+        Me.Button23.Size = New System.Drawing.Size(66, 23)
         Me.Button23.TabIndex = 28
         Me.Button23.Text = "Detalhes"
         Me.Button23.UseVisualStyleBackColor = True
@@ -4227,37 +4568,41 @@ Partial Class FrmLegalizacao
         'IEInicioAtividadeMaskedTextBox
         '
         Me.IEInicioAtividadeMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEInicioAtividade", True))
-        Me.IEInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(108, 41)
+        Me.IEInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(126, 47)
+        Me.IEInicioAtividadeMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEInicioAtividadeMaskedTextBox.Mask = "00/0000"
         Me.IEInicioAtividadeMaskedTextBox.Name = "IEInicioAtividadeMaskedTextBox"
-        Me.IEInicioAtividadeMaskedTextBox.Size = New System.Drawing.Size(66, 20)
+        Me.IEInicioAtividadeMaskedTextBox.Size = New System.Drawing.Size(76, 21)
         Me.IEInicioAtividadeMaskedTextBox.TabIndex = 26
         Me.IEInicioAtividadeMaskedTextBox.ValidatingType = GetType(Date)
         '
         'EstadualObsRichTextBox
         '
         Me.EstadualObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EstadualObs", True))
-        Me.EstadualObsRichTextBox.Location = New System.Drawing.Point(338, 29)
+        Me.EstadualObsRichTextBox.Location = New System.Drawing.Point(394, 33)
+        Me.EstadualObsRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EstadualObsRichTextBox.Name = "EstadualObsRichTextBox"
-        Me.EstadualObsRichTextBox.Size = New System.Drawing.Size(231, 150)
+        Me.EstadualObsRichTextBox.Size = New System.Drawing.Size(269, 172)
         Me.EstadualObsRichTextBox.TabIndex = 5
         Me.EstadualObsRichTextBox.Text = ""
         '
         'IEComprovanteTextBox
         '
         Me.IEComprovanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEComprovante", True))
-        Me.IEComprovanteTextBox.Location = New System.Drawing.Point(108, 94)
+        Me.IEComprovanteTextBox.Location = New System.Drawing.Point(126, 108)
+        Me.IEComprovanteTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEComprovanteTextBox.Name = "IEComprovanteTextBox"
-        Me.IEComprovanteTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.IEComprovanteTextBox.Size = New System.Drawing.Size(116, 21)
         Me.IEComprovanteTextBox.TabIndex = 25
         '
         'DataPedidoIEMaskedTextBox
         '
         Me.DataPedidoIEMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataPedidoIE", True))
-        Me.DataPedidoIEMaskedTextBox.Location = New System.Drawing.Point(108, 67)
+        Me.DataPedidoIEMaskedTextBox.Location = New System.Drawing.Point(126, 77)
+        Me.DataPedidoIEMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataPedidoIEMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataPedidoIEMaskedTextBox.Name = "DataPedidoIEMaskedTextBox"
-        Me.DataPedidoIEMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.DataPedidoIEMaskedTextBox.Size = New System.Drawing.Size(116, 21)
         Me.DataPedidoIEMaskedTextBox.TabIndex = 4
         Me.DataPedidoIEMaskedTextBox.ValidatingType = GetType(Date)
         '
@@ -4266,18 +4611,20 @@ Partial Class FrmLegalizacao
         Me.IEjuntaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IEjunta", True))
         Me.IEjuntaComboBox.FormattingEnabled = True
         Me.IEjuntaComboBox.Items.AddRange(New Object() {"Vinculado na Empresa Fácil", "Manualmente o Pedido"})
-        Me.IEjuntaComboBox.Location = New System.Drawing.Point(134, 18)
+        Me.IEjuntaComboBox.Location = New System.Drawing.Point(156, 21)
+        Me.IEjuntaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IEjuntaComboBox.Name = "IEjuntaComboBox"
-        Me.IEjuntaComboBox.Size = New System.Drawing.Size(178, 21)
+        Me.IEjuntaComboBox.Size = New System.Drawing.Size(207, 23)
         Me.IEjuntaComboBox.TabIndex = 37
         '
         'Button11
         '
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button11.Location = New System.Drawing.Point(515, 13)
+        Me.Button11.Location = New System.Drawing.Point(601, 15)
+        Me.Button11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(82, 21)
+        Me.Button11.Size = New System.Drawing.Size(96, 27)
         Me.Button11.TabIndex = 24
         Me.Button11.Text = "Receita-PR"
         Me.Button11.UseVisualStyleBackColor = True
@@ -4299,10 +4646,11 @@ Partial Class FrmLegalizacao
         Me.TabPage7.Controls.Add(Me.GroupBox8)
         Me.TabPage7.Controls.Add(CodigoSimplesLabel)
         Me.TabPage7.Controls.Add(Me.CodigoSimplesTextBox)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage7.Size = New System.Drawing.Size(849, 284)
         Me.TabPage7.TabIndex = 7
         Me.TabPage7.Text = "Simples Nacional"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -4310,9 +4658,10 @@ Partial Class FrmLegalizacao
         'BtnMgsBoxDataSimples
         '
         Me.BtnMgsBoxDataSimples.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxDataSimples.Location = New System.Drawing.Point(274, 76)
+        Me.BtnMgsBoxDataSimples.Location = New System.Drawing.Point(322, 96)
+        Me.BtnMgsBoxDataSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnMgsBoxDataSimples.Name = "BtnMgsBoxDataSimples"
-        Me.BtnMgsBoxDataSimples.Size = New System.Drawing.Size(57, 20)
+        Me.BtnMgsBoxDataSimples.Size = New System.Drawing.Size(66, 23)
         Me.BtnMgsBoxDataSimples.TabIndex = 72
         Me.BtnMgsBoxDataSimples.Text = "Detalhes"
         Me.BtnMgsBoxDataSimples.UseVisualStyleBackColor = True
@@ -4321,9 +4670,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesSimples.BackgroundImage = CType(resources.GetObject("BtnAnotacoesSimples.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesSimples.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(299, 112)
+        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(349, 129)
+        Me.BtnAnotacoesSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesSimples.Name = "BtnAnotacoesSimples"
-        Me.BtnAnotacoesSimples.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesSimples.Size = New System.Drawing.Size(80, 27)
         Me.BtnAnotacoesSimples.TabIndex = 76
         Me.BtnAnotacoesSimples.Text = "Anotações"
         Me.BtnAnotacoesSimples.UseVisualStyleBackColor = True
@@ -4335,37 +4685,41 @@ Partial Class FrmLegalizacao
         Me.OrgãoPedSimplesComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "OrgãoPedSimples", True))
         Me.OrgãoPedSimplesComboBox.FormattingEnabled = True
         Me.OrgãoPedSimplesComboBox.Items.AddRange(New Object() {"Estadual", "Municipal"})
-        Me.OrgãoPedSimplesComboBox.Location = New System.Drawing.Point(202, 52)
+        Me.OrgãoPedSimplesComboBox.Location = New System.Drawing.Point(238, 68)
+        Me.OrgãoPedSimplesComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.OrgãoPedSimplesComboBox.Name = "OrgãoPedSimplesComboBox"
-        Me.OrgãoPedSimplesComboBox.Size = New System.Drawing.Size(81, 21)
+        Me.OrgãoPedSimplesComboBox.Size = New System.Drawing.Size(94, 23)
         Me.OrgãoPedSimplesComboBox.TabIndex = 53
         '
         'DataUltdefSimplesMaskedTextBox
         '
         Me.DataUltdefSimplesMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataUltdefSimples", True))
-        Me.DataUltdefSimplesMaskedTextBox.Location = New System.Drawing.Point(202, 29)
+        Me.DataUltdefSimplesMaskedTextBox.Location = New System.Drawing.Point(238, 41)
+        Me.DataUltdefSimplesMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataUltdefSimplesMaskedTextBox.Mask = "00/00/0000"
         Me.DataUltdefSimplesMaskedTextBox.Name = "DataUltdefSimplesMaskedTextBox"
-        Me.DataUltdefSimplesMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.DataUltdefSimplesMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.DataUltdefSimplesMaskedTextBox.TabIndex = 52
         Me.DataUltdefSimplesMaskedTextBox.ValidatingType = GetType(Date)
         '
         'DataSimplesMaskedTextBox
         '
         Me.DataSimplesMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataSimples", True))
-        Me.DataSimplesMaskedTextBox.Location = New System.Drawing.Point(202, 76)
+        Me.DataSimplesMaskedTextBox.Location = New System.Drawing.Point(238, 96)
+        Me.DataSimplesMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataSimplesMaskedTextBox.Mask = "00/00/0000"
         Me.DataSimplesMaskedTextBox.Name = "DataSimplesMaskedTextBox"
-        Me.DataSimplesMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.DataSimplesMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.DataSimplesMaskedTextBox.TabIndex = 50
         Me.DataSimplesMaskedTextBox.ValidatingType = GetType(Date)
         '
         'ObsSimplesRichTextBox
         '
         Me.ObsSimplesRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ObsSimples", True))
-        Me.ObsSimplesRichTextBox.Location = New System.Drawing.Point(9, 141)
+        Me.ObsSimplesRichTextBox.Location = New System.Drawing.Point(10, 163)
+        Me.ObsSimplesRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ObsSimplesRichTextBox.Name = "ObsSimplesRichTextBox"
-        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(359, 84)
+        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(418, 96)
         Me.ObsSimplesRichTextBox.TabIndex = 49
         Me.ObsSimplesRichTextBox.Text = ""
         '
@@ -4378,9 +4732,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox11.Controls.Add(Me.txtDataASomar)
         Me.GroupBox11.Controls.Add(Me.PrazoSimplesMaskedTextBox)
         Me.GroupBox11.Controls.Add(Me.Label3)
-        Me.GroupBox11.Location = New System.Drawing.Point(374, 6)
+        Me.GroupBox11.Location = New System.Drawing.Point(436, 7)
+        Me.GroupBox11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(218, 105)
+        Me.GroupBox11.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox11.Size = New System.Drawing.Size(254, 121)
         Me.GroupBox11.TabIndex = 41
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Prazo máximo do Simples Nacional"
@@ -4389,7 +4745,8 @@ Partial Class FrmLegalizacao
         '
         Me.LblLinkAjudaSimples.AutoSize = True
         Me.LblLinkAjudaSimples.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblLinkAjudaSimples.Location = New System.Drawing.Point(119, 25)
+        Me.LblLinkAjudaSimples.Location = New System.Drawing.Point(139, 29)
+        Me.LblLinkAjudaSimples.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblLinkAjudaSimples.Name = "LblLinkAjudaSimples"
         Me.LblLinkAjudaSimples.Size = New System.Drawing.Size(42, 16)
         Me.LblLinkAjudaSimples.TabIndex = 56
@@ -4399,9 +4756,10 @@ Partial Class FrmLegalizacao
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 79)
+        Me.Label5.Location = New System.Drawing.Point(10, 91)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 13)
+        Me.Label5.Size = New System.Drawing.Size(119, 15)
         Me.Label5.TabIndex = 33
         Me.Label5.Text = "Data de vencimento:"
         '
@@ -4409,37 +4767,41 @@ Partial Class FrmLegalizacao
         '
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button8.Location = New System.Drawing.Point(12, 22)
+        Me.Button8.Location = New System.Drawing.Point(14, 25)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(103, 23)
+        Me.Button8.Size = New System.Drawing.Size(120, 27)
         Me.Button8.TabIndex = 30
         Me.Button8.Text = "Calcular Prazo"
         Me.Button8.UseVisualStyleBackColor = True
         '
         'txtDataASomar
         '
-        Me.txtDataASomar.Location = New System.Drawing.Point(86, 50)
+        Me.txtDataASomar.Location = New System.Drawing.Point(100, 58)
+        Me.txtDataASomar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtDataASomar.Name = "txtDataASomar"
-        Me.txtDataASomar.Size = New System.Drawing.Size(27, 20)
+        Me.txtDataASomar.Size = New System.Drawing.Size(31, 21)
         Me.txtDataASomar.TabIndex = 31
         Me.txtDataASomar.Text = "60"
         '
         'PrazoSimplesMaskedTextBox
         '
         Me.PrazoSimplesMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PrazoSimples", True))
-        Me.PrazoSimplesMaskedTextBox.Location = New System.Drawing.Point(115, 76)
+        Me.PrazoSimplesMaskedTextBox.Location = New System.Drawing.Point(134, 88)
+        Me.PrazoSimplesMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PrazoSimplesMaskedTextBox.Name = "PrazoSimplesMaskedTextBox"
         Me.PrazoSimplesMaskedTextBox.ReadOnly = True
-        Me.PrazoSimplesMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.PrazoSimplesMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.PrazoSimplesMaskedTextBox.TabIndex = 29
         Me.PrazoSimplesMaskedTextBox.ValidatingType = GetType(Date)
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(112, 53)
+        Me.Label3.Location = New System.Drawing.Point(131, 61)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.Size = New System.Drawing.Size(79, 15)
         Me.Label3.TabIndex = 32
         Me.Label3.Text = "Dias corridos"
         '
@@ -4449,9 +4811,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox8.Controls.Add(Me.LinkLabel7)
         Me.GroupBox8.Controls.Add(Me.LinkLabel6)
         Me.GroupBox8.Controls.Add(Me.LinkLabel5)
-        Me.GroupBox8.Location = New System.Drawing.Point(378, 134)
+        Me.GroupBox8.Location = New System.Drawing.Point(441, 155)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(217, 93)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox8.Size = New System.Drawing.Size(253, 107)
         Me.GroupBox8.TabIndex = 40
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Link de Serviços Simples Nacional"
@@ -4459,9 +4823,10 @@ Partial Class FrmLegalizacao
         'LinkLabel11
         '
         Me.LinkLabel11.AutoSize = True
-        Me.LinkLabel11.Location = New System.Drawing.Point(6, 36)
+        Me.LinkLabel11.Location = New System.Drawing.Point(7, 42)
+        Me.LinkLabel11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel11.Name = "LinkLabel11"
-        Me.LinkLabel11.Size = New System.Drawing.Size(208, 13)
+        Me.LinkLabel11.Size = New System.Drawing.Size(240, 15)
         Me.LinkLabel11.TabIndex = 40
         Me.LinkLabel11.TabStop = True
         Me.LinkLabel11.Text = "Solicitação da Opção do Simples Nacional"
@@ -4469,9 +4834,10 @@ Partial Class FrmLegalizacao
         'LinkLabel7
         '
         Me.LinkLabel7.AutoSize = True
-        Me.LinkLabel7.Location = New System.Drawing.Point(6, 71)
+        Me.LinkLabel7.Location = New System.Drawing.Point(7, 82)
+        Me.LinkLabel7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel7.Name = "LinkLabel7"
-        Me.LinkLabel7.Size = New System.Drawing.Size(170, 13)
+        Me.LinkLabel7.Size = New System.Drawing.Size(196, 15)
         Me.LinkLabel7.TabIndex = 39
         Me.LinkLabel7.TabStop = True
         Me.LinkLabel7.Text = "Criar ou alterar - Código de Acesso"
@@ -4479,9 +4845,10 @@ Partial Class FrmLegalizacao
         'LinkLabel6
         '
         Me.LinkLabel6.AutoSize = True
-        Me.LinkLabel6.Location = New System.Drawing.Point(6, 53)
+        Me.LinkLabel6.Location = New System.Drawing.Point(7, 61)
+        Me.LinkLabel6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel6.Name = "LinkLabel6"
-        Me.LinkLabel6.Size = New System.Drawing.Size(141, 13)
+        Me.LinkLabel6.Size = New System.Drawing.Size(165, 15)
         Me.LinkLabel6.TabIndex = 38
         Me.LinkLabel6.TabStop = True
         Me.LinkLabel6.Text = "Acompanhar a Formalização"
@@ -4489,9 +4856,10 @@ Partial Class FrmLegalizacao
         'LinkLabel5
         '
         Me.LinkLabel5.AutoSize = True
-        Me.LinkLabel5.Location = New System.Drawing.Point(6, 19)
+        Me.LinkLabel5.Location = New System.Drawing.Point(7, 22)
+        Me.LinkLabel5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabel5.Name = "LinkLabel5"
-        Me.LinkLabel5.Size = New System.Drawing.Size(109, 13)
+        Me.LinkLabel5.Size = New System.Drawing.Size(128, 15)
         Me.LinkLabel5.TabIndex = 37
         Me.LinkLabel5.TabStop = True
         Me.LinkLabel5.Text = "Site Simples Nacional"
@@ -4499,9 +4867,10 @@ Partial Class FrmLegalizacao
         'CodigoSimplesTextBox
         '
         Me.CodigoSimplesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CodigoSimples", True))
-        Me.CodigoSimplesTextBox.Location = New System.Drawing.Point(201, 6)
+        Me.CodigoSimplesTextBox.Location = New System.Drawing.Point(238, 15)
+        Me.CodigoSimplesTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CodigoSimplesTextBox.Name = "CodigoSimplesTextBox"
-        Me.CodigoSimplesTextBox.Size = New System.Drawing.Size(103, 20)
+        Me.CodigoSimplesTextBox.Size = New System.Drawing.Size(119, 21)
         Me.CodigoSimplesTextBox.TabIndex = 33
         '
         'TabPage6
@@ -4513,9 +4882,10 @@ Partial Class FrmLegalizacao
         Me.TabPage6.Controls.Add(Me.BombeiroJuntaComboBox)
         Me.TabPage6.Controls.Add(PrefeituraObsLabel)
         Me.TabPage6.Controls.Add(Me.PrefeituraObsRichTextBox)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage6.Size = New System.Drawing.Size(849, 284)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Prefeitura"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -4524,9 +4894,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesPrefeitura.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPrefeitura.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesPrefeitura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(360, 73)
+        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(420, 84)
+        Me.BtnAnotacoesPrefeitura.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesPrefeitura.Name = "BtnAnotacoesPrefeitura"
-        Me.BtnAnotacoesPrefeitura.Size = New System.Drawing.Size(69, 23)
+        Me.BtnAnotacoesPrefeitura.Size = New System.Drawing.Size(80, 27)
         Me.BtnAnotacoesPrefeitura.TabIndex = 74
         Me.BtnAnotacoesPrefeitura.Text = "Anotações"
         Me.BtnAnotacoesPrefeitura.UseVisualStyleBackColor = True
@@ -4537,9 +4908,10 @@ Partial Class FrmLegalizacao
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button32.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button32.Location = New System.Drawing.Point(310, 28)
+        Me.Button32.Location = New System.Drawing.Point(362, 32)
+        Me.Button32.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button32.Name = "Button32"
-        Me.Button32.Size = New System.Drawing.Size(119, 39)
+        Me.Button32.Size = New System.Drawing.Size(139, 45)
         Me.Button32.TabIndex = 42
         Me.Button32.Text = "Laudo / Alvará"
         Me.Button32.UseVisualStyleBackColor = True
@@ -4549,17 +4921,19 @@ Partial Class FrmLegalizacao
         Me.BombeiroJuntaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroJunta", True))
         Me.BombeiroJuntaComboBox.FormattingEnabled = True
         Me.BombeiroJuntaComboBox.Items.AddRange(New Object() {"Alvará cadastrado", "Alvará não cadastrado"})
-        Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(126, 39)
+        Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(147, 45)
+        Me.BombeiroJuntaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BombeiroJuntaComboBox.Name = "BombeiroJuntaComboBox"
-        Me.BombeiroJuntaComboBox.Size = New System.Drawing.Size(178, 21)
+        Me.BombeiroJuntaComboBox.Size = New System.Drawing.Size(207, 23)
         Me.BombeiroJuntaComboBox.TabIndex = 41
         '
         'PrefeituraObsRichTextBox
         '
         Me.PrefeituraObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PrefeituraObs", True))
-        Me.PrefeituraObsRichTextBox.Location = New System.Drawing.Point(13, 119)
+        Me.PrefeituraObsRichTextBox.Location = New System.Drawing.Point(15, 137)
+        Me.PrefeituraObsRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PrefeituraObsRichTextBox.Name = "PrefeituraObsRichTextBox"
-        Me.PrefeituraObsRichTextBox.Size = New System.Drawing.Size(416, 106)
+        Me.PrefeituraObsRichTextBox.Size = New System.Drawing.Size(485, 122)
         Me.PrefeituraObsRichTextBox.TabIndex = 40
         Me.PrefeituraObsRichTextBox.Text = ""
         '
@@ -4567,10 +4941,11 @@ Partial Class FrmLegalizacao
         '
         Me.TabPage23.Controls.Add(SenhasDeAcessoLabel)
         Me.TabPage23.Controls.Add(Me.SenhasDeAcessoRichTextBox)
-        Me.TabPage23.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage23.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage23.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage23.Name = "TabPage23"
-        Me.TabPage23.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage23.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage23.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage23.Size = New System.Drawing.Size(849, 284)
         Me.TabPage23.TabIndex = 10
         Me.TabPage23.Text = "Senhas"
         Me.TabPage23.UseVisualStyleBackColor = True
@@ -4579,9 +4954,10 @@ Partial Class FrmLegalizacao
         '
         Me.SenhasDeAcessoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SenhasDeAcesso", True))
         Me.SenhasDeAcessoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SenhasDeAcessoRichTextBox.Location = New System.Drawing.Point(13, 40)
+        Me.SenhasDeAcessoRichTextBox.Location = New System.Drawing.Point(15, 46)
+        Me.SenhasDeAcessoRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SenhasDeAcessoRichTextBox.Name = "SenhasDeAcessoRichTextBox"
-        Me.SenhasDeAcessoRichTextBox.Size = New System.Drawing.Size(602, 183)
+        Me.SenhasDeAcessoRichTextBox.Size = New System.Drawing.Size(702, 211)
         Me.SenhasDeAcessoRichTextBox.TabIndex = 1
         Me.SenhasDeAcessoRichTextBox.Text = ""
         '
@@ -4594,10 +4970,11 @@ Partial Class FrmLegalizacao
         Me.TabPage17.Controls.Add(ProcuracaoLabel)
         Me.TabPage17.Controls.Add(Me.ProcuracaoComboBox)
         Me.TabPage17.Controls.Add(Me.Button45)
-        Me.TabPage17.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage17.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage17.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage17.Name = "TabPage17"
-        Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage17.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPage17.Size = New System.Drawing.Size(849, 284)
         Me.TabPage17.TabIndex = 9
         Me.TabPage17.Text = "Procuração"
         Me.TabPage17.UseVisualStyleBackColor = True
@@ -4605,19 +4982,21 @@ Partial Class FrmLegalizacao
         'ProcuracaoDataMaskedTextBox
         '
         Me.ProcuracaoDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ProcuracaoData", True))
-        Me.ProcuracaoDataMaskedTextBox.Location = New System.Drawing.Point(144, 139)
+        Me.ProcuracaoDataMaskedTextBox.Location = New System.Drawing.Point(168, 160)
+        Me.ProcuracaoDataMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProcuracaoDataMaskedTextBox.Mask = "00/00/0000"
         Me.ProcuracaoDataMaskedTextBox.Name = "ProcuracaoDataMaskedTextBox"
-        Me.ProcuracaoDataMaskedTextBox.Size = New System.Drawing.Size(69, 20)
+        Me.ProcuracaoDataMaskedTextBox.Size = New System.Drawing.Size(80, 21)
         Me.ProcuracaoDataMaskedTextBox.TabIndex = 44
         Me.ProcuracaoDataMaskedTextBox.ValidatingType = GetType(Date)
         '
         'ProcuracaoNMaskedTextBox
         '
         Me.ProcuracaoNMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ProcuracaoN", True))
-        Me.ProcuracaoNMaskedTextBox.Location = New System.Drawing.Point(144, 91)
+        Me.ProcuracaoNMaskedTextBox.Location = New System.Drawing.Point(168, 105)
+        Me.ProcuracaoNMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProcuracaoNMaskedTextBox.Name = "ProcuracaoNMaskedTextBox"
-        Me.ProcuracaoNMaskedTextBox.Size = New System.Drawing.Size(198, 20)
+        Me.ProcuracaoNMaskedTextBox.Size = New System.Drawing.Size(230, 21)
         Me.ProcuracaoNMaskedTextBox.TabIndex = 43
         '
         'ProcuracaoComboBox
@@ -4625,9 +5004,10 @@ Partial Class FrmLegalizacao
         Me.ProcuracaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Procuracao", True))
         Me.ProcuracaoComboBox.FormattingEnabled = True
         Me.ProcuracaoComboBox.Items.AddRange(New Object() {"Não Solicitado", "Solicitado", "Aguardando Cliente", "Aguardando Protocolo Finalizar", "Finalizado"})
-        Me.ProcuracaoComboBox.Location = New System.Drawing.Point(144, 47)
+        Me.ProcuracaoComboBox.Location = New System.Drawing.Point(168, 54)
+        Me.ProcuracaoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProcuracaoComboBox.Name = "ProcuracaoComboBox"
-        Me.ProcuracaoComboBox.Size = New System.Drawing.Size(198, 21)
+        Me.ProcuracaoComboBox.Size = New System.Drawing.Size(230, 23)
         Me.ProcuracaoComboBox.TabIndex = 42
         '
         'Button45
@@ -4635,9 +5015,10 @@ Partial Class FrmLegalizacao
         Me.Button45.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.Button45.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button45.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button45.Location = New System.Drawing.Point(348, 59)
+        Me.Button45.Location = New System.Drawing.Point(406, 68)
+        Me.Button45.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button45.Name = "Button45"
-        Me.Button45.Size = New System.Drawing.Size(70, 38)
+        Me.Button45.Size = New System.Drawing.Size(82, 44)
         Me.Button45.TabIndex = 41
         Me.Button45.Text = "Solicitar"
         Me.Button45.UseVisualStyleBackColor = True
@@ -4648,9 +5029,10 @@ Partial Class FrmLegalizacao
         Me.TabPage2.Controls.Add(Me.Button9)
         Me.TabPage2.Controls.Add(HistoricoLabel)
         Me.TabPage2.Controls.Add(Me.HistoricoRichTextBox)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(637, 239)
+        Me.TabPage2.Size = New System.Drawing.Size(849, 284)
         Me.TabPage2.TabIndex = 8
         Me.TabPage2.Text = "Histórico"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -4659,9 +5041,10 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesDemais.BackgroundImage = CType(resources.GetObject("BtnAnotacoesDemais.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesDemais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(492, 79)
+        Me.BtnAnotacoesDemais.Location = New System.Drawing.Point(574, 91)
+        Me.BtnAnotacoesDemais.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesDemais.Name = "BtnAnotacoesDemais"
-        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(108, 23)
+        Me.BtnAnotacoesDemais.Size = New System.Drawing.Size(126, 27)
         Me.BtnAnotacoesDemais.TabIndex = 75
         Me.BtnAnotacoesDemais.Text = "Anotações"
         Me.BtnAnotacoesDemais.UseVisualStyleBackColor = True
@@ -4669,9 +5052,10 @@ Partial Class FrmLegalizacao
         'Button9
         '
         Me.Button9.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button9.Location = New System.Drawing.Point(490, 34)
+        Me.Button9.Location = New System.Drawing.Point(572, 39)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(110, 39)
+        Me.Button9.Size = New System.Drawing.Size(128, 45)
         Me.Button9.TabIndex = 50
         Me.Button9.Text = "Voltar para Aba Geral"
         Me.Button9.UseVisualStyleBackColor = True
@@ -4679,9 +5063,10 @@ Partial Class FrmLegalizacao
         'HistoricoRichTextBox
         '
         Me.HistoricoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Historico", True))
-        Me.HistoricoRichTextBox.Location = New System.Drawing.Point(18, 34)
+        Me.HistoricoRichTextBox.Location = New System.Drawing.Point(21, 39)
+        Me.HistoricoRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.HistoricoRichTextBox.Name = "HistoricoRichTextBox"
-        Me.HistoricoRichTextBox.Size = New System.Drawing.Size(451, 180)
+        Me.HistoricoRichTextBox.Size = New System.Drawing.Size(526, 207)
         Me.HistoricoRichTextBox.TabIndex = 1
         Me.HistoricoRichTextBox.Text = ""
         '
@@ -4695,27 +5080,30 @@ Partial Class FrmLegalizacao
         Me.NovaRazaoSocialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NovaRazaoSocial", True))
         Me.NovaRazaoSocialComboBox.FormattingEnabled = True
         Me.NovaRazaoSocialComboBox.Items.AddRange(New Object() {"Não", "Sim"})
-        Me.NovaRazaoSocialComboBox.Location = New System.Drawing.Point(268, 129)
+        Me.NovaRazaoSocialComboBox.Location = New System.Drawing.Point(313, 143)
+        Me.NovaRazaoSocialComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NovaRazaoSocialComboBox.Name = "NovaRazaoSocialComboBox"
-        Me.NovaRazaoSocialComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.NovaRazaoSocialComboBox.Size = New System.Drawing.Size(70, 23)
         Me.NovaRazaoSocialComboBox.TabIndex = 7
         '
         'AvisarDiaMaskedTextBox
         '
         Me.AvisarDiaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "AvisarDia", True))
-        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(65, 40)
+        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(76, 46)
+        Me.AvisarDiaMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AvisarDiaMaskedTextBox.Mask = "00/00/0000"
         Me.AvisarDiaMaskedTextBox.Name = "AvisarDiaMaskedTextBox"
-        Me.AvisarDiaMaskedTextBox.Size = New System.Drawing.Size(65, 20)
+        Me.AvisarDiaMaskedTextBox.Size = New System.Drawing.Size(75, 21)
         Me.AvisarDiaMaskedTextBox.TabIndex = 21
         Me.AvisarDiaMaskedTextBox.ValidatingType = GetType(Date)
         '
         'LembreteCheckBox
         '
         Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(137, 65)
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(159, 71)
+        Me.LembreteCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.LembreteCheckBox.Name = "LembreteCheckBox"
-        Me.LembreteCheckBox.Size = New System.Drawing.Size(73, 18)
+        Me.LembreteCheckBox.Size = New System.Drawing.Size(85, 21)
         Me.LembreteCheckBox.TabIndex = 16
         Me.LembreteCheckBox.Text = "Lembrete"
         Me.LembreteCheckBox.UseVisualStyleBackColor = True
@@ -4723,9 +5111,10 @@ Partial Class FrmLegalizacao
         'PrioridadeCheckBox
         '
         Me.PrioridadeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "Prioridade", True))
-        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(65, 65)
+        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(75, 71)
+        Me.PrioridadeCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PrioridadeCheckBox.Name = "PrioridadeCheckBox"
-        Me.PrioridadeCheckBox.Size = New System.Drawing.Size(76, 18)
+        Me.PrioridadeCheckBox.Size = New System.Drawing.Size(89, 21)
         Me.PrioridadeCheckBox.TabIndex = 5
         Me.PrioridadeCheckBox.Text = "Prioridade"
         Me.PrioridadeCheckBox.UseVisualStyleBackColor = True
@@ -4735,9 +5124,10 @@ Partial Class FrmLegalizacao
         Me.Button24.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button24.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button24.Location = New System.Drawing.Point(7, 172)
+        Me.Button24.Location = New System.Drawing.Point(6, 198)
+        Me.Button24.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button24.Name = "Button24"
-        Me.Button24.Size = New System.Drawing.Size(69, 50)
+        Me.Button24.Size = New System.Drawing.Size(80, 58)
         Me.Button24.TabIndex = 45
         Me.Button24.Text = "Portal do MEI"
         Me.Button24.UseVisualStyleBackColor = False
@@ -4747,9 +5137,10 @@ Partial Class FrmLegalizacao
         Me.Button21.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button21.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button21.Location = New System.Drawing.Point(7, 275)
+        Me.Button21.Location = New System.Drawing.Point(6, 315)
+        Me.Button21.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(69, 23)
+        Me.Button21.Size = New System.Drawing.Size(80, 27)
         Me.Button21.TabIndex = 44
         Me.Button21.Text = "RedeSim"
         Me.Button21.UseVisualStyleBackColor = False
@@ -4759,9 +5150,10 @@ Partial Class FrmLegalizacao
         Me.Button20.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button20.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button20.Location = New System.Drawing.Point(7, 228)
+        Me.Button20.Location = New System.Drawing.Point(6, 262)
+        Me.Button20.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(69, 41)
+        Me.Button20.Size = New System.Drawing.Size(80, 47)
         Me.Button20.TabIndex = 43
         Me.Button20.Text = "Empresa Fácil"
         Me.Button20.UseVisualStyleBackColor = False
@@ -4769,18 +5161,20 @@ Partial Class FrmLegalizacao
         'IETextBox
         '
         Me.IETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "IE", True))
-        Me.IETextBox.Location = New System.Drawing.Point(498, 61)
+        Me.IETextBox.Location = New System.Drawing.Point(581, 61)
+        Me.IETextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.IETextBox.Name = "IETextBox"
-        Me.IETextBox.Size = New System.Drawing.Size(94, 20)
+        Me.IETextBox.Size = New System.Drawing.Size(109, 21)
         Me.IETextBox.TabIndex = 3
         '
         'EmpInicioAtividadeMaskedTextBox
         '
         Me.EmpInicioAtividadeMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpInicioAtividade", True))
-        Me.EmpInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(587, 9)
+        Me.EmpInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(785, 5)
+        Me.EmpInicioAtividadeMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpInicioAtividadeMaskedTextBox.Mask = "00/00/0000"
         Me.EmpInicioAtividadeMaskedTextBox.Name = "EmpInicioAtividadeMaskedTextBox"
-        Me.EmpInicioAtividadeMaskedTextBox.Size = New System.Drawing.Size(69, 20)
+        Me.EmpInicioAtividadeMaskedTextBox.Size = New System.Drawing.Size(71, 21)
         Me.EmpInicioAtividadeMaskedTextBox.TabIndex = 28
         Me.EmpInicioAtividadeMaskedTextBox.ValidatingType = GetType(Date)
         '
@@ -4792,9 +5186,10 @@ Partial Class FrmLegalizacao
         Me.NaturezaJuridicaComboBox.DataSource = Me.NaturezajuridicaBindingSource
         Me.NaturezaJuridicaComboBox.DisplayMember = "Descricao"
         Me.NaturezaJuridicaComboBox.FormattingEnabled = True
-        Me.NaturezaJuridicaComboBox.Location = New System.Drawing.Point(99, 140)
+        Me.NaturezaJuridicaComboBox.Location = New System.Drawing.Point(115, 144)
+        Me.NaturezaJuridicaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NaturezaJuridicaComboBox.Name = "NaturezaJuridicaComboBox"
-        Me.NaturezaJuridicaComboBox.Size = New System.Drawing.Size(372, 21)
+        Me.NaturezaJuridicaComboBox.Size = New System.Drawing.Size(433, 23)
         Me.NaturezaJuridicaComboBox.TabIndex = 23
         '
         'NaturezajuridicaBindingSource
@@ -4811,9 +5206,10 @@ Partial Class FrmLegalizacao
         '
         Me.ProcessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
         Me.ProcessoComboBox.FormattingEnabled = True
-        Me.ProcessoComboBox.Location = New System.Drawing.Point(65, 102)
+        Me.ProcessoComboBox.Location = New System.Drawing.Point(76, 112)
+        Me.ProcessoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProcessoComboBox.Name = "ProcessoComboBox"
-        Me.ProcessoComboBox.Size = New System.Drawing.Size(107, 21)
+        Me.ProcessoComboBox.Size = New System.Drawing.Size(124, 23)
         Me.ProcessoComboBox.TabIndex = 12
         '
         'Button2
@@ -4821,9 +5217,10 @@ Partial Class FrmLegalizacao
         Me.Button2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.FundoBotaoNormalNovo
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(212, 60)
+        Me.Button2.Location = New System.Drawing.Point(247, 60)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(61, 22)
+        Me.Button2.Size = New System.Drawing.Size(71, 25)
         Me.Button2.TabIndex = 13
         Me.Button2.Text = "Consultar"
         Me.Button2.UseVisualStyleBackColor = True
@@ -4873,19 +5270,21 @@ Partial Class FrmLegalizacao
         'EmpCriadoMaskedTextBox
         '
         Me.EmpCriadoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpCriado", True))
-        Me.EmpCriadoMaskedTextBox.Location = New System.Drawing.Point(65, 16)
+        Me.EmpCriadoMaskedTextBox.Location = New System.Drawing.Point(76, 18)
+        Me.EmpCriadoMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpCriadoMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.EmpCriadoMaskedTextBox.Name = "EmpCriadoMaskedTextBox"
-        Me.EmpCriadoMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EmpCriadoMaskedTextBox.Size = New System.Drawing.Size(116, 21)
         Me.EmpCriadoMaskedTextBox.TabIndex = 19
         Me.EmpCriadoMaskedTextBox.ValidatingType = GetType(Date)
         '
         'Button5
         '
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Location = New System.Drawing.Point(171, 16)
+        Me.Button5.Location = New System.Drawing.Point(200, 18)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(57, 20)
+        Me.Button5.Size = New System.Drawing.Size(66, 23)
         Me.Button5.TabIndex = 20
         Me.Button5.Text = "Detalhes"
         Me.Button5.UseVisualStyleBackColor = True
@@ -4929,9 +5328,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 48)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 39)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(663, 207)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox2.Size = New System.Drawing.Size(859, 218)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
@@ -4941,9 +5342,10 @@ Partial Class FrmLegalizacao
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndEstadoLabel2.ForeColor = System.Drawing.Color.DarkRed
         Me.EndEstadoLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EndEstadoLabel2.Location = New System.Drawing.Point(322, 188)
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(376, 197)
+        Me.EndEstadoLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
-        Me.EndEstadoLabel2.Size = New System.Drawing.Size(39, 18)
+        Me.EndEstadoLabel2.Size = New System.Drawing.Size(46, 21)
         Me.EndEstadoLabel2.TabIndex = 79
         Me.EndEstadoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -4952,9 +5354,10 @@ Partial Class FrmLegalizacao
         Me.BtnFiliais.BackgroundImage = CType(resources.GetObject("BtnFiliais.BackgroundImage"), System.Drawing.Image)
         Me.BtnFiliais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFiliais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFiliais.Location = New System.Drawing.Point(591, 112)
+        Me.BtnFiliais.Location = New System.Drawing.Point(690, 114)
+        Me.BtnFiliais.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnFiliais.Name = "BtnFiliais"
-        Me.BtnFiliais.Size = New System.Drawing.Size(66, 23)
+        Me.BtnFiliais.Size = New System.Drawing.Size(74, 27)
         Me.BtnFiliais.TabIndex = 78
         Me.BtnFiliais.Text = "1 Filiais"
         Me.BtnFiliais.UseVisualStyleBackColor = True
@@ -4965,17 +5368,19 @@ Partial Class FrmLegalizacao
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.DarkRed
         Me.EndCidadeLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EndCidadeLabel2.Location = New System.Drawing.Point(100, 188)
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(117, 197)
+        Me.EndCidadeLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
-        Me.EndCidadeLabel2.Size = New System.Drawing.Size(173, 18)
+        Me.EndCidadeLabel2.Size = New System.Drawing.Size(202, 21)
         Me.EndCidadeLabel2.TabIndex = 79
         Me.EndCidadeLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelFilial
         '
-        Me.LabelFilial.Location = New System.Drawing.Point(595, 110)
+        Me.LabelFilial.Location = New System.Drawing.Point(694, 112)
+        Me.LabelFilial.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelFilial.Name = "LabelFilial"
-        Me.LabelFilial.Size = New System.Drawing.Size(64, 30)
+        Me.LabelFilial.Size = New System.Drawing.Size(75, 35)
         Me.LabelFilial.TabIndex = 86
         Me.LabelFilial.Text = "Filial não encontrada"
         '
@@ -4985,10 +5390,11 @@ Partial Class FrmLegalizacao
         Me.BtnVerificar.BackgroundImage = CType(resources.GetObject("BtnVerificar.BackgroundImage"), System.Drawing.Image)
         Me.BtnVerificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnVerificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVerificar.Location = New System.Drawing.Point(328, 60)
+        Me.BtnVerificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerificar.Location = New System.Drawing.Point(383, 60)
+        Me.BtnVerificar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerificar.Name = "BtnVerificar"
-        Me.BtnVerificar.Size = New System.Drawing.Size(50, 22)
+        Me.BtnVerificar.Size = New System.Drawing.Size(66, 25)
         Me.BtnVerificar.TabIndex = 84
         Me.BtnVerificar.Text = "Verificar"
         Me.BtnVerificar.UseVisualStyleBackColor = False
@@ -5000,9 +5406,10 @@ Partial Class FrmLegalizacao
         Me.BtnAvancoRazao.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAvancoRazao.FlatAppearance.BorderSize = 0
         Me.BtnAvancoRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAvancoRazao.Location = New System.Drawing.Point(636, 85)
+        Me.BtnAvancoRazao.Location = New System.Drawing.Point(772, 87)
+        Me.BtnAvancoRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAvancoRazao.Name = "BtnAvancoRazao"
-        Me.BtnAvancoRazao.Size = New System.Drawing.Size(27, 23)
+        Me.BtnAvancoRazao.Size = New System.Drawing.Size(31, 27)
         Me.BtnAvancoRazao.TabIndex = 70
         Me.ToolTipDICAS.SetToolTip(Me.BtnAvancoRazao, "Mostrar Razão Social Completa")
         Me.BtnAvancoRazao.UseVisualStyleBackColor = True
@@ -5014,9 +5421,10 @@ Partial Class FrmLegalizacao
         Me.BtnConsultaOptante.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultaOptante.FlatAppearance.BorderSize = 0
         Me.BtnConsultaOptante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnConsultaOptante.Location = New System.Drawing.Point(634, 166)
+        Me.BtnConsultaOptante.Location = New System.Drawing.Point(572, 172)
+        Me.BtnConsultaOptante.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultaOptante.Name = "BtnConsultaOptante"
-        Me.BtnConsultaOptante.Size = New System.Drawing.Size(27, 23)
+        Me.BtnConsultaOptante.Size = New System.Drawing.Size(31, 27)
         Me.BtnConsultaOptante.TabIndex = 69
         Me.ToolTipDICAS.SetToolTip(Me.BtnConsultaOptante, "Consulta Optante do Simples Nacional Federal")
         Me.BtnConsultaOptante.UseVisualStyleBackColor = True
@@ -5026,17 +5434,19 @@ Partial Class FrmLegalizacao
         Me.SEDEComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SEDE", True))
         Me.SEDEComboBox.FormattingEnabled = True
         Me.SEDEComboBox.Items.AddRange(New Object() {"Matriz", "Filial 1", "Filial 2", "Filial 3", "Filial 4", "Filial 5", "Filial 6", "Filial 7", "Filial 8", "Filial 9", "Filial 10"})
-        Me.SEDEComboBox.Location = New System.Drawing.Point(515, 114)
+        Me.SEDEComboBox.Location = New System.Drawing.Point(601, 117)
+        Me.SEDEComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SEDEComboBox.Name = "SEDEComboBox"
-        Me.SEDEComboBox.Size = New System.Drawing.Size(73, 21)
+        Me.SEDEComboBox.Size = New System.Drawing.Size(84, 23)
         Me.SEDEComboBox.TabIndex = 68
         '
         'NomeFantasiaTextBox
         '
         Me.NomeFantasiaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NomeFantasia", True))
-        Me.NomeFantasiaTextBox.Location = New System.Drawing.Point(99, 114)
+        Me.NomeFantasiaTextBox.Location = New System.Drawing.Point(115, 117)
+        Me.NomeFantasiaTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomeFantasiaTextBox.Name = "NomeFantasiaTextBox"
-        Me.NomeFantasiaTextBox.Size = New System.Drawing.Size(372, 20)
+        Me.NomeFantasiaTextBox.Size = New System.Drawing.Size(433, 21)
         Me.NomeFantasiaTextBox.TabIndex = 67
         '
         'SituacaoCadastralComboBox
@@ -5044,25 +5454,28 @@ Partial Class FrmLegalizacao
         Me.SituacaoCadastralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SituacaoCadastral", True))
         Me.SituacaoCadastralComboBox.FormattingEnabled = True
         Me.SituacaoCadastralComboBox.Items.AddRange(New Object() {"ATIVO", "BAIXADA", "INAPTA"})
-        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(99, 9)
+        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(115, 5)
+        Me.SituacaoCadastralComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SituacaoCadastralComboBox.Name = "SituacaoCadastralComboBox"
-        Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(99, 21)
+        Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(115, 23)
         Me.SituacaoCadastralComboBox.TabIndex = 66
         '
         'RazaoSocialLabel
         '
         Me.RazaoSocialLabel.AutoSize = True
-        Me.RazaoSocialLabel.Location = New System.Drawing.Point(20, 91)
+        Me.RazaoSocialLabel.Location = New System.Drawing.Point(23, 93)
+        Me.RazaoSocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.RazaoSocialLabel.Name = "RazaoSocialLabel"
-        Me.RazaoSocialLabel.Size = New System.Drawing.Size(73, 13)
+        Me.RazaoSocialLabel.Size = New System.Drawing.Size(83, 15)
         Me.RazaoSocialLabel.TabIndex = 64
         Me.RazaoSocialLabel.Text = "Razao Social:"
         '
         'PictureBox6
         '
-        Me.PictureBox6.Location = New System.Drawing.Point(1, 88)
+        Me.PictureBox6.Location = New System.Drawing.Point(1, 92)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(20, 18)
+        Me.PictureBox6.Size = New System.Drawing.Size(23, 21)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox6.TabIndex = 63
         Me.PictureBox6.TabStop = False
@@ -5073,19 +5486,21 @@ Partial Class FrmLegalizacao
         Me.Button43.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
         Me.Button43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button43.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button43.Location = New System.Drawing.Point(276, 60)
+        Me.Button43.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button43.Location = New System.Drawing.Point(322, 60)
+        Me.Button43.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button43.Name = "Button43"
-        Me.Button43.Size = New System.Drawing.Size(46, 22)
+        Me.Button43.Size = New System.Drawing.Size(54, 25)
         Me.Button43.TabIndex = 62
         Me.Button43.Text = "Copiar"
         Me.Button43.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Location = New System.Drawing.Point(5, 9)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(56, 56)
+        Me.PictureBox1.Size = New System.Drawing.Size(65, 65)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 38
         Me.PictureBox1.TabStop = False
@@ -5095,9 +5510,10 @@ Partial Class FrmLegalizacao
         Me.Button29.BackgroundImage = CType(resources.GetObject("Button29.BackgroundImage"), System.Drawing.Image)
         Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button29.Location = New System.Drawing.Point(595, 59)
+        Me.Button29.Location = New System.Drawing.Point(694, 59)
+        Me.Button29.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button29.Name = "Button29"
-        Me.Button29.Size = New System.Drawing.Size(61, 22)
+        Me.Button29.Size = New System.Drawing.Size(70, 25)
         Me.Button29.TabIndex = 49
         Me.Button29.Text = "Consultar"
         Me.Button29.UseVisualStyleBackColor = True
@@ -5105,9 +5521,10 @@ Partial Class FrmLegalizacao
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(65, 171)
+        Me.Label4.Location = New System.Drawing.Point(76, 177)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(32, 13)
+        Me.Label4.Size = New System.Drawing.Size(36, 15)
         Me.Label4.TabIndex = 31
         Me.Label4.Text = "Porte"
         '
@@ -5116,9 +5533,10 @@ Partial Class FrmLegalizacao
         Me.TipoDeEmpresaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "TipoDeEmpresa", True))
         Me.TipoDeEmpresaComboBox.FormattingEnabled = True
         Me.TipoDeEmpresaComboBox.Items.AddRange(New Object() {"Sociedade Empresária Limitada ( Ltda. )", "Empresa Individual de Responsabilidade Limitada ( Eireli )", "Empresa individual ( RE )", "Microempreendedor Indivual ( MEI )", "Sociedade Anônima (SA)", "Sociedade Simples", "Igreja", "Comunidade e Similares"})
-        Me.TipoDeEmpresaComboBox.Location = New System.Drawing.Point(99, 35)
+        Me.TipoDeEmpresaComboBox.Location = New System.Drawing.Point(115, 34)
+        Me.TipoDeEmpresaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TipoDeEmpresaComboBox.Name = "TipoDeEmpresaComboBox"
-        Me.TipoDeEmpresaComboBox.Size = New System.Drawing.Size(287, 21)
+        Me.TipoDeEmpresaComboBox.Size = New System.Drawing.Size(334, 23)
         Me.TipoDeEmpresaComboBox.TabIndex = 30
         '
         'PorteDaEmpresaComboBox
@@ -5127,9 +5545,10 @@ Partial Class FrmLegalizacao
         Me.PorteDaEmpresaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PorteDaEmpresa", True))
         Me.PorteDaEmpresaComboBox.FormattingEnabled = True
         Me.PorteDaEmpresaComboBox.Items.AddRange(New Object() {"Microempresa", "Empresa de Pequeno Porte", "Demais", "Outros"})
-        Me.PorteDaEmpresaComboBox.Location = New System.Drawing.Point(99, 167)
+        Me.PorteDaEmpresaComboBox.Location = New System.Drawing.Point(115, 173)
+        Me.PorteDaEmpresaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PorteDaEmpresaComboBox.Name = "PorteDaEmpresaComboBox"
-        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(174, 21)
+        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(202, 23)
         Me.PorteDaEmpresaComboBox.TabIndex = 29
         '
         'RegimeFederalComboBox
@@ -5137,9 +5556,10 @@ Partial Class FrmLegalizacao
         Me.RegimeFederalComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RegimeFederal", True))
         Me.RegimeFederalComboBox.FormattingEnabled = True
         Me.RegimeFederalComboBox.Items.AddRange(New Object() {"Lucro Normal", "Lucro Presumido", "RET", "Simples Nacional", "Pendência"})
-        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(513, 168)
+        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(424, 174)
+        Me.RegimeFederalComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RegimeFederalComboBox.Name = "RegimeFederalComboBox"
-        Me.RegimeFederalComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.RegimeFederalComboBox.Size = New System.Drawing.Size(140, 23)
         Me.RegimeFederalComboBox.TabIndex = 28
         '
         'SistemaExternoComboBox
@@ -5147,9 +5567,10 @@ Partial Class FrmLegalizacao
         Me.SistemaExternoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SistemaExterno", True))
         Me.SistemaExternoComboBox.FormattingEnabled = True
         Me.SistemaExternoComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.SistemaExternoComboBox.Location = New System.Drawing.Point(586, 40)
+        Me.SistemaExternoComboBox.Location = New System.Drawing.Point(785, 46)
+        Me.SistemaExternoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SistemaExternoComboBox.Name = "SistemaExternoComboBox"
-        Me.SistemaExternoComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.SistemaExternoComboBox.Size = New System.Drawing.Size(70, 23)
         Me.SistemaExternoComboBox.TabIndex = 65
         '
         'ButtoneMail
@@ -5157,9 +5578,10 @@ Partial Class FrmLegalizacao
         Me.ButtoneMail.BackgroundImage = CType(resources.GetObject("ButtoneMail.BackgroundImage"), System.Drawing.Image)
         Me.ButtoneMail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtoneMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtoneMail.Location = New System.Drawing.Point(7, 97)
+        Me.ButtoneMail.Location = New System.Drawing.Point(6, 106)
+        Me.ButtoneMail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ButtoneMail.Name = "ButtoneMail"
-        Me.ButtoneMail.Size = New System.Drawing.Size(69, 23)
+        Me.ButtoneMail.Size = New System.Drawing.Size(80, 27)
         Me.ButtoneMail.TabIndex = 44
         Me.ButtoneMail.Text = "e-Mail"
         Me.ButtoneMail.UseVisualStyleBackColor = True
@@ -5167,9 +5589,10 @@ Partial Class FrmLegalizacao
         'NAlteracaoLabel
         '
         Me.NAlteracaoLabel.AutoSize = True
-        Me.NAlteracaoLabel.Location = New System.Drawing.Point(175, 105)
+        Me.NAlteracaoLabel.Location = New System.Drawing.Point(204, 115)
+        Me.NAlteracaoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.NAlteracaoLabel.Name = "NAlteracaoLabel"
-        Me.NAlteracaoLabel.Size = New System.Drawing.Size(25, 13)
+        Me.NAlteracaoLabel.Size = New System.Drawing.Size(26, 15)
         Me.NAlteracaoLabel.TabIndex = 22
         Me.NAlteracaoLabel.Text = "Nº.:"
         '
@@ -5178,9 +5601,10 @@ Partial Class FrmLegalizacao
         Me.NAlteracaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "NAlteracao", True))
         Me.NAlteracaoComboBox.FormattingEnabled = True
         Me.NAlteracaoComboBox.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "+21"})
-        Me.NAlteracaoComboBox.Location = New System.Drawing.Point(201, 102)
+        Me.NAlteracaoComboBox.Location = New System.Drawing.Point(234, 112)
+        Me.NAlteracaoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NAlteracaoComboBox.Name = "NAlteracaoComboBox"
-        Me.NAlteracaoComboBox.Size = New System.Drawing.Size(44, 21)
+        Me.NAlteracaoComboBox.Size = New System.Drawing.Size(51, 23)
         Me.NAlteracaoComboBox.TabIndex = 21
         '
         'OpenFileDialog1
@@ -5193,9 +5617,10 @@ Partial Class FrmLegalizacao
         Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNovo.ForeColor = System.Drawing.Color.Green
-        Me.BtnNovo.Location = New System.Drawing.Point(6, 19)
+        Me.BtnNovo.Location = New System.Drawing.Point(5, 22)
+        Me.BtnNovo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(69, 22)
+        Me.BtnNovo.Size = New System.Drawing.Size(80, 25)
         Me.BtnNovo.TabIndex = 22
         Me.BtnNovo.Text = "Novo"
         Me.BtnNovo.UseVisualStyleBackColor = True
@@ -5206,9 +5631,10 @@ Partial Class FrmLegalizacao
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(6, 143)
+        Me.BtnExcluir.Location = New System.Drawing.Point(5, 152)
+        Me.BtnExcluir.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
+        Me.BtnExcluir.Size = New System.Drawing.Size(80, 27)
         Me.BtnExcluir.TabIndex = 23
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
@@ -5218,9 +5644,10 @@ Partial Class FrmLegalizacao
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSalvar.Location = New System.Drawing.Point(6, 47)
+        Me.BtnSalvar.Location = New System.Drawing.Point(5, 53)
+        Me.BtnSalvar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnSalvar.Size = New System.Drawing.Size(80, 27)
         Me.BtnSalvar.TabIndex = 24
         Me.BtnSalvar.Text = "Salvar"
         Me.BtnSalvar.UseVisualStyleBackColor = True
@@ -5230,9 +5657,10 @@ Partial Class FrmLegalizacao
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFechar.Location = New System.Drawing.Point(6, 181)
+        Me.BtnFechar.Location = New System.Drawing.Point(5, 185)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnFechar.Size = New System.Drawing.Size(80, 27)
         Me.BtnFechar.TabIndex = 25
         Me.BtnFechar.Text = "Fechar"
         Me.BtnFechar.UseVisualStyleBackColor = True
@@ -5242,9 +5670,10 @@ Partial Class FrmLegalizacao
         Me.BtnContador.BackgroundImage = CType(resources.GetObject("BtnContador.BackgroundImage"), System.Drawing.Image)
         Me.BtnContador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnContador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnContador.Location = New System.Drawing.Point(7, 126)
+        Me.BtnContador.Location = New System.Drawing.Point(6, 139)
+        Me.BtnContador.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnContador.Name = "BtnContador"
-        Me.BtnContador.Size = New System.Drawing.Size(69, 23)
+        Me.BtnContador.Size = New System.Drawing.Size(80, 27)
         Me.BtnContador.TabIndex = 57
         Me.BtnContador.Text = "Contador"
         Me.BtnContador.UseVisualStyleBackColor = True
@@ -5254,9 +5683,10 @@ Partial Class FrmLegalizacao
         Me.BtnEditar.BackgroundImage = CType(resources.GetObject("BtnEditar.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Location = New System.Drawing.Point(7, 76)
+        Me.BtnEditar.Location = New System.Drawing.Point(5, 86)
+        Me.BtnEditar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnEditar.Size = New System.Drawing.Size(80, 27)
         Me.BtnEditar.TabIndex = 50
         Me.BtnEditar.Text = "Editar"
         Me.BtnEditar.UseVisualStyleBackColor = True
@@ -5266,9 +5696,10 @@ Partial Class FrmLegalizacao
         Me.Button28.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button28.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button28.Location = New System.Drawing.Point(7, 398)
+        Me.Button28.Location = New System.Drawing.Point(6, 454)
+        Me.Button28.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(69, 23)
+        Me.Button28.Size = New System.Drawing.Size(80, 27)
         Me.Button28.TabIndex = 48
         Me.Button28.Text = "Prefeitura"
         Me.Button28.UseVisualStyleBackColor = False
@@ -5278,9 +5709,10 @@ Partial Class FrmLegalizacao
         Me.BtnAlteracao.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BtnAlteracao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAlteracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAlteracao.Location = New System.Drawing.Point(7, 19)
+        Me.BtnAlteracao.Location = New System.Drawing.Point(6, 22)
+        Me.BtnAlteracao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAlteracao.Name = "BtnAlteracao"
-        Me.BtnAlteracao.Size = New System.Drawing.Size(69, 39)
+        Me.BtnAlteracao.Size = New System.Drawing.Size(80, 45)
         Me.BtnAlteracao.TabIndex = 49
         Me.BtnAlteracao.Text = "Nova Alteração"
         Me.BtnAlteracao.UseVisualStyleBackColor = True
@@ -5290,9 +5722,10 @@ Partial Class FrmLegalizacao
         Me.Button27.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button27.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button27.Location = New System.Drawing.Point(7, 304)
+        Me.Button27.Location = New System.Drawing.Point(6, 348)
+        Me.Button27.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(69, 41)
+        Me.Button27.Size = New System.Drawing.Size(80, 47)
         Me.Button27.TabIndex = 47
         Me.Button27.Text = "Receita Estadual"
         Me.Button27.UseVisualStyleBackColor = False
@@ -5302,9 +5735,10 @@ Partial Class FrmLegalizacao
         Me.Button26.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button26.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button26.Location = New System.Drawing.Point(7, 351)
+        Me.Button26.Location = New System.Drawing.Point(6, 401)
+        Me.Button26.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button26.Name = "Button26"
-        Me.Button26.Size = New System.Drawing.Size(69, 41)
+        Me.Button26.Size = New System.Drawing.Size(80, 47)
         Me.Button26.TabIndex = 46
         Me.Button26.Text = "Simples Nacional"
         Me.Button26.UseVisualStyleBackColor = False
@@ -5317,9 +5751,10 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa.DisplayMember = "RazaoSocial"
         Me.ComboBoxBuscaEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBoxBuscaEmpresa.FormattingEnabled = True
-        Me.ComboBoxBuscaEmpresa.Location = New System.Drawing.Point(237, 2)
+        Me.ComboBoxBuscaEmpresa.Location = New System.Drawing.Point(276, 2)
+        Me.ComboBoxBuscaEmpresa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ComboBoxBuscaEmpresa.Name = "ComboBoxBuscaEmpresa"
-        Me.ComboBoxBuscaEmpresa.Size = New System.Drawing.Size(220, 21)
+        Me.ComboBoxBuscaEmpresa.Size = New System.Drawing.Size(256, 23)
         Me.ComboBoxBuscaEmpresa.TabIndex = 30
         Me.ComboBoxBuscaEmpresa.ValueMember = "RazaoSocial"
         '
@@ -5328,7 +5763,8 @@ Partial Class FrmLegalizacao
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Silver
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(176, 5)
+        Me.Label1.Location = New System.Drawing.Point(205, 6)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 15)
         Me.Label1.TabIndex = 31
@@ -5365,9 +5801,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.Controls.Add(Me.TabControle)
         Me.GroupBox10.Controls.Add(Me.SistemaExternoLabel)
         Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 285)
+        Me.GroupBox10.Location = New System.Drawing.Point(4, 280)
+        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(663, 433)
+        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox10.Size = New System.Drawing.Size(859, 484)
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
@@ -5375,9 +5813,10 @@ Partial Class FrmLegalizacao
         'BtnVerNovoNome
         '
         Me.BtnVerNovoNome.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnVerNovoNome.Location = New System.Drawing.Point(335, 129)
+        Me.BtnVerNovoNome.Location = New System.Drawing.Point(391, 143)
+        Me.BtnVerNovoNome.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerNovoNome.Name = "BtnVerNovoNome"
-        Me.BtnVerNovoNome.Size = New System.Drawing.Size(43, 21)
+        Me.BtnVerNovoNome.Size = New System.Drawing.Size(50, 24)
         Me.BtnVerNovoNome.TabIndex = 78
         Me.BtnVerNovoNome.Text = "Ver"
         Me.BtnVerNovoNome.UseVisualStyleBackColor = True
@@ -5385,9 +5824,10 @@ Partial Class FrmLegalizacao
         'BtnMgsBoxAvisarDia
         '
         Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(185, 40)
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(216, 46)
+        Me.BtnMgsBoxAvisarDia.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
-        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(86, 20)
+        Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(100, 23)
         Me.BtnMgsBoxAvisarDia.TabIndex = 77
         Me.BtnMgsBoxAvisarDia.Text = "Verificar Data"
         Me.BtnMgsBoxAvisarDia.UseVisualStyleBackColor = True
@@ -5398,25 +5838,28 @@ Partial Class FrmLegalizacao
         Me.StatusComboBox.DropDownHeight = 200
         Me.StatusComboBox.FormattingEnabled = True
         Me.StatusComboBox.IntegralHeight = False
-        Me.StatusComboBox.Location = New System.Drawing.Point(399, 16)
+        Me.StatusComboBox.Location = New System.Drawing.Point(566, 18)
+        Me.StatusComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.StatusComboBox.Name = "StatusComboBox"
-        Me.StatusComboBox.Size = New System.Drawing.Size(248, 21)
+        Me.StatusComboBox.Size = New System.Drawing.Size(289, 23)
         Me.StatusComboBox.TabIndex = 71
         '
         'NovaRazaoSocialLabel
         '
         Me.NovaRazaoSocialLabel.AutoSize = True
-        Me.NovaRazaoSocialLabel.Location = New System.Drawing.Point(132, 132)
+        Me.NovaRazaoSocialLabel.Location = New System.Drawing.Point(154, 147)
+        Me.NovaRazaoSocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.NovaRazaoSocialLabel.Name = "NovaRazaoSocialLabel"
-        Me.NovaRazaoSocialLabel.Size = New System.Drawing.Size(139, 13)
+        Me.NovaRazaoSocialLabel.Size = New System.Drawing.Size(157, 15)
         Me.NovaRazaoSocialLabel.TabIndex = 67
         Me.NovaRazaoSocialLabel.Text = "Alteração de Razão Social :"
         '
         'PictureBoxSistemaExterno
         '
-        Me.PictureBoxSistemaExterno.Location = New System.Drawing.Point(399, 40)
+        Me.PictureBoxSistemaExterno.Location = New System.Drawing.Point(566, 46)
+        Me.PictureBoxSistemaExterno.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBoxSistemaExterno.Name = "PictureBoxSistemaExterno"
-        Me.PictureBoxSistemaExterno.Size = New System.Drawing.Size(24, 19)
+        Me.PictureBoxSistemaExterno.Size = New System.Drawing.Size(28, 22)
         Me.PictureBoxSistemaExterno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBoxSistemaExterno.TabIndex = 66
         Me.PictureBoxSistemaExterno.TabStop = False
@@ -5424,9 +5867,10 @@ Partial Class FrmLegalizacao
         'BtnData1
         '
         Me.BtnData1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData1.Location = New System.Drawing.Point(136, 39)
+        Me.BtnData1.Location = New System.Drawing.Point(159, 45)
+        Me.BtnData1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnData1.Name = "BtnData1"
-        Me.BtnData1.Size = New System.Drawing.Size(43, 21)
+        Me.BtnData1.Size = New System.Drawing.Size(50, 24)
         Me.BtnData1.TabIndex = 43
         Me.BtnData1.Text = "Agora"
         Me.BtnData1.UseVisualStyleBackColor = True
@@ -5434,9 +5878,10 @@ Partial Class FrmLegalizacao
         'LabelConsolidar
         '
         Me.LabelConsolidar.AutoSize = True
-        Me.LabelConsolidar.Location = New System.Drawing.Point(5, 132)
+        Me.LabelConsolidar.Location = New System.Drawing.Point(6, 147)
+        Me.LabelConsolidar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelConsolidar.Name = "LabelConsolidar"
-        Me.LabelConsolidar.Size = New System.Drawing.Size(59, 13)
+        Me.LabelConsolidar.Size = New System.Drawing.Size(69, 15)
         Me.LabelConsolidar.TabIndex = 42
         Me.LabelConsolidar.Text = "Consolidar:"
         '
@@ -5445,26 +5890,29 @@ Partial Class FrmLegalizacao
         Me.AltConsolidadaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "AltConsolidada", True))
         Me.AltConsolidadaComboBox.FormattingEnabled = True
         Me.AltConsolidadaComboBox.Items.AddRange(New Object() {"Não", "Sim"})
-        Me.AltConsolidadaComboBox.Location = New System.Drawing.Point(65, 129)
+        Me.AltConsolidadaComboBox.Location = New System.Drawing.Point(76, 143)
+        Me.AltConsolidadaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AltConsolidadaComboBox.Name = "AltConsolidadaComboBox"
-        Me.AltConsolidadaComboBox.Size = New System.Drawing.Size(61, 21)
+        Me.AltConsolidadaComboBox.Size = New System.Drawing.Size(70, 23)
         Me.AltConsolidadaComboBox.TabIndex = 41
         '
         'BtnVerEventos
         '
         Me.BtnVerEventos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnVerEventos.Location = New System.Drawing.Point(234, 16)
+        Me.BtnVerEventos.Location = New System.Drawing.Point(273, 18)
+        Me.BtnVerEventos.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerEventos.Name = "BtnVerEventos"
-        Me.BtnVerEventos.Size = New System.Drawing.Size(60, 20)
+        Me.BtnVerEventos.Size = New System.Drawing.Size(70, 23)
         Me.BtnVerEventos.TabIndex = 40
         Me.BtnVerEventos.Text = "Motivo"
         Me.BtnVerEventos.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(503, 65)
+        Me.PictureBox2.Location = New System.Drawing.Point(694, 71)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(144, 80)
+        Me.PictureBox2.Size = New System.Drawing.Size(161, 92)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 39
         Me.PictureBox2.TabStop = False
@@ -5472,9 +5920,10 @@ Partial Class FrmLegalizacao
         'SistemaExternoLabel
         '
         Me.SistemaExternoLabel.AutoSize = True
-        Me.SistemaExternoLabel.Location = New System.Drawing.Point(429, 43)
+        Me.SistemaExternoLabel.Location = New System.Drawing.Point(601, 50)
+        Me.SistemaExternoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SistemaExternoLabel.Name = "SistemaExternoLabel"
-        Me.SistemaExternoLabel.Size = New System.Drawing.Size(159, 13)
+        Me.SistemaExternoLabel.Size = New System.Drawing.Size(183, 15)
         Me.SistemaExternoLabel.TabIndex = 68
         Me.SistemaExternoLabel.Text = "Atualização no Sistema Externo:"
         '
@@ -5483,9 +5932,10 @@ Partial Class FrmLegalizacao
         Me.BtnWord.BackgroundImage = CType(resources.GetObject("BtnWord.BackgroundImage"), System.Drawing.Image)
         Me.BtnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnWord.Location = New System.Drawing.Point(7, 68)
+        Me.BtnWord.Location = New System.Drawing.Point(6, 73)
+        Me.BtnWord.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnWord.Name = "BtnWord"
-        Me.BtnWord.Size = New System.Drawing.Size(69, 23)
+        Me.BtnWord.Size = New System.Drawing.Size(80, 27)
         Me.BtnWord.TabIndex = 72
         Me.BtnWord.Text = "WORD"
         Me.BtnWord.UseVisualStyleBackColor = True
@@ -5495,7 +5945,8 @@ Partial Class FrmLegalizacao
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Silver
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(463, 6)
+        Me.Label2.Location = New System.Drawing.Point(540, 7)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 15)
         Me.Label2.TabIndex = 43
@@ -5505,9 +5956,10 @@ Partial Class FrmLegalizacao
         '
         Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox5.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox5.Location = New System.Drawing.Point(3, 261)
+        Me.PictureBox5.Location = New System.Drawing.Point(4, 263)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(663, 18)
+        Me.PictureBox5.Size = New System.Drawing.Size(859, 11)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 44
         Me.PictureBox5.TabStop = False
@@ -5516,9 +5968,11 @@ Partial Class FrmLegalizacao
         '
         Me.BtnLocalizar.BackgroundImage = CType(resources.GetObject("BtnLocalizar.BackgroundImage"), System.Drawing.Image)
         Me.BtnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnLocalizar.Location = New System.Drawing.Point(678, 0)
+        Me.BtnLocalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLocalizar.Location = New System.Drawing.Point(791, 0)
+        Me.BtnLocalizar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLocalizar.Name = "BtnLocalizar"
-        Me.BtnLocalizar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnLocalizar.Size = New System.Drawing.Size(80, 23)
         Me.BtnLocalizar.TabIndex = 45
         Me.BtnLocalizar.Text = "Localizar"
         Me.BtnLocalizar.UseVisualStyleBackColor = True
@@ -5539,8 +5993,8 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.TableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.38476!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.61524!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.71774!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.28226!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenuCima, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.PictureBox5, 0, 2)
@@ -5549,13 +6003,14 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 23)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.44186!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.55814!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 438.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(757, 721)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.95349!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.04651!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 489.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(967, 767)
         Me.TableLayoutPanel1.TabIndex = 46
         '
         'GroupBoxMenuCima
@@ -5568,9 +6023,11 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnFechar)
         Me.GroupBoxMenuCima.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(672, 48)
+        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(871, 39)
+        Me.GroupBoxMenuCima.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuCima.Name = "GroupBoxMenuCima"
-        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(82, 207)
+        Me.GroupBoxMenuCima.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(92, 218)
         Me.GroupBoxMenuCima.TabIndex = 24
         Me.GroupBoxMenuCima.TabStop = False
         Me.GroupBoxMenuCima.Text = "MENU"
@@ -5580,9 +6037,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarRegistroEmpresa.BackgroundImage = CType(resources.GetObject("BtnCopiarRegistroEmpresa.BackgroundImage"), System.Drawing.Image)
         Me.BtnCopiarRegistroEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCopiarRegistroEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiarRegistroEmpresa.Location = New System.Drawing.Point(6, 115)
+        Me.BtnCopiarRegistroEmpresa.Location = New System.Drawing.Point(5, 119)
+        Me.BtnCopiarRegistroEmpresa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarRegistroEmpresa.Name = "BtnCopiarRegistroEmpresa"
-        Me.BtnCopiarRegistroEmpresa.Size = New System.Drawing.Size(69, 23)
+        Me.BtnCopiarRegistroEmpresa.Size = New System.Drawing.Size(80, 27)
         Me.BtnCopiarRegistroEmpresa.TabIndex = 51
         Me.BtnCopiarRegistroEmpresa.Text = "Copiar"
         Me.BtnCopiarRegistroEmpresa.UseVisualStyleBackColor = True
@@ -5602,9 +6060,11 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuBaixo.Controls.Add(Me.Button27)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.Button20)
         Me.GroupBoxMenuBaixo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuBaixo.Location = New System.Drawing.Point(672, 285)
+        Me.GroupBoxMenuBaixo.Location = New System.Drawing.Point(871, 280)
+        Me.GroupBoxMenuBaixo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuBaixo.Name = "GroupBoxMenuBaixo"
-        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(82, 433)
+        Me.GroupBoxMenuBaixo.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(92, 484)
         Me.GroupBoxMenuBaixo.TabIndex = 25
         Me.GroupBoxMenuBaixo.TabStop = False
         Me.GroupBoxMenuBaixo.Text = "Atalhos"
@@ -5618,11 +6078,12 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.66064!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label8, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 3)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(663, 39)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(859, 30)
         Me.TableLayoutPanel2.TabIndex = 47
         '
         'Label8
@@ -5630,11 +6091,12 @@ Partial Class FrmLegalizacao
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(3, 0)
+        Me.Label8.Location = New System.Drawing.Point(4, 0)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(162, 36)
+        Me.Label8.Size = New System.Drawing.Size(146, 30)
         Me.Label8.TabIndex = 0
-        Me.Label8.Text = "EMPRESAS"
+        Me.Label8.Text = "EMPRESA"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ComboBoxBuscaCNPJ
@@ -5644,20 +6106,21 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.DataSource = Me.EmpresasBindingSource
         Me.ComboBoxBuscaCNPJ.DisplayMember = "CNPJ"
         Me.ComboBoxBuscaCNPJ.FormattingEnabled = True
-        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(532, 1)
+        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(621, 1)
+        Me.ComboBoxBuscaCNPJ.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ComboBoxBuscaCNPJ.Name = "ComboBoxBuscaCNPJ"
-        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(134, 21)
+        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(156, 23)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
         'FrmLegalizacao
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(757, 744)
+        Me.ClientSize = New System.Drawing.Size(967, 790)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)
@@ -5665,8 +6128,10 @@ Partial Class FrmLegalizacao
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBoxBuscaEmpresa)
         Me.Controls.Add(Me.EmpresasBindingNavigator)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "FrmLegalizacao"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Controle geral de Legalização de Empresas"
