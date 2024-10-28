@@ -1181,6 +1181,8 @@
     <None Include="Resources\FundoFechar.jpeg" />
     <None Include="Resources\FundoBotaoColorido2.jpeg" />
     <None Include="Resources\FundoBtnFechar.jpeg" />
+    <None Include="Resources\unnamed.png" />
+    <None Include="Resources\CoporDeBombeiro.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

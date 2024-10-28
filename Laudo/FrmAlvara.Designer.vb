@@ -2284,6 +2284,7 @@ Partial Class FrmAlvara
         '
         'GroupBox4
         '
+        Me.GroupBox4.AutoSize = True
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox4.Controls.Add(NlaudoSecundarioLabel)
         Me.GroupBox4.Controls.Add(Me.BtnVerObsGeral)
@@ -2302,11 +2303,11 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(Me.NlaudoTextBox)
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(4, 234)
+        Me.GroupBox4.Location = New System.Drawing.Point(4, 248)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(902, 468)
+        Me.GroupBox4.Size = New System.Drawing.Size(902, 501)
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
@@ -3371,6 +3372,7 @@ Partial Class FrmAlvara
         '
         'GroupBox5
         '
+        Me.GroupBox5.AutoSize = True
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -3385,7 +3387,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox5.Size = New System.Drawing.Size(93, 225)
+        Me.GroupBox5.Size = New System.Drawing.Size(93, 239)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -3753,6 +3755,7 @@ Partial Class FrmAlvara
         '
         'TableLayoutPanel1
         '
+        Me.TableLayoutPanel1.AutoScroll = True
         Me.TableLayoutPanel1.AutoSize = True
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.ColumnCount = 2
@@ -3767,13 +3770,14 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.89474!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.10526!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1011, 705)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1011, 752)
         Me.TableLayoutPanel1.TabIndex = 82
         '
         'GroupBox10
         '
+        Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.GroupBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -3784,11 +3788,11 @@ Partial Class FrmAlvara
         Me.GroupBox10.Controls.Add(Me.Button14)
         Me.GroupBox10.Controls.Add(Me.Button13)
         Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(914, 234)
+        Me.GroupBox10.Location = New System.Drawing.Point(914, 248)
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox10.Size = New System.Drawing.Size(93, 468)
+        Me.GroupBox10.Size = New System.Drawing.Size(93, 501)
         Me.GroupBox10.TabIndex = 58
         Me.GroupBox10.TabStop = False
         '
@@ -3808,6 +3812,7 @@ Partial Class FrmAlvara
         '
         'GroupBoxCima
         '
+        Me.GroupBoxCima.AutoSize = True
         Me.GroupBoxCima.Controls.Add(Me.CheckBoxPrioridade)
         Me.GroupBoxCima.Controls.Add(Me.GroupBox3)
         Me.GroupBoxCima.Dock = System.Windows.Forms.DockStyle.Fill
@@ -3815,7 +3820,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxCima.Name = "GroupBoxCima"
         Me.GroupBoxCima.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxCima.Size = New System.Drawing.Size(902, 225)
+        Me.GroupBoxCima.Size = New System.Drawing.Size(902, 239)
         Me.GroupBoxCima.TabIndex = 0
         Me.GroupBoxCima.TabStop = False
         '
@@ -3854,8 +3859,9 @@ Partial Class FrmAlvara
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.AutoSize = True
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.ClientSize = New System.Drawing.Size(1011, 730)
+        Me.ClientSize = New System.Drawing.Size(1011, 777)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -3950,6 +3956,7 @@ Partial Class FrmAlvara
         Me.CheckBoxPrioridade.ResumeLayout(False)
         Me.CheckBoxPrioridade.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBoxCima.ResumeLayout(False)
         Me.GroupBoxCima.PerformLayout()

@@ -1738,7 +1738,7 @@ Partial Class FrmLegalizacao
         Me.EmpresasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.EmpresasBindingNavigator.Name = "EmpresasBindingNavigator"
         Me.EmpresasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(967, 23)
+        Me.EmpresasBindingNavigator.Size = New System.Drawing.Size(966, 23)
         Me.EmpresasBindingNavigator.Stretch = True
         Me.EmpresasBindingNavigator.TabIndex = 0
         Me.EmpresasBindingNavigator.Text = "BindingNavigator1"
@@ -5291,6 +5291,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox2
         '
+        Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.EndEstadoLabel2)
         Me.GroupBox2.Controls.Add(EndEstadoLabel1)
@@ -5328,11 +5329,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Controls.Add(Me.CNPJMaskedTextBox)
         Me.GroupBox2.Controls.Add(Me.RazaoSocialTextBox)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(4, 39)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 40)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox2.Size = New System.Drawing.Size(859, 218)
+        Me.GroupBox2.Size = New System.Drawing.Size(858, 235)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
@@ -5801,11 +5802,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.Controls.Add(Me.TabControle)
         Me.GroupBox10.Controls.Add(Me.SistemaExternoLabel)
         Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(4, 280)
+        Me.GroupBox10.Location = New System.Drawing.Point(4, 293)
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox10.Size = New System.Drawing.Size(859, 484)
+        Me.GroupBox10.Size = New System.Drawing.Size(858, 506)
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
@@ -5956,10 +5957,10 @@ Partial Class FrmLegalizacao
         '
         Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox5.Image = Global.PrinceSistemas.My.Resources.Resources.Fundo
-        Me.PictureBox5.Location = New System.Drawing.Point(4, 263)
+        Me.PictureBox5.Location = New System.Drawing.Point(4, 281)
         Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(859, 11)
+        Me.PictureBox5.Size = New System.Drawing.Size(858, 6)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 44
         Me.PictureBox5.TabStop = False
@@ -5989,6 +5990,7 @@ Partial Class FrmLegalizacao
         '
         Me.TableLayoutPanel1.AutoScroll = True
         Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.TableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -6006,15 +6008,16 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.95349!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.04651!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 489.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(967, 767)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(966, 802)
         Me.TableLayoutPanel1.TabIndex = 46
         '
         'GroupBoxMenuCima
         '
+        Me.GroupBoxMenuCima.AutoSize = True
         Me.GroupBoxMenuCima.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnCopiarRegistroEmpresa)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnNovo)
@@ -6023,11 +6026,11 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenuCima.Controls.Add(Me.BtnFechar)
         Me.GroupBoxMenuCima.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(871, 39)
+        Me.GroupBoxMenuCima.Location = New System.Drawing.Point(870, 40)
         Me.GroupBoxMenuCima.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuCima.Name = "GroupBoxMenuCima"
         Me.GroupBoxMenuCima.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(92, 218)
+        Me.GroupBoxMenuCima.Size = New System.Drawing.Size(92, 235)
         Me.GroupBoxMenuCima.TabIndex = 24
         Me.GroupBoxMenuCima.TabStop = False
         Me.GroupBoxMenuCima.Text = "MENU"
@@ -6047,6 +6050,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBoxMenuBaixo
         '
+        Me.GroupBoxMenuBaixo.AutoSize = True
         Me.GroupBoxMenuBaixo.BackColor = System.Drawing.Color.Transparent
         Me.GroupBoxMenuBaixo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBoxMenuBaixo.Controls.Add(Me.BtnWord)
@@ -6060,11 +6064,11 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuBaixo.Controls.Add(Me.Button27)
         Me.GroupBoxMenuBaixo.Controls.Add(Me.Button20)
         Me.GroupBoxMenuBaixo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuBaixo.Location = New System.Drawing.Point(871, 280)
+        Me.GroupBoxMenuBaixo.Location = New System.Drawing.Point(870, 293)
         Me.GroupBoxMenuBaixo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuBaixo.Name = "GroupBoxMenuBaixo"
         Me.GroupBoxMenuBaixo.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(92, 484)
+        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(92, 506)
         Me.GroupBoxMenuBaixo.TabIndex = 25
         Me.GroupBoxMenuBaixo.TabStop = False
         Me.GroupBoxMenuBaixo.Text = "Atalhos"
@@ -6083,7 +6087,7 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(859, 30)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(858, 31)
         Me.TableLayoutPanel2.TabIndex = 47
         '
         'Label8
@@ -6094,7 +6098,7 @@ Partial Class FrmLegalizacao
         Me.Label8.Location = New System.Drawing.Point(4, 0)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(146, 30)
+        Me.Label8.Size = New System.Drawing.Size(146, 31)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "EMPRESA"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -6118,9 +6122,11 @@ Partial Class FrmLegalizacao
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(967, 790)
+        Me.ClientSize = New System.Drawing.Size(966, 825)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)

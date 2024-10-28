@@ -22,7 +22,6 @@ Partial Class FrmProtegeFacil
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,27 +37,17 @@ Partial Class FrmProtegeFacil
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(508, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "CORPO DE BOMBEIROS MILITAR DO PARANÁ"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 48)
+        Me.Label2.Location = New System.Drawing.Point(12, 164)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(535, 20)
         Me.Label2.TabIndex = 4
@@ -68,7 +57,7 @@ Partial Class FrmProtegeFacil
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 83)
+        Me.Label3.Location = New System.Drawing.Point(13, 199)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(534, 63)
         Me.Label3.TabIndex = 5
@@ -80,7 +69,7 @@ Partial Class FrmProtegeFacil
         '
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(14, 353)
+        Me.Label4.Location = New System.Drawing.Point(13, 469)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(534, 20)
         Me.Label4.TabIndex = 6
@@ -90,7 +79,7 @@ Partial Class FrmProtegeFacil
         '
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(14, 146)
+        Me.Label5.Location = New System.Drawing.Point(13, 262)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(534, 20)
         Me.Label5.TabIndex = 7
@@ -101,7 +90,7 @@ Partial Class FrmProtegeFacil
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.BackColor = System.Drawing.Color.Transparent
         Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(14, 373)
+        Me.LinkLabel1.Location = New System.Drawing.Point(13, 489)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(206, 18)
         Me.LinkLabel1.TabIndex = 11
@@ -113,7 +102,7 @@ Partial Class FrmProtegeFacil
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.BackColor = System.Drawing.Color.Transparent
         Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel2.Location = New System.Drawing.Point(14, 394)
+        Me.LinkLabel2.Location = New System.Drawing.Point(13, 510)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(141, 18)
         Me.LinkLabel2.TabIndex = 12
@@ -126,7 +115,7 @@ Partial Class FrmProtegeFacil
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(17, 219)
+        Me.ComboBox1.Location = New System.Drawing.Point(16, 335)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(240, 28)
         Me.ComboBox1.TabIndex = 13
@@ -141,7 +130,7 @@ Partial Class FrmProtegeFacil
         Me.BtnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnInterno.ForeColor = System.Drawing.Color.White
-        Me.BtnInterno.Location = New System.Drawing.Point(140, 253)
+        Me.BtnInterno.Location = New System.Drawing.Point(139, 369)
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnInterno.TabIndex = 15
@@ -158,7 +147,7 @@ Partial Class FrmProtegeFacil
         Me.BtnExterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExterno.ForeColor = System.Drawing.Color.White
-        Me.BtnExterno.Location = New System.Drawing.Point(17, 253)
+        Me.BtnExterno.Location = New System.Drawing.Point(16, 369)
         Me.BtnExterno.Name = "BtnExterno"
         Me.BtnExterno.Size = New System.Drawing.Size(117, 50)
         Me.BtnExterno.TabIndex = 14
@@ -170,7 +159,7 @@ Partial Class FrmProtegeFacil
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(14, 323)
+        Me.Label8.Location = New System.Drawing.Point(13, 439)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(555, 15)
         Me.Label8.TabIndex = 16
@@ -182,7 +171,7 @@ Partial Class FrmProtegeFacil
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(14, 338)
+        Me.Label9.Location = New System.Drawing.Point(13, 454)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(320, 15)
         Me.Label9.TabIndex = 17
@@ -193,7 +182,7 @@ Partial Class FrmProtegeFacil
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(13, 195)
+        Me.Label6.Location = New System.Drawing.Point(12, 311)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(248, 19)
         Me.Label6.TabIndex = 22
@@ -208,7 +197,7 @@ Partial Class FrmProtegeFacil
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(425, 420)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(425, 522)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -234,6 +223,17 @@ Partial Class FrmProtegeFacil
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.unnamed
+        Me.PictureBox1.Location = New System.Drawing.Point(62, -3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(433, 154)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 24
+        Me.PictureBox1.TabStop = False
+        '
         'FrmProtegeFacil
         '
         Me.AcceptButton = Me.OK_Button
@@ -242,7 +242,8 @@ Partial Class FrmProtegeFacil
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(577, 455)
+        Me.ClientSize = New System.Drawing.Size(577, 557)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label9)
@@ -256,7 +257,6 @@ Partial Class FrmProtegeFacil
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.KeyPreview = True
         Me.Name = "FrmProtegeFacil"
@@ -264,12 +264,11 @@ Partial Class FrmProtegeFacil
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CORPO DE BOMBEIROS MILITAR"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -285,4 +284,5 @@ Partial Class FrmProtegeFacil
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents OK_Button As Button
     Friend WithEvents Cancel_Button As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

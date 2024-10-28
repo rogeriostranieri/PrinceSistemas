@@ -121,12 +121,17 @@ Module ModeMail
             Dim J = FrmLegalizacao.NaturezaJuridicaComboBox.Text.ToString()
             'data de hoje dd/mm/aaaa as 00:00:00
             Dim K = DateTime.Now.ToString("dd'/'MM'/'yyyy HH:mm:ss", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))
+            'RegimeFederalComboBox
+            Dim Regime = FrmLegalizacao.RegimeFederalComboBox.Text.ToString
+
+
 
             'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
-            If C = "Transformação" Then
+            ' If C = "Transformação" Then
+            If C.Contains("Transformação") Then
                 'caixa MsgBox VBA e InputBox
                 Dim G = InputBox("Digite qual tipo Processo de Transformação", "Processo de Transformação")
-                C = G
+                C = "Transformação de " + G
             End If
 
             'Nome Antigo
@@ -146,6 +151,14 @@ Module ModeMail
                 IE = ", e <b>inscrita no Estado com Nº = </b>" & F & ". <br>"
             End If
 
+            'Regime da Empresa
+            Dim RegimeFinal As String = ""
+            If Regime <> "Pendência" Then
+                RegimeFinal = Regime
+            Else
+                RegimeFinal = "Em andamento Simples Nacional"
+            End If
+
             'Nome Do usuário
             Dim Nome As String
             'apagar "Bem vindo Sr(a). ", do  MDIPrincipal.LblNomeCompleto.Text
@@ -157,23 +170,68 @@ Module ModeMail
             'ApplicationTitle  - ProductName
             Dim NomeSistema As String = My.Application.Info.ProductName
 
+            '///////////// CODIGO DO SISTEMA EXTERMO
+
+            Dim CodigoSistemaExterno As String = ""
+            Dim TextoSistemaExterno As String = ""
+
+            Dim resposta As DialogResult
+            resposta = MessageBox.Show("Deseja adicionar o número da empresa do sistema externo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If resposta = DialogResult.Yes Then
+                ' Mostra um campo para o usuário digitar o número
+                Dim numeroEmpresa As String = InputBox("Digite o número da empresa:", "Número da Empresa")
+
+                ' Verifica se o usuário clicou em "Cancelar" ou deixou o campo em branco
+                If String.IsNullOrEmpty(numeroEmpresa) Then
+                    MessageBox.Show("Nenhum número foi inserido ou operação cancelada. O processo será continuado sem o número.")
+                Else
+                    ' Aqui você pode usar o número inserido conforme necessário
+                    ' MessageBox.Show("Número da empresa inserido: " & numeroEmpresa)
+                    ' Código para utilizar o número da empresa
+                    CodigoSistemaExterno = numeroEmpresa
+                    TextoSistemaExterno = " - Código da Empresa: "
+                End If
+            Else
+                ' Continua o código normalmente
+                ' MessageBox.Show("Processo continuado sem adicionar número da empresa.")
+            End If
+
+
+
 
             '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
             'assunto
+            'FrmMail.TextBoxAssunto.Text = C & " da Empresa " & Filial & " = " & A & ""
 
-            FrmMail.TextBoxAssunto.Text = C & " da " & Filial & " - da Empresa = " & A & ""
+            'verificar se C tem "transformação" e mostrar caixa de editar o texto antes de colocar
+
+            If C.Contains("Transformação") Then
+                FrmMail.TextBoxAssunto.Text = C & " da Empresa " & Filial & " = " & H & ""
+            Else
+                FrmMail.TextBoxAssunto.Text = C & " da Empresa " & Filial & " = " & A & ""
+            End If
+
+            '///////////////////////// COPO DO EMAIL //////////////////////////////////
 
             'corpo do email
             FrmMail.RichTextBoxMensagem.SelectedText &=
-"<html><body><b>Nome Empresarial = </b> " & A & ".<br>
-" & NomeAntigo & "
-<b>Natureza jurídica = </b> " & I & " - " & J & ".<br>
-<b>Inscrita no CNPJ Nº = </b> " & B & "" & IE & "<br>
+"<html><body><br>
 <br>
 <b>Com o processo = </b> " & C & ".<br>
+<br>
+<b>Nome Empresarial = </b> " & A & ".<br>
+" & NomeAntigo & "
+<b>Inscrita no CNPJ Nº = </b> " & B & "" & IE & "<br>
+<b>Natureza jurídica = </b> " & I & " - " & J & ".<br>
+<br>
 <b>Teve como objetivo = </b> " & D & ".<br>
 <br>
-<b>Sistema externo atualizado = </b> " & E & ".<br>
+<br>
+<b>A Empresa vai ser = </b> " & RegimeFinal & "<br>
+<br>
+<br>
+<b>Sistema externo atualizado = </b> " & E & "<b> " & TextoSistemaExterno & "</b>" & CodigoSistemaExterno & ".<br>
 <br>
 <br>           
 //-----------------//-----------------//-----------------//-----------------//<br>
@@ -189,7 +247,8 @@ Module ModeMail
 "
 
             '/////////////////////////// FIM CAIXA DO EMAIL ////////////////////////////////////////////////
-
+            FrmMail.BringToFront()
+            FrmMail.Focus()
         Catch ex As System.InvalidCastException
             MessageBox.Show("ERRO" & vbCrLf & ex.Message, "Prince Avisa")
 
