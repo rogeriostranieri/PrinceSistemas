@@ -389,6 +389,12 @@
     <Compile Include="CNAEs\FrmCNAEOficialEscolha.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CNAEs\FrmCNAEtexto.Designer.vb">
+      <DependentUpon>FrmCNAEtexto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CNAEs\FrmCNAEtexto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consulta CNPJ\FrmExtraiCNPJ.Designer.vb">
       <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
     </Compile>
@@ -873,6 +879,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CNAEs\FrmCNAEOficialEscolha.resx">
       <DependentUpon>FrmCNAEOficialEscolha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNAEs\FrmCNAEtexto.resx">
+      <DependentUpon>FrmCNAEtexto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta CNPJ\FrmExtraiCNPJ.resx">
       <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>

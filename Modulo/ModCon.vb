@@ -101,8 +101,9 @@ Tente novamente!", "Prince Ajuda")
 
                             FrmAlvara.TabControl2.SelectTab(3)
                             'copia
-                            FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
-CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+                            '  FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & " CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+                            FrmAlvara.CNAEPrimarioTextBox.Text = FrmLegalizacao.CNAEPrincipalTextBox.Text
+                            FrmAlvara.CNAERichTextBox.Text = FrmLegalizacao.CNAESecundarioRichTextBox.Text
                             FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
 
 
@@ -406,8 +407,8 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
 
                                     FrmAlvara.TabControl2.SelectTab(3)
                                     'copia
-                                    FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
-CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+                                    FrmAlvara.CNAEPrimarioTextBox.Text = FrmLegalizacao.CNAEPrincipalTextBox.Text
+                                    FrmAlvara.CNAERichTextBox.Text = FrmLegalizacao.CNAESecundarioRichTextBox.Text
                                     FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
 
 
@@ -729,8 +730,8 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
 
             FrmAlvara.TabControl2.SelectTab(3)
             'copia
-            FrmAlvara.CNAERichTextBox.Text = "CNAE Primário:  " & FrmLegalizacao.CNAEPrincipalTextBox.Text & "
-CNAE Secundários:  " & FrmLegalizacao.CNAESecundarioRichTextBox.Text
+            FrmAlvara.CNAEPrimarioTextBox.Text = FrmLegalizacao.CNAEPrincipalTextBox.Text
+            FrmAlvara.CNAERichTextBox.Text = FrmLegalizacao.CNAESecundarioRichTextBox.Text
             FrmAlvara.RamodeatividadeRichTextBox.Text = FrmLegalizacao.RamoDeAtividadeRichTextBox.Text
 
 

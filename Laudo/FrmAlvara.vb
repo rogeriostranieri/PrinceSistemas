@@ -192,12 +192,16 @@ Public Class FrmAlvara
         Else
             BtnFiliais.Visible = False
             LabelFilial.Visible = True
+            LabelFilial.Cursor = Cursors.Hand
+            AddHandler LabelFilial.Click, AddressOf LabelFilial_Click
         End If
 
         ' Ajusta o tamanho do botão
         BtnFiliais.AutoSize = True
     End Sub
-
+    Private Sub LabelFilial_Click(sender As Object, e As EventArgs)
+        VerificarFiliais()
+    End Sub
 
     '//// fim load
 
@@ -2075,5 +2079,68 @@ Public Class FrmAlvara
 
     Private Sub NlaudoSecundarioTextBox_TextChanged(sender As Object, e As EventArgs) Handles NlaudoSecundarioTextBox.TextChanged
         NlaudoSecundarioTextBox.Text = NlaudoSecundarioTextBox.Text.Replace(" ", "")
+    End Sub
+
+    Private Sub BtnCNAEOficial_Click(sender As Object, e As EventArgs) Handles BtnCNAEOficial.Click
+        If Application.OpenForms.OfType(Of FrmCNAEAberturaEscolha)().Count() > 0 Then
+            FrmCNAEAberturaEscolha.Focus()
+        Else
+            FrmCNAEAberturaEscolha.Show()
+        End If
+    End Sub
+
+    Private Sub BtnVerDescricaoCNAE_Click(sender As Object, e As EventArgs) Handles BtnVerDescricaoCNAE.Click
+        If Application.OpenForms.OfType(Of FrmCNAEtexto)().Count() > 0 Then
+            FrmCNAEtexto.Focus()
+        Else
+            FrmCNAEtexto.Show()
+        End If
+    End Sub
+
+    Private Sub LblLinkArrumarCNAE_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LblLinkArrumarCNAE.LinkClicked
+        ' Limpar caracteres e formatar o CNAEPrincipalTextBox
+        If CNAEPrimarioTextBox.Text.Length >= 7 Then
+            Dim cnaePrincipal As String = CNAEPrimarioTextBox.Text
+            ' Manter apenas números e formatar como XXXX-X/XX
+            cnaePrincipal = New String(cnaePrincipal.Where(Function(c) Char.IsDigit(c)).ToArray())
+            If cnaePrincipal.Length = 7 Then
+                CNAERichTextBox.Text = cnaePrincipal.Substring(0, 4) & "-" & cnaePrincipal.Substring(4, 1) & "/" & cnaePrincipal.Substring(5, 2)
+            Else
+                MessageBox.Show("CNAE Principal inválido. Deve conter 7 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+
+        ' Verificar linha por linha no CNAESecundarioRichTextBox
+        Dim linhasSecundarias As String() = CNAERichTextBox.Lines
+        Dim cnaesFormatados As New List(Of String)
+
+        For Each linha As String In linhasSecundarias
+            ' Manter apenas números e formatar como XXXX-X/XX
+            Dim cnaeSecundario As String = New String(linha.Where(Function(c) Char.IsDigit(c)).ToArray())
+            If cnaeSecundario.Length = 7 Then
+                cnaesFormatados.Add(cnaeSecundario.Substring(0, 4) & "-" & cnaeSecundario.Substring(4, 1) & "/" & cnaeSecundario.Substring(5, 2))
+            ElseIf Not String.IsNullOrWhiteSpace(linha) Then
+                MessageBox.Show($"CNAE Secundário inválido: {linha}. Deve conter 7 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Next
+
+        ' Atualizar o conteúdo do CNAESecundarioRichTextBox com os CNAEs formatados
+        CNAERichTextBox.Lines = cnaesFormatados.ToArray()
+    End Sub
+
+    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
+        RamodeatividadeRichTextBox.Text = LimparTextoRamo(RamodeatividadeRichTextBox.Text)
+    End Sub
+    Function LimparTextoRamo(sText As String) As String
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s+", " ")
+        sText = sText.Replace(Environment.NewLine, ";")
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s*;\s*", ";")
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "[*+@!#$%&?]", "")
+        Return sText
+    End Function
+
+    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
+        'copiar para area de trabalho RamoDeAtividadeRichTextBox
+        Clipboard.SetText(RamodeatividadeRichTextBox.Text)
     End Sub
 End Class

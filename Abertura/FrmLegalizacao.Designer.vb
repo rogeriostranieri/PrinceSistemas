@@ -68,7 +68,6 @@ Partial Class FrmLegalizacao
         Dim NomeResponsavelLabel As System.Windows.Forms.Label
         Dim IEComprovanteLabel As System.Windows.Forms.Label
         Dim IEjuntaLabel As System.Windows.Forms.Label
-        Dim BombeiroJuntaLabel As System.Windows.Forms.Label
         Dim ProtJuntaFinalLabel As System.Windows.Forms.Label
         Dim TituloeleitorLabel As System.Windows.Forms.Label
         Dim ObsSimplesLabel As System.Windows.Forms.Label
@@ -186,6 +185,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnVerDescricaoCNAE = New System.Windows.Forms.Button()
         Me.LblLinkArrumarCNAE = New System.Windows.Forms.LinkLabel()
         Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
@@ -395,7 +395,6 @@ Partial Class FrmLegalizacao
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.BtnAnotacoesPrefeitura = New System.Windows.Forms.Button()
         Me.Button32 = New System.Windows.Forms.Button()
-        Me.BombeiroJuntaComboBox = New System.Windows.Forms.ComboBox()
         Me.PrefeituraObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage23 = New System.Windows.Forms.TabPage()
         Me.SenhasDeAcessoRichTextBox = New System.Windows.Forms.RichTextBox()
@@ -538,7 +537,6 @@ Partial Class FrmLegalizacao
         NomeResponsavelLabel = New System.Windows.Forms.Label()
         IEComprovanteLabel = New System.Windows.Forms.Label()
         IEjuntaLabel = New System.Windows.Forms.Label()
-        BombeiroJuntaLabel = New System.Windows.Forms.Label()
         ProtJuntaFinalLabel = New System.Windows.Forms.Label()
         TituloeleitorLabel = New System.Windows.Forms.Label()
         ObsSimplesLabel = New System.Windows.Forms.Label()
@@ -1108,16 +1106,6 @@ Partial Class FrmLegalizacao
         IEjuntaLabel.Size = New System.Drawing.Size(130, 15)
         IEjuntaLabel.TabIndex = 36
         IEjuntaLabel.Text = "Vinculo da Solicitação:"
-        '
-        'BombeiroJuntaLabel
-        '
-        BombeiroJuntaLabel.AutoSize = True
-        BombeiroJuntaLabel.Location = New System.Drawing.Point(10, 48)
-        BombeiroJuntaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        BombeiroJuntaLabel.Name = "BombeiroJuntaLabel"
-        BombeiroJuntaLabel.Size = New System.Drawing.Size(130, 15)
-        BombeiroJuntaLabel.TabIndex = 40
-        BombeiroJuntaLabel.Text = "Vinculo da Solicitação:"
         '
         'ProtJuntaFinalLabel
         '
@@ -2343,6 +2331,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnVerDescricaoCNAE)
         Me.GroupBox1.Controls.Add(Me.LblLinkArrumarCNAE)
         Me.GroupBox1.Controls.Add(Me.CnaeSimples)
         Me.GroupBox1.Controls.Add(Me.BtnGrauDeRisco)
@@ -2369,6 +2358,18 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
+        '
+        'BtnVerDescricaoCNAE
+        '
+        Me.BtnVerDescricaoCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDescricaoCNAE.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(20, 134)
+        Me.BtnVerDescricaoCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVerDescricaoCNAE.Name = "BtnVerDescricaoCNAE"
+        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(73, 28)
+        Me.BtnVerDescricaoCNAE.TabIndex = 86
+        Me.BtnVerDescricaoCNAE.Text = "Descrição"
+        Me.BtnVerDescricaoCNAE.UseVisualStyleBackColor = False
         '
         'LblLinkArrumarCNAE
         '
@@ -4878,8 +4879,6 @@ Partial Class FrmLegalizacao
         Me.TabPage6.AutoScroll = True
         Me.TabPage6.Controls.Add(Me.BtnAnotacoesPrefeitura)
         Me.TabPage6.Controls.Add(Me.Button32)
-        Me.TabPage6.Controls.Add(BombeiroJuntaLabel)
-        Me.TabPage6.Controls.Add(Me.BombeiroJuntaComboBox)
         Me.TabPage6.Controls.Add(PrefeituraObsLabel)
         Me.TabPage6.Controls.Add(Me.PrefeituraObsRichTextBox)
         Me.TabPage6.Location = New System.Drawing.Point(4, 24)
@@ -4894,7 +4893,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesPrefeitura.BackgroundImage = CType(resources.GetObject("BtnAnotacoesPrefeitura.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesPrefeitura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(420, 84)
+        Me.BtnAnotacoesPrefeitura.Location = New System.Drawing.Point(19, 87)
         Me.BtnAnotacoesPrefeitura.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesPrefeitura.Name = "BtnAnotacoesPrefeitura"
         Me.BtnAnotacoesPrefeitura.Size = New System.Drawing.Size(80, 27)
@@ -4908,24 +4907,13 @@ Partial Class FrmLegalizacao
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button32.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button32.Location = New System.Drawing.Point(362, 32)
+        Me.Button32.Location = New System.Drawing.Point(19, 32)
         Me.Button32.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button32.Name = "Button32"
-        Me.Button32.Size = New System.Drawing.Size(139, 45)
+        Me.Button32.Size = New System.Drawing.Size(204, 45)
         Me.Button32.TabIndex = 42
-        Me.Button32.Text = "Laudo / Alvará"
+        Me.Button32.Text = "Verificar: Laudo / Alvará"
         Me.Button32.UseVisualStyleBackColor = True
-        '
-        'BombeiroJuntaComboBox
-        '
-        Me.BombeiroJuntaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroJunta", True))
-        Me.BombeiroJuntaComboBox.FormattingEnabled = True
-        Me.BombeiroJuntaComboBox.Items.AddRange(New Object() {"Alvará cadastrado", "Alvará não cadastrado"})
-        Me.BombeiroJuntaComboBox.Location = New System.Drawing.Point(147, 45)
-        Me.BombeiroJuntaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BombeiroJuntaComboBox.Name = "BombeiroJuntaComboBox"
-        Me.BombeiroJuntaComboBox.Size = New System.Drawing.Size(207, 23)
-        Me.BombeiroJuntaComboBox.TabIndex = 41
         '
         'PrefeituraObsRichTextBox
         '
@@ -6371,7 +6359,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents IEjuntaComboBox As ComboBox
     Friend WithEvents ProtocoloREDESIMLabel As Label
     Friend WithEvents DataProtREDESIMLabel As Label
-    Friend WithEvents BombeiroJuntaComboBox As ComboBox
     Friend WithEvents ProtJuntaFinalMaskedTextBox As MaskedTextBox
     Friend WithEvents Button30 As Button
     Friend WithEvents TituloeleitorTextBox As TextBox
@@ -6602,4 +6589,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents CapitalSocialAntigoLabel As Label
     Friend WithEvents LinkLabelAumentoCapital As LinkLabel
     Friend WithEvents BtnCopiarCapitalFinal As Button
+    Friend WithEvents BtnVerDescricaoCNAE As Button
 End Class

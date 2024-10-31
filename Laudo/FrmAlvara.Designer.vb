@@ -77,6 +77,7 @@ Partial Class FrmAlvara
         Dim ReciboProcessoLabel As System.Windows.Forms.Label
         Dim MatrizLabel As System.Windows.Forms.Label
         Dim NlaudoSecundarioLabel As System.Windows.Forms.Label
+        Dim CNAEPrimarioLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -224,6 +225,12 @@ Partial Class FrmAlvara
         Me.ResptecnicoTextBox = New System.Windows.Forms.TextBox()
         Me.ResptecnicoNumeroTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.LblLinkArrumarCNAE = New System.Windows.Forms.LinkLabel()
+        Me.BtnCNAEOficial = New System.Windows.Forms.Button()
+        Me.BtnCopiarRamo = New System.Windows.Forms.Button()
+        Me.BtnRemovCaract = New System.Windows.Forms.Button()
+        Me.BtnVerDescricaoCNAE = New System.Windows.Forms.Button()
+        Me.CNAEPrimarioTextBox = New System.Windows.Forms.TextBox()
         Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
         Me.RamodeatividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.CNAERichTextBox = New System.Windows.Forms.RichTextBox()
@@ -368,6 +375,7 @@ Partial Class FrmAlvara
         ReciboProcessoLabel = New System.Windows.Forms.Label()
         MatrizLabel = New System.Windows.Forms.Label()
         NlaudoSecundarioLabel = New System.Windows.Forms.Label()
+        CNAEPrimarioLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -646,17 +654,17 @@ Partial Class FrmAlvara
         'CNAELabel
         '
         CNAELabel.AutoSize = True
-        CNAELabel.Location = New System.Drawing.Point(14, 18)
+        CNAELabel.Location = New System.Drawing.Point(4, 67)
         CNAELabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNAELabel.Name = "CNAELabel"
-        CNAELabel.Size = New System.Drawing.Size(39, 15)
+        CNAELabel.Size = New System.Drawing.Size(105, 15)
         CNAELabel.TabIndex = 23
-        CNAELabel.Text = "CNAE"
+        CNAELabel.Text = "CNAE Secundario"
         '
         'RamodeatividadeLabel
         '
         RamodeatividadeLabel.AutoSize = True
-        RamodeatividadeLabel.Location = New System.Drawing.Point(139, 18)
+        RamodeatividadeLabel.Location = New System.Drawing.Point(231, 18)
         RamodeatividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RamodeatividadeLabel.Name = "RamodeatividadeLabel"
         RamodeatividadeLabel.Size = New System.Drawing.Size(110, 15)
@@ -975,6 +983,15 @@ Partial Class FrmAlvara
         NlaudoSecundarioLabel.Size = New System.Drawing.Size(92, 15)
         NlaudoSecundarioLabel.TabIndex = 57
         NlaudoSecundarioLabel.Text = "2º Nº do Laudo:"
+        '
+        'CNAEPrimarioLabel
+        '
+        CNAEPrimarioLabel.AutoSize = True
+        CNAEPrimarioLabel.Location = New System.Drawing.Point(17, 40)
+        CNAEPrimarioLabel.Name = "CNAEPrimarioLabel"
+        CNAEPrimarioLabel.Size = New System.Drawing.Size(92, 15)
+        CNAEPrimarioLabel.TabIndex = 81
+        CNAEPrimarioLabel.Text = "CNAE Primario:"
         '
         'PrinceDBDataSet
         '
@@ -2428,7 +2445,7 @@ Partial Class FrmAlvara
         Me.BtnAtualizarDados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAtualizarDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAtualizarDados.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnAtualizarDados.Location = New System.Drawing.Point(719, 24)
+        Me.BtnAtualizarDados.Location = New System.Drawing.Point(750, 24)
         Me.BtnAtualizarDados.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAtualizarDados.Name = "BtnAtualizarDados"
         Me.BtnAtualizarDados.Size = New System.Drawing.Size(141, 54)
@@ -2445,12 +2462,12 @@ Partial Class FrmAlvara
         Me.TabControl2.Controls.Add(Me.TabPage10)
         Me.TabControl2.Controls.Add(Me.TabPage9)
         Me.TabControl2.Controls.Add(Me.TabPage11)
-        Me.TabControl2.Location = New System.Drawing.Point(35, 17)
+        Me.TabControl2.Location = New System.Drawing.Point(19, 17)
         Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(650, 269)
+        Me.TabControl2.Size = New System.Drawing.Size(724, 269)
         Me.TabControl2.TabIndex = 32
         '
         'TabPage6
@@ -2461,7 +2478,7 @@ Partial Class FrmAlvara
         Me.TabPage6.Location = New System.Drawing.Point(4, 27)
         Me.TabPage6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage6.Size = New System.Drawing.Size(716, 238)
         Me.TabPage6.TabIndex = 4
         Me.TabPage6.Text = "Observação"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -2473,7 +2490,7 @@ Partial Class FrmAlvara
         Me.NaturezaDoPedidoOBSRichTextBox.Location = New System.Drawing.Point(20, 40)
         Me.NaturezaDoPedidoOBSRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NaturezaDoPedidoOBSRichTextBox.Name = "NaturezaDoPedidoOBSRichTextBox"
-        Me.NaturezaDoPedidoOBSRichTextBox.Size = New System.Drawing.Size(599, 148)
+        Me.NaturezaDoPedidoOBSRichTextBox.Size = New System.Drawing.Size(675, 195)
         Me.NaturezaDoPedidoOBSRichTextBox.TabIndex = 30
         Me.NaturezaDoPedidoOBSRichTextBox.Text = ""
         '
@@ -2516,7 +2533,7 @@ Partial Class FrmAlvara
         Me.TabPage7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage7.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage7.Size = New System.Drawing.Size(716, 238)
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -2705,7 +2722,7 @@ Partial Class FrmAlvara
         Me.TabPage8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage8.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage8.Size = New System.Drawing.Size(716, 238)
         Me.TabPage8.TabIndex = 1
         Me.TabPage8.Text = "Técnico"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -2730,6 +2747,14 @@ Partial Class FrmAlvara
         '
         'TabPage10
         '
+        Me.TabPage10.AutoScroll = True
+        Me.TabPage10.Controls.Add(Me.LblLinkArrumarCNAE)
+        Me.TabPage10.Controls.Add(Me.BtnCNAEOficial)
+        Me.TabPage10.Controls.Add(Me.BtnCopiarRamo)
+        Me.TabPage10.Controls.Add(Me.BtnRemovCaract)
+        Me.TabPage10.Controls.Add(Me.BtnVerDescricaoCNAE)
+        Me.TabPage10.Controls.Add(CNAEPrimarioLabel)
+        Me.TabPage10.Controls.Add(Me.CNAEPrimarioTextBox)
         Me.TabPage10.Controls.Add(Me.BtnGrauDeRisco)
         Me.TabPage10.Controls.Add(RamodeatividadeLabel)
         Me.TabPage10.Controls.Add(Me.RamodeatividadeRichTextBox)
@@ -2739,10 +2764,81 @@ Partial Class FrmAlvara
         Me.TabPage10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage10.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage10.Size = New System.Drawing.Size(716, 238)
         Me.TabPage10.TabIndex = 3
         Me.TabPage10.Text = "Ramo de Atividade"
         Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'LblLinkArrumarCNAE
+        '
+        Me.LblLinkArrumarCNAE.AutoSize = True
+        Me.LblLinkArrumarCNAE.Location = New System.Drawing.Point(58, 202)
+        Me.LblLinkArrumarCNAE.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblLinkArrumarCNAE.Name = "LblLinkArrumarCNAE"
+        Me.LblLinkArrumarCNAE.Size = New System.Drawing.Size(51, 15)
+        Me.LblLinkArrumarCNAE.TabIndex = 91
+        Me.LblLinkArrumarCNAE.TabStop = True
+        Me.LblLinkArrumarCNAE.Text = "Arrumar"
+        '
+        'BtnCNAEOficial
+        '
+        Me.BtnCNAEOficial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCNAEOficial.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCNAEOficial.Location = New System.Drawing.Point(113, 5)
+        Me.BtnCNAEOficial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCNAEOficial.Name = "BtnCNAEOficial"
+        Me.BtnCNAEOficial.Size = New System.Drawing.Size(102, 28)
+        Me.BtnCNAEOficial.TabIndex = 88
+        Me.BtnCNAEOficial.Text = "CNAE - Oficial"
+        Me.BtnCNAEOficial.UseVisualStyleBackColor = False
+        '
+        'BtnCopiarRamo
+        '
+        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCopiarRamo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarRamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiarRamo.Location = New System.Drawing.Point(599, 196)
+        Me.BtnCopiarRamo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
+        Me.BtnCopiarRamo.Size = New System.Drawing.Size(104, 27)
+        Me.BtnCopiarRamo.TabIndex = 90
+        Me.BtnCopiarRamo.Text = "Copiar Ramo"
+        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
+        '
+        'BtnRemovCaract
+        '
+        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(599, 70)
+        Me.BtnRemovCaract.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnRemovCaract.Name = "BtnRemovCaract"
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(104, 43)
+        Me.BtnRemovCaract.TabIndex = 89
+        Me.BtnRemovCaract.Text = "Remove Caraceteres"
+        Me.BtnRemovCaract.UseVisualStyleBackColor = False
+        '
+        'BtnVerDescricaoCNAE
+        '
+        Me.BtnVerDescricaoCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDescricaoCNAE.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(36, 171)
+        Me.BtnVerDescricaoCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVerDescricaoCNAE.Name = "BtnVerDescricaoCNAE"
+        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(73, 28)
+        Me.BtnVerDescricaoCNAE.TabIndex = 87
+        Me.BtnVerDescricaoCNAE.Text = "Descrição"
+        Me.BtnVerDescricaoCNAE.UseVisualStyleBackColor = False
+        '
+        'CNAEPrimarioTextBox
+        '
+        Me.CNAEPrimarioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNAEPrimario", True))
+        Me.CNAEPrimarioTextBox.Location = New System.Drawing.Point(113, 37)
+        Me.CNAEPrimarioTextBox.Name = "CNAEPrimarioTextBox"
+        Me.CNAEPrimarioTextBox.Size = New System.Drawing.Size(110, 21)
+        Me.CNAEPrimarioTextBox.TabIndex = 82
         '
         'BtnGrauDeRisco
         '
@@ -2750,7 +2846,7 @@ Partial Class FrmAlvara
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(523, 37)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(599, 37)
         Me.BtnGrauDeRisco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
         Me.BtnGrauDeRisco.Size = New System.Drawing.Size(108, 27)
@@ -2761,20 +2857,20 @@ Partial Class FrmAlvara
         'RamodeatividadeRichTextBox
         '
         Me.RamodeatividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Ramodeatividade", True))
-        Me.RamodeatividadeRichTextBox.Location = New System.Drawing.Point(134, 37)
+        Me.RamodeatividadeRichTextBox.Location = New System.Drawing.Point(230, 37)
         Me.RamodeatividadeRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RamodeatividadeRichTextBox.Name = "RamodeatividadeRichTextBox"
-        Me.RamodeatividadeRichTextBox.Size = New System.Drawing.Size(381, 186)
+        Me.RamodeatividadeRichTextBox.Size = New System.Drawing.Size(361, 186)
         Me.RamodeatividadeRichTextBox.TabIndex = 25
         Me.RamodeatividadeRichTextBox.Text = ""
         '
         'CNAERichTextBox
         '
         Me.CNAERichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "CNAE", True))
-        Me.CNAERichTextBox.Location = New System.Drawing.Point(18, 37)
+        Me.CNAERichTextBox.Location = New System.Drawing.Point(113, 64)
         Me.CNAERichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNAERichTextBox.Name = "CNAERichTextBox"
-        Me.CNAERichTextBox.Size = New System.Drawing.Size(109, 186)
+        Me.CNAERichTextBox.Size = New System.Drawing.Size(109, 159)
         Me.CNAERichTextBox.TabIndex = 24
         Me.CNAERichTextBox.Text = ""
         '
@@ -2787,7 +2883,7 @@ Partial Class FrmAlvara
         Me.TabPage9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage9.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage9.Size = New System.Drawing.Size(716, 238)
         Me.TabPage9.TabIndex = 2
         Me.TabPage9.Text = "Requerente"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -2943,7 +3039,7 @@ Partial Class FrmAlvara
         Me.TabPage11.Location = New System.Drawing.Point(4, 27)
         Me.TabPage11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Size = New System.Drawing.Size(642, 238)
+        Me.TabPage11.Size = New System.Drawing.Size(716, 238)
         Me.TabPage11.TabIndex = 5
         Me.TabPage11.Text = "Natureza do Pedido"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -4203,4 +4299,10 @@ Partial Class FrmAlvara
     Friend WithEvents BtnCopiarRegistro As Button
     Friend WithEvents BtnCadSite As Button
     Friend WithEvents NlaudoSecundarioTextBox As TextBox
+    Friend WithEvents CNAEPrimarioTextBox As TextBox
+    Friend WithEvents BtnVerDescricaoCNAE As Button
+    Friend WithEvents LblLinkArrumarCNAE As LinkLabel
+    Friend WithEvents BtnCNAEOficial As Button
+    Friend WithEvents BtnCopiarRamo As Button
+    Friend WithEvents BtnRemovCaract As Button
 End Class

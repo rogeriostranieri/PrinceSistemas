@@ -13,28 +13,7 @@
         Return sText
     End Function
     'limpa enter dos paragrafos 
-    Function LimpaEnter(ByVal sText As String) As String
-        sText = sText.Replace(vbCrLf, " ")
-        sText = sText.Replace(vbCr, " ")
-        sText = sText.Replace(vbLf, " ")
 
-        Return sText
-    End Function
-
-    ' Função para limpar caracteres, espaçamentos e substituir quebras de linha
-    Public Function LimparTextoPersonalizado(sText As String) As String
-        ' Remove espaços duplicados
-        Dim textoSemEspacosDuplicados As String = System.Text.RegularExpressions.Regex.Replace(sText, "\s+", " ")
-
-        ' Remove quebras de linha e substitui por ";"
-        Dim textoFormatado As String = textoSemEspacosDuplicados.Replace(Environment.NewLine, ";")
-
-        ' Remove espaços adicionais em torno do ponto e vírgula
-        textoFormatado = System.Text.RegularExpressions.Regex.Replace(textoFormatado, "\s*;\s*", ";")
-
-        ' Retorna o texto formatado
-        Return textoFormatado
-    End Function
 
     'limpa caracteres  : , . ; : - _ e outros
     Function LimpaCaracteres(ByVal sText As String) As String

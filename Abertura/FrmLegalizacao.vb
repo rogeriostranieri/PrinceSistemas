@@ -245,9 +245,16 @@ Public Class FrmLegalizacao
             Else
                 BtnFiliais.Visible = False
                 LabelFilial.Visible = True
+                LabelFilial.Cursor = Cursors.Hand
+                AddHandler LabelFilial.Click, AddressOf LabelFilial_Click
+
             End If
             AjustarTamanhoBtnFiliais()
         End If
+    End Sub
+
+    Private Sub LabelFilial_Click(sender As Object, e As EventArgs)
+        VerificarFiliais()
     End Sub
 
 
@@ -2901,10 +2908,15 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
     End Sub
 
     Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
-        'LimpaCaracteres
-        RamoDeAtividadeRichTextBox.Text = ModTexto.LimpaEnter(RamoDeAtividadeRichTextBox.Text)
-        RamoDeAtividadeRichTextBox.Text = ModTexto.LimparTextoPersonalizado(RamoDeAtividadeRichTextBox.Text)
+        RamoDeAtividadeRichTextBox.Text = LimparTextoRamo(RamoDeAtividadeRichTextBox.Text)
     End Sub
+    Function LimparTextoRamo(sText As String) As String
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s+", " ")
+        sText = sText.Replace(Environment.NewLine, ";")
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s*;\s*", ";")
+        sText = System.Text.RegularExpressions.Regex.Replace(sText, "[*+@!#$%&?]", "")
+        Return sText
+    End Function
 
     Private Sub BtnConsultaOptante_Click(sender As Object, e As EventArgs) Handles BtnConsultaOptante.Click
         ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
@@ -3306,10 +3318,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnVerProcedimento_Click(sender As Object, e As EventArgs) Handles BtnVerProcedimento.Click
         ' Cria uma instância do FrmRichTextCompleto
-        Dim frmRichTextCompleto As New FrmRichTextCompleto()
-
         ' Passa a referência do ProcedimentoRichTextBox para o FrmRichTextCompleto
-        frmRichTextCompleto.RichTextBoxOrigem = ProcedimentoRichTextBox
+        Dim frmRichTextCompleto As New FrmRichTextCompleto With {
+            .RichTextBoxOrigem = ProcedimentoRichTextBox
+        }
 
         ' Preenche o RichTextBoxCompleto com o texto atual do ProcedimentoRichTextBox
         frmRichTextCompleto.RichTextBoxCompleto.Text = ProcedimentoRichTextBox.Text
@@ -3320,10 +3332,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnVerObsGeral_Click(sender As Object, e As EventArgs) Handles BtnVerObsGeral.Click
         ' Cria uma instância do FrmRichTextCompleto
-        Dim frmRichTextCompleto As New FrmRichTextCompleto()
-
         ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
-        frmRichTextCompleto.RichTextBoxOrigem = GeralRichTextBox
+        Dim frmRichTextCompleto As New FrmRichTextCompleto With {
+            .RichTextBoxOrigem = GeralRichTextBox
+        }
 
         ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
         frmRichTextCompleto.RichTextBoxCompleto.Text = GeralRichTextBox.Text
@@ -3335,10 +3347,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub BtnVerEmpresaFacil_Click(sender As Object, e As EventArgs) Handles BtnVerEmpresaFacil.Click
         'JuntaObsRichTextBox
         ' Cria uma instância do FrmRichTextCompleto
-        Dim frmRichTextCompleto As New FrmRichTextCompleto()
-
         ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
-        frmRichTextCompleto.RichTextBoxOrigem = JuntaObsRichTextBox
+        Dim frmRichTextCompleto As New FrmRichTextCompleto With {
+            .RichTextBoxOrigem = JuntaObsRichTextBox
+        }
 
         ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
         frmRichTextCompleto.RichTextBoxCompleto.Text = JuntaObsRichTextBox.Text
@@ -3931,5 +3943,13 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             MessageBox.Show(resultado)
             My.Computer.Clipboard.SetText(resultado)
 
+    End Sub
+
+    Private Sub BtnVerDescricaoCNAE_Click(sender As Object, e As EventArgs) Handles BtnVerDescricaoCNAE.Click
+        If Application.OpenForms.OfType(Of FrmCNAEtexto)().Count() > 0 Then
+            FrmCNAEtexto.Focus()
+        Else
+            FrmCNAEtexto.Show()
+        End If
     End Sub
 End Class
