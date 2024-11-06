@@ -86,12 +86,15 @@ Public Class FrmAlvara
             ' Retomar BindingSource após o carregamento
             Me.LaudosBindingSource.ResumeBinding()
 
+            ArrumarCNPJ()
+
+
+            ' Configurações adicionais
+            InicializarControles()
+
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro ao carregar o formulário" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
-        ' Configurações adicionais
-        InicializarControles()
     End Sub
 
 
@@ -2142,5 +2145,73 @@ Public Class FrmAlvara
     Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
         'copiar para area de trabalho RamoDeAtividadeRichTextBox
         Clipboard.SetText(RamodeatividadeRichTextBox.Text)
+    End Sub
+
+    Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
+        If EndCidadeTextBox.Text = "MARINGA" Then
+            EndCidadeTextBox.Text = "Maringá"
+        ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
+            EndCidadeTextBox.Text = "Paiçandu"
+        ElseIf EndCidadeTextBox.Text = "NOVA ESPERANCA" Then
+            EndCidadeTextBox.Text = "Nova Esperança"
+        End If
+    End Sub
+
+
+    'CPF ou CNPJ no textbox
+
+    Private Sub ArrumarCNPJ()
+        ' Remove caracteres de formatação temporariamente para verificar a quantidade de dígitos
+
+        Dim input As String = CNPJMaskedTextBox.Text.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "").Trim()
+
+        ' Alterna a máscara com base na quantidade de dígitos
+        If input.Length = 11 Then
+            ' Se for CPF (11 dígitos), muda a máscara para CPF
+            CNPJMaskedTextBox.Mask = "000,000,000-00"
+            CNPJRequerenteMaskedTextBox.Mask = "000,000,000-00"
+        ElseIf input.Length = 14 Then
+            ' Se for CNPJ (14 dígitos), muda a máscara para CNPJ
+            CNPJMaskedTextBox.Mask = "00,000,000/0000-00"
+            CNPJRequerenteMaskedTextBox.Mask = "00,000,000/0000-00"
+        Else
+
+        End If
+    End Sub
+
+    Private Sub CNPJRequerenteMaskedTextBox_Validated(sender As Object, e As EventArgs) Handles CNPJRequerenteMaskedTextBox.Validated
+        ArrumarCNPJ()
+    End Sub
+
+    Private Sub CNPJMaskedTextBox_Validated(sender As Object, e As EventArgs) Handles CNPJMaskedTextBox.Validated
+        ArrumarCNPJ()
+    End Sub
+
+    Private Sub CNPJMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles CNPJMaskedTextBox.TextChanged
+        ArrumarCNPJ()
+    End Sub
+
+    Private Sub CNPJRequerenteMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles CNPJRequerenteMaskedTextBox.TextChanged
+        ArrumarCNPJ()
+    End Sub
+    'FIM ARRUMA CNPJ
+
+    Private Sub BtnCopiaEndereco_Click(sender As Object, e As EventArgs) Handles BtnCopiaEndereco.Click
+        'copiar no formato "avenida Pioneiro Antônio Franco de Morais, Nº 1373, Sala 02, Jardim Brasil, CEP: 87083-260, Maringá-PR"
+        Dim Endereco As String = EnderecoTextBox.Text
+        Dim Numero As String = EndNumTextBox.Text
+        Dim Complemento As String = EndCompTextBox.Text
+        Dim Bairro As String = EndBairroTextBox.Text
+        Dim CEP As String = EndCEPMaskedTextBox.Text
+        Dim Cidade As String = EndCidadeTextBox.Text
+        Dim UF As String = EndEstadoTextBox.Text
+
+        'se tiver complemento ou retirar o complemento
+        If Complemento = "" Then
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
+        Else
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
+        End If
+
     End Sub
 End Class

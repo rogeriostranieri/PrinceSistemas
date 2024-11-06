@@ -3183,6 +3183,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Function
 
 
+    Private avisoExibido As Boolean = False
+
     Private Sub TabControle_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControle.Selecting
         ' Verifique se o índice da aba selecionada é 3 (PAGE4 é a quarta aba, então o índice é 3)
         If e.TabPageIndex = 3 Then
@@ -3191,7 +3193,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             TabControle.SelectTab(2)
             TabControle.SelectTab(3)
 
-            'mudar
+            ' Alterar texto do botão
             Try
                 If ProtocoloREDESIMTextBox.Text <> "" Then
                     BtnConsultaRedeSim.Text = "Consultar"
@@ -3200,17 +3202,23 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                         BtnConsultaRedeSim.Text = "Consultar"
                         ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
                     End If
-
                 Else
                     BtnConsultaRedeSim.Text = "Solicitar"
+                End If
+
+                ' Verificar se os protocolos são diferentes
+                If ProtocoloREDESIMTextBox.Text <> ProtocoloJuntaComercialTextBox.Text AndAlso Not avisoExibido Then
+                    MessageBox.Show("Atenção! Os protocolos são diferentes. Verifique!", "Protocolos Diferentes", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    avisoExibido = True
                 End If
             Catch ex As Exception
                 MessageBox.Show("Erro! Verifique com o administrador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-
-
+        Else
+            avisoExibido = False
         End If
     End Sub
+
 
     Private Sub LinkLabeLPrazoEmpresaFacil_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabeLPrazoEmpresaFacil.LinkClicked
         ' Extrair apenas a parte da data do texto
@@ -3361,10 +3369,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnVerFederal_Click(sender As Object, e As EventArgs) Handles BtnVerFederal.Click
         'RedeSimObsRichTextBox
-        Dim frmRichTextCompleto As New FrmRichTextCompleto()
-
         ' Passa a referência do GeralRichTextBox para o FrmRichTextCompleto
-        frmRichTextCompleto.RichTextBoxOrigem = RedeSimObsRichTextBox()
+        Dim frmRichTextCompleto As New FrmRichTextCompleto With {
+            .RichTextBoxOrigem = RedeSimObsRichTextBox()
+        }
 
         ' Preenche o RichTextBoxCompleto com o texto atual do GeralRichTextBox
         frmRichTextCompleto.RichTextBoxCompleto.Text = RedeSimObsRichTextBox.Text
@@ -3745,33 +3753,33 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
     Private Sub RazaoSocialAntigaTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialAntigaTextBox.TextChanged
-        RazaoSocialAntigaTextBox.Text = RemoverCaracteresInvisiveis(RazaoSocialAntigaTextBox.Text)
-        RazaoSocialAntigaTextBox.SelectionStart = RazaoSocialAntigaTextBox.Text.Length ' Manter o cursor no final
+        '  RazaoSocialAntigaTextBox.Text = RemoverCaracteresInvisiveis(RazaoSocialAntigaTextBox.Text)
+        ' RazaoSocialAntigaTextBox.SelectionStart = RazaoSocialAntigaTextBox.Text.Length ' Manter o cursor no final
     End Sub
 
     Private Sub NovaRazaoSocial1TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial1TextBox.TextChanged
-        NovaRazaoSocial1TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial1TextBox.Text)
-        NovaRazaoSocial1TextBox.SelectionStart = NovaRazaoSocial1TextBox.Text.Length
+        'NovaRazaoSocial1TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial1TextBox.Text)
+        '  NovaRazaoSocial1TextBox.SelectionStart = NovaRazaoSocial1TextBox.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocial2TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial2TextBox.TextChanged
-        NovaRazaoSocial2TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial2TextBox.Text)
-        NovaRazaoSocial2TextBox.SelectionStart = NovaRazaoSocial2TextBox.Text.Length
+        ' NovaRazaoSocial2TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial2TextBox.Text)
+        ' NovaRazaoSocial2TextBox.SelectionStart = NovaRazaoSocial2TextBox.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocial3TextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocial3TextBox.TextChanged
-        NovaRazaoSocial3TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial3TextBox.Text)
-        NovaRazaoSocial3TextBox.SelectionStart = NovaRazaoSocial3TextBox.Text.Length
+        'NovaRazaoSocial3TextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocial3TextBox.Text)
+        ' NovaRazaoSocial3TextBox.SelectionStart = NovaRazaoSocial3TextBox.Text.Length
     End Sub
 
     Private Sub NomeFantasiaTextBox1_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox1.TextChanged
-        NomeFantasiaTextBox1.Text = RemoverCaracteresInvisiveis(NomeFantasiaTextBox1.Text)
-        NomeFantasiaTextBox1.SelectionStart = NomeFantasiaTextBox1.Text.Length
+        ' NomeFantasiaTextBox1.Text = RemoverCaracteresInvisiveis(NomeFantasiaTextBox1.Text)
+        ' NomeFantasiaTextBox1.SelectionStart = NomeFantasiaTextBox1.Text.Length
     End Sub
 
     Private Sub NovaRazaoSocialFinalTextBox_TextChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialFinalTextBox.TextChanged
-        NovaRazaoSocialFinalTextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocialFinalTextBox.Text)
-        NovaRazaoSocialFinalTextBox.SelectionStart = NovaRazaoSocialFinalTextBox.Text.Length
+        ' NovaRazaoSocialFinalTextBox.Text = RemoverCaracteresInvisiveis(NovaRazaoSocialFinalTextBox.Text)
+        '  NovaRazaoSocialFinalTextBox.SelectionStart = NovaRazaoSocialFinalTextBox.Text.Length
     End Sub
 
     Private Sub RamoDeAtividadeRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles RamoDeAtividadeRichTextBox.TextChanged
@@ -3796,6 +3804,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             EndCidadeTextBox.Text = "Maringá"
         ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
             EndCidadeTextBox.Text = "Paiçandu"
+        ElseIf EndCidadeTextBox.Text = "NOVA ESPERANCA" Then
+            EndCidadeTextBox.Text = "Nova Esperança"
         End If
     End Sub
 
@@ -3881,7 +3891,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
         For Each linha As String In linhasSecundarias
             ' Manter apenas números e formatar como XXXX-X/XX
-            Dim cnaeSecundario As String = New String(linha.Where(Function(c) Char.IsDigit(c)).ToArray())
+            Dim cnaeSecundario As New String(linha.Where(Function(c) Char.IsDigit(c)).ToArray())
             If cnaeSecundario.Length = 7 Then
                 cnaesFormatados.Add(cnaeSecundario.Substring(0, 4) & "-" & cnaeSecundario.Substring(4, 1) & "/" & cnaeSecundario.Substring(5, 2))
             ElseIf Not String.IsNullOrWhiteSpace(linha) Then

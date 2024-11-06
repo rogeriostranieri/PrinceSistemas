@@ -1009,4 +1009,19 @@ Public Class MDIPrincipal
             FrmAlvara.BtnNovo.PerformClick()
         End If
     End Sub
+
+    Private Sub Parcelamentos_Click(sender As Object, e As EventArgs) Handles Parcelamentos.Click
+        Dim formParcelamentos = Application.OpenForms.OfType(Of FrmParcelamentos)().FirstOrDefault()
+
+        If formParcelamentos IsNot Nothing Then
+            formParcelamentos.Focus()
+        Else
+            ' Passa 0 como empresaID (ou outro valor padrão que faça sentido)
+            formParcelamentos = New FrmParcelamentos(0)
+            formParcelamentos.MdiParent = Me
+            formParcelamentos.Show()
+        End If
+    End Sub
+
+
 End Class

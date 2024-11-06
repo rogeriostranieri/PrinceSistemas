@@ -75,6 +75,10 @@ Partial Public Class PrinceDBDataSet
     
     Private tableCNAESubclasses23 As CNAESubclasses23DataTable
     
+    Private tableParcelamentos As ParcelamentosDataTable
+    
+    Private tableParcelamentosAviso As ParcelamentosAvisoDataTable
+    
     Private relationeMail_eMailCaixaDeSaida As Global.System.Data.DataRelation
     
     Private relationLogin_Anotacoes As Global.System.Data.DataRelation
@@ -188,6 +192,12 @@ Partial Public Class PrinceDBDataSet
             End If
             If (Not (ds.Tables("CNAESubclasses23")) Is Nothing) Then
                 MyBase.Tables.Add(New CNAESubclasses23DataTable(ds.Tables("CNAESubclasses23")))
+            End If
+            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
+            End If
+            If (Not (ds.Tables("ParcelamentosAviso")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosAvisoDataTable(ds.Tables("ParcelamentosAviso")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -458,6 +468,26 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Parcelamentos() As ParcelamentosDataTable
+        Get
+            Return Me.tableParcelamentos
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property ParcelamentosAviso() As ParcelamentosAvisoDataTable
+        Get
+            Return Me.tableParcelamentosAviso
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -597,6 +627,12 @@ Partial Public Class PrinceDBDataSet
             End If
             If (Not (ds.Tables("CNAESubclasses23")) Is Nothing) Then
                 MyBase.Tables.Add(New CNAESubclasses23DataTable(ds.Tables("CNAESubclasses23")))
+            End If
+            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
+            End If
+            If (Not (ds.Tables("ParcelamentosAviso")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosAvisoDataTable(ds.Tables("ParcelamentosAviso")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -780,6 +816,18 @@ Partial Public Class PrinceDBDataSet
                 Me.tableCNAESubclasses23.InitVars
             End If
         End If
+        Me.tableParcelamentos = CType(MyBase.Tables("Parcelamentos"),ParcelamentosDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableParcelamentos) Is Nothing) Then
+                Me.tableParcelamentos.InitVars
+            End If
+        End If
+        Me.tableParcelamentosAviso = CType(MyBase.Tables("ParcelamentosAviso"),ParcelamentosAvisoDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableParcelamentosAviso) Is Nothing) Then
+                Me.tableParcelamentosAviso.InitVars
+            End If
+        End If
         Me.relationeMail_eMailCaixaDeSaida = Me.Relations("eMail_eMailCaixaDeSaida")
         Me.relationLogin_Anotacoes = Me.Relations("Login_Anotacoes")
         Me.relationFK_BrasilDistritos_BrasilEstado = Me.Relations("FK_BrasilDistritos_BrasilEstado")
@@ -845,6 +893,10 @@ Partial Public Class PrinceDBDataSet
         MyBase.Tables.Add(Me.tableBrasilMunicipios)
         Me.tableCNAESubclasses23 = New CNAESubclasses23DataTable()
         MyBase.Tables.Add(Me.tableCNAESubclasses23)
+        Me.tableParcelamentos = New ParcelamentosDataTable()
+        MyBase.Tables.Add(Me.tableParcelamentos)
+        Me.tableParcelamentosAviso = New ParcelamentosAvisoDataTable()
+        MyBase.Tables.Add(Me.tableParcelamentosAviso)
         Me.relationeMail_eMailCaixaDeSaida = New Global.System.Data.DataRelation("eMail_eMailCaixaDeSaida", New Global.System.Data.DataColumn() {Me.tableeMail.eMailColumn}, New Global.System.Data.DataColumn() {Me.tableeMailCaixaDeSaida.eMailPrincipalColumn}, false)
         Me.Relations.Add(Me.relationeMail_eMailCaixaDeSaida)
         Me.relationLogin_Anotacoes = New Global.System.Data.DataRelation("Login_Anotacoes", New Global.System.Data.DataColumn() {Me.tableLogin.UsuarioColumn}, New Global.System.Data.DataColumn() {Me.tableAnotacoes.UsuarioColumn}, false)
@@ -1009,6 +1061,18 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Private Function ShouldSerializeParcelamentos() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Private Function ShouldSerializeParcelamentosAviso() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -1139,6 +1203,12 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub CNAESubclasses23RowChangeEventHandler(ByVal sender As Object, ByVal e As CNAESubclasses23RowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Delegate Sub ParcelamentosRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Delegate Sub ParcelamentosAvisoRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosAvisoRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -12104,6 +12174,12 @@ Partial Public Class PrinceDBDataSet
         
         Private columnBombeiroREDESIM As Global.System.Data.DataColumn
         
+        Private columnFederalECAC As Global.System.Data.DataColumn
+        
+        Private columnFederalParcProc As Global.System.Data.DataColumn
+        
+        Private columnFederalProcuradoria As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -12324,6 +12400,30 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FederalECACColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFederalECAC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FederalParcProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFederalParcProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FederalProcuradoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFederalProcuradoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -12382,9 +12482,12 @@ Partial Public Class PrinceDBDataSet
                     ByVal BombeiroConsulta As String,  _
                     ByVal BombeiroSolicita As String,  _
                     ByVal BombeiroUnificado As String,  _
-                    ByVal BombeiroREDESIM As String) As SitesRow
+                    ByVal BombeiroREDESIM As String,  _
+                    ByVal FederalECAC As String,  _
+                    ByVal FederalParcProc As String,  _
+                    ByVal FederalProcuradoria As String) As SitesRow
             Dim rowSitesRow As SitesRow = CType(Me.NewRow,SitesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM, FederalECAC, FederalParcProc, FederalProcuradoria}
             rowSitesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSitesRow)
             Return rowSitesRow
@@ -12436,6 +12539,9 @@ Partial Public Class PrinceDBDataSet
             Me.columnBombeiroSolicita = MyBase.Columns("BombeiroSolicita")
             Me.columnBombeiroUnificado = MyBase.Columns("BombeiroUnificado")
             Me.columnBombeiroREDESIM = MyBase.Columns("BombeiroREDESIM")
+            Me.columnFederalECAC = MyBase.Columns("FederalECAC")
+            Me.columnFederalParcProc = MyBase.Columns("FederalParcProc")
+            Me.columnFederalProcuradoria = MyBase.Columns("FederalProcuradoria")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12487,6 +12593,12 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnBombeiroUnificado)
             Me.columnBombeiroREDESIM = New Global.System.Data.DataColumn("BombeiroREDESIM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBombeiroREDESIM)
+            Me.columnFederalECAC = New Global.System.Data.DataColumn("FederalECAC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFederalECAC)
+            Me.columnFederalParcProc = New Global.System.Data.DataColumn("FederalParcProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFederalParcProc)
+            Me.columnFederalProcuradoria = New Global.System.Data.DataColumn("FederalProcuradoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFederalProcuradoria)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Sites}, true))
             Me.columnID_Sites.AutoIncrement = true
             Me.columnID_Sites.AutoIncrementSeed = -1
@@ -12516,6 +12628,9 @@ Partial Public Class PrinceDBDataSet
             Me.columnBombeiroSolicita.MaxLength = 2147483647
             Me.columnBombeiroUnificado.MaxLength = 2147483647
             Me.columnBombeiroREDESIM.MaxLength = 2147483647
+            Me.columnFederalECAC.MaxLength = 2147483647
+            Me.columnFederalParcProc.MaxLength = 2147483647
+            Me.columnFederalProcuradoria.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13950,6 +14065,1419 @@ Partial Public Class PrinceDBDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "CNAESubclasses23DataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class ParcelamentosDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ParcelamentosRow)
+        
+        Private columnID_Parcelamentos As Global.System.Data.DataColumn
+        
+        Private columnRazaoSocial As Global.System.Data.DataColumn
+        
+        Private columnCNPJ As Global.System.Data.DataColumn
+        
+        Private columnDataLembrete As Global.System.Data.DataColumn
+        
+        Private columnDataCriacao As Global.System.Data.DataColumn
+        
+        Private columnObservacao As Global.System.Data.DataColumn
+        
+        Private columnFormaEnvio As Global.System.Data.DataColumn
+        
+        Private columnINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnINSSProcuradoria As Global.System.Data.DataColumn
+        
+        Private columnDataParcelINSSantigo As Global.System.Data.DataColumn
+        
+        Private columnDataParcelINSSnovo As Global.System.Data.DataColumn
+        
+        Private columnDataParcelINSSproc As Global.System.Data.DataColumn
+        
+        Private columnDataEnvio As Global.System.Data.DataColumn
+        
+        Private columnWhatsApp As Global.System.Data.DataColumn
+        
+        Private columnEmail As Global.System.Data.DataColumn
+        
+        Private columnINSSAntigoProt As Global.System.Data.DataColumn
+        
+        Private columnINSSAntigoObs As Global.System.Data.DataColumn
+        
+        Private columnINSSNovoProt As Global.System.Data.DataColumn
+        
+        Private columnINSSNovoObs As Global.System.Data.DataColumn
+        
+        Private columnINSSProcProt As Global.System.Data.DataColumn
+        
+        Private columnINSSProcObs As Global.System.Data.DataColumn
+        
+        Private columnHistoricoEnvioINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnHistoricoEnvioINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnHistoricoEnvioINSSProc As Global.System.Data.DataColumn
+        
+        Private columnCidade As Global.System.Data.DataColumn
+        
+        Private columnEstado As Global.System.Data.DataColumn
+        
+        Private columnRua As Global.System.Data.DataColumn
+        
+        Private columnNumero As Global.System.Data.DataColumn
+        
+        Private columnComplemento As Global.System.Data.DataColumn
+        
+        Private columnBairro As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoINSSProc As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoMes As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoParcelamentos As Global.System.Data.DataColumn
+        
+        Private columnMotivoParcINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnMotivoParcINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnMotivoParcINSSProc As Global.System.Data.DataColumn
+        
+        Private columnMotivoParcMEI As Global.System.Data.DataColumn
+        
+        Private columnDataParcMEI As Global.System.Data.DataColumn
+        
+        Private columnDataProtocoloMEI As Global.System.Data.DataColumn
+        
+        Private columnFinalizadoMEI As Global.System.Data.DataColumn
+        
+        Private columnGeralINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnGeralINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnGeralINSSProcuradoria As Global.System.Data.DataColumn
+        
+        Private columnGeralMEI As Global.System.Data.DataColumn
+        
+        Private columnMesEnviadoINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnMesEnviadoINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnMesEnviadoINSSProc As Global.System.Data.DataColumn
+        
+        Private columnMesEnviadoMEI As Global.System.Data.DataColumn
+        
+        Private columnHistoricoEnvioMEI As Global.System.Data.DataColumn
+        
+        Private columnMEI As Global.System.Data.DataColumn
+        
+        Private columnMeiProtocolo As Global.System.Data.DataColumn
+        
+        Private columnDataFimParcINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnDataFimParcINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnDataFimParcINNProc As Global.System.Data.DataColumn
+        
+        Private columnDataFimParcMEI As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Parcelamentos"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ID_ParcelamentosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID_Parcelamentos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RazaoSocialColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRazaoSocial
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNPJColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNPJ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataLembreteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataLembrete
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataCriacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataCriacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ObservacaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObservacao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FormaEnvioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFormaEnvio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSProcuradoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSProcuradoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataParcelINSSantigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataParcelINSSantigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataParcelINSSnovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataParcelINSSnovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataParcelINSSprocColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataParcelINSSproc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataEnvioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataEnvio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property WhatsAppColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnWhatsApp
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEmail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSAntigoProtColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSAntigoProt
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSAntigoObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSAntigoObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSNovoProtColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSNovoProt
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSNovoObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSNovoObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSProcProtColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSProcProt
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property INSSProcObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINSSProcObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property HistoricoEnvioINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHistoricoEnvioINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property HistoricoEnvioINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHistoricoEnvioINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property HistoricoEnvioINSSProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHistoricoEnvioINSSProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CidadeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCidade
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EstadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RuaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRua
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NumeroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNumero
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ComplementoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComplemento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BairroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBairro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoINSSProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoINSSProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoMesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoMes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoParcelamentosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoParcelamentos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MotivoParcINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivoParcINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MotivoParcINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivoParcINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MotivoParcINSSProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivoParcINSSProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MotivoParcMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivoParcMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataParcMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataParcMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataProtocoloMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataProtocoloMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property FinalizadoMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFinalizadoMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property GeralINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGeralINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property GeralINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGeralINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property GeralINSSProcuradoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGeralINSSProcuradoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property GeralMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGeralMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesEnviadoINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesEnviadoINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesEnviadoINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesEnviadoINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesEnviadoINSSProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesEnviadoINSSProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesEnviadoMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesEnviadoMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property HistoricoEnvioMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHistoricoEnvioMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MeiProtocoloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMeiProtocolo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataFimParcINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataFimParcINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataFimParcINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataFimParcINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataFimParcINNProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataFimParcINNProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataFimParcMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataFimParcMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ParcelamentosRow
+            Get
+                Return CType(Me.Rows(index),ParcelamentosRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosRowChanging As ParcelamentosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosRowChanged As ParcelamentosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosRowDeleting As ParcelamentosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosRowDeleted As ParcelamentosRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Sub AddParcelamentosRow(ByVal row As ParcelamentosRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Function AddParcelamentosRow( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINNProc As String,  _
+                    ByVal DataFimParcMEI As String) As ParcelamentosRow
+            Dim rowParcelamentosRow As ParcelamentosRow = CType(Me.NewRow,ParcelamentosRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINNProc, DataFimParcMEI}
+            rowParcelamentosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowParcelamentosRow)
+            Return rowParcelamentosRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function FindByID_Parcelamentos(ByVal ID_Parcelamentos As Integer) As ParcelamentosRow
+            Return CType(Me.Rows.Find(New Object() {ID_Parcelamentos}),ParcelamentosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As ParcelamentosDataTable = CType(MyBase.Clone,ParcelamentosDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New ParcelamentosDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnID_Parcelamentos = MyBase.Columns("ID_Parcelamentos")
+            Me.columnRazaoSocial = MyBase.Columns("RazaoSocial")
+            Me.columnCNPJ = MyBase.Columns("CNPJ")
+            Me.columnDataLembrete = MyBase.Columns("DataLembrete")
+            Me.columnDataCriacao = MyBase.Columns("DataCriacao")
+            Me.columnObservacao = MyBase.Columns("Observacao")
+            Me.columnFormaEnvio = MyBase.Columns("FormaEnvio")
+            Me.columnINSSAntigo = MyBase.Columns("INSSAntigo")
+            Me.columnINSSNovo = MyBase.Columns("INSSNovo")
+            Me.columnINSSProcuradoria = MyBase.Columns("INSSProcuradoria")
+            Me.columnDataParcelINSSantigo = MyBase.Columns("DataParcelINSSantigo")
+            Me.columnDataParcelINSSnovo = MyBase.Columns("DataParcelINSSnovo")
+            Me.columnDataParcelINSSproc = MyBase.Columns("DataParcelINSSproc")
+            Me.columnDataEnvio = MyBase.Columns("DataEnvio")
+            Me.columnWhatsApp = MyBase.Columns("WhatsApp")
+            Me.columnEmail = MyBase.Columns("Email")
+            Me.columnINSSAntigoProt = MyBase.Columns("INSSAntigoProt")
+            Me.columnINSSAntigoObs = MyBase.Columns("INSSAntigoObs")
+            Me.columnINSSNovoProt = MyBase.Columns("INSSNovoProt")
+            Me.columnINSSNovoObs = MyBase.Columns("INSSNovoObs")
+            Me.columnINSSProcProt = MyBase.Columns("INSSProcProt")
+            Me.columnINSSProcObs = MyBase.Columns("INSSProcObs")
+            Me.columnHistoricoEnvioINSSAntigo = MyBase.Columns("HistoricoEnvioINSSAntigo")
+            Me.columnHistoricoEnvioINSSNovo = MyBase.Columns("HistoricoEnvioINSSNovo")
+            Me.columnHistoricoEnvioINSSProc = MyBase.Columns("HistoricoEnvioINSSProc")
+            Me.columnCidade = MyBase.Columns("Cidade")
+            Me.columnEstado = MyBase.Columns("Estado")
+            Me.columnRua = MyBase.Columns("Rua")
+            Me.columnNumero = MyBase.Columns("Numero")
+            Me.columnComplemento = MyBase.Columns("Complemento")
+            Me.columnBairro = MyBase.Columns("Bairro")
+            Me.columnFinalizadoINSSAntigo = MyBase.Columns("FinalizadoINSSAntigo")
+            Me.columnFinalizadoINSSNovo = MyBase.Columns("FinalizadoINSSNovo")
+            Me.columnFinalizadoINSSProc = MyBase.Columns("FinalizadoINSSProc")
+            Me.columnFinalizadoMes = MyBase.Columns("FinalizadoMes")
+            Me.columnFinalizadoParcelamentos = MyBase.Columns("FinalizadoParcelamentos")
+            Me.columnMotivoParcINSSAntigo = MyBase.Columns("MotivoParcINSSAntigo")
+            Me.columnMotivoParcINSSNovo = MyBase.Columns("MotivoParcINSSNovo")
+            Me.columnMotivoParcINSSProc = MyBase.Columns("MotivoParcINSSProc")
+            Me.columnMotivoParcMEI = MyBase.Columns("MotivoParcMEI")
+            Me.columnDataParcMEI = MyBase.Columns("DataParcMEI")
+            Me.columnDataProtocoloMEI = MyBase.Columns("DataProtocoloMEI")
+            Me.columnFinalizadoMEI = MyBase.Columns("FinalizadoMEI")
+            Me.columnGeralINSSAntigo = MyBase.Columns("GeralINSSAntigo")
+            Me.columnGeralINSSNovo = MyBase.Columns("GeralINSSNovo")
+            Me.columnGeralINSSProcuradoria = MyBase.Columns("GeralINSSProcuradoria")
+            Me.columnGeralMEI = MyBase.Columns("GeralMEI")
+            Me.columnMesEnviadoINSSAntigo = MyBase.Columns("MesEnviadoINSSAntigo")
+            Me.columnMesEnviadoINSSNovo = MyBase.Columns("MesEnviadoINSSNovo")
+            Me.columnMesEnviadoINSSProc = MyBase.Columns("MesEnviadoINSSProc")
+            Me.columnMesEnviadoMEI = MyBase.Columns("MesEnviadoMEI")
+            Me.columnHistoricoEnvioMEI = MyBase.Columns("HistoricoEnvioMEI")
+            Me.columnMEI = MyBase.Columns("MEI")
+            Me.columnMeiProtocolo = MyBase.Columns("MeiProtocolo")
+            Me.columnDataFimParcINSSAntigo = MyBase.Columns("DataFimParcINSSAntigo")
+            Me.columnDataFimParcINSSNovo = MyBase.Columns("DataFimParcINSSNovo")
+            Me.columnDataFimParcINNProc = MyBase.Columns("DataFimParcINNProc")
+            Me.columnDataFimParcMEI = MyBase.Columns("DataFimParcMEI")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnID_Parcelamentos = New Global.System.Data.DataColumn("ID_Parcelamentos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_Parcelamentos)
+            Me.columnRazaoSocial = New Global.System.Data.DataColumn("RazaoSocial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRazaoSocial)
+            Me.columnCNPJ = New Global.System.Data.DataColumn("CNPJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNPJ)
+            Me.columnDataLembrete = New Global.System.Data.DataColumn("DataLembrete", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataLembrete)
+            Me.columnDataCriacao = New Global.System.Data.DataColumn("DataCriacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataCriacao)
+            Me.columnObservacao = New Global.System.Data.DataColumn("Observacao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObservacao)
+            Me.columnFormaEnvio = New Global.System.Data.DataColumn("FormaEnvio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFormaEnvio)
+            Me.columnINSSAntigo = New Global.System.Data.DataColumn("INSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSAntigo)
+            Me.columnINSSNovo = New Global.System.Data.DataColumn("INSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSNovo)
+            Me.columnINSSProcuradoria = New Global.System.Data.DataColumn("INSSProcuradoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSProcuradoria)
+            Me.columnDataParcelINSSantigo = New Global.System.Data.DataColumn("DataParcelINSSantigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataParcelINSSantigo)
+            Me.columnDataParcelINSSnovo = New Global.System.Data.DataColumn("DataParcelINSSnovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataParcelINSSnovo)
+            Me.columnDataParcelINSSproc = New Global.System.Data.DataColumn("DataParcelINSSproc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataParcelINSSproc)
+            Me.columnDataEnvio = New Global.System.Data.DataColumn("DataEnvio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataEnvio)
+            Me.columnWhatsApp = New Global.System.Data.DataColumn("WhatsApp", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnWhatsApp)
+            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmail)
+            Me.columnINSSAntigoProt = New Global.System.Data.DataColumn("INSSAntigoProt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSAntigoProt)
+            Me.columnINSSAntigoObs = New Global.System.Data.DataColumn("INSSAntigoObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSAntigoObs)
+            Me.columnINSSNovoProt = New Global.System.Data.DataColumn("INSSNovoProt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSNovoProt)
+            Me.columnINSSNovoObs = New Global.System.Data.DataColumn("INSSNovoObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSNovoObs)
+            Me.columnINSSProcProt = New Global.System.Data.DataColumn("INSSProcProt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSProcProt)
+            Me.columnINSSProcObs = New Global.System.Data.DataColumn("INSSProcObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINSSProcObs)
+            Me.columnHistoricoEnvioINSSAntigo = New Global.System.Data.DataColumn("HistoricoEnvioINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHistoricoEnvioINSSAntigo)
+            Me.columnHistoricoEnvioINSSNovo = New Global.System.Data.DataColumn("HistoricoEnvioINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHistoricoEnvioINSSNovo)
+            Me.columnHistoricoEnvioINSSProc = New Global.System.Data.DataColumn("HistoricoEnvioINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHistoricoEnvioINSSProc)
+            Me.columnCidade = New Global.System.Data.DataColumn("Cidade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCidade)
+            Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstado)
+            Me.columnRua = New Global.System.Data.DataColumn("Rua", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRua)
+            Me.columnNumero = New Global.System.Data.DataColumn("Numero", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNumero)
+            Me.columnComplemento = New Global.System.Data.DataColumn("Complemento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComplemento)
+            Me.columnBairro = New Global.System.Data.DataColumn("Bairro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBairro)
+            Me.columnFinalizadoINSSAntigo = New Global.System.Data.DataColumn("FinalizadoINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoINSSAntigo)
+            Me.columnFinalizadoINSSNovo = New Global.System.Data.DataColumn("FinalizadoINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoINSSNovo)
+            Me.columnFinalizadoINSSProc = New Global.System.Data.DataColumn("FinalizadoINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoINSSProc)
+            Me.columnFinalizadoMes = New Global.System.Data.DataColumn("FinalizadoMes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoMes)
+            Me.columnFinalizadoParcelamentos = New Global.System.Data.DataColumn("FinalizadoParcelamentos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoParcelamentos)
+            Me.columnMotivoParcINSSAntigo = New Global.System.Data.DataColumn("MotivoParcINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivoParcINSSAntigo)
+            Me.columnMotivoParcINSSNovo = New Global.System.Data.DataColumn("MotivoParcINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivoParcINSSNovo)
+            Me.columnMotivoParcINSSProc = New Global.System.Data.DataColumn("MotivoParcINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivoParcINSSProc)
+            Me.columnMotivoParcMEI = New Global.System.Data.DataColumn("MotivoParcMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivoParcMEI)
+            Me.columnDataParcMEI = New Global.System.Data.DataColumn("DataParcMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataParcMEI)
+            Me.columnDataProtocoloMEI = New Global.System.Data.DataColumn("DataProtocoloMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataProtocoloMEI)
+            Me.columnFinalizadoMEI = New Global.System.Data.DataColumn("FinalizadoMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFinalizadoMEI)
+            Me.columnGeralINSSAntigo = New Global.System.Data.DataColumn("GeralINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGeralINSSAntigo)
+            Me.columnGeralINSSNovo = New Global.System.Data.DataColumn("GeralINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGeralINSSNovo)
+            Me.columnGeralINSSProcuradoria = New Global.System.Data.DataColumn("GeralINSSProcuradoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGeralINSSProcuradoria)
+            Me.columnGeralMEI = New Global.System.Data.DataColumn("GeralMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGeralMEI)
+            Me.columnMesEnviadoINSSAntigo = New Global.System.Data.DataColumn("MesEnviadoINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesEnviadoINSSAntigo)
+            Me.columnMesEnviadoINSSNovo = New Global.System.Data.DataColumn("MesEnviadoINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesEnviadoINSSNovo)
+            Me.columnMesEnviadoINSSProc = New Global.System.Data.DataColumn("MesEnviadoINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesEnviadoINSSProc)
+            Me.columnMesEnviadoMEI = New Global.System.Data.DataColumn("MesEnviadoMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesEnviadoMEI)
+            Me.columnHistoricoEnvioMEI = New Global.System.Data.DataColumn("HistoricoEnvioMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHistoricoEnvioMEI)
+            Me.columnMEI = New Global.System.Data.DataColumn("MEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMEI)
+            Me.columnMeiProtocolo = New Global.System.Data.DataColumn("MeiProtocolo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMeiProtocolo)
+            Me.columnDataFimParcINSSAntigo = New Global.System.Data.DataColumn("DataFimParcINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataFimParcINSSAntigo)
+            Me.columnDataFimParcINSSNovo = New Global.System.Data.DataColumn("DataFimParcINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataFimParcINSSNovo)
+            Me.columnDataFimParcINNProc = New Global.System.Data.DataColumn("DataFimParcINNProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataFimParcINNProc)
+            Me.columnDataFimParcMEI = New Global.System.Data.DataColumn("DataFimParcMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataFimParcMEI)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Parcelamentos}, true))
+            Me.columnID_Parcelamentos.AutoIncrement = true
+            Me.columnID_Parcelamentos.AutoIncrementSeed = -1
+            Me.columnID_Parcelamentos.AutoIncrementStep = -1
+            Me.columnID_Parcelamentos.AllowDBNull = false
+            Me.columnID_Parcelamentos.ReadOnly = true
+            Me.columnID_Parcelamentos.Unique = true
+            Me.columnRazaoSocial.MaxLength = 2147483647
+            Me.columnCNPJ.MaxLength = 2147483647
+            Me.columnDataLembrete.MaxLength = 2147483647
+            Me.columnDataCriacao.MaxLength = 2147483647
+            Me.columnObservacao.MaxLength = 2147483647
+            Me.columnFormaEnvio.MaxLength = 2147483647
+            Me.columnINSSAntigo.MaxLength = 2147483647
+            Me.columnINSSNovo.MaxLength = 2147483647
+            Me.columnINSSProcuradoria.MaxLength = 2147483647
+            Me.columnDataParcelINSSantigo.MaxLength = 2147483647
+            Me.columnDataParcelINSSnovo.MaxLength = 2147483647
+            Me.columnDataParcelINSSproc.MaxLength = 2147483647
+            Me.columnDataEnvio.MaxLength = 2147483647
+            Me.columnWhatsApp.MaxLength = 2147483647
+            Me.columnEmail.MaxLength = 2147483647
+            Me.columnINSSAntigoProt.MaxLength = 2147483647
+            Me.columnINSSAntigoObs.MaxLength = 2147483647
+            Me.columnINSSNovoProt.MaxLength = 2147483647
+            Me.columnINSSNovoObs.MaxLength = 2147483647
+            Me.columnINSSProcProt.MaxLength = 2147483647
+            Me.columnINSSProcObs.MaxLength = 2147483647
+            Me.columnHistoricoEnvioINSSAntigo.MaxLength = 2147483647
+            Me.columnHistoricoEnvioINSSNovo.MaxLength = 2147483647
+            Me.columnHistoricoEnvioINSSProc.MaxLength = 2147483647
+            Me.columnCidade.MaxLength = 2147483647
+            Me.columnEstado.MaxLength = 2147483647
+            Me.columnRua.MaxLength = 2147483647
+            Me.columnNumero.MaxLength = 2147483647
+            Me.columnComplemento.MaxLength = 2147483647
+            Me.columnBairro.MaxLength = 2147483647
+            Me.columnFinalizadoINSSAntigo.MaxLength = 2147483647
+            Me.columnFinalizadoINSSNovo.MaxLength = 2147483647
+            Me.columnFinalizadoINSSProc.MaxLength = 2147483647
+            Me.columnFinalizadoMes.MaxLength = 2147483647
+            Me.columnFinalizadoParcelamentos.MaxLength = 2147483647
+            Me.columnMotivoParcINSSAntigo.MaxLength = 2147483647
+            Me.columnMotivoParcINSSNovo.MaxLength = 2147483647
+            Me.columnMotivoParcINSSProc.MaxLength = 2147483647
+            Me.columnMotivoParcMEI.MaxLength = 2147483647
+            Me.columnDataParcMEI.MaxLength = 2147483647
+            Me.columnDataProtocoloMEI.MaxLength = 2147483647
+            Me.columnFinalizadoMEI.MaxLength = 2147483647
+            Me.columnGeralINSSAntigo.MaxLength = 2147483647
+            Me.columnGeralINSSNovo.MaxLength = 2147483647
+            Me.columnGeralINSSProcuradoria.MaxLength = 2147483647
+            Me.columnGeralMEI.MaxLength = 2147483647
+            Me.columnMesEnviadoINSSAntigo.MaxLength = 2147483647
+            Me.columnMesEnviadoINSSNovo.MaxLength = 2147483647
+            Me.columnMesEnviadoINSSProc.MaxLength = 2147483647
+            Me.columnMesEnviadoMEI.MaxLength = 2147483647
+            Me.columnHistoricoEnvioMEI.MaxLength = 2147483647
+            Me.columnMEI.MaxLength = 2147483647
+            Me.columnMeiProtocolo.MaxLength = 2147483647
+            Me.columnDataFimParcINSSAntigo.MaxLength = 2147483647
+            Me.columnDataFimParcINSSNovo.MaxLength = 2147483647
+            Me.columnDataFimParcINNProc.MaxLength = 2147483647
+            Me.columnDataFimParcMEI.MaxLength = 2147483647
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function NewParcelamentosRow() As ParcelamentosRow
+            Return CType(Me.NewRow,ParcelamentosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New ParcelamentosRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(ParcelamentosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.ParcelamentosRowChangedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosRowChanged(Me, New ParcelamentosRowChangeEvent(CType(e.Row,ParcelamentosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.ParcelamentosRowChangingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosRowChanging(Me, New ParcelamentosRowChangeEvent(CType(e.Row,ParcelamentosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.ParcelamentosRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosRowDeleted(Me, New ParcelamentosRowChangeEvent(CType(e.Row,ParcelamentosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.ParcelamentosRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosRowDeleting(Me, New ParcelamentosRowChangeEvent(CType(e.Row,ParcelamentosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub RemoveParcelamentosRow(ByVal row As ParcelamentosRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "ParcelamentosDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class ParcelamentosAvisoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ParcelamentosAvisoRow)
+        
+        Private columnIDParcelamentoAviso As Global.System.Data.DataColumn
+        
+        Private columnMesRealizado As Global.System.Data.DataColumn
+        
+        Private columnAno As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "ParcelamentosAviso"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property IDParcelamentoAvisoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDParcelamentoAviso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesRealizadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesRealizado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AnoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAno
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ParcelamentosAvisoRow
+            Get
+                Return CType(Me.Rows(index),ParcelamentosAvisoRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowChanging As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowChanged As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowDeleting As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowDeleted As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Sub AddParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Function AddParcelamentosAvisoRow(ByVal MesRealizado As String, ByVal Ano As String) As ParcelamentosAvisoRow
+            Dim rowParcelamentosAvisoRow As ParcelamentosAvisoRow = CType(Me.NewRow,ParcelamentosAvisoRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, MesRealizado, Ano}
+            rowParcelamentosAvisoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowParcelamentosAvisoRow)
+            Return rowParcelamentosAvisoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function FindByIDParcelamentoAviso(ByVal IDParcelamentoAviso As Integer) As ParcelamentosAvisoRow
+            Return CType(Me.Rows.Find(New Object() {IDParcelamentoAviso}),ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As ParcelamentosAvisoDataTable = CType(MyBase.Clone,ParcelamentosAvisoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New ParcelamentosAvisoDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnIDParcelamentoAviso = MyBase.Columns("IDParcelamentoAviso")
+            Me.columnMesRealizado = MyBase.Columns("MesRealizado")
+            Me.columnAno = MyBase.Columns("Ano")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnIDParcelamentoAviso = New Global.System.Data.DataColumn("IDParcelamentoAviso", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDParcelamentoAviso)
+            Me.columnMesRealizado = New Global.System.Data.DataColumn("MesRealizado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesRealizado)
+            Me.columnAno = New Global.System.Data.DataColumn("Ano", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAno)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDParcelamentoAviso}, true))
+            Me.columnIDParcelamentoAviso.AutoIncrement = true
+            Me.columnIDParcelamentoAviso.AutoIncrementSeed = -1
+            Me.columnIDParcelamentoAviso.AutoIncrementStep = -1
+            Me.columnIDParcelamentoAviso.AllowDBNull = false
+            Me.columnIDParcelamentoAviso.ReadOnly = true
+            Me.columnIDParcelamentoAviso.Unique = true
+            Me.columnMesRealizado.MaxLength = 50
+            Me.columnAno.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function NewParcelamentosAvisoRow() As ParcelamentosAvisoRow
+            Return CType(Me.NewRow,ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New ParcelamentosAvisoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.ParcelamentosAvisoRowChangedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowChanged(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.ParcelamentosAvisoRowChangingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowChanging(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.ParcelamentosAvisoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowDeleted(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.ParcelamentosAvisoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowDeleting(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub RemoveParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "ParcelamentosAvisoDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -25088,6 +26616,51 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FederalECAC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.FederalECACColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FederalECAC' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.FederalECACColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FederalParcProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.FederalParcProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FederalParcProc' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.FederalParcProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FederalProcuradoria() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSites.FederalProcuradoriaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FederalProcuradoria' na tabela 'Sites' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSites.FederalProcuradoriaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstadoNull() As Boolean
             Return Me.IsNull(Me.tableSites.EstadoColumn)
         End Function
@@ -25348,6 +26921,42 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetBombeiroREDESIMNull()
             Me(Me.tableSites.BombeiroREDESIMColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFederalECACNull() As Boolean
+            Return Me.IsNull(Me.tableSites.FederalECACColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFederalECACNull()
+            Me(Me.tableSites.FederalECACColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFederalParcProcNull() As Boolean
+            Return Me.IsNull(Me.tableSites.FederalParcProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFederalParcProcNull()
+            Me(Me.tableSites.FederalParcProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFederalProcuradoriaNull() As Boolean
+            Return Me.IsNull(Me.tableSites.FederalProcuradoriaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFederalProcuradoriaNull()
+            Me(Me.tableSites.FederalProcuradoriaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -26140,6 +27749,1653 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetSubclasseNull()
             Me(Me.tableCNAESubclasses23.SubclasseColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class ParcelamentosRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableParcelamentos As ParcelamentosDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableParcelamentos = CType(Me.Table,ParcelamentosDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ID_Parcelamentos() As Integer
+            Get
+                Return CType(Me(Me.tableParcelamentos.ID_ParcelamentosColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableParcelamentos.ID_ParcelamentosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RazaoSocial() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.RazaoSocialColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'RazaoSocial' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.RazaoSocialColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNPJ() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.CNPJColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNPJ' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.CNPJColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataLembrete() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataLembreteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataLembrete' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataLembreteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataCriacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataCriacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataCriacao' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataCriacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Observacao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.ObservacaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Observacao' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.ObservacaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FormaEnvio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FormaEnvioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FormaEnvio' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FormaEnvioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSProcuradoria() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSProcuradoriaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSProcuradoria' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSProcuradoriaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataParcelINSSantigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataParcelINSSantigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataParcelINSSantigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataParcelINSSantigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataParcelINSSnovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataParcelINSSnovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataParcelINSSnovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataParcelINSSnovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataParcelINSSproc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataParcelINSSprocColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataParcelINSSproc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataParcelINSSprocColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataEnvio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataEnvioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataEnvio' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataEnvioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property WhatsApp() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.WhatsAppColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'WhatsApp' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.WhatsAppColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Email() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.EmailColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Email' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.EmailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSAntigoProt() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSAntigoProtColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSAntigoProt' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSAntigoProtColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSAntigoObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSAntigoObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSAntigoObs' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSAntigoObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSNovoProt() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSNovoProtColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSNovoProt' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSNovoProtColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSNovoObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSNovoObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSNovoObs' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSNovoObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSProcProt() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSProcProtColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSProcProt' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSProcProtColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property INSSProcObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.INSSProcObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'INSSProcObs' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.INSSProcObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property HistoricoEnvioINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.HistoricoEnvioINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'HistoricoEnvioINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.HistoricoEnvioINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property HistoricoEnvioINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.HistoricoEnvioINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'HistoricoEnvioINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.HistoricoEnvioINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property HistoricoEnvioINSSProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.HistoricoEnvioINSSProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'HistoricoEnvioINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.HistoricoEnvioINSSProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Cidade() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.CidadeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Cidade' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.CidadeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Estado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.EstadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Estado' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.EstadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Rua() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.RuaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Rua' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.RuaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Numero() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.NumeroColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Numero' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.NumeroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Complemento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.ComplementoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Complemento' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.ComplementoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Bairro() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.BairroColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Bairro' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.BairroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoINSSProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoINSSProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoINSSProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoMes() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoMesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoMes' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoMesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoParcelamentos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoParcelamentosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoParcelamentos' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoParcelamentosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MotivoParcINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MotivoParcINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MotivoParcINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MotivoParcINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MotivoParcINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MotivoParcINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MotivoParcINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MotivoParcINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MotivoParcINSSProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MotivoParcINSSProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MotivoParcINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MotivoParcINSSProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MotivoParcMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MotivoParcMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MotivoParcMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MotivoParcMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataParcMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataParcMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataParcMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataParcMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataProtocoloMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataProtocoloMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataProtocoloMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataProtocoloMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property FinalizadoMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.FinalizadoMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'FinalizadoMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.FinalizadoMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property GeralINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.GeralINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'GeralINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.GeralINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property GeralINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.GeralINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'GeralINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.GeralINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property GeralINSSProcuradoria() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.GeralINSSProcuradoriaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'GeralINSSProcuradoria' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.GeralINSSProcuradoriaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property GeralMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.GeralMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'GeralMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.GeralMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesEnviadoINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MesEnviadoINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesEnviadoINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MesEnviadoINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesEnviadoINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MesEnviadoINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesEnviadoINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MesEnviadoINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesEnviadoINSSProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MesEnviadoINSSProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesEnviadoINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MesEnviadoINSSProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesEnviadoMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MesEnviadoMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesEnviadoMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MesEnviadoMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property HistoricoEnvioMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.HistoricoEnvioMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'HistoricoEnvioMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.HistoricoEnvioMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MeiProtocolo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.MeiProtocoloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MeiProtocolo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.MeiProtocoloColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataFimParcINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataFimParcINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataFimParcINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataFimParcINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataFimParcINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataFimParcINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataFimParcINNProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataFimParcINNProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcINNProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataFimParcINNProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataFimParcMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataFimParcMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataFimParcMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRazaoSocialNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.RazaoSocialColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRazaoSocialNull()
+            Me(Me.tableParcelamentos.RazaoSocialColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNPJNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.CNPJColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNPJNull()
+            Me(Me.tableParcelamentos.CNPJColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataLembreteNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataLembreteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataLembreteNull()
+            Me(Me.tableParcelamentos.DataLembreteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataCriacaoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataCriacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataCriacaoNull()
+            Me(Me.tableParcelamentos.DataCriacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsObservacaoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.ObservacaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetObservacaoNull()
+            Me(Me.tableParcelamentos.ObservacaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFormaEnvioNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FormaEnvioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFormaEnvioNull()
+            Me(Me.tableParcelamentos.FormaEnvioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSAntigoNull()
+            Me(Me.tableParcelamentos.INSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSNovoNull()
+            Me(Me.tableParcelamentos.INSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSProcuradoriaNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSProcuradoriaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSProcuradoriaNull()
+            Me(Me.tableParcelamentos.INSSProcuradoriaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataParcelINSSantigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataParcelINSSantigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataParcelINSSantigoNull()
+            Me(Me.tableParcelamentos.DataParcelINSSantigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataParcelINSSnovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataParcelINSSnovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataParcelINSSnovoNull()
+            Me(Me.tableParcelamentos.DataParcelINSSnovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataParcelINSSprocNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataParcelINSSprocColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataParcelINSSprocNull()
+            Me(Me.tableParcelamentos.DataParcelINSSprocColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataEnvioNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataEnvioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataEnvioNull()
+            Me(Me.tableParcelamentos.DataEnvioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsWhatsAppNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.WhatsAppColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetWhatsAppNull()
+            Me(Me.tableParcelamentos.WhatsAppColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEmailNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.EmailColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEmailNull()
+            Me(Me.tableParcelamentos.EmailColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSAntigoProtNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSAntigoProtColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSAntigoProtNull()
+            Me(Me.tableParcelamentos.INSSAntigoProtColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSAntigoObsNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSAntigoObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSAntigoObsNull()
+            Me(Me.tableParcelamentos.INSSAntigoObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSNovoProtNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSNovoProtColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSNovoProtNull()
+            Me(Me.tableParcelamentos.INSSNovoProtColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSNovoObsNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSNovoObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSNovoObsNull()
+            Me(Me.tableParcelamentos.INSSNovoObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSProcProtNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSProcProtColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSProcProtNull()
+            Me(Me.tableParcelamentos.INSSProcProtColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsINSSProcObsNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.INSSProcObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetINSSProcObsNull()
+            Me(Me.tableParcelamentos.INSSProcObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsHistoricoEnvioINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.HistoricoEnvioINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetHistoricoEnvioINSSAntigoNull()
+            Me(Me.tableParcelamentos.HistoricoEnvioINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsHistoricoEnvioINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.HistoricoEnvioINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetHistoricoEnvioINSSNovoNull()
+            Me(Me.tableParcelamentos.HistoricoEnvioINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsHistoricoEnvioINSSProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.HistoricoEnvioINSSProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetHistoricoEnvioINSSProcNull()
+            Me(Me.tableParcelamentos.HistoricoEnvioINSSProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCidadeNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.CidadeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCidadeNull()
+            Me(Me.tableParcelamentos.CidadeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEstadoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.EstadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEstadoNull()
+            Me(Me.tableParcelamentos.EstadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRuaNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.RuaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRuaNull()
+            Me(Me.tableParcelamentos.RuaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNumeroNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.NumeroColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNumeroNull()
+            Me(Me.tableParcelamentos.NumeroColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsComplementoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.ComplementoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetComplementoNull()
+            Me(Me.tableParcelamentos.ComplementoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBairroNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.BairroColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBairroNull()
+            Me(Me.tableParcelamentos.BairroColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoINSSAntigoNull()
+            Me(Me.tableParcelamentos.FinalizadoINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoINSSNovoNull()
+            Me(Me.tableParcelamentos.FinalizadoINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoINSSProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoINSSProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoINSSProcNull()
+            Me(Me.tableParcelamentos.FinalizadoINSSProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoMesNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoMesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoMesNull()
+            Me(Me.tableParcelamentos.FinalizadoMesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoParcelamentosNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoParcelamentosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoParcelamentosNull()
+            Me(Me.tableParcelamentos.FinalizadoParcelamentosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMotivoParcINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MotivoParcINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMotivoParcINSSAntigoNull()
+            Me(Me.tableParcelamentos.MotivoParcINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMotivoParcINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MotivoParcINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMotivoParcINSSNovoNull()
+            Me(Me.tableParcelamentos.MotivoParcINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMotivoParcINSSProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MotivoParcINSSProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMotivoParcINSSProcNull()
+            Me(Me.tableParcelamentos.MotivoParcINSSProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMotivoParcMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MotivoParcMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMotivoParcMEINull()
+            Me(Me.tableParcelamentos.MotivoParcMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataParcMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataParcMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataParcMEINull()
+            Me(Me.tableParcelamentos.DataParcMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataProtocoloMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataProtocoloMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataProtocoloMEINull()
+            Me(Me.tableParcelamentos.DataProtocoloMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsFinalizadoMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.FinalizadoMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetFinalizadoMEINull()
+            Me(Me.tableParcelamentos.FinalizadoMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGeralINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.GeralINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGeralINSSAntigoNull()
+            Me(Me.tableParcelamentos.GeralINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGeralINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.GeralINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGeralINSSNovoNull()
+            Me(Me.tableParcelamentos.GeralINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGeralINSSProcuradoriaNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.GeralINSSProcuradoriaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGeralINSSProcuradoriaNull()
+            Me(Me.tableParcelamentos.GeralINSSProcuradoriaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGeralMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.GeralMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGeralMEINull()
+            Me(Me.tableParcelamentos.GeralMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesEnviadoINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MesEnviadoINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesEnviadoINSSAntigoNull()
+            Me(Me.tableParcelamentos.MesEnviadoINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesEnviadoINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MesEnviadoINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesEnviadoINSSNovoNull()
+            Me(Me.tableParcelamentos.MesEnviadoINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesEnviadoINSSProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MesEnviadoINSSProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesEnviadoINSSProcNull()
+            Me(Me.tableParcelamentos.MesEnviadoINSSProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesEnviadoMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MesEnviadoMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesEnviadoMEINull()
+            Me(Me.tableParcelamentos.MesEnviadoMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsHistoricoEnvioMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.HistoricoEnvioMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetHistoricoEnvioMEINull()
+            Me(Me.tableParcelamentos.HistoricoEnvioMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMEINull()
+            Me(Me.tableParcelamentos.MEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMeiProtocoloNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.MeiProtocoloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMeiProtocoloNull()
+            Me(Me.tableParcelamentos.MeiProtocoloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataFimParcINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataFimParcINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataFimParcINSSAntigoNull()
+            Me(Me.tableParcelamentos.DataFimParcINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataFimParcINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataFimParcINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataFimParcINSSNovoNull()
+            Me(Me.tableParcelamentos.DataFimParcINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataFimParcINNProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataFimParcINNProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataFimParcINNProcNull()
+            Me(Me.tableParcelamentos.DataFimParcINNProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataFimParcMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataFimParcMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataFimParcMEINull()
+            Me(Me.tableParcelamentos.DataFimParcMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class ParcelamentosAvisoRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableParcelamentosAviso As ParcelamentosAvisoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableParcelamentosAviso = CType(Me.Table,ParcelamentosAvisoDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property IDParcelamentoAviso() As Integer
+            Get
+                Return CType(Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesRealizado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentosAviso.MesRealizadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesRealizado' na tabela 'ParcelamentosAviso' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Ano() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentosAviso.AnoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ano' na tabela 'ParcelamentosAviso' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.AnoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesRealizadoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentosAviso.MesRealizadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesRealizadoNull()
+            Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAnoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentosAviso.AnoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAnoNull()
+            Me(Me.tableParcelamentosAviso.AnoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -27029,6 +30285,78 @@ Partial Public Class PrinceDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As CNAESubclasses23Row
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class ParcelamentosRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As ParcelamentosRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As ParcelamentosRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As ParcelamentosRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class ParcelamentosAvisoRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As ParcelamentosAvisoRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As ParcelamentosAvisoRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As ParcelamentosAvisoRow
             Get
                 Return Me.eventRow
             End Get
@@ -42428,6 +45756,9 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("BombeiroSolicita", "BombeiroSolicita")
             tableMapping.ColumnMappings.Add("BombeiroUnificado", "BombeiroUnificado")
             tableMapping.ColumnMappings.Add("BombeiroREDESIM", "BombeiroREDESIM")
+            tableMapping.ColumnMappings.Add("FederalECAC", "FederalECAC")
+            tableMapping.ColumnMappings.Add("FederalParcProc", "FederalParcProc")
+            tableMapping.ColumnMappings.Add("FederalProcuradoria", "FederalProcuradoria")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -42441,17 +45772,19 @@ Namespace PrinceDBDataSetTableAdapters
                 "gla], [SiteAlvaraPedido1], [SiteAlvaraPedido2], [SitePrefProtocolo], [Observacoe"& _ 
                 "s], [SiteREDESIMProtocolo], [SiteREDESIMConsultaCNPJ], [SiteREDESIMAbrirCNPJ], ["& _ 
                 "SiteREDESIMMeuCNPJ], [BombeiroConsulta], [BombeiroSolicita], [BombeiroUnificado]"& _ 
-                ", [BombeiroREDESIM]) VALUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJu"& _ 
-                "ntaUnificada, @SiteJuntaAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSi"& _ 
-                "gla, @SiteAlvaraPedido1, @SiteAlvaraPedido2, @SitePrefProtocolo, @Observacoes, @"& _ 
-                "SiteREDESIMProtocolo, @SiteREDESIMConsultaCNPJ, @SiteREDESIMAbrirCNPJ, @SiteREDE"& _ 
-                "SIMMeuCNPJ, @BombeiroConsulta, @BombeiroSolicita, @BombeiroUnificado, @BombeiroR"& _ 
-                "EDESIM);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnif"& _ 
-                "icada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlv"& _ 
-                "araPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtoc"& _ 
-                "olo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, Bombeiro"& _ 
-                "Consulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM FROM Sites WHERE "& _ 
-                "(ID_Sites = SCOPE_IDENTITY())"
+                ", [BombeiroREDESIM], [FederalECAC], [FederalParcProc], [FederalProcuradoria]) VA"& _ 
+                "LUES (@Estado, @Cidade, @SiteEstado, @SiteCidade, @SiteJuntaUnificada, @SiteJunt"& _ 
+                "aAntiga, @SiteAlvara1, @SiteAlvara2, @Distrito, @EstadoSigla, @SiteAlvaraPedido1"& _ 
+                ", @SiteAlvaraPedido2, @SitePrefProtocolo, @Observacoes, @SiteREDESIMProtocolo, @"& _ 
+                "SiteREDESIMConsultaCNPJ, @SiteREDESIMAbrirCNPJ, @SiteREDESIMMeuCNPJ, @BombeiroCo"& _ 
+                "nsulta, @BombeiroSolicita, @BombeiroUnificado, @BombeiroREDESIM, @FederalECAC, @"& _ 
+                "FederalParcProc, @FederalProcuradoria);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEs"& _ 
+                "tado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2,"& _ 
+                " Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo,"& _ 
+                " Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNP"& _ 
+                "J, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, Bo"& _ 
+                "mbeiroREDESIM, FederalECAC, FederalParcProc, FederalProcuradoria FROM Sites WHER"& _ 
+                "E (ID_Sites = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -42475,6 +45808,9 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSolicita", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSolicita", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroUnificado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroUnificado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroREDESIM", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroREDESIM", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalECAC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalECAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalParcProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalParcProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Sites] SET [Estado] = @Estado, [Cidade] = @Cidade, [SiteEstado] = @SiteEs"& _ 
@@ -42487,12 +45823,15 @@ Namespace PrinceDBDataSetTableAdapters
                 "taCNPJ, [SiteREDESIMAbrirCNPJ] = @SiteREDESIMAbrirCNPJ, [SiteREDESIMMeuCNPJ] = @"& _ 
                 "SiteREDESIMMeuCNPJ, [BombeiroConsulta] = @BombeiroConsulta, [BombeiroSolicita] ="& _ 
                 " @BombeiroSolicita, [BombeiroUnificado] = @BombeiroUnificado, [BombeiroREDESIM] "& _ 
-                "= @BombeiroREDESIM WHERE (([ID_Sites] = @Original_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, "& _ 
-                "Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, Sit"& _ 
-                "eAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedid"& _ 
-                "o2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNP"& _ 
-                "J, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita,"& _ 
-                " BombeiroUnificado, BombeiroREDESIM FROM Sites WHERE (ID_Sites = @ID_Sites)"
+                "= @BombeiroREDESIM, [FederalECAC] = @FederalECAC, [FederalParcProc] = @FederalPa"& _ 
+                "rcProc, [FederalProcuradoria] = @FederalProcuradoria WHERE (([ID_Sites] = @Origi"& _ 
+                "nal_ID_Sites));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Sites, Estado, Cidade, SiteEstado, SiteCidade, SiteJu"& _ 
+                "ntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, "& _ 
+                "SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESI"& _ 
+                "MProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, B"& _ 
+                "ombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM, FederalEC"& _ 
+                "AC, FederalParcProc, FederalProcuradoria FROM Sites WHERE (ID_Sites = @ID_Sites)"& _ 
+                ""
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -42516,6 +45855,9 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroSolicita", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroSolicita", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroUnificado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroUnificado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroREDESIM", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroREDESIM", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalECAC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalECAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalParcProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalParcProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FederalProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FederalProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Sites", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Sites", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Sites", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -42636,7 +45978,10 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal BombeiroConsulta As String,  _
                     ByVal BombeiroSolicita As String,  _
                     ByVal BombeiroUnificado As String,  _
-                    ByVal BombeiroREDESIM As String) As Integer
+                    ByVal BombeiroREDESIM As String,  _
+                    ByVal FederalECAC As String,  _
+                    ByVal FederalParcProc As String,  _
+                    ByVal FederalProcuradoria As String) As Integer
             If (Estado Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -42747,6 +46092,21 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(21).Value = CType(BombeiroREDESIM,String)
             End If
+            If (FederalECAC Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(FederalECAC,String)
+            End If
+            If (FederalParcProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(FederalParcProc,String)
+            End If
+            If (FederalProcuradoria Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(FederalProcuradoria,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -42789,6 +46149,9 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal BombeiroSolicita As String,  _
                     ByVal BombeiroUnificado As String,  _
                     ByVal BombeiroREDESIM As String,  _
+                    ByVal FederalECAC As String,  _
+                    ByVal FederalParcProc As String,  _
+                    ByVal FederalProcuradoria As String,  _
                     ByVal Original_ID_Sites As Integer,  _
                     ByVal ID_Sites As Integer) As Integer
             If (Estado Is Nothing) Then
@@ -42901,8 +46264,23 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(BombeiroREDESIM,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ID_Sites,Integer)
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(ID_Sites,Integer)
+            If (FederalECAC Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(FederalECAC,String)
+            End If
+            If (FederalParcProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(FederalParcProc,String)
+            End If
+            If (FederalProcuradoria Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(FederalProcuradoria,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_ID_Sites,Integer)
+            Me.Adapter.UpdateCommand.Parameters(26).Value = CType(ID_Sites,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -42945,8 +46323,11 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal BombeiroSolicita As String,  _
                     ByVal BombeiroUnificado As String,  _
                     ByVal BombeiroREDESIM As String,  _
+                    ByVal FederalECAC As String,  _
+                    ByVal FederalParcProc As String,  _
+                    ByVal FederalProcuradoria As String,  _
                     ByVal Original_ID_Sites As Integer) As Integer
-            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM, Original_ID_Sites, Original_ID_Sites)
+            Return Me.Update(Estado, Cidade, SiteEstado, SiteCidade, SiteJuntaUnificada, SiteJuntaAntiga, SiteAlvara1, SiteAlvara2, Distrito, EstadoSigla, SiteAlvaraPedido1, SiteAlvaraPedido2, SitePrefProtocolo, Observacoes, SiteREDESIMProtocolo, SiteREDESIMConsultaCNPJ, SiteREDESIMAbrirCNPJ, SiteREDESIMMeuCNPJ, BombeiroConsulta, BombeiroSolicita, BombeiroUnificado, BombeiroREDESIM, FederalECAC, FederalParcProc, FederalProcuradoria, Original_ID_Sites, Original_ID_Sites)
         End Function
     End Class
     
@@ -44621,6 +48002,1686 @@ Namespace PrinceDBDataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ParcelamentosTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Parcelamentos"
+            tableMapping.ColumnMappings.Add("ID_Parcelamentos", "ID_Parcelamentos")
+            tableMapping.ColumnMappings.Add("RazaoSocial", "RazaoSocial")
+            tableMapping.ColumnMappings.Add("CNPJ", "CNPJ")
+            tableMapping.ColumnMappings.Add("DataLembrete", "DataLembrete")
+            tableMapping.ColumnMappings.Add("DataCriacao", "DataCriacao")
+            tableMapping.ColumnMappings.Add("Observacao", "Observacao")
+            tableMapping.ColumnMappings.Add("FormaEnvio", "FormaEnvio")
+            tableMapping.ColumnMappings.Add("INSSAntigo", "INSSAntigo")
+            tableMapping.ColumnMappings.Add("INSSNovo", "INSSNovo")
+            tableMapping.ColumnMappings.Add("INSSProcuradoria", "INSSProcuradoria")
+            tableMapping.ColumnMappings.Add("DataParcelINSSantigo", "DataParcelINSSantigo")
+            tableMapping.ColumnMappings.Add("DataParcelINSSnovo", "DataParcelINSSnovo")
+            tableMapping.ColumnMappings.Add("DataParcelINSSproc", "DataParcelINSSproc")
+            tableMapping.ColumnMappings.Add("DataEnvio", "DataEnvio")
+            tableMapping.ColumnMappings.Add("WhatsApp", "WhatsApp")
+            tableMapping.ColumnMappings.Add("Email", "Email")
+            tableMapping.ColumnMappings.Add("INSSAntigoProt", "INSSAntigoProt")
+            tableMapping.ColumnMappings.Add("INSSAntigoObs", "INSSAntigoObs")
+            tableMapping.ColumnMappings.Add("INSSNovoProt", "INSSNovoProt")
+            tableMapping.ColumnMappings.Add("INSSNovoObs", "INSSNovoObs")
+            tableMapping.ColumnMappings.Add("INSSProcProt", "INSSProcProt")
+            tableMapping.ColumnMappings.Add("INSSProcObs", "INSSProcObs")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSAntigo", "HistoricoEnvioINSSAntigo")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSNovo", "HistoricoEnvioINSSNovo")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSProc", "HistoricoEnvioINSSProc")
+            tableMapping.ColumnMappings.Add("Cidade", "Cidade")
+            tableMapping.ColumnMappings.Add("Estado", "Estado")
+            tableMapping.ColumnMappings.Add("Rua", "Rua")
+            tableMapping.ColumnMappings.Add("Numero", "Numero")
+            tableMapping.ColumnMappings.Add("Complemento", "Complemento")
+            tableMapping.ColumnMappings.Add("Bairro", "Bairro")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSAntigo", "FinalizadoINSSAntigo")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSNovo", "FinalizadoINSSNovo")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSProc", "FinalizadoINSSProc")
+            tableMapping.ColumnMappings.Add("FinalizadoMes", "FinalizadoMes")
+            tableMapping.ColumnMappings.Add("FinalizadoParcelamentos", "FinalizadoParcelamentos")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSAntigo", "MotivoParcINSSAntigo")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSNovo", "MotivoParcINSSNovo")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSProc", "MotivoParcINSSProc")
+            tableMapping.ColumnMappings.Add("MotivoParcMEI", "MotivoParcMEI")
+            tableMapping.ColumnMappings.Add("DataParcMEI", "DataParcMEI")
+            tableMapping.ColumnMappings.Add("DataProtocoloMEI", "DataProtocoloMEI")
+            tableMapping.ColumnMappings.Add("FinalizadoMEI", "FinalizadoMEI")
+            tableMapping.ColumnMappings.Add("GeralINSSAntigo", "GeralINSSAntigo")
+            tableMapping.ColumnMappings.Add("GeralINSSNovo", "GeralINSSNovo")
+            tableMapping.ColumnMappings.Add("GeralINSSProcuradoria", "GeralINSSProcuradoria")
+            tableMapping.ColumnMappings.Add("GeralMEI", "GeralMEI")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSAntigo", "MesEnviadoINSSAntigo")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSNovo", "MesEnviadoINSSNovo")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSProc", "MesEnviadoINSSProc")
+            tableMapping.ColumnMappings.Add("MesEnviadoMEI", "MesEnviadoMEI")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioMEI", "HistoricoEnvioMEI")
+            tableMapping.ColumnMappings.Add("MEI", "MEI")
+            tableMapping.ColumnMappings.Add("MeiProtocolo", "MeiProtocolo")
+            tableMapping.ColumnMappings.Add("DataFimParcINSSAntigo", "DataFimParcINSSAntigo")
+            tableMapping.ColumnMappings.Add("DataFimParcINSSNovo", "DataFimParcINSSNovo")
+            tableMapping.ColumnMappings.Add("DataFimParcINNProc", "DataFimParcINNProc")
+            tableMapping.ColumnMappings.Add("DataFimParcMEI", "DataFimParcMEI")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Parcelamentos] WHERE (([ID_Parcelamentos] = @Original_ID_Parcelament"& _ 
+                "os))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Parcelamentos] ([RazaoSocial], [CNPJ], [DataLembrete], [DataCriacao]"& _ 
+                ", [Observacao], [FormaEnvio], [INSSAntigo], [INSSNovo], [INSSProcuradoria], [Dat"& _ 
+                "aParcelINSSantigo], [DataParcelINSSnovo], [DataParcelINSSproc], [DataEnvio], [Wh"& _ 
+                "atsApp], [Email], [INSSAntigoProt], [INSSAntigoObs], [INSSNovoProt], [INSSNovoOb"& _ 
+                "s], [INSSProcProt], [INSSProcObs], [HistoricoEnvioINSSAntigo], [HistoricoEnvioIN"& _ 
+                "SSNovo], [HistoricoEnvioINSSProc], [Cidade], [Estado], [Rua], [Numero], [Complem"& _ 
+                "ento], [Bairro], [FinalizadoINSSAntigo], [FinalizadoINSSNovo], [FinalizadoINSSPr"& _ 
+                "oc], [FinalizadoMes], [FinalizadoParcelamentos], [MotivoParcINSSAntigo], [Motivo"& _ 
+                "ParcINSSNovo], [MotivoParcINSSProc], [MotivoParcMEI], [DataParcMEI], [DataProtoc"& _ 
+                "oloMEI], [FinalizadoMEI], [GeralINSSAntigo], [GeralINSSNovo], [GeralINSSProcurad"& _ 
+                "oria], [GeralMEI], [MesEnviadoINSSAntigo], [MesEnviadoINSSNovo], [MesEnviadoINSS"& _ 
+                "Proc], [MesEnviadoMEI], [HistoricoEnvioMEI], [MEI], [MeiProtocolo], [DataFimParc"& _ 
+                "INSSAntigo], [DataFimParcINSSNovo], [DataFimParcINNProc], [DataFimParcMEI]) VALU"& _ 
+                "ES (@RazaoSocial, @CNPJ, @DataLembrete, @DataCriacao, @Observacao, @FormaEnvio, "& _ 
+                "@INSSAntigo, @INSSNovo, @INSSProcuradoria, @DataParcelINSSantigo, @DataParcelINS"& _ 
+                "Snovo, @DataParcelINSSproc, @DataEnvio, @WhatsApp, @Email, @INSSAntigoProt, @INS"& _ 
+                "SAntigoObs, @INSSNovoProt, @INSSNovoObs, @INSSProcProt, @INSSProcObs, @Historico"& _ 
+                "EnvioINSSAntigo, @HistoricoEnvioINSSNovo, @HistoricoEnvioINSSProc, @Cidade, @Est"& _ 
+                "ado, @Rua, @Numero, @Complemento, @Bairro, @FinalizadoINSSAntigo, @FinalizadoINS"& _ 
+                "SNovo, @FinalizadoINSSProc, @FinalizadoMes, @FinalizadoParcelamentos, @MotivoPar"& _ 
+                "cINSSAntigo, @MotivoParcINSSNovo, @MotivoParcINSSProc, @MotivoParcMEI, @DataParc"& _ 
+                "MEI, @DataProtocoloMEI, @FinalizadoMEI, @GeralINSSAntigo, @GeralINSSNovo, @Geral"& _ 
+                "INSSProcuradoria, @GeralMEI, @MesEnviadoINSSAntigo, @MesEnviadoINSSNovo, @MesEnv"& _ 
+                "iadoINSSProc, @MesEnviadoMEI, @HistoricoEnvioMEI, @MEI, @MeiProtocolo, @DataFimP"& _ 
+                "arcINSSAntigo, @DataFimParcINSSNovo, @DataFimParcINNProc, @DataFimParcMEI);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
+                "ECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, "& _ 
+                "FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataPa"& _ 
+                "rcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, IN"& _ 
+                "SSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvi"& _ 
+                "oINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua"& _ 
+                ", Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, Finaliz"& _ 
+                "adoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, Motiv"& _ 
+                "oParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI,"& _ 
+                " FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI,"& _ 
+                " MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, Hi"& _ 
+                "storicoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, "& _ 
+                "DataFimParcINNProc, DataFimParcMEI FROM Parcelamentos WHERE (ID_Parcelamentos = "& _ 
+                "SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINNProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINNProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [DataLem"& _ 
+                "brete] = @DataLembrete, [DataCriacao] = @DataCriacao, [Observacao] = @Observacao"& _ 
+                ", [FormaEnvio] = @FormaEnvio, [INSSAntigo] = @INSSAntigo, [INSSNovo] = @INSSNovo"& _ 
+                ", [INSSProcuradoria] = @INSSProcuradoria, [DataParcelINSSantigo] = @DataParcelIN"& _ 
+                "SSantigo, [DataParcelINSSnovo] = @DataParcelINSSnovo, [DataParcelINSSproc] = @Da"& _ 
+                "taParcelINSSproc, [DataEnvio] = @DataEnvio, [WhatsApp] = @WhatsApp, [Email] = @E"& _ 
+                "mail, [INSSAntigoProt] = @INSSAntigoProt, [INSSAntigoObs] = @INSSAntigoObs, [INS"& _ 
+                "SNovoProt] = @INSSNovoProt, [INSSNovoObs] = @INSSNovoObs, [INSSProcProt] = @INSS"& _ 
+                "ProcProt, [INSSProcObs] = @INSSProcObs, [HistoricoEnvioINSSAntigo] = @HistoricoE"& _ 
+                "nvioINSSAntigo, [HistoricoEnvioINSSNovo] = @HistoricoEnvioINSSNovo, [HistoricoEn"& _ 
+                "vioINSSProc] = @HistoricoEnvioINSSProc, [Cidade] = @Cidade, [Estado] = @Estado, "& _ 
+                "[Rua] = @Rua, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bair"& _ 
+                "ro, [FinalizadoINSSAntigo] = @FinalizadoINSSAntigo, [FinalizadoINSSNovo] = @Fina"& _ 
+                "lizadoINSSNovo, [FinalizadoINSSProc] = @FinalizadoINSSProc, [FinalizadoMes] = @F"& _ 
+                "inalizadoMes, [FinalizadoParcelamentos] = @FinalizadoParcelamentos, [MotivoParcI"& _ 
+                "NSSAntigo] = @MotivoParcINSSAntigo, [MotivoParcINSSNovo] = @MotivoParcINSSNovo, "& _ 
+                "[MotivoParcINSSProc] = @MotivoParcINSSProc, [MotivoParcMEI] = @MotivoParcMEI, [D"& _ 
+                "ataParcMEI] = @DataParcMEI, [DataProtocoloMEI] = @DataProtocoloMEI, [FinalizadoM"& _ 
+                "EI] = @FinalizadoMEI, [GeralINSSAntigo] = @GeralINSSAntigo, [GeralINSSNovo] = @G"& _ 
+                "eralINSSNovo, [GeralINSSProcuradoria] = @GeralINSSProcuradoria, [GeralMEI] = @Ge"& _ 
+                "ralMEI, [MesEnviadoINSSAntigo] = @MesEnviadoINSSAntigo, [MesEnviadoINSSNovo] = @"& _ 
+                "MesEnviadoINSSNovo, [MesEnviadoINSSProc] = @MesEnviadoINSSProc, [MesEnviadoMEI] "& _ 
+                "= @MesEnviadoMEI, [HistoricoEnvioMEI] = @HistoricoEnvioMEI, [MEI] = @MEI, [MeiPr"& _ 
+                "otocolo] = @MeiProtocolo, [DataFimParcINSSAntigo] = @DataFimParcINSSAntigo, [Dat"& _ 
+                "aFimParcINSSNovo] = @DataFimParcINSSNovo, [DataFimParcINNProc] = @DataFimParcINN"& _ 
+                "Proc, [DataFimParcMEI] = @DataFimParcMEI WHERE (([ID_Parcelamentos] = @Original_"& _ 
+                "ID_Parcelamentos));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, D"& _ 
+                "ataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, Data"& _ 
+                "ParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, E"& _ 
+                "mail, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, IN"& _ 
+                "SSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSP"& _ 
+                "roc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, Fin"& _ 
+                "alizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, Mot"& _ 
+                "ivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataPa"& _ 
+                "rcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINS"& _ 
+                "SProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINS"& _ 
+                "SProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntig"& _ 
+                "o, DataFimParcINSSNovo, DataFimParcINNProc, DataFimParcMEI FROM Parcelamentos WH"& _ 
+                "ERE (ID_Parcelamentos = @ID_Parcelamentos)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINNProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINNProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        Parcelamentos.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Parcelamentos"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT Bairro, CNPJ, Cidade, Complemento, DataCriacao, DataEnvio, DataFimParcINNP"& _ 
+                "roc, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcMEI, DataLembrete, D"& _ 
+                "ataParcMEI, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataPr"& _ 
+                "otocoloMEI, Email, Estado, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoI"& _ 
+                "NSSProc, FinalizadoMEI, FinalizadoMes, FinalizadoParcelamentos, FormaEnvio, Gera"& _ 
+                "lINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, HistoricoEnvioINSSA"& _ 
+                "ntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, HistoricoEnvioMEI, ID_Par"& _ 
+                "celamentos, INSSAntigo, INSSAntigoObs, INSSAntigoProt, INSSNovo, INSSNovoObs, IN"& _ 
+                "SSNovoProt, INSSProcObs, INSSProcProt, INSSProcuradoria, MEI, MeiProtocolo, MesE"& _ 
+                "nviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, MotivoP"& _ 
+                "arcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, Numero, Ob"& _ 
+                "servacao, RazaoSocial, Rua, WhatsApp FROM Parcelamentos WHERE (ID_Parcelamentos "& _ 
+                "= @EmpresaID)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As PrinceDBDataSet.ParcelamentosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As PrinceDBDataSet.ParcelamentosDataTable = New PrinceDBDataSet.ParcelamentosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByEmpresaID(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable, ByVal EmpresaID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(EmpresaID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByEmpresaID(ByVal EmpresaID As Integer) As PrinceDBDataSet.ParcelamentosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(EmpresaID,Integer)
+            Dim dataTable As PrinceDBDataSet.ParcelamentosDataTable = New PrinceDBDataSet.ParcelamentosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Parcelamentos")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_Parcelamentos As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_Parcelamentos,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINNProc As String,  _
+                    ByVal DataFimParcMEI As String) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (DataLembrete Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DataLembrete,String)
+            End If
+            If (DataCriacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DataCriacao,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Observacao,String)
+            End If
+            If (FormaEnvio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FormaEnvio,String)
+            End If
+            If (INSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(INSSAntigo,String)
+            End If
+            If (INSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(INSSNovo,String)
+            End If
+            If (INSSProcuradoria Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
+            End If
+            If (DataParcelINSSantigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
+            End If
+            If (DataParcelINSSnovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
+            End If
+            If (DataParcelINSSproc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
+            End If
+            If (DataEnvio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DataEnvio,String)
+            End If
+            If (WhatsApp Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(WhatsApp,String)
+            End If
+            If (Email Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Email,String)
+            End If
+            If (INSSAntigoProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
+            End If
+            If (INSSAntigoObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
+            End If
+            If (INSSNovoProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(INSSNovoProt,String)
+            End If
+            If (INSSNovoObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(INSSNovoObs,String)
+            End If
+            If (INSSProcProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(INSSProcProt,String)
+            End If
+            If (INSSProcObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(INSSProcObs,String)
+            End If
+            If (HistoricoEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
+            End If
+            If (HistoricoEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
+            End If
+            If (HistoricoEnvioINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
+            End If
+            If (Cidade Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(Cidade,String)
+            End If
+            If (Estado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Estado,String)
+            End If
+            If (Rua Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Rua,String)
+            End If
+            If (Numero Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Numero,String)
+            End If
+            If (Complemento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(Complemento,String)
+            End If
+            If (Bairro Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Bairro,String)
+            End If
+            If (FinalizadoINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
+            End If
+            If (FinalizadoINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
+            End If
+            If (FinalizadoINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
+            End If
+            If (FinalizadoMes Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(33).Value = CType(FinalizadoMes,String)
+            End If
+            If (FinalizadoParcelamentos Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
+            End If
+            If (MotivoParcINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
+            End If
+            If (MotivoParcINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
+            End If
+            If (MotivoParcINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
+            End If
+            If (MotivoParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
+            End If
+            If (DataParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(39).Value = CType(DataParcMEI,String)
+            End If
+            If (DataProtocoloMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
+            End If
+            If (FinalizadoMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
+            End If
+            If (GeralINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
+            End If
+            If (GeralINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
+            End If
+            If (GeralINSSProcuradoria Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
+            End If
+            If (GeralMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(45).Value = CType(GeralMEI,String)
+            End If
+            If (MesEnviadoINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
+            End If
+            If (MesEnviadoINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
+            End If
+            If (MesEnviadoINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
+            End If
+            If (MesEnviadoMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
+            End If
+            If (HistoricoEnvioMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
+            End If
+            If (MEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(51).Value = CType(MEI,String)
+            End If
+            If (MeiProtocolo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(52).Value = CType(MeiProtocolo,String)
+            End If
+            If (DataFimParcINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
+            End If
+            If (DataFimParcINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
+            End If
+            If (DataFimParcINNProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(55).Value = CType(DataFimParcINNProc,String)
+            End If
+            If (DataFimParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINNProc As String,  _
+                    ByVal DataFimParcMEI As String,  _
+                    ByVal Original_ID_Parcelamentos As Integer,  _
+                    ByVal ID_Parcelamentos As Integer) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (DataLembrete Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DataLembrete,String)
+            End If
+            If (DataCriacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DataCriacao,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Observacao,String)
+            End If
+            If (FormaEnvio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FormaEnvio,String)
+            End If
+            If (INSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(INSSAntigo,String)
+            End If
+            If (INSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(INSSNovo,String)
+            End If
+            If (INSSProcuradoria Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
+            End If
+            If (DataParcelINSSantigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
+            End If
+            If (DataParcelINSSnovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
+            End If
+            If (DataParcelINSSproc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
+            End If
+            If (DataEnvio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DataEnvio,String)
+            End If
+            If (WhatsApp Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(WhatsApp,String)
+            End If
+            If (Email Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Email,String)
+            End If
+            If (INSSAntigoProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
+            End If
+            If (INSSAntigoObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
+            End If
+            If (INSSNovoProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(INSSNovoProt,String)
+            End If
+            If (INSSNovoObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(INSSNovoObs,String)
+            End If
+            If (INSSProcProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(INSSProcProt,String)
+            End If
+            If (INSSProcObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(INSSProcObs,String)
+            End If
+            If (HistoricoEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
+            End If
+            If (HistoricoEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
+            End If
+            If (HistoricoEnvioINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
+            End If
+            If (Cidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Cidade,String)
+            End If
+            If (Estado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Estado,String)
+            End If
+            If (Rua Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Rua,String)
+            End If
+            If (Numero Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Numero,String)
+            End If
+            If (Complemento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Complemento,String)
+            End If
+            If (Bairro Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Bairro,String)
+            End If
+            If (FinalizadoINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
+            End If
+            If (FinalizadoINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
+            End If
+            If (FinalizadoINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
+            End If
+            If (FinalizadoMes Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(FinalizadoMes,String)
+            End If
+            If (FinalizadoParcelamentos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
+            End If
+            If (MotivoParcINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
+            End If
+            If (MotivoParcINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
+            End If
+            If (MotivoParcINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
+            End If
+            If (MotivoParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
+            End If
+            If (DataParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(DataParcMEI,String)
+            End If
+            If (DataProtocoloMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
+            End If
+            If (FinalizadoMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
+            End If
+            If (GeralINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
+            End If
+            If (GeralINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
+            End If
+            If (GeralINSSProcuradoria Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
+            End If
+            If (GeralMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(GeralMEI,String)
+            End If
+            If (MesEnviadoINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
+            End If
+            If (MesEnviadoINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
+            End If
+            If (MesEnviadoINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
+            End If
+            If (MesEnviadoMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
+            End If
+            If (HistoricoEnvioMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
+            End If
+            If (MEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(MEI,String)
+            End If
+            If (MeiProtocolo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(MeiProtocolo,String)
+            End If
+            If (DataFimParcINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
+            End If
+            If (DataFimParcINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
+            End If
+            If (DataFimParcINNProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(DataFimParcINNProc,String)
+            End If
+            If (DataFimParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_ID_Parcelamentos,Integer)
+            Me.Adapter.UpdateCommand.Parameters(58).Value = CType(ID_Parcelamentos,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINNProc As String,  _
+                    ByVal DataFimParcMEI As String,  _
+                    ByVal Original_ID_Parcelamentos As Integer) As Integer
+            Return Me.Update(RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINNProc, DataFimParcMEI, Original_ID_Parcelamentos, Original_ID_Parcelamentos)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ParcelamentosAvisoTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "ParcelamentosAviso"
+            tableMapping.ColumnMappings.Add("IDParcelamentoAviso", "IDParcelamentoAviso")
+            tableMapping.ColumnMappings.Add("MesRealizado", "MesRealizado")
+            tableMapping.ColumnMappings.Add("Ano", "Ano")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [ParcelamentosAviso] WHERE (([IDParcelamentoAviso] = @Original_IDParc"& _ 
+                "elamentoAviso) AND ((@IsNull_MesRealizado = 1 AND [MesRealizado] IS NULL) OR ([M"& _ 
+                "esRealizado] = @Original_MesRealizado)) AND ((@IsNull_Ano = 1 AND [Ano] IS NULL)"& _ 
+                " OR ([Ano] = @Original_Ano)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IDParcelamentoAviso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDParcelamentoAviso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MesRealizado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MesRealizado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ano", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ano", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [ParcelamentosAviso] ([MesRealizado], [Ano]) VALUES (@MesRealizado, @"& _ 
+                "Ano);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT IDParcelamentoAviso, MesRealizado, Ano FROM ParcelamentosAviso WHE"& _ 
+                "RE (IDParcelamentoAviso = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesRealizado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ano", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [ParcelamentosAviso] SET [MesRealizado] = @MesRealizado, [Ano] = @Ano WHER"& _ 
+                "E (([IDParcelamentoAviso] = @Original_IDParcelamentoAviso) AND ((@IsNull_MesReal"& _ 
+                "izado = 1 AND [MesRealizado] IS NULL) OR ([MesRealizado] = @Original_MesRealizad"& _ 
+                "o)) AND ((@IsNull_Ano = 1 AND [Ano] IS NULL) OR ([Ano] = @Original_Ano)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELE"& _ 
+                "CT IDParcelamentoAviso, MesRealizado, Ano FROM ParcelamentosAviso WHERE (IDParce"& _ 
+                "lamentoAviso = @IDParcelamentoAviso)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesRealizado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ano", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IDParcelamentoAviso", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDParcelamentoAviso", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MesRealizado", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MesRealizado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesRealizado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Ano", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ano", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Ano", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IDParcelamentoAviso", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IDParcelamentoAviso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        ParcelamentosAviso.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ParcelamentosAviso"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.ParcelamentosAvisoDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As PrinceDBDataSet.ParcelamentosAvisoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As PrinceDBDataSet.ParcelamentosAvisoDataTable = New PrinceDBDataSet.ParcelamentosAvisoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.ParcelamentosAvisoDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "ParcelamentosAviso")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_IDParcelamentoAviso As Integer, ByVal Original_MesRealizado As String, ByVal Original_Ano As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDParcelamentoAviso,Integer)
+            If (Original_MesRealizado Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_MesRealizado,String)
+            End If
+            If (Original_Ano Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Ano,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal MesRealizado As String, ByVal Ano As String) As Integer
+            If (MesRealizado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(MesRealizado,String)
+            End If
+            If (Ano Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Ano,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal MesRealizado As String, ByVal Ano As String, ByVal Original_IDParcelamentoAviso As Integer, ByVal Original_MesRealizado As String, ByVal Original_Ano As String, ByVal IDParcelamentoAviso As Integer) As Integer
+            If (MesRealizado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(MesRealizado,String)
+            End If
+            If (Ano Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Ano,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDParcelamentoAviso,Integer)
+            If (Original_MesRealizado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_MesRealizado,String)
+            End If
+            If (Original_Ano Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Ano,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(IDParcelamentoAviso,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal MesRealizado As String, ByVal Ano As String, ByVal Original_IDParcelamentoAviso As Integer, ByVal Original_MesRealizado As String, ByVal Original_Ano As String) As Integer
+            Return Me.Update(MesRealizado, Ano, Original_IDParcelamentoAviso, Original_MesRealizado, Original_Ano, Original_IDParcelamentoAviso)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -44682,6 +49743,10 @@ Namespace PrinceDBDataSetTableAdapters
         Private _brasilMunicipiosTableAdapter As BrasilMunicipiosTableAdapter
         
         Private _cNAESubclasses23TableAdapter As CNAESubclasses23TableAdapter
+        
+        Private _parcelamentosTableAdapter As ParcelamentosTableAdapter
+        
+        Private _parcelamentosAvisoTableAdapter As ParcelamentosAvisoTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -45049,6 +50114,34 @@ Namespace PrinceDBDataSetTableAdapters
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property ParcelamentosTableAdapter() As ParcelamentosTableAdapter
+            Get
+                Return Me._parcelamentosTableAdapter
+            End Get
+            Set
+                Me._parcelamentosTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property ParcelamentosAvisoTableAdapter() As ParcelamentosAvisoTableAdapter
+            Get
+                Return Me._parcelamentosAvisoTableAdapter
+            End Get
+            Set
+                Me._parcelamentosAvisoTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -45167,6 +50260,14 @@ Namespace PrinceDBDataSetTableAdapters
                             AndAlso (Not (Me._cNAESubclasses23TableAdapter.Connection) Is Nothing)) Then
                     Return Me._cNAESubclasses23TableAdapter.Connection
                 End If
+                If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._parcelamentosTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._parcelamentosTableAdapter.Connection
+                End If
+                If ((Not (Me._parcelamentosAvisoTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._parcelamentosAvisoTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._parcelamentosAvisoTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -45255,6 +50356,12 @@ Namespace PrinceDBDataSetTableAdapters
                 If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -45272,6 +50379,15 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._brasilEstadoTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._brasilMunicipiosTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -45293,21 +50409,21 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._brasilMunicipiosTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._cNAETableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._cNAETableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._cNAESubclasses23TableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -45380,6 +50496,15 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._sociosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._empresasTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._empresasTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -45473,21 +50598,21 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._empresasTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._empresasTableAdapter.Update(updatedRows))
+                    result = (result + Me._parcelamentosTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._cNAESubclasses23TableAdapter.Update(updatedRows))
+                    result = (result + Me._parcelamentosAvisoTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -45509,6 +50634,14 @@ Namespace PrinceDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._brasilMunicipiosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._loginTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Login.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -45525,19 +50658,19 @@ Namespace PrinceDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._brasilMunicipiosTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._cNAETableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._cNAETableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._cNAESubclasses23TableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -45602,6 +50735,14 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._sociosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._empresasTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._empresasTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -45685,19 +50826,19 @@ Namespace PrinceDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._empresasTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._empresasTableAdapter.Update(addedRows))
+                    result = (result + Me._parcelamentosTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._cNAESubclasses23TableAdapter.Update(addedRows))
+                    result = (result + Me._parcelamentosAvisoTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -45711,19 +50852,19 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As PrinceDBDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._cNAESubclasses23TableAdapter.Update(deletedRows))
+                    result = (result + Me._parcelamentosAvisoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._empresasTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._empresasTableAdapter.Update(deletedRows))
+                    result = (result + Me._parcelamentosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -45807,6 +50948,14 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._empresasTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Empresas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._empresasTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._sociosTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Socios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -45871,19 +51020,19 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNAESubclasses23.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._cNAESubclasses23TableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._cNAETableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._cNAETableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._brasilMunicipiosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -45900,6 +51049,14 @@ Namespace PrinceDBDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._loginTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._brasilMunicipiosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.BrasilMunicipios.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._brasilMunicipiosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -46074,6 +51231,16 @@ Namespace PrinceDBDataSetTableAdapters
             End If
             If ((Not (Me._cNAESubclasses23TableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._cNAESubclasses23TableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
+                        "cadeia de conexão.")
+            End If
+            If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
+                        "cadeia de conexão.")
+            End If
+            If ((Not (Me._parcelamentosAvisoTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosAvisoTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
@@ -46334,6 +51501,24 @@ Namespace PrinceDBDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._cNAESubclasses23TableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._parcelamentosTableAdapter, Me._parcelamentosTableAdapter.Connection)
+                    Me._parcelamentosTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._parcelamentosTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._parcelamentosAvisoTableAdapter, Me._parcelamentosAvisoTableAdapter.Connection)
+                    Me._parcelamentosAvisoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosAvisoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._parcelamentosAvisoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._parcelamentosAvisoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._parcelamentosAvisoTableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -46493,6 +51678,14 @@ Namespace PrinceDBDataSetTableAdapters
                 If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
                     Me._cNAESubclasses23TableAdapter.Connection = CType(revertConnections(Me._cNAESubclasses23TableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._cNAESubclasses23TableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                    Me._parcelamentosTableAdapter.Connection = CType(revertConnections(Me._parcelamentosTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                    Me._parcelamentosAvisoTableAdapter.Connection = CType(revertConnections(Me._parcelamentosAvisoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosAvisoTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

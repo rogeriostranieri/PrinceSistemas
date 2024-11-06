@@ -1,7 +1,21 @@
-﻿Public Class Avisos
+﻿Imports System.Windows.Forms
+Imports System.Drawing
+Imports System.Data.SqlClient
+
+
+Public Class Avisos
+    ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
+    Private WithEvents timerParcelamentos As New Timer()
+    Private contador As Integer = 0
+    Private cores() As Color = {Color.White, Color.Yellow, Color.Red}
 
 
     Private Sub Avisos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Parcelamentos'. Você pode movê-la ou removê-la conforme necessário.
+        Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
+        'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.ParcelamentosAviso'. Você pode movê-la ou removê-la conforme necessário.
+        Me.ParcelamentosAvisoTableAdapter.Fill(Me.PrinceDBDataSet.ParcelamentosAviso)
 
         '//// calendario 
         'Dim Calendario As New MonthCalendar  ' VER ISSO E COLOCA COMO PADRAO
@@ -32,7 +46,7 @@
 
         FormBorderStyle = FormBorderStyle.FixedSingle
 
-
+        CarregarAvisos()
 
     End Sub
 
@@ -51,6 +65,10 @@
         'FILTRO LAUDO
         Dim FilterB As String = MaskedTextBox1.Text
         LaudosBindingSource.Filter = "AvisarDia like '" & FilterB & "%'"
+
+        'FILTRO  Parcelamentos
+        Dim FilterC As String = MaskedTextBox1.Text
+        ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterC & "%'"
 
 
         'igual do venc laudos
@@ -237,5 +255,128 @@
     End Sub
 
 
-    '/////////// fim do codigo de mostrar calendario        
+    '/////////// fim do codigo de mostrar calendario
+    '
+    '//////////////////////////// ver parcelamentos
+    Private Sub CarregarAvisos()
+        ' Conectar ao banco de dados e carregar dados
+        Using conexão As New SqlConnection(connectionString)
+            conexão.Open()
+
+            ' Carregar dados de ParcelamentosAviso
+            Dim comandoAviso As New SqlCommand("SELECT MesRealizado, Ano FROM ParcelamentosAviso", conexão)
+            Dim leitorAviso As SqlDataReader = comandoAviso.ExecuteReader()
+
+            If leitorAviso.Read() Then
+                Dim mesRealizado As String = leitorAviso("MesRealizado").ToString()
+                Dim ano As String = leitorAviso("Ano").ToString()
+
+                ' Fechar o DataReader
+                leitorAviso.Close()
+
+                ' Converter a data do MaskedTextBox1 para Date
+                Dim dataLembrete As Date = Date.Parse(MaskedTextBox1.Text)
+                Dim mesLembrete As Integer = dataLembrete.Month
+                Dim mesLembreteStr As String = dataLembrete.ToString("MMMM", Globalization.CultureInfo.InvariantCulture)
+
+                ' Verificar se o mês de ParcelamentosAviso é diferente do mês atual
+                If mesRealizado <> mesLembreteStr Then
+                    ' Contar parcelamentos para a data do mês
+                    Dim comandoParcelamentos As New SqlCommand("SELECT DataEnvio, FinalizadoParcelamentos FROM Parcelamentos WHERE YEAR(DataEnvio) = @ano AND MONTH(DataEnvio) = @mes", conexão)
+                    comandoParcelamentos.Parameters.AddWithValue("@ano", dataLembrete.Year)
+                    comandoParcelamentos.Parameters.AddWithValue("@mes", mesLembrete)
+
+                    Dim leitorParcelamentos As SqlDataReader = comandoParcelamentos.ExecuteReader()
+
+                    Dim parcelamentoNaoEnviado As Boolean = False
+                    Dim todosEnviados As Boolean = True
+
+                    While leitorParcelamentos.Read()
+                        ' Verificar a coluna DataEnvio e FinalizadoParcelamentos
+                        Dim dataEnvio As Object = leitorParcelamentos("DataEnvio")
+                        Dim finalizado As String = leitorParcelamentos("FinalizadoParcelamentos").ToString()
+
+                        If Not IsDBNull(dataEnvio) Then
+                            ' Extrair o mês e ano de DataEnvio ignorando a parte do dia e hora
+                            Dim dataEnvioDate As Date = Convert.ToDateTime(dataEnvio)
+                            Dim mesEnvio As Integer = dataEnvioDate.Month
+                            Dim anoEnvio As Integer = dataEnvioDate.Year
+
+                            ' Verificar se o mês e ano de DataEnvio são diferentes do mês atual
+                            If mesEnvio <> mesLembrete OrElse anoEnvio <> dataLembrete.Year Then
+                                ' Se não estiver finalizado
+                                If finalizado = "Não" Then
+                                    parcelamentoNaoEnviado = True
+                                End If
+                            End If
+
+                            ' Verificar se todos os parcelamentos foram finalizados
+                            If finalizado = "Não" Then
+                                todosEnviados = False
+                            End If
+                        End If
+                    End While
+
+                    ' Fechar o DataReader de Parcelamentos
+                    leitorParcelamentos.Close()
+
+                    ' Se houver parcelamento não enviado, atualizar o label
+                    If parcelamentoNaoEnviado Then
+                        LblParcelamentosAviso.Text = "X - PARCELAMENTOS NÃO ENVIADOS"
+                        LblParcelamentosAviso.Visible = True
+                        LblParcelamentosAviso.ForeColor = Color.Red ' Cor de alerta
+                        LblParcelamentosAviso.Enabled = True
+                    ElseIf todosEnviados Then
+                        ' Se todos os parcelamentos estão finalizados, mostrar que tudo foi enviado
+                        LblParcelamentosAviso.Text = "PARCELAMENTOS ENVIADOS"
+                        LblParcelamentosAviso.Visible = True
+                        LblParcelamentosAviso.ForeColor = Color.Green ' Cor positiva
+                        LblParcelamentosAviso.Enabled = True
+                    Else
+                        ' Caso contrário, mostrar uma mensagem de alerta genérica
+                        LblParcelamentosAviso.Text = "Alguns parcelamentos não foram finalizados."
+                        LblParcelamentosAviso.Visible = True
+                        LblParcelamentosAviso.ForeColor = Color.Orange ' Cor de alerta moderado
+                        LblParcelamentosAviso.Enabled = True
+                    End If
+                Else
+                    ' Se o mês do ParcelamentosAviso for igual ao mês atual, esconder o aviso
+                    LblParcelamentosAviso.Text = ""
+                    LblParcelamentosAviso.Visible = False
+                    LblParcelamentosAviso.Enabled = False
+                End If
+            Else
+                ' Se não houver dados no ParcelamentosAviso, esconder o aviso
+                LblParcelamentosAviso.Text = ""
+                LblParcelamentosAviso.Visible = False
+                LblParcelamentosAviso.Enabled = False
+            End If
+        End Using
+    End Sub
+
+
+
+
+    ' ///////////// FIM PARCELAMENTO
+    Private Sub timerParcelamentos_Tick(sender As Object, e As EventArgs) Handles timerParcelamentos.Tick
+        contador += 1
+        LblParcelamentosAviso.ForeColor = cores(contador Mod 3)
+    End Sub
+
+    Private Sub LblParcelamentosAviso_Click(sender As Object, e As EventArgs) Handles LblParcelamentosAviso.Click
+        ' Verifica se já existe uma instância aberta de FrmProtocoladosGeral
+        Dim AvisoProtocolo As FrmAvisoParcelamento = Application.OpenForms.OfType(Of FrmAvisoParcelamento)().FirstOrDefault()
+
+        ' Se já existir uma instância, foca no formulário
+        If AvisoProtocolo IsNot Nothing Then
+            AvisoProtocolo.Focus()
+        Else
+            ' Se não existir, cria uma nova instância e define o MDI parent
+            AvisoProtocolo = New FrmAvisoParcelamento()
+            AvisoProtocolo.MdiParent = MDIPrincipal
+            AvisoProtocolo.Show()
+        End If
+    End Sub
+
+    'FIM parcelamentos
 End Class

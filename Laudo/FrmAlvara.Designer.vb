@@ -321,6 +321,7 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
+        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -987,7 +988,7 @@ Partial Class FrmAlvara
         'CNAEPrimarioLabel
         '
         CNAEPrimarioLabel.AutoSize = True
-        CNAEPrimarioLabel.Location = New System.Drawing.Point(17, 40)
+        CNAEPrimarioLabel.Location = New System.Drawing.Point(17, 39)
         CNAEPrimarioLabel.Name = "CNAEPrimarioLabel"
         CNAEPrimarioLabel.Size = New System.Drawing.Size(92, 15)
         CNAEPrimarioLabel.TabIndex = 81
@@ -1032,6 +1033,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -2497,6 +2499,7 @@ Partial Class FrmAlvara
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
+        Me.TabPage7.Controls.Add(Me.BtnCopiaEndereco)
         Me.TabPage7.Controls.Add(Me.BtnCopiaCEP)
         Me.TabPage7.Controls.Add(Me.BtnMapa)
         Me.TabPage7.Controls.Add(Me.EndCidadeTextBox)
@@ -2742,7 +2745,7 @@ Partial Class FrmAlvara
         Me.ResptecnicoNumeroTextBox.Location = New System.Drawing.Point(118, 55)
         Me.ResptecnicoNumeroTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ResptecnicoNumeroTextBox.Name = "ResptecnicoNumeroTextBox"
-        Me.ResptecnicoNumeroTextBox.Size = New System.Drawing.Size(116, 21)
+        Me.ResptecnicoNumeroTextBox.Size = New System.Drawing.Size(189, 21)
         Me.ResptecnicoNumeroTextBox.TabIndex = 23
         '
         'TabPage10
@@ -2784,7 +2787,7 @@ Partial Class FrmAlvara
         '
         Me.BtnCNAEOficial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCNAEOficial.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCNAEOficial.Location = New System.Drawing.Point(113, 5)
+        Me.BtnCNAEOficial.Location = New System.Drawing.Point(599, 37)
         Me.BtnCNAEOficial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCNAEOficial.Name = "BtnCNAEOficial"
         Me.BtnCNAEOficial.Size = New System.Drawing.Size(102, 28)
@@ -2812,10 +2815,10 @@ Partial Class FrmAlvara
         Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnRemovCaract.Location = New System.Drawing.Point(599, 70)
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(599, 104)
         Me.BtnRemovCaract.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnRemovCaract.Name = "BtnRemovCaract"
-        Me.BtnRemovCaract.Size = New System.Drawing.Size(104, 43)
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(102, 43)
         Me.BtnRemovCaract.TabIndex = 89
         Me.BtnRemovCaract.Text = "Remove Caraceteres"
         Me.BtnRemovCaract.UseVisualStyleBackColor = False
@@ -2824,12 +2827,12 @@ Partial Class FrmAlvara
         '
         Me.BtnVerDescricaoCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerDescricaoCNAE.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(36, 171)
+        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(36, 157)
         Me.BtnVerDescricaoCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerDescricaoCNAE.Name = "BtnVerDescricaoCNAE"
-        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(73, 28)
+        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(73, 42)
         Me.BtnVerDescricaoCNAE.TabIndex = 87
-        Me.BtnVerDescricaoCNAE.Text = "Descrição"
+        Me.BtnVerDescricaoCNAE.Text = "Descrição dos CNAE"
         Me.BtnVerDescricaoCNAE.UseVisualStyleBackColor = False
         '
         'CNAEPrimarioTextBox
@@ -2846,10 +2849,10 @@ Partial Class FrmAlvara
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(599, 37)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(599, 71)
         Me.BtnGrauDeRisco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(108, 27)
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(102, 27)
         Me.BtnGrauDeRisco.TabIndex = 81
         Me.BtnGrauDeRisco.Text = "Grau de Risco"
         Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
@@ -3950,6 +3953,20 @@ Partial Class FrmAlvara
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
         '
+        'BtnCopiaEndereco
+        '
+        Me.BtnCopiaEndereco.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiaEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(624, 203)
+        Me.BtnCopiaEndereco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
+        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(88, 29)
+        Me.BtnCopiaEndereco.TabIndex = 75
+        Me.BtnCopiaEndereco.Text = "Copiar Tudo"
+        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
+        '
         'FrmAlvara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -4305,4 +4322,5 @@ Partial Class FrmAlvara
     Friend WithEvents BtnCNAEOficial As Button
     Friend WithEvents BtnCopiarRamo As Button
     Friend WithEvents BtnRemovCaract As Button
+    Friend WithEvents BtnCopiaEndereco As Button
 End Class

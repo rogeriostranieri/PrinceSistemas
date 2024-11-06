@@ -78,7 +78,13 @@ Public Class FrmCNAEOficialEscolha
                     End If
                 End If
             Next
+            ' Verificar se o formulário FrmCNAEoficial está aberto e fechá-lo
+            If Application.OpenForms.OfType(Of FrmCNAEoficial).Any Then
+                Application.OpenForms.OfType(Of FrmCNAEoficial).First.Close()
+            End If
 
+            ' Fechar o formulário atual
+            Me.Close()
         End If
     End Sub
 
@@ -100,14 +106,17 @@ Public Class FrmCNAEOficialEscolha
                     FrmLegalizacao.TabControl2.SelectedIndex = 2
 
                     ' Exporta os dados do FrmCNAEOficialEscolha para o FrmLegalizacao
-                    FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = Me.RamoDeAtividadeRichTextBox.Text
+                    If FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = "" Then
+                        FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = Me.RamoDeAtividadeRichTextBox.Text
+                    End If
+
                     FrmLegalizacao.CNAEPrincipalTextBox.Text = Me.CNAEPrincipalTextBox.Text
-                    FrmLegalizacao.CNAESecundarioRichTextBox.Text = Me.CNAESecundarioRichTextBox.Text
-                    FrmLegalizacao.Focus()
-                    'MessageBox.Show("Dados exportados com sucesso!", "Exportação Completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    ' Se o FrmLegalizacao não estiver aberto, exibe mensagem
-                    MessageBox.Show("O formulário FrmLegalizacao não está aberto. Abra o formulário para exportar os dados.", "FrmLegalizacao Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        FrmLegalizacao.CNAESecundarioRichTextBox.Text = Me.CNAESecundarioRichTextBox.Text
+                        FrmLegalizacao.Focus()
+                        'MessageBox.Show("Dados exportados com sucesso!", "Exportação Completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        ' Se o FrmLegalizacao não estiver aberto, exibe mensagem
+                        MessageBox.Show("O formulário FrmLegalizacao não está aberto. Abra o formulário para exportar os dados.", "FrmLegalizacao Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             End If
         Else

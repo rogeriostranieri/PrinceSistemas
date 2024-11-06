@@ -45,6 +45,9 @@ Partial Class FrmSites
         Dim BombeiroSolicitaLabel As System.Windows.Forms.Label
         Dim BombeiroUnificadoLabel As System.Windows.Forms.Label
         Dim BombeiroREDESIMLabel As System.Windows.Forms.Label
+        Dim FederalECACLabel As System.Windows.Forms.Label
+        Dim FederalParcProcLabel As System.Windows.Forms.Label
+        Dim FederalProcuradoriaLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSites))
         Me.EstadoTextBox = New System.Windows.Forms.TextBox()
         Me.SitesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -89,6 +92,8 @@ Partial Class FrmSites
         Me.SiteREDESIMConsultaCNPJTextBox = New System.Windows.Forms.TextBox()
         Me.SiteREDESIMProtocoloTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.LinkLabel8 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel7 = New System.Windows.Forms.LinkLabel()
         Me.BtnBombeiroREDESIM = New System.Windows.Forms.Button()
         Me.BtnBombeiroUnificado = New System.Windows.Forms.Button()
         Me.BombeiroREDESIMTextBox = New System.Windows.Forms.TextBox()
@@ -120,8 +125,15 @@ Partial Class FrmSites
         Me.BtnCidades = New System.Windows.Forms.Button()
         Me.SitesTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.SitesTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.LinkLabel7 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel8 = New System.Windows.Forms.LinkLabel()
+        Me.FederalECACTextBox = New System.Windows.Forms.TextBox()
+        Me.FederalParcProcTextBox = New System.Windows.Forms.TextBox()
+        Me.FederalProcuradoriaTextBox = New System.Windows.Forms.TextBox()
+        Me.LinkLabelProcuradoria = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelparcprocuradoria = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelecac = New System.Windows.Forms.LinkLabel()
+        Me.Btnecac = New System.Windows.Forms.Button()
+        Me.BtnProcuradoria = New System.Windows.Forms.Button()
+        Me.BtnParcProcuradoria = New System.Windows.Forms.Button()
         EstadoLabel1 = New System.Windows.Forms.Label()
         CidadeLabel1 = New System.Windows.Forms.Label()
         SiteEstadoLabel = New System.Windows.Forms.Label()
@@ -144,6 +156,9 @@ Partial Class FrmSites
         BombeiroSolicitaLabel = New System.Windows.Forms.Label()
         BombeiroUnificadoLabel = New System.Windows.Forms.Label()
         BombeiroREDESIMLabel = New System.Windows.Forms.Label()
+        FederalECACLabel = New System.Windows.Forms.Label()
+        FederalParcProcLabel = New System.Windows.Forms.Label()
+        FederalProcuradoriaLabel = New System.Windows.Forms.Label()
         CType(Me.SitesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -688,6 +703,19 @@ Partial Class FrmSites
         '
         'TabPage4
         '
+        Me.TabPage4.AutoScroll = True
+        Me.TabPage4.Controls.Add(Me.LinkLabelProcuradoria)
+        Me.TabPage4.Controls.Add(Me.LinkLabelparcprocuradoria)
+        Me.TabPage4.Controls.Add(Me.LinkLabelecac)
+        Me.TabPage4.Controls.Add(Me.Btnecac)
+        Me.TabPage4.Controls.Add(Me.BtnProcuradoria)
+        Me.TabPage4.Controls.Add(Me.BtnParcProcuradoria)
+        Me.TabPage4.Controls.Add(FederalProcuradoriaLabel)
+        Me.TabPage4.Controls.Add(Me.FederalProcuradoriaTextBox)
+        Me.TabPage4.Controls.Add(FederalParcProcLabel)
+        Me.TabPage4.Controls.Add(Me.FederalParcProcTextBox)
+        Me.TabPage4.Controls.Add(FederalECACLabel)
+        Me.TabPage4.Controls.Add(Me.FederalECACTextBox)
         Me.TabPage4.Controls.Add(Me.LinkLabel4)
         Me.TabPage4.Controls.Add(Me.LinkLabel3)
         Me.TabPage4.Controls.Add(Me.LinkLabel2)
@@ -879,6 +907,28 @@ Partial Class FrmSites
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Estado"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'LinkLabel8
+        '
+        Me.LinkLabel8.AutoSize = True
+        Me.LinkLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel8.Location = New System.Drawing.Point(617, 197)
+        Me.LinkLabel8.Name = "LinkLabel8"
+        Me.LinkLabel8.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel8.TabIndex = 84
+        Me.LinkLabel8.TabStop = True
+        Me.LinkLabel8.Text = "Padrão"
+        '
+        'LinkLabel7
+        '
+        Me.LinkLabel7.AutoSize = True
+        Me.LinkLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel7.Location = New System.Drawing.Point(617, 167)
+        Me.LinkLabel7.Name = "LinkLabel7"
+        Me.LinkLabel7.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabel7.TabIndex = 83
+        Me.LinkLabel7.TabStop = True
+        Me.LinkLabel7.Text = "Padrão"
         '
         'BtnBombeiroREDESIM
         '
@@ -1258,6 +1308,7 @@ Partial Class FrmSites
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -1269,32 +1320,137 @@ Partial Class FrmSites
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Me.SitesTableAdapter
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'LinkLabel7
+        'FederalECACLabel
         '
-        Me.LinkLabel7.AutoSize = True
-        Me.LinkLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel7.Location = New System.Drawing.Point(617, 167)
-        Me.LinkLabel7.Name = "LinkLabel7"
-        Me.LinkLabel7.Size = New System.Drawing.Size(47, 15)
-        Me.LinkLabel7.TabIndex = 83
-        Me.LinkLabel7.TabStop = True
-        Me.LinkLabel7.Text = "Padrão"
+        FederalECACLabel.AutoSize = True
+        FederalECACLabel.Location = New System.Drawing.Point(81, 145)
+        FederalECACLabel.Name = "FederalECACLabel"
+        FederalECACLabel.Size = New System.Drawing.Size(104, 18)
+        FederalECACLabel.TabIndex = 78
+        FederalECACLabel.Text = "Federal eCAC:"
         '
-        'LinkLabel8
+        'FederalECACTextBox
         '
-        Me.LinkLabel8.AutoSize = True
-        Me.LinkLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel8.Location = New System.Drawing.Point(617, 197)
-        Me.LinkLabel8.Name = "LinkLabel8"
-        Me.LinkLabel8.Size = New System.Drawing.Size(47, 15)
-        Me.LinkLabel8.TabIndex = 84
-        Me.LinkLabel8.TabStop = True
-        Me.LinkLabel8.Text = "Padrão"
+        Me.FederalECACTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "FederalECAC", True))
+        Me.FederalECACTextBox.Location = New System.Drawing.Point(193, 142)
+        Me.FederalECACTextBox.Name = "FederalECACTextBox"
+        Me.FederalECACTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.FederalECACTextBox.TabIndex = 79
+        '
+        'FederalParcProcLabel
+        '
+        FederalParcProcLabel.AutoSize = True
+        FederalParcProcLabel.Location = New System.Drawing.Point(79, 176)
+        FederalParcProcLabel.Name = "FederalParcProcLabel"
+        FederalParcProcLabel.Size = New System.Drawing.Size(108, 18)
+        FederalParcProcLabel.TabIndex = 79
+        FederalParcProcLabel.Text = "Parcela PGFN:"
+        '
+        'FederalParcProcTextBox
+        '
+        Me.FederalParcProcTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "FederalParcProc", True))
+        Me.FederalParcProcTextBox.Location = New System.Drawing.Point(193, 172)
+        Me.FederalParcProcTextBox.Name = "FederalParcProcTextBox"
+        Me.FederalParcProcTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.FederalParcProcTextBox.TabIndex = 80
+        '
+        'FederalProcuradoriaLabel
+        '
+        FederalProcuradoriaLabel.AutoSize = True
+        FederalProcuradoriaLabel.Location = New System.Drawing.Point(26, 205)
+        FederalProcuradoriaLabel.Name = "FederalProcuradoriaLabel"
+        FederalProcuradoriaLabel.Size = New System.Drawing.Size(161, 18)
+        FederalProcuradoriaLabel.TabIndex = 80
+        FederalProcuradoriaLabel.Text = "REGULARIZE - PGFN:"
+        '
+        'FederalProcuradoriaTextBox
+        '
+        Me.FederalProcuradoriaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SitesBindingSource, "FederalProcuradoria", True))
+        Me.FederalProcuradoriaTextBox.Location = New System.Drawing.Point(193, 202)
+        Me.FederalProcuradoriaTextBox.Name = "FederalProcuradoriaTextBox"
+        Me.FederalProcuradoriaTextBox.Size = New System.Drawing.Size(357, 24)
+        Me.FederalProcuradoriaTextBox.TabIndex = 81
+        '
+        'LinkLabelProcuradoria
+        '
+        Me.LinkLabelProcuradoria.AutoSize = True
+        Me.LinkLabelProcuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabelProcuradoria.Location = New System.Drawing.Point(614, 207)
+        Me.LinkLabelProcuradoria.Name = "LinkLabelProcuradoria"
+        Me.LinkLabelProcuradoria.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabelProcuradoria.TabIndex = 87
+        Me.LinkLabelProcuradoria.TabStop = True
+        Me.LinkLabelProcuradoria.Text = "Padrão"
+        '
+        'LinkLabelparcprocuradoria
+        '
+        Me.LinkLabelparcprocuradoria.AutoSize = True
+        Me.LinkLabelparcprocuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabelparcprocuradoria.Location = New System.Drawing.Point(614, 177)
+        Me.LinkLabelparcprocuradoria.Name = "LinkLabelparcprocuradoria"
+        Me.LinkLabelparcprocuradoria.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabelparcprocuradoria.TabIndex = 86
+        Me.LinkLabelparcprocuradoria.TabStop = True
+        Me.LinkLabelparcprocuradoria.Text = "Padrão"
+        '
+        'LinkLabelecac
+        '
+        Me.LinkLabelecac.AutoSize = True
+        Me.LinkLabelecac.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabelecac.Location = New System.Drawing.Point(614, 148)
+        Me.LinkLabelecac.Name = "LinkLabelecac"
+        Me.LinkLabelecac.Size = New System.Drawing.Size(47, 15)
+        Me.LinkLabelecac.TabIndex = 83
+        Me.LinkLabelecac.TabStop = True
+        Me.LinkLabelecac.Text = "Padrão"
+        '
+        'Btnecac
+        '
+        Me.Btnecac.BackgroundImage = CType(resources.GetObject("Btnecac.BackgroundImage"), System.Drawing.Image)
+        Me.Btnecac.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Btnecac.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btnecac.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnecac.ForeColor = System.Drawing.Color.Blue
+        Me.Btnecac.Location = New System.Drawing.Point(561, 143)
+        Me.Btnecac.Name = "Btnecac"
+        Me.Btnecac.Size = New System.Drawing.Size(47, 24)
+        Me.Btnecac.TabIndex = 82
+        Me.Btnecac.Text = "Abrir"
+        Me.Btnecac.UseVisualStyleBackColor = True
+        '
+        'BtnProcuradoria
+        '
+        Me.BtnProcuradoria.BackgroundImage = CType(resources.GetObject("BtnProcuradoria.BackgroundImage"), System.Drawing.Image)
+        Me.BtnProcuradoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnProcuradoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnProcuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnProcuradoria.ForeColor = System.Drawing.Color.Blue
+        Me.BtnProcuradoria.Location = New System.Drawing.Point(561, 204)
+        Me.BtnProcuradoria.Name = "BtnProcuradoria"
+        Me.BtnProcuradoria.Size = New System.Drawing.Size(47, 24)
+        Me.BtnProcuradoria.TabIndex = 85
+        Me.BtnProcuradoria.Text = "Abrir"
+        Me.BtnProcuradoria.UseVisualStyleBackColor = True
+        '
+        'BtnParcProcuradoria
+        '
+        Me.BtnParcProcuradoria.BackgroundImage = CType(resources.GetObject("BtnParcProcuradoria.BackgroundImage"), System.Drawing.Image)
+        Me.BtnParcProcuradoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnParcProcuradoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnParcProcuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnParcProcuradoria.ForeColor = System.Drawing.Color.Blue
+        Me.BtnParcProcuradoria.Location = New System.Drawing.Point(561, 174)
+        Me.BtnParcProcuradoria.Name = "BtnParcProcuradoria"
+        Me.BtnParcProcuradoria.Size = New System.Drawing.Size(47, 24)
+        Me.BtnParcProcuradoria.TabIndex = 84
+        Me.BtnParcProcuradoria.Text = "Abrir"
+        Me.BtnParcProcuradoria.UseVisualStyleBackColor = True
         '
         'FrmSites
         '
@@ -1414,4 +1570,13 @@ Partial Class FrmSites
     Friend WithEvents BombeiroUnificadoTextBox As TextBox
     Friend WithEvents LinkLabel7 As LinkLabel
     Friend WithEvents LinkLabel8 As LinkLabel
+    Friend WithEvents LinkLabelProcuradoria As LinkLabel
+    Friend WithEvents LinkLabelparcprocuradoria As LinkLabel
+    Friend WithEvents LinkLabelecac As LinkLabel
+    Friend WithEvents Btnecac As Button
+    Friend WithEvents BtnProcuradoria As Button
+    Friend WithEvents BtnParcProcuradoria As Button
+    Friend WithEvents FederalProcuradoriaTextBox As TextBox
+    Friend WithEvents FederalParcProcTextBox As TextBox
+    Friend WithEvents FederalECACTextBox As TextBox
 End Class

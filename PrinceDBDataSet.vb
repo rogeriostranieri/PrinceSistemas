@@ -9,6 +9,8 @@
 End Class
 
 Namespace PrinceDBDataSetTableAdapters
+    Partial Public Class ParcelamentosAvisoTableAdapter
+    End Class
 
     Partial Public Class LaudosTableAdapter
     End Class

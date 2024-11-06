@@ -37,7 +37,7 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnInterno.ForeColor = System.Drawing.Color.White
-        Me.BtnInterno.Location = New System.Drawing.Point(202, 43)
+        Me.BtnInterno.Location = New System.Drawing.Point(16, 50)
         Me.BtnInterno.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnInterno.Name = "BtnInterno"
         Me.BtnInterno.Size = New System.Drawing.Size(176, 69)
@@ -55,7 +55,7 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnExterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExterno.ForeColor = System.Drawing.Color.White
-        Me.BtnExterno.Location = New System.Drawing.Point(18, 43)
+        Me.BtnExterno.Location = New System.Drawing.Point(200, 50)
         Me.BtnExterno.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnExterno.Name = "BtnExterno"
         Me.BtnExterno.Size = New System.Drawing.Size(176, 69)

@@ -413,16 +413,16 @@
     <Compile Include="eMail\FrmMail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Endereço\FrmEndereco.Designer.vb">
-      <DependentUpon>FrmEndereco.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Endereço\FrmEndereco.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Filiais\FrmFiliais.Designer.vb">
       <DependentUpon>FrmFiliais.vb</DependentUpon>
     </Compile>
     <Compile Include="Filiais\FrmFiliais.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAvisoParcelamento.Designer.vb">
+      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAvisoParcelamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEscolha.Designer.vb">
@@ -552,6 +552,24 @@
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </Compile>
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parcelamentos\DialogCalendarioParcelamento.Designer.vb">
+      <DependentUpon>DialogCalendarioParcelamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\DialogCalendarioParcelamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmDetalhesParcelamento.Designer.vb">
+      <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmDetalhesParcelamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmParcelamentos.Designer.vb">
+      <DependentUpon>FrmParcelamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmParcelamentos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrinceDBDataSet.Designer.vb">
@@ -895,6 +913,9 @@
     <EmbeddedResource Include="Filiais\FrmFiliais.resx">
       <DependentUpon>FrmFiliais.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAvisoParcelamento.resx">
+      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEscolha.resx">
       <DependentUpon>FrmEscolha.vb</DependentUpon>
     </EmbeddedResource>
@@ -951,6 +972,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\DialogCalendarioParcelamento.resx">
+      <DependentUpon>DialogCalendarioParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmDetalhesParcelamento.resx">
+      <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmParcelamentos.resx">
+      <DependentUpon>FrmParcelamentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>

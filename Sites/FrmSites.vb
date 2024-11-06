@@ -445,6 +445,31 @@ Public Class FrmSites
         BombeiroREDESIMTextBox.Text = "https://www.prevfogo.sesp.pr.gov.br/vcbinternet/solicitarVistoriaRedeSIM.do?action=iniciarProcesso&protocolo="
 
     End Sub
+
+    Private Sub LinkLabelecac_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelecac.LinkClicked
+        FederalECACTextBox.Text = "https://cav.receita.fazenda.gov.br/autenticacao/login/index"
+
+    End Sub
+
+    Private Sub Btnecac_Click(sender As Object, e As EventArgs) Handles Btnecac.Click
+        AbrirLink(FederalECACTextBox)
+    End Sub
+
+    Private Sub LinkLabelparcprocuradoria_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelparcprocuradoria.LinkClicked
+        FederalParcProcTextBox.Text = "https://sisparnet.pgfn.fazenda.gov.br/sisparInternet/internet/darf/consultaParcelamentoDarfInternet.xhtml"
+    End Sub
+
+    Private Sub BtnParcProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnParcProcuradoria.Click
+        AbrirLink(FederalParcProcTextBox)
+    End Sub
+
+    Private Sub LinkLabelProcuradoria_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelProcuradoria.LinkClicked
+        FederalProcuradoriaTextBox.Text = "https://www.regularize.pgfn.gov.br/login"
+    End Sub
+
+    Private Sub BtnProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnProcuradoria.Click
+        AbrirLink(FederalProcuradoriaTextBox)
+    End Sub
     '
 
 

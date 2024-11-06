@@ -37,6 +37,11 @@ Partial Class Avisos
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmpresasTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EmpresasTableAdapter()
         Me.EmpresasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SEDE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Processo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CNPJ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,11 +54,12 @@ Partial Class Avisos
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.BtnProtocolados = New System.Windows.Forms.PictureBox()
         Me.Calendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SEDE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Processo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CNPJ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LblParcelamentosAviso = New System.Windows.Forms.Label()
+        Me.ParcelamentosAvisoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParcelamentosAvisoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +71,8 @@ Partial Class Avisos
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnProtocolados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PrinceDBDataSet
@@ -94,6 +102,7 @@ Partial Class Avisos
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -105,6 +114,8 @@ Partial Class Avisos
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -131,7 +142,7 @@ Partial Class Avisos
         Me.DataGridViewTextBoxColumn2.HeaderText = "Razão Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 230
+        Me.DataGridViewTextBoxColumn2.Width = 220
         '
         'Matriz
         '
@@ -188,6 +199,46 @@ Partial Class Avisos
         Me.EmpresasDataGridView.Size = New System.Drawing.Size(544, 146)
         Me.EmpresasDataGridView.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.EmpresasDataGridView, "Clique na empresa para abrir")
+        '
+        'DataGridViewTextBoxColumn68
+        '
+        Me.DataGridViewTextBoxColumn68.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn68.HeaderText = "Razão Social"
+        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
+        Me.DataGridViewTextBoxColumn68.ReadOnly = True
+        Me.DataGridViewTextBoxColumn68.Width = 220
+        '
+        'SEDE
+        '
+        Me.SEDE.DataPropertyName = "SEDE"
+        Me.SEDE.HeaderText = "Matriz"
+        Me.SEDE.Name = "SEDE"
+        Me.SEDE.ReadOnly = True
+        Me.SEDE.Width = 50
+        '
+        'Processo
+        '
+        Me.Processo.DataPropertyName = "Processo"
+        Me.Processo.HeaderText = "Processo"
+        Me.Processo.Name = "Processo"
+        Me.Processo.ReadOnly = True
+        Me.Processo.Width = 65
+        '
+        'DataGridViewTextBoxColumn89
+        '
+        Me.DataGridViewTextBoxColumn89.DataPropertyName = "Status"
+        Me.DataGridViewTextBoxColumn89.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
+        Me.DataGridViewTextBoxColumn89.ReadOnly = True
+        Me.DataGridViewTextBoxColumn89.Width = 160
+        '
+        'CNPJ
+        '
+        Me.CNPJ.DataPropertyName = "CNPJ"
+        Me.CNPJ.HeaderText = "CNPJ"
+        Me.CNPJ.Name = "CNPJ"
+        Me.CNPJ.ReadOnly = True
+        Me.CNPJ.Width = 120
         '
         'MaskedTextBox1
         '
@@ -313,52 +364,42 @@ Partial Class Avisos
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 18
         '
-        'DataGridViewTextBoxColumn68
+        'LblParcelamentosAviso
         '
-        Me.DataGridViewTextBoxColumn68.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn68.HeaderText = "Razão Social"
-        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
-        Me.DataGridViewTextBoxColumn68.ReadOnly = True
-        Me.DataGridViewTextBoxColumn68.Width = 230
+        Me.LblParcelamentosAviso.AutoSize = True
+        Me.LblParcelamentosAviso.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblParcelamentosAviso.ForeColor = System.Drawing.Color.White
+        Me.LblParcelamentosAviso.Location = New System.Drawing.Point(181, 64)
+        Me.LblParcelamentosAviso.Name = "LblParcelamentosAviso"
+        Me.LblParcelamentosAviso.Size = New System.Drawing.Size(200, 25)
+        Me.LblParcelamentosAviso.TabIndex = 20
+        Me.LblParcelamentosAviso.Text = "PARCELAMENTOS"
         '
-        'SEDE
+        'ParcelamentosAvisoBindingSource
         '
-        Me.SEDE.DataPropertyName = "SEDE"
-        Me.SEDE.HeaderText = "Matriz"
-        Me.SEDE.Name = "SEDE"
-        Me.SEDE.ReadOnly = True
-        Me.SEDE.Width = 50
+        Me.ParcelamentosAvisoBindingSource.DataMember = "ParcelamentosAviso"
+        Me.ParcelamentosAvisoBindingSource.DataSource = Me.PrinceDBDataSet
         '
-        'Processo
+        'ParcelamentosAvisoTableAdapter
         '
-        Me.Processo.DataPropertyName = "Processo"
-        Me.Processo.HeaderText = "Processo"
-        Me.Processo.Name = "Processo"
-        Me.Processo.ReadOnly = True
-        Me.Processo.Width = 70
+        Me.ParcelamentosAvisoTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn89
+        'ParcelamentosBindingSource
         '
-        Me.DataGridViewTextBoxColumn89.DataPropertyName = "Status"
-        Me.DataGridViewTextBoxColumn89.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
-        Me.DataGridViewTextBoxColumn89.ReadOnly = True
-        Me.DataGridViewTextBoxColumn89.Width = 150
+        Me.ParcelamentosBindingSource.DataMember = "Parcelamentos"
+        Me.ParcelamentosBindingSource.DataSource = Me.PrinceDBDataSet
         '
-        'CNPJ
+        'ParcelamentosTableAdapter
         '
-        Me.CNPJ.DataPropertyName = "CNPJ"
-        Me.CNPJ.HeaderText = "CNPJ"
-        Me.CNPJ.Name = "CNPJ"
-        Me.CNPJ.ReadOnly = True
-        Me.CNPJ.Width = 120
+        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
         '
         'Avisos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(561, 437)
+        Me.ClientSize = New System.Drawing.Size(581, 445)
+        Me.Controls.Add(Me.LblParcelamentosAviso)
         Me.Controls.Add(Me.BtnProtocolados)
         Me.Controls.Add(Me.Calendar1)
         Me.Controls.Add(Me.PictureBox5)
@@ -389,6 +430,8 @@ Partial Class Avisos
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnProtocolados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -424,4 +467,10 @@ Partial Class Avisos
     Friend WithEvents Processo As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
     Friend WithEvents CNPJ As DataGridViewTextBoxColumn
+    Friend WithEvents LblParcelamentosAviso As Label
+    Friend WithEvents ParcelamentosAvisoBindingSource As BindingSource
+    Friend WithEvents ParcelamentosAvisoTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents ParcelamentosBindingSource As BindingSource
+    Friend WithEvents ParcelamentosTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter
 End Class

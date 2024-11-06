@@ -179,7 +179,7 @@ Partial Class BoxJuntaComercialLaudo
         Me.Name = "BoxJuntaComercialLaudo"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Box Empresa Fácil"
+        Me.Text = "Consultar Laudos"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()

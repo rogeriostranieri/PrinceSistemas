@@ -55,20 +55,20 @@ Public Class BoxJuntaComercialLaudo
             End If
 
             ' Verificar se o SituacaoComboBox contém o texto "Não iniciado"
-            If situacao = "não iniciado" Then
+            If situacao = "Não Iniciado" Then
                 ' Ajustar o ComboBox1 para Solicitar Alvara conforme o modelo do sistema
-                If modeloSistema.Contains("alvará antigo") Or modeloSistema.Contains("alvará manual") Then
+                If modeloSistema.Contains("Alvará Antigo") Or modeloSistema.Contains("Alvará Manual") Then
                     ComboBox1.SelectedItem = "Solicitar Alvara Antigo"
-                ElseIf modeloSistema.Contains("alvará novo") Or modeloSistema.Contains("alvará unificado") Then
+                ElseIf modeloSistema.Contains("Alvará Novo") Or modeloSistema.Contains("Alvará Unificado") Then
                     ComboBox1.SelectedItem = "Solicitar Alvara Novo"
                 End If
             End If
 
             ' Verificar se o ButtonSolicitar do FrmAlvara está configurado como "Solicitar"
             If frmAlvara.ButtonSolicitar.Text = "Solicitar" Then
-                If modeloSistema.Contains("alvará antigo") Or modeloSistema.Contains("alvará manual") Then
+                If modeloSistema.Contains("Alvará Antigo") Or modeloSistema.Contains("Alvará Manual") Then
                     ComboBox1.SelectedItem = "Solicitar Alvara Antigo"
-                ElseIf modeloSistema.Contains("alvará novo") Or modeloSistema.Contains("alvará unificado") Then
+                ElseIf modeloSistema.Contains("Alvará Novo") Or modeloSistema.Contains("Alvará Unificado") Then
                     ComboBox1.SelectedItem = "Solicitar Alvara Novo"
                 End If
             End If
@@ -84,6 +84,7 @@ Public Class BoxJuntaComercialLaudo
             ComboBox1.SelectedIndex = 0
         End If
         ComboBox1.Focus()
+        ComboBox1.DroppedDown = True
     End Sub
 
 
@@ -207,19 +208,35 @@ Public Class BoxJuntaComercialLaudo
             End Try
         End Sub
 
-        ' Evento do botão BtnExterno para abrir no navegador externo
-        Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
-        AbrirSite(False) ' Abrir no navegador externo
-        Copiar()
+    ' Evento do botão BtnExterno para abrir no navegador externo
+    Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
+        Try
+            AbrirSite(False) ' Abrir no navegador externo
+            Copiar()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir! " & vbCrLf & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-        ' Evento do botão BtnInterno para abrir no WebSiteGERAL
-        Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
-        AbrirSite(True) ' Abrir no navegador interno
-        Copiar()
+    ' Evento do botão BtnInterno para abrir no WebSiteGERAL
+    Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
+        Try
+            AbrirSite(True) ' Abrir no navegador interno
+            Copiar()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir! " & vbCrLf & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If ComboBox1.Text = "Junta Comercial" Then
+            UsarLaudoCheck.Checked = True
+            CopiarLaudoCheck.Checked = True
+        Else
+            UsarLaudoCheck.Checked = False
+            CopiarLaudoCheck.Checked = True
+        End If
+    End Sub
 End Class
 
 
