@@ -5242,6 +5242,8 @@ Partial Class FrmLegalizacao
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -5794,7 +5796,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox10.Size = New System.Drawing.Size(858, 506)
+        Me.GroupBox10.Size = New System.Drawing.Size(858, 507)
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
@@ -6000,7 +6002,7 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(966, 802)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(966, 803)
         Me.TableLayoutPanel1.TabIndex = 46
         '
         'GroupBoxMenuCima
@@ -6056,7 +6058,7 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuBaixo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuBaixo.Name = "GroupBoxMenuBaixo"
         Me.GroupBoxMenuBaixo.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(92, 506)
+        Me.GroupBoxMenuBaixo.Size = New System.Drawing.Size(92, 507)
         Me.GroupBoxMenuBaixo.TabIndex = 25
         Me.GroupBoxMenuBaixo.TabStop = False
         Me.GroupBoxMenuBaixo.Text = "Atalhos"
@@ -6114,7 +6116,7 @@ Partial Class FrmLegalizacao
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(966, 825)
+        Me.ClientSize = New System.Drawing.Size(966, 826)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.BtnLocalizar)

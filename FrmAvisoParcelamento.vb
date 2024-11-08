@@ -90,4 +90,21 @@
         Dim FilterA As String = LblDataAviso.Text
         ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterA & "%'"
     End Sub
+
+    Private Sub ParcelamentosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ParcelamentosDataGridView.CellContentDoubleClick
+        If Application.OpenForms.OfType(Of FrmParcelamentos)().Count() > 0 Then
+            Dim Sair As String
+            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+            '  Dim novoEmpresa As New FrmLegalizacao
+            FrmParcelamentos.Focus()
+            FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmParcelamentos.RazaoSocialComboBox.Select()
+        Else
+            ' Dim novoEmpresa As New FrmLegalizacao
+            ' novoEmpresa.MdiParent = MDIPrincipal
+            FrmParcelamentos.Show()
+            FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
+            FrmParcelamentos.RazaoSocialComboBox.Select()
+        End If
+    End Sub
 End Class

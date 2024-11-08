@@ -572,6 +572,9 @@
     <Compile Include="Parcelamentos\FrmParcelamentos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Parcelamentos\InputDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PrinceDBDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1222,6 +1225,7 @@
     <None Include="Resources\FundoBtnFechar.jpeg" />
     <None Include="Resources\unnamed.png" />
     <None Include="Resources\CoporDeBombeiro.png" />
+    <Content Include="Parcelamentos\FazerParcelamento.txt" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

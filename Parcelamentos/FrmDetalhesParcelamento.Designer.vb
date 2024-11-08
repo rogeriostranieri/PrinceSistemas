@@ -35,12 +35,12 @@ Partial Class FrmDetalhesParcelamento
         Dim INSSProcProtLabel As System.Windows.Forms.Label
         Dim INSSProcObsLabel As System.Windows.Forms.Label
         Dim FinalizadoINSSAntigoLabel As System.Windows.Forms.Label
-        Dim FinalizadoINSSNovoLabel As System.Windows.Forms.Label
-        Dim FinalizadoINSSProcLabel As System.Windows.Forms.Label
         Dim DataParcMEILabel As System.Windows.Forms.Label
-        Dim FinalizadoMEILabel As System.Windows.Forms.Label
         Dim GeralMEILabel As System.Windows.Forms.Label
         Dim MeiProtocoloLabel As System.Windows.Forms.Label
+        Dim Label16 As System.Windows.Forms.Label
+        Dim Label17 As System.Windows.Forms.Label
+        Dim Label18 As System.Windows.Forms.Label
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CNPJLabel1 = New System.Windows.Forms.Label()
@@ -63,6 +63,9 @@ Partial Class FrmDetalhesParcelamento
         Me.INSSAntigoObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.INSSAntigoProtTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LblFechamentoMesAntigo = New System.Windows.Forms.Label()
+        Me.MesEnviadoINSSAntigoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.HistoricoEnvioINSSAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.SubTabControlINSSNovo = New System.Windows.Forms.TabControl()
@@ -78,12 +81,15 @@ Partial Class FrmDetalhesParcelamento
         Me.INSSNovoObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.INSSNovoProtTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.MesEnviadoINSSNovoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.HistoricoEnvioINSSNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.SubTabControlINSSProcuradoria = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.GroupBoxFimINSSProc = New System.Windows.Forms.GroupBox()
-        Me.DataFimParcINNProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.DataFimParcINSSProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtnRegistrarEnvioInssProcuradoria = New System.Windows.Forms.Button()
@@ -93,11 +99,14 @@ Partial Class FrmDetalhesParcelamento
         Me.INSSProcObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.INSSProcProtTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.MesEnviadoINSSProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.HistoricoEnvioINSSProcRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.SubTabControlMEI = New System.Windows.Forms.TabControl()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.GroupBoxFimINSSmei = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxFimMEI = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DataFimParcMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -108,22 +117,16 @@ Partial Class FrmDetalhesParcelamento
         Me.DataParcMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.MotivoParcMEIRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
-        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.MesEnviadoINSSAntigoDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.LblFechamentoMesAntigo = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.HistoricoEnvioMEIRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.MesEnviadoMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.MesEnviadoINSSNovoDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.MesEnviadoINSSProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.MesEnviadoMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.HistoricoEnvioMEIRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
+        Me.BtnFechar = New System.Windows.Forms.Button()
+        Me.BtnSalvar = New System.Windows.Forms.Button()
+        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         DataParcelINSSantigoLabel = New System.Windows.Forms.Label()
@@ -136,12 +139,12 @@ Partial Class FrmDetalhesParcelamento
         INSSProcProtLabel = New System.Windows.Forms.Label()
         INSSProcObsLabel = New System.Windows.Forms.Label()
         FinalizadoINSSAntigoLabel = New System.Windows.Forms.Label()
-        FinalizadoINSSNovoLabel = New System.Windows.Forms.Label()
-        FinalizadoINSSProcLabel = New System.Windows.Forms.Label()
         DataParcMEILabel = New System.Windows.Forms.Label()
-        FinalizadoMEILabel = New System.Windows.Forms.Label()
         GeralMEILabel = New System.Windows.Forms.Label()
         MeiProtocoloLabel = New System.Windows.Forms.Label()
+        Label16 = New System.Windows.Forms.Label()
+        Label17 = New System.Windows.Forms.Label()
+        Label18 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,8 +169,9 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage4.SuspendLayout()
         Me.SubTabControlMEI.SuspendLayout()
         Me.TabPage12.SuspendLayout()
-        Me.GroupBoxFimINSSmei.SuspendLayout()
+        Me.GroupBoxFimMEI.SuspendLayout()
         Me.TabPage13.SuspendLayout()
+        Me.GroupBoxMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'RazaoSocialLabel
@@ -272,29 +276,11 @@ Partial Class FrmDetalhesParcelamento
         'FinalizadoINSSAntigoLabel
         '
         FinalizadoINSSAntigoLabel.AutoSize = True
-        FinalizadoINSSAntigoLabel.Location = New System.Drawing.Point(650, 13)
+        FinalizadoINSSAntigoLabel.Location = New System.Drawing.Point(524, 13)
         FinalizadoINSSAntigoLabel.Name = "FinalizadoINSSAntigoLabel"
-        FinalizadoINSSAntigoLabel.Size = New System.Drawing.Size(79, 18)
+        FinalizadoINSSAntigoLabel.Size = New System.Drawing.Size(205, 18)
         FinalizadoINSSAntigoLabel.TabIndex = 6
-        FinalizadoINSSAntigoLabel.Text = "Finalizado:"
-        '
-        'FinalizadoINSSNovoLabel
-        '
-        FinalizadoINSSNovoLabel.AutoSize = True
-        FinalizadoINSSNovoLabel.Location = New System.Drawing.Point(650, 13)
-        FinalizadoINSSNovoLabel.Name = "FinalizadoINSSNovoLabel"
-        FinalizadoINSSNovoLabel.Size = New System.Drawing.Size(79, 18)
-        FinalizadoINSSNovoLabel.TabIndex = 6
-        FinalizadoINSSNovoLabel.Text = "Finalizado:"
-        '
-        'FinalizadoINSSProcLabel
-        '
-        FinalizadoINSSProcLabel.AutoSize = True
-        FinalizadoINSSProcLabel.Location = New System.Drawing.Point(650, 13)
-        FinalizadoINSSProcLabel.Name = "FinalizadoINSSProcLabel"
-        FinalizadoINSSProcLabel.Size = New System.Drawing.Size(79, 18)
-        FinalizadoINSSProcLabel.TabIndex = 6
-        FinalizadoINSSProcLabel.Text = "Finalizado:"
+        FinalizadoINSSAntigoLabel.Text = "Finalizado este parcelamento:"
         '
         'DataParcMEILabel
         '
@@ -304,15 +290,6 @@ Partial Class FrmDetalhesParcelamento
         DataParcMEILabel.Size = New System.Drawing.Size(138, 18)
         DataParcMEILabel.TabIndex = 2
         DataParcMEILabel.Text = "Data de solicitação:"
-        '
-        'FinalizadoMEILabel
-        '
-        FinalizadoMEILabel.AutoSize = True
-        FinalizadoMEILabel.Location = New System.Drawing.Point(650, 13)
-        FinalizadoMEILabel.Name = "FinalizadoMEILabel"
-        FinalizadoMEILabel.Size = New System.Drawing.Size(79, 18)
-        FinalizadoMEILabel.TabIndex = 6
-        FinalizadoMEILabel.Text = "Finalizado:"
         '
         'GeralMEILabel
         '
@@ -332,6 +309,33 @@ Partial Class FrmDetalhesParcelamento
         MeiProtocoloLabel.TabIndex = 9
         MeiProtocoloLabel.Text = "Protocolo:"
         '
+        'Label16
+        '
+        Label16.AutoSize = True
+        Label16.Location = New System.Drawing.Point(524, 13)
+        Label16.Name = "Label16"
+        Label16.Size = New System.Drawing.Size(205, 18)
+        Label16.TabIndex = 17
+        Label16.Text = "Finalizado este parcelamento:"
+        '
+        'Label17
+        '
+        Label17.AutoSize = True
+        Label17.Location = New System.Drawing.Point(524, 15)
+        Label17.Name = "Label17"
+        Label17.Size = New System.Drawing.Size(205, 18)
+        Label17.TabIndex = 18
+        Label17.Text = "Finalizado este parcelamento:"
+        '
+        'Label18
+        '
+        Label18.AutoSize = True
+        Label18.Location = New System.Drawing.Point(524, 13)
+        Label18.Name = "Label18"
+        Label18.Size = New System.Drawing.Size(205, 18)
+        Label18.TabIndex = 18
+        Label18.Text = "Finalizado este parcelamento:"
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
@@ -340,12 +344,15 @@ Partial Class FrmDetalhesParcelamento
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.35903!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenu, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.10791!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.89209!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(986, 556)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -363,7 +370,7 @@ Partial Class FrmDetalhesParcelamento
         Me.GroupBox1.Size = New System.Drawing.Size(867, 77)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Detalhes do Parcelamento da Empresa:"
         '
         'CNPJLabel1
         '
@@ -574,6 +581,34 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage7.Text = "Histórico de Envio"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(6, 82)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(156, 18)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Histórico de Envios"
+        '
+        'LblFechamentoMesAntigo
+        '
+        Me.LblFechamentoMesAntigo.AutoSize = True
+        Me.LblFechamentoMesAntigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblFechamentoMesAntigo.Location = New System.Drawing.Point(6, 13)
+        Me.LblFechamentoMesAntigo.Name = "LblFechamentoMesAntigo"
+        Me.LblFechamentoMesAntigo.Size = New System.Drawing.Size(228, 18)
+        Me.LblFechamentoMesAntigo.TabIndex = 3
+        Me.LblFechamentoMesAntigo.Text = "Fechamento do Mês-Enviado"
+        '
+        'MesEnviadoINSSAntigoDateTimePicker
+        '
+        Me.MesEnviadoINSSAntigoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSAntigo", True))
+        Me.MesEnviadoINSSAntigoDateTimePicker.Location = New System.Drawing.Point(9, 34)
+        Me.MesEnviadoINSSAntigoDateTimePicker.Name = "MesEnviadoINSSAntigoDateTimePicker"
+        Me.MesEnviadoINSSAntigoDateTimePicker.Size = New System.Drawing.Size(319, 24)
+        Me.MesEnviadoINSSAntigoDateTimePicker.TabIndex = 2
+        '
         'HistoricoEnvioINSSAntigoRichTextBox
         '
         Me.HistoricoEnvioINSSAntigoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioINSSAntigo", True))
@@ -590,7 +625,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(853, 410)
+        Me.TabPage2.Size = New System.Drawing.Size(853, 414)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "INSS - Novo"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -604,17 +639,17 @@ Partial Class FrmDetalhesParcelamento
         Me.SubTabControlINSSNovo.Location = New System.Drawing.Point(3, 3)
         Me.SubTabControlINSSNovo.Name = "SubTabControlINSSNovo"
         Me.SubTabControlINSSNovo.SelectedIndex = 0
-        Me.SubTabControlINSSNovo.Size = New System.Drawing.Size(847, 404)
+        Me.SubTabControlINSSNovo.Size = New System.Drawing.Size(847, 408)
         Me.SubTabControlINSSNovo.TabIndex = 6
         '
         'TabPage8
         '
         Me.TabPage8.AutoScroll = True
+        Me.TabPage8.Controls.Add(Label16)
         Me.TabPage8.Controls.Add(Me.GroupBoxFimINSSnovo)
         Me.TabPage8.Controls.Add(Me.Label2)
         Me.TabPage8.Controls.Add(Me.BtnRegistrarEnvioInssNovo)
         Me.TabPage8.Controls.Add(Me.MotivoParcINSSNovoRichTextBox)
-        Me.TabPage8.Controls.Add(FinalizadoINSSNovoLabel)
         Me.TabPage8.Controls.Add(Me.FinalizadoINSSNovoComboBox)
         Me.TabPage8.Controls.Add(DataParcelINSSnovoLabel)
         Me.TabPage8.Controls.Add(INSSNovoObsLabel)
@@ -625,7 +660,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage8.Location = New System.Drawing.Point(4, 30)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(839, 370)
+        Me.TabPage8.Size = New System.Drawing.Size(839, 374)
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Geral"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -732,10 +767,38 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage9.Location = New System.Drawing.Point(4, 30)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(839, 370)
+        Me.TabPage9.Size = New System.Drawing.Size(839, 374)
         Me.TabPage9.TabIndex = 1
         Me.TabPage9.Text = "Histórico de Envio"
         Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'MesEnviadoINSSNovoDateTimePicker
+        '
+        Me.MesEnviadoINSSNovoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSNovo", True))
+        Me.MesEnviadoINSSNovoDateTimePicker.Location = New System.Drawing.Point(9, 34)
+        Me.MesEnviadoINSSNovoDateTimePicker.Name = "MesEnviadoINSSNovoDateTimePicker"
+        Me.MesEnviadoINSSNovoDateTimePicker.Size = New System.Drawing.Size(319, 24)
+        Me.MesEnviadoINSSNovoDateTimePicker.TabIndex = 7
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(6, 82)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(156, 18)
+        Me.Label10.TabIndex = 6
+        Me.Label10.Text = "Histórico de Envios"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(6, 13)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(228, 18)
+        Me.Label11.TabIndex = 5
+        Me.Label11.Text = "Fechamento do Mês-Enviado"
         '
         'HistoricoEnvioINSSNovoRichTextBox
         '
@@ -773,11 +836,11 @@ Partial Class FrmDetalhesParcelamento
         'TabPage10
         '
         Me.TabPage10.AutoScroll = True
+        Me.TabPage10.Controls.Add(Label17)
         Me.TabPage10.Controls.Add(Me.GroupBoxFimINSSProc)
         Me.TabPage10.Controls.Add(Me.Label3)
         Me.TabPage10.Controls.Add(Me.BtnRegistrarEnvioInssProcuradoria)
         Me.TabPage10.Controls.Add(Me.MotivoParcINSSProcRichTextBox)
-        Me.TabPage10.Controls.Add(FinalizadoINSSProcLabel)
         Me.TabPage10.Controls.Add(Me.FinalizadoINSSProcComboBox)
         Me.TabPage10.Controls.Add(DataParcelINSSprocLabel)
         Me.TabPage10.Controls.Add(INSSProcObsLabel)
@@ -796,7 +859,7 @@ Partial Class FrmDetalhesParcelamento
         'GroupBoxFimINSSProc
         '
         Me.GroupBoxFimINSSProc.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.GroupBoxFimINSSProc.Controls.Add(Me.DataFimParcINNProcDateTimePicker)
+        Me.GroupBoxFimINSSProc.Controls.Add(Me.DataFimParcINSSProcDateTimePicker)
         Me.GroupBoxFimINSSProc.Controls.Add(Me.Label7)
         Me.GroupBoxFimINSSProc.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBoxFimINSSProc.Location = New System.Drawing.Point(6, 97)
@@ -806,13 +869,13 @@ Partial Class FrmDetalhesParcelamento
         Me.GroupBoxFimINSSProc.TabStop = False
         Me.GroupBoxFimINSSProc.Text = "ATENÇÃO"
         '
-        'DataFimParcINNProcDateTimePicker
+        'DataFimParcINSSProcDateTimePicker
         '
-        Me.DataFimParcINNProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataFimParcINNProc", True))
-        Me.DataFimParcINNProcDateTimePicker.Location = New System.Drawing.Point(241, 24)
-        Me.DataFimParcINNProcDateTimePicker.Name = "DataFimParcINNProcDateTimePicker"
-        Me.DataFimParcINNProcDateTimePicker.Size = New System.Drawing.Size(359, 24)
-        Me.DataFimParcINNProcDateTimePicker.TabIndex = 15
+        Me.DataFimParcINSSProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataFimParcINSSProc", True))
+        Me.DataFimParcINSSProcDateTimePicker.Location = New System.Drawing.Point(241, 24)
+        Me.DataFimParcINSSProcDateTimePicker.Name = "DataFimParcINSSProcDateTimePicker"
+        Me.DataFimParcINSSProcDateTimePicker.Size = New System.Drawing.Size(359, 24)
+        Me.DataFimParcINSSProcDateTimePicker.TabIndex = 19
         '
         'Label7
         '
@@ -895,10 +958,38 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage11.Location = New System.Drawing.Point(4, 30)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(839, 370)
+        Me.TabPage11.Size = New System.Drawing.Size(839, 374)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Histórico de Envio"
         Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'MesEnviadoINSSProcDateTimePicker
+        '
+        Me.MesEnviadoINSSProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSProc", True))
+        Me.MesEnviadoINSSProcDateTimePicker.Location = New System.Drawing.Point(9, 34)
+        Me.MesEnviadoINSSProcDateTimePicker.Name = "MesEnviadoINSSProcDateTimePicker"
+        Me.MesEnviadoINSSProcDateTimePicker.Size = New System.Drawing.Size(319, 24)
+        Me.MesEnviadoINSSProcDateTimePicker.TabIndex = 7
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(6, 82)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(156, 18)
+        Me.Label12.TabIndex = 6
+        Me.Label12.Text = "Histórico de Envios"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(6, 13)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(228, 18)
+        Me.Label13.TabIndex = 5
+        Me.Label13.Text = "Fechamento do Mês-Enviado"
         '
         'HistoricoEnvioINSSProcRichTextBox
         '
@@ -916,7 +1007,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage4.Location = New System.Drawing.Point(4, 30)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(853, 410)
+        Me.TabPage4.Size = New System.Drawing.Size(853, 414)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "MEI"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -930,20 +1021,20 @@ Partial Class FrmDetalhesParcelamento
         Me.SubTabControlMEI.Location = New System.Drawing.Point(3, 3)
         Me.SubTabControlMEI.Name = "SubTabControlMEI"
         Me.SubTabControlMEI.SelectedIndex = 0
-        Me.SubTabControlMEI.Size = New System.Drawing.Size(847, 404)
+        Me.SubTabControlMEI.Size = New System.Drawing.Size(847, 408)
         Me.SubTabControlMEI.TabIndex = 0
         '
         'TabPage12
         '
         Me.TabPage12.AutoScroll = True
-        Me.TabPage12.Controls.Add(Me.GroupBoxFimINSSmei)
+        Me.TabPage12.Controls.Add(Label18)
+        Me.TabPage12.Controls.Add(Me.GroupBoxFimMEI)
         Me.TabPage12.Controls.Add(Me.Label4)
         Me.TabPage12.Controls.Add(Me.BtnRegistrarEnvioMEI)
         Me.TabPage12.Controls.Add(MeiProtocoloLabel)
         Me.TabPage12.Controls.Add(Me.MeiProtocoloTextBox)
         Me.TabPage12.Controls.Add(GeralMEILabel)
         Me.TabPage12.Controls.Add(Me.GeralMEIRichTextBox)
-        Me.TabPage12.Controls.Add(FinalizadoMEILabel)
         Me.TabPage12.Controls.Add(Me.FinalizadoMEIComboBox)
         Me.TabPage12.Controls.Add(DataParcMEILabel)
         Me.TabPage12.Controls.Add(Me.DataParcMEIDateTimePicker)
@@ -951,23 +1042,23 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage12.Location = New System.Drawing.Point(4, 30)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(839, 370)
+        Me.TabPage12.Size = New System.Drawing.Size(839, 374)
         Me.TabPage12.TabIndex = 0
         Me.TabPage12.Text = "Geral"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
-        'GroupBoxFimINSSmei
+        'GroupBoxFimMEI
         '
-        Me.GroupBoxFimINSSmei.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.GroupBoxFimINSSmei.Controls.Add(Me.Label8)
-        Me.GroupBoxFimINSSmei.Controls.Add(Me.DataFimParcMEIDateTimePicker)
-        Me.GroupBoxFimINSSmei.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBoxFimINSSmei.Location = New System.Drawing.Point(6, 97)
-        Me.GroupBoxFimINSSmei.Name = "GroupBoxFimINSSmei"
-        Me.GroupBoxFimINSSmei.Size = New System.Drawing.Size(822, 63)
-        Me.GroupBoxFimINSSmei.TabIndex = 17
-        Me.GroupBoxFimINSSmei.TabStop = False
-        Me.GroupBoxFimINSSmei.Text = "ATENÇÃO"
+        Me.GroupBoxFimMEI.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.GroupBoxFimMEI.Controls.Add(Me.Label8)
+        Me.GroupBoxFimMEI.Controls.Add(Me.DataFimParcMEIDateTimePicker)
+        Me.GroupBoxFimMEI.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBoxFimMEI.Location = New System.Drawing.Point(6, 97)
+        Me.GroupBoxFimMEI.Name = "GroupBoxFimMEI"
+        Me.GroupBoxFimMEI.Size = New System.Drawing.Size(822, 63)
+        Me.GroupBoxFimMEI.TabIndex = 17
+        Me.GroupBoxFimMEI.TabStop = False
+        Me.GroupBoxFimMEI.Text = "ATENÇÃO"
         '
         'Label8
         '
@@ -1058,10 +1149,48 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage13.Location = New System.Drawing.Point(4, 30)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(839, 370)
+        Me.TabPage13.Size = New System.Drawing.Size(839, 374)
         Me.TabPage13.TabIndex = 1
         Me.TabPage13.Text = "Histórico de Envio"
         Me.TabPage13.UseVisualStyleBackColor = True
+        '
+        'MesEnviadoMEIDateTimePicker
+        '
+        Me.MesEnviadoMEIDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoMEI", True))
+        Me.MesEnviadoMEIDateTimePicker.Location = New System.Drawing.Point(9, 34)
+        Me.MesEnviadoMEIDateTimePicker.Name = "MesEnviadoMEIDateTimePicker"
+        Me.MesEnviadoMEIDateTimePicker.Size = New System.Drawing.Size(319, 24)
+        Me.MesEnviadoMEIDateTimePicker.TabIndex = 9
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(6, 82)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(156, 18)
+        Me.Label14.TabIndex = 8
+        Me.Label14.Text = "Histórico de Envios"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(6, 13)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(228, 18)
+        Me.Label15.TabIndex = 7
+        Me.Label15.Text = "Fechamento do Mês-Enviado"
+        '
+        'HistoricoEnvioMEIRichTextBox
+        '
+        Me.HistoricoEnvioMEIRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioMEI", True))
+        Me.HistoricoEnvioMEIRichTextBox.Location = New System.Drawing.Point(3, 103)
+        Me.HistoricoEnvioMEIRichTextBox.Name = "HistoricoEnvioMEIRichTextBox"
+        Me.HistoricoEnvioMEIRichTextBox.ReadOnly = True
+        Me.HistoricoEnvioMEIRichTextBox.Size = New System.Drawing.Size(833, 264)
+        Me.HistoricoEnvioMEIRichTextBox.TabIndex = 1
+        Me.HistoricoEnvioMEIRichTextBox.Text = ""
         '
         'TabPage5
         '
@@ -1069,10 +1198,54 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage5.Location = New System.Drawing.Point(4, 30)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(853, 410)
+        Me.TabPage5.Size = New System.Drawing.Size(853, 414)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Historicos"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'GroupBoxMenu
+        '
+        Me.GroupBoxMenu.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBoxMenu.Controls.Add(Me.BtnFechar)
+        Me.GroupBoxMenu.Controls.Add(Me.BtnSalvar)
+        Me.GroupBoxMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBoxMenu.Location = New System.Drawing.Point(877, 86)
+        Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBoxMenu.Name = "GroupBoxMenu"
+        Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(105, 467)
+        Me.GroupBoxMenu.TabIndex = 58
+        Me.GroupBoxMenu.TabStop = False
+        '
+        'BtnFechar
+        '
+        Me.BtnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.BtnFechar.FlatAppearance.BorderColor = System.Drawing.Color.Red
+        Me.BtnFechar.FlatAppearance.BorderSize = 3
+        Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFechar.Location = New System.Drawing.Point(8, 56)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(88, 30)
+        Me.BtnFechar.TabIndex = 10
+        Me.BtnFechar.Text = "Fechar"
+        Me.BtnFechar.UseVisualStyleBackColor = True
+        '
+        'BtnSalvar
+        '
+        Me.BtnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnSalvar.FlatAppearance.BorderSize = 3
+        Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSalvar.Location = New System.Drawing.Point(8, 23)
+        Me.BtnSalvar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnSalvar.Name = "BtnSalvar"
+        Me.BtnSalvar.Size = New System.Drawing.Size(88, 30)
+        Me.BtnSalvar.TabIndex = 7
+        Me.BtnSalvar.Text = "Salvar"
+        Me.BtnSalvar.UseVisualStyleBackColor = True
         '
         'ParcelamentosTableAdapter
         '
@@ -1110,128 +1283,6 @@ Partial Class FrmDetalhesParcelamento
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'MesEnviadoINSSAntigoDateTimePicker
-        '
-        Me.MesEnviadoINSSAntigoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSAntigo", True))
-        Me.MesEnviadoINSSAntigoDateTimePicker.Location = New System.Drawing.Point(9, 34)
-        Me.MesEnviadoINSSAntigoDateTimePicker.Name = "MesEnviadoINSSAntigoDateTimePicker"
-        Me.MesEnviadoINSSAntigoDateTimePicker.Size = New System.Drawing.Size(319, 24)
-        Me.MesEnviadoINSSAntigoDateTimePicker.TabIndex = 2
-        '
-        'LblFechamentoMesAntigo
-        '
-        Me.LblFechamentoMesAntigo.AutoSize = True
-        Me.LblFechamentoMesAntigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblFechamentoMesAntigo.Location = New System.Drawing.Point(6, 13)
-        Me.LblFechamentoMesAntigo.Name = "LblFechamentoMesAntigo"
-        Me.LblFechamentoMesAntigo.Size = New System.Drawing.Size(228, 18)
-        Me.LblFechamentoMesAntigo.TabIndex = 3
-        Me.LblFechamentoMesAntigo.Text = "Fechamento do Mês-Enviado"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 82)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(156, 18)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Histórico de Envios"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(6, 82)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(156, 18)
-        Me.Label10.TabIndex = 6
-        Me.Label10.Text = "Histórico de Envios"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 13)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(228, 18)
-        Me.Label11.TabIndex = 5
-        Me.Label11.Text = "Fechamento do Mês-Enviado"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(6, 82)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(156, 18)
-        Me.Label12.TabIndex = 6
-        Me.Label12.Text = "Histórico de Envios"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(6, 13)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(228, 18)
-        Me.Label13.TabIndex = 5
-        Me.Label13.Text = "Fechamento do Mês-Enviado"
-        '
-        'HistoricoEnvioMEIRichTextBox
-        '
-        Me.HistoricoEnvioMEIRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioMEI", True))
-        Me.HistoricoEnvioMEIRichTextBox.Location = New System.Drawing.Point(3, 103)
-        Me.HistoricoEnvioMEIRichTextBox.Name = "HistoricoEnvioMEIRichTextBox"
-        Me.HistoricoEnvioMEIRichTextBox.ReadOnly = True
-        Me.HistoricoEnvioMEIRichTextBox.Size = New System.Drawing.Size(833, 264)
-        Me.HistoricoEnvioMEIRichTextBox.TabIndex = 1
-        Me.HistoricoEnvioMEIRichTextBox.Text = ""
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(6, 82)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(156, 18)
-        Me.Label14.TabIndex = 8
-        Me.Label14.Text = "Histórico de Envios"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(6, 13)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(228, 18)
-        Me.Label15.TabIndex = 7
-        Me.Label15.Text = "Fechamento do Mês-Enviado"
-        '
-        'MesEnviadoINSSNovoDateTimePicker
-        '
-        Me.MesEnviadoINSSNovoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSNovo", True))
-        Me.MesEnviadoINSSNovoDateTimePicker.Location = New System.Drawing.Point(9, 34)
-        Me.MesEnviadoINSSNovoDateTimePicker.Name = "MesEnviadoINSSNovoDateTimePicker"
-        Me.MesEnviadoINSSNovoDateTimePicker.Size = New System.Drawing.Size(319, 24)
-        Me.MesEnviadoINSSNovoDateTimePicker.TabIndex = 7
-        '
-        'MesEnviadoINSSProcDateTimePicker
-        '
-        Me.MesEnviadoINSSProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSProc", True))
-        Me.MesEnviadoINSSProcDateTimePicker.Location = New System.Drawing.Point(9, 34)
-        Me.MesEnviadoINSSProcDateTimePicker.Name = "MesEnviadoINSSProcDateTimePicker"
-        Me.MesEnviadoINSSProcDateTimePicker.Size = New System.Drawing.Size(319, 24)
-        Me.MesEnviadoINSSProcDateTimePicker.TabIndex = 7
-        '
-        'MesEnviadoMEIDateTimePicker
-        '
-        Me.MesEnviadoMEIDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoMEI", True))
-        Me.MesEnviadoMEIDateTimePicker.Location = New System.Drawing.Point(9, 34)
-        Me.MesEnviadoMEIDateTimePicker.Name = "MesEnviadoMEIDateTimePicker"
-        Me.MesEnviadoMEIDateTimePicker.Size = New System.Drawing.Size(319, 24)
-        Me.MesEnviadoMEIDateTimePicker.TabIndex = 9
-        '
         'FrmDetalhesParcelamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -1245,8 +1296,9 @@ Partial Class FrmDetalhesParcelamento
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmDetalhesParcelamento"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmDetalhesParcelamento"
+        Me.Text = "Detalhes do Parcelamento"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1283,10 +1335,11 @@ Partial Class FrmDetalhesParcelamento
         Me.SubTabControlMEI.ResumeLayout(False)
         Me.TabPage12.ResumeLayout(False)
         Me.TabPage12.PerformLayout()
-        Me.GroupBoxFimINSSmei.ResumeLayout(False)
-        Me.GroupBoxFimINSSmei.PerformLayout()
+        Me.GroupBoxFimMEI.ResumeLayout(False)
+        Me.GroupBoxFimMEI.PerformLayout()
         Me.TabPage13.ResumeLayout(False)
         Me.TabPage13.PerformLayout()
+        Me.GroupBoxMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1354,13 +1407,12 @@ Partial Class FrmDetalhesParcelamento
     Friend WithEvents Label6 As Label
     Friend WithEvents DataFimParcINSSNovoDateTimePicker As DateTimePicker
     Friend WithEvents Label7 As Label
-    Friend WithEvents DataFimParcINNProcDateTimePicker As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents DataFimParcMEIDateTimePicker As DateTimePicker
     Friend WithEvents GroupBoxFimINSSantigo As GroupBox
     Friend WithEvents GroupBoxFimINSSnovo As GroupBox
     Friend WithEvents GroupBoxFimINSSProc As GroupBox
-    Friend WithEvents GroupBoxFimINSSmei As GroupBox
+    Friend WithEvents GroupBoxFimMEI As GroupBox
     Friend WithEvents MesEnviadoINSSAntigoDateTimePicker As DateTimePicker
     Friend WithEvents Label9 As Label
     Friend WithEvents LblFechamentoMesAntigo As Label
@@ -1374,4 +1426,8 @@ Partial Class FrmDetalhesParcelamento
     Friend WithEvents MesEnviadoINSSNovoDateTimePicker As DateTimePicker
     Friend WithEvents MesEnviadoINSSProcDateTimePicker As DateTimePicker
     Friend WithEvents MesEnviadoMEIDateTimePicker As DateTimePicker
+    Friend WithEvents GroupBoxMenu As GroupBox
+    Friend WithEvents BtnFechar As Button
+    Friend WithEvents BtnSalvar As Button
+    Friend WithEvents DataFimParcINSSProcDateTimePicker As DateTimePicker
 End Class

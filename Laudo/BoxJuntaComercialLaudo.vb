@@ -89,12 +89,15 @@ Public Class BoxJuntaComercialLaudo
 
 
     Private Sub Copiar()
+
         If CopiarLaudoCheck.Checked = True Then
             ' Copiar o conteúdo do NlaudoTextBox para a área de transferência
-            Clipboard.SetText(FrmAlvara.NlaudoTextBox.Text)
+            If FrmAlvara.NlaudoTextBox.Text <> "" Then
+                Clipboard.SetText(FrmAlvara.NlaudoTextBox.Text)
+            End If
         Else
-            ' Caso a checkbox não esteja marcada, você pode adicionar outra lógica aqui, se necessário
-        End If
+                ' Caso a checkbox não esteja marcada, você pode adicionar outra lógica aqui, se necessário
+            End If
     End Sub
 
     '///////////////////////////////////////////

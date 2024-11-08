@@ -129,7 +129,7 @@ Partial Class Avisos
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.Matriz, Me.DataGridViewTextBoxColumn59, Me.BombeiroSituacao, Me.DataGridViewTextBoxColumn1})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
-        Me.LaudosDataGridView.Location = New System.Drawing.Point(5, 279)
+        Me.LaudosDataGridView.Location = New System.Drawing.Point(5, 293)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(544, 146)
@@ -193,7 +193,7 @@ Partial Class Avisos
         Me.EmpresasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn68, Me.SEDE, Me.Processo, Me.DataGridViewTextBoxColumn89, Me.CNPJ})
         Me.EmpresasDataGridView.DataSource = Me.EmpresasBindingSource
-        Me.EmpresasDataGridView.Location = New System.Drawing.Point(5, 108)
+        Me.EmpresasDataGridView.Location = New System.Drawing.Point(5, 122)
         Me.EmpresasDataGridView.Name = "EmpresasDataGridView"
         Me.EmpresasDataGridView.ReadOnly = True
         Me.EmpresasDataGridView.Size = New System.Drawing.Size(544, 146)
@@ -242,7 +242,7 @@ Partial Class Avisos
         '
         'MaskedTextBox1
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(415, 86)
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(415, 100)
         Me.MaskedTextBox1.Mask = "00/00/0000"
         Me.MaskedTextBox1.Name = "MaskedTextBox1"
         Me.MaskedTextBox1.Size = New System.Drawing.Size(70, 20)
@@ -253,7 +253,7 @@ Partial Class Avisos
         '
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(491, 85)
+        Me.Button1.Location = New System.Drawing.Point(491, 99)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(58, 21)
         Me.Button1.TabIndex = 5
@@ -265,7 +265,7 @@ Partial Class Avisos
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft New Tai Lue", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(2, 259)
+        Me.Label2.Location = New System.Drawing.Point(2, 273)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 17)
         Me.Label2.TabIndex = 10
@@ -276,7 +276,7 @@ Partial Class Avisos
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft New Tai Lue", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(2, 88)
+        Me.Label1.Location = New System.Drawing.Point(2, 102)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(123, 17)
         Me.Label1.TabIndex = 9
@@ -286,7 +286,7 @@ Partial Class Avisos
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.PrinceSistemas.My.Resources.Resources.aviso_importante_png_51
-        Me.PictureBox1.Location = New System.Drawing.Point(16, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 9)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(159, 64)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -299,7 +299,7 @@ Partial Class Avisos
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(427, 1)
+        Me.PictureBox2.Location = New System.Drawing.Point(427, -2)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(134, 60)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -312,7 +312,7 @@ Partial Class Avisos
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(374, 77)
+        Me.PictureBox3.Location = New System.Drawing.Point(374, 91)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(35, 29)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -324,7 +324,7 @@ Partial Class Avisos
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox4.Image = Global.PrinceSistemas.My.Resources.Resources.lembrete
-        Me.PictureBox4.Location = New System.Drawing.Point(262, 10)
+        Me.PictureBox4.Location = New System.Drawing.Point(262, 7)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(53, 51)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -337,7 +337,7 @@ Partial Class Avisos
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(321, 10)
+        Me.PictureBox5.Location = New System.Drawing.Point(321, 7)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(53, 51)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -350,7 +350,7 @@ Partial Class Avisos
         Me.BtnProtocolados.BackColor = System.Drawing.Color.Transparent
         Me.BtnProtocolados.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProtocolados.Image = Global.PrinceSistemas.My.Resources.Resources.protocolados
-        Me.BtnProtocolados.Location = New System.Drawing.Point(204, 10)
+        Me.BtnProtocolados.Location = New System.Drawing.Point(204, 7)
         Me.BtnProtocolados.Name = "BtnProtocolados"
         Me.BtnProtocolados.Size = New System.Drawing.Size(55, 51)
         Me.BtnProtocolados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -360,7 +360,7 @@ Partial Class Avisos
         '
         'Calendar1
         '
-        Me.Calendar1.Location = New System.Drawing.Point(123, 170)
+        Me.Calendar1.Location = New System.Drawing.Point(123, 184)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 18
         '
@@ -369,7 +369,7 @@ Partial Class Avisos
         Me.LblParcelamentosAviso.AutoSize = True
         Me.LblParcelamentosAviso.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblParcelamentosAviso.ForeColor = System.Drawing.Color.White
-        Me.LblParcelamentosAviso.Location = New System.Drawing.Point(181, 64)
+        Me.LblParcelamentosAviso.Location = New System.Drawing.Point(187, 61)
         Me.LblParcelamentosAviso.Name = "LblParcelamentosAviso"
         Me.LblParcelamentosAviso.Size = New System.Drawing.Size(200, 25)
         Me.LblParcelamentosAviso.TabIndex = 20
@@ -383,6 +383,9 @@ Partial Class Avisos
         'ParcelamentosAvisoTableAdapter
         '
         Me.ParcelamentosAvisoTableAdapter.ClearBeforeFill = True
+        '
+        'Timer1
+        '
         '
         'ParcelamentosBindingSource
         '

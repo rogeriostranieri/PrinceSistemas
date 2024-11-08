@@ -1,0 +1,17 @@
+﻿    Private Sub BtnVerDetalhesParcelamento_Click(sender As Object, e As EventArgs) Handles BtnVerDetalhesParcelamento.Click
+        ' Obtém o ID_Parcelamentos do BindingSource
+        Dim empresaID As Integer = CType(Me.ParcelamentosBindingSource.Current, DataRowView)("ID_Parcelamentos")
+
+        ' Verifique se parcelamentoID é válido
+        If empresaID > 0 Then
+            ' Abra o formulário de detalhes com o ID do parcelamento
+            Dim frmDetalhes As New FrmDetalhesParcelamento(empresaID) With {
+                .MdiParent = Me.MdiParent ' Define o formulário pai, se necessário
+                }
+            frmDetalhes.ShowDialog()
+            Me.Close()
+
+        Else
+            MessageBox.Show("Nenhum parcelamento válido selecionado, caso seja um novo registro, favor salvar antes!.")
+        End If
+    End Sub

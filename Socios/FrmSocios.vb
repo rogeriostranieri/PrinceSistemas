@@ -18,6 +18,20 @@ Public Class FrmSocios
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
     Private Sub FrmSocios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            ' Oculta a última linha do TableLayoutPanel
+            TableLayoutPanel1.RowCount = 4  ' Certifica-se de que tem 4 linhas
+            TableLayoutPanel1.RowStyles(3).SizeType = SizeType.Absolute
+            TableLayoutPanel1.RowStyles(3).Height = 0
+
+            ' Ajusta o tamanho do formulário para se adaptar ao TableLayoutPanel
+            Me.Height = TableLayoutPanel1.Height + Me.ClientSize.Height - TableLayoutPanel1.ClientSize.Height
+
+        Catch ex As Exception
+            MsgBox("Erro ao carregar o formulário: " & ex.Message)
+        End Try
+
+
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Socios'. Você pode movê-la ou removê-la conforme necessário.
         Me.SociosTableAdapter.Fill(Me.PrinceDBDataSet.Socios)
 
@@ -617,31 +631,54 @@ Novos dados:" + "
             End If
         End If
     End Sub
-
     Private Sub BtnCapitalSocial_Click(sender As Object, e As EventArgs) Handles BtnCapitalSocial.Click
-        '"Abrir Calculadora Capítal Social" ao apertar fica precionado e com texto alterado para "Fechar Calculadora Capítal Social"
-        If BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social" Then
-            AtivarTab()
-            BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
-            GroupBoxCapitalSocial.Visible = True
-            GroupBoxMenuCapitalSocial.Visible = True
-            GroupBoxMenuCapitalSocial.Enabled = True
-            GroupBoxCapitalSocial.Enabled = True
-            'aumentar tamanho do frmsocios para 748; 631
-            Me.Size = New Size(748, 631)
+        Try
+            ' Verifica o estado do botão e alterna entre abrir e fechar
+            If BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social" Then
+                AtivarTab()
+                BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
 
-            'deixar botão pressionado
-        ElseIf BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social" Then
-            BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social"
-            GroupBoxCapitalSocial.Visible = False
-            GroupBoxMenuCapitalSocial.Visible = False
-            GroupBoxMenuCapitalSocial.Enabled = False
-            GroupBoxCapitalSocial.Enabled = False
-            'retornar para tamanho original do frmscoios
+                ' Exibe o GroupBox
+                GroupBoxCapitalSocial.Visible = True
+                GroupBoxMenuCapitalSocial.Visible = True
+                GroupBoxMenuCapitalSocial.Enabled = True
+                GroupBoxCapitalSocial.Enabled = True
 
-        End If
+                ' Configura o TableLayoutPanel para ajustar o tamanho automaticamente
+                TableLayoutPanel1.RowCount = 4  ' Ajusta para ter 4 linhas se necessário
+                TableLayoutPanel1.RowStyles(3).SizeType = SizeType.Percent
+                TableLayoutPanel1.RowStyles(3).Height = 100 ' Ajusta a última linha para ocupar o espaço necessário
 
+                ' Ajusta automaticamente o tamanho do Form com base no conteúdo
+                Me.AutoSize = True
+                Me.AutoSizeMode = AutoSizeMode.GrowAndShrink
+                Me.CenterToScreen()
+
+            ElseIf BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social" Then
+                BtnCapitalSocial.Text = "Abrir Calculadora Capítal Social"
+
+                ' Oculta o GroupBox
+                GroupBoxCapitalSocial.Visible = False
+                GroupBoxMenuCapitalSocial.Visible = False
+                GroupBoxMenuCapitalSocial.Enabled = False
+                GroupBoxCapitalSocial.Enabled = False
+
+                ' Retorna o tamanho original do formulário
+                Me.AutoSize = False
+                Me.Size = New Size(840, 619) ' Ajuste os valores de tamanho de acordo com o tamanho original do formulário
+                Me.CenterToScreen()
+
+
+                ' Oculta a última linha do TableLayoutPanel
+                TableLayoutPanel1.RowStyles(3).Height = 0  ' Oculta a última linha
+                TableLayoutPanel1.RowStyles(3).SizeType = SizeType.Absolute
+            End If
+
+        Catch ex As Exception
+            MsgBox("Erro: " & ex.Message)
+        End Try
     End Sub
+
 
 
 
@@ -1501,5 +1538,51 @@ Novos dados:" + "
         ' Copiar o CPF limpo para a área de transferência
         Clipboard.SetText(CPFLimpo)
     End Sub
+
+    Private Sub BtnParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnParcelamentos.Click
+        Try
+            ' Verifica se o FrmParcelamentos já está aberto
+            Dim frmParcelamentosAberto As Boolean = False
+            Dim formParcelamentosInstanciado As FrmParcelamentos = Nothing
+
+            ' Procura pelo formulário entre os forms abertos
+            For Each form In Application.OpenForms
+                If TypeOf form Is FrmParcelamentos Then
+                    frmParcelamentosAberto = True
+                    formParcelamentosInstanciado = CType(form, FrmParcelamentos)
+                    Exit For
+                End If
+            Next
+
+            If frmParcelamentosAberto Then
+                ' Se o formulário estiver aberto, foca nele e ativa a aba
+                formParcelamentosInstanciado.Focus()
+
+                ' Pega as informações do FrmSocio
+                Dim NomeSocio As String = NomeCompletoTextBox.Text
+                Dim CPF As String = CPFMaskedTextBox.Text
+                Dim SenhaGOV As String = SenhaGOVTextBox.Text
+
+                ' Ativa a aba 3 do TabControlPrincipal no FrmParcelamentos
+                formParcelamentosInstanciado.TabControlPrincipal.SelectedTab = formParcelamentosInstanciado.TabControlPrincipal.TabPages(3)
+
+                ' Preenche os campos do FrmParcelamentos
+                formParcelamentosInstanciado.SocioResponsavelTextBox.Text = NomeSocio
+                formParcelamentosInstanciado.CPFsocioResponsavelMaskedTextBox.Text = CPF
+                formParcelamentosInstanciado.GovSenhaMaskedTextBox.Text = SenhaGOV
+            Else
+                ' Se o formulário não estiver aberto, cria e abre o formulário
+                Dim newFrmParcelamentos As New FrmParcelamentos()
+                newFrmParcelamentos.Show()
+
+                ' Mensagem de aviso
+                MsgBox("Abrir o formulário de Parcelamentos antes de prosseguir.")
+            End If
+
+        Catch ex As Exception
+            MsgBox("Erro: " & ex.Message)
+        End Try
+    End Sub
+
 
 End Class

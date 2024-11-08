@@ -25,32 +25,32 @@ Partial Class FrmAvisoParcelamento
         Me.components = New System.ComponentModel.Container()
         Dim MesRealizadoLabel As System.Windows.Forms.Label
         Dim AnoLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAvisoParcelamento))
         Dim MesRealizadoLabel1 As System.Windows.Forms.Label
         Dim AnoLabel1 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAvisoParcelamento))
         Me.LblDataAviso = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.ParcelamentosAvisoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParcelamentosAvisoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.ParcelamentosAvisoBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.ParcelamentosAvisoBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.MesRealizadoComboBox = New System.Windows.Forms.ComboBox()
         Me.AnoComboBox = New System.Windows.Forms.ComboBox()
         Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.ParcelamentosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         MesRealizadoLabel = New System.Windows.Forms.Label()
@@ -86,6 +86,24 @@ Partial Class FrmAvisoParcelamento
         AnoLabel.Size = New System.Drawing.Size(42, 18)
         AnoLabel.TabIndex = 4
         AnoLabel.Text = "Ano:"
+        '
+        'MesRealizadoLabel1
+        '
+        MesRealizadoLabel1.AutoSize = True
+        MesRealizadoLabel1.Location = New System.Drawing.Point(158, 176)
+        MesRealizadoLabel1.Name = "MesRealizadoLabel1"
+        MesRealizadoLabel1.Size = New System.Drawing.Size(111, 18)
+        MesRealizadoLabel1.TabIndex = 8
+        MesRealizadoLabel1.Text = "Mes Realizado:"
+        '
+        'AnoLabel1
+        '
+        AnoLabel1.AutoSize = True
+        AnoLabel1.Location = New System.Drawing.Point(231, 221)
+        AnoLabel1.Name = "AnoLabel1"
+        AnoLabel1.Size = New System.Drawing.Size(38, 18)
+        AnoLabel1.TabIndex = 9
+        AnoLabel1.Text = "Ano:"
         '
         'LblDataAviso
         '
@@ -155,6 +173,10 @@ Partial Class FrmAvisoParcelamento
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'ParcelamentosTableAdapter
+        '
+        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
+        '
         'ParcelamentosAvisoBindingNavigator
         '
         Me.ParcelamentosAvisoBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -172,6 +194,31 @@ Partial Class FrmAvisoParcelamento
         Me.ParcelamentosAvisoBindingNavigator.Size = New System.Drawing.Size(1059, 25)
         Me.ParcelamentosAvisoBindingNavigator.TabIndex = 8
         Me.ParcelamentosAvisoBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Adicionar novo"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Número total de itens"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Excluir"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -206,16 +253,9 @@ Partial Class FrmAvisoParcelamento
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posição atual"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
-        Me.BindingNavigatorCountItem.Text = "de {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Número total de itens"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
@@ -238,26 +278,8 @@ Partial Class FrmAvisoParcelamento
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Adicionar novo"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Excluir"
         '
         'ParcelamentosAvisoBindingNavigatorSaveItem
         '
@@ -266,15 +288,6 @@ Partial Class FrmAvisoParcelamento
         Me.ParcelamentosAvisoBindingNavigatorSaveItem.Name = "ParcelamentosAvisoBindingNavigatorSaveItem"
         Me.ParcelamentosAvisoBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.ParcelamentosAvisoBindingNavigatorSaveItem.Text = "Salvar Dados"
-        '
-        'MesRealizadoLabel1
-        '
-        MesRealizadoLabel1.AutoSize = True
-        MesRealizadoLabel1.Location = New System.Drawing.Point(158, 176)
-        MesRealizadoLabel1.Name = "MesRealizadoLabel1"
-        MesRealizadoLabel1.Size = New System.Drawing.Size(111, 18)
-        MesRealizadoLabel1.TabIndex = 8
-        MesRealizadoLabel1.Text = "Mes Realizado:"
         '
         'MesRealizadoComboBox
         '
@@ -286,15 +299,6 @@ Partial Class FrmAvisoParcelamento
         Me.MesRealizadoComboBox.Name = "MesRealizadoComboBox"
         Me.MesRealizadoComboBox.Size = New System.Drawing.Size(175, 28)
         Me.MesRealizadoComboBox.TabIndex = 9
-        '
-        'AnoLabel1
-        '
-        AnoLabel1.AutoSize = True
-        AnoLabel1.Location = New System.Drawing.Point(231, 221)
-        AnoLabel1.Name = "AnoLabel1"
-        AnoLabel1.Size = New System.Drawing.Size(38, 18)
-        AnoLabel1.TabIndex = 9
-        AnoLabel1.Text = "Ano:"
         '
         'AnoComboBox
         '
@@ -310,10 +314,6 @@ Partial Class FrmAvisoParcelamento
         '
         Me.ParcelamentosBindingSource.DataMember = "Parcelamentos"
         Me.ParcelamentosBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'ParcelamentosTableAdapter
-        '
-        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
         '
         'ParcelamentosDataGridView
         '
@@ -333,7 +333,7 @@ Partial Class FrmAvisoParcelamento
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razao Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Width = 450

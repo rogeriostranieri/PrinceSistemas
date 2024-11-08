@@ -961,11 +961,8 @@ Public Class FrmAlvara
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         Try
             Dim CNPJ As String = CNPJMaskedTextBox.Text
-            If MessageBox.Show("Deseja Copiar o CNPJ apenas os numeros?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
-                Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
-            Else
-                Clipboard.SetText(CNPJ)
-            End If
+            Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+
         Catch ex As Exception
             MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try

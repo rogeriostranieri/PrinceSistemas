@@ -1014,12 +1014,9 @@ Public Class MDIPrincipal
         Dim formParcelamentos = Application.OpenForms.OfType(Of FrmParcelamentos)().FirstOrDefault()
 
         If formParcelamentos IsNot Nothing Then
-            formParcelamentos.Focus()
+            FrmParcelamentos.Focus()
         Else
-            ' Passa 0 como empresaID (ou outro valor padrão que faça sentido)
-            formParcelamentos = New FrmParcelamentos(0)
-            formParcelamentos.MdiParent = Me
-            formParcelamentos.Show()
+            FrmParcelamentos.Show()
         End If
     End Sub
 

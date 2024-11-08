@@ -1,6 +1,9 @@
 ﻿Imports System.Windows.Forms
 Imports System.Drawing
 Imports System.Data.SqlClient
+Imports System.Globalization
+Imports System.Text
+Imports System.Data
 
 
 Public Class Avisos
@@ -46,7 +49,7 @@ Public Class Avisos
 
         FormBorderStyle = FormBorderStyle.FixedSingle
 
-        CarregarAvisos()
+        VerificaParcelamentos()
 
     End Sub
 
@@ -257,107 +260,7 @@ Public Class Avisos
 
     '/////////// fim do codigo de mostrar calendario
     '
-    '//////////////////////////// ver parcelamentos
-    Private Sub CarregarAvisos()
-        ' Conectar ao banco de dados e carregar dados
-        Using conexão As New SqlConnection(connectionString)
-            conexão.Open()
 
-            ' Carregar dados de ParcelamentosAviso
-            Dim comandoAviso As New SqlCommand("SELECT MesRealizado, Ano FROM ParcelamentosAviso", conexão)
-            Dim leitorAviso As SqlDataReader = comandoAviso.ExecuteReader()
-
-            If leitorAviso.Read() Then
-                Dim mesRealizado As String = leitorAviso("MesRealizado").ToString()
-                Dim ano As String = leitorAviso("Ano").ToString()
-
-                ' Fechar o DataReader
-                leitorAviso.Close()
-
-                ' Converter a data do MaskedTextBox1 para Date
-                Dim dataLembrete As Date = Date.Parse(MaskedTextBox1.Text)
-                Dim mesLembrete As Integer = dataLembrete.Month
-                Dim mesLembreteStr As String = dataLembrete.ToString("MMMM", Globalization.CultureInfo.InvariantCulture)
-
-                ' Verificar se o mês de ParcelamentosAviso é diferente do mês atual
-                If mesRealizado <> mesLembreteStr Then
-                    ' Contar parcelamentos para a data do mês
-                    Dim comandoParcelamentos As New SqlCommand("SELECT DataEnvio, FinalizadoParcelamentos FROM Parcelamentos WHERE YEAR(DataEnvio) = @ano AND MONTH(DataEnvio) = @mes", conexão)
-                    comandoParcelamentos.Parameters.AddWithValue("@ano", dataLembrete.Year)
-                    comandoParcelamentos.Parameters.AddWithValue("@mes", mesLembrete)
-
-                    Dim leitorParcelamentos As SqlDataReader = comandoParcelamentos.ExecuteReader()
-
-                    Dim parcelamentoNaoEnviado As Boolean = False
-                    Dim todosEnviados As Boolean = True
-
-                    While leitorParcelamentos.Read()
-                        ' Verificar a coluna DataEnvio e FinalizadoParcelamentos
-                        Dim dataEnvio As Object = leitorParcelamentos("DataEnvio")
-                        Dim finalizado As String = leitorParcelamentos("FinalizadoParcelamentos").ToString()
-
-                        If Not IsDBNull(dataEnvio) Then
-                            ' Extrair o mês e ano de DataEnvio ignorando a parte do dia e hora
-                            Dim dataEnvioDate As Date = Convert.ToDateTime(dataEnvio)
-                            Dim mesEnvio As Integer = dataEnvioDate.Month
-                            Dim anoEnvio As Integer = dataEnvioDate.Year
-
-                            ' Verificar se o mês e ano de DataEnvio são diferentes do mês atual
-                            If mesEnvio <> mesLembrete OrElse anoEnvio <> dataLembrete.Year Then
-                                ' Se não estiver finalizado
-                                If finalizado = "Não" Then
-                                    parcelamentoNaoEnviado = True
-                                End If
-                            End If
-
-                            ' Verificar se todos os parcelamentos foram finalizados
-                            If finalizado = "Não" Then
-                                todosEnviados = False
-                            End If
-                        End If
-                    End While
-
-                    ' Fechar o DataReader de Parcelamentos
-                    leitorParcelamentos.Close()
-
-                    ' Se houver parcelamento não enviado, atualizar o label
-                    If parcelamentoNaoEnviado Then
-                        LblParcelamentosAviso.Text = "X - PARCELAMENTOS NÃO ENVIADOS"
-                        LblParcelamentosAviso.Visible = True
-                        LblParcelamentosAviso.ForeColor = Color.Red ' Cor de alerta
-                        LblParcelamentosAviso.Enabled = True
-                    ElseIf todosEnviados Then
-                        ' Se todos os parcelamentos estão finalizados, mostrar que tudo foi enviado
-                        LblParcelamentosAviso.Text = "PARCELAMENTOS ENVIADOS"
-                        LblParcelamentosAviso.Visible = True
-                        LblParcelamentosAviso.ForeColor = Color.Green ' Cor positiva
-                        LblParcelamentosAviso.Enabled = True
-                    Else
-                        ' Caso contrário, mostrar uma mensagem de alerta genérica
-                        LblParcelamentosAviso.Text = "Alguns parcelamentos não foram finalizados."
-                        LblParcelamentosAviso.Visible = True
-                        LblParcelamentosAviso.ForeColor = Color.Orange ' Cor de alerta moderado
-                        LblParcelamentosAviso.Enabled = True
-                    End If
-                Else
-                    ' Se o mês do ParcelamentosAviso for igual ao mês atual, esconder o aviso
-                    LblParcelamentosAviso.Text = ""
-                    LblParcelamentosAviso.Visible = False
-                    LblParcelamentosAviso.Enabled = False
-                End If
-            Else
-                ' Se não houver dados no ParcelamentosAviso, esconder o aviso
-                LblParcelamentosAviso.Text = ""
-                LblParcelamentosAviso.Visible = False
-                LblParcelamentosAviso.Enabled = False
-            End If
-        End Using
-    End Sub
-
-
-
-
-    ' ///////////// FIM PARCELAMENTO
     Private Sub timerParcelamentos_Tick(sender As Object, e As EventArgs) Handles timerParcelamentos.Tick
         contador += 1
         LblParcelamentosAviso.ForeColor = cores(contador Mod 3)
@@ -379,4 +282,110 @@ Public Class Avisos
     End Sub
 
     'FIM parcelamentos
+
+
+
+
+
+
+
+
+
+    '//////////////////////////// ver parcelamentos
+    'Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub VerificaParcelamentos()
+        ' Pega a data do MaskedTextBox1, que representa o dia que o usuário deseja consultar
+        Dim dataSelecionada As Date = Date.ParseExact(VbAvisoPrincipal.MaskedTextBox1.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture)
+        Dim mesSelecionado As Integer = dataSelecionada.Month
+
+        ' Listas para armazenar os lembretes e parcelamentos com mês diferente
+        Dim listaLembretes As New List(Of DateTime)
+        Dim listaMensalDiferente As New List(Of DateTime)
+
+        Using conexão As New SqlConnection(connectionString)
+            conexão.Open()
+
+            ' Verificar lembretes para a data selecionada
+            Dim temLembrete As Boolean = VerificarLembreteParaDia(conexão, dataSelecionada, listaLembretes)
+
+            ' Verificar se algum DataEnvio possui mês diferente
+            Dim mesEnvioDiferente As Boolean = VerificarMesEnvioDiferente(conexão, mesSelecionado, listaMensalDiferente)
+
+            ' Exibir o resultado no Label
+            ExibirAviso(temLembrete, mesEnvioDiferente)
+        End Using
+    End Sub
+
+    Private Function VerificarLembreteParaDia(conexão As SqlConnection, dataSelecionada As Date, ByRef listaLembretes As List(Of DateTime)) As Boolean
+        ' Verifica se existe um lembrete para a data selecionada (usando MaskedTextBox1)
+        Dim comando As New SqlCommand("SELECT DataLembrete FROM Parcelamentos WHERE CONVERT(date, DataLembrete) = @dataSelecionada", conexão)
+        comando.Parameters.AddWithValue("@dataSelecionada", dataSelecionada)
+        Dim leitor As SqlDataReader = comando.ExecuteReader()
+
+        Dim temLembrete As Boolean = False
+        While leitor.Read()
+            ' Se encontrar um lembrete, adiciona à lista
+            Dim dataLembrete As DateTime = Convert.ToDateTime(leitor("DataLembrete"))
+            listaLembretes.Add(dataLembrete)
+            temLembrete = True
+        End While
+        leitor.Close()
+
+        Return temLembrete
+    End Function
+
+    Private Function VerificarMesEnvioDiferente(conexão As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
+        ' Verifica se algum parcelamento tem DataEnvio em um mês diferente do mês da data selecionada
+        Dim comando As New SqlCommand("SELECT DataEnvio FROM Parcelamentos", conexão)
+        Dim leitor As SqlDataReader = comando.ExecuteReader()
+
+        Dim mesEnvioDiferente As Boolean = False
+        While leitor.Read()
+            Dim dataEnvio As DateTime
+            If DateTime.TryParse(leitor("DataEnvio").ToString(), dataEnvio) AndAlso dataEnvio.Month <> mesSelecionado Then
+                listaMensalDiferente.Add(dataEnvio)
+                mesEnvioDiferente = True
+            End If
+        End While
+        leitor.Close()
+
+        Return mesEnvioDiferente
+    End Function
+
+    Private Sub ExibirAviso(temLembrete As Boolean, mesEnvioDiferente As Boolean)
+        ' Atualiza o label com base nos resultados
+        If temLembrete AndAlso mesEnvioDiferente Then
+            LblParcelamentosAviso.Text = "Parcelamento Mensal e Lembrete"
+            LblParcelamentosAviso.Visible = True
+            IniciarPiscarLabel()
+        ElseIf temLembrete Then
+            LblParcelamentosAviso.Text = "Lembrete Parcelamento"
+            LblParcelamentosAviso.Visible = True
+            IniciarPiscarLabel()
+        ElseIf mesEnvioDiferente Then
+            LblParcelamentosAviso.Text = "Parcelamento Mensal"
+            LblParcelamentosAviso.Visible = True
+            IniciarPiscarLabel()
+        Else
+            LblParcelamentosAviso.Visible = False
+        End If
+    End Sub
+
+    Private Sub IniciarPiscarLabel()
+        ' Configura o Timer para piscar o texto do label
+        Timer1.Interval = 400 ' Intervalo de 500ms para alternar as cores
+        Timer1.Start()
+    End Sub
+
+    ' Timer que alterna as cores do label
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If LblParcelamentosAviso.ForeColor = Color.Red Then
+            LblParcelamentosAviso.ForeColor = Color.White
+        ElseIf LblParcelamentosAviso.ForeColor = Color.White Then
+            LblParcelamentosAviso.ForeColor = Color.Yellow
+        Else
+            LblParcelamentosAviso.ForeColor = Color.Red
+        End If
+    End Sub
+
 End Class
