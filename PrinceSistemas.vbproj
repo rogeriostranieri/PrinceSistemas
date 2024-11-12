@@ -155,6 +155,12 @@
     <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaFormaAtuacao.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaObjetoEmpresa.Designer.vb">
+      <DependentUpon>DialogAjudaObjetoEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaObjetoEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abertura\Ajuda Empresa Facil\DialogAjudaTipoUnidade.Designer.vb">
       <DependentUpon>DialogAjudaTipoUnidade.vb</DependentUpon>
     </Compile>
@@ -560,6 +566,12 @@
     <Compile Include="Parcelamentos\DialogCalendarioParcelamento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Parcelamentos\FrmControleParcelamentos.Designer.vb">
+      <DependentUpon>FrmControleParcelamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmControleParcelamentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parcelamentos\FrmDetalhesParcelamento.Designer.vb">
       <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
     </Compile>
@@ -786,6 +798,9 @@
     <EmbeddedResource Include="Abertura\Ajuda Empresa Facil\DialogAjudaFormaAtuacao.resx">
       <DependentUpon>DialogAjudaFormaAtuacao.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\Ajuda Empresa Facil\DialogAjudaObjetoEmpresa.resx">
+      <DependentUpon>DialogAjudaObjetoEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abertura\Ajuda Empresa Facil\DialogAjudaTipoUnidade.resx">
       <DependentUpon>DialogAjudaTipoUnidade.vb</DependentUpon>
     </EmbeddedResource>
@@ -978,6 +993,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\DialogCalendarioParcelamento.resx">
       <DependentUpon>DialogCalendarioParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmControleParcelamentos.resx">
+      <DependentUpon>FrmControleParcelamentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\FrmDetalhesParcelamento.resx">
       <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
@@ -1205,6 +1223,7 @@
     <None Include="Resources\interrogacao.png" />
     <None Include="Resources\pasta.png" />
     <None Include="Resources\protocolo1.png" />
+    <Content Include="CNAEs\CNAEBackup.txt" />
     <Content Include="Laudo\AlvaraBackupCode.txt" />
     <Content Include="Laudo\BACKUPlaudos.txt" />
     <Content Include="PARAFAZER.txt" />
@@ -1226,6 +1245,9 @@
     <None Include="Resources\unnamed.png" />
     <None Include="Resources\CoporDeBombeiro.png" />
     <Content Include="Parcelamentos\FazerParcelamento.txt" />
+    <None Include="Resources\AberturaEmpresa.png" />
+    <None Include="Resources\AlteracaoEmpresa.png" />
+    <None Include="Resources\baixaEmpresa.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

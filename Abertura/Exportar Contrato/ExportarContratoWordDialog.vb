@@ -614,6 +614,8 @@ Public Class ExportarContratoWordDialog
             FrmLegalizacao.TabControl2.SelectTab(4)
             FrmLegalizacao.TabControl2.SelectTab(5)
             FrmLegalizacao.TabControl2.SelectTab(6)
+            FrmLegalizacao.TabControl2.SelectTab(7)
+
 
             'Volta
             FrmLegalizacao.TabControl2.SelectTab(0)

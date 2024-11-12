@@ -59,9 +59,11 @@ Partial Class FrmParcelamentos
         Me.GroupBoxDados = New System.Windows.Forms.GroupBox()
         Me.TabControlPrincipal = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.DataEnvioDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.RazaoSocialTextBox = New System.Windows.Forms.TextBox()
         Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
+        Me.BtnBImportarEmpresa = New System.Windows.Forms.Button()
+        Me.DataEnvioDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.BtnCopiarCNPJ = New System.Windows.Forms.Button()
         Me.BtnDuplicidade = New System.Windows.Forms.Button()
         Me.FinalizadoParcelamentoComboBox = New System.Windows.Forms.ComboBox()
@@ -69,7 +71,6 @@ Partial Class FrmParcelamentos
         Me.DataLembreteDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.DataCriacaoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.CNPJMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.RazaoSocialTextBox = New System.Windows.Forms.TextBox()
         Me.BtnVerDetalhesParcelamento = New System.Windows.Forms.Button()
         Me.GroupBoxINSSParcelamento = New System.Windows.Forms.GroupBox()
         Me.MEICheckBox = New System.Windows.Forms.CheckBox()
@@ -108,7 +109,6 @@ Partial Class FrmParcelamentos
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.BtnBImportarEmpresa = New System.Windows.Forms.Button()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         DataLembreteLabel = New System.Windows.Forms.Label()
@@ -374,7 +374,6 @@ Partial Class FrmParcelamentos
         Me.GroupBoxMenu.Controls.Add(Me.BtnEditar)
         Me.GroupBoxMenu.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenu.Controls.Add(Me.BtnExcluir)
-        Me.GroupBoxMenu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBoxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBoxMenu.Location = New System.Drawing.Point(732, 72)
         Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -510,6 +509,7 @@ Partial Class FrmParcelamentos
         'TabPage3
         '
         Me.TabPage3.AutoScroll = True
+        Me.TabPage3.Controls.Add(Me.RazaoSocialTextBox)
         Me.TabPage3.Controls.Add(Me.BtnBImportarEmpresa)
         Me.TabPage3.Controls.Add(Me.DataEnvioDateTimePicker)
         Me.TabPage3.Controls.Add(Me.BtnCopiarCNPJ)
@@ -519,7 +519,6 @@ Partial Class FrmParcelamentos
         Me.TabPage3.Controls.Add(Me.DataLembreteDateTimePicker)
         Me.TabPage3.Controls.Add(Me.DataCriacaoDateTimePicker)
         Me.TabPage3.Controls.Add(Me.CNPJMaskedTextBox)
-        Me.TabPage3.Controls.Add(Me.RazaoSocialTextBox)
         Me.TabPage3.Controls.Add(FinalizadoParcelamentosLabel)
         Me.TabPage3.Controls.Add(DataEnvioLabel)
         Me.TabPage3.Controls.Add(Me.BtnVerDetalhesParcelamento)
@@ -537,14 +536,13 @@ Partial Class FrmParcelamentos
         Me.TabPage3.Text = "Geral"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'DataEnvioDateTimePicker
+        'RazaoSocialTextBox
         '
-        Me.DataEnvioDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataEnvio", True))
-        Me.DataEnvioDateTimePicker.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.DataEnvioDateTimePicker.Location = New System.Drawing.Point(243, 362)
-        Me.DataEnvioDateTimePicker.Name = "DataEnvioDateTimePicker"
-        Me.DataEnvioDateTimePicker.Size = New System.Drawing.Size(378, 26)
-        Me.DataEnvioDateTimePicker.TabIndex = 68
+        Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "RazaoSocial", True))
+        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(119, 12)
+        Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(577, 24)
+        Me.RazaoSocialTextBox.TabIndex = 70
         '
         'ParcelamentosBindingSource
         '
@@ -555,6 +553,29 @@ Partial Class FrmParcelamentos
         '
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
         Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BtnBImportarEmpresa
+        '
+        Me.BtnBImportarEmpresa.BackColor = System.Drawing.Color.Azure
+        Me.BtnBImportarEmpresa.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
+        Me.BtnBImportarEmpresa.FlatAppearance.BorderSize = 2
+        Me.BtnBImportarEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBImportarEmpresa.Location = New System.Drawing.Point(605, 42)
+        Me.BtnBImportarEmpresa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnBImportarEmpresa.Name = "BtnBImportarEmpresa"
+        Me.BtnBImportarEmpresa.Size = New System.Drawing.Size(91, 29)
+        Me.BtnBImportarEmpresa.TabIndex = 69
+        Me.BtnBImportarEmpresa.Text = "Importar"
+        Me.BtnBImportarEmpresa.UseVisualStyleBackColor = False
+        '
+        'DataEnvioDateTimePicker
+        '
+        Me.DataEnvioDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataEnvio", True))
+        Me.DataEnvioDateTimePicker.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.DataEnvioDateTimePicker.Location = New System.Drawing.Point(243, 362)
+        Me.DataEnvioDateTimePicker.Name = "DataEnvioDateTimePicker"
+        Me.DataEnvioDateTimePicker.Size = New System.Drawing.Size(378, 26)
+        Me.DataEnvioDateTimePicker.TabIndex = 68
         '
         'BtnCopiarCNPJ
         '
@@ -606,7 +627,6 @@ Partial Class FrmParcelamentos
         '
         'DataLembreteDateTimePicker
         '
-        Me.DataLembreteDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataLembrete", True))
         Me.DataLembreteDateTimePicker.Location = New System.Drawing.Point(119, 102)
         Me.DataLembreteDateTimePicker.Name = "DataLembreteDateTimePicker"
         Me.DataLembreteDateTimePicker.Size = New System.Drawing.Size(324, 24)
@@ -628,14 +648,6 @@ Partial Class FrmParcelamentos
         Me.CNPJMaskedTextBox.Name = "CNPJMaskedTextBox"
         Me.CNPJMaskedTextBox.Size = New System.Drawing.Size(145, 24)
         Me.CNPJMaskedTextBox.TabIndex = 21
-        '
-        'RazaoSocialTextBox
-        '
-        Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "RazaoSocial", True))
-        Me.RazaoSocialTextBox.Location = New System.Drawing.Point(119, 12)
-        Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(577, 24)
-        Me.RazaoSocialTextBox.TabIndex = 20
         '
         'BtnVerDetalhesParcelamento
         '
@@ -1058,20 +1070,6 @@ Partial Class FrmParcelamentos
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'BtnBImportarEmpresa
-        '
-        Me.BtnBImportarEmpresa.BackColor = System.Drawing.Color.Azure
-        Me.BtnBImportarEmpresa.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue
-        Me.BtnBImportarEmpresa.FlatAppearance.BorderSize = 2
-        Me.BtnBImportarEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBImportarEmpresa.Location = New System.Drawing.Point(605, 42)
-        Me.BtnBImportarEmpresa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnBImportarEmpresa.Name = "BtnBImportarEmpresa"
-        Me.BtnBImportarEmpresa.Size = New System.Drawing.Size(91, 29)
-        Me.BtnBImportarEmpresa.TabIndex = 69
-        Me.BtnBImportarEmpresa.Text = "Importar"
-        Me.BtnBImportarEmpresa.UseVisualStyleBackColor = False
-        '
         'FrmParcelamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -1150,7 +1148,6 @@ Partial Class FrmParcelamentos
     Friend WithEvents DataLembreteDateTimePicker As DateTimePicker
     Friend WithEvents DataCriacaoDateTimePicker As DateTimePicker
     Friend WithEvents CNPJMaskedTextBox As MaskedTextBox
-    Friend WithEvents RazaoSocialTextBox As TextBox
     Friend WithEvents ObservacaoRichTextBox As RichTextBox
     Friend WithEvents MEICheckBox As CheckBox
     Friend WithEvents INSSProcuradoriaCheckBox As CheckBox
@@ -1177,4 +1174,5 @@ Partial Class FrmParcelamentos
     Friend WithEvents BtnImportaSocio As Button
     Friend WithEvents DataEnvioDateTimePicker As DateTimePicker
     Friend WithEvents BtnBImportarEmpresa As Button
+    Friend WithEvents RazaoSocialTextBox As TextBox
 End Class

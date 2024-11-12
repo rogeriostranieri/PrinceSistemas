@@ -12,13 +12,13 @@
         ' Carrega os detalhes do parcelamento usando o empresaID
         If empresaID > 0 Then
             ' Preencher os dados relacionados à empresa selecionada
-            Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
+            'Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
         Else
             MessageBox.Show("ID de empresa inválido.")
         End If
 
         ' Define os itens a serem adicionados nos ComboBoxes
-        Dim itens As String() = {"Sim", "Não", "Cancelado", "Indeferido"}
+        Dim itens As String() = {"Finalizado", "Em Andamento", "Cancelado", "Indeferido", "Sem Dívidas"}
 
         ' Adiciona os itens a cada ComboBox
         AdicionarItensComboBox(FinalizadoINSSAntigoComboBox, itens)
@@ -73,10 +73,14 @@
     ' Função genérica para lidar com a lógica de finalizar, definir DateTimePicker como NULL se necessário, e ajustar visibilidade dos controles
     Private Sub HandleFinalizadoComboBox(comboBox As ComboBox, tabIndex As Integer, label As Label, motivoTextBox As RichTextBox, groupBoxFim As GroupBox, ParamArray dateFields() As String)
         ' Ajuste de visibilidade dos controles
-        If comboBox.Text = "Indeferido" OrElse comboBox.Text = "Finalizado" OrElse comboBox.Text = "Sim" Then
+        If comboBox.Text = "Indeferido" OrElse comboBox.Text = "Finalizado" Then
             label.Visible = True
             motivoTextBox.Visible = True
             groupBoxFim.Visible = True
+        ElseIf String.IsNullOrEmpty(comboBox.Text) Then
+            label.Visible = False
+            motivoTextBox.Visible = False
+            groupBoxFim.Visible = False
         Else
             label.Visible = False
             motivoTextBox.Visible = False
@@ -86,6 +90,8 @@
         ' Verifica se o ComboBox está marcado como "Finalizado" e está na aba correta
         If comboBox.Text = "Finalizado" AndAlso TabControlPrincipal.SelectedIndex = tabIndex Then
             Dim dataAlterada As Boolean = False
+
+            GroupBoxFimINSSantigo.Visible = False
 
             ' Itera sobre os campos e define como NULL se ainda não estiverem nulos
             For Each field As String In dateFields
@@ -102,6 +108,9 @@
                 Salvar()
                 MessageBox.Show("Campos de data salvos como nulo com sucesso.")
             End If
+
+        Else
+            GroupBoxFimINSSantigo.Visible = True
         End If
     End Sub
 
@@ -307,6 +316,7 @@
 
 
     Private Sub FrmDetalhesParcelamento_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Salvar()
         ' Reabrir o FrmParcelamentos e passar o ID_Empresa
         Dim frmParcelamentos As New FrmParcelamentos()
         frmParcelamentos.CarregarEmpresaPorID(Me.empresaID) ' Passa o parcelamentoID ou o ID da empresa

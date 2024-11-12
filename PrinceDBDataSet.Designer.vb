@@ -75,9 +75,9 @@ Partial Public Class PrinceDBDataSet
     
     Private tableCNAESubclasses23 As CNAESubclasses23DataTable
     
-    Private tableParcelamentos As ParcelamentosDataTable
-    
     Private tableParcelamentosAviso As ParcelamentosAvisoDataTable
+    
+    Private tableParcelamentos As ParcelamentosDataTable
     
     Private relationeMail_eMailCaixaDeSaida As Global.System.Data.DataRelation
     
@@ -193,11 +193,11 @@ Partial Public Class PrinceDBDataSet
             If (Not (ds.Tables("CNAESubclasses23")) Is Nothing) Then
                 MyBase.Tables.Add(New CNAESubclasses23DataTable(ds.Tables("CNAESubclasses23")))
             End If
-            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
-                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
-            End If
             If (Not (ds.Tables("ParcelamentosAviso")) Is Nothing) Then
                 MyBase.Tables.Add(New ParcelamentosAvisoDataTable(ds.Tables("ParcelamentosAviso")))
+            End If
+            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -470,9 +470,9 @@ Partial Public Class PrinceDBDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Parcelamentos() As ParcelamentosDataTable
+    Public ReadOnly Property ParcelamentosAviso() As ParcelamentosAvisoDataTable
         Get
-            Return Me.tableParcelamentos
+            Return Me.tableParcelamentosAviso
         End Get
     End Property
     
@@ -480,9 +480,9 @@ Partial Public Class PrinceDBDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property ParcelamentosAviso() As ParcelamentosAvisoDataTable
+    Public ReadOnly Property Parcelamentos() As ParcelamentosDataTable
         Get
-            Return Me.tableParcelamentosAviso
+            Return Me.tableParcelamentos
         End Get
     End Property
     
@@ -628,11 +628,11 @@ Partial Public Class PrinceDBDataSet
             If (Not (ds.Tables("CNAESubclasses23")) Is Nothing) Then
                 MyBase.Tables.Add(New CNAESubclasses23DataTable(ds.Tables("CNAESubclasses23")))
             End If
-            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
-                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
-            End If
             If (Not (ds.Tables("ParcelamentosAviso")) Is Nothing) Then
                 MyBase.Tables.Add(New ParcelamentosAvisoDataTable(ds.Tables("ParcelamentosAviso")))
+            End If
+            If (Not (ds.Tables("Parcelamentos")) Is Nothing) Then
+                MyBase.Tables.Add(New ParcelamentosDataTable(ds.Tables("Parcelamentos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -816,16 +816,16 @@ Partial Public Class PrinceDBDataSet
                 Me.tableCNAESubclasses23.InitVars
             End If
         End If
-        Me.tableParcelamentos = CType(MyBase.Tables("Parcelamentos"),ParcelamentosDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableParcelamentos) Is Nothing) Then
-                Me.tableParcelamentos.InitVars
-            End If
-        End If
         Me.tableParcelamentosAviso = CType(MyBase.Tables("ParcelamentosAviso"),ParcelamentosAvisoDataTable)
         If (initTable = true) Then
             If (Not (Me.tableParcelamentosAviso) Is Nothing) Then
                 Me.tableParcelamentosAviso.InitVars
+            End If
+        End If
+        Me.tableParcelamentos = CType(MyBase.Tables("Parcelamentos"),ParcelamentosDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableParcelamentos) Is Nothing) Then
+                Me.tableParcelamentos.InitVars
             End If
         End If
         Me.relationeMail_eMailCaixaDeSaida = Me.Relations("eMail_eMailCaixaDeSaida")
@@ -893,10 +893,10 @@ Partial Public Class PrinceDBDataSet
         MyBase.Tables.Add(Me.tableBrasilMunicipios)
         Me.tableCNAESubclasses23 = New CNAESubclasses23DataTable()
         MyBase.Tables.Add(Me.tableCNAESubclasses23)
-        Me.tableParcelamentos = New ParcelamentosDataTable()
-        MyBase.Tables.Add(Me.tableParcelamentos)
         Me.tableParcelamentosAviso = New ParcelamentosAvisoDataTable()
         MyBase.Tables.Add(Me.tableParcelamentosAviso)
+        Me.tableParcelamentos = New ParcelamentosDataTable()
+        MyBase.Tables.Add(Me.tableParcelamentos)
         Me.relationeMail_eMailCaixaDeSaida = New Global.System.Data.DataRelation("eMail_eMailCaixaDeSaida", New Global.System.Data.DataColumn() {Me.tableeMail.eMailColumn}, New Global.System.Data.DataColumn() {Me.tableeMailCaixaDeSaida.eMailPrincipalColumn}, false)
         Me.Relations.Add(Me.relationeMail_eMailCaixaDeSaida)
         Me.relationLogin_Anotacoes = New Global.System.Data.DataRelation("Login_Anotacoes", New Global.System.Data.DataColumn() {Me.tableLogin.UsuarioColumn}, New Global.System.Data.DataColumn() {Me.tableAnotacoes.UsuarioColumn}, false)
@@ -1061,13 +1061,13 @@ Partial Public Class PrinceDBDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializeParcelamentos() As Boolean
+    Private Function ShouldSerializeParcelamentosAviso() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializeParcelamentosAviso() As Boolean
+    Private Function ShouldSerializeParcelamentos() As Boolean
         Return false
     End Function
     
@@ -1205,10 +1205,10 @@ Partial Public Class PrinceDBDataSet
     Public Delegate Sub CNAESubclasses23RowChangeEventHandler(ByVal sender As Object, ByVal e As CNAESubclasses23RowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub ParcelamentosRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosRowChangeEvent)
+    Public Delegate Sub ParcelamentosAvisoRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosAvisoRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub ParcelamentosAvisoRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosAvisoRowChangeEvent)
+    Public Delegate Sub ParcelamentosRowChangeEventHandler(ByVal sender As Object, ByVal e As ParcelamentosRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -7798,6 +7798,20 @@ Partial Public Class PrinceDBDataSet
         
         Private columnCapitalAntigoMudou As Global.System.Data.DataColumn
         
+        Private columnCNAEAtividadeNoLocal As Global.System.Data.DataColumn
+        
+        Private columnCNAEAtvLocalPrincipal As Global.System.Data.DataColumn
+        
+        Private columnCNAEAtvLocalSEcundarios As Global.System.Data.DataColumn
+        
+        Private columnBombeiroAtvAdm As Global.System.Data.DataColumn
+        
+        Private columnBombeiroAtvresidencia As Global.System.Data.DataColumn
+        
+        Private columnCNAEdescricaoOficial As Global.System.Data.DataColumn
+        
+        Private columnObjetoDOEstabelecimento As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -8954,6 +8968,62 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNAEAtividadeNoLocalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNAEAtividadeNoLocal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNAEAtvLocalPrincipalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNAEAtvLocalPrincipal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNAEAtvLocalSEcundariosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNAEAtvLocalSEcundarios
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroAtvAdmColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroAtvAdm
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BombeiroAtvresidenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBombeiroAtvresidencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CNAEdescricaoOficialColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCNAEdescricaoOficial
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ObjetoDOEstabelecimentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnObjetoDOEstabelecimento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9129,9 +9199,16 @@ Partial Public Class PrinceDBDataSet
                     ByVal FederalProtocolo As String,  _
                     ByVal SenhasDeAcesso As String,  _
                     ByVal CapitalSocialAntigo As String,  _
-                    ByVal CapitalAntigoMudou As String) As EmpresasRow
+                    ByVal CapitalAntigoMudou As String,  _
+                    ByVal CNAEAtividadeNoLocal As String,  _
+                    ByVal CNAEAtvLocalPrincipal As String,  _
+                    ByVal CNAEAtvLocalSEcundarios As String,  _
+                    ByVal BombeiroAtvAdm As String,  _
+                    ByVal BombeiroAtvresidencia As String,  _
+                    ByVal CNAEdescricaoOficial As String,  _
+                    ByVal ObjetoDOEstabelecimento As String) As EmpresasRow
             Dim rowEmpresasRow As EmpresasRow = CType(Me.NewRow,EmpresasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAntigo, CapitalAntigoMudou}
+            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAntigo, CapitalAntigoMudou, CNAEAtividadeNoLocal, CNAEAtvLocalPrincipal, CNAEAtvLocalSEcundarios, BombeiroAtvAdm, BombeiroAtvresidencia, CNAEdescricaoOficial, ObjetoDOEstabelecimento}
             rowEmpresasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmpresasRow)
             Return rowEmpresasRow
@@ -9300,6 +9377,13 @@ Partial Public Class PrinceDBDataSet
             Me.columnSenhasDeAcesso = MyBase.Columns("SenhasDeAcesso")
             Me.columnCapitalSocialAntigo = MyBase.Columns("CapitalSocialAntigo")
             Me.columnCapitalAntigoMudou = MyBase.Columns("CapitalAntigoMudou")
+            Me.columnCNAEAtividadeNoLocal = MyBase.Columns("CNAEAtividadeNoLocal")
+            Me.columnCNAEAtvLocalPrincipal = MyBase.Columns("CNAEAtvLocalPrincipal")
+            Me.columnCNAEAtvLocalSEcundarios = MyBase.Columns("CNAEAtvLocalSEcundarios")
+            Me.columnBombeiroAtvAdm = MyBase.Columns("BombeiroAtvAdm")
+            Me.columnBombeiroAtvresidencia = MyBase.Columns("BombeiroAtvresidencia")
+            Me.columnCNAEdescricaoOficial = MyBase.Columns("CNAEdescricaoOficial")
+            Me.columnObjetoDOEstabelecimento = MyBase.Columns("ObjetoDOEstabelecimento")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9585,6 +9669,20 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnCapitalSocialAntigo)
             Me.columnCapitalAntigoMudou = New Global.System.Data.DataColumn("CapitalAntigoMudou", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCapitalAntigoMudou)
+            Me.columnCNAEAtividadeNoLocal = New Global.System.Data.DataColumn("CNAEAtividadeNoLocal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNAEAtividadeNoLocal)
+            Me.columnCNAEAtvLocalPrincipal = New Global.System.Data.DataColumn("CNAEAtvLocalPrincipal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNAEAtvLocalPrincipal)
+            Me.columnCNAEAtvLocalSEcundarios = New Global.System.Data.DataColumn("CNAEAtvLocalSEcundarios", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNAEAtvLocalSEcundarios)
+            Me.columnBombeiroAtvAdm = New Global.System.Data.DataColumn("BombeiroAtvAdm", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroAtvAdm)
+            Me.columnBombeiroAtvresidencia = New Global.System.Data.DataColumn("BombeiroAtvresidencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBombeiroAtvresidencia)
+            Me.columnCNAEdescricaoOficial = New Global.System.Data.DataColumn("CNAEdescricaoOficial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCNAEdescricaoOficial)
+            Me.columnObjetoDOEstabelecimento = New Global.System.Data.DataColumn("ObjetoDOEstabelecimento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnObjetoDOEstabelecimento)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Empresas}, true))
             Me.columnID_Empresas.AutoIncrement = true
             Me.columnID_Empresas.AutoIncrementSeed = -1
@@ -9729,6 +9827,13 @@ Partial Public Class PrinceDBDataSet
             Me.columnSenhasDeAcesso.MaxLength = 2147483647
             Me.columnCapitalSocialAntigo.MaxLength = 2147483647
             Me.columnCapitalAntigoMudou.MaxLength = 2147483647
+            Me.columnCNAEAtividadeNoLocal.MaxLength = 2147483647
+            Me.columnCNAEAtvLocalPrincipal.MaxLength = 2147483647
+            Me.columnCNAEAtvLocalSEcundarios.MaxLength = 2147483647
+            Me.columnBombeiroAtvAdm.MaxLength = 2147483647
+            Me.columnBombeiroAtvresidencia.MaxLength = 2147483647
+            Me.columnCNAEdescricaoOficial.MaxLength = 2147483647
+            Me.columnObjetoDOEstabelecimento.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14113,6 +14218,299 @@ Partial Public Class PrinceDBDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class ParcelamentosAvisoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ParcelamentosAvisoRow)
+        
+        Private columnIDParcelamentoAviso As Global.System.Data.DataColumn
+        
+        Private columnMesRealizado As Global.System.Data.DataColumn
+        
+        Private columnAno As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "ParcelamentosAviso"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property IDParcelamentoAvisoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDParcelamentoAviso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MesRealizadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMesRealizado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AnoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAno
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ParcelamentosAvisoRow
+            Get
+                Return CType(Me.Rows(index),ParcelamentosAvisoRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowChanging As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowChanged As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowDeleting As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event ParcelamentosAvisoRowDeleted As ParcelamentosAvisoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Sub AddParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Function AddParcelamentosAvisoRow(ByVal MesRealizado As String, ByVal Ano As String) As ParcelamentosAvisoRow
+            Dim rowParcelamentosAvisoRow As ParcelamentosAvisoRow = CType(Me.NewRow,ParcelamentosAvisoRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, MesRealizado, Ano}
+            rowParcelamentosAvisoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowParcelamentosAvisoRow)
+            Return rowParcelamentosAvisoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function FindByIDParcelamentoAviso(ByVal IDParcelamentoAviso As Integer) As ParcelamentosAvisoRow
+            Return CType(Me.Rows.Find(New Object() {IDParcelamentoAviso}),ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As ParcelamentosAvisoDataTable = CType(MyBase.Clone,ParcelamentosAvisoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New ParcelamentosAvisoDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnIDParcelamentoAviso = MyBase.Columns("IDParcelamentoAviso")
+            Me.columnMesRealizado = MyBase.Columns("MesRealizado")
+            Me.columnAno = MyBase.Columns("Ano")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnIDParcelamentoAviso = New Global.System.Data.DataColumn("IDParcelamentoAviso", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDParcelamentoAviso)
+            Me.columnMesRealizado = New Global.System.Data.DataColumn("MesRealizado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMesRealizado)
+            Me.columnAno = New Global.System.Data.DataColumn("Ano", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAno)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDParcelamentoAviso}, true))
+            Me.columnIDParcelamentoAviso.AutoIncrement = true
+            Me.columnIDParcelamentoAviso.AutoIncrementSeed = -1
+            Me.columnIDParcelamentoAviso.AutoIncrementStep = -1
+            Me.columnIDParcelamentoAviso.AllowDBNull = false
+            Me.columnIDParcelamentoAviso.ReadOnly = true
+            Me.columnIDParcelamentoAviso.Unique = true
+            Me.columnMesRealizado.MaxLength = 50
+            Me.columnAno.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function NewParcelamentosAvisoRow() As ParcelamentosAvisoRow
+            Return CType(Me.NewRow,ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New ParcelamentosAvisoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(ParcelamentosAvisoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.ParcelamentosAvisoRowChangedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowChanged(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.ParcelamentosAvisoRowChangingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowChanging(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.ParcelamentosAvisoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowDeleted(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.ParcelamentosAvisoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ParcelamentosAvisoRowDeleting(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub RemoveParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "ParcelamentosAvisoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class ParcelamentosDataTable
         Inherits Global.System.Data.TypedTableBase(Of ParcelamentosRow)
         
@@ -14228,6 +14626,8 @@ Partial Public Class PrinceDBDataSet
         
         Private columnDataFimParcINSSNovo As Global.System.Data.DataColumn
         
+        Private columnDataFimParcINSSProc As Global.System.Data.DataColumn
+        
         Private columnDataFimParcMEI As Global.System.Data.DataColumn
         
         Private columnSocioResponsavel As Global.System.Data.DataColumn
@@ -14238,9 +14638,27 @@ Partial Public Class PrinceDBDataSet
         
         Private columnFinalizadoParcelamento As Global.System.Data.DataColumn
         
-        Private columnDataFimParcINSSProc As Global.System.Data.DataColumn
-        
         Private columnNomeResponsavel As Global.System.Data.DataColumn
+        
+        Private columnTemDataLembrete As Global.System.Data.DataColumn
+        
+        Private columnTemDataEnvio As Global.System.Data.DataColumn
+        
+        Private columnTemDataEnvioINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnTemDataEnvioINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnTemDataEnvioINSSProcur As Global.System.Data.DataColumn
+        
+        Private columnTemDataEnvioMEI As Global.System.Data.DataColumn
+        
+        Private columnTemDataFimINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnTemDataFimINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnTemDataFimINSSProcur As Global.System.Data.DataColumn
+        
+        Private columnTemDataFimMEI As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -14727,6 +15145,14 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DataFimParcINSSProcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataFimParcINSSProc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property DataFimParcMEIColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDataFimParcMEI
@@ -14767,17 +15193,89 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property DataFimParcINSSProcColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NomeResponsavelColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDataFimParcINSSProc
+                Return Me.columnNomeResponsavel
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property NomeResponsavelColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TemDataLembreteColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNomeResponsavel
+                Return Me.columnTemDataLembrete
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataEnvioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataEnvio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataEnvioINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataEnvioINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataEnvioINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataEnvioINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataEnvioINSSProcurColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataEnvioINSSProcur
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataEnvioMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataEnvioMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataFimINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataFimINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataFimINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataFimINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataFimINSSProcurColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataFimINSSProcur
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property TemDataFimMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemDataFimMEI
             End Get
         End Property
         
@@ -14874,15 +15372,25 @@ Partial Public Class PrinceDBDataSet
                     ByVal MeiProtocolo As String,  _
                     ByVal DataFimParcINSSAntigo As String,  _
                     ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINSSProc As String,  _
                     ByVal DataFimParcMEI As String,  _
                     ByVal SocioResponsavel As String,  _
                     ByVal CPFsocioResponsavel As String,  _
                     ByVal GovSenha As String,  _
                     ByVal FinalizadoParcelamento As String,  _
-                    ByVal DataFimParcINSSProc As String,  _
-                    ByVal NomeResponsavel As String) As ParcelamentosRow
+                    ByVal NomeResponsavel As String,  _
+                    ByVal TemDataLembrete As String,  _
+                    ByVal TemDataEnvio As String,  _
+                    ByVal TemDataEnvioINSSAntigo As String,  _
+                    ByVal TemDataEnvioINSSNovo As String,  _
+                    ByVal TemDataEnvioINSSProcur As String,  _
+                    ByVal TemDataEnvioMEI As String,  _
+                    ByVal TemDataFimINSSAntigo As String,  _
+                    ByVal TemDataFimINSSNovo As String,  _
+                    ByVal TemDataFimINSSProcur As String,  _
+                    ByVal TemDataFimMEI As String) As ParcelamentosRow
             Dim rowParcelamentosRow As ParcelamentosRow = CType(Me.NewRow,ParcelamentosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, DataFimParcINSSProc, NomeResponsavel}
+            Dim columnValuesArray() As Object = New Object() {Nothing, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI}
             rowParcelamentosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowParcelamentosRow)
             Return rowParcelamentosRow
@@ -14967,13 +15475,23 @@ Partial Public Class PrinceDBDataSet
             Me.columnMeiProtocolo = MyBase.Columns("MeiProtocolo")
             Me.columnDataFimParcINSSAntigo = MyBase.Columns("DataFimParcINSSAntigo")
             Me.columnDataFimParcINSSNovo = MyBase.Columns("DataFimParcINSSNovo")
+            Me.columnDataFimParcINSSProc = MyBase.Columns("DataFimParcINSSProc")
             Me.columnDataFimParcMEI = MyBase.Columns("DataFimParcMEI")
             Me.columnSocioResponsavel = MyBase.Columns("SocioResponsavel")
             Me.columnCPFsocioResponsavel = MyBase.Columns("CPFsocioResponsavel")
             Me.columnGovSenha = MyBase.Columns("GovSenha")
             Me.columnFinalizadoParcelamento = MyBase.Columns("FinalizadoParcelamento")
-            Me.columnDataFimParcINSSProc = MyBase.Columns("DataFimParcINSSProc")
             Me.columnNomeResponsavel = MyBase.Columns("NomeResponsavel")
+            Me.columnTemDataLembrete = MyBase.Columns("TemDataLembrete")
+            Me.columnTemDataEnvio = MyBase.Columns("TemDataEnvio")
+            Me.columnTemDataEnvioINSSAntigo = MyBase.Columns("TemDataEnvioINSSAntigo")
+            Me.columnTemDataEnvioINSSNovo = MyBase.Columns("TemDataEnvioINSSNovo")
+            Me.columnTemDataEnvioINSSProcur = MyBase.Columns("TemDataEnvioINSSProcur")
+            Me.columnTemDataEnvioMEI = MyBase.Columns("TemDataEnvioMEI")
+            Me.columnTemDataFimINSSAntigo = MyBase.Columns("TemDataFimINSSAntigo")
+            Me.columnTemDataFimINSSNovo = MyBase.Columns("TemDataFimINSSNovo")
+            Me.columnTemDataFimINSSProcur = MyBase.Columns("TemDataFimINSSProcur")
+            Me.columnTemDataFimMEI = MyBase.Columns("TemDataFimMEI")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15091,6 +15609,8 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnDataFimParcINSSAntigo)
             Me.columnDataFimParcINSSNovo = New Global.System.Data.DataColumn("DataFimParcINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDataFimParcINSSNovo)
+            Me.columnDataFimParcINSSProc = New Global.System.Data.DataColumn("DataFimParcINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataFimParcINSSProc)
             Me.columnDataFimParcMEI = New Global.System.Data.DataColumn("DataFimParcMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDataFimParcMEI)
             Me.columnSocioResponsavel = New Global.System.Data.DataColumn("SocioResponsavel", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -15101,10 +15621,28 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnGovSenha)
             Me.columnFinalizadoParcelamento = New Global.System.Data.DataColumn("FinalizadoParcelamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFinalizadoParcelamento)
-            Me.columnDataFimParcINSSProc = New Global.System.Data.DataColumn("DataFimParcINSSProc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDataFimParcINSSProc)
             Me.columnNomeResponsavel = New Global.System.Data.DataColumn("NomeResponsavel", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomeResponsavel)
+            Me.columnTemDataLembrete = New Global.System.Data.DataColumn("TemDataLembrete", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataLembrete)
+            Me.columnTemDataEnvio = New Global.System.Data.DataColumn("TemDataEnvio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataEnvio)
+            Me.columnTemDataEnvioINSSAntigo = New Global.System.Data.DataColumn("TemDataEnvioINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataEnvioINSSAntigo)
+            Me.columnTemDataEnvioINSSNovo = New Global.System.Data.DataColumn("TemDataEnvioINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataEnvioINSSNovo)
+            Me.columnTemDataEnvioINSSProcur = New Global.System.Data.DataColumn("TemDataEnvioINSSProcur", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataEnvioINSSProcur)
+            Me.columnTemDataEnvioMEI = New Global.System.Data.DataColumn("TemDataEnvioMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataEnvioMEI)
+            Me.columnTemDataFimINSSAntigo = New Global.System.Data.DataColumn("TemDataFimINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataFimINSSAntigo)
+            Me.columnTemDataFimINSSNovo = New Global.System.Data.DataColumn("TemDataFimINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataFimINSSNovo)
+            Me.columnTemDataFimINSSProcur = New Global.System.Data.DataColumn("TemDataFimINSSProcur", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataFimINSSProcur)
+            Me.columnTemDataFimMEI = New Global.System.Data.DataColumn("TemDataFimMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemDataFimMEI)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Parcelamentos}, true))
             Me.columnID_Parcelamentos.AutoIncrement = true
             Me.columnID_Parcelamentos.AutoIncrementSeed = -1
@@ -15167,13 +15705,23 @@ Partial Public Class PrinceDBDataSet
             Me.columnMeiProtocolo.MaxLength = 2147483647
             Me.columnDataFimParcINSSAntigo.MaxLength = 2147483647
             Me.columnDataFimParcINSSNovo.MaxLength = 2147483647
+            Me.columnDataFimParcINSSProc.MaxLength = 2147483647
             Me.columnDataFimParcMEI.MaxLength = 2147483647
             Me.columnSocioResponsavel.MaxLength = 2147483647
             Me.columnCPFsocioResponsavel.MaxLength = 2147483647
             Me.columnGovSenha.MaxLength = 2147483647
             Me.columnFinalizadoParcelamento.MaxLength = 2147483647
-            Me.columnDataFimParcINSSProc.MaxLength = 2147483647
             Me.columnNomeResponsavel.MaxLength = 2147483647
+            Me.columnTemDataLembrete.MaxLength = 2147483647
+            Me.columnTemDataEnvio.MaxLength = 2147483647
+            Me.columnTemDataEnvioINSSAntigo.MaxLength = 2147483647
+            Me.columnTemDataEnvioINSSNovo.MaxLength = 2147483647
+            Me.columnTemDataEnvioINSSProcur.MaxLength = 2147483647
+            Me.columnTemDataEnvioMEI.MaxLength = 2147483647
+            Me.columnTemDataFimINSSAntigo.MaxLength = 2147483647
+            Me.columnTemDataFimINSSNovo.MaxLength = 2147483647
+            Me.columnTemDataFimINSSProcur.MaxLength = 2147483647
+            Me.columnTemDataFimMEI.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15260,299 +15808,6 @@ Partial Public Class PrinceDBDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "ParcelamentosDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class ParcelamentosAvisoDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ParcelamentosAvisoRow)
-        
-        Private columnIDParcelamentoAviso As Global.System.Data.DataColumn
-        
-        Private columnMesRealizado As Global.System.Data.DataColumn
-        
-        Private columnAno As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "ParcelamentosAviso"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property IDParcelamentoAvisoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIDParcelamentoAviso
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property MesRealizadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMesRealizado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property AnoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAno
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As ParcelamentosAvisoRow
-            Get
-                Return CType(Me.Rows(index),ParcelamentosAvisoRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ParcelamentosAvisoRowChanging As ParcelamentosAvisoRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ParcelamentosAvisoRowChanged As ParcelamentosAvisoRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ParcelamentosAvisoRowDeleting As ParcelamentosAvisoRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ParcelamentosAvisoRowDeleted As ParcelamentosAvisoRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AddParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddParcelamentosAvisoRow(ByVal MesRealizado As String, ByVal Ano As String) As ParcelamentosAvisoRow
-            Dim rowParcelamentosAvisoRow As ParcelamentosAvisoRow = CType(Me.NewRow,ParcelamentosAvisoRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, MesRealizado, Ano}
-            rowParcelamentosAvisoRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowParcelamentosAvisoRow)
-            Return rowParcelamentosAvisoRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByIDParcelamentoAviso(ByVal IDParcelamentoAviso As Integer) As ParcelamentosAvisoRow
-            Return CType(Me.Rows.Find(New Object() {IDParcelamentoAviso}),ParcelamentosAvisoRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ParcelamentosAvisoDataTable = CType(MyBase.Clone,ParcelamentosAvisoDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ParcelamentosAvisoDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnIDParcelamentoAviso = MyBase.Columns("IDParcelamentoAviso")
-            Me.columnMesRealizado = MyBase.Columns("MesRealizado")
-            Me.columnAno = MyBase.Columns("Ano")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnIDParcelamentoAviso = New Global.System.Data.DataColumn("IDParcelamentoAviso", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDParcelamentoAviso)
-            Me.columnMesRealizado = New Global.System.Data.DataColumn("MesRealizado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMesRealizado)
-            Me.columnAno = New Global.System.Data.DataColumn("Ano", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAno)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDParcelamentoAviso}, true))
-            Me.columnIDParcelamentoAviso.AutoIncrement = true
-            Me.columnIDParcelamentoAviso.AutoIncrementSeed = -1
-            Me.columnIDParcelamentoAviso.AutoIncrementStep = -1
-            Me.columnIDParcelamentoAviso.AllowDBNull = false
-            Me.columnIDParcelamentoAviso.ReadOnly = true
-            Me.columnIDParcelamentoAviso.Unique = true
-            Me.columnMesRealizado.MaxLength = 50
-            Me.columnAno.MaxLength = 50
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewParcelamentosAvisoRow() As ParcelamentosAvisoRow
-            Return CType(Me.NewRow,ParcelamentosAvisoRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ParcelamentosAvisoRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ParcelamentosAvisoRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.ParcelamentosAvisoRowChangedEvent) Is Nothing) Then
-                RaiseEvent ParcelamentosAvisoRowChanged(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.ParcelamentosAvisoRowChangingEvent) Is Nothing) Then
-                RaiseEvent ParcelamentosAvisoRowChanging(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.ParcelamentosAvisoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ParcelamentosAvisoRowDeleted(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.ParcelamentosAvisoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ParcelamentosAvisoRowDeleting(Me, New ParcelamentosAvisoRowChangeEvent(CType(e.Row,ParcelamentosAvisoRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemoveParcelamentosAvisoRow(ByVal row As ParcelamentosAvisoRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As PrinceDBDataSet = New PrinceDBDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ParcelamentosAvisoDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -23292,6 +23547,111 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNAEAtividadeNoLocal() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.CNAEAtividadeNoLocalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAEAtividadeNoLocal' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.CNAEAtividadeNoLocalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNAEAtvLocalPrincipal() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.CNAEAtvLocalPrincipalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAEAtvLocalPrincipal' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.CNAEAtvLocalPrincipalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNAEAtvLocalSEcundarios() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.CNAEAtvLocalSEcundariosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAEAtvLocalSEcundarios' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.CNAEAtvLocalSEcundariosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroAtvAdm() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.BombeiroAtvAdmColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroAtvAdm' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.BombeiroAtvAdmColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BombeiroAtvresidencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.BombeiroAtvresidenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'BombeiroAtvresidencia' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.BombeiroAtvresidenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CNAEdescricaoOficial() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.CNAEdescricaoOficialColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'CNAEdescricaoOficial' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.CNAEdescricaoOficialColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ObjetoDOEstabelecimento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpresas.ObjetoDOEstabelecimentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'ObjetoDOEstabelecimento' na tabela 'Empresas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpresas.ObjetoDOEstabelecimentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsRazaoSocialNull() As Boolean
             Return Me.IsNull(Me.tableEmpresas.RazaoSocialColumn)
         End Function
@@ -24956,6 +25316,90 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetCapitalAntigoMudouNull()
             Me(Me.tableEmpresas.CapitalAntigoMudouColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNAEAtividadeNoLocalNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.CNAEAtividadeNoLocalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNAEAtividadeNoLocalNull()
+            Me(Me.tableEmpresas.CNAEAtividadeNoLocalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNAEAtvLocalPrincipalNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.CNAEAtvLocalPrincipalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNAEAtvLocalPrincipalNull()
+            Me(Me.tableEmpresas.CNAEAtvLocalPrincipalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNAEAtvLocalSEcundariosNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.CNAEAtvLocalSEcundariosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNAEAtvLocalSEcundariosNull()
+            Me(Me.tableEmpresas.CNAEAtvLocalSEcundariosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroAtvAdmNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.BombeiroAtvAdmColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroAtvAdmNull()
+            Me(Me.tableEmpresas.BombeiroAtvAdmColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBombeiroAtvresidenciaNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.BombeiroAtvresidenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBombeiroAtvresidenciaNull()
+            Me(Me.tableEmpresas.BombeiroAtvresidenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCNAEdescricaoOficialNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.CNAEdescricaoOficialColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCNAEdescricaoOficialNull()
+            Me(Me.tableEmpresas.CNAEdescricaoOficialColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsObjetoDOEstabelecimentoNull() As Boolean
+            Return Me.IsNull(Me.tableEmpresas.ObjetoDOEstabelecimentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetObjetoDOEstabelecimentoNull()
+            Me(Me.tableEmpresas.ObjetoDOEstabelecimentoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -27830,6 +28274,87 @@ Partial Public Class PrinceDBDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class ParcelamentosAvisoRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableParcelamentosAviso As ParcelamentosAvisoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableParcelamentosAviso = CType(Me.Table,ParcelamentosAvisoDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property IDParcelamentoAviso() As Integer
+            Get
+                Return CType(Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MesRealizado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentosAviso.MesRealizadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesRealizado' na tabela 'ParcelamentosAviso' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Ano() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentosAviso.AnoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ano' na tabela 'ParcelamentosAviso' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentosAviso.AnoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMesRealizadoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentosAviso.MesRealizadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMesRealizadoNull()
+            Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAnoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentosAviso.AnoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAnoNull()
+            Me(Me.tableParcelamentosAviso.AnoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class ParcelamentosRow
         Inherits Global.System.Data.DataRow
         
@@ -28680,6 +29205,21 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DataFimParcINSSProc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.DataFimParcINSSProcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.DataFimParcINSSProcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property DataFimParcMEI() As String
             Get
                 Try 
@@ -28755,21 +29295,6 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property DataFimParcINSSProc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableParcelamentos.DataFimParcINSSProcColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'DataFimParcINSSProc' na tabela 'Parcelamentos' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableParcelamentos.DataFimParcINSSProcColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property NomeResponsavel() As String
             Get
                 Try 
@@ -28780,6 +29305,156 @@ Partial Public Class PrinceDBDataSet
             End Get
             Set
                 Me(Me.tableParcelamentos.NomeResponsavelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataLembrete() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataLembreteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataLembrete' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataLembreteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataEnvio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataEnvioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataEnvio' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataEnvioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataEnvioINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataEnvioINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataEnvioINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataEnvioINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataEnvioINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataEnvioINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataEnvioINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataEnvioINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataEnvioINSSProcur() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataEnvioINSSProcurColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataEnvioINSSProcur' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataEnvioINSSProcurColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataEnvioMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataEnvioMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataEnvioMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataEnvioMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataFimINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataFimINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataFimINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataFimINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataFimINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataFimINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataFimINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataFimINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataFimINSSProcur() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataFimINSSProcurColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataFimINSSProcur' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataFimINSSProcurColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property TemDataFimMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.TemDataFimMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'TemDataFimMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.TemDataFimMEIColumn) = value
             End Set
         End Property
         
@@ -29445,6 +30120,18 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDataFimParcINSSProcNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.DataFimParcINSSProcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDataFimParcINSSProcNull()
+            Me(Me.tableParcelamentos.DataFimParcINSSProcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsDataFimParcMEINull() As Boolean
             Return Me.IsNull(Me.tableParcelamentos.DataFimParcMEIColumn)
         End Function
@@ -29505,18 +30192,6 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsDataFimParcINSSProcNull() As Boolean
-            Return Me.IsNull(Me.tableParcelamentos.DataFimParcINSSProcColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetDataFimParcINSSProcNull()
-            Me(Me.tableParcelamentos.DataFimParcINSSProcColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsNomeResponsavelNull() As Boolean
             Return Me.IsNull(Me.tableParcelamentos.NomeResponsavelColumn)
         End Function
@@ -29526,86 +30201,125 @@ Partial Public Class PrinceDBDataSet
         Public Sub SetNomeResponsavelNull()
             Me(Me.tableParcelamentos.NomeResponsavelColumn) = Global.System.Convert.DBNull
         End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class ParcelamentosAvisoRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableParcelamentosAviso As ParcelamentosAvisoDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableParcelamentosAviso = CType(Me.Table,ParcelamentosAvisoDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property IDParcelamentoAviso() As Integer
-            Get
-                Return CType(Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableParcelamentosAviso.IDParcelamentoAvisoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property MesRealizado() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableParcelamentosAviso.MesRealizadoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MesRealizado' na tabela 'ParcelamentosAviso' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Ano() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableParcelamentosAviso.AnoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'Ano' na tabela 'ParcelamentosAviso' é DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableParcelamentosAviso.AnoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsMesRealizadoNull() As Boolean
-            Return Me.IsNull(Me.tableParcelamentosAviso.MesRealizadoColumn)
+        Public Function IsTemDataLembreteNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataLembreteColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetMesRealizadoNull()
-            Me(Me.tableParcelamentosAviso.MesRealizadoColumn) = Global.System.Convert.DBNull
+        Public Sub SetTemDataLembreteNull()
+            Me(Me.tableParcelamentos.TemDataLembreteColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAnoNull() As Boolean
-            Return Me.IsNull(Me.tableParcelamentosAviso.AnoColumn)
+        Public Function IsTemDataEnvioNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataEnvioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAnoNull()
-            Me(Me.tableParcelamentosAviso.AnoColumn) = Global.System.Convert.DBNull
+        Public Sub SetTemDataEnvioNull()
+            Me(Me.tableParcelamentos.TemDataEnvioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataEnvioINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataEnvioINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataEnvioINSSAntigoNull()
+            Me(Me.tableParcelamentos.TemDataEnvioINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataEnvioINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataEnvioINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataEnvioINSSNovoNull()
+            Me(Me.tableParcelamentos.TemDataEnvioINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataEnvioINSSProcurNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataEnvioINSSProcurColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataEnvioINSSProcurNull()
+            Me(Me.tableParcelamentos.TemDataEnvioINSSProcurColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataEnvioMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataEnvioMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataEnvioMEINull()
+            Me(Me.tableParcelamentos.TemDataEnvioMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataFimINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataFimINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataFimINSSAntigoNull()
+            Me(Me.tableParcelamentos.TemDataFimINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataFimINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataFimINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataFimINSSNovoNull()
+            Me(Me.tableParcelamentos.TemDataFimINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataFimINSSProcurNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataFimINSSProcurColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataFimINSSProcurNull()
+            Me(Me.tableParcelamentos.TemDataFimINSSProcurColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTemDataFimMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.TemDataFimMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTemDataFimMEINull()
+            Me(Me.tableParcelamentos.TemDataFimMEIColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -30513,42 +31227,6 @@ Partial Public Class PrinceDBDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class ParcelamentosRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As ParcelamentosRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As ParcelamentosRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As ParcelamentosRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Class ParcelamentosAvisoRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -30567,6 +31245,42 @@ Partial Public Class PrinceDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As ParcelamentosAvisoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class ParcelamentosRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As ParcelamentosRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As ParcelamentosRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As ParcelamentosRow
             Get
                 Return Me.eventRow
             End Get
@@ -39803,6 +40517,13 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SenhasDeAcesso", "SenhasDeAcesso")
             tableMapping.ColumnMappings.Add("CapitalSocialAntigo", "CapitalSocialAntigo")
             tableMapping.ColumnMappings.Add("CapitalAntigoMudou", "CapitalAntigoMudou")
+            tableMapping.ColumnMappings.Add("CNAEAtividadeNoLocal", "CNAEAtividadeNoLocal")
+            tableMapping.ColumnMappings.Add("CNAEAtvLocalPrincipal", "CNAEAtvLocalPrincipal")
+            tableMapping.ColumnMappings.Add("CNAEAtvLocalSEcundarios", "CNAEAtvLocalSEcundarios")
+            tableMapping.ColumnMappings.Add("BombeiroAtvAdm", "BombeiroAtvAdm")
+            tableMapping.ColumnMappings.Add("BombeiroAtvresidencia", "BombeiroAtvresidencia")
+            tableMapping.ColumnMappings.Add("CNAEdescricaoOficial", "CNAEdescricaoOficial")
+            tableMapping.ColumnMappings.Add("ObjetoDOEstabelecimento", "ObjetoDOEstabelecimento")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -39971,58 +40692,64 @@ Namespace PrinceDBDataSetTableAdapters
                 "osComplAtividade], [DadosComplPavimentos], [DadosComplPessoas], [DadosComplSubso"& _ 
                 "lo], [DadosComplLiquido], [DadosComplGLP], [AjudaTipodeUnidade], [DBEProtocolo],"& _ 
                 " [DBEData], [FederalProtocolo], [SenhasDeAcesso], [CapitalSocialAntigo], [Capita"& _ 
-                "lAntigoMudou]) VALUES (@RazaoSocial, @NomeFantasia, @CNPJ, @Endereco, @EndNumero"& _ 
-                ", @EndBairro, @EndComplemento, @EndCEP, @EndCidade, @EndEstado, @EndPais, @EmpTe"& _ 
-                "l1, @EmpTel2, @EmpEmail, @PaginaWeb, @IE, @IM, @NaturezaJuridica, @EmpInicioAtiv"& _ 
-                "idade, @EmpCriado, @Processo, @Status, @NIRE, @CNAEPrincipal, @CNAESecundario, @"& _ 
-                "RamoDeAtividade, @ResponsavelCPF, @ResponsavelNome, @ProtocoloJuntaComercial, @G"& _ 
-                "eral, @Lembrete, @ProtocoloREDESIM, @DataProtREDESIM, @DataProtJuntaComercial, @"& _ 
-                "DataPedidoIE, @AvisarDia, @PrazoSimples, @NireAlt, @JuntaObs, @NRegistroAlt, @Da"& _ 
-                "taRegistroAlt, @NireAntigos, @NAlteracao, @RedeSimObs, @EstadualObs, @Prefeitura"& _ 
-                "Obs, @CodigoSimples, @CPFResponsavel, @NomeResponsavel, @ArquivoContrato, @Proce"& _ 
-                "dimento, @Prioridade, @RegimeFederal, @PorteDaEmpresa, @TipoDeEmpresa, @AltConso"& _ 
-                "lidada, @Motivo, @DataMotivo, @IEComprovante, @IEInicioAtividade, @IEVencPedido,"& _ 
-                " @BombeiroJunta, @IEjunta, @ProtJuntaFinal, @Tituloeleitor, @area, @area2, @ObsS"& _ 
-                "imples, @DataSimples, @DataUltdefSimples, @OrgãoPedSimples, @PastaDocumentos, @R"& _ 
-                "espRG, @Historico, @AltProt, @CapitalS, @CapitalI, @DataExcSocial, @CNHnumero, @"& _ 
-                "CNHexp, @CNHdataexp, @RespMae, @RespDataNasc, @CadImob, @EndZona, @EndQuadra, @E"& _ 
-                "ndData, @RespRgSigla, @Procuracao, @ProcuracaoN, @ProcuracaoData, @NovaRazaoSoci"& _ 
-                "al1, @NovaRazaoSocial2, @NovaRazaoSocial3, @NovaRazaoSocial, @Eventos, @SenhaGov"& _ 
-                ", @RespPai, @NIRERegistro, @NIRERegistroData, @NovaRazaoSocialFinal, @IEOnline, "& _ 
-                "@IETipo, @IEeProcNum, @IEDataAltSolicitado, @SistemaExterno, @NireData, @DadosSo"& _ 
-                "cios, @QuantidadeSocios, @DocContratos, @RazaoSocialAntiga, @SituacaoCadastral, "& _ 
-                "@DivisaoCapitalSocios, @CapitalQuotaValor, @CapitaQuotaTotal, @CPFdoCONJUGE, @NO"& _ 
-                "MEdoCONJUGE, @ResponsavelOrgaoRG, @ResponsavelEstadoOrgaoRG, @NumeroProcesso, @R"& _ 
-                "eciboProcesso, @SEDE, @PontoDeReferencia, @TipoUnidadeProdutiva, @FormaDeAtuacao"& _ 
-                ", @DadosComplEstabelecimento, @DadosComplAtividade, @DadosComplPavimentos, @Dado"& _ 
-                "sComplPessoas, @DadosComplSubsolo, @DadosComplLiquido, @DadosComplGLP, @AjudaTip"& _ 
-                "odeUnidade, @DBEProtocolo, @DBEData, @FederalProtocolo, @SenhasDeAcesso, @Capita"& _ 
-                "lSocialAntigo, @CapitalAntigoMudou);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, RazaoSocial, NomeFanta"& _ 
-                "sia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, En"& _ 
-                "dEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridic"& _ 
-                "a, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESec"& _ 
-                "undario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComerci"& _ 
-                "al, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, "& _ 
-                "DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegi"& _ 
-                "stroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, Codigo"& _ 
-                "Simples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Priorid"& _ 
-                "ade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataM"& _ 
-                "otivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, P"& _ 
-                "rotJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSi"& _ 
-                "mples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, C"& _ 
-                "apitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, Ca"& _ 
-                "dImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, Procur"& _ 
-                "acaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial,"& _ 
-                " Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFina"& _ 
-                "l, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, "& _ 
-                "DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastra"& _ 
-                "l, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOME"& _ 
-                "doCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboP"& _ 
-                "rocesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosCom"& _ 
-                "plEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas,"& _ 
-                " DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEPro"& _ 
-                "tocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAntigo, CapitalA"& _ 
-                "ntigoMudou FROM Empresas WHERE (ID_Empresas = SCOPE_IDENTITY())"
+                "lAntigoMudou], [CNAEAtividadeNoLocal], [CNAEAtvLocalPrincipal], [CNAEAtvLocalSEc"& _ 
+                "undarios], [BombeiroAtvAdm], [BombeiroAtvresidencia], [CNAEdescricaoOficial], [O"& _ 
+                "bjetoDOEstabelecimento]) VALUES (@RazaoSocial, @NomeFantasia, @CNPJ, @Endereco, "& _ 
+                "@EndNumero, @EndBairro, @EndComplemento, @EndCEP, @EndCidade, @EndEstado, @EndPa"& _ 
+                "is, @EmpTel1, @EmpTel2, @EmpEmail, @PaginaWeb, @IE, @IM, @NaturezaJuridica, @Emp"& _ 
+                "InicioAtividade, @EmpCriado, @Processo, @Status, @NIRE, @CNAEPrincipal, @CNAESec"& _ 
+                "undario, @RamoDeAtividade, @ResponsavelCPF, @ResponsavelNome, @ProtocoloJuntaCom"& _ 
+                "ercial, @Geral, @Lembrete, @ProtocoloREDESIM, @DataProtREDESIM, @DataProtJuntaCo"& _ 
+                "mercial, @DataPedidoIE, @AvisarDia, @PrazoSimples, @NireAlt, @JuntaObs, @NRegist"& _ 
+                "roAlt, @DataRegistroAlt, @NireAntigos, @NAlteracao, @RedeSimObs, @EstadualObs, @"& _ 
+                "PrefeituraObs, @CodigoSimples, @CPFResponsavel, @NomeResponsavel, @ArquivoContra"& _ 
+                "to, @Procedimento, @Prioridade, @RegimeFederal, @PorteDaEmpresa, @TipoDeEmpresa,"& _ 
+                " @AltConsolidada, @Motivo, @DataMotivo, @IEComprovante, @IEInicioAtividade, @IEV"& _ 
+                "encPedido, @BombeiroJunta, @IEjunta, @ProtJuntaFinal, @Tituloeleitor, @area, @ar"& _ 
+                "ea2, @ObsSimples, @DataSimples, @DataUltdefSimples, @OrgãoPedSimples, @PastaDocu"& _ 
+                "mentos, @RespRG, @Historico, @AltProt, @CapitalS, @CapitalI, @DataExcSocial, @CN"& _ 
+                "Hnumero, @CNHexp, @CNHdataexp, @RespMae, @RespDataNasc, @CadImob, @EndZona, @End"& _ 
+                "Quadra, @EndData, @RespRgSigla, @Procuracao, @ProcuracaoN, @ProcuracaoData, @Nov"& _ 
+                "aRazaoSocial1, @NovaRazaoSocial2, @NovaRazaoSocial3, @NovaRazaoSocial, @Eventos,"& _ 
+                " @SenhaGov, @RespPai, @NIRERegistro, @NIRERegistroData, @NovaRazaoSocialFinal, @"& _ 
+                "IEOnline, @IETipo, @IEeProcNum, @IEDataAltSolicitado, @SistemaExterno, @NireData"& _ 
+                ", @DadosSocios, @QuantidadeSocios, @DocContratos, @RazaoSocialAntiga, @SituacaoC"& _ 
+                "adastral, @DivisaoCapitalSocios, @CapitalQuotaValor, @CapitaQuotaTotal, @CPFdoCO"& _ 
+                "NJUGE, @NOMEdoCONJUGE, @ResponsavelOrgaoRG, @ResponsavelEstadoOrgaoRG, @NumeroPr"& _ 
+                "ocesso, @ReciboProcesso, @SEDE, @PontoDeReferencia, @TipoUnidadeProdutiva, @Form"& _ 
+                "aDeAtuacao, @DadosComplEstabelecimento, @DadosComplAtividade, @DadosComplPavimen"& _ 
+                "tos, @DadosComplPessoas, @DadosComplSubsolo, @DadosComplLiquido, @DadosComplGLP,"& _ 
+                " @AjudaTipodeUnidade, @DBEProtocolo, @DBEData, @FederalProtocolo, @SenhasDeAcess"& _ 
+                "o, @CapitalSocialAntigo, @CapitalAntigoMudou, @CNAEAtividadeNoLocal, @CNAEAtvLoc"& _ 
+                "alPrincipal, @CNAEAtvLocalSEcundarios, @BombeiroAtvAdm, @BombeiroAtvresidencia, "& _ 
+                "@CNAEdescricaoOficial, @ObjetoDOEstabelecimento);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, RazaoSoci"& _ 
+                "al, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, "& _ 
+                "EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, Na"& _ 
+                "turezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrinc"& _ 
+                "ipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, Protocol"& _ 
+                "oJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJun"& _ 
+                "taComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistro"& _ 
+                "Alt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, Prefeitu"& _ 
+                "raObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedim"& _ 
+                "ento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, "& _ 
+                "Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunt"& _ 
+                "a, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples,"& _ 
+                " DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt"& _ 
+                ", CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, Res"& _ 
+                "pDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, Procur"& _ 
+                "acaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, Nov"& _ 
+                "aRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRa"& _ 
+                "zaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExtern"& _ 
+                "o, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, Sit"& _ 
+                "uacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdo"& _ 
+                "CONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProc"& _ 
+                "esso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtua"& _ 
+                "cao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, Dados"& _ 
+                "ComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUn"& _ 
+                "idade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAnt"& _ 
+                "igo, CapitalAntigoMudou, CNAEAtividadeNoLocal, CNAEAtvLocalPrincipal, CNAEAtvLoc"& _ 
+                "alSEcundarios, BombeiroAtvAdm, BombeiroAtvresidencia, CNAEdescricaoOficial, Obje"& _ 
+                "toDOEstabelecimento FROM Empresas WHERE (ID_Empresas = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeFantasia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeFantasia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40163,6 +40890,13 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SenhasDeAcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SenhasDeAcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CapitalSocialAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CapitalSocialAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CapitalAntigoMudou", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CapitalAntigoMudou", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtividadeNoLocal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtividadeNoLocal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtvLocalPrincipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtvLocalPrincipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtvLocalSEcundarios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtvLocalSEcundarios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroAtvAdm", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroAtvAdm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroAtvresidencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroAtvresidencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEdescricaoOficial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEdescricaoOficial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ObjetoDOEstabelecimento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ObjetoDOEstabelecimento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Empresas] SET [RazaoSocial] = @RazaoSocial, [NomeFantasia] = @NomeFantasi"& _ 
@@ -40221,83 +40955,89 @@ Namespace PrinceDBDataSetTableAdapters
                 "] = @AjudaTipodeUnidade, [DBEProtocolo] = @DBEProtocolo, [DBEData] = @DBEData, ["& _ 
                 "FederalProtocolo] = @FederalProtocolo, [SenhasDeAcesso] = @SenhasDeAcesso, [Capi"& _ 
                 "talSocialAntigo] = @CapitalSocialAntigo, [CapitalAntigoMudou] = @CapitalAntigoMu"& _ 
-                "dou WHERE (([ID_Empresas] = @Original_ID_Empresas) AND ((@IsNull_CNPJ = 1 AND [C"& _ 
-                "NPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_Endereco = 1 AND [Ende"& _ 
-                "reco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_EndNumero = 1"& _ 
-                " AND [EndNumero] IS NULL) OR ([EndNumero] = @Original_EndNumero)) AND ((@IsNull_"& _ 
-                "EndBairro = 1 AND [EndBairro] IS NULL) OR ([EndBairro] = @Original_EndBairro)) A"& _ 
-                "ND ((@IsNull_EndComplemento = 1 AND [EndComplemento] IS NULL) OR ([EndComplement"& _ 
-                "o] = @Original_EndComplemento)) AND ((@IsNull_EndCEP = 1 AND [EndCEP] IS NULL) O"& _ 
-                "R ([EndCEP] = @Original_EndCEP)) AND ((@IsNull_EndCidade = 1 AND [EndCidade] IS "& _ 
-                "NULL) OR ([EndCidade] = @Original_EndCidade)) AND ((@IsNull_EndEstado = 1 AND [E"& _ 
-                "ndEstado] IS NULL) OR ([EndEstado] = @Original_EndEstado)) AND ((@IsNull_EndPais"& _ 
-                " = 1 AND [EndPais] IS NULL) OR ([EndPais] = @Original_EndPais)) AND ((@IsNull_Em"& _ 
-                "pTel1 = 1 AND [EmpTel1] IS NULL) OR ([EmpTel1] = @Original_EmpTel1)) AND ((@IsNu"& _ 
-                "ll_EmpTel2 = 1 AND [EmpTel2] IS NULL) OR ([EmpTel2] = @Original_EmpTel2)) AND (("& _ 
-                "@IsNull_EmpEmail = 1 AND [EmpEmail] IS NULL) OR ([EmpEmail] = @Original_EmpEmail"& _ 
-                ")) AND ((@IsNull_PaginaWeb = 1 AND [PaginaWeb] IS NULL) OR ([PaginaWeb] = @Origi"& _ 
-                "nal_PaginaWeb)) AND ((@IsNull_IE = 1 AND [IE] IS NULL) OR ([IE] = @Original_IE))"& _ 
-                " AND ((@IsNull_IM = 1 AND [IM] IS NULL) OR ([IM] = @Original_IM)) AND ((@IsNull_"& _ 
-                "EmpInicioAtividade = 1 AND [EmpInicioAtividade] IS NULL) OR ([EmpInicioAtividade"& _ 
-                "] = @Original_EmpInicioAtividade)) AND ((@IsNull_EmpCriado = 1 AND [EmpCriado] I"& _ 
-                "S NULL) OR ([EmpCriado] = @Original_EmpCriado)) AND ((@IsNull_Processo = 1 AND ["& _ 
-                "Processo] IS NULL) OR ([Processo] = @Original_Processo)) AND ((@IsNull_Status = "& _ 
-                "1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_NIRE = 1"& _ 
-                " AND [NIRE] IS NULL) OR ([NIRE] = @Original_NIRE)) AND ((@IsNull_CNAEPrincipal ="& _ 
-                " 1 AND [CNAEPrincipal] IS NULL) OR ([CNAEPrincipal] = @Original_CNAEPrincipal)) "& _ 
-                "AND ((@IsNull_ResponsavelCPF = 1 AND [ResponsavelCPF] IS NULL) OR ([ResponsavelC"& _ 
-                "PF] = @Original_ResponsavelCPF)) AND ((@IsNull_ProtocoloJuntaComercial = 1 AND ["& _ 
-                "ProtocoloJuntaComercial] IS NULL) OR ([ProtocoloJuntaComercial] = @Original_Prot"& _ 
-                "ocoloJuntaComercial)) AND ((@IsNull_Lembrete = 1 AND [Lembrete] IS NULL) OR ([Le"& _ 
-                "mbrete] = @Original_Lembrete)) AND ((@IsNull_ProtocoloREDESIM = 1 AND [Protocolo"& _ 
-                "REDESIM] IS NULL) OR ([ProtocoloREDESIM] = @Original_ProtocoloREDESIM)) AND ((@I"& _ 
-                "sNull_DataProtREDESIM = 1 AND [DataProtREDESIM] IS NULL) OR ([DataProtREDESIM] ="& _ 
-                " @Original_DataProtREDESIM)) AND ((@IsNull_DataProtJuntaComercial = 1 AND [DataP"& _ 
-                "rotJuntaComercial] IS NULL) OR ([DataProtJuntaComercial] = @Original_DataProtJun"& _ 
-                "taComercial)) AND ((@IsNull_DataPedidoIE = 1 AND [DataPedidoIE] IS NULL) OR ([Da"& _ 
-                "taPedidoIE] = @Original_DataPedidoIE)) AND ((@IsNull_AvisarDia = 1 AND [AvisarDi"& _ 
-                "a] IS NULL) OR ([AvisarDia] = @Original_AvisarDia)) AND ((@IsNull_PrazoSimples ="& _ 
-                " 1 AND [PrazoSimples] IS NULL) OR ([PrazoSimples] = @Original_PrazoSimples)) AND"& _ 
-                " ((@IsNull_NireAlt = 1 AND [NireAlt] IS NULL) OR ([NireAlt] = @Original_NireAlt)"& _ 
-                ") AND ((@IsNull_NRegistroAlt = 1 AND [NRegistroAlt] IS NULL) OR ([NRegistroAlt] "& _ 
-                "= @Original_NRegistroAlt)) AND ((@IsNull_DataRegistroAlt = 1 AND [DataRegistroAl"& _ 
-                "t] IS NULL) OR ([DataRegistroAlt] = @Original_DataRegistroAlt)) AND ((@IsNull_NA"& _ 
-                "lteracao = 1 AND [NAlteracao] IS NULL) OR ([NAlteracao] = @Original_NAlteracao))"& _ 
-                " AND ((@IsNull_Prioridade = 1 AND [Prioridade] IS NULL) OR ([Prioridade] = @Orig"& _ 
-                "inal_Prioridade)) AND ((@IsNull_AltConsolidada = 1 AND [AltConsolidada] IS NULL)"& _ 
-                " OR ([AltConsolidada] = @Original_AltConsolidada)) AND ((@IsNull_IEVencPedido = "& _ 
-                "1 AND [IEVencPedido] IS NULL) OR ([IEVencPedido] = @Original_IEVencPedido)) AND "& _ 
-                "((@IsNull_AltProt = 1 AND [AltProt] IS NULL) OR ([AltProt] = @Original_AltProt))"& _ 
-                " AND ((@IsNull_CadImob = 1 AND [CadImob] IS NULL) OR ([CadImob] = @Original_CadI"& _ 
-                "mob)) AND ((@IsNull_NireData = 1 AND [NireData] IS NULL) OR ([NireData] = @Origi"& _ 
-                "nal_NireData)) AND ((@IsNull_QuantidadeSocios = 1 AND [QuantidadeSocios] IS NULL"& _ 
-                ") OR ([QuantidadeSocios] = @Original_QuantidadeSocios)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Empresas, R"& _ 
-                "azaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, "& _ 
-                "EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE"& _ 
-                ", IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, C"& _ 
-                "NAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, "& _ 
-                "ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, Dat"& _ 
-                "aProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, N"& _ 
-                "RegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, "& _ 
-                "PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, "& _ 
-                "Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConso"& _ 
-                "lidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, Bomb"& _ 
-                "eiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, Data"& _ 
-                "Simples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico,"& _ 
-                " AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, Resp"& _ 
-                "Mae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao"& _ 
-                ", ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSoci"& _ 
-                "al3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData"& _ 
-                ", NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, Siste"& _ 
-                "maExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAnt"& _ 
-                "iga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTota"& _ 
-                "l, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, Nu"& _ 
-                "meroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, For"& _ 
-                "maDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimento"& _ 
-                "s, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, Ajuda"& _ 
-                "TipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalS"& _ 
-                "ocialAntigo, CapitalAntigoMudou FROM Empresas WHERE (ID_Empresas = @ID_Empresas)"& _ 
-                ""
+                "dou, [CNAEAtividadeNoLocal] = @CNAEAtividadeNoLocal, [CNAEAtvLocalPrincipal] = @"& _ 
+                "CNAEAtvLocalPrincipal, [CNAEAtvLocalSEcundarios] = @CNAEAtvLocalSEcundarios, [Bo"& _ 
+                "mbeiroAtvAdm] = @BombeiroAtvAdm, [BombeiroAtvresidencia] = @BombeiroAtvresidenci"& _ 
+                "a, [CNAEdescricaoOficial] = @CNAEdescricaoOficial, [ObjetoDOEstabelecimento] = @"& _ 
+                "ObjetoDOEstabelecimento WHERE (([ID_Empresas] = @Original_ID_Empresas) AND ((@Is"& _ 
+                "Null_CNPJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_En"& _ 
+                "dereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ((@"& _ 
+                "IsNull_EndNumero = 1 AND [EndNumero] IS NULL) OR ([EndNumero] = @Original_EndNum"& _ 
+                "ero)) AND ((@IsNull_EndBairro = 1 AND [EndBairro] IS NULL) OR ([EndBairro] = @Or"& _ 
+                "iginal_EndBairro)) AND ((@IsNull_EndComplemento = 1 AND [EndComplemento] IS NULL"& _ 
+                ") OR ([EndComplemento] = @Original_EndComplemento)) AND ((@IsNull_EndCEP = 1 AND"& _ 
+                " [EndCEP] IS NULL) OR ([EndCEP] = @Original_EndCEP)) AND ((@IsNull_EndCidade = 1"& _ 
+                " AND [EndCidade] IS NULL) OR ([EndCidade] = @Original_EndCidade)) AND ((@IsNull_"& _ 
+                "EndEstado = 1 AND [EndEstado] IS NULL) OR ([EndEstado] = @Original_EndEstado)) A"& _ 
+                "ND ((@IsNull_EndPais = 1 AND [EndPais] IS NULL) OR ([EndPais] = @Original_EndPai"& _ 
+                "s)) AND ((@IsNull_EmpTel1 = 1 AND [EmpTel1] IS NULL) OR ([EmpTel1] = @Original_E"& _ 
+                "mpTel1)) AND ((@IsNull_EmpTel2 = 1 AND [EmpTel2] IS NULL) OR ([EmpTel2] = @Origi"& _ 
+                "nal_EmpTel2)) AND ((@IsNull_EmpEmail = 1 AND [EmpEmail] IS NULL) OR ([EmpEmail] "& _ 
+                "= @Original_EmpEmail)) AND ((@IsNull_PaginaWeb = 1 AND [PaginaWeb] IS NULL) OR ("& _ 
+                "[PaginaWeb] = @Original_PaginaWeb)) AND ((@IsNull_IE = 1 AND [IE] IS NULL) OR (["& _ 
+                "IE] = @Original_IE)) AND ((@IsNull_IM = 1 AND [IM] IS NULL) OR ([IM] = @Original"& _ 
+                "_IM)) AND ((@IsNull_EmpInicioAtividade = 1 AND [EmpInicioAtividade] IS NULL) OR "& _ 
+                "([EmpInicioAtividade] = @Original_EmpInicioAtividade)) AND ((@IsNull_EmpCriado ="& _ 
+                " 1 AND [EmpCriado] IS NULL) OR ([EmpCriado] = @Original_EmpCriado)) AND ((@IsNul"& _ 
+                "l_Processo = 1 AND [Processo] IS NULL) OR ([Processo] = @Original_Processo)) AND"& _ 
+                " ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AN"& _ 
+                "D ((@IsNull_NIRE = 1 AND [NIRE] IS NULL) OR ([NIRE] = @Original_NIRE)) AND ((@Is"& _ 
+                "Null_CNAEPrincipal = 1 AND [CNAEPrincipal] IS NULL) OR ([CNAEPrincipal] = @Origi"& _ 
+                "nal_CNAEPrincipal)) AND ((@IsNull_ResponsavelCPF = 1 AND [ResponsavelCPF] IS NUL"& _ 
+                "L) OR ([ResponsavelCPF] = @Original_ResponsavelCPF)) AND ((@IsNull_ProtocoloJunt"& _ 
+                "aComercial = 1 AND [ProtocoloJuntaComercial] IS NULL) OR ([ProtocoloJuntaComerci"& _ 
+                "al] = @Original_ProtocoloJuntaComercial)) AND ((@IsNull_Lembrete = 1 AND [Lembre"& _ 
+                "te] IS NULL) OR ([Lembrete] = @Original_Lembrete)) AND ((@IsNull_ProtocoloREDESI"& _ 
+                "M = 1 AND [ProtocoloREDESIM] IS NULL) OR ([ProtocoloREDESIM] = @Original_Protoco"& _ 
+                "loREDESIM)) AND ((@IsNull_DataProtREDESIM = 1 AND [DataProtREDESIM] IS NULL) OR "& _ 
+                "([DataProtREDESIM] = @Original_DataProtREDESIM)) AND ((@IsNull_DataProtJuntaCome"& _ 
+                "rcial = 1 AND [DataProtJuntaComercial] IS NULL) OR ([DataProtJuntaComercial] = @"& _ 
+                "Original_DataProtJuntaComercial)) AND ((@IsNull_DataPedidoIE = 1 AND [DataPedido"& _ 
+                "IE] IS NULL) OR ([DataPedidoIE] = @Original_DataPedidoIE)) AND ((@IsNull_AvisarD"& _ 
+                "ia = 1 AND [AvisarDia] IS NULL) OR ([AvisarDia] = @Original_AvisarDia)) AND ((@I"& _ 
+                "sNull_PrazoSimples = 1 AND [PrazoSimples] IS NULL) OR ([PrazoSimples] = @Origina"& _ 
+                "l_PrazoSimples)) AND ((@IsNull_NireAlt = 1 AND [NireAlt] IS NULL) OR ([NireAlt] "& _ 
+                "= @Original_NireAlt)) AND ((@IsNull_NRegistroAlt = 1 AND [NRegistroAlt] IS NULL)"& _ 
+                " OR ([NRegistroAlt] = @Original_NRegistroAlt)) AND ((@IsNull_DataRegistroAlt = 1"& _ 
+                " AND [DataRegistroAlt] IS NULL) OR ([DataRegistroAlt] = @Original_DataRegistroAl"& _ 
+                "t)) AND ((@IsNull_NAlteracao = 1 AND [NAlteracao] IS NULL) OR ([NAlteracao] = @O"& _ 
+                "riginal_NAlteracao)) AND ((@IsNull_Prioridade = 1 AND [Prioridade] IS NULL) OR ("& _ 
+                "[Prioridade] = @Original_Prioridade)) AND ((@IsNull_AltConsolidada = 1 AND [AltC"& _ 
+                "onsolidada] IS NULL) OR ([AltConsolidada] = @Original_AltConsolidada)) AND ((@Is"& _ 
+                "Null_IEVencPedido = 1 AND [IEVencPedido] IS NULL) OR ([IEVencPedido] = @Original"& _ 
+                "_IEVencPedido)) AND ((@IsNull_AltProt = 1 AND [AltProt] IS NULL) OR ([AltProt] ="& _ 
+                " @Original_AltProt)) AND ((@IsNull_CadImob = 1 AND [CadImob] IS NULL) OR ([CadIm"& _ 
+                "ob] = @Original_CadImob)) AND ((@IsNull_NireData = 1 AND [NireData] IS NULL) OR "& _ 
+                "([NireData] = @Original_NireData)) AND ((@IsNull_QuantidadeSocios = 1 AND [Quant"& _ 
+                "idadeSocios] IS NULL) OR ([QuantidadeSocios] = @Original_QuantidadeSocios)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
+                "ELECT ID_Empresas, RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBair"& _ 
+                "ro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, Emp"& _ 
+                "Email, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Proce"& _ 
+                "sso, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCP"& _ 
+                "F, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, "& _ 
+                "DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, "& _ 
+                "NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeS"& _ 
+                "imObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsave"& _ 
+                "l, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, Tip"& _ 
+                "oDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade"& _ 
+                ", IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, are"& _ 
+                "a2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos"& _ 
+                ", RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHe"& _ 
+                "xp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, Res"& _ 
+                "pRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSo"& _ 
+                "cial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegist"& _ 
+                "ro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEData"& _ 
+                "AltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContr"& _ 
+                "atos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaVa"& _ 
+                "lor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, Responsa"& _ 
+                "velEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoU"& _ 
+                "nidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade,"& _ 
+                " DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, "& _ 
+                "DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, Senh"& _ 
+                "asDeAcesso, CapitalSocialAntigo, CapitalAntigoMudou, CNAEAtividadeNoLocal, CNAEA"& _ 
+                "tvLocalPrincipal, CNAEAtvLocalSEcundarios, BombeiroAtvAdm, BombeiroAtvresidencia"& _ 
+                ", CNAEdescricaoOficial, ObjetoDOEstabelecimento FROM Empresas WHERE (ID_Empresas"& _ 
+                " = @ID_Empresas)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeFantasia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeFantasia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -40438,6 +41178,13 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SenhasDeAcesso", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SenhasDeAcesso", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CapitalSocialAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CapitalSocialAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CapitalAntigoMudou", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CapitalAntigoMudou", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtividadeNoLocal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtividadeNoLocal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtvLocalPrincipal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtvLocalPrincipal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEAtvLocalSEcundarios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEAtvLocalSEcundarios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroAtvAdm", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroAtvAdm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BombeiroAtvresidencia", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BombeiroAtvresidencia", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNAEdescricaoOficial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNAEdescricaoOficial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ObjetoDOEstabelecimento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ObjetoDOEstabelecimento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Empresas", Global.System.Data.SqlDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Empresas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CNPJ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -40542,31 +41289,33 @@ Namespace PrinceDBDataSetTableAdapters
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT AjudaTipodeUnidade, AltConsolidada, AltProt, ArquivoContrato, AvisarDia, B"& _ 
-                "ombeiroJunta, CNAEPrincipal, CNAESecundario, CNHdataexp, CNHexp, CNHnumero, CNPJ"& _ 
-                ", CPFResponsavel, CPFdoCONJUGE, CadImob, CapitaQuotaTotal, CapitalAntigoMudou, C"& _ 
-                "apitalI, CapitalQuotaValor, CapitalS, CapitalSocialAntigo, CodigoSimples, DBEDat"& _ 
-                "a, DBEProtocolo, DadosComplAtividade, DadosComplEstabelecimento, DadosComplGLP, "& _ 
-                "DadosComplLiquido, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, D"& _ 
-                "adosSocios, DataExcSocial, DataMotivo, DataPedidoIE, DataProtJuntaComercial, Dat"& _ 
-                "aProtREDESIM, DataRegistroAlt, DataSimples, DataUltdefSimples, DivisaoCapitalSoc"& _ 
-                "ios, DocContratos, EmpCriado, EmpEmail, EmpInicioAtividade, EmpTel1, EmpTel2, En"& _ 
-                "dBairro, EndCEP, EndCidade, EndComplemento, EndData, EndEstado, EndNumero, EndPa"& _ 
-                "is, EndQuadra, EndZona, Endereco, EstadualObs, Eventos, FederalProtocolo, FormaD"& _ 
-                "eAtuacao, Geral, Historico, ID_Empresas, IE, IEComprovante, IEDataAltSolicitado,"& _ 
-                " IEInicioAtividade, IEOnline, IETipo, IEVencPedido, IEeProcNum, IEjunta, IM, Jun"& _ 
-                "taObs, Lembrete, Motivo, NAlteracao, NIRE, NIRERegistro, NIRERegistroData, NOMEd"& _ 
-                "oCONJUGE, NRegistroAlt, NaturezaJuridica, NireAlt, NireAntigos, NireData, NomeFa"& _ 
-                "ntasia, NomeResponsavel, NovaRazaoSocial, NovaRazaoSocial1, NovaRazaoSocial2, No"& _ 
-                "vaRazaoSocial3, NovaRazaoSocialFinal, NumeroProcesso, ObsSimples, OrgãoPedSimple"& _ 
-                "s, PaginaWeb, PastaDocumentos, PontoDeReferencia, PorteDaEmpresa, PrazoSimples, "& _ 
-                "PrefeituraObs, Prioridade, Procedimento, Processo, Procuracao, ProcuracaoData, P"& _ 
-                "rocuracaoN, ProtJuntaFinal, ProtocoloJuntaComercial, ProtocoloREDESIM, Quantidad"& _ 
-                "eSocios, RamoDeAtividade, RazaoSocial, RazaoSocialAntiga, ReciboProcesso, RedeSi"& _ 
-                "mObs, RegimeFederal, RespDataNasc, RespMae, RespPai, RespRG, RespRgSigla, Respon"& _ 
-                "savelCPF, ResponsavelEstadoOrgaoRG, ResponsavelNome, ResponsavelOrgaoRG, SEDE, S"& _ 
-                "enhaGov, SenhasDeAcesso, SistemaExterno, SituacaoCadastral, Status, TipoDeEmpres"& _ 
-                "a, TipoUnidadeProdutiva, Tituloeleitor, area, area2 FROM Empresas WHERE (RazaoSo"& _ 
-                "cial = @RazaoSocial)"
+                "ombeiroAtvAdm, BombeiroAtvresidencia, BombeiroJunta, CNAEAtividadeNoLocal, CNAEA"& _ 
+                "tvLocalPrincipal, CNAEAtvLocalSEcundarios, CNAEPrincipal, CNAESecundario, CNAEde"& _ 
+                "scricaoOficial, CNHdataexp, CNHexp, CNHnumero, CNPJ, CPFResponsavel, CPFdoCONJUG"& _ 
+                "E, CadImob, CapitaQuotaTotal, CapitalAntigoMudou, CapitalI, CapitalQuotaValor, C"& _ 
+                "apitalS, CapitalSocialAntigo, CodigoSimples, DBEData, DBEProtocolo, DadosComplAt"& _ 
+                "ividade, DadosComplEstabelecimento, DadosComplGLP, DadosComplLiquido, DadosCompl"& _ 
+                "Pavimentos, DadosComplPessoas, DadosComplSubsolo, DadosSocios, DataExcSocial, Da"& _ 
+                "taMotivo, DataPedidoIE, DataProtJuntaComercial, DataProtREDESIM, DataRegistroAlt"& _ 
+                ", DataSimples, DataUltdefSimples, DivisaoCapitalSocios, DocContratos, EmpCriado,"& _ 
+                " EmpEmail, EmpInicioAtividade, EmpTel1, EmpTel2, EndBairro, EndCEP, EndCidade, E"& _ 
+                "ndComplemento, EndData, EndEstado, EndNumero, EndPais, EndQuadra, EndZona, Ender"& _ 
+                "eco, EstadualObs, Eventos, FederalProtocolo, FormaDeAtuacao, Geral, Historico, I"& _ 
+                "D_Empresas, IE, IEComprovante, IEDataAltSolicitado, IEInicioAtividade, IEOnline,"& _ 
+                " IETipo, IEVencPedido, IEeProcNum, IEjunta, IM, JuntaObs, Lembrete, Motivo, NAlt"& _ 
+                "eracao, NIRE, NIRERegistro, NIRERegistroData, NOMEdoCONJUGE, NRegistroAlt, Natur"& _ 
+                "ezaJuridica, NireAlt, NireAntigos, NireData, NomeFantasia, NomeResponsavel, Nova"& _ 
+                "RazaoSocial, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSoci"& _ 
+                "alFinal, NumeroProcesso, ObjetoDOEstabelecimento, ObsSimples, OrgãoPedSimples, P"& _ 
+                "aginaWeb, PastaDocumentos, PontoDeReferencia, PorteDaEmpresa, PrazoSimples, Pref"& _ 
+                "eituraObs, Prioridade, Procedimento, Processo, Procuracao, ProcuracaoData, Procu"& _ 
+                "racaoN, ProtJuntaFinal, ProtocoloJuntaComercial, ProtocoloREDESIM, QuantidadeSoc"& _ 
+                "ios, RamoDeAtividade, RazaoSocial, RazaoSocialAntiga, ReciboProcesso, RedeSimObs"& _ 
+                ", RegimeFederal, RespDataNasc, RespMae, RespPai, RespRG, RespRgSigla, Responsave"& _ 
+                "lCPF, ResponsavelEstadoOrgaoRG, ResponsavelNome, ResponsavelOrgaoRG, SEDE, Senha"& _ 
+                "Gov, SenhasDeAcesso, SistemaExterno, SituacaoCadastral, Status, TipoDeEmpresa, T"& _ 
+                "ipoUnidadeProdutiva, Tituloeleitor, area, area2 FROM Empresas WHERE (RazaoSocial"& _ 
+                " = @RazaoSocial)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -41150,7 +41899,14 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal FederalProtocolo As String,  _
                     ByVal SenhasDeAcesso As String,  _
                     ByVal CapitalSocialAntigo As String,  _
-                    ByVal CapitalAntigoMudou As String) As Integer
+                    ByVal CapitalAntigoMudou As String,  _
+                    ByVal CNAEAtividadeNoLocal As String,  _
+                    ByVal CNAEAtvLocalPrincipal As String,  _
+                    ByVal CNAEAtvLocalSEcundarios As String,  _
+                    ByVal BombeiroAtvAdm As String,  _
+                    ByVal BombeiroAtvresidencia As String,  _
+                    ByVal CNAEdescricaoOficial As String,  _
+                    ByVal ObjetoDOEstabelecimento As String) As Integer
             If (RazaoSocial Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -41846,6 +42602,41 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(138).Value = CType(CapitalAntigoMudou,String)
             End If
+            If (CNAEAtividadeNoLocal Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(139).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(139).Value = CType(CNAEAtividadeNoLocal,String)
+            End If
+            If (CNAEAtvLocalPrincipal Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(140).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(140).Value = CType(CNAEAtvLocalPrincipal,String)
+            End If
+            If (CNAEAtvLocalSEcundarios Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(141).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(141).Value = CType(CNAEAtvLocalSEcundarios,String)
+            End If
+            If (BombeiroAtvAdm Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(142).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(142).Value = CType(BombeiroAtvAdm,String)
+            End If
+            If (BombeiroAtvresidencia Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(143).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(143).Value = CType(BombeiroAtvresidencia,String)
+            End If
+            If (CNAEdescricaoOficial Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(144).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(144).Value = CType(CNAEdescricaoOficial,String)
+            End If
+            If (ObjetoDOEstabelecimento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(145).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(145).Value = CType(ObjetoDOEstabelecimento,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -42005,6 +42796,13 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal SenhasDeAcesso As String,  _
                     ByVal CapitalSocialAntigo As String,  _
                     ByVal CapitalAntigoMudou As String,  _
+                    ByVal CNAEAtividadeNoLocal As String,  _
+                    ByVal CNAEAtvLocalPrincipal As String,  _
+                    ByVal CNAEAtvLocalSEcundarios As String,  _
+                    ByVal BombeiroAtvAdm As String,  _
+                    ByVal BombeiroAtvresidencia As String,  _
+                    ByVal CNAEdescricaoOficial As String,  _
+                    ByVal ObjetoDOEstabelecimento As String,  _
                     ByVal Original_ID_Empresas As Short,  _
                     ByVal Original_CNPJ As String,  _
                     ByVal Original_Endereco As String,  _
@@ -42743,295 +43541,330 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(138).Value = CType(CapitalAntigoMudou,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_ID_Empresas,Short)
-            If (Original_CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(1,Object)
+            If (CNAEAtividadeNoLocal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(139).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(CNAEAtividadeNoLocal,String)
+            End If
+            If (CNAEAtvLocalPrincipal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(CNAEAtvLocalPrincipal,String)
+            End If
+            If (CNAEAtvLocalSEcundarios Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(141).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_CNPJ,String)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(CNAEAtvLocalSEcundarios,String)
             End If
-            If (Original_Endereco Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(1,Object)
+            If (BombeiroAtvAdm Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(BombeiroAtvAdm,String)
+            End If
+            If (BombeiroAtvresidencia Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(143).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_Endereco,String)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(BombeiroAtvresidencia,String)
             End If
-            If (Original_EndNumero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(1,Object)
+            If (CNAEdescricaoOficial Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(CNAEdescricaoOficial,String)
+            End If
+            If (ObjetoDOEstabelecimento Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(145).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_EndNumero,String)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(ObjetoDOEstabelecimento,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_ID_Empresas,Short)
+            If (Original_CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_CNPJ,String)
+            End If
+            If (Original_Endereco Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_Endereco,String)
+            End If
+            If (Original_EndNumero Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_EndNumero,String)
             End If
             If (Original_EndBairro Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(147).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_EndBairro,String)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_EndBairro,String)
             End If
             If (Original_EndComplemento Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(149).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_EndComplemento,String)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_EndComplemento,String)
             End If
             If (Original_EndCEP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(151).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_EndCEP,String)
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_EndCEP,String)
             End If
             If (Original_EndCidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(153).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_EndCidade,String)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_EndCidade,String)
             End If
             If (Original_EndEstado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(155).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_EndEstado,String)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_EndEstado,String)
             End If
             If (Original_EndPais Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(157).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_EndPais,String)
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_EndPais,String)
             End If
             If (Original_EmpTel1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(159).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_EmpTel1,String)
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_EmpTel1,String)
             End If
             If (Original_EmpTel2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(161).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_EmpTel2,String)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_EmpTel2,String)
             End If
             If (Original_EmpEmail Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_EmpEmail,String)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_EmpEmail,String)
             End If
             If (Original_PaginaWeb Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_PaginaWeb,String)
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_PaginaWeb,String)
             End If
             If (Original_IE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(Original_IE,String)
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_IE,String)
             End If
             If (Original_IM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(Original_IM,String)
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_IM,String)
             End If
             If (Original_EmpInicioAtividade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(171).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(Original_EmpInicioAtividade,String)
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_EmpInicioAtividade,String)
             End If
             If (Original_EmpCriado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(173).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(Original_EmpCriado,String)
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(Original_EmpCriado,String)
             End If
             If (Original_Processo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(175).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(Original_Processo,String)
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_Processo,String)
             End If
             If (Original_Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(177).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(Original_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_Status,String)
             End If
             If (Original_NIRE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(179).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(Original_NIRE,String)
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_NIRE,String)
             End If
             If (Original_CNAEPrincipal Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(181).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(Original_CNAEPrincipal,String)
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(Original_CNAEPrincipal,String)
             End If
             If (Original_ResponsavelCPF Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(183).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(Original_ResponsavelCPF,String)
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(Original_ResponsavelCPF,String)
             End If
             If (Original_ProtocoloJuntaComercial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(185).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(Original_ProtocoloJuntaComercial,String)
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_ProtocoloJuntaComercial,String)
             End If
             If (Original_Lembrete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(187).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(194).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(Original_Lembrete,String)
+                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(Original_Lembrete,String)
             End If
             If (Original_ProtocoloREDESIM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(189).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(196).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(Original_ProtocoloREDESIM,String)
+                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(Original_ProtocoloREDESIM,String)
             End If
             If (Original_DataProtREDESIM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(191).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(198).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(Original_DataProtREDESIM,String)
+                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(Original_DataProtREDESIM,String)
             End If
             If (Original_DataProtJuntaComercial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(193).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(200).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(Original_DataProtJuntaComercial,String)
+                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(Original_DataProtJuntaComercial,String)
             End If
             If (Original_DataPedidoIE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(195).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(202).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(Original_DataPedidoIE,String)
+                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(Original_DataPedidoIE,String)
             End If
             If (Original_AvisarDia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(197).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(204).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(Original_AvisarDia,String)
+                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(Original_AvisarDia,String)
             End If
             If (Original_PrazoSimples Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(199).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(206).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(Original_PrazoSimples,String)
+                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(Original_PrazoSimples,String)
             End If
             If (Original_NireAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(201).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(208).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(Original_NireAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(Original_NireAlt,String)
             End If
             If (Original_NRegistroAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(203).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(210).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(Original_NRegistroAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(Original_NRegistroAlt,String)
             End If
             If (Original_DataRegistroAlt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(205).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(212).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(Original_DataRegistroAlt,String)
+                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(Original_DataRegistroAlt,String)
             End If
             If (Original_NAlteracao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(207).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(214).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(Original_NAlteracao,String)
+                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(Original_NAlteracao,String)
             End If
             If (Original_Prioridade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(209).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(216).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(Original_Prioridade,String)
+                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(Original_Prioridade,String)
             End If
             If (Original_AltConsolidada Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(211).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(218).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(Original_AltConsolidada,String)
+                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(Original_AltConsolidada,String)
             End If
             If (Original_IEVencPedido Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(213).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(220).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(Original_IEVencPedido,String)
+                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(220).Value = CType(Original_IEVencPedido,String)
             End If
             If (Original_AltProt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(215).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(221).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(222).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(Original_AltProt,String)
+                Me.Adapter.UpdateCommand.Parameters(221).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(222).Value = CType(Original_AltProt,String)
             End If
             If (Original_CadImob Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(217).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(223).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(224).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(Original_CadImob,String)
+                Me.Adapter.UpdateCommand.Parameters(223).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(224).Value = CType(Original_CadImob,String)
             End If
             If (Original_NireData.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(Original_NireData.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(225).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(226).Value = CType(Original_NireData.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(219).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(225).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(226).Value = Global.System.DBNull.Value
             End If
             If (Original_QuantidadeSocios Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(220).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(221).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(227).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(228).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(220).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(221).Value = CType(Original_QuantidadeSocios,String)
+                Me.Adapter.UpdateCommand.Parameters(227).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(228).Value = CType(Original_QuantidadeSocios,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(222).Value = CType(ID_Empresas,Short)
+            Me.Adapter.UpdateCommand.Parameters(229).Value = CType(ID_Empresas,Short)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -43191,6 +44024,13 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal SenhasDeAcesso As String,  _
                     ByVal CapitalSocialAntigo As String,  _
                     ByVal CapitalAntigoMudou As String,  _
+                    ByVal CNAEAtividadeNoLocal As String,  _
+                    ByVal CNAEAtvLocalPrincipal As String,  _
+                    ByVal CNAEAtvLocalSEcundarios As String,  _
+                    ByVal BombeiroAtvAdm As String,  _
+                    ByVal BombeiroAtvresidencia As String,  _
+                    ByVal CNAEdescricaoOficial As String,  _
+                    ByVal ObjetoDOEstabelecimento As String,  _
                     ByVal Original_ID_Empresas As Short,  _
                     ByVal Original_CNPJ As String,  _
                     ByVal Original_Endereco As String,  _
@@ -43233,7 +44073,7 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal Original_CadImob As String,  _
                     ByVal Original_NireData As Global.System.Nullable(Of Date),  _
                     ByVal Original_QuantidadeSocios As String) As Integer
-            Return Me.Update(RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAntigo, CapitalAntigoMudou, Original_ID_Empresas, Original_CNPJ, Original_Endereco, Original_EndNumero, Original_EndBairro, Original_EndComplemento, Original_EndCEP, Original_EndCidade, Original_EndEstado, Original_EndPais, Original_EmpTel1, Original_EmpTel2, Original_EmpEmail, Original_PaginaWeb, Original_IE, Original_IM, Original_EmpInicioAtividade, Original_EmpCriado, Original_Processo, Original_Status, Original_NIRE, Original_CNAEPrincipal, Original_ResponsavelCPF, Original_ProtocoloJuntaComercial, Original_Lembrete, Original_ProtocoloREDESIM, Original_DataProtREDESIM, Original_DataProtJuntaComercial, Original_DataPedidoIE, Original_AvisarDia, Original_PrazoSimples, Original_NireAlt, Original_NRegistroAlt, Original_DataRegistroAlt, Original_NAlteracao, Original_Prioridade, Original_AltConsolidada, Original_IEVencPedido, Original_AltProt, Original_CadImob, Original_NireData, Original_QuantidadeSocios, Original_ID_Empresas)
+            Return Me.Update(RazaoSocial, NomeFantasia, CNPJ, Endereco, EndNumero, EndBairro, EndComplemento, EndCEP, EndCidade, EndEstado, EndPais, EmpTel1, EmpTel2, EmpEmail, PaginaWeb, IE, IM, NaturezaJuridica, EmpInicioAtividade, EmpCriado, Processo, Status, NIRE, CNAEPrincipal, CNAESecundario, RamoDeAtividade, ResponsavelCPF, ResponsavelNome, ProtocoloJuntaComercial, Geral, Lembrete, ProtocoloREDESIM, DataProtREDESIM, DataProtJuntaComercial, DataPedidoIE, AvisarDia, PrazoSimples, NireAlt, JuntaObs, NRegistroAlt, DataRegistroAlt, NireAntigos, NAlteracao, RedeSimObs, EstadualObs, PrefeituraObs, CodigoSimples, CPFResponsavel, NomeResponsavel, ArquivoContrato, Procedimento, Prioridade, RegimeFederal, PorteDaEmpresa, TipoDeEmpresa, AltConsolidada, Motivo, DataMotivo, IEComprovante, IEInicioAtividade, IEVencPedido, BombeiroJunta, IEjunta, ProtJuntaFinal, Tituloeleitor, area, area2, ObsSimples, DataSimples, DataUltdefSimples, OrgãoPedSimples, PastaDocumentos, RespRG, Historico, AltProt, CapitalS, CapitalI, DataExcSocial, CNHnumero, CNHexp, CNHdataexp, RespMae, RespDataNasc, CadImob, EndZona, EndQuadra, EndData, RespRgSigla, Procuracao, ProcuracaoN, ProcuracaoData, NovaRazaoSocial1, NovaRazaoSocial2, NovaRazaoSocial3, NovaRazaoSocial, Eventos, SenhaGov, RespPai, NIRERegistro, NIRERegistroData, NovaRazaoSocialFinal, IEOnline, IETipo, IEeProcNum, IEDataAltSolicitado, SistemaExterno, NireData, DadosSocios, QuantidadeSocios, DocContratos, RazaoSocialAntiga, SituacaoCadastral, DivisaoCapitalSocios, CapitalQuotaValor, CapitaQuotaTotal, CPFdoCONJUGE, NOMEdoCONJUGE, ResponsavelOrgaoRG, ResponsavelEstadoOrgaoRG, NumeroProcesso, ReciboProcesso, SEDE, PontoDeReferencia, TipoUnidadeProdutiva, FormaDeAtuacao, DadosComplEstabelecimento, DadosComplAtividade, DadosComplPavimentos, DadosComplPessoas, DadosComplSubsolo, DadosComplLiquido, DadosComplGLP, AjudaTipodeUnidade, DBEProtocolo, DBEData, FederalProtocolo, SenhasDeAcesso, CapitalSocialAntigo, CapitalAntigoMudou, CNAEAtividadeNoLocal, CNAEAtvLocalPrincipal, CNAEAtvLocalSEcundarios, BombeiroAtvAdm, BombeiroAtvresidencia, CNAEdescricaoOficial, ObjetoDOEstabelecimento, Original_ID_Empresas, Original_CNPJ, Original_Endereco, Original_EndNumero, Original_EndBairro, Original_EndComplemento, Original_EndCEP, Original_EndCidade, Original_EndEstado, Original_EndPais, Original_EmpTel1, Original_EmpTel2, Original_EmpEmail, Original_PaginaWeb, Original_IE, Original_IM, Original_EmpInicioAtividade, Original_EmpCriado, Original_Processo, Original_Status, Original_NIRE, Original_CNAEPrincipal, Original_ResponsavelCPF, Original_ProtocoloJuntaComercial, Original_Lembrete, Original_ProtocoloREDESIM, Original_DataProtREDESIM, Original_DataProtJuntaComercial, Original_DataPedidoIE, Original_AvisarDia, Original_PrazoSimples, Original_NireAlt, Original_NRegistroAlt, Original_DataRegistroAlt, Original_NAlteracao, Original_Prioridade, Original_AltConsolidada, Original_IEVencPedido, Original_AltProt, Original_CadImob, Original_NireData, Original_QuantidadeSocios, Original_ID_Empresas)
         End Function
     End Class
     
@@ -48220,1415 +49060,6 @@ Namespace PrinceDBDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class ParcelamentosTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Parcelamentos"
-            tableMapping.ColumnMappings.Add("ID_Parcelamentos", "ID_Parcelamentos")
-            tableMapping.ColumnMappings.Add("RazaoSocial", "RazaoSocial")
-            tableMapping.ColumnMappings.Add("CNPJ", "CNPJ")
-            tableMapping.ColumnMappings.Add("DataLembrete", "DataLembrete")
-            tableMapping.ColumnMappings.Add("DataCriacao", "DataCriacao")
-            tableMapping.ColumnMappings.Add("Observacao", "Observacao")
-            tableMapping.ColumnMappings.Add("FormaEnvio", "FormaEnvio")
-            tableMapping.ColumnMappings.Add("INSSAntigo", "INSSAntigo")
-            tableMapping.ColumnMappings.Add("INSSNovo", "INSSNovo")
-            tableMapping.ColumnMappings.Add("INSSProcuradoria", "INSSProcuradoria")
-            tableMapping.ColumnMappings.Add("DataParcelINSSantigo", "DataParcelINSSantigo")
-            tableMapping.ColumnMappings.Add("DataParcelINSSnovo", "DataParcelINSSnovo")
-            tableMapping.ColumnMappings.Add("DataParcelINSSproc", "DataParcelINSSproc")
-            tableMapping.ColumnMappings.Add("DataEnvio", "DataEnvio")
-            tableMapping.ColumnMappings.Add("WhatsApp", "WhatsApp")
-            tableMapping.ColumnMappings.Add("Email", "Email")
-            tableMapping.ColumnMappings.Add("INSSAntigoProt", "INSSAntigoProt")
-            tableMapping.ColumnMappings.Add("INSSAntigoObs", "INSSAntigoObs")
-            tableMapping.ColumnMappings.Add("INSSNovoProt", "INSSNovoProt")
-            tableMapping.ColumnMappings.Add("INSSNovoObs", "INSSNovoObs")
-            tableMapping.ColumnMappings.Add("INSSProcProt", "INSSProcProt")
-            tableMapping.ColumnMappings.Add("INSSProcObs", "INSSProcObs")
-            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSAntigo", "HistoricoEnvioINSSAntigo")
-            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSNovo", "HistoricoEnvioINSSNovo")
-            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSProc", "HistoricoEnvioINSSProc")
-            tableMapping.ColumnMappings.Add("Cidade", "Cidade")
-            tableMapping.ColumnMappings.Add("Estado", "Estado")
-            tableMapping.ColumnMappings.Add("Rua", "Rua")
-            tableMapping.ColumnMappings.Add("Numero", "Numero")
-            tableMapping.ColumnMappings.Add("Complemento", "Complemento")
-            tableMapping.ColumnMappings.Add("Bairro", "Bairro")
-            tableMapping.ColumnMappings.Add("FinalizadoINSSAntigo", "FinalizadoINSSAntigo")
-            tableMapping.ColumnMappings.Add("FinalizadoINSSNovo", "FinalizadoINSSNovo")
-            tableMapping.ColumnMappings.Add("FinalizadoINSSProc", "FinalizadoINSSProc")
-            tableMapping.ColumnMappings.Add("FinalizadoMes", "FinalizadoMes")
-            tableMapping.ColumnMappings.Add("FinalizadoParcelamentos", "FinalizadoParcelamentos")
-            tableMapping.ColumnMappings.Add("MotivoParcINSSAntigo", "MotivoParcINSSAntigo")
-            tableMapping.ColumnMappings.Add("MotivoParcINSSNovo", "MotivoParcINSSNovo")
-            tableMapping.ColumnMappings.Add("MotivoParcINSSProc", "MotivoParcINSSProc")
-            tableMapping.ColumnMappings.Add("MotivoParcMEI", "MotivoParcMEI")
-            tableMapping.ColumnMappings.Add("DataParcMEI", "DataParcMEI")
-            tableMapping.ColumnMappings.Add("DataProtocoloMEI", "DataProtocoloMEI")
-            tableMapping.ColumnMappings.Add("FinalizadoMEI", "FinalizadoMEI")
-            tableMapping.ColumnMappings.Add("GeralINSSAntigo", "GeralINSSAntigo")
-            tableMapping.ColumnMappings.Add("GeralINSSNovo", "GeralINSSNovo")
-            tableMapping.ColumnMappings.Add("GeralINSSProcuradoria", "GeralINSSProcuradoria")
-            tableMapping.ColumnMappings.Add("GeralMEI", "GeralMEI")
-            tableMapping.ColumnMappings.Add("MesEnviadoINSSAntigo", "MesEnviadoINSSAntigo")
-            tableMapping.ColumnMappings.Add("MesEnviadoINSSNovo", "MesEnviadoINSSNovo")
-            tableMapping.ColumnMappings.Add("MesEnviadoINSSProc", "MesEnviadoINSSProc")
-            tableMapping.ColumnMappings.Add("MesEnviadoMEI", "MesEnviadoMEI")
-            tableMapping.ColumnMappings.Add("HistoricoEnvioMEI", "HistoricoEnvioMEI")
-            tableMapping.ColumnMappings.Add("MEI", "MEI")
-            tableMapping.ColumnMappings.Add("MeiProtocolo", "MeiProtocolo")
-            tableMapping.ColumnMappings.Add("DataFimParcINSSAntigo", "DataFimParcINSSAntigo")
-            tableMapping.ColumnMappings.Add("DataFimParcINSSNovo", "DataFimParcINSSNovo")
-            tableMapping.ColumnMappings.Add("DataFimParcMEI", "DataFimParcMEI")
-            tableMapping.ColumnMappings.Add("SocioResponsavel", "SocioResponsavel")
-            tableMapping.ColumnMappings.Add("CPFsocioResponsavel", "CPFsocioResponsavel")
-            tableMapping.ColumnMappings.Add("GovSenha", "GovSenha")
-            tableMapping.ColumnMappings.Add("FinalizadoParcelamento", "FinalizadoParcelamento")
-            tableMapping.ColumnMappings.Add("DataFimParcINSSProc", "DataFimParcINSSProc")
-            tableMapping.ColumnMappings.Add("NomeResponsavel", "NomeResponsavel")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Parcelamentos] WHERE (([ID_Parcelamentos] = @Original_ID_Parcelament"& _ 
-                "os))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Parcelamentos] ([RazaoSocial], [CNPJ], [DataLembrete], [DataCriacao]"& _ 
-                ", [Observacao], [FormaEnvio], [INSSAntigo], [INSSNovo], [INSSProcuradoria], [Dat"& _ 
-                "aParcelINSSantigo], [DataParcelINSSnovo], [DataParcelINSSproc], [DataEnvio], [Wh"& _ 
-                "atsApp], [Email], [INSSAntigoProt], [INSSAntigoObs], [INSSNovoProt], [INSSNovoOb"& _ 
-                "s], [INSSProcProt], [INSSProcObs], [HistoricoEnvioINSSAntigo], [HistoricoEnvioIN"& _ 
-                "SSNovo], [HistoricoEnvioINSSProc], [Cidade], [Estado], [Rua], [Numero], [Complem"& _ 
-                "ento], [Bairro], [FinalizadoINSSAntigo], [FinalizadoINSSNovo], [FinalizadoINSSPr"& _ 
-                "oc], [FinalizadoMes], [FinalizadoParcelamentos], [MotivoParcINSSAntigo], [Motivo"& _ 
-                "ParcINSSNovo], [MotivoParcINSSProc], [MotivoParcMEI], [DataParcMEI], [DataProtoc"& _ 
-                "oloMEI], [FinalizadoMEI], [GeralINSSAntigo], [GeralINSSNovo], [GeralINSSProcurad"& _ 
-                "oria], [GeralMEI], [MesEnviadoINSSAntigo], [MesEnviadoINSSNovo], [MesEnviadoINSS"& _ 
-                "Proc], [MesEnviadoMEI], [HistoricoEnvioMEI], [MEI], [MeiProtocolo], [DataFimParc"& _ 
-                "INSSAntigo], [DataFimParcINSSNovo], [DataFimParcINSSProc], [DataFimParcMEI], [So"& _ 
-                "cioResponsavel], [CPFsocioResponsavel], [GovSenha], [FinalizadoParcelamento], [N"& _ 
-                "omeResponsavel]) VALUES (@RazaoSocial, @CNPJ, @DataLembrete, @DataCriacao, @Obse"& _ 
-                "rvacao, @FormaEnvio, @INSSAntigo, @INSSNovo, @INSSProcuradoria, @DataParcelINSSa"& _ 
-                "ntigo, @DataParcelINSSnovo, @DataParcelINSSproc, @DataEnvio, @WhatsApp, @Email, "& _ 
-                "@INSSAntigoProt, @INSSAntigoObs, @INSSNovoProt, @INSSNovoObs, @INSSProcProt, @IN"& _ 
-                "SSProcObs, @HistoricoEnvioINSSAntigo, @HistoricoEnvioINSSNovo, @HistoricoEnvioIN"& _ 
-                "SSProc, @Cidade, @Estado, @Rua, @Numero, @Complemento, @Bairro, @FinalizadoINSSA"& _ 
-                "ntigo, @FinalizadoINSSNovo, @FinalizadoINSSProc, @FinalizadoMes, @FinalizadoParc"& _ 
-                "elamentos, @MotivoParcINSSAntigo, @MotivoParcINSSNovo, @MotivoParcINSSProc, @Mot"& _ 
-                "ivoParcMEI, @DataParcMEI, @DataProtocoloMEI, @FinalizadoMEI, @GeralINSSAntigo, @"& _ 
-                "GeralINSSNovo, @GeralINSSProcuradoria, @GeralMEI, @MesEnviadoINSSAntigo, @MesEnv"& _ 
-                "iadoINSSNovo, @MesEnviadoINSSProc, @MesEnviadoMEI, @HistoricoEnvioMEI, @MEI, @Me"& _ 
-                "iProtocolo, @DataFimParcINSSAntigo, @DataFimParcINSSNovo, @DataFimParcINSSProc, "& _ 
-                "@DataFimParcMEI, @SocioResponsavel, @CPFsocioResponsavel, @GovSenha, @Finalizado"& _ 
-                "Parcelamento, @NomeResponsavel);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Parcelamentos, RazaoSocial, CNPJ, Da"& _ 
-                "taLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcu"& _ 
-                "radoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio"& _ 
-                ", WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INS"& _ 
-                "SProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, Histor"& _ 
-                "icoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoIN"& _ 
-                "SSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParce"& _ 
-                "lamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoPa"& _ 
-                "rcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSN"& _ 
-                "ovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, "& _ 
-                "MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFim"& _ 
-                "ParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioR"& _ 
-                "esponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsav"& _ 
-                "el FROM Parcelamentos WHERE (ID_Parcelamentos = SCOPE_IDENTITY())"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFsocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFsocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GovSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GovSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [DataLem"& _ 
-                "brete] = @DataLembrete, [DataCriacao] = @DataCriacao, [Observacao] = @Observacao"& _ 
-                ", [FormaEnvio] = @FormaEnvio, [INSSAntigo] = @INSSAntigo, [INSSNovo] = @INSSNovo"& _ 
-                ", [INSSProcuradoria] = @INSSProcuradoria, [DataParcelINSSantigo] = @DataParcelIN"& _ 
-                "SSantigo, [DataParcelINSSnovo] = @DataParcelINSSnovo, [DataParcelINSSproc] = @Da"& _ 
-                "taParcelINSSproc, [DataEnvio] = @DataEnvio, [WhatsApp] = @WhatsApp, [Email] = @E"& _ 
-                "mail, [INSSAntigoProt] = @INSSAntigoProt, [INSSAntigoObs] = @INSSAntigoObs, [INS"& _ 
-                "SNovoProt] = @INSSNovoProt, [INSSNovoObs] = @INSSNovoObs, [INSSProcProt] = @INSS"& _ 
-                "ProcProt, [INSSProcObs] = @INSSProcObs, [HistoricoEnvioINSSAntigo] = @HistoricoE"& _ 
-                "nvioINSSAntigo, [HistoricoEnvioINSSNovo] = @HistoricoEnvioINSSNovo, [HistoricoEn"& _ 
-                "vioINSSProc] = @HistoricoEnvioINSSProc, [Cidade] = @Cidade, [Estado] = @Estado, "& _ 
-                "[Rua] = @Rua, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bair"& _ 
-                "ro, [FinalizadoINSSAntigo] = @FinalizadoINSSAntigo, [FinalizadoINSSNovo] = @Fina"& _ 
-                "lizadoINSSNovo, [FinalizadoINSSProc] = @FinalizadoINSSProc, [FinalizadoMes] = @F"& _ 
-                "inalizadoMes, [FinalizadoParcelamentos] = @FinalizadoParcelamentos, [MotivoParcI"& _ 
-                "NSSAntigo] = @MotivoParcINSSAntigo, [MotivoParcINSSNovo] = @MotivoParcINSSNovo, "& _ 
-                "[MotivoParcINSSProc] = @MotivoParcINSSProc, [MotivoParcMEI] = @MotivoParcMEI, [D"& _ 
-                "ataParcMEI] = @DataParcMEI, [DataProtocoloMEI] = @DataProtocoloMEI, [FinalizadoM"& _ 
-                "EI] = @FinalizadoMEI, [GeralINSSAntigo] = @GeralINSSAntigo, [GeralINSSNovo] = @G"& _ 
-                "eralINSSNovo, [GeralINSSProcuradoria] = @GeralINSSProcuradoria, [GeralMEI] = @Ge"& _ 
-                "ralMEI, [MesEnviadoINSSAntigo] = @MesEnviadoINSSAntigo, [MesEnviadoINSSNovo] = @"& _ 
-                "MesEnviadoINSSNovo, [MesEnviadoINSSProc] = @MesEnviadoINSSProc, [MesEnviadoMEI] "& _ 
-                "= @MesEnviadoMEI, [HistoricoEnvioMEI] = @HistoricoEnvioMEI, [MEI] = @MEI, [MeiPr"& _ 
-                "otocolo] = @MeiProtocolo, [DataFimParcINSSAntigo] = @DataFimParcINSSAntigo, [Dat"& _ 
-                "aFimParcINSSNovo] = @DataFimParcINSSNovo, [DataFimParcINSSProc] = @DataFimParcIN"& _ 
-                "SSProc, [DataFimParcMEI] = @DataFimParcMEI, [SocioResponsavel] = @SocioResponsav"& _ 
-                "el, [CPFsocioResponsavel] = @CPFsocioResponsavel, [GovSenha] = @GovSenha, [Final"& _ 
-                "izadoParcelamento] = @FinalizadoParcelamento, [NomeResponsavel] = @NomeResponsav"& _ 
-                "el WHERE (([ID_Parcelamentos] = @Original_ID_Parcelamentos));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Parcela"& _ 
-                "mentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, IN"& _ 
-                "SSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, "& _ 
-                "DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, I"& _ 
-                "NSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, H"& _ 
-                "istoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Comp"& _ 
-                "lemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, F"& _ 
-                "inalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo,"& _ 
-                " MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI"& _ 
-                ", GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINS"& _ 
-                "SAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioME"& _ 
-                "I, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINS"& _ 
-                "SProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, Finaliza"& _ 
-                "doParcelamento, NomeResponsavel FROM Parcelamentos WHERE (ID_Parcelamentos = @ID"& _ 
-                "_Parcelamentos)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFsocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFsocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GovSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GovSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT * FROM Parcelamentos"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Bairro, CNPJ, CPFsocioResponsavel, Cidade, Complemento, DataCriacao, DataE"& _ 
-                "nvio, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimPa"& _ 
-                "rcMEI, DataLembrete, DataParcMEI, DataParcelINSSantigo, DataParcelINSSnovo, Data"& _ 
-                "ParcelINSSproc, DataProtocoloMEI, Email, Estado, FinalizadoINSSAntigo, Finalizad"& _ 
-                "oINSSNovo, FinalizadoINSSProc, FinalizadoMEI, FinalizadoMes, FinalizadoParcelame"& _ 
-                "nto, FinalizadoParcelamentos, FormaEnvio, GeralINSSAntigo, GeralINSSNovo, GeralI"& _ 
-                "NSSProcuradoria, GeralMEI, GovSenha, HistoricoEnvioINSSAntigo, HistoricoEnvioINS"& _ 
-                "SNovo, HistoricoEnvioINSSProc, HistoricoEnvioMEI, ID_Parcelamentos, INSSAntigo, "& _ 
-                "INSSAntigoObs, INSSAntigoProt, INSSNovo, INSSNovoObs, INSSNovoProt, INSSProcObs,"& _ 
-                " INSSProcProt, INSSProcuradoria, MEI, MeiProtocolo, MesEnviadoINSSAntigo, MesEnv"& _ 
-                "iadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, MotivoParcINSSAntigo, MotivoPar"& _ 
-                "cINSSNovo, MotivoParcINSSProc, MotivoParcMEI, NomeResponsavel, Numero, Observaca"& _ 
-                "o, RazaoSocial, Rua, SocioResponsavel, WhatsApp FROM Parcelamentos WHERE (ID_Par"& _ 
-                "celamentos = @EmpresaID)"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As PrinceDBDataSet.ParcelamentosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As PrinceDBDataSet.ParcelamentosDataTable = New PrinceDBDataSet.ParcelamentosDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByEmpresaID(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable, ByVal EmpresaID As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(EmpresaID,Integer)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByEmpresaID(ByVal EmpresaID As Integer) As PrinceDBDataSet.ParcelamentosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(EmpresaID,Integer)
-            Dim dataTable As PrinceDBDataSet.ParcelamentosDataTable = New PrinceDBDataSet.ParcelamentosDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Parcelamentos")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID_Parcelamentos As Integer) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_Parcelamentos,Integer)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal DataLembrete As String,  _
-                    ByVal DataCriacao As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal FormaEnvio As String,  _
-                    ByVal INSSAntigo As String,  _
-                    ByVal INSSNovo As String,  _
-                    ByVal INSSProcuradoria As String,  _
-                    ByVal DataParcelINSSantigo As String,  _
-                    ByVal DataParcelINSSnovo As String,  _
-                    ByVal DataParcelINSSproc As String,  _
-                    ByVal DataEnvio As String,  _
-                    ByVal WhatsApp As String,  _
-                    ByVal Email As String,  _
-                    ByVal INSSAntigoProt As String,  _
-                    ByVal INSSAntigoObs As String,  _
-                    ByVal INSSNovoProt As String,  _
-                    ByVal INSSNovoObs As String,  _
-                    ByVal INSSProcProt As String,  _
-                    ByVal INSSProcObs As String,  _
-                    ByVal HistoricoEnvioINSSAntigo As String,  _
-                    ByVal HistoricoEnvioINSSNovo As String,  _
-                    ByVal HistoricoEnvioINSSProc As String,  _
-                    ByVal Cidade As String,  _
-                    ByVal Estado As String,  _
-                    ByVal Rua As String,  _
-                    ByVal Numero As String,  _
-                    ByVal Complemento As String,  _
-                    ByVal Bairro As String,  _
-                    ByVal FinalizadoINSSAntigo As String,  _
-                    ByVal FinalizadoINSSNovo As String,  _
-                    ByVal FinalizadoINSSProc As String,  _
-                    ByVal FinalizadoMes As String,  _
-                    ByVal FinalizadoParcelamentos As String,  _
-                    ByVal MotivoParcINSSAntigo As String,  _
-                    ByVal MotivoParcINSSNovo As String,  _
-                    ByVal MotivoParcINSSProc As String,  _
-                    ByVal MotivoParcMEI As String,  _
-                    ByVal DataParcMEI As String,  _
-                    ByVal DataProtocoloMEI As String,  _
-                    ByVal FinalizadoMEI As String,  _
-                    ByVal GeralINSSAntigo As String,  _
-                    ByVal GeralINSSNovo As String,  _
-                    ByVal GeralINSSProcuradoria As String,  _
-                    ByVal GeralMEI As String,  _
-                    ByVal MesEnviadoINSSAntigo As String,  _
-                    ByVal MesEnviadoINSSNovo As String,  _
-                    ByVal MesEnviadoINSSProc As String,  _
-                    ByVal MesEnviadoMEI As String,  _
-                    ByVal HistoricoEnvioMEI As String,  _
-                    ByVal MEI As String,  _
-                    ByVal MeiProtocolo As String,  _
-                    ByVal DataFimParcINSSAntigo As String,  _
-                    ByVal DataFimParcINSSNovo As String,  _
-                    ByVal DataFimParcINSSProc As String,  _
-                    ByVal DataFimParcMEI As String,  _
-                    ByVal SocioResponsavel As String,  _
-                    ByVal CPFsocioResponsavel As String,  _
-                    ByVal GovSenha As String,  _
-                    ByVal FinalizadoParcelamento As String,  _
-                    ByVal NomeResponsavel As String) As Integer
-            If (RazaoSocial Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(RazaoSocial,String)
-            End If
-            If (CNPJ Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CNPJ,String)
-            End If
-            If (DataLembrete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DataLembrete,String)
-            End If
-            If (DataCriacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DataCriacao,String)
-            End If
-            If (Observacao Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Observacao,String)
-            End If
-            If (FormaEnvio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FormaEnvio,String)
-            End If
-            If (INSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(INSSAntigo,String)
-            End If
-            If (INSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(INSSNovo,String)
-            End If
-            If (INSSProcuradoria Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
-            End If
-            If (DataParcelINSSantigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
-            End If
-            If (DataParcelINSSnovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
-            End If
-            If (DataParcelINSSproc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
-            End If
-            If (DataEnvio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DataEnvio,String)
-            End If
-            If (WhatsApp Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(WhatsApp,String)
-            End If
-            If (Email Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Email,String)
-            End If
-            If (INSSAntigoProt Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
-            End If
-            If (INSSAntigoObs Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
-            End If
-            If (INSSNovoProt Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(INSSNovoProt,String)
-            End If
-            If (INSSNovoObs Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(INSSNovoObs,String)
-            End If
-            If (INSSProcProt Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(INSSProcProt,String)
-            End If
-            If (INSSProcObs Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(INSSProcObs,String)
-            End If
-            If (HistoricoEnvioINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
-            End If
-            If (HistoricoEnvioINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
-            End If
-            If (HistoricoEnvioINSSProc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
-            End If
-            If (Cidade Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(Cidade,String)
-            End If
-            If (Estado Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Estado,String)
-            End If
-            If (Rua Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Rua,String)
-            End If
-            If (Numero Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Numero,String)
-            End If
-            If (Complemento Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(Complemento,String)
-            End If
-            If (Bairro Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Bairro,String)
-            End If
-            If (FinalizadoINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
-            End If
-            If (FinalizadoINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
-            End If
-            If (FinalizadoINSSProc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
-            End If
-            If (FinalizadoMes Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(33).Value = CType(FinalizadoMes,String)
-            End If
-            If (FinalizadoParcelamentos Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
-            End If
-            If (MotivoParcINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
-            End If
-            If (MotivoParcINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
-            End If
-            If (MotivoParcINSSProc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
-            End If
-            If (MotivoParcMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
-            End If
-            If (DataParcMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(39).Value = CType(DataParcMEI,String)
-            End If
-            If (DataProtocoloMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
-            End If
-            If (FinalizadoMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
-            End If
-            If (GeralINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
-            End If
-            If (GeralINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
-            End If
-            If (GeralINSSProcuradoria Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
-            End If
-            If (GeralMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(45).Value = CType(GeralMEI,String)
-            End If
-            If (MesEnviadoINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
-            End If
-            If (MesEnviadoINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
-            End If
-            If (MesEnviadoINSSProc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
-            End If
-            If (MesEnviadoMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
-            End If
-            If (HistoricoEnvioMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
-            End If
-            If (MEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(51).Value = CType(MEI,String)
-            End If
-            If (MeiProtocolo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(52).Value = CType(MeiProtocolo,String)
-            End If
-            If (DataFimParcINSSAntigo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
-            End If
-            If (DataFimParcINSSNovo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
-            End If
-            If (DataFimParcINSSProc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(55).Value = CType(DataFimParcINSSProc,String)
-            End If
-            If (DataFimParcMEI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
-            End If
-            If (SocioResponsavel Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(57).Value = CType(SocioResponsavel,String)
-            End If
-            If (CPFsocioResponsavel Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(58).Value = CType(CPFsocioResponsavel,String)
-            End If
-            If (GovSenha Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(59).Value = CType(GovSenha,String)
-            End If
-            If (FinalizadoParcelamento Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(60).Value = CType(FinalizadoParcelamento,String)
-            End If
-            If (NomeResponsavel Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(61).Value = CType(NomeResponsavel,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal DataLembrete As String,  _
-                    ByVal DataCriacao As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal FormaEnvio As String,  _
-                    ByVal INSSAntigo As String,  _
-                    ByVal INSSNovo As String,  _
-                    ByVal INSSProcuradoria As String,  _
-                    ByVal DataParcelINSSantigo As String,  _
-                    ByVal DataParcelINSSnovo As String,  _
-                    ByVal DataParcelINSSproc As String,  _
-                    ByVal DataEnvio As String,  _
-                    ByVal WhatsApp As String,  _
-                    ByVal Email As String,  _
-                    ByVal INSSAntigoProt As String,  _
-                    ByVal INSSAntigoObs As String,  _
-                    ByVal INSSNovoProt As String,  _
-                    ByVal INSSNovoObs As String,  _
-                    ByVal INSSProcProt As String,  _
-                    ByVal INSSProcObs As String,  _
-                    ByVal HistoricoEnvioINSSAntigo As String,  _
-                    ByVal HistoricoEnvioINSSNovo As String,  _
-                    ByVal HistoricoEnvioINSSProc As String,  _
-                    ByVal Cidade As String,  _
-                    ByVal Estado As String,  _
-                    ByVal Rua As String,  _
-                    ByVal Numero As String,  _
-                    ByVal Complemento As String,  _
-                    ByVal Bairro As String,  _
-                    ByVal FinalizadoINSSAntigo As String,  _
-                    ByVal FinalizadoINSSNovo As String,  _
-                    ByVal FinalizadoINSSProc As String,  _
-                    ByVal FinalizadoMes As String,  _
-                    ByVal FinalizadoParcelamentos As String,  _
-                    ByVal MotivoParcINSSAntigo As String,  _
-                    ByVal MotivoParcINSSNovo As String,  _
-                    ByVal MotivoParcINSSProc As String,  _
-                    ByVal MotivoParcMEI As String,  _
-                    ByVal DataParcMEI As String,  _
-                    ByVal DataProtocoloMEI As String,  _
-                    ByVal FinalizadoMEI As String,  _
-                    ByVal GeralINSSAntigo As String,  _
-                    ByVal GeralINSSNovo As String,  _
-                    ByVal GeralINSSProcuradoria As String,  _
-                    ByVal GeralMEI As String,  _
-                    ByVal MesEnviadoINSSAntigo As String,  _
-                    ByVal MesEnviadoINSSNovo As String,  _
-                    ByVal MesEnviadoINSSProc As String,  _
-                    ByVal MesEnviadoMEI As String,  _
-                    ByVal HistoricoEnvioMEI As String,  _
-                    ByVal MEI As String,  _
-                    ByVal MeiProtocolo As String,  _
-                    ByVal DataFimParcINSSAntigo As String,  _
-                    ByVal DataFimParcINSSNovo As String,  _
-                    ByVal DataFimParcINSSProc As String,  _
-                    ByVal DataFimParcMEI As String,  _
-                    ByVal SocioResponsavel As String,  _
-                    ByVal CPFsocioResponsavel As String,  _
-                    ByVal GovSenha As String,  _
-                    ByVal FinalizadoParcelamento As String,  _
-                    ByVal NomeResponsavel As String,  _
-                    ByVal Original_ID_Parcelamentos As Integer,  _
-                    ByVal ID_Parcelamentos As Integer) As Integer
-            If (RazaoSocial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RazaoSocial,String)
-            End If
-            If (CNPJ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CNPJ,String)
-            End If
-            If (DataLembrete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DataLembrete,String)
-            End If
-            If (DataCriacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DataCriacao,String)
-            End If
-            If (Observacao Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Observacao,String)
-            End If
-            If (FormaEnvio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FormaEnvio,String)
-            End If
-            If (INSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(INSSAntigo,String)
-            End If
-            If (INSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(INSSNovo,String)
-            End If
-            If (INSSProcuradoria Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
-            End If
-            If (DataParcelINSSantigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
-            End If
-            If (DataParcelINSSnovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
-            End If
-            If (DataParcelINSSproc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
-            End If
-            If (DataEnvio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DataEnvio,String)
-            End If
-            If (WhatsApp Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(WhatsApp,String)
-            End If
-            If (Email Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Email,String)
-            End If
-            If (INSSAntigoProt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
-            End If
-            If (INSSAntigoObs Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
-            End If
-            If (INSSNovoProt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(INSSNovoProt,String)
-            End If
-            If (INSSNovoObs Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(INSSNovoObs,String)
-            End If
-            If (INSSProcProt Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(INSSProcProt,String)
-            End If
-            If (INSSProcObs Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(INSSProcObs,String)
-            End If
-            If (HistoricoEnvioINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
-            End If
-            If (HistoricoEnvioINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
-            End If
-            If (HistoricoEnvioINSSProc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
-            End If
-            If (Cidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Cidade,String)
-            End If
-            If (Estado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Estado,String)
-            End If
-            If (Rua Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Rua,String)
-            End If
-            If (Numero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Numero,String)
-            End If
-            If (Complemento Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Complemento,String)
-            End If
-            If (Bairro Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Bairro,String)
-            End If
-            If (FinalizadoINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
-            End If
-            If (FinalizadoINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
-            End If
-            If (FinalizadoINSSProc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
-            End If
-            If (FinalizadoMes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(FinalizadoMes,String)
-            End If
-            If (FinalizadoParcelamentos Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
-            End If
-            If (MotivoParcINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
-            End If
-            If (MotivoParcINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
-            End If
-            If (MotivoParcINSSProc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
-            End If
-            If (MotivoParcMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
-            End If
-            If (DataParcMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(DataParcMEI,String)
-            End If
-            If (DataProtocoloMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
-            End If
-            If (FinalizadoMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
-            End If
-            If (GeralINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
-            End If
-            If (GeralINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
-            End If
-            If (GeralINSSProcuradoria Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
-            End If
-            If (GeralMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(GeralMEI,String)
-            End If
-            If (MesEnviadoINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
-            End If
-            If (MesEnviadoINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
-            End If
-            If (MesEnviadoINSSProc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
-            End If
-            If (MesEnviadoMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
-            End If
-            If (HistoricoEnvioMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
-            End If
-            If (MEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(MEI,String)
-            End If
-            If (MeiProtocolo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(MeiProtocolo,String)
-            End If
-            If (DataFimParcINSSAntigo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
-            End If
-            If (DataFimParcINSSNovo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
-            End If
-            If (DataFimParcINSSProc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(DataFimParcINSSProc,String)
-            End If
-            If (DataFimParcMEI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
-            End If
-            If (SocioResponsavel Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(SocioResponsavel,String)
-            End If
-            If (CPFsocioResponsavel Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(CPFsocioResponsavel,String)
-            End If
-            If (GovSenha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(GovSenha,String)
-            End If
-            If (FinalizadoParcelamento Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(FinalizadoParcelamento,String)
-            End If
-            If (NomeResponsavel Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(NomeResponsavel,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ID_Parcelamentos,Integer)
-            Me.Adapter.UpdateCommand.Parameters(63).Value = CType(ID_Parcelamentos,Integer)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal RazaoSocial As String,  _
-                    ByVal CNPJ As String,  _
-                    ByVal DataLembrete As String,  _
-                    ByVal DataCriacao As String,  _
-                    ByVal Observacao As String,  _
-                    ByVal FormaEnvio As String,  _
-                    ByVal INSSAntigo As String,  _
-                    ByVal INSSNovo As String,  _
-                    ByVal INSSProcuradoria As String,  _
-                    ByVal DataParcelINSSantigo As String,  _
-                    ByVal DataParcelINSSnovo As String,  _
-                    ByVal DataParcelINSSproc As String,  _
-                    ByVal DataEnvio As String,  _
-                    ByVal WhatsApp As String,  _
-                    ByVal Email As String,  _
-                    ByVal INSSAntigoProt As String,  _
-                    ByVal INSSAntigoObs As String,  _
-                    ByVal INSSNovoProt As String,  _
-                    ByVal INSSNovoObs As String,  _
-                    ByVal INSSProcProt As String,  _
-                    ByVal INSSProcObs As String,  _
-                    ByVal HistoricoEnvioINSSAntigo As String,  _
-                    ByVal HistoricoEnvioINSSNovo As String,  _
-                    ByVal HistoricoEnvioINSSProc As String,  _
-                    ByVal Cidade As String,  _
-                    ByVal Estado As String,  _
-                    ByVal Rua As String,  _
-                    ByVal Numero As String,  _
-                    ByVal Complemento As String,  _
-                    ByVal Bairro As String,  _
-                    ByVal FinalizadoINSSAntigo As String,  _
-                    ByVal FinalizadoINSSNovo As String,  _
-                    ByVal FinalizadoINSSProc As String,  _
-                    ByVal FinalizadoMes As String,  _
-                    ByVal FinalizadoParcelamentos As String,  _
-                    ByVal MotivoParcINSSAntigo As String,  _
-                    ByVal MotivoParcINSSNovo As String,  _
-                    ByVal MotivoParcINSSProc As String,  _
-                    ByVal MotivoParcMEI As String,  _
-                    ByVal DataParcMEI As String,  _
-                    ByVal DataProtocoloMEI As String,  _
-                    ByVal FinalizadoMEI As String,  _
-                    ByVal GeralINSSAntigo As String,  _
-                    ByVal GeralINSSNovo As String,  _
-                    ByVal GeralINSSProcuradoria As String,  _
-                    ByVal GeralMEI As String,  _
-                    ByVal MesEnviadoINSSAntigo As String,  _
-                    ByVal MesEnviadoINSSNovo As String,  _
-                    ByVal MesEnviadoINSSProc As String,  _
-                    ByVal MesEnviadoMEI As String,  _
-                    ByVal HistoricoEnvioMEI As String,  _
-                    ByVal MEI As String,  _
-                    ByVal MeiProtocolo As String,  _
-                    ByVal DataFimParcINSSAntigo As String,  _
-                    ByVal DataFimParcINSSNovo As String,  _
-                    ByVal DataFimParcINSSProc As String,  _
-                    ByVal DataFimParcMEI As String,  _
-                    ByVal SocioResponsavel As String,  _
-                    ByVal CPFsocioResponsavel As String,  _
-                    ByVal GovSenha As String,  _
-                    ByVal FinalizadoParcelamento As String,  _
-                    ByVal NomeResponsavel As String,  _
-                    ByVal Original_ID_Parcelamentos As Integer) As Integer
-            Return Me.Update(RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, Original_ID_Parcelamentos, Original_ID_Parcelamentos)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ParcelamentosAvisoTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -49980,6 +49411,1547 @@ Namespace PrinceDBDataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ParcelamentosTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Parcelamentos"
+            tableMapping.ColumnMappings.Add("ID_Parcelamentos", "ID_Parcelamentos")
+            tableMapping.ColumnMappings.Add("RazaoSocial", "RazaoSocial")
+            tableMapping.ColumnMappings.Add("CNPJ", "CNPJ")
+            tableMapping.ColumnMappings.Add("DataLembrete", "DataLembrete")
+            tableMapping.ColumnMappings.Add("DataCriacao", "DataCriacao")
+            tableMapping.ColumnMappings.Add("Observacao", "Observacao")
+            tableMapping.ColumnMappings.Add("FormaEnvio", "FormaEnvio")
+            tableMapping.ColumnMappings.Add("INSSAntigo", "INSSAntigo")
+            tableMapping.ColumnMappings.Add("INSSNovo", "INSSNovo")
+            tableMapping.ColumnMappings.Add("INSSProcuradoria", "INSSProcuradoria")
+            tableMapping.ColumnMappings.Add("DataParcelINSSantigo", "DataParcelINSSantigo")
+            tableMapping.ColumnMappings.Add("DataParcelINSSnovo", "DataParcelINSSnovo")
+            tableMapping.ColumnMappings.Add("DataParcelINSSproc", "DataParcelINSSproc")
+            tableMapping.ColumnMappings.Add("DataEnvio", "DataEnvio")
+            tableMapping.ColumnMappings.Add("WhatsApp", "WhatsApp")
+            tableMapping.ColumnMappings.Add("Email", "Email")
+            tableMapping.ColumnMappings.Add("INSSAntigoProt", "INSSAntigoProt")
+            tableMapping.ColumnMappings.Add("INSSAntigoObs", "INSSAntigoObs")
+            tableMapping.ColumnMappings.Add("INSSNovoProt", "INSSNovoProt")
+            tableMapping.ColumnMappings.Add("INSSNovoObs", "INSSNovoObs")
+            tableMapping.ColumnMappings.Add("INSSProcProt", "INSSProcProt")
+            tableMapping.ColumnMappings.Add("INSSProcObs", "INSSProcObs")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSAntigo", "HistoricoEnvioINSSAntigo")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSNovo", "HistoricoEnvioINSSNovo")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioINSSProc", "HistoricoEnvioINSSProc")
+            tableMapping.ColumnMappings.Add("Cidade", "Cidade")
+            tableMapping.ColumnMappings.Add("Estado", "Estado")
+            tableMapping.ColumnMappings.Add("Rua", "Rua")
+            tableMapping.ColumnMappings.Add("Numero", "Numero")
+            tableMapping.ColumnMappings.Add("Complemento", "Complemento")
+            tableMapping.ColumnMappings.Add("Bairro", "Bairro")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSAntigo", "FinalizadoINSSAntigo")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSNovo", "FinalizadoINSSNovo")
+            tableMapping.ColumnMappings.Add("FinalizadoINSSProc", "FinalizadoINSSProc")
+            tableMapping.ColumnMappings.Add("FinalizadoMes", "FinalizadoMes")
+            tableMapping.ColumnMappings.Add("FinalizadoParcelamentos", "FinalizadoParcelamentos")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSAntigo", "MotivoParcINSSAntigo")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSNovo", "MotivoParcINSSNovo")
+            tableMapping.ColumnMappings.Add("MotivoParcINSSProc", "MotivoParcINSSProc")
+            tableMapping.ColumnMappings.Add("MotivoParcMEI", "MotivoParcMEI")
+            tableMapping.ColumnMappings.Add("DataParcMEI", "DataParcMEI")
+            tableMapping.ColumnMappings.Add("DataProtocoloMEI", "DataProtocoloMEI")
+            tableMapping.ColumnMappings.Add("FinalizadoMEI", "FinalizadoMEI")
+            tableMapping.ColumnMappings.Add("GeralINSSAntigo", "GeralINSSAntigo")
+            tableMapping.ColumnMappings.Add("GeralINSSNovo", "GeralINSSNovo")
+            tableMapping.ColumnMappings.Add("GeralINSSProcuradoria", "GeralINSSProcuradoria")
+            tableMapping.ColumnMappings.Add("GeralMEI", "GeralMEI")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSAntigo", "MesEnviadoINSSAntigo")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSNovo", "MesEnviadoINSSNovo")
+            tableMapping.ColumnMappings.Add("MesEnviadoINSSProc", "MesEnviadoINSSProc")
+            tableMapping.ColumnMappings.Add("MesEnviadoMEI", "MesEnviadoMEI")
+            tableMapping.ColumnMappings.Add("HistoricoEnvioMEI", "HistoricoEnvioMEI")
+            tableMapping.ColumnMappings.Add("MEI", "MEI")
+            tableMapping.ColumnMappings.Add("MeiProtocolo", "MeiProtocolo")
+            tableMapping.ColumnMappings.Add("DataFimParcINSSAntigo", "DataFimParcINSSAntigo")
+            tableMapping.ColumnMappings.Add("DataFimParcINSSNovo", "DataFimParcINSSNovo")
+            tableMapping.ColumnMappings.Add("DataFimParcINSSProc", "DataFimParcINSSProc")
+            tableMapping.ColumnMappings.Add("DataFimParcMEI", "DataFimParcMEI")
+            tableMapping.ColumnMappings.Add("SocioResponsavel", "SocioResponsavel")
+            tableMapping.ColumnMappings.Add("CPFsocioResponsavel", "CPFsocioResponsavel")
+            tableMapping.ColumnMappings.Add("GovSenha", "GovSenha")
+            tableMapping.ColumnMappings.Add("FinalizadoParcelamento", "FinalizadoParcelamento")
+            tableMapping.ColumnMappings.Add("NomeResponsavel", "NomeResponsavel")
+            tableMapping.ColumnMappings.Add("TemDataLembrete", "TemDataLembrete")
+            tableMapping.ColumnMappings.Add("TemDataEnvio", "TemDataEnvio")
+            tableMapping.ColumnMappings.Add("TemDataEnvioINSSAntigo", "TemDataEnvioINSSAntigo")
+            tableMapping.ColumnMappings.Add("TemDataEnvioINSSNovo", "TemDataEnvioINSSNovo")
+            tableMapping.ColumnMappings.Add("TemDataEnvioINSSProcur", "TemDataEnvioINSSProcur")
+            tableMapping.ColumnMappings.Add("TemDataEnvioMEI", "TemDataEnvioMEI")
+            tableMapping.ColumnMappings.Add("TemDataFimINSSAntigo", "TemDataFimINSSAntigo")
+            tableMapping.ColumnMappings.Add("TemDataFimINSSNovo", "TemDataFimINSSNovo")
+            tableMapping.ColumnMappings.Add("TemDataFimINSSProcur", "TemDataFimINSSProcur")
+            tableMapping.ColumnMappings.Add("TemDataFimMEI", "TemDataFimMEI")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Parcelamentos] WHERE (([ID_Parcelamentos] = @Original_ID_Parcelament"& _ 
+                "os))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Parcelamentos] ([RazaoSocial], [CNPJ], [DataLembrete], [DataCriacao]"& _ 
+                ", [Observacao], [FormaEnvio], [INSSAntigo], [INSSNovo], [INSSProcuradoria], [Dat"& _ 
+                "aParcelINSSantigo], [DataParcelINSSnovo], [DataParcelINSSproc], [DataEnvio], [Wh"& _ 
+                "atsApp], [Email], [INSSAntigoProt], [INSSAntigoObs], [INSSNovoProt], [INSSNovoOb"& _ 
+                "s], [INSSProcProt], [INSSProcObs], [HistoricoEnvioINSSAntigo], [HistoricoEnvioIN"& _ 
+                "SSNovo], [HistoricoEnvioINSSProc], [Cidade], [Estado], [Rua], [Numero], [Complem"& _ 
+                "ento], [Bairro], [FinalizadoINSSAntigo], [FinalizadoINSSNovo], [FinalizadoINSSPr"& _ 
+                "oc], [FinalizadoMes], [FinalizadoParcelamentos], [MotivoParcINSSAntigo], [Motivo"& _ 
+                "ParcINSSNovo], [MotivoParcINSSProc], [MotivoParcMEI], [DataParcMEI], [DataProtoc"& _ 
+                "oloMEI], [FinalizadoMEI], [GeralINSSAntigo], [GeralINSSNovo], [GeralINSSProcurad"& _ 
+                "oria], [GeralMEI], [MesEnviadoINSSAntigo], [MesEnviadoINSSNovo], [MesEnviadoINSS"& _ 
+                "Proc], [MesEnviadoMEI], [HistoricoEnvioMEI], [MEI], [MeiProtocolo], [DataFimParc"& _ 
+                "INSSAntigo], [DataFimParcINSSNovo], [DataFimParcINSSProc], [DataFimParcMEI], [So"& _ 
+                "cioResponsavel], [CPFsocioResponsavel], [GovSenha], [FinalizadoParcelamento], [N"& _ 
+                "omeResponsavel], [TemDataLembrete], [TemDataEnvio], [TemDataEnvioINSSAntigo], [T"& _ 
+                "emDataEnvioINSSNovo], [TemDataEnvioINSSProcur], [TemDataEnvioMEI], [TemDataFimIN"& _ 
+                "SSAntigo], [TemDataFimINSSNovo], [TemDataFimINSSProcur], [TemDataFimMEI]) VALUES"& _ 
+                " (@RazaoSocial, @CNPJ, @DataLembrete, @DataCriacao, @Observacao, @FormaEnvio, @I"& _ 
+                "NSSAntigo, @INSSNovo, @INSSProcuradoria, @DataParcelINSSantigo, @DataParcelINSSn"& _ 
+                "ovo, @DataParcelINSSproc, @DataEnvio, @WhatsApp, @Email, @INSSAntigoProt, @INSSA"& _ 
+                "ntigoObs, @INSSNovoProt, @INSSNovoObs, @INSSProcProt, @INSSProcObs, @HistoricoEn"& _ 
+                "vioINSSAntigo, @HistoricoEnvioINSSNovo, @HistoricoEnvioINSSProc, @Cidade, @Estad"& _ 
+                "o, @Rua, @Numero, @Complemento, @Bairro, @FinalizadoINSSAntigo, @FinalizadoINSSN"& _ 
+                "ovo, @FinalizadoINSSProc, @FinalizadoMes, @FinalizadoParcelamentos, @MotivoParcI"& _ 
+                "NSSAntigo, @MotivoParcINSSNovo, @MotivoParcINSSProc, @MotivoParcMEI, @DataParcME"& _ 
+                "I, @DataProtocoloMEI, @FinalizadoMEI, @GeralINSSAntigo, @GeralINSSNovo, @GeralIN"& _ 
+                "SSProcuradoria, @GeralMEI, @MesEnviadoINSSAntigo, @MesEnviadoINSSNovo, @MesEnvia"& _ 
+                "doINSSProc, @MesEnviadoMEI, @HistoricoEnvioMEI, @MEI, @MeiProtocolo, @DataFimPar"& _ 
+                "cINSSAntigo, @DataFimParcINSSNovo, @DataFimParcINSSProc, @DataFimParcMEI, @Socio"& _ 
+                "Responsavel, @CPFsocioResponsavel, @GovSenha, @FinalizadoParcelamento, @NomeResp"& _ 
+                "onsavel, @TemDataLembrete, @TemDataEnvio, @TemDataEnvioINSSAntigo, @TemDataEnvio"& _ 
+                "INSSNovo, @TemDataEnvioINSSProcur, @TemDataEnvioMEI, @TemDataFimINSSAntigo, @Tem"& _ 
+                "DataFimINSSNovo, @TemDataFimINSSProcur, @TemDataFimMEI);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Parcelamento"& _ 
+                "s, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAnt"& _ 
+                "igo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataP"& _ 
+                "arcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNo"& _ 
+                "voProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, Histor"& _ 
+                "icoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemen"& _ 
+                "to, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, Finali"& _ 
+                "zadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, Moti"& _ 
+                "voParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, Ger"& _ 
+                "alINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAnti"& _ 
+                "go, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, ME"& _ 
+                "I, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc"& _ 
+                ", DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoPar"& _ 
+                "celamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntig"& _ 
+                "o, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSS"& _ 
+                "Antigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI FROM Parcelament"& _ 
+                "os WHERE (ID_Parcelamentos = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFsocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFsocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GovSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GovSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSProcur", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSProcur", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSProcur", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSProcur", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [DataLem"& _ 
+                "brete] = @DataLembrete, [DataCriacao] = @DataCriacao, [Observacao] = @Observacao"& _ 
+                ", [FormaEnvio] = @FormaEnvio, [INSSAntigo] = @INSSAntigo, [INSSNovo] = @INSSNovo"& _ 
+                ", [INSSProcuradoria] = @INSSProcuradoria, [DataParcelINSSantigo] = @DataParcelIN"& _ 
+                "SSantigo, [DataParcelINSSnovo] = @DataParcelINSSnovo, [DataParcelINSSproc] = @Da"& _ 
+                "taParcelINSSproc, [DataEnvio] = @DataEnvio, [WhatsApp] = @WhatsApp, [Email] = @E"& _ 
+                "mail, [INSSAntigoProt] = @INSSAntigoProt, [INSSAntigoObs] = @INSSAntigoObs, [INS"& _ 
+                "SNovoProt] = @INSSNovoProt, [INSSNovoObs] = @INSSNovoObs, [INSSProcProt] = @INSS"& _ 
+                "ProcProt, [INSSProcObs] = @INSSProcObs, [HistoricoEnvioINSSAntigo] = @HistoricoE"& _ 
+                "nvioINSSAntigo, [HistoricoEnvioINSSNovo] = @HistoricoEnvioINSSNovo, [HistoricoEn"& _ 
+                "vioINSSProc] = @HistoricoEnvioINSSProc, [Cidade] = @Cidade, [Estado] = @Estado, "& _ 
+                "[Rua] = @Rua, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bair"& _ 
+                "ro, [FinalizadoINSSAntigo] = @FinalizadoINSSAntigo, [FinalizadoINSSNovo] = @Fina"& _ 
+                "lizadoINSSNovo, [FinalizadoINSSProc] = @FinalizadoINSSProc, [FinalizadoMes] = @F"& _ 
+                "inalizadoMes, [FinalizadoParcelamentos] = @FinalizadoParcelamentos, [MotivoParcI"& _ 
+                "NSSAntigo] = @MotivoParcINSSAntigo, [MotivoParcINSSNovo] = @MotivoParcINSSNovo, "& _ 
+                "[MotivoParcINSSProc] = @MotivoParcINSSProc, [MotivoParcMEI] = @MotivoParcMEI, [D"& _ 
+                "ataParcMEI] = @DataParcMEI, [DataProtocoloMEI] = @DataProtocoloMEI, [FinalizadoM"& _ 
+                "EI] = @FinalizadoMEI, [GeralINSSAntigo] = @GeralINSSAntigo, [GeralINSSNovo] = @G"& _ 
+                "eralINSSNovo, [GeralINSSProcuradoria] = @GeralINSSProcuradoria, [GeralMEI] = @Ge"& _ 
+                "ralMEI, [MesEnviadoINSSAntigo] = @MesEnviadoINSSAntigo, [MesEnviadoINSSNovo] = @"& _ 
+                "MesEnviadoINSSNovo, [MesEnviadoINSSProc] = @MesEnviadoINSSProc, [MesEnviadoMEI] "& _ 
+                "= @MesEnviadoMEI, [HistoricoEnvioMEI] = @HistoricoEnvioMEI, [MEI] = @MEI, [MeiPr"& _ 
+                "otocolo] = @MeiProtocolo, [DataFimParcINSSAntigo] = @DataFimParcINSSAntigo, [Dat"& _ 
+                "aFimParcINSSNovo] = @DataFimParcINSSNovo, [DataFimParcINSSProc] = @DataFimParcIN"& _ 
+                "SSProc, [DataFimParcMEI] = @DataFimParcMEI, [SocioResponsavel] = @SocioResponsav"& _ 
+                "el, [CPFsocioResponsavel] = @CPFsocioResponsavel, [GovSenha] = @GovSenha, [Final"& _ 
+                "izadoParcelamento] = @FinalizadoParcelamento, [NomeResponsavel] = @NomeResponsav"& _ 
+                "el, [TemDataLembrete] = @TemDataLembrete, [TemDataEnvio] = @TemDataEnvio, [TemDa"& _ 
+                "taEnvioINSSAntigo] = @TemDataEnvioINSSAntigo, [TemDataEnvioINSSNovo] = @TemDataE"& _ 
+                "nvioINSSNovo, [TemDataEnvioINSSProcur] = @TemDataEnvioINSSProcur, [TemDataEnvioM"& _ 
+                "EI] = @TemDataEnvioMEI, [TemDataFimINSSAntigo] = @TemDataFimINSSAntigo, [TemData"& _ 
+                "FimINSSNovo] = @TemDataFimINSSNovo, [TemDataFimINSSProcur] = @TemDataFimINSSProc"& _ 
+                "ur, [TemDataFimMEI] = @TemDataFimMEI WHERE (([ID_Parcelamentos] = @Original_ID_P"& _ 
+                "arcelamentos));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataC"& _ 
+                "riacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParc"& _ 
+                "elINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email"& _ 
+                ", INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSPr"& _ 
+                "ocObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc,"& _ 
+                " Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, Finaliz"& _ 
+                "adoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoP"& _ 
+                "arcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcME"& _ 
+                "I, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSPro"& _ 
+                "curadoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSPro"& _ 
+                "c, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, D"& _ 
+                "ataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFso"& _ 
+                "cioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembre"& _ 
+                "te, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSS"& _ 
+                "Procur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINS"& _ 
+                "SProcur, TemDataFimMEI FROM Parcelamentos WHERE (ID_Parcelamentos = @ID_Parcelam"& _ 
+                "entos)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCriacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCriacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Observacao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Observacao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormaEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormaEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSantigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSantigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSnovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSnovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcelINSSproc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcelINSSproc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WhatsApp", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WhatsApp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSAntigoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSAntigoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSNovoObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSNovoObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcProt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcProt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INSSProcObs", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INSSProcObs", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cidade", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cidade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rua", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Numero", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Numero", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Complemento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Complemento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Bairro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Bairro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamentos", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataProtocoloMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataProtocoloMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralINSSProcuradoria", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralINSSProcuradoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GeralMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GeralMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MesEnviadoMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MesEnviadoMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HistoricoEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HistoricoEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MeiProtocolo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MeiProtocolo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcINSSProc", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcINSSProc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataFimParcMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataFimParcMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CPFsocioResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CPFsocioResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GovSenha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GovSenha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoParcelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoParcelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomeResponsavel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomeResponsavel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataLembrete", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataLembrete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioINSSProcur", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioINSSProcur", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataEnvioMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataEnvioMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimINSSProcur", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimINSSProcur", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TemDataFimMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TemDataFimMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Parcelamentos", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcelamentos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.PrinceSistemas.My.MySettings.Default.PrinceDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        Parcelamentos.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Parcelamentos"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As PrinceDBDataSet.ParcelamentosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As PrinceDBDataSet.ParcelamentosDataTable = New PrinceDBDataSet.ParcelamentosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As PrinceDBDataSet.ParcelamentosDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As PrinceDBDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Parcelamentos")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_Parcelamentos As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_Parcelamentos,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINSSProc As String,  _
+                    ByVal DataFimParcMEI As String,  _
+                    ByVal SocioResponsavel As String,  _
+                    ByVal CPFsocioResponsavel As String,  _
+                    ByVal GovSenha As String,  _
+                    ByVal FinalizadoParcelamento As String,  _
+                    ByVal NomeResponsavel As String,  _
+                    ByVal TemDataLembrete As String,  _
+                    ByVal TemDataEnvio As String,  _
+                    ByVal TemDataEnvioINSSAntigo As String,  _
+                    ByVal TemDataEnvioINSSNovo As String,  _
+                    ByVal TemDataEnvioINSSProcur As String,  _
+                    ByVal TemDataEnvioMEI As String,  _
+                    ByVal TemDataFimINSSAntigo As String,  _
+                    ByVal TemDataFimINSSNovo As String,  _
+                    ByVal TemDataFimINSSProcur As String,  _
+                    ByVal TemDataFimMEI As String) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (DataLembrete Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DataLembrete,String)
+            End If
+            If (DataCriacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DataCriacao,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Observacao,String)
+            End If
+            If (FormaEnvio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FormaEnvio,String)
+            End If
+            If (INSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(INSSAntigo,String)
+            End If
+            If (INSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(INSSNovo,String)
+            End If
+            If (INSSProcuradoria Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
+            End If
+            If (DataParcelINSSantigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
+            End If
+            If (DataParcelINSSnovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
+            End If
+            If (DataParcelINSSproc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
+            End If
+            If (DataEnvio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DataEnvio,String)
+            End If
+            If (WhatsApp Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(WhatsApp,String)
+            End If
+            If (Email Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Email,String)
+            End If
+            If (INSSAntigoProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
+            End If
+            If (INSSAntigoObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
+            End If
+            If (INSSNovoProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(INSSNovoProt,String)
+            End If
+            If (INSSNovoObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(INSSNovoObs,String)
+            End If
+            If (INSSProcProt Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(INSSProcProt,String)
+            End If
+            If (INSSProcObs Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(INSSProcObs,String)
+            End If
+            If (HistoricoEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
+            End If
+            If (HistoricoEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
+            End If
+            If (HistoricoEnvioINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
+            End If
+            If (Cidade Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(Cidade,String)
+            End If
+            If (Estado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(Estado,String)
+            End If
+            If (Rua Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Rua,String)
+            End If
+            If (Numero Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Numero,String)
+            End If
+            If (Complemento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(Complemento,String)
+            End If
+            If (Bairro Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Bairro,String)
+            End If
+            If (FinalizadoINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
+            End If
+            If (FinalizadoINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
+            End If
+            If (FinalizadoINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
+            End If
+            If (FinalizadoMes Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(33).Value = CType(FinalizadoMes,String)
+            End If
+            If (FinalizadoParcelamentos Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
+            End If
+            If (MotivoParcINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
+            End If
+            If (MotivoParcINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
+            End If
+            If (MotivoParcINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
+            End If
+            If (MotivoParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
+            End If
+            If (DataParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(39).Value = CType(DataParcMEI,String)
+            End If
+            If (DataProtocoloMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
+            End If
+            If (FinalizadoMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
+            End If
+            If (GeralINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
+            End If
+            If (GeralINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
+            End If
+            If (GeralINSSProcuradoria Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
+            End If
+            If (GeralMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(45).Value = CType(GeralMEI,String)
+            End If
+            If (MesEnviadoINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
+            End If
+            If (MesEnviadoINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
+            End If
+            If (MesEnviadoINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
+            End If
+            If (MesEnviadoMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
+            End If
+            If (HistoricoEnvioMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
+            End If
+            If (MEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(51).Value = CType(MEI,String)
+            End If
+            If (MeiProtocolo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(52).Value = CType(MeiProtocolo,String)
+            End If
+            If (DataFimParcINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
+            End If
+            If (DataFimParcINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
+            End If
+            If (DataFimParcINSSProc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(55).Value = CType(DataFimParcINSSProc,String)
+            End If
+            If (DataFimParcMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
+            End If
+            If (SocioResponsavel Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(57).Value = CType(SocioResponsavel,String)
+            End If
+            If (CPFsocioResponsavel Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(58).Value = CType(CPFsocioResponsavel,String)
+            End If
+            If (GovSenha Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(GovSenha,String)
+            End If
+            If (FinalizadoParcelamento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(60).Value = CType(FinalizadoParcelamento,String)
+            End If
+            If (NomeResponsavel Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(61).Value = CType(NomeResponsavel,String)
+            End If
+            If (TemDataLembrete Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(62).Value = CType(TemDataLembrete,String)
+            End If
+            If (TemDataEnvio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(63).Value = CType(TemDataEnvio,String)
+            End If
+            If (TemDataEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(64).Value = CType(TemDataEnvioINSSAntigo,String)
+            End If
+            If (TemDataEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(65).Value = CType(TemDataEnvioINSSNovo,String)
+            End If
+            If (TemDataEnvioINSSProcur Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(66).Value = CType(TemDataEnvioINSSProcur,String)
+            End If
+            If (TemDataEnvioMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(67).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(67).Value = CType(TemDataEnvioMEI,String)
+            End If
+            If (TemDataFimINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(68).Value = CType(TemDataFimINSSAntigo,String)
+            End If
+            If (TemDataFimINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(69).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(69).Value = CType(TemDataFimINSSNovo,String)
+            End If
+            If (TemDataFimINSSProcur Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(70).Value = CType(TemDataFimINSSProcur,String)
+            End If
+            If (TemDataFimMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(71).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(71).Value = CType(TemDataFimMEI,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINSSProc As String,  _
+                    ByVal DataFimParcMEI As String,  _
+                    ByVal SocioResponsavel As String,  _
+                    ByVal CPFsocioResponsavel As String,  _
+                    ByVal GovSenha As String,  _
+                    ByVal FinalizadoParcelamento As String,  _
+                    ByVal NomeResponsavel As String,  _
+                    ByVal TemDataLembrete As String,  _
+                    ByVal TemDataEnvio As String,  _
+                    ByVal TemDataEnvioINSSAntigo As String,  _
+                    ByVal TemDataEnvioINSSNovo As String,  _
+                    ByVal TemDataEnvioINSSProcur As String,  _
+                    ByVal TemDataEnvioMEI As String,  _
+                    ByVal TemDataFimINSSAntigo As String,  _
+                    ByVal TemDataFimINSSNovo As String,  _
+                    ByVal TemDataFimINSSProcur As String,  _
+                    ByVal TemDataFimMEI As String,  _
+                    ByVal Original_ID_Parcelamentos As Integer,  _
+                    ByVal ID_Parcelamentos As Integer) As Integer
+            If (RazaoSocial Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RazaoSocial,String)
+            End If
+            If (CNPJ Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CNPJ,String)
+            End If
+            If (DataLembrete Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DataLembrete,String)
+            End If
+            If (DataCriacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DataCriacao,String)
+            End If
+            If (Observacao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Observacao,String)
+            End If
+            If (FormaEnvio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FormaEnvio,String)
+            End If
+            If (INSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(INSSAntigo,String)
+            End If
+            If (INSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(INSSNovo,String)
+            End If
+            If (INSSProcuradoria Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(INSSProcuradoria,String)
+            End If
+            If (DataParcelINSSantigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DataParcelINSSantigo,String)
+            End If
+            If (DataParcelINSSnovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DataParcelINSSnovo,String)
+            End If
+            If (DataParcelINSSproc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DataParcelINSSproc,String)
+            End If
+            If (DataEnvio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DataEnvio,String)
+            End If
+            If (WhatsApp Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(WhatsApp,String)
+            End If
+            If (Email Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Email,String)
+            End If
+            If (INSSAntigoProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(INSSAntigoProt,String)
+            End If
+            If (INSSAntigoObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(INSSAntigoObs,String)
+            End If
+            If (INSSNovoProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(INSSNovoProt,String)
+            End If
+            If (INSSNovoObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(INSSNovoObs,String)
+            End If
+            If (INSSProcProt Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(INSSProcProt,String)
+            End If
+            If (INSSProcObs Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(INSSProcObs,String)
+            End If
+            If (HistoricoEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(HistoricoEnvioINSSAntigo,String)
+            End If
+            If (HistoricoEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(HistoricoEnvioINSSNovo,String)
+            End If
+            If (HistoricoEnvioINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(HistoricoEnvioINSSProc,String)
+            End If
+            If (Cidade Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Cidade,String)
+            End If
+            If (Estado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Estado,String)
+            End If
+            If (Rua Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Rua,String)
+            End If
+            If (Numero Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Numero,String)
+            End If
+            If (Complemento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Complemento,String)
+            End If
+            If (Bairro Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Bairro,String)
+            End If
+            If (FinalizadoINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(FinalizadoINSSAntigo,String)
+            End If
+            If (FinalizadoINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(FinalizadoINSSNovo,String)
+            End If
+            If (FinalizadoINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(FinalizadoINSSProc,String)
+            End If
+            If (FinalizadoMes Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(FinalizadoMes,String)
+            End If
+            If (FinalizadoParcelamentos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(FinalizadoParcelamentos,String)
+            End If
+            If (MotivoParcINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(MotivoParcINSSAntigo,String)
+            End If
+            If (MotivoParcINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(MotivoParcINSSNovo,String)
+            End If
+            If (MotivoParcINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(MotivoParcINSSProc,String)
+            End If
+            If (MotivoParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(MotivoParcMEI,String)
+            End If
+            If (DataParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(DataParcMEI,String)
+            End If
+            If (DataProtocoloMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(DataProtocoloMEI,String)
+            End If
+            If (FinalizadoMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(FinalizadoMEI,String)
+            End If
+            If (GeralINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(GeralINSSAntigo,String)
+            End If
+            If (GeralINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(GeralINSSNovo,String)
+            End If
+            If (GeralINSSProcuradoria Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(GeralINSSProcuradoria,String)
+            End If
+            If (GeralMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(GeralMEI,String)
+            End If
+            If (MesEnviadoINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(MesEnviadoINSSAntigo,String)
+            End If
+            If (MesEnviadoINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(MesEnviadoINSSNovo,String)
+            End If
+            If (MesEnviadoINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(MesEnviadoINSSProc,String)
+            End If
+            If (MesEnviadoMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(MesEnviadoMEI,String)
+            End If
+            If (HistoricoEnvioMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(HistoricoEnvioMEI,String)
+            End If
+            If (MEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(MEI,String)
+            End If
+            If (MeiProtocolo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(MeiProtocolo,String)
+            End If
+            If (DataFimParcINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(DataFimParcINSSAntigo,String)
+            End If
+            If (DataFimParcINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(DataFimParcINSSNovo,String)
+            End If
+            If (DataFimParcINSSProc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(DataFimParcINSSProc,String)
+            End If
+            If (DataFimParcMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(DataFimParcMEI,String)
+            End If
+            If (SocioResponsavel Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(SocioResponsavel,String)
+            End If
+            If (CPFsocioResponsavel Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(CPFsocioResponsavel,String)
+            End If
+            If (GovSenha Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(GovSenha,String)
+            End If
+            If (FinalizadoParcelamento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(FinalizadoParcelamento,String)
+            End If
+            If (NomeResponsavel Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(NomeResponsavel,String)
+            End If
+            If (TemDataLembrete Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(TemDataLembrete,String)
+            End If
+            If (TemDataEnvio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(TemDataEnvio,String)
+            End If
+            If (TemDataEnvioINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(TemDataEnvioINSSAntigo,String)
+            End If
+            If (TemDataEnvioINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(TemDataEnvioINSSNovo,String)
+            End If
+            If (TemDataEnvioINSSProcur Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(TemDataEnvioINSSProcur,String)
+            End If
+            If (TemDataEnvioMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(TemDataEnvioMEI,String)
+            End If
+            If (TemDataFimINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(TemDataFimINSSAntigo,String)
+            End If
+            If (TemDataFimINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(TemDataFimINSSNovo,String)
+            End If
+            If (TemDataFimINSSProcur Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(TemDataFimINSSProcur,String)
+            End If
+            If (TemDataFimMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(TemDataFimMEI,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_ID_Parcelamentos,Integer)
+            Me.Adapter.UpdateCommand.Parameters(73).Value = CType(ID_Parcelamentos,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RazaoSocial As String,  _
+                    ByVal CNPJ As String,  _
+                    ByVal DataLembrete As String,  _
+                    ByVal DataCriacao As String,  _
+                    ByVal Observacao As String,  _
+                    ByVal FormaEnvio As String,  _
+                    ByVal INSSAntigo As String,  _
+                    ByVal INSSNovo As String,  _
+                    ByVal INSSProcuradoria As String,  _
+                    ByVal DataParcelINSSantigo As String,  _
+                    ByVal DataParcelINSSnovo As String,  _
+                    ByVal DataParcelINSSproc As String,  _
+                    ByVal DataEnvio As String,  _
+                    ByVal WhatsApp As String,  _
+                    ByVal Email As String,  _
+                    ByVal INSSAntigoProt As String,  _
+                    ByVal INSSAntigoObs As String,  _
+                    ByVal INSSNovoProt As String,  _
+                    ByVal INSSNovoObs As String,  _
+                    ByVal INSSProcProt As String,  _
+                    ByVal INSSProcObs As String,  _
+                    ByVal HistoricoEnvioINSSAntigo As String,  _
+                    ByVal HistoricoEnvioINSSNovo As String,  _
+                    ByVal HistoricoEnvioINSSProc As String,  _
+                    ByVal Cidade As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Rua As String,  _
+                    ByVal Numero As String,  _
+                    ByVal Complemento As String,  _
+                    ByVal Bairro As String,  _
+                    ByVal FinalizadoINSSAntigo As String,  _
+                    ByVal FinalizadoINSSNovo As String,  _
+                    ByVal FinalizadoINSSProc As String,  _
+                    ByVal FinalizadoMes As String,  _
+                    ByVal FinalizadoParcelamentos As String,  _
+                    ByVal MotivoParcINSSAntigo As String,  _
+                    ByVal MotivoParcINSSNovo As String,  _
+                    ByVal MotivoParcINSSProc As String,  _
+                    ByVal MotivoParcMEI As String,  _
+                    ByVal DataParcMEI As String,  _
+                    ByVal DataProtocoloMEI As String,  _
+                    ByVal FinalizadoMEI As String,  _
+                    ByVal GeralINSSAntigo As String,  _
+                    ByVal GeralINSSNovo As String,  _
+                    ByVal GeralINSSProcuradoria As String,  _
+                    ByVal GeralMEI As String,  _
+                    ByVal MesEnviadoINSSAntigo As String,  _
+                    ByVal MesEnviadoINSSNovo As String,  _
+                    ByVal MesEnviadoINSSProc As String,  _
+                    ByVal MesEnviadoMEI As String,  _
+                    ByVal HistoricoEnvioMEI As String,  _
+                    ByVal MEI As String,  _
+                    ByVal MeiProtocolo As String,  _
+                    ByVal DataFimParcINSSAntigo As String,  _
+                    ByVal DataFimParcINSSNovo As String,  _
+                    ByVal DataFimParcINSSProc As String,  _
+                    ByVal DataFimParcMEI As String,  _
+                    ByVal SocioResponsavel As String,  _
+                    ByVal CPFsocioResponsavel As String,  _
+                    ByVal GovSenha As String,  _
+                    ByVal FinalizadoParcelamento As String,  _
+                    ByVal NomeResponsavel As String,  _
+                    ByVal TemDataLembrete As String,  _
+                    ByVal TemDataEnvio As String,  _
+                    ByVal TemDataEnvioINSSAntigo As String,  _
+                    ByVal TemDataEnvioINSSNovo As String,  _
+                    ByVal TemDataEnvioINSSProcur As String,  _
+                    ByVal TemDataEnvioMEI As String,  _
+                    ByVal TemDataFimINSSAntigo As String,  _
+                    ByVal TemDataFimINSSNovo As String,  _
+                    ByVal TemDataFimINSSProcur As String,  _
+                    ByVal TemDataFimMEI As String,  _
+                    ByVal Original_ID_Parcelamentos As Integer) As Integer
+            Return Me.Update(RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI, Original_ID_Parcelamentos, Original_ID_Parcelamentos)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -50042,9 +51014,9 @@ Namespace PrinceDBDataSetTableAdapters
         
         Private _cNAESubclasses23TableAdapter As CNAESubclasses23TableAdapter
         
-        Private _parcelamentosTableAdapter As ParcelamentosTableAdapter
-        
         Private _parcelamentosAvisoTableAdapter As ParcelamentosAvisoTableAdapter
+        
+        Private _parcelamentosTableAdapter As ParcelamentosTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -50416,12 +51388,12 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property ParcelamentosTableAdapter() As ParcelamentosTableAdapter
+        Public Property ParcelamentosAvisoTableAdapter() As ParcelamentosAvisoTableAdapter
             Get
-                Return Me._parcelamentosTableAdapter
+                Return Me._parcelamentosAvisoTableAdapter
             End Get
             Set
-                Me._parcelamentosTableAdapter = value
+                Me._parcelamentosAvisoTableAdapter = value
             End Set
         End Property
         
@@ -50430,12 +51402,12 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property ParcelamentosAvisoTableAdapter() As ParcelamentosAvisoTableAdapter
+        Public Property ParcelamentosTableAdapter() As ParcelamentosTableAdapter
             Get
-                Return Me._parcelamentosAvisoTableAdapter
+                Return Me._parcelamentosTableAdapter
             End Get
             Set
-                Me._parcelamentosAvisoTableAdapter = value
+                Me._parcelamentosTableAdapter = value
             End Set
         End Property
         
@@ -50558,13 +51530,13 @@ Namespace PrinceDBDataSetTableAdapters
                             AndAlso (Not (Me._cNAESubclasses23TableAdapter.Connection) Is Nothing)) Then
                     Return Me._cNAESubclasses23TableAdapter.Connection
                 End If
-                If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._parcelamentosTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._parcelamentosTableAdapter.Connection
-                End If
                 If ((Not (Me._parcelamentosAvisoTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._parcelamentosAvisoTableAdapter.Connection) Is Nothing)) Then
                     Return Me._parcelamentosAvisoTableAdapter.Connection
+                End If
+                If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._parcelamentosTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._parcelamentosTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -50654,10 +51626,10 @@ Namespace PrinceDBDataSetTableAdapters
                 If (Not (Me._cNAESubclasses23TableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -50896,21 +51868,21 @@ Namespace PrinceDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._parcelamentosTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._parcelamentosAvisoTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._parcelamentosTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -51124,19 +52096,19 @@ Namespace PrinceDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._parcelamentosTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._parcelamentosAvisoTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._parcelamentosTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -51150,19 +52122,19 @@ Namespace PrinceDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As PrinceDBDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._parcelamentosAvisoTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Parcelamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._parcelamentosTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.ParcelamentosAviso.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._parcelamentosAvisoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -51532,13 +52504,13 @@ Namespace PrinceDBDataSetTableAdapters
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
-            If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosTableAdapter.Connection) = false)) Then
+            If ((Not (Me._parcelamentosAvisoTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosAvisoTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
-            If ((Not (Me._parcelamentosAvisoTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosAvisoTableAdapter.Connection) = false)) Then
+            If ((Not (Me._parcelamentosTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._parcelamentosTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma "& _ 
                         "cadeia de conexão.")
             End If
@@ -51799,15 +52771,6 @@ Namespace PrinceDBDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._cNAESubclasses23TableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._parcelamentosTableAdapter, Me._parcelamentosTableAdapter.Connection)
-                    Me._parcelamentosTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._parcelamentosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._parcelamentosTableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._parcelamentosAvisoTableAdapter, Me._parcelamentosAvisoTableAdapter.Connection)
                     Me._parcelamentosAvisoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -51815,6 +52778,15 @@ Namespace PrinceDBDataSetTableAdapters
                     If Me._parcelamentosAvisoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._parcelamentosAvisoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._parcelamentosAvisoTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._parcelamentosTableAdapter, Me._parcelamentosTableAdapter.Connection)
+                    Me._parcelamentosTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._parcelamentosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._parcelamentosTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -51977,13 +52949,13 @@ Namespace PrinceDBDataSetTableAdapters
                     Me._cNAESubclasses23TableAdapter.Connection = CType(revertConnections(Me._cNAESubclasses23TableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._cNAESubclasses23TableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
-                    Me._parcelamentosTableAdapter.Connection = CType(revertConnections(Me._parcelamentosTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._parcelamentosTableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._parcelamentosAvisoTableAdapter) Is Nothing) Then
                     Me._parcelamentosAvisoTableAdapter.Connection = CType(revertConnections(Me._parcelamentosAvisoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._parcelamentosAvisoTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._parcelamentosTableAdapter) Is Nothing) Then
+                    Me._parcelamentosTableAdapter.Connection = CType(revertConnections(Me._parcelamentosTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._parcelamentosTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

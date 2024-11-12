@@ -411,17 +411,30 @@ Public Class FrmLegalizacao
                 NovaRazaoSocialLabel.Visible = False
                 NovaRazaoSocialComboBox.Visible = False
 
+                CapitalAntigoMudouLabel.Visible = True
+                CapitalAntigoMudouComboBox.Visible = True
+                'imagem central
+                PictureBoxCentralProcesso.Visible = True
+                PictureBoxCentralProcesso.Image = My.Resources.AberturaEmpresa
+                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+
+
             ElseIf ProcessoComboBox.Text = "Alteração" Then
                 NAlteracaoComboBox.Visible = True
                 NAlteracaoLabel.Visible = True
                 AltConsolidadaComboBox.Visible = True
                 LabelConsolidar.Visible = True
                 GroupBox5.Visible = True
-
+                'imagem central
+                PictureBoxCentralProcesso.Visible = True
+                PictureBoxCentralProcesso.Image = My.Resources.AlteracaoEmpresa
+                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
 
                 NovaRazaoSocialLabel.Visible = True
                 NovaRazaoSocialComboBox.Visible = True
 
+                CapitalAntigoMudouLabel.Visible = True
+                CapitalAntigoMudouComboBox.Visible = True
 
             ElseIf ProcessoComboBox.Text = "Baixa" Then
                 ' MotivoRichTextBox.Visible = False
@@ -431,10 +444,15 @@ Public Class FrmLegalizacao
                 AltConsolidadaComboBox.Visible = False
                 LabelConsolidar.Visible = False
                 GroupBox5.Visible = True
-
+                'imagem central
+                PictureBoxCentralProcesso.Visible = True
+                PictureBoxCentralProcesso.Image = My.Resources.baixaEmpresa
+                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
                 NovaRazaoSocialLabel.Visible = False
                 NovaRazaoSocialComboBox.Visible = False
 
+                CapitalAntigoMudouLabel.Visible = True
+                CapitalAntigoMudouComboBox.Visible = True
 
             Else
                 'MotivoRichTextBox.Visible = True
@@ -446,6 +464,12 @@ Public Class FrmLegalizacao
 
                 NovaRazaoSocialLabel.Visible = True
                 NovaRazaoSocialComboBox.Visible = True
+
+                CapitalAntigoMudouLabel.Visible = True
+                CapitalAntigoMudouComboBox.Visible = True
+
+                'imagem central
+                PictureBoxCentralProcesso.Visible = False
 
             End If
 
@@ -1833,7 +1857,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     End Sub
 
-    Private Sub CnaeSimples_Click(sender As Object, e As EventArgs) Handles CnaeSimples.Click
+    Private Sub CnaeSimples_Click(sender As Object, e As EventArgs)
 
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
             WebSiteGERAL.Focus()
@@ -2808,7 +2832,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                 CapitaQuotaTotalTextBox.Text = valorCapital.ToString("N0", culturaBR) ' Formata como número inteiro
 
                 ' Verifica se o CapitalAntigoMudouCheckBox está marcado
-                If CapitalAntigoMudouCheckBox.Checked Then
+                If CapitalAntigoMudouComboBox.Text = "Sim" Then
                     ' Exibe e formata o campo de capital antigo
                     CapitalSocialAntigoLabel.Visible = True
                     CapitalSocialAntigoTextBox.Visible = True
@@ -2904,7 +2928,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         End Try
     End Sub
 
-    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
+    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs)
         RamoDeAtividadeRichTextBox.Text = LimparTextoRamo(RamoDeAtividadeRichTextBox.Text)
     End Sub
     Function LimparTextoRamo(sText As String) As String
@@ -2975,7 +2999,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         TabControl2.SelectedIndex = 7
     End Sub
 
-    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs) Handles BtnAtividadeLocal.Click
+    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs)
         'TabControl2 ir para tab6
         TabControl2.SelectedIndex = 7
     End Sub
@@ -3057,7 +3081,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
-    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
+    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs)
         'copiar para area de trabalho RamoDeAtividadeRichTextBox
         Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
     End Sub
@@ -3108,7 +3132,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ' O CNPJ está no formato já formatado com máscara
         Dim cnpjFormatado As String = cnpj
 
-        Using connection As New SqlConnection(Str)
+        Using connection As New SqlConnection(str)
             Try
                 connection.Open()
 
@@ -3576,7 +3600,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Dim quotaValorExtenso As String = NumberToWordsWithCurrency(quotaValor) ' Extenso com unidade monetária
 
         ' Verifica se o CapitalAntigoMudouCheckBox está marcado
-        If CapitalAntigoMudouCheckBox.Checked Then
+        If CapitalAntigoMudouComboBox.Text = "Sim" Then
             ' Se o capital mudou, incluir a informação do capital antigo
             Dim capitalAntigoString As String = CapitalSocialAntigoTextBox.Text
             Dim capitalAntigoValor As Decimal = ExtractNumericValue(capitalAntigoString)
@@ -3779,7 +3803,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         '  NovaRazaoSocialFinalTextBox.SelectionStart = NovaRazaoSocialFinalTextBox.Text.Length
     End Sub
 
-    Private Sub RamoDeAtividadeRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles RamoDeAtividadeRichTextBox.TextChanged
+    Private Sub RamoDeAtividadeRichTextBox_TextChanged(sender As Object, e As EventArgs)
         ' Contar o número de caracteres no RichTextBox
         Dim totalCaracteres As Integer = RamoDeAtividadeRichTextBox.Text.Length
 
@@ -3902,26 +3926,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     '////////////////////////// FIM ARRUMAR CNAE PRINCIPAL E SECUNDARIO
 
-    Private Sub CapitalAntigoMudouCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles CapitalAntigoMudouCheckBox.CheckedChanged
-        ' Verifica se o CheckBox está no estado Indeterminate
-        If CapitalAntigoMudouCheckBox.CheckState = CheckState.Indeterminate Then
-            ' Define o estado como Unchecked
-            CapitalAntigoMudouCheckBox.CheckState = CheckState.Unchecked
-        End If
 
-        ' Verifica se o checkbox está marcado
-        If CapitalAntigoMudouCheckBox.Checked Then
-            ' Se marcado, torna os controles visíveis
-            CapitalSocialAntigoLabel.Visible = True
-            CapitalSocialAntigoTextBox.Visible = True
-            BtnCopiarCapitalFinal.Visible = True
-        Else
-            ' Se desmarcado, oculta os controles
-            CapitalSocialAntigoLabel.Visible = False
-            CapitalSocialAntigoTextBox.Visible = False
-            BtnCopiarCapitalFinal.Visible = False
-        End If
-    End Sub
 
     Private Sub BtnCopiarCapitalFinal_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapitalFinal.Click
         ' Obtém os valores dos TextBox
@@ -3946,9 +3951,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                               $"dividido em {quotaString} ({quotaExtenso}) quotas de valor nominal " &
                               $"{quotaValorString} ({quotaValorExtenso})"
 
-            ' Exibir o resultado e copiar para a área de transferência
-            MessageBox.Show(resultado)
-            My.Computer.Clipboard.SetText(resultado)
+        ' Exibir o resultado e copiar para a área de transferência
+        MessageBox.Show(resultado)
+        My.Computer.Clipboard.SetText(resultado)
 
     End Sub
 
@@ -3959,4 +3964,97 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             FrmCNAEtexto.Show()
         End If
     End Sub
+
+    Private Sub TabControl2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl2.SelectedIndexChanged
+        ' Verificar se a aba selecionada é a de índice 5
+        If TabControl2.SelectedIndex = 5 Then
+            ' Verificar se o CapitalAntigoMudouComboBox está vazio
+            If String.IsNullOrWhiteSpace(CapitalAntigoMudouComboBox.Text) Then
+                ' Alterar a seleção para o item de índice 1 do ComboBox
+                CapitalAntigoMudouComboBox.SelectedIndex = 1
+            End If
+        End If
+    End Sub
+    Private Sub LinkLabelLimparRamo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        ' Perguntar ao usuário se deseja limpar o RamoDeAtividadeRichTextBox
+        Dim resultado As DialogResult = MessageBox.Show("Deseja limpar o conteúdo do campo Ramo de Atividade?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Se o usuário escolher "Sim", limpar o RamoDeAtividadeRichTextBox
+        If resultado = DialogResult.Yes Then
+            RamoDeAtividadeRichTextBox.Clear()
+        End If
+    End Sub
+
+
+    Private Sub PontoDeReferenciaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PontoDeReferenciaComboBox.SelectedIndexChanged
+        ' Verifica o texto selecionado no ComboBox
+        If PontoDeReferenciaComboBox.Text = "Sim" Then
+            ' Define a cor de fundo como verde e a cor do texto como branco
+            PontoDeReferenciaComboBox.BackColor = Color.Green
+            PontoDeReferenciaComboBox.ForeColor = Color.White
+        ElseIf PontoDeReferenciaComboBox.Text = "Não" Then
+            ' Define a cor de fundo como vermelho e a cor do texto como branco
+            PontoDeReferenciaComboBox.BackColor = Color.Red
+            PontoDeReferenciaComboBox.ForeColor = Color.White
+        Else
+            ' Redefine para as cores padrão quando não for "Sim" ou "Não"
+            PontoDeReferenciaComboBox.BackColor = SystemColors.Window
+            PontoDeReferenciaComboBox.ForeColor = SystemColors.WindowText
+        End If
+    End Sub
+
+    Private Sub CapitalAntigoMudouComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CapitalAntigoMudouComboBox.SelectedIndexChanged
+        If CapitalAntigoMudouComboBox.Text = "" Then
+            ' Define o estado como Unchecked
+            CapitalAntigoMudouComboBox.Text = "Sim"
+        End If
+
+        ' Verifica se o checkbox está marcado
+        If CapitalAntigoMudouComboBox.Text = "Sim" Then
+            ' Se marcado, torna os controles visíveis
+            CapitalSocialAntigoLabel.Visible = True
+            CapitalSocialAntigoTextBox.Visible = True
+            BtnCopiarCapitalFinal.Visible = True
+        Else
+            ' Se desmarcado, oculta os controles
+            CapitalSocialAntigoLabel.Visible = False
+            CapitalSocialAntigoTextBox.Visible = False
+            BtnCopiarCapitalFinal.Visible = False
+        End If
+    End Sub
+
+    Private Sub CNAEAtividadeNoLocalComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CNAEAtividadeNoLocalComboBox.SelectedIndexChanged
+        ' Verifica o texto selecionado no ComboBox
+        If PontoDeReferenciaComboBox.Text = "Todos" Or PontoDeReferenciaComboBox.Text = "Parcial" Then
+            ' Define a cor de fundo como verde e a cor do texto como branco
+            PontoDeReferenciaComboBox.BackColor = Color.Green
+            PontoDeReferenciaComboBox.ForeColor = Color.White
+        ElseIf PontoDeReferenciaComboBox.Text = "Não" Then
+            ' Define a cor de fundo como vermelho e a cor do texto como branco
+            PontoDeReferenciaComboBox.BackColor = Color.Red
+            PontoDeReferenciaComboBox.ForeColor = Color.White
+        Else
+            ' Redefine para as cores padrão quando não for "Sim" ou "Não"
+            PontoDeReferenciaComboBox.BackColor = SystemColors.Window
+            PontoDeReferenciaComboBox.ForeColor = SystemColors.WindowText
+        End If
+    End Sub
+
+    ' Variável para manter uma referência do formulário DialogAjudaObjetoEmpresa
+    Private dialogAjuda As DialogAjudaObjetoEmpresa = Nothing
+
+    Private Sub BtnAjudaRamoObjeto_Click(sender As Object, e As EventArgs) Handles BtnAjudaRamoObjeto1.Click, BtnAjudaRamoObjeto2.Click
+        ' Verifica se o formulário já está aberto
+        If dialogAjuda IsNot Nothing AndAlso dialogAjuda.Visible Then
+            ' Se o formulário já estiver aberto, apenas traz para o foco
+            dialogAjuda.Focus()
+        Else
+            ' Caso contrário, cria uma nova instância e exibe como diálogo
+            dialogAjuda = New DialogAjudaObjetoEmpresa()
+            dialogAjuda.ShowDialog()
+            dialogAjuda = Nothing  ' Limpa a referência após o formulário ser fechado
+        End If
+    End Sub
+
+
 End Class

@@ -2,11 +2,14 @@
 
 Public Class FrmParcelamentos
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    ' Propriedade para indicar quando é um novo registro
+    Private EhNovoRegistro As Boolean = False
+
 
     ' Dentro do FrmParcelamentos:
     Public Sub CarregarEmpresaPorID(empresaID As Integer)
         ' Aqui você faz a busca no banco de dados para carregar os dados da empresa com o ID fornecido
-        Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
+        'Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
     End Sub
 
 
@@ -35,7 +38,7 @@ Public Class FrmParcelamentos
         ' Verifica se um ID foi passado para o formulário
         If empresaID > 0 Then
             ' Carrega os dados da tabela Parcelamentos filtrados pelo ID_Parcelamento
-            Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
+            'Me.ParcelamentosTableAdapter.FillByEmpresaID(Me.PrinceDBDataSet.Parcelamentos, empresaID)
         Else
             ' Carrega todos os dados de Parcelamentos, caso o ID_Parcelamento não tenha sido passado
             Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
@@ -44,17 +47,6 @@ Public Class FrmParcelamentos
         EditarAtivado()
 
         CarregarComboBoxes()
-
-        ' Verifica se o campo DataEnvio é DBNull e, se for, reseta o controle para o formato vazio
-        If IsDBNull(ParcelamentosBindingSource.Current("DataEnvio")) Then
-            LimparDataEnvio()
-        Else
-            ' Caso contrário, carrega a data normalmente
-            DataEnvioDateTimePicker.Value = CType(ParcelamentosBindingSource.Current("DataEnvio"), DateTime)
-            DataEnvioDateTimePicker.Format = DateTimePickerFormat.Custom
-            DataEnvioDateTimePicker.CustomFormat = "dddd, d 'de' MMMM 'de' yyyy"
-            DataEnvioDateTimePicker.ForeColor = Color.Black
-        End If
 
         ' Verifica se os campos relacionados aos CheckBoxes são nulos e desmarca os CheckBoxes se necessário
         DesmarcarCheckBoxesSeNulo("INSSAntigo", INSSAntigoCheckBox)
@@ -76,6 +68,11 @@ Public Class FrmParcelamentos
         "Cancelado",
         "Indeferido"
     })
+
+
+
+        ' Verifica o estado do primeiro registro
+        ParcelamentosBindingSource_CurrentChanged(Nothing, EventArgs.Empty)
 
     End Sub
 
@@ -112,6 +109,23 @@ Public Class FrmParcelamentos
         Me.CNPJComboBox.DisplayMember = "CNPJ" ' Nome da coluna do CNPJ
         Me.CNPJComboBox.ValueMember = "ID_Parcelamentos" ' Valor da chave primária ou identificador único
     End Sub
+
+    ' Evento para monitorar mudanças no registro atual do BindingSource
+    Private Sub ParcelamentosBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ParcelamentosBindingSource.CurrentChanged
+        ' Verifica se o registro atual é um novo ou existente
+        If ParcelamentosBindingSource.Current Is Nothing OrElse CType(ParcelamentosBindingSource.Current, DataRowView).Row.RowState = DataRowState.Detached Then
+            ' Se for um novo registro, define EhNovoRegistro como True
+            EhNovoRegistro = True
+        Else
+            ' Se for um registro existente, define EhNovoRegistro como False
+            EhNovoRegistro = False
+        End If
+
+        ' Atualiza a exibição dos DateTimePickers
+        ConfigurarDataEnvioNulo()
+        ConfigurarDatalembreteNulo()
+    End Sub
+
 
 
 
@@ -154,7 +168,7 @@ Public Class FrmParcelamentos
         BairroTextBox.ReadOnly = False
         CidadeTextBox.ReadOnly = False
         EstadoTextBox.ReadOnly = False
-        FormaEnvioComboBox.Enabled = False
+        FormaEnvioComboBox.Enabled = True
         WhatsAppTextBox.ReadOnly = False
         EmailTextBox.ReadOnly = False
         SocioResponsavelTextBox.ReadOnly = False
@@ -207,24 +221,26 @@ Public Class FrmParcelamentos
 
     Private Sub Salvar()
         Try
-            ' Configuração das datas para salvar como NULL se estiverem "em branco" (com a data mínima)
-            If DataEnvioDateTimePicker.Value = DataEnvioDateTimePicker.MinDate Then
-                CType(ParcelamentosBindingSource.Current, DataRowView)("DataEnvio") = DBNull.Value
+            ' Obtém o registro atual como um DataRowView
+            Dim registroAtual As DataRowView = CType(ParcelamentosBindingSource.Current, DataRowView)
+
+            ' Configura as datas para salvar como NULL se estiverem "em branco" (data mínima)
+            If DataEnvioDateTimePicker.CustomFormat = " " OrElse DataEnvioDateTimePicker.Value = DataEnvioDateTimePicker.MinDate Then
+                registroAtual("DataEnvio") = DBNull.Value
             Else
-                CType(ParcelamentosBindingSource.Current, DataRowView)("DataEnvio") = DataEnvioDateTimePicker.Value
+                registroAtual("DataEnvio") = DataEnvioDateTimePicker.Value
             End If
 
-            If DataLembreteDateTimePicker.Value = DataLembreteDateTimePicker.MinDate Then
-                CType(ParcelamentosBindingSource.Current, DataRowView)("DataLembrete") = DBNull.Value
+            If DataLembreteDateTimePicker.CustomFormat = " " OrElse DataLembreteDateTimePicker.Value = DataLembreteDateTimePicker.MinDate Then
+                registroAtual("DataLembrete") = DBNull.Value
             Else
-                CType(ParcelamentosBindingSource.Current, DataRowView)("DataLembrete") = DataLembreteDateTimePicker.Value
+                registroAtual("DataLembrete") = DataLembreteDateTimePicker.Value
             End If
 
-            ' Força a atualização dos controles vinculados
-            Me.Validate()
-            Me.ParcelamentosBindingSource.EndEdit()
+            ' Atualiza o registro atual sem afetar os outros registros
+            registroAtual.EndEdit()
 
-            ' Verifica se ainda há mudanças no DataSet
+            ' Verifica se ainda há mudanças no DataSet antes de salvar
             If Me.PrinceDBDataSet.HasChanges() Then
                 Dim confirmSave As DialogResult = MessageBox.Show("Deseja salvar as alterações?", "Confirmar Salvar", MessageBoxButtons.YesNo)
                 If confirmSave = DialogResult.Yes Then
@@ -247,8 +263,10 @@ Public Class FrmParcelamentos
 
 
 
+
     ' Botão para chamar o método de salvar
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
+        EhNovoRegistro = False ' Sai do modo novo registro
         Salvar()
     End Sub
 
@@ -289,6 +307,10 @@ Public Class FrmParcelamentos
             MEICheckBox.Checked = False
 
 
+            EhNovoRegistro = True ' Define como novo registro
+            LimparDataEnvio() ' Limpa o campo de data para simular vazio
+            LimparDataLembrete()
+
         End If
     End Sub
 
@@ -308,11 +330,13 @@ Public Class FrmParcelamentos
         Me.EmpresaID = empresaID
     End Sub
 
+
+    ' //////////////// TESTAR ESSE COMANDO
     Private Sub BtnVerDetalhesParcelamento_Click(sender As Object, e As EventArgs) Handles BtnVerDetalhesParcelamento.Click
         ' Obtém o ID_Parcelamentos do BindingSource
         Dim empresaID As Integer = CType(Me.ParcelamentosBindingSource.Current, DataRowView)("ID_Parcelamentos")
 
-        ' Verificar se o parcelamentoID é válido
+        ' Verificar se o ID_Parcelamentos é válido
         If empresaID > 0 Then
             ' Se o ID for válido, abre o formulário de detalhes
             Dim frmDetalhes As New FrmDetalhesParcelamento(empresaID) With {
@@ -322,31 +346,27 @@ Public Class FrmParcelamentos
             Me.Close()
 
         Else
-            ' Pergunta ao usuário se deseja salvar o novo registro
-            Dim result As DialogResult = MessageBox.Show("Este parece ser um novo registro. Deseja salvar antes de continuar?", "Novo Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Salvar()
 
-            If result = DialogResult.Yes Then
-                ' Se o usuário confirmar, chama o método Salvar()
-                Salvar()
+            ' Atualiza o ID_Parcelamentos após o salvamento
+            empresaID = CType(Me.ParcelamentosBindingSource.Current, DataRowView)("ID_Parcelamentos")
 
-                ' Atualiza o ID_Parcelamentos após o salvamento
-                empresaID = CType(Me.ParcelamentosBindingSource.Current, DataRowView)("ID_Parcelamentos")
+                    ' Verifica se o ID foi atualizado corretamente após o salvamento
+                    If empresaID > 0 Then
+                        ' Abre o formulário de detalhes com o novo ID
+                        Dim frmDetalhes As New FrmDetalhesParcelamento(empresaID) With {
+                        .MdiParent = Me.MdiParent
+                    }
+                        frmDetalhes.ShowDialog()
+                        Me.Close()
+                    Else
+                        ' Caso o ID ainda não esteja correto, exibe uma mensagem de erro
+                        MessageBox.Show("Erro ao salvar o registro. Por favor, tente novamente.", "Erro de Salvamento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
 
-                ' Verifica se o ID foi atualizado corretamente
-                If empresaID > 0 Then
-                    ' Abre o formulário de detalhes com o novo ID
-                    Dim frmDetalhes As New FrmDetalhesParcelamento(empresaID) With {
-                    .MdiParent = Me.MdiParent
-                }
-                    frmDetalhes.ShowDialog()
-                    Me.Close()
-                Else
-                    ' Caso o ID ainda não esteja correto, exibe uma mensagem de erro
-                    MessageBox.Show("Erro ao salvar o registro. Por favor, tente novamente.", "Erro de Salvamento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            End If
         End If
     End Sub
+
 
 
 
@@ -355,37 +375,60 @@ Public Class FrmParcelamentos
     ' Configura o DataEnvioDateTimePicker para exibir o campo "vazio"
 
     Private Sub FrmParcelamentos_BindingContextChanged(sender As Object, e As EventArgs) Handles MyBase.BindingContextChanged
-        ConfigurarDataEnvioNulo()
-        ConfigurarDatalembreteNulo()
+        If Not EhNovoRegistro Then
+            ConfigurarDataEnvioNulo()
+            ConfigurarDatalembreteNulo()
+        End If
     End Sub
 
     Private Sub ConfigurarDataEnvioNulo()
-        ' Verifica se DataEnvio está nulo ou se a data está em branco
-        If DataEnvioDateTimePicker.Value = Nothing OrElse DataEnvioDateTimePicker.Value = DateTime.MinValue Then
-            ' Se estiver vazio, exibe espaço em branco e altera a cor do texto
+        If EhNovoRegistro OrElse DataEnvioDateTimePicker.Value = DateTime.MinValue OrElse Not DataEnvioDateTimePicker.Checked Then
             DataEnvioDateTimePicker.Format = DateTimePickerFormat.Custom
-            DataEnvioDateTimePicker.CustomFormat = " " ' Exibe espaço em branco para simular campo vazio
-            DataEnvioDateTimePicker.ForeColor = Color.Gray ' Cor do texto em cinza para indicar vazio
+            DataEnvioDateTimePicker.CustomFormat = " " ' Exibe um espaço em branco
+            DataEnvioDateTimePicker.ForeColor = Color.Gray
         Else
-            ' Caso contrário, exibe o formato normal da data
             DataEnvioDateTimePicker.Format = DateTimePickerFormat.Long
-            DataEnvioDateTimePicker.ForeColor = Color.Black ' Cor do texto normal
+            DataEnvioDateTimePicker.ForeColor = Color.Black
         End If
     End Sub
 
     Private Sub ConfigurarDatalembreteNulo()
-        ' Verifica se DataLembrete está nulo ou se a data está em branco
-        If DataLembreteDateTimePicker.Value = Nothing OrElse DataLembreteDateTimePicker.Value = DateTime.MinValue Then
-            ' Se estiver vazio, exibe espaço em branco e altera a cor do texto
+        If EhNovoRegistro OrElse DataLembreteDateTimePicker.Value = DateTime.MinValue OrElse Not DataLembreteDateTimePicker.Checked Then
             DataLembreteDateTimePicker.Format = DateTimePickerFormat.Custom
-            DataLembreteDateTimePicker.CustomFormat = " " ' Exibe espaço em branco para simular campo vazio
-            DataLembreteDateTimePicker.ForeColor = Color.Gray ' Cor do texto em cinza para indicar vazio
+            DataLembreteDateTimePicker.CustomFormat = " " ' Exibe um espaço em branco
+            DataLembreteDateTimePicker.ForeColor = Color.Gray
         Else
-            ' Caso contrário, exibe o formato normal da data
             DataLembreteDateTimePicker.Format = DateTimePickerFormat.Long
-            DataLembreteDateTimePicker.ForeColor = Color.Black ' Cor do texto normal
+            DataLembreteDateTimePicker.ForeColor = Color.Black
         End If
     End Sub
+
+    ' Eventos de clique com o botão direito para limpar o campo de data
+    Private Sub DataEnvioDateTimePicker_MouseDown(sender As Object, e As MouseEventArgs) Handles DataEnvioDateTimePicker.MouseDown
+        If e.Button = MouseButtons.Right Then
+            LimparDataEnvio()
+        End If
+    End Sub
+
+    Private Sub DataLembreteDateTimePicker_MouseDown(sender As Object, e As MouseEventArgs) Handles DataLembreteDateTimePicker.MouseDown
+        If e.Button = MouseButtons.Right Then
+            LimparDataLembrete()
+        End If
+    End Sub
+
+    ' Métodos para limpar os campos de data
+    Private Sub LimparDataEnvio()
+        DataEnvioDateTimePicker.CustomFormat = " "
+        DataEnvioDateTimePicker.Format = DateTimePickerFormat.Custom
+        DataEnvioDateTimePicker.ForeColor = Color.Gray
+    End Sub
+
+    Private Sub LimparDataLembrete()
+        DataLembreteDateTimePicker.CustomFormat = " "
+        DataLembreteDateTimePicker.Format = DateTimePickerFormat.Custom
+        DataLembreteDateTimePicker.ForeColor = Color.Gray
+    End Sub
+
 
 
     ' Evento para detectar quando o usuário seleciona uma data e exibir o formato normal
@@ -405,11 +448,7 @@ Public Class FrmParcelamentos
         End If
     End Sub
 
-    ' Função para "limpar" o DataEnvioDateTimePicker manualmente, simulando um valor nulo
-    Private Sub LimparDataEnvio()
-        DataEnvioDateTimePicker.Value = DataEnvioDateTimePicker.MinDate ' Define como a data mínima ou de referência
-        ConfigurarDataEnvioNulo()
-    End Sub
+
 
     Private Sub BtnImportarSocioAdm_Click(sender As Object, e As EventArgs) Handles BtnImportarSocioAdm.Click
         'verifica se tem NomeResponsavelTextBox preenchido ou abre
@@ -467,6 +506,7 @@ Public Class FrmParcelamentos
                         MessageBox.Show("Documento já cadastrado na tabela Parcelamentos!" & vbCrLf & vbCrLf &
                                     "CNPJ/CPF: " & documentoFormatado & vbCrLf &
                                     "Nome / Razão Social: " & razaoSocial.ToString())
+                        Exit Sub
                     Else
                         ' Caso o documento (CNPJ ou CPF) não exista na tabela
                         MessageBox.Show("Documento não cadastrado na tabela Parcelamentos.")
@@ -667,6 +707,8 @@ Public Class FrmParcelamentos
 
 
     Private Sub BtnBImportarEmpresa_Click(sender As Object, e As EventArgs) Handles BtnBImportarEmpresa.Click
+        VerificarDuplicidadeCNPJ(CNPJMaskedTextBox.Text)
+
         ' Pergunta ao usuário se ele deseja realmente importar os dados
         Dim resposta As DialogResult = MessageBox.Show("Deseja importar os dados da empresa?", "Confirmação de Importação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 

@@ -41,6 +41,7 @@ Tente novamente!", "Prince Ajuda")
                             FrmLegalizacao.TabControl2.SelectTab(4)
                             FrmLegalizacao.TabControl2.SelectTab(5)
                             FrmLegalizacao.TabControl2.SelectTab(6)
+                            FrmLegalizacao.TabControl2.SelectTab(7)
 
 
 
@@ -84,6 +85,7 @@ Tente novamente!", "Prince Ajuda")
                             FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
                             FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
                             FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
+                            FrmAlvara.MatrizComboBox.Text = FrmLegalizacao.SEDEComboBox.Text
 
 
 
@@ -347,6 +349,7 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                                     FrmLegalizacao.TabControl2.SelectTab(4)
                                     FrmLegalizacao.TabControl2.SelectTab(5)
                                     FrmLegalizacao.TabControl2.SelectTab(6)
+                                    FrmLegalizacao.TabControl2.SelectTab(7)
 
 
 
@@ -390,6 +393,7 @@ Adicionar Novo Registro em Laudos/Alvará?", MsgBoxStyle.YesNoCancel, "Prince Si
                                     FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
                                     FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
                                     FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
+                                    FrmAlvara.MatrizComboBox.Text = FrmLegalizacao.SEDEComboBox.Text
 
 
 
@@ -682,7 +686,7 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             FrmLegalizacao.TabControl2.SelectTab(4)
             FrmLegalizacao.TabControl2.SelectTab(5)
             FrmLegalizacao.TabControl2.SelectTab(6)
-
+            FrmLegalizacao.TabControl2.SelectTab(7)
 
             '//
 
@@ -712,6 +716,7 @@ Verifique se o CNPJ do Alvará, são iguais ao do CNPJ do Cadastro Empresas!")
             FrmAlvara.EndZonaTextBox.Text = FrmLegalizacao.EndZonaTextBox.Text
             FrmAlvara.EndQuadraTextBox.Text = FrmLegalizacao.EndQuadraTextBox.Text
             FrmAlvara.EndDataTextBox.Text = FrmLegalizacao.EndDataTextBox.Text
+            FrmAlvara.MatrizComboBox.Text = FrmLegalizacao.SEDEComboBox.Text
 
 
 

@@ -489,6 +489,7 @@ Public Class ExportarLaudoWordDialog
         FrmAlvara.TabControl2.SelectTab(3)
         FrmAlvara.TabControl2.SelectTab(4)
         FrmAlvara.TabControl2.SelectTab(5)
+
         Me.Focus()
     End Sub
 

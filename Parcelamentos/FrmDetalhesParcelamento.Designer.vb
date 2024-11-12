@@ -276,11 +276,11 @@ Partial Class FrmDetalhesParcelamento
         'FinalizadoINSSAntigoLabel
         '
         FinalizadoINSSAntigoLabel.AutoSize = True
-        FinalizadoINSSAntigoLabel.Location = New System.Drawing.Point(524, 13)
+        FinalizadoINSSAntigoLabel.Location = New System.Drawing.Point(565, 13)
         FinalizadoINSSAntigoLabel.Name = "FinalizadoINSSAntigoLabel"
-        FinalizadoINSSAntigoLabel.Size = New System.Drawing.Size(205, 18)
+        FinalizadoINSSAntigoLabel.Size = New System.Drawing.Size(54, 18)
         FinalizadoINSSAntigoLabel.TabIndex = 6
-        FinalizadoINSSAntigoLabel.Text = "Finalizado este parcelamento:"
+        FinalizadoINSSAntigoLabel.Text = "Status:"
         '
         'DataParcMEILabel
         '
@@ -312,29 +312,29 @@ Partial Class FrmDetalhesParcelamento
         'Label16
         '
         Label16.AutoSize = True
-        Label16.Location = New System.Drawing.Point(524, 13)
+        Label16.Location = New System.Drawing.Point(565, 13)
         Label16.Name = "Label16"
-        Label16.Size = New System.Drawing.Size(205, 18)
+        Label16.Size = New System.Drawing.Size(54, 18)
         Label16.TabIndex = 17
-        Label16.Text = "Finalizado este parcelamento:"
+        Label16.Text = "Status:"
         '
         'Label17
         '
         Label17.AutoSize = True
-        Label17.Location = New System.Drawing.Point(524, 15)
+        Label17.Location = New System.Drawing.Point(565, 13)
         Label17.Name = "Label17"
-        Label17.Size = New System.Drawing.Size(205, 18)
+        Label17.Size = New System.Drawing.Size(54, 18)
         Label17.TabIndex = 18
-        Label17.Text = "Finalizado este parcelamento:"
+        Label17.Text = "Status:"
         '
         'Label18
         '
         Label18.AutoSize = True
-        Label18.Location = New System.Drawing.Point(524, 13)
+        Label18.Location = New System.Drawing.Point(565, 13)
         Label18.Name = "Label18"
-        Label18.Size = New System.Drawing.Size(205, 18)
+        Label18.Size = New System.Drawing.Size(54, 18)
         Label18.TabIndex = 18
-        Label18.Text = "Finalizado este parcelamento:"
+        Label18.Text = "Status:"
         '
         'TableLayoutPanel1
         '
@@ -536,9 +536,9 @@ Partial Class FrmDetalhesParcelamento
         '
         Me.FinalizadoINSSAntigoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoINSSAntigo", True))
         Me.FinalizadoINSSAntigoComboBox.FormattingEnabled = True
-        Me.FinalizadoINSSAntigoComboBox.Location = New System.Drawing.Point(735, 10)
+        Me.FinalizadoINSSAntigoComboBox.Location = New System.Drawing.Point(625, 10)
         Me.FinalizadoINSSAntigoComboBox.Name = "FinalizadoINSSAntigoComboBox"
-        Me.FinalizadoINSSAntigoComboBox.Size = New System.Drawing.Size(93, 26)
+        Me.FinalizadoINSSAntigoComboBox.Size = New System.Drawing.Size(203, 26)
         Me.FinalizadoINSSAntigoComboBox.TabIndex = 7
         '
         'DataParcelINSSantigoDateTimePicker
@@ -625,7 +625,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(853, 414)
+        Me.TabPage2.Size = New System.Drawing.Size(853, 410)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "INSS - Novo"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -639,7 +639,7 @@ Partial Class FrmDetalhesParcelamento
         Me.SubTabControlINSSNovo.Location = New System.Drawing.Point(3, 3)
         Me.SubTabControlINSSNovo.Name = "SubTabControlINSSNovo"
         Me.SubTabControlINSSNovo.SelectedIndex = 0
-        Me.SubTabControlINSSNovo.Size = New System.Drawing.Size(847, 408)
+        Me.SubTabControlINSSNovo.Size = New System.Drawing.Size(847, 404)
         Me.SubTabControlINSSNovo.TabIndex = 6
         '
         'TabPage8
@@ -660,7 +660,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage8.Location = New System.Drawing.Point(4, 30)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(839, 374)
+        Me.TabPage8.Size = New System.Drawing.Size(839, 370)
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Geral"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -727,9 +727,9 @@ Partial Class FrmDetalhesParcelamento
         '
         Me.FinalizadoINSSNovoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoINSSNovo", True))
         Me.FinalizadoINSSNovoComboBox.FormattingEnabled = True
-        Me.FinalizadoINSSNovoComboBox.Location = New System.Drawing.Point(735, 10)
+        Me.FinalizadoINSSNovoComboBox.Location = New System.Drawing.Point(625, 10)
         Me.FinalizadoINSSNovoComboBox.Name = "FinalizadoINSSNovoComboBox"
-        Me.FinalizadoINSSNovoComboBox.Size = New System.Drawing.Size(93, 26)
+        Me.FinalizadoINSSNovoComboBox.Size = New System.Drawing.Size(203, 26)
         Me.FinalizadoINSSNovoComboBox.TabIndex = 7
         '
         'DataParcelINSSnovoDateTimePicker
@@ -918,9 +918,9 @@ Partial Class FrmDetalhesParcelamento
         '
         Me.FinalizadoINSSProcComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoINSSProc", True))
         Me.FinalizadoINSSProcComboBox.FormattingEnabled = True
-        Me.FinalizadoINSSProcComboBox.Location = New System.Drawing.Point(735, 10)
+        Me.FinalizadoINSSProcComboBox.Location = New System.Drawing.Point(625, 10)
         Me.FinalizadoINSSProcComboBox.Name = "FinalizadoINSSProcComboBox"
-        Me.FinalizadoINSSProcComboBox.Size = New System.Drawing.Size(93, 26)
+        Me.FinalizadoINSSProcComboBox.Size = New System.Drawing.Size(203, 26)
         Me.FinalizadoINSSProcComboBox.TabIndex = 7
         '
         'DataParcelINSSprocDateTimePicker
@@ -958,7 +958,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage11.Location = New System.Drawing.Point(4, 30)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(839, 374)
+        Me.TabPage11.Size = New System.Drawing.Size(839, 370)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Histórico de Envio"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -1007,7 +1007,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage4.Location = New System.Drawing.Point(4, 30)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(853, 414)
+        Me.TabPage4.Size = New System.Drawing.Size(853, 410)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "MEI"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1021,7 +1021,7 @@ Partial Class FrmDetalhesParcelamento
         Me.SubTabControlMEI.Location = New System.Drawing.Point(3, 3)
         Me.SubTabControlMEI.Name = "SubTabControlMEI"
         Me.SubTabControlMEI.SelectedIndex = 0
-        Me.SubTabControlMEI.Size = New System.Drawing.Size(847, 408)
+        Me.SubTabControlMEI.Size = New System.Drawing.Size(847, 404)
         Me.SubTabControlMEI.TabIndex = 0
         '
         'TabPage12
@@ -1042,7 +1042,7 @@ Partial Class FrmDetalhesParcelamento
         Me.TabPage12.Location = New System.Drawing.Point(4, 30)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(839, 374)
+        Me.TabPage12.Size = New System.Drawing.Size(839, 370)
         Me.TabPage12.TabIndex = 0
         Me.TabPage12.Text = "Geral"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1117,9 +1117,9 @@ Partial Class FrmDetalhesParcelamento
         '
         Me.FinalizadoMEIComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoMEI", True))
         Me.FinalizadoMEIComboBox.FormattingEnabled = True
-        Me.FinalizadoMEIComboBox.Location = New System.Drawing.Point(735, 10)
+        Me.FinalizadoMEIComboBox.Location = New System.Drawing.Point(625, 10)
         Me.FinalizadoMEIComboBox.Name = "FinalizadoMEIComboBox"
-        Me.FinalizadoMEIComboBox.Size = New System.Drawing.Size(93, 26)
+        Me.FinalizadoMEIComboBox.Size = New System.Drawing.Size(203, 26)
         Me.FinalizadoMEIComboBox.TabIndex = 7
         '
         'DataParcMEIDateTimePicker

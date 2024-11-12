@@ -29,12 +29,7 @@
         Next
     End Sub
 
-    Private Sub ParcelamentosAvisoBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ParcelamentosAvisoBindingNavigatorSaveItem.Click
-        Me.Validate()
-        Me.ParcelamentosAvisoBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
 
-    End Sub
 
     Private Sub Salvar()
         Me.Validate()
@@ -106,5 +101,23 @@
             FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
             FrmParcelamentos.RazaoSocialComboBox.Select()
         End If
+    End Sub
+
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        Salvar()
+        Me.Close()
+
+    End Sub
+
+    Private Sub BtnVerParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnVerParcelamentos.Click
+        Dim formParcelamentos = Application.OpenForms.OfType(Of FrmControleParcelamentos)().FirstOrDefault()
+
+        If FrmControleParcelamentos IsNot Nothing Then
+            FrmControleParcelamentos.Focus()
+        Else
+            FrmControleParcelamentos.Show()
+        End If
+        '  Me.Close()
+
     End Sub
 End Class

@@ -31,13 +31,22 @@
     End Sub
 
 
-
     Private Sub FiltroAlvara()
-        'FILTRO LAUDO
+        ' Obtém o valor de MaskedTextBox2 e valida como data
         Dim FilterB As String = MaskedTextBox2.Text
-        LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & FilterB & "' OR ViabilidadeProvisorioDATA = '" & FilterB & "' OR AmbientalProvisorioDATA = '" & FilterB & "' OR SanitarioProvisorioDATA = '" & FilterB & "' OR SetranProvisorioDATA = '" & FilterB & "' "
-        Me.Refresh()
+        Dim dataValida As DateTime
+
+        ' Verifica se a data está em um formato válido
+        If DateTime.TryParseExact(FilterB, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None, dataValida) Then
+            ' Se for válida, aplica o filtro
+            LaudosBindingSource.Filter = "BombeiroProvisorioDATA = '" & dataValida.ToString("dd/MM/yyyy") & "' OR ViabilidadeProvisorioDATA = '" & dataValida.ToString("dd/MM/yyyy") & "' OR AmbientalProvisorioDATA = '" & dataValida.ToString("dd/MM/yyyy") & "' OR SanitarioProvisorioDATA = '" & dataValida.ToString("dd/MM/yyyy") & "' OR SetranProvisorioDATA = '" & dataValida.ToString("dd/MM/yyyy") & "'"
+            Me.Refresh()
+        Else
+            ' Se não for válida, exibe uma mensagem de erro
+            MessageBox.Show("Formato de data inválido. Verifique a data inserida.", "Erro de Data", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
+
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         FiltroAlvara

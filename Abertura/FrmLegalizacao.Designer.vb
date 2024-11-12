@@ -47,7 +47,6 @@ Partial Class FrmLegalizacao
         Dim IELabel As System.Windows.Forms.Label
         Dim NIRELabel As System.Windows.Forms.Label
         Dim NireDataLabel As System.Windows.Forms.Label
-        Dim RamoDeAtividadeLabel As System.Windows.Forms.Label
         Dim CNAESecundarioLabel As System.Windows.Forms.Label
         Dim CNAEPrincipalLabel As System.Windows.Forms.Label
         Dim EmpInicioAtividadeLabel As System.Windows.Forms.Label
@@ -128,6 +127,11 @@ Partial Class FrmLegalizacao
         Dim ProcessoLabel1 As System.Windows.Forms.Label
         Dim NAlteracaoLabel1 As System.Windows.Forms.Label
         Dim SenhasDeAcessoLabel As System.Windows.Forms.Label
+        Dim BombeiroAtvAdmLabel As System.Windows.Forms.Label
+        Dim BombeiroAtvresidenciaLabel As System.Windows.Forms.Label
+        Dim RamoDeAtividadeLabel As System.Windows.Forms.Label
+        Dim CNAEAtividadeNoLocalLabel As System.Windows.Forms.Label
+        Dim Label11 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -185,21 +189,32 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CNAEAtvLocalSEcundariosRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.LabelDescricaoCnaeSec = New System.Windows.Forms.Label()
+        Me.LabelDescricaoCNAE = New System.Windows.Forms.Label()
+        Me.CNAEAtvLocalPrincipalTextBox = New System.Windows.Forms.TextBox()
+        Me.CNAEAtividadeNoLocalComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnVerDescricaoCNAE = New System.Windows.Forms.Button()
         Me.LblLinkArrumarCNAE = New System.Windows.Forms.LinkLabel()
-        Me.CnaeSimples = New System.Windows.Forms.Button()
         Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
-        Me.LblContagemRamo = New System.Windows.Forms.Label()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.LblTotalCnae = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.CNAESecundarioRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
+        Me.TabPage24 = New System.Windows.Forms.TabPage()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.BtnAjudaRamoObjeto1 = New System.Windows.Forms.Button()
+        Me.ObjetoDOEstabelecimentoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.LinkLabelLimparRamo = New System.Windows.Forms.LinkLabel()
+        Me.CnaeSimples = New System.Windows.Forms.Button()
+        Me.LblContagemRamo = New System.Windows.Forms.Label()
         Me.BtnCopiarRamo = New System.Windows.Forms.Button()
         Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.CNAESecundarioRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.RamoDeAtividadeRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.BtnArrumaEnd = New System.Windows.Forms.Button()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
@@ -230,11 +245,11 @@ Partial Class FrmLegalizacao
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
         Me.EmpTel2TextBox = New System.Windows.Forms.TextBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.CapitalAntigoMudouLabel = New System.Windows.Forms.Label()
+        Me.CapitalAntigoMudouComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnCopiarCapitalFinal = New System.Windows.Forms.Button()
-        Me.LinkLabelAumentoCapital = New System.Windows.Forms.LinkLabel()
         Me.CapitalSocialAntigoLabel = New System.Windows.Forms.Label()
         Me.CapitalSocialAntigoTextBox = New System.Windows.Forms.TextBox()
-        Me.CapitalAntigoMudouCheckBox = New System.Windows.Forms.CheckBox()
         Me.BtnCopiarCapital = New System.Windows.Forms.Button()
         Me.BtnRemoveSocios = New System.Windows.Forms.Button()
         Me.BtnPreencherCapital = New System.Windows.Forms.LinkLabel()
@@ -268,6 +283,8 @@ Partial Class FrmLegalizacao
         Me.TipoUnidadeProdutivaRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.FormaDeAtuacaoLabel = New System.Windows.Forms.Label()
         Me.TabPage22 = New System.Windows.Forms.TabPage()
+        Me.BombeiroAtvresidenciaComboBox = New System.Windows.Forms.ComboBox()
+        Me.BombeiroAtvAdmComboBox = New System.Windows.Forms.ComboBox()
         Me.DadosComplGLPTextBox = New System.Windows.Forms.TextBox()
         Me.DadosComplLiquidoTextBox = New System.Windows.Forms.TextBox()
         Me.DadosComplSubsoloComboBox = New System.Windows.Forms.ComboBox()
@@ -467,6 +484,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.PictureBoxCentralProcesso = New System.Windows.Forms.PictureBox()
         Me.BtnVerNovoNome = New System.Windows.Forms.Button()
         Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
         Me.StatusComboBox = New System.Windows.Forms.ComboBox()
@@ -492,6 +510,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnAjudaRamoObjeto2 = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -516,7 +535,6 @@ Partial Class FrmLegalizacao
         IELabel = New System.Windows.Forms.Label()
         NIRELabel = New System.Windows.Forms.Label()
         NireDataLabel = New System.Windows.Forms.Label()
-        RamoDeAtividadeLabel = New System.Windows.Forms.Label()
         CNAESecundarioLabel = New System.Windows.Forms.Label()
         CNAEPrincipalLabel = New System.Windows.Forms.Label()
         EmpInicioAtividadeLabel = New System.Windows.Forms.Label()
@@ -597,6 +615,11 @@ Partial Class FrmLegalizacao
         ProcessoLabel1 = New System.Windows.Forms.Label()
         NAlteracaoLabel1 = New System.Windows.Forms.Label()
         SenhasDeAcessoLabel = New System.Windows.Forms.Label()
+        BombeiroAtvAdmLabel = New System.Windows.Forms.Label()
+        BombeiroAtvresidenciaLabel = New System.Windows.Forms.Label()
+        RamoDeAtividadeLabel = New System.Windows.Forms.Label()
+        CNAEAtividadeNoLocalLabel = New System.Windows.Forms.Label()
+        Label11 = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -611,6 +634,8 @@ Partial Class FrmLegalizacao
         Me.TabPage19.SuspendLayout()
         Me.TabPage13.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage24.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
         Me.TabPage14.SuspendLayout()
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
@@ -648,6 +673,7 @@ Partial Class FrmLegalizacao
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox10.SuspendLayout()
+        CType(Me.PictureBoxCentralProcesso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxSistemaExterno, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -897,16 +923,6 @@ Partial Class FrmLegalizacao
         NireDataLabel.TabIndex = 22
         NireDataLabel.Text = "Data:"
         '
-        'RamoDeAtividadeLabel
-        '
-        RamoDeAtividadeLabel.AutoSize = True
-        RamoDeAtividadeLabel.Location = New System.Drawing.Point(200, 50)
-        RamoDeAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        RamoDeAtividadeLabel.Name = "RamoDeAtividadeLabel"
-        RamoDeAtividadeLabel.Size = New System.Drawing.Size(115, 15)
-        RamoDeAtividadeLabel.TabIndex = 30
-        RamoDeAtividadeLabel.Text = "Ramo De Atividade:"
-        '
         'CNAESecundarioLabel
         '
         CNAESecundarioLabel.AutoSize = True
@@ -930,7 +946,7 @@ Partial Class FrmLegalizacao
         'EmpInicioAtividadeLabel
         '
         EmpInicioAtividadeLabel.AutoSize = True
-        EmpInicioAtividadeLabel.Location = New System.Drawing.Point(665, 9)
+        EmpInicioAtividadeLabel.Location = New System.Drawing.Point(499, 40)
         EmpInicioAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmpInicioAtividadeLabel.Name = "EmpInicioAtividadeLabel"
         EmpInicioAtividadeLabel.Size = New System.Drawing.Size(120, 15)
@@ -1230,7 +1246,7 @@ Partial Class FrmLegalizacao
         'CapitalSLabel
         '
         CapitalSLabel.AutoSize = True
-        CapitalSLabel.Location = New System.Drawing.Point(43, 36)
+        CapitalSLabel.Location = New System.Drawing.Point(142, 41)
         CapitalSLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalSLabel.Name = "CapitalSLabel"
         CapitalSLabel.Size = New System.Drawing.Size(85, 15)
@@ -1240,7 +1256,7 @@ Partial Class FrmLegalizacao
         'CapitalILabel
         '
         CapitalILabel.AutoSize = True
-        CapitalILabel.Location = New System.Drawing.Point(7, 66)
+        CapitalILabel.Location = New System.Drawing.Point(106, 71)
         CapitalILabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalILabel.Name = "CapitalILabel"
         CapitalILabel.Size = New System.Drawing.Size(122, 15)
@@ -1250,7 +1266,7 @@ Partial Class FrmLegalizacao
         'DataExcSocialLabel
         '
         DataExcSocialLabel.AutoSize = True
-        DataExcSocialLabel.Location = New System.Drawing.Point(383, 93)
+        DataExcSocialLabel.Location = New System.Drawing.Point(482, 98)
         DataExcSocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataExcSocialLabel.Name = "DataExcSocialLabel"
         DataExcSocialLabel.Size = New System.Drawing.Size(143, 15)
@@ -1490,7 +1506,7 @@ Partial Class FrmLegalizacao
         'CapitalQuotaValorLabel
         '
         CapitalQuotaValorLabel.AutoSize = True
-        CapitalQuotaValorLabel.Location = New System.Drawing.Point(292, 36)
+        CapitalQuotaValorLabel.Location = New System.Drawing.Point(391, 41)
         CapitalQuotaValorLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitalQuotaValorLabel.Name = "CapitalQuotaValorLabel"
         CapitalQuotaValorLabel.Size = New System.Drawing.Size(151, 15)
@@ -1500,7 +1516,7 @@ Partial Class FrmLegalizacao
         'CapitaQuotaTotalLabel
         '
         CapitaQuotaTotalLabel.AutoSize = True
-        CapitaQuotaTotalLabel.Location = New System.Drawing.Point(334, 66)
+        CapitaQuotaTotalLabel.Location = New System.Drawing.Point(433, 71)
         CapitaQuotaTotalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapitaQuotaTotalLabel.Name = "CapitaQuotaTotalLabel"
         CapitaQuotaTotalLabel.Size = New System.Drawing.Size(102, 15)
@@ -1560,70 +1576,77 @@ Partial Class FrmLegalizacao
         'DadosComplSubsoloLabel
         '
         DadosComplSubsoloLabel.AutoSize = True
-        DadosComplSubsoloLabel.Location = New System.Drawing.Point(22, 132)
+        DadosComplSubsoloLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplSubsoloLabel.Location = New System.Drawing.Point(5, 132)
         DadosComplSubsoloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplSubsoloLabel.Name = "DadosComplSubsoloLabel"
-        DadosComplSubsoloLabel.Size = New System.Drawing.Size(365, 15)
+        DadosComplSubsoloLabel.Size = New System.Drawing.Size(400, 16)
         DadosComplSubsoloLabel.TabIndex = 22
         DadosComplSubsoloLabel.Text = "A edificação possui subsolo com uso distinto de estacionamento?"
         '
         'DadosComplPessoasLabel
         '
         DadosComplPessoasLabel.AutoSize = True
-        DadosComplPessoasLabel.Location = New System.Drawing.Point(22, 107)
+        DadosComplPessoasLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplPessoasLabel.Location = New System.Drawing.Point(5, 107)
         DadosComplPessoasLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplPessoasLabel.Name = "DadosComplPessoasLabel"
-        DadosComplPessoasLabel.Size = New System.Drawing.Size(264, 15)
+        DadosComplPessoasLabel.Size = New System.Drawing.Size(286, 16)
         DadosComplPessoasLabel.TabIndex = 19
         DadosComplPessoasLabel.Text = "Quantidade máxima de pessoas no ambiente?"
         '
         'DadosComplPavimentosLabel
         '
         DadosComplPavimentosLabel.AutoSize = True
-        DadosComplPavimentosLabel.Location = New System.Drawing.Point(22, 75)
+        DadosComplPavimentosLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplPavimentosLabel.Location = New System.Drawing.Point(5, 75)
         DadosComplPavimentosLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplPavimentosLabel.Name = "DadosComplPavimentosLabel"
-        DadosComplPavimentosLabel.Size = New System.Drawing.Size(232, 15)
+        DadosComplPavimentosLabel.Size = New System.Drawing.Size(256, 16)
         DadosComplPavimentosLabel.TabIndex = 18
         DadosComplPavimentosLabel.Text = "A edificação possui quantos pavimentos?"
         '
         'DadosComplAtividadeLabel
         '
         DadosComplAtividadeLabel.AutoSize = True
-        DadosComplAtividadeLabel.Location = New System.Drawing.Point(22, 46)
+        DadosComplAtividadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplAtividadeLabel.Location = New System.Drawing.Point(5, 46)
         DadosComplAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplAtividadeLabel.Name = "DadosComplAtividadeLabel"
-        DadosComplAtividadeLabel.Size = New System.Drawing.Size(354, 15)
+        DadosComplAtividadeLabel.Size = New System.Drawing.Size(392, 16)
         DadosComplAtividadeLabel.TabIndex = 16
         DadosComplAtividadeLabel.Text = "As atividades serão exercidas na residência do empreendedor?"
         '
         'DadosComplEstabelecimentoLabel
         '
         DadosComplEstabelecimentoLabel.AutoSize = True
-        DadosComplEstabelecimentoLabel.Location = New System.Drawing.Point(22, 17)
+        DadosComplEstabelecimentoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplEstabelecimentoLabel.Location = New System.Drawing.Point(5, 17)
         DadosComplEstabelecimentoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplEstabelecimentoLabel.Name = "DadosComplEstabelecimentoLabel"
-        DadosComplEstabelecimentoLabel.Size = New System.Drawing.Size(219, 15)
+        DadosComplEstabelecimentoLabel.Size = New System.Drawing.Size(228, 16)
         DadosComplEstabelecimentoLabel.TabIndex = 14
-        DadosComplEstabelecimentoLabel.Text = "O estabelecimento é inócuo ou virtual?"
+        DadosComplEstabelecimentoLabel.Text = "O estabelecimento é física ou virtual?"
         '
         'DadosComplLiquidoLabel
         '
         DadosComplLiquidoLabel.AutoSize = True
-        DadosComplLiquidoLabel.Location = New System.Drawing.Point(22, 160)
+        DadosComplLiquidoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplLiquidoLabel.Location = New System.Drawing.Point(5, 160)
         DadosComplLiquidoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplLiquidoLabel.Name = "DadosComplLiquidoLabel"
-        DadosComplLiquidoLabel.Size = New System.Drawing.Size(329, 15)
+        DadosComplLiquidoLabel.Size = New System.Drawing.Size(356, 16)
         DadosComplLiquidoLabel.TabIndex = 23
         DadosComplLiquidoLabel.Text = "Quantidade em litros de líquido inflamável ou combustível?"
         '
         'DadosComplGLPLabel
         '
         DadosComplGLPLabel.AutoSize = True
-        DadosComplGLPLabel.Location = New System.Drawing.Point(22, 188)
+        DadosComplGLPLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DadosComplGLPLabel.Location = New System.Drawing.Point(5, 188)
         DadosComplGLPLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DadosComplGLPLabel.Name = "DadosComplGLPLabel"
-        DadosComplGLPLabel.Size = New System.Drawing.Size(349, 15)
+        DadosComplGLPLabel.Size = New System.Drawing.Size(379, 16)
         DadosComplGLPLabel.TabIndex = 24
         DadosComplGLPLabel.Text = "Quantidade em quilos(kg) de gás liquefeito de petróleo (GLP)?"
         '
@@ -1709,6 +1732,57 @@ Partial Class FrmLegalizacao
         SenhasDeAcessoLabel.Size = New System.Drawing.Size(240, 20)
         SenhasDeAcessoLabel.TabIndex = 0
         SenhasDeAcessoLabel.Text = "Senhas De Acesso da Empresa:"
+        '
+        'BombeiroAtvAdmLabel
+        '
+        BombeiroAtvAdmLabel.AutoSize = True
+        BombeiroAtvAdmLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        BombeiroAtvAdmLabel.Location = New System.Drawing.Point(504, 17)
+        BombeiroAtvAdmLabel.Name = "BombeiroAtvAdmLabel"
+        BombeiroAtvAdmLabel.Size = New System.Drawing.Size(255, 16)
+        BombeiroAtvAdmLabel.TabIndex = 25
+        BombeiroAtvAdmLabel.Text = "Atividade vai ser somente administrativa?"
+        '
+        'BombeiroAtvresidenciaLabel
+        '
+        BombeiroAtvresidenciaLabel.AutoSize = True
+        BombeiroAtvresidenciaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        BombeiroAtvresidenciaLabel.Location = New System.Drawing.Point(504, 47)
+        BombeiroAtvresidenciaLabel.Name = "BombeiroAtvresidenciaLabel"
+        BombeiroAtvresidenciaLabel.Size = New System.Drawing.Size(255, 16)
+        BombeiroAtvresidenciaLabel.TabIndex = 26
+        BombeiroAtvresidenciaLabel.Text = "Atividade vai ser na residência do Sócio?"
+        '
+        'RamoDeAtividadeLabel
+        '
+        RamoDeAtividadeLabel.AutoSize = True
+        RamoDeAtividadeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        RamoDeAtividadeLabel.Location = New System.Drawing.Point(17, 18)
+        RamoDeAtividadeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        RamoDeAtividadeLabel.Name = "RamoDeAtividadeLabel"
+        RamoDeAtividadeLabel.Size = New System.Drawing.Size(242, 16)
+        RamoDeAtividadeLabel.TabIndex = 88
+        RamoDeAtividadeLabel.Text = "Descrição do Objeto da Empresa:"
+        '
+        'CNAEAtividadeNoLocalLabel
+        '
+        CNAEAtividadeNoLocalLabel.AutoSize = True
+        CNAEAtividadeNoLocalLabel.Location = New System.Drawing.Point(17, 23)
+        CNAEAtividadeNoLocalLabel.Name = "CNAEAtividadeNoLocalLabel"
+        CNAEAtividadeNoLocalLabel.Size = New System.Drawing.Size(179, 15)
+        CNAEAtividadeNoLocalLabel.TabIndex = 86
+        CNAEAtividadeNoLocalLabel.Text = "CNAE vai ter atividade no local?"
+        '
+        'Label11
+        '
+        Label11.AutoSize = True
+        Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label11.Location = New System.Drawing.Point(366, 18)
+        Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label11.Name = "Label11"
+        Label11.Size = New System.Drawing.Size(296, 16)
+        Label11.TabIndex = 97
+        Label11.Text = "Descrição do Objeto do Estabelecimento:"
         '
         'EmpresasBindingNavigator
         '
@@ -1992,6 +2066,7 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Controls.Add(Me.TabPage12)
         Me.TabControl2.Controls.Add(Me.TabPage19)
         Me.TabControl2.Controls.Add(Me.TabPage13)
+        Me.TabControl2.Controls.Add(Me.TabPage24)
         Me.TabControl2.Controls.Add(Me.TabPage14)
         Me.TabControl2.Controls.Add(Me.TabPage15)
         Me.TabControl2.Controls.Add(Me.TabPage16)
@@ -2326,26 +2401,26 @@ Partial Class FrmLegalizacao
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage13.Size = New System.Drawing.Size(841, 227)
         Me.TabPage13.TabIndex = 1
-        Me.TabPage13.Text = "Ramo/CNAE"
+        Me.TabPage13.Text = "CNAEs"
         Me.TabPage13.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalSEcundariosRichTextBox)
+        Me.GroupBox1.Controls.Add(Me.LabelDescricaoCnaeSec)
+        Me.GroupBox1.Controls.Add(Me.LabelDescricaoCNAE)
+        Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalPrincipalTextBox)
+        Me.GroupBox1.Controls.Add(CNAEAtividadeNoLocalLabel)
+        Me.GroupBox1.Controls.Add(Me.CNAEAtividadeNoLocalComboBox)
         Me.GroupBox1.Controls.Add(Me.BtnVerDescricaoCNAE)
         Me.GroupBox1.Controls.Add(Me.LblLinkArrumarCNAE)
-        Me.GroupBox1.Controls.Add(Me.CnaeSimples)
         Me.GroupBox1.Controls.Add(Me.BtnGrauDeRisco)
-        Me.GroupBox1.Controls.Add(Me.LblContagemRamo)
         Me.GroupBox1.Controls.Add(Me.Button25)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.LblTotalCnae)
-        Me.GroupBox1.Controls.Add(Me.BtnCopiarRamo)
-        Me.GroupBox1.Controls.Add(Me.BtnAtividadeLocal)
-        Me.GroupBox1.Controls.Add(Me.BtnRemovCaract)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.CNAESecundarioRichTextBox)
-        Me.GroupBox1.Controls.Add(RamoDeAtividadeLabel)
-        Me.GroupBox1.Controls.Add(Me.RamoDeAtividadeRichTextBox)
         Me.GroupBox1.Controls.Add(Me.CNAEPrincipalTextBox)
         Me.GroupBox1.Controls.Add(CNAESecundarioLabel)
         Me.GroupBox1.Controls.Add(CNAEPrincipalLabel)
@@ -2359,16 +2434,70 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(267, 47)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(211, 15)
+        Me.Label6.TabIndex = 92
+        Me.Label6.Text = "Exerce Atividade no Local / Descrição"
+        '
+        'CNAEAtvLocalSEcundariosRichTextBox
+        '
+        Me.CNAEAtvLocalSEcundariosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtvLocalSEcundarios", True))
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Location = New System.Drawing.Point(270, 91)
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Name = "CNAEAtvLocalSEcundariosRichTextBox"
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Size = New System.Drawing.Size(536, 95)
+        Me.CNAEAtvLocalSEcundariosRichTextBox.TabIndex = 91
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Text = ""
+        '
+        'LabelDescricaoCnaeSec
+        '
+        Me.LabelDescricaoCnaeSec.AutoSize = True
+        Me.LabelDescricaoCnaeSec.Location = New System.Drawing.Point(199, 94)
+        Me.LabelDescricaoCnaeSec.Name = "LabelDescricaoCnaeSec"
+        Me.LabelDescricaoCnaeSec.Size = New System.Drawing.Size(71, 15)
+        Me.LabelDescricaoCnaeSec.TabIndex = 90
+        Me.LabelDescricaoCnaeSec.Text = "Descrições:"
+        '
+        'LabelDescricaoCNAE
+        '
+        Me.LabelDescricaoCNAE.AutoSize = True
+        Me.LabelDescricaoCNAE.Location = New System.Drawing.Point(199, 68)
+        Me.LabelDescricaoCNAE.Name = "LabelDescricaoCNAE"
+        Me.LabelDescricaoCNAE.Size = New System.Drawing.Size(65, 15)
+        Me.LabelDescricaoCNAE.TabIndex = 89
+        Me.LabelDescricaoCNAE.Text = "Descrição:"
+        '
+        'CNAEAtvLocalPrincipalTextBox
+        '
+        Me.CNAEAtvLocalPrincipalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtvLocalPrincipal", True))
+        Me.CNAEAtvLocalPrincipalTextBox.Location = New System.Drawing.Point(270, 65)
+        Me.CNAEAtvLocalPrincipalTextBox.Name = "CNAEAtvLocalPrincipalTextBox"
+        Me.CNAEAtvLocalPrincipalTextBox.Size = New System.Drawing.Size(536, 21)
+        Me.CNAEAtvLocalPrincipalTextBox.TabIndex = 88
+        '
+        'CNAEAtividadeNoLocalComboBox
+        '
+        Me.CNAEAtividadeNoLocalComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtividadeNoLocal", True))
+        Me.CNAEAtividadeNoLocalComboBox.FormattingEnabled = True
+        Me.CNAEAtividadeNoLocalComboBox.Items.AddRange(New Object() {"Todos", "Parcial", "Não"})
+        Me.CNAEAtividadeNoLocalComboBox.Location = New System.Drawing.Point(204, 20)
+        Me.CNAEAtividadeNoLocalComboBox.Name = "CNAEAtividadeNoLocalComboBox"
+        Me.CNAEAtividadeNoLocalComboBox.Size = New System.Drawing.Size(83, 23)
+        Me.CNAEAtividadeNoLocalComboBox.TabIndex = 87
+        '
         'BtnVerDescricaoCNAE
         '
         Me.BtnVerDescricaoCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerDescricaoCNAE.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(20, 134)
+        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(643, 190)
         Me.BtnVerDescricaoCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerDescricaoCNAE.Name = "BtnVerDescricaoCNAE"
-        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(73, 28)
+        Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(163, 28)
         Me.BtnVerDescricaoCNAE.TabIndex = 86
-        Me.BtnVerDescricaoCNAE.Text = "Descrição"
+        Me.BtnVerDescricaoCNAE.Text = "Adicionar Descrição Oficial"
         Me.BtnVerDescricaoCNAE.UseVisualStyleBackColor = False
         '
         'LblLinkArrumarCNAE
@@ -2382,48 +2511,25 @@ Partial Class FrmLegalizacao
         Me.LblLinkArrumarCNAE.TabStop = True
         Me.LblLinkArrumarCNAE.Text = "Arrumar"
         '
-        'CnaeSimples
-        '
-        Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
-        Me.CnaeSimples.Location = New System.Drawing.Point(724, 67)
-        Me.CnaeSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CnaeSimples.Name = "CnaeSimples"
-        Me.CnaeSimples.Size = New System.Drawing.Size(101, 46)
-        Me.CnaeSimples.TabIndex = 41
-        Me.CnaeSimples.Text = "CNAE Simples Nacional"
-        Me.CnaeSimples.UseVisualStyleBackColor = False
-        '
         'BtnGrauDeRisco
         '
         Me.BtnGrauDeRisco.BackgroundImage = CType(resources.GetObject("BtnGrauDeRisco.BackgroundImage"), System.Drawing.Image)
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(93, 194)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(270, 192)
         Me.BtnGrauDeRisco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
-        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(99, 24)
+        Me.BtnGrauDeRisco.Size = New System.Drawing.Size(102, 28)
         Me.BtnGrauDeRisco.TabIndex = 82
         Me.BtnGrauDeRisco.Text = "Grau de Risco"
         Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
-        '
-        'LblContagemRamo
-        '
-        Me.LblContagemRamo.AutoSize = True
-        Me.LblContagemRamo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblContagemRamo.Location = New System.Drawing.Point(200, 200)
-        Me.LblContagemRamo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblContagemRamo.Name = "LblContagemRamo"
-        Me.LblContagemRamo.Size = New System.Drawing.Size(64, 15)
-        Me.LblContagemRamo.TabIndex = 84
-        Me.LblContagemRamo.Text = "Contagem"
         '
         'Button25
         '
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(118, 15)
+        Me.Button25.Location = New System.Drawing.Point(489, 192)
         Me.Button25.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(102, 28)
@@ -2435,7 +2541,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button4.Location = New System.Drawing.Point(9, 15)
+        Me.Button4.Location = New System.Drawing.Point(380, 192)
         Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(102, 28)
@@ -2453,48 +2559,6 @@ Partial Class FrmLegalizacao
         Me.LblTotalCnae.TabIndex = 83
         Me.LblTotalCnae.Text = "00"
         Me.LblTotalCnae.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'BtnCopiarRamo
-        '
-        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnCopiarRamo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
-        Me.BtnCopiarRamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiarRamo.Location = New System.Drawing.Point(724, 172)
-        Me.BtnCopiarRamo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
-        Me.BtnCopiarRamo.Size = New System.Drawing.Size(104, 27)
-        Me.BtnCopiarRamo.TabIndex = 51
-        Me.BtnCopiarRamo.Text = "Copiar Ramo"
-        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
-        '
-        'BtnAtividadeLocal
-        '
-        Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
-        Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
-        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(724, 15)
-        Me.BtnAtividadeLocal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
-        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(101, 46)
-        Me.BtnAtividadeLocal.TabIndex = 50
-        Me.BtnAtividadeLocal.Text = "Atividade no local ?"
-        Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
-        '
-        'BtnRemovCaract
-        '
-        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnRemovCaract.Location = New System.Drawing.Point(724, 119)
-        Me.BtnRemovCaract.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnRemovCaract.Name = "BtnRemovCaract"
-        Me.BtnRemovCaract.Size = New System.Drawing.Size(104, 43)
-        Me.BtnRemovCaract.TabIndex = 49
-        Me.BtnRemovCaract.Text = "Remove Caraceteres"
-        Me.BtnRemovCaract.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -2517,17 +2581,6 @@ Partial Class FrmLegalizacao
         Me.CNAESecundarioRichTextBox.TabIndex = 33
         Me.CNAESecundarioRichTextBox.Text = ""
         '
-        'RamoDeAtividadeRichTextBox
-        '
-        Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
-        Me.RamoDeAtividadeRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(200, 65)
-        Me.RamoDeAtividadeRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
-        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(516, 134)
-        Me.RamoDeAtividadeRichTextBox.TabIndex = 32
-        Me.RamoDeAtividadeRichTextBox.Text = ""
-        '
         'CNAEPrincipalTextBox
         '
         Me.CNAEPrincipalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEPrincipal", True))
@@ -2537,6 +2590,149 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox.Name = "CNAEPrincipalTextBox"
         Me.CNAEPrincipalTextBox.Size = New System.Drawing.Size(94, 21)
         Me.CNAEPrincipalTextBox.TabIndex = 32
+        '
+        'TabPage24
+        '
+        Me.TabPage24.Controls.Add(Me.GroupBox14)
+        Me.TabPage24.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage24.Name = "TabPage24"
+        Me.TabPage24.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage24.TabIndex = 9
+        Me.TabPage24.Text = "Ramo de Atividade"
+        Me.TabPage24.UseVisualStyleBackColor = True
+        '
+        'GroupBox14
+        '
+        Me.GroupBox14.AutoSize = True
+        Me.GroupBox14.Controls.Add(Me.BtnAjudaRamoObjeto2)
+        Me.GroupBox14.Controls.Add(Me.BtnAjudaRamoObjeto1)
+        Me.GroupBox14.Controls.Add(Label11)
+        Me.GroupBox14.Controls.Add(Me.ObjetoDOEstabelecimentoRichTextBox)
+        Me.GroupBox14.Controls.Add(Me.LinkLabelLimparRamo)
+        Me.GroupBox14.Controls.Add(Me.CnaeSimples)
+        Me.GroupBox14.Controls.Add(Me.LblContagemRamo)
+        Me.GroupBox14.Controls.Add(Me.BtnCopiarRamo)
+        Me.GroupBox14.Controls.Add(Me.BtnAtividadeLocal)
+        Me.GroupBox14.Controls.Add(Me.BtnRemovCaract)
+        Me.GroupBox14.Controls.Add(RamoDeAtividadeLabel)
+        Me.GroupBox14.Controls.Add(Me.RamoDeAtividadeRichTextBox)
+        Me.GroupBox14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox14.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox14.Margin = New System.Windows.Forms.Padding(0)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(841, 227)
+        Me.GroupBox14.TabIndex = 0
+        Me.GroupBox14.TabStop = False
+        '
+        'BtnAjudaRamoObjeto1
+        '
+        Me.BtnAjudaRamoObjeto1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaRamoObjeto1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaRamoObjeto1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaRamoObjeto1.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaRamoObjeto1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaRamoObjeto1.Location = New System.Drawing.Point(262, 13)
+        Me.BtnAjudaRamoObjeto1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnAjudaRamoObjeto1.Name = "BtnAjudaRamoObjeto1"
+        Me.BtnAjudaRamoObjeto1.Size = New System.Drawing.Size(25, 23)
+        Me.BtnAjudaRamoObjeto1.TabIndex = 98
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaRamoObjeto1, "Mostrar Razão Social Completa")
+        Me.BtnAjudaRamoObjeto1.UseVisualStyleBackColor = True
+        '
+        'ObjetoDOEstabelecimentoRichTextBox
+        '
+        Me.ObjetoDOEstabelecimentoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ObjetoDOEstabelecimento", True))
+        Me.ObjetoDOEstabelecimentoRichTextBox.Location = New System.Drawing.Point(369, 37)
+        Me.ObjetoDOEstabelecimentoRichTextBox.Name = "ObjetoDOEstabelecimentoRichTextBox"
+        Me.ObjetoDOEstabelecimentoRichTextBox.Size = New System.Drawing.Size(335, 164)
+        Me.ObjetoDOEstabelecimentoRichTextBox.TabIndex = 96
+        Me.ObjetoDOEstabelecimentoRichTextBox.Text = ""
+        '
+        'LinkLabelLimparRamo
+        '
+        Me.LinkLabelLimparRamo.AutoSize = True
+        Me.LinkLabelLimparRamo.Location = New System.Drawing.Point(307, 203)
+        Me.LinkLabelLimparRamo.Name = "LinkLabelLimparRamo"
+        Me.LinkLabelLimparRamo.Size = New System.Drawing.Size(46, 15)
+        Me.LinkLabelLimparRamo.TabIndex = 95
+        Me.LinkLabelLimparRamo.TabStop = True
+        Me.LinkLabelLimparRamo.Text = "Limpar"
+        '
+        'CnaeSimples
+        '
+        Me.CnaeSimples.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CnaeSimples.ForeColor = System.Drawing.Color.MediumBlue
+        Me.CnaeSimples.Location = New System.Drawing.Point(721, 78)
+        Me.CnaeSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CnaeSimples.Name = "CnaeSimples"
+        Me.CnaeSimples.Size = New System.Drawing.Size(101, 46)
+        Me.CnaeSimples.TabIndex = 90
+        Me.CnaeSimples.Text = "CNAE Simples Nacional"
+        Me.CnaeSimples.UseVisualStyleBackColor = False
+        '
+        'LblContagemRamo
+        '
+        Me.LblContagemRamo.AutoSize = True
+        Me.LblContagemRamo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblContagemRamo.Location = New System.Drawing.Point(18, 202)
+        Me.LblContagemRamo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblContagemRamo.Name = "LblContagemRamo"
+        Me.LblContagemRamo.Size = New System.Drawing.Size(64, 15)
+        Me.LblContagemRamo.TabIndex = 94
+        Me.LblContagemRamo.Text = "Contagem"
+        '
+        'BtnCopiarRamo
+        '
+        Me.BtnCopiarRamo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCopiarRamo.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarRamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarRamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarRamo.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiarRamo.Location = New System.Drawing.Point(721, 183)
+        Me.BtnCopiarRamo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarRamo.Name = "BtnCopiarRamo"
+        Me.BtnCopiarRamo.Size = New System.Drawing.Size(101, 27)
+        Me.BtnCopiarRamo.TabIndex = 93
+        Me.BtnCopiarRamo.Text = "Copiar Ramo"
+        Me.BtnCopiarRamo.UseVisualStyleBackColor = False
+        '
+        'BtnAtividadeLocal
+        '
+        Me.BtnAtividadeLocal.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAtividadeLocal.FlatAppearance.BorderSize = 2
+        Me.BtnAtividadeLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAtividadeLocal.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnAtividadeLocal.Location = New System.Drawing.Point(721, 26)
+        Me.BtnAtividadeLocal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnAtividadeLocal.Name = "BtnAtividadeLocal"
+        Me.BtnAtividadeLocal.Size = New System.Drawing.Size(101, 46)
+        Me.BtnAtividadeLocal.TabIndex = 92
+        Me.BtnAtividadeLocal.Text = "Atividade no local ?"
+        Me.BtnAtividadeLocal.UseVisualStyleBackColor = False
+        '
+        'BtnRemovCaract
+        '
+        Me.BtnRemovCaract.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemovCaract.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemovCaract.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnRemovCaract.Location = New System.Drawing.Point(721, 130)
+        Me.BtnRemovCaract.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnRemovCaract.Name = "BtnRemovCaract"
+        Me.BtnRemovCaract.Size = New System.Drawing.Size(101, 43)
+        Me.BtnRemovCaract.TabIndex = 91
+        Me.BtnRemovCaract.Text = "Remove Caraceteres"
+        Me.BtnRemovCaract.UseVisualStyleBackColor = False
+        '
+        'RamoDeAtividadeRichTextBox
+        '
+        Me.RamoDeAtividadeRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RamoDeAtividade", True))
+        Me.RamoDeAtividadeRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RamoDeAtividadeRichTextBox.Location = New System.Drawing.Point(20, 37)
+        Me.RamoDeAtividadeRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.RamoDeAtividadeRichTextBox.Name = "RamoDeAtividadeRichTextBox"
+        Me.RamoDeAtividadeRichTextBox.Size = New System.Drawing.Size(335, 164)
+        Me.RamoDeAtividadeRichTextBox.TabIndex = 89
+        Me.RamoDeAtividadeRichTextBox.Text = ""
         '
         'TabPage14
         '
@@ -2888,11 +3084,11 @@ Partial Class FrmLegalizacao
         'TabPage16
         '
         Me.TabPage16.AutoScroll = True
+        Me.TabPage16.Controls.Add(Me.CapitalAntigoMudouLabel)
+        Me.TabPage16.Controls.Add(Me.CapitalAntigoMudouComboBox)
         Me.TabPage16.Controls.Add(Me.BtnCopiarCapitalFinal)
-        Me.TabPage16.Controls.Add(Me.LinkLabelAumentoCapital)
         Me.TabPage16.Controls.Add(Me.CapitalSocialAntigoLabel)
         Me.TabPage16.Controls.Add(Me.CapitalSocialAntigoTextBox)
-        Me.TabPage16.Controls.Add(Me.CapitalAntigoMudouCheckBox)
         Me.TabPage16.Controls.Add(Me.BtnCopiarCapital)
         Me.TabPage16.Controls.Add(Me.BtnRemoveSocios)
         Me.TabPage16.Controls.Add(Me.BtnPreencherCapital)
@@ -2918,6 +3114,25 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
         '
+        'CapitalAntigoMudouLabel
+        '
+        Me.CapitalAntigoMudouLabel.AutoSize = True
+        Me.CapitalAntigoMudouLabel.Location = New System.Drawing.Point(6, 9)
+        Me.CapitalAntigoMudouLabel.Name = "CapitalAntigoMudouLabel"
+        Me.CapitalAntigoMudouLabel.Size = New System.Drawing.Size(131, 15)
+        Me.CapitalAntigoMudouLabel.TabIndex = 73
+        Me.CapitalAntigoMudouLabel.Text = "Capital Antigo Mudou?"
+        '
+        'CapitalAntigoMudouComboBox
+        '
+        Me.CapitalAntigoMudouComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalAntigoMudou", True))
+        Me.CapitalAntigoMudouComboBox.FormattingEnabled = True
+        Me.CapitalAntigoMudouComboBox.Items.AddRange(New Object() {"Não", "Sim"})
+        Me.CapitalAntigoMudouComboBox.Location = New System.Drawing.Point(138, 5)
+        Me.CapitalAntigoMudouComboBox.Name = "CapitalAntigoMudouComboBox"
+        Me.CapitalAntigoMudouComboBox.Size = New System.Drawing.Size(78, 23)
+        Me.CapitalAntigoMudouComboBox.TabIndex = 72
+        '
         'BtnCopiarCapitalFinal
         '
         Me.BtnCopiarCapitalFinal.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
@@ -2925,7 +3140,7 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarCapitalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarCapitalFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCopiarCapitalFinal.ForeColor = System.Drawing.Color.Black
-        Me.BtnCopiarCapitalFinal.Location = New System.Drawing.Point(631, 58)
+        Me.BtnCopiarCapitalFinal.Location = New System.Drawing.Point(727, 58)
         Me.BtnCopiarCapitalFinal.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarCapitalFinal.Name = "BtnCopiarCapitalFinal"
         Me.BtnCopiarCapitalFinal.Size = New System.Drawing.Size(88, 51)
@@ -2933,21 +3148,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarCapitalFinal.Text = "Copiar Final"
         Me.BtnCopiarCapitalFinal.UseVisualStyleBackColor = True
         '
-        'LinkLabelAumentoCapital
-        '
-        Me.LinkLabelAumentoCapital.AutoSize = True
-        Me.LinkLabelAumentoCapital.Location = New System.Drawing.Point(128, 115)
-        Me.LinkLabelAumentoCapital.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LinkLabelAumentoCapital.Name = "LinkLabelAumentoCapital"
-        Me.LinkLabelAumentoCapital.Size = New System.Drawing.Size(149, 15)
-        Me.LinkLabelAumentoCapital.TabIndex = 70
-        Me.LinkLabelAumentoCapital.TabStop = True
-        Me.LinkLabelAumentoCapital.Text = "Exemplo Aumento Capital"
-        '
         'CapitalSocialAntigoLabel
         '
         Me.CapitalSocialAntigoLabel.AutoSize = True
-        Me.CapitalSocialAntigoLabel.Location = New System.Drawing.Point(12, 96)
+        Me.CapitalSocialAntigoLabel.Location = New System.Drawing.Point(111, 101)
         Me.CapitalSocialAntigoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.CapitalSocialAntigoLabel.Name = "CapitalSocialAntigoLabel"
         Me.CapitalSocialAntigoLabel.Size = New System.Drawing.Size(122, 15)
@@ -2958,23 +3162,11 @@ Partial Class FrmLegalizacao
         '
         Me.CapitalSocialAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalSocialAntigo", True))
         Me.CapitalSocialAntigoTextBox.ForeColor = System.Drawing.Color.Red
-        Me.CapitalSocialAntigoTextBox.Location = New System.Drawing.Point(136, 92)
+        Me.CapitalSocialAntigoTextBox.Location = New System.Drawing.Point(235, 97)
         Me.CapitalSocialAntigoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalSocialAntigoTextBox.Name = "CapitalSocialAntigoTextBox"
         Me.CapitalSocialAntigoTextBox.Size = New System.Drawing.Size(136, 21)
         Me.CapitalSocialAntigoTextBox.TabIndex = 68
-        '
-        'CapitalAntigoMudouCheckBox
-        '
-        Me.CapitalAntigoMudouCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "CapitalAntigoMudou", True))
-        Me.CapitalAntigoMudouCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CapitalAntigoMudouCheckBox.Location = New System.Drawing.Point(8, 6)
-        Me.CapitalAntigoMudouCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CapitalAntigoMudouCheckBox.Name = "CapitalAntigoMudouCheckBox"
-        Me.CapitalAntigoMudouCheckBox.Size = New System.Drawing.Size(89, 28)
-        Me.CapitalAntigoMudouCheckBox.TabIndex = 67
-        Me.CapitalAntigoMudouCheckBox.Text = "Mudou?"
-        Me.CapitalAntigoMudouCheckBox.UseVisualStyleBackColor = True
         '
         'BtnCopiarCapital
         '
@@ -2983,7 +3175,7 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnCopiarCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCopiarCapital.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiarCapital.Location = New System.Drawing.Point(631, 20)
+        Me.BtnCopiarCapital.Location = New System.Drawing.Point(727, 20)
         Me.BtnCopiarCapital.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarCapital.Name = "BtnCopiarCapital"
         Me.BtnCopiarCapital.Size = New System.Drawing.Size(88, 28)
@@ -2997,7 +3189,7 @@ Partial Class FrmLegalizacao
         Me.BtnRemoveSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnRemoveSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemoveSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveSocios.Location = New System.Drawing.Point(588, 187)
+        Me.BtnRemoveSocios.Location = New System.Drawing.Point(774, 184)
         Me.BtnRemoveSocios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnRemoveSocios.Name = "BtnRemoveSocios"
         Me.BtnRemoveSocios.Size = New System.Drawing.Size(41, 36)
@@ -3008,7 +3200,7 @@ Partial Class FrmLegalizacao
         'BtnPreencherCapital
         '
         Me.BtnPreencherCapital.AutoSize = True
-        Me.BtnPreencherCapital.Location = New System.Drawing.Point(208, 14)
+        Me.BtnPreencherCapital.Location = New System.Drawing.Point(307, 19)
         Me.BtnPreencherCapital.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.BtnPreencherCapital.Name = "BtnPreencherCapital"
         Me.BtnPreencherCapital.Size = New System.Drawing.Size(64, 15)
@@ -3019,7 +3211,7 @@ Partial Class FrmLegalizacao
         'CapitaQuotaTotalTextBox
         '
         Me.CapitaQuotaTotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitaQuotaTotal", True))
-        Me.CapitaQuotaTotalTextBox.Location = New System.Drawing.Point(447, 62)
+        Me.CapitaQuotaTotalTextBox.Location = New System.Drawing.Point(546, 67)
         Me.CapitaQuotaTotalTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitaQuotaTotalTextBox.Name = "CapitaQuotaTotalTextBox"
         Me.CapitaQuotaTotalTextBox.Size = New System.Drawing.Size(136, 21)
@@ -3028,7 +3220,7 @@ Partial Class FrmLegalizacao
         'CapitalQuotaValorTextBox
         '
         Me.CapitalQuotaValorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalQuotaValor", True))
-        Me.CapitalQuotaValorTextBox.Location = New System.Drawing.Point(447, 32)
+        Me.CapitalQuotaValorTextBox.Location = New System.Drawing.Point(546, 37)
         Me.CapitalQuotaValorTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalQuotaValorTextBox.Name = "CapitalQuotaValorTextBox"
         Me.CapitalQuotaValorTextBox.Size = New System.Drawing.Size(136, 21)
@@ -3042,7 +3234,7 @@ Partial Class FrmLegalizacao
         Me.DivisaoCapitalSociosRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DivisaoCapitalSociosRichTextBox.Name = "DivisaoCapitalSociosRichTextBox"
         Me.DivisaoCapitalSociosRichTextBox.ReadOnly = True
-        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(572, 74)
+        Me.DivisaoCapitalSociosRichTextBox.Size = New System.Drawing.Size(756, 74)
         Me.DivisaoCapitalSociosRichTextBox.TabIndex = 61
         Me.DivisaoCapitalSociosRichTextBox.Text = ""
         '
@@ -3052,7 +3244,7 @@ Partial Class FrmLegalizacao
         Me.BtnAddSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnAddSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddSocios.Location = New System.Drawing.Point(588, 145)
+        Me.BtnAddSocios.Location = New System.Drawing.Point(774, 142)
         Me.BtnAddSocios.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAddSocios.Name = "BtnAddSocios"
         Me.BtnAddSocios.Size = New System.Drawing.Size(41, 36)
@@ -3063,7 +3255,7 @@ Partial Class FrmLegalizacao
         'CapitalITextBox
         '
         Me.CapitalITextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalI", True))
-        Me.CapitalITextBox.Location = New System.Drawing.Point(136, 62)
+        Me.CapitalITextBox.Location = New System.Drawing.Point(235, 67)
         Me.CapitalITextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalITextBox.Name = "CapitalITextBox"
         Me.CapitalITextBox.Size = New System.Drawing.Size(136, 21)
@@ -3072,7 +3264,7 @@ Partial Class FrmLegalizacao
         'CapitalSTextBox
         '
         Me.CapitalSTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CapitalS", True))
-        Me.CapitalSTextBox.Location = New System.Drawing.Point(136, 32)
+        Me.CapitalSTextBox.Location = New System.Drawing.Point(235, 37)
         Me.CapitalSTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CapitalSTextBox.Name = "CapitalSTextBox"
         Me.CapitalSTextBox.Size = New System.Drawing.Size(136, 21)
@@ -3081,7 +3273,7 @@ Partial Class FrmLegalizacao
         'DataExcSocialMaskedTextBox
         '
         Me.DataExcSocialMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataExcSocial", True))
-        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(532, 90)
+        Me.DataExcSocialMaskedTextBox.Location = New System.Drawing.Point(631, 95)
         Me.DataExcSocialMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataExcSocialMaskedTextBox.Mask = "99/99"
         Me.DataExcSocialMaskedTextBox.Name = "DataExcSocialMaskedTextBox"
@@ -3355,6 +3547,10 @@ Partial Class FrmLegalizacao
         'TabPage22
         '
         Me.TabPage22.AutoScroll = True
+        Me.TabPage22.Controls.Add(BombeiroAtvresidenciaLabel)
+        Me.TabPage22.Controls.Add(Me.BombeiroAtvresidenciaComboBox)
+        Me.TabPage22.Controls.Add(BombeiroAtvAdmLabel)
+        Me.TabPage22.Controls.Add(Me.BombeiroAtvAdmComboBox)
         Me.TabPage22.Controls.Add(DadosComplGLPLabel)
         Me.TabPage22.Controls.Add(Me.DadosComplGLPTextBox)
         Me.TabPage22.Controls.Add(DadosComplLiquidoLabel)
@@ -3375,76 +3571,104 @@ Partial Class FrmLegalizacao
         Me.TabPage22.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage22.Size = New System.Drawing.Size(841, 227)
         Me.TabPage22.TabIndex = 8
-        Me.TabPage22.Text = "Dados Complementares"
+        Me.TabPage22.Text = "Bombeiro"
         Me.TabPage22.UseVisualStyleBackColor = True
+        '
+        'BombeiroAtvresidenciaComboBox
+        '
+        Me.BombeiroAtvresidenciaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroAtvresidencia", True))
+        Me.BombeiroAtvresidenciaComboBox.FormattingEnabled = True
+        Me.BombeiroAtvresidenciaComboBox.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.BombeiroAtvresidenciaComboBox.Location = New System.Drawing.Point(761, 44)
+        Me.BombeiroAtvresidenciaComboBox.Name = "BombeiroAtvresidenciaComboBox"
+        Me.BombeiroAtvresidenciaComboBox.Size = New System.Drawing.Size(74, 23)
+        Me.BombeiroAtvresidenciaComboBox.TabIndex = 27
+        '
+        'BombeiroAtvAdmComboBox
+        '
+        Me.BombeiroAtvAdmComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "BombeiroAtvAdm", True))
+        Me.BombeiroAtvAdmComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BombeiroAtvAdmComboBox.FormattingEnabled = True
+        Me.BombeiroAtvAdmComboBox.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.BombeiroAtvAdmComboBox.Location = New System.Drawing.Point(762, 14)
+        Me.BombeiroAtvAdmComboBox.Name = "BombeiroAtvAdmComboBox"
+        Me.BombeiroAtvAdmComboBox.Size = New System.Drawing.Size(73, 24)
+        Me.BombeiroAtvAdmComboBox.TabIndex = 26
         '
         'DadosComplGLPTextBox
         '
         Me.DadosComplGLPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplGLP", True))
-        Me.DadosComplGLPTextBox.Location = New System.Drawing.Point(399, 185)
+        Me.DadosComplGLPTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DadosComplGLPTextBox.Location = New System.Drawing.Point(408, 185)
         Me.DadosComplGLPTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplGLPTextBox.Name = "DadosComplGLPTextBox"
-        Me.DadosComplGLPTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.DadosComplGLPTextBox.Size = New System.Drawing.Size(88, 22)
         Me.DadosComplGLPTextBox.TabIndex = 25
         '
         'DadosComplLiquidoTextBox
         '
         Me.DadosComplLiquidoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplLiquido", True))
-        Me.DadosComplLiquidoTextBox.Location = New System.Drawing.Point(399, 157)
+        Me.DadosComplLiquidoTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DadosComplLiquidoTextBox.Location = New System.Drawing.Point(408, 157)
         Me.DadosComplLiquidoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplLiquidoTextBox.Name = "DadosComplLiquidoTextBox"
-        Me.DadosComplLiquidoTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.DadosComplLiquidoTextBox.Size = New System.Drawing.Size(88, 22)
         Me.DadosComplLiquidoTextBox.TabIndex = 24
         '
         'DadosComplSubsoloComboBox
         '
         Me.DadosComplSubsoloComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplSubsolo", True))
+        Me.DadosComplSubsoloComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DadosComplSubsoloComboBox.FormattingEnabled = True
         Me.DadosComplSubsoloComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.DadosComplSubsoloComboBox.Location = New System.Drawing.Point(399, 128)
+        Me.DadosComplSubsoloComboBox.Location = New System.Drawing.Point(408, 128)
         Me.DadosComplSubsoloComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplSubsoloComboBox.Name = "DadosComplSubsoloComboBox"
-        Me.DadosComplSubsoloComboBox.Size = New System.Drawing.Size(88, 23)
+        Me.DadosComplSubsoloComboBox.Size = New System.Drawing.Size(88, 24)
         Me.DadosComplSubsoloComboBox.TabIndex = 23
         '
         'DadosComplPessoasTextBox
         '
         Me.DadosComplPessoasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPessoas", True))
-        Me.DadosComplPessoasTextBox.Location = New System.Drawing.Point(399, 99)
+        Me.DadosComplPessoasTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DadosComplPessoasTextBox.Location = New System.Drawing.Point(408, 99)
         Me.DadosComplPessoasTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplPessoasTextBox.Name = "DadosComplPessoasTextBox"
-        Me.DadosComplPessoasTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.DadosComplPessoasTextBox.Size = New System.Drawing.Size(88, 22)
         Me.DadosComplPessoasTextBox.TabIndex = 21
         '
         'DadosComplPavimentosTextBox
         '
         Me.DadosComplPavimentosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplPavimentos", True))
-        Me.DadosComplPavimentosTextBox.Location = New System.Drawing.Point(399, 72)
+        Me.DadosComplPavimentosTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DadosComplPavimentosTextBox.Location = New System.Drawing.Point(408, 72)
         Me.DadosComplPavimentosTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplPavimentosTextBox.Name = "DadosComplPavimentosTextBox"
-        Me.DadosComplPavimentosTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.DadosComplPavimentosTextBox.Size = New System.Drawing.Size(88, 22)
         Me.DadosComplPavimentosTextBox.TabIndex = 20
         '
         'DadosComplAtividadeComboBox
         '
         Me.DadosComplAtividadeComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplAtividade", True))
+        Me.DadosComplAtividadeComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DadosComplAtividadeComboBox.FormattingEnabled = True
         Me.DadosComplAtividadeComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.DadosComplAtividadeComboBox.Location = New System.Drawing.Point(399, 43)
+        Me.DadosComplAtividadeComboBox.Location = New System.Drawing.Point(408, 43)
         Me.DadosComplAtividadeComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplAtividadeComboBox.Name = "DadosComplAtividadeComboBox"
-        Me.DadosComplAtividadeComboBox.Size = New System.Drawing.Size(88, 23)
+        Me.DadosComplAtividadeComboBox.Size = New System.Drawing.Size(88, 24)
         Me.DadosComplAtividadeComboBox.TabIndex = 17
         '
         'DadosComplEstabelecimentoComboBox
         '
         Me.DadosComplEstabelecimentoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DadosComplEstabelecimento", True))
+        Me.DadosComplEstabelecimentoComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DadosComplEstabelecimentoComboBox.FormattingEnabled = True
-        Me.DadosComplEstabelecimentoComboBox.Items.AddRange(New Object() {"Inócuo", "Virtual"})
-        Me.DadosComplEstabelecimentoComboBox.Location = New System.Drawing.Point(399, 14)
+        Me.DadosComplEstabelecimentoComboBox.Items.AddRange(New Object() {"Física", "Virtual"})
+        Me.DadosComplEstabelecimentoComboBox.Location = New System.Drawing.Point(408, 14)
         Me.DadosComplEstabelecimentoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DadosComplEstabelecimentoComboBox.Name = "DadosComplEstabelecimentoComboBox"
-        Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(88, 23)
+        Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(88, 24)
         Me.DadosComplEstabelecimentoComboBox.TabIndex = 15
         '
         'TabPage3
@@ -5158,7 +5382,7 @@ Partial Class FrmLegalizacao
         'EmpInicioAtividadeMaskedTextBox
         '
         Me.EmpInicioAtividadeMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "EmpInicioAtividade", True))
-        Me.EmpInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(785, 5)
+        Me.EmpInicioAtividadeMaskedTextBox.Location = New System.Drawing.Point(619, 36)
         Me.EmpInicioAtividadeMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EmpInicioAtividadeMaskedTextBox.Mask = "00/00/0000"
         Me.EmpInicioAtividadeMaskedTextBox.Name = "EmpInicioAtividadeMaskedTextBox"
@@ -5345,10 +5569,10 @@ Partial Class FrmLegalizacao
         Me.BtnFiliais.BackgroundImage = CType(resources.GetObject("BtnFiliais.BackgroundImage"), System.Drawing.Image)
         Me.BtnFiliais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFiliais.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFiliais.Location = New System.Drawing.Point(690, 114)
+        Me.BtnFiliais.Location = New System.Drawing.Point(694, 114)
         Me.BtnFiliais.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnFiliais.Name = "BtnFiliais"
-        Me.BtnFiliais.Size = New System.Drawing.Size(74, 27)
+        Me.BtnFiliais.Size = New System.Drawing.Size(70, 27)
         Me.BtnFiliais.TabIndex = 78
         Me.BtnFiliais.Text = "1 Filiais"
         Me.BtnFiliais.UseVisualStyleBackColor = True
@@ -5428,7 +5652,7 @@ Partial Class FrmLegalizacao
         Me.SEDEComboBox.Location = New System.Drawing.Point(601, 117)
         Me.SEDEComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SEDEComboBox.Name = "SEDEComboBox"
-        Me.SEDEComboBox.Size = New System.Drawing.Size(84, 23)
+        Me.SEDEComboBox.Size = New System.Drawing.Size(89, 23)
         Me.SEDEComboBox.TabIndex = 68
         '
         'NomeFantasiaTextBox
@@ -5491,7 +5715,7 @@ Partial Class FrmLegalizacao
         Me.PictureBox1.Location = New System.Drawing.Point(5, 9)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(65, 65)
+        Me.PictureBox1.Size = New System.Drawing.Size(65, 56)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 38
         Me.PictureBox1.TabStop = False
@@ -5765,6 +5989,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.PictureBoxCentralProcesso)
         Me.GroupBox10.Controls.Add(Me.BtnVerNovoNome)
         Me.GroupBox10.Controls.Add(Me.BtnMgsBoxAvisarDia)
         Me.GroupBox10.Controls.Add(Me.StatusComboBox)
@@ -5800,6 +6025,15 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabIndex = 37
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
+        '
+        'PictureBoxCentralProcesso
+        '
+        Me.PictureBoxCentralProcesso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBoxCentralProcesso.Location = New System.Drawing.Point(356, 20)
+        Me.PictureBoxCentralProcesso.Name = "PictureBoxCentralProcesso"
+        Me.PictureBoxCentralProcesso.Size = New System.Drawing.Size(154, 51)
+        Me.PictureBoxCentralProcesso.TabIndex = 79
+        Me.PictureBoxCentralProcesso.TabStop = False
         '
         'BtnVerNovoNome
         '
@@ -6107,6 +6341,21 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnAjudaRamoObjeto2
+        '
+        Me.BtnAjudaRamoObjeto2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaRamoObjeto2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaRamoObjeto2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaRamoObjeto2.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaRamoObjeto2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaRamoObjeto2.Location = New System.Drawing.Point(670, 14)
+        Me.BtnAjudaRamoObjeto2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnAjudaRamoObjeto2.Name = "BtnAjudaRamoObjeto2"
+        Me.BtnAjudaRamoObjeto2.Size = New System.Drawing.Size(25, 23)
+        Me.BtnAjudaRamoObjeto2.TabIndex = 99
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaRamoObjeto2, "Mostrar Razão Social Completa")
+        Me.BtnAjudaRamoObjeto2.UseVisualStyleBackColor = True
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -6150,6 +6399,10 @@ Partial Class FrmLegalizacao
         Me.TabPage13.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabPage24.ResumeLayout(False)
+        Me.TabPage24.PerformLayout()
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox14.PerformLayout()
         Me.TabPage14.ResumeLayout(False)
         Me.TabPage14.PerformLayout()
         Me.TabPage15.ResumeLayout(False)
@@ -6215,6 +6468,7 @@ Partial Class FrmLegalizacao
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
+        CType(Me.PictureBoxCentralProcesso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxSistemaExterno, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6282,7 +6536,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents NireDataMaskedTextBox As MaskedTextBox
     Friend WithEvents NIRETextBox As TextBox
     Friend WithEvents TabPage10 As TabPage
-    Friend WithEvents RamoDeAtividadeRichTextBox As RichTextBox
     Friend WithEvents EmpInicioAtividadeMaskedTextBox As MaskedTextBox
     Friend WithEvents Button4 As Button
     Friend WithEvents NaturezaJuridicaComboBox As ComboBox
@@ -6454,7 +6707,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents IEeProcNumTextBox As TextBox
     Friend WithEvents IETipoComboBox As ComboBox
     Friend WithEvents DatadeInicioIE As Label
-    Friend WithEvents CnaeSimples As Button
     Friend WithEvents SistemaExternoComboBox As ComboBox
     Friend WithEvents BtnData1 As Button
     Friend WithEvents BtnData2 As Button
@@ -6527,7 +6779,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents Label8 As Label
     Friend WithEvents ResponsavelEstadoOrgaoRGTextBox As TextBox
     Friend WithEvents ResponsavelOrgaoRGTextBox As TextBox
-    Friend WithEvents BtnRemovCaract As Button
     Friend WithEvents NomeFantasiaTextBox As TextBox
     Friend WithEvents SEDEComboBox As ComboBox
     Friend WithEvents BtnConsultaOptante As Button
@@ -6546,11 +6797,9 @@ Partial Class FrmLegalizacao
     Friend WithEvents FormaDeAtuacaoRichTextBox As RichTextBox
     Friend WithEvents TipoUnidadeProdutivaRichTextBox As RichTextBox
     Friend WithEvents BtnDadosComplementares As Button
-    Friend WithEvents BtnAtividadeLocal As Button
     Friend WithEvents BtnAjudaAréa As Button
     Friend WithEvents BtnAjudaEmpresaFacilTipoUnidade As Button
     Friend WithEvents BtnAjudaEmpresaFacilFormaAtuacao As Button
-    Friend WithEvents BtnCopiarRamo As Button
     Friend WithEvents BtnCopiaEndereco As Button
     Friend WithEvents BtnLimpaCaractRazao As Button
     Friend WithEvents BtnVerificar As Button
@@ -6582,14 +6831,34 @@ Partial Class FrmLegalizacao
     Friend WithEvents ProcessoLabel2 As Label
     Friend WithEvents NAlteracaoLabel2 As Label
     Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents LblContagemRamo As Label
     Friend WithEvents TabPage23 As TabPage
     Friend WithEvents SenhasDeAcessoRichTextBox As RichTextBox
     Friend WithEvents LblLinkArrumarCNAE As LinkLabel
-    Friend WithEvents CapitalAntigoMudouCheckBox As CheckBox
     Friend WithEvents CapitalSocialAntigoTextBox As TextBox
     Friend WithEvents CapitalSocialAntigoLabel As Label
-    Friend WithEvents LinkLabelAumentoCapital As LinkLabel
     Friend WithEvents BtnCopiarCapitalFinal As Button
     Friend WithEvents BtnVerDescricaoCNAE As Button
+    Friend WithEvents CapitalAntigoMudouComboBox As ComboBox
+    Friend WithEvents CapitalAntigoMudouLabel As Label
+    Friend WithEvents PictureBoxCentralProcesso As PictureBox
+    Friend WithEvents BombeiroAtvresidenciaComboBox As ComboBox
+    Friend WithEvents BombeiroAtvAdmComboBox As ComboBox
+    Friend WithEvents TabPage24 As TabPage
+    Friend WithEvents GroupBox14 As GroupBox
+    Friend WithEvents LinkLabelLimparRamo As LinkLabel
+    Friend WithEvents CnaeSimples As Button
+    Friend WithEvents LblContagemRamo As Label
+    Friend WithEvents BtnCopiarRamo As Button
+    Friend WithEvents BtnAtividadeLocal As Button
+    Friend WithEvents BtnRemovCaract As Button
+    Friend WithEvents RamoDeAtividadeRichTextBox As RichTextBox
+    Friend WithEvents CNAEAtvLocalSEcundariosRichTextBox As RichTextBox
+    Friend WithEvents LabelDescricaoCnaeSec As Label
+    Friend WithEvents LabelDescricaoCNAE As Label
+    Friend WithEvents CNAEAtvLocalPrincipalTextBox As TextBox
+    Friend WithEvents CNAEAtividadeNoLocalComboBox As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ObjetoDOEstabelecimentoRichTextBox As RichTextBox
+    Friend WithEvents BtnAjudaRamoObjeto1 As Button
+    Friend WithEvents BtnAjudaRamoObjeto2 As Button
 End Class

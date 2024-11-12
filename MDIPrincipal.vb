@@ -1011,12 +1011,12 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Parcelamentos_Click(sender As Object, e As EventArgs) Handles Parcelamentos.Click
-        Dim formParcelamentos = Application.OpenForms.OfType(Of FrmParcelamentos)().FirstOrDefault()
-
-        If formParcelamentos IsNot Nothing Then
-            FrmParcelamentos.Focus()
+        If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
+            FrmAvisoParcelamento.Focus()
+            FrmAvisoParcelamento.MdiParent = Me
         Else
-            FrmParcelamentos.Show()
+            FrmAvisoParcelamento.Show()
+            FrmAvisoParcelamento.MdiParent = Me
         End If
     End Sub
 

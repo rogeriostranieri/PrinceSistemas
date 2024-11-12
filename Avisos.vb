@@ -273,11 +273,13 @@ Public Class Avisos
         ' Se já existir uma instância, foca no formulário
         If AvisoProtocolo IsNot Nothing Then
             AvisoProtocolo.Focus()
+            AvisoProtocolo.MdiParent = MDIPrincipal
         Else
             ' Se não existir, cria uma nova instância e define o MDI parent
             AvisoProtocolo = New FrmAvisoParcelamento()
-            AvisoProtocolo.MdiParent = MDIPrincipal
+
             AvisoProtocolo.Show()
+            AvisoProtocolo.MdiParent = MDIPrincipal
         End If
     End Sub
 
@@ -294,8 +296,17 @@ Public Class Avisos
     '//////////////////////////// ver parcelamentos
     'Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
     Private Sub VerificaParcelamentos()
-        ' Pega a data do MaskedTextBox1, que representa o dia que o usuário deseja consultar
-        Dim dataSelecionada As Date = Date.ParseExact(VbAvisoPrincipal.MaskedTextBox1.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture)
+        ' Verifica se está no modo de design, e sai da função se estiver
+        If Me.DesignMode Then Return
+
+        ' Verifica se o valor em MaskedTextBox1.Text é uma data válida
+        Dim dataSelecionada As DateTime
+        If Not DateTime.TryParseExact(VbAvisoPrincipal.MaskedTextBox1.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None, dataSelecionada) Then
+            MessageBox.Show("Data inválida. Verifique a data e tente novamente.", "Erro de Data", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        ' Extrai o mês da data selecionada para comparação
         Dim mesSelecionado As Integer = dataSelecionada.Month
 
         ' Listas para armazenar os lembretes e parcelamentos com mês diferente
@@ -315,6 +326,8 @@ Public Class Avisos
             ExibirAviso(temLembrete, mesEnvioDiferente)
         End Using
     End Sub
+
+
 
     Private Function VerificarLembreteParaDia(conexão As SqlConnection, dataSelecionada As Date, ByRef listaLembretes As List(Of DateTime)) As Boolean
         ' Verifica se existe um lembrete para a data selecionada (usando MaskedTextBox1)
