@@ -211,6 +211,7 @@ Public Class BoxConsultaCNPJEmpresa
                     FrmLegalizacao.TabControl2.SelectedIndex = 3
                     FrmLegalizacao.TabControl2.SelectedIndex = 4
                     FrmLegalizacao.TabControl2.SelectedIndex = 5
+                    FrmLegalizacao.TabControl2.SelectedIndex = 6
 
                     FrmLegalizacao.TabControle.SelectedIndex = 0
                     FrmLegalizacao.TabControl2.SelectedIndex = 0

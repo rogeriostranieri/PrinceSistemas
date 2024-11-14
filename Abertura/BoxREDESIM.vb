@@ -66,7 +66,7 @@ Public Class BoxREDESIM
         Try
             ' Selecionar a aba correta nos TabControles
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
             FrmLegalizacao.TabControle.SelectTab(3)
 
         Catch ex As Exception

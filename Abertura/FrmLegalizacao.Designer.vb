@@ -206,6 +206,8 @@ Partial Class FrmLegalizacao
         Me.CNAEPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage24 = New System.Windows.Forms.TabPage()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabelCopiarRamo = New System.Windows.Forms.LinkLabel()
+        Me.BtnAjudaRamoObjeto2 = New System.Windows.Forms.Button()
         Me.BtnAjudaRamoObjeto1 = New System.Windows.Forms.Button()
         Me.ObjetoDOEstabelecimentoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.LinkLabelLimparRamo = New System.Windows.Forms.LinkLabel()
@@ -510,7 +512,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnAjudaRamoObjeto2 = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1777,7 +1778,7 @@ Partial Class FrmLegalizacao
         '
         Label11.AutoSize = True
         Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label11.Location = New System.Drawing.Point(366, 18)
+        Label11.Location = New System.Drawing.Point(370, 18)
         Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label11.Name = "Label11"
         Label11.Size = New System.Drawing.Size(296, 16)
@@ -2481,11 +2482,12 @@ Partial Class FrmLegalizacao
         'CNAEAtividadeNoLocalComboBox
         '
         Me.CNAEAtividadeNoLocalComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtividadeNoLocal", True))
+        Me.CNAEAtividadeNoLocalComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CNAEAtividadeNoLocalComboBox.FormattingEnabled = True
         Me.CNAEAtividadeNoLocalComboBox.Items.AddRange(New Object() {"Todos", "Parcial", "Não"})
         Me.CNAEAtividadeNoLocalComboBox.Location = New System.Drawing.Point(204, 20)
         Me.CNAEAtividadeNoLocalComboBox.Name = "CNAEAtividadeNoLocalComboBox"
-        Me.CNAEAtividadeNoLocalComboBox.Size = New System.Drawing.Size(83, 23)
+        Me.CNAEAtividadeNoLocalComboBox.Size = New System.Drawing.Size(83, 24)
         Me.CNAEAtividadeNoLocalComboBox.TabIndex = 87
         '
         'BtnVerDescricaoCNAE
@@ -2604,6 +2606,7 @@ Partial Class FrmLegalizacao
         'GroupBox14
         '
         Me.GroupBox14.AutoSize = True
+        Me.GroupBox14.Controls.Add(Me.LinkLabelCopiarRamo)
         Me.GroupBox14.Controls.Add(Me.BtnAjudaRamoObjeto2)
         Me.GroupBox14.Controls.Add(Me.BtnAjudaRamoObjeto1)
         Me.GroupBox14.Controls.Add(Label11)
@@ -2624,6 +2627,32 @@ Partial Class FrmLegalizacao
         Me.GroupBox14.TabIndex = 0
         Me.GroupBox14.TabStop = False
         '
+        'LinkLabelCopiarRamo
+        '
+        Me.LinkLabelCopiarRamo.AutoSize = True
+        Me.LinkLabelCopiarRamo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabelCopiarRamo.Location = New System.Drawing.Point(373, 203)
+        Me.LinkLabelCopiarRamo.Name = "LinkLabelCopiarRamo"
+        Me.LinkLabelCopiarRamo.Size = New System.Drawing.Size(213, 16)
+        Me.LinkLabelCopiarRamo.TabIndex = 100
+        Me.LinkLabelCopiarRamo.TabStop = True
+        Me.LinkLabelCopiarRamo.Text = "Copiar do Objeto da Empresa"
+        '
+        'BtnAjudaRamoObjeto2
+        '
+        Me.BtnAjudaRamoObjeto2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnAjudaRamoObjeto2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnAjudaRamoObjeto2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAjudaRamoObjeto2.FlatAppearance.BorderSize = 0
+        Me.BtnAjudaRamoObjeto2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAjudaRamoObjeto2.Location = New System.Drawing.Point(670, 14)
+        Me.BtnAjudaRamoObjeto2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnAjudaRamoObjeto2.Name = "BtnAjudaRamoObjeto2"
+        Me.BtnAjudaRamoObjeto2.Size = New System.Drawing.Size(25, 23)
+        Me.BtnAjudaRamoObjeto2.TabIndex = 99
+        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaRamoObjeto2, "Mostrar Razão Social Completa")
+        Me.BtnAjudaRamoObjeto2.UseVisualStyleBackColor = True
+        '
         'BtnAjudaRamoObjeto1
         '
         Me.BtnAjudaRamoObjeto1.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
@@ -2642,7 +2671,8 @@ Partial Class FrmLegalizacao
         'ObjetoDOEstabelecimentoRichTextBox
         '
         Me.ObjetoDOEstabelecimentoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ObjetoDOEstabelecimento", True))
-        Me.ObjetoDOEstabelecimentoRichTextBox.Location = New System.Drawing.Point(369, 37)
+        Me.ObjetoDOEstabelecimentoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ObjetoDOEstabelecimentoRichTextBox.Location = New System.Drawing.Point(373, 37)
         Me.ObjetoDOEstabelecimentoRichTextBox.Name = "ObjetoDOEstabelecimentoRichTextBox"
         Me.ObjetoDOEstabelecimentoRichTextBox.Size = New System.Drawing.Size(335, 164)
         Me.ObjetoDOEstabelecimentoRichTextBox.TabIndex = 96
@@ -2865,12 +2895,13 @@ Partial Class FrmLegalizacao
         'PontoDeReferenciaComboBox
         '
         Me.PontoDeReferenciaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "PontoDeReferencia", True))
+        Me.PontoDeReferenciaComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PontoDeReferenciaComboBox.FormattingEnabled = True
         Me.PontoDeReferenciaComboBox.Items.AddRange(New Object() {"Sim", "Não"})
         Me.PontoDeReferenciaComboBox.Location = New System.Drawing.Point(411, 7)
         Me.PontoDeReferenciaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PontoDeReferenciaComboBox.Name = "PontoDeReferenciaComboBox"
-        Me.PontoDeReferenciaComboBox.Size = New System.Drawing.Size(70, 23)
+        Me.PontoDeReferenciaComboBox.Size = New System.Drawing.Size(70, 24)
         Me.PontoDeReferenciaComboBox.TabIndex = 40
         Me.ToolTipDICAS.SetToolTip(Me.PontoDeReferenciaComboBox, "Apenas ponto de referencia sem atividade no local ?")
         '
@@ -6341,21 +6372,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnAjudaRamoObjeto2
-        '
-        Me.BtnAjudaRamoObjeto2.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
-        Me.BtnAjudaRamoObjeto2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAjudaRamoObjeto2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAjudaRamoObjeto2.FlatAppearance.BorderSize = 0
-        Me.BtnAjudaRamoObjeto2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAjudaRamoObjeto2.Location = New System.Drawing.Point(670, 14)
-        Me.BtnAjudaRamoObjeto2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnAjudaRamoObjeto2.Name = "BtnAjudaRamoObjeto2"
-        Me.BtnAjudaRamoObjeto2.Size = New System.Drawing.Size(25, 23)
-        Me.BtnAjudaRamoObjeto2.TabIndex = 99
-        Me.ToolTipDICAS.SetToolTip(Me.BtnAjudaRamoObjeto2, "Mostrar Razão Social Completa")
-        Me.BtnAjudaRamoObjeto2.UseVisualStyleBackColor = True
-        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -6861,4 +6877,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents ObjetoDOEstabelecimentoRichTextBox As RichTextBox
     Friend WithEvents BtnAjudaRamoObjeto1 As Button
     Friend WithEvents BtnAjudaRamoObjeto2 As Button
+    Friend WithEvents LinkLabelCopiarRamo As LinkLabel
 End Class

@@ -81,7 +81,7 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.BtnExterno.BackColor = System.Drawing.Color.LightSteelBlue
         Me.BtnExterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExterno.Location = New System.Drawing.Point(18, 72)
         Me.BtnExterno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnExterno.Name = "BtnExterno"
@@ -94,7 +94,7 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.BtnInterno.BackColor = System.Drawing.Color.LightSteelBlue
         Me.BtnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnInterno.Location = New System.Drawing.Point(202, 72)
         Me.BtnInterno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnInterno.Name = "BtnInterno"
@@ -119,7 +119,7 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.BtnImportar.BackColor = System.Drawing.Color.LightSteelBlue
         Me.BtnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnImportar.Location = New System.Drawing.Point(18, 224)
         Me.BtnImportar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnImportar.Name = "BtnImportar"
@@ -132,7 +132,7 @@ Partial Class BoxConsultaCNPJEmpresa
         '
         Me.BtnImportarFederal.BackColor = System.Drawing.Color.LightSteelBlue
         Me.BtnImportarFederal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnImportarFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnImportarFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnImportarFederal.Location = New System.Drawing.Point(202, 224)
         Me.BtnImportarFederal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnImportarFederal.Name = "BtnImportarFederal"

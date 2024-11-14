@@ -3050,8 +3050,8 @@ SELECT IDParcelamentoAviso, MesRealizado, Ano FROM ParcelamentosAviso WHERE (IDP
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [Parcelamentos] ([RazaoSocial], [CNPJ], [DataLembrete], [DataCriacao], [Observacao], [FormaEnvio], [INSSAntigo], [INSSNovo], [INSSProcuradoria], [DataParcelINSSantigo], [DataParcelINSSnovo], [DataParcelINSSproc], [DataEnvio], [WhatsApp], [Email], [INSSAntigoProt], [INSSAntigoObs], [INSSNovoProt], [INSSNovoObs], [INSSProcProt], [INSSProcObs], [HistoricoEnvioINSSAntigo], [HistoricoEnvioINSSNovo], [HistoricoEnvioINSSProc], [Cidade], [Estado], [Rua], [Numero], [Complemento], [Bairro], [FinalizadoINSSAntigo], [FinalizadoINSSNovo], [FinalizadoINSSProc], [FinalizadoMes], [FinalizadoParcelamentos], [MotivoParcINSSAntigo], [MotivoParcINSSNovo], [MotivoParcINSSProc], [MotivoParcMEI], [DataParcMEI], [DataProtocoloMEI], [FinalizadoMEI], [GeralINSSAntigo], [GeralINSSNovo], [GeralINSSProcuradoria], [GeralMEI], [MesEnviadoINSSAntigo], [MesEnviadoINSSNovo], [MesEnviadoINSSProc], [MesEnviadoMEI], [HistoricoEnvioMEI], [MEI], [MeiProtocolo], [DataFimParcINSSAntigo], [DataFimParcINSSNovo], [DataFimParcINSSProc], [DataFimParcMEI], [SocioResponsavel], [CPFsocioResponsavel], [GovSenha], [FinalizadoParcelamento], [NomeResponsavel], [TemDataLembrete], [TemDataEnvio], [TemDataEnvioINSSAntigo], [TemDataEnvioINSSNovo], [TemDataEnvioINSSProcur], [TemDataEnvioMEI], [TemDataFimINSSAntigo], [TemDataFimINSSNovo], [TemDataFimINSSProcur], [TemDataFimMEI]) VALUES (@RazaoSocial, @CNPJ, @DataLembrete, @DataCriacao, @Observacao, @FormaEnvio, @INSSAntigo, @INSSNovo, @INSSProcuradoria, @DataParcelINSSantigo, @DataParcelINSSnovo, @DataParcelINSSproc, @DataEnvio, @WhatsApp, @Email, @INSSAntigoProt, @INSSAntigoObs, @INSSNovoProt, @INSSNovoObs, @INSSProcProt, @INSSProcObs, @HistoricoEnvioINSSAntigo, @HistoricoEnvioINSSNovo, @HistoricoEnvioINSSProc, @Cidade, @Estado, @Rua, @Numero, @Complemento, @Bairro, @FinalizadoINSSAntigo, @FinalizadoINSSNovo, @FinalizadoINSSProc, @FinalizadoMes, @FinalizadoParcelamentos, @MotivoParcINSSAntigo, @MotivoParcINSSNovo, @MotivoParcINSSProc, @MotivoParcMEI, @DataParcMEI, @DataProtocoloMEI, @FinalizadoMEI, @GeralINSSAntigo, @GeralINSSNovo, @GeralINSSProcuradoria, @GeralMEI, @MesEnviadoINSSAntigo, @MesEnviadoINSSNovo, @MesEnviadoINSSProc, @MesEnviadoMEI, @HistoricoEnvioMEI, @MEI, @MeiProtocolo, @DataFimParcINSSAntigo, @DataFimParcINSSNovo, @DataFimParcINSSProc, @DataFimParcMEI, @SocioResponsavel, @CPFsocioResponsavel, @GovSenha, @FinalizadoParcelamento, @NomeResponsavel, @TemDataLembrete, @TemDataEnvio, @TemDataEnvioINSSAntigo, @TemDataEnvioINSSNovo, @TemDataEnvioINSSProcur, @TemDataEnvioMEI, @TemDataFimINSSAntigo, @TemDataFimINSSNovo, @TemDataFimINSSProcur, @TemDataFimMEI);
-SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI FROM Parcelamentos WHERE (ID_Parcelamentos = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Parcelamentos] ([RazaoSocial], [CNPJ], [DataLembrete], [DataCriacao], [Observacao], [FormaEnvio], [INSSAntigo], [INSSNovo], [INSSProcuradoria], [DataParcelINSSantigo], [DataParcelINSSnovo], [DataParcelINSSproc], [DataEnvio], [WhatsApp], [Email], [INSSAntigoProt], [INSSAntigoObs], [INSSNovoProt], [INSSNovoObs], [INSSProcProt], [INSSProcObs], [HistoricoEnvioINSSAntigo], [HistoricoEnvioINSSNovo], [HistoricoEnvioINSSProc], [Cidade], [Estado], [Rua], [Numero], [Complemento], [Bairro], [FinalizadoINSSAntigo], [FinalizadoINSSNovo], [FinalizadoINSSProc], [FinalizadoMes], [FinalizadoParcelamentos], [MotivoParcINSSAntigo], [MotivoParcINSSNovo], [MotivoParcINSSProc], [MotivoParcMEI], [DataParcMEI], [DataProtocoloMEI], [FinalizadoMEI], [GeralINSSAntigo], [GeralINSSNovo], [GeralINSSProcuradoria], [GeralMEI], [MesEnviadoINSSAntigo], [MesEnviadoINSSNovo], [MesEnviadoINSSProc], [MesEnviadoMEI], [HistoricoEnvioMEI], [MEI], [MeiProtocolo], [DataFimParcINSSAntigo], [DataFimParcINSSNovo], [DataFimParcINSSProc], [DataFimParcMEI], [SocioResponsavel], [CPFsocioResponsavel], [GovSenha], [FinalizadoParcelamento], [NomeResponsavel], [TemDataLembrete], [TemDataEnvio], [TemDataEnvioINSSAntigo], [TemDataEnvioINSSNovo], [TemDataEnvioINSSProcur], [TemDataEnvioMEI], [TemDataFimINSSAntigo], [TemDataFimINSSNovo], [TemDataFimINSSProcur], [TemDataFimMEI], [TemDataEntradaMEI], [TemDataEntradaINSSAntigo], [TemDataEntradaINSSNovo], [TemDataEntradaINSSProcu], [TemDataFimParcelamento], [QtoParcelasMEI], [QtoParcelasINSSAntigo], [QtoParcelasINSSNovo], [QtoParcelasINSSProcuradoria], [ParcelaEnviadaMEI], [ParcelaEnviadaINSSAntigo], [ParcelaEnviadaINSSNovo], [ParcelaEnviadaINSSProcuradoria]) VALUES (@RazaoSocial, @CNPJ, @DataLembrete, @DataCriacao, @Observacao, @FormaEnvio, @INSSAntigo, @INSSNovo, @INSSProcuradoria, @DataParcelINSSantigo, @DataParcelINSSnovo, @DataParcelINSSproc, @DataEnvio, @WhatsApp, @Email, @INSSAntigoProt, @INSSAntigoObs, @INSSNovoProt, @INSSNovoObs, @INSSProcProt, @INSSProcObs, @HistoricoEnvioINSSAntigo, @HistoricoEnvioINSSNovo, @HistoricoEnvioINSSProc, @Cidade, @Estado, @Rua, @Numero, @Complemento, @Bairro, @FinalizadoINSSAntigo, @FinalizadoINSSNovo, @FinalizadoINSSProc, @FinalizadoMes, @FinalizadoParcelamentos, @MotivoParcINSSAntigo, @MotivoParcINSSNovo, @MotivoParcINSSProc, @MotivoParcMEI, @DataParcMEI, @DataProtocoloMEI, @FinalizadoMEI, @GeralINSSAntigo, @GeralINSSNovo, @GeralINSSProcuradoria, @GeralMEI, @MesEnviadoINSSAntigo, @MesEnviadoINSSNovo, @MesEnviadoINSSProc, @MesEnviadoMEI, @HistoricoEnvioMEI, @MEI, @MeiProtocolo, @DataFimParcINSSAntigo, @DataFimParcINSSNovo, @DataFimParcINSSProc, @DataFimParcMEI, @SocioResponsavel, @CPFsocioResponsavel, @GovSenha, @FinalizadoParcelamento, @NomeResponsavel, @TemDataLembrete, @TemDataEnvio, @TemDataEnvioINSSAntigo, @TemDataEnvioINSSNovo, @TemDataEnvioINSSProcur, @TemDataEnvioMEI, @TemDataFimINSSAntigo, @TemDataFimINSSNovo, @TemDataFimINSSProcur, @TemDataFimMEI, @TemDataEntradaMEI, @TemDataEntradaINSSAntigo, @TemDataEntradaINSSNovo, @TemDataEntradaINSSProcu, @TemDataFimParcelamento, @QtoParcelasMEI, @QtoParcelasINSSAntigo, @QtoParcelasINSSNovo, @QtoParcelasINSSProcuradoria, @ParcelaEnviadaMEI, @ParcelaEnviadaINSSAntigo, @ParcelaEnviadaINSSNovo, @ParcelaEnviadaINSSProcuradoria);
+SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI, TemDataEntradaMEI, TemDataEntradaINSSAntigo, TemDataEntradaINSSNovo, TemDataEntradaINSSProcu, TemDataFimParcelamento, QtoParcelasMEI, QtoParcelasINSSAntigo, QtoParcelasINSSNovo, QtoParcelasINSSProcuradoria, ParcelaEnviadaMEI, ParcelaEnviadaINSSAntigo, ParcelaEnviadaINSSNovo, ParcelaEnviadaINSSProcuradoria FROM Parcelamentos WHERE (ID_Parcelamentos = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RazaoSocial" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RazaoSocial" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CNPJ" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CNPJ" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -3125,6 +3125,19 @@ SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observaca
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimINSSProcur" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimINSSProcur" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSProcu" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSProcu" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimParcelamento" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimParcelamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSProcuradoria" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSProcuradoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSProcuradoria" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSProcuradoria" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
@@ -3137,8 +3150,8 @@ FROM            Parcelamentos</CommandText>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [DataLembrete] = @DataLembrete, [DataCriacao] = @DataCriacao, [Observacao] = @Observacao, [FormaEnvio] = @FormaEnvio, [INSSAntigo] = @INSSAntigo, [INSSNovo] = @INSSNovo, [INSSProcuradoria] = @INSSProcuradoria, [DataParcelINSSantigo] = @DataParcelINSSantigo, [DataParcelINSSnovo] = @DataParcelINSSnovo, [DataParcelINSSproc] = @DataParcelINSSproc, [DataEnvio] = @DataEnvio, [WhatsApp] = @WhatsApp, [Email] = @Email, [INSSAntigoProt] = @INSSAntigoProt, [INSSAntigoObs] = @INSSAntigoObs, [INSSNovoProt] = @INSSNovoProt, [INSSNovoObs] = @INSSNovoObs, [INSSProcProt] = @INSSProcProt, [INSSProcObs] = @INSSProcObs, [HistoricoEnvioINSSAntigo] = @HistoricoEnvioINSSAntigo, [HistoricoEnvioINSSNovo] = @HistoricoEnvioINSSNovo, [HistoricoEnvioINSSProc] = @HistoricoEnvioINSSProc, [Cidade] = @Cidade, [Estado] = @Estado, [Rua] = @Rua, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bairro, [FinalizadoINSSAntigo] = @FinalizadoINSSAntigo, [FinalizadoINSSNovo] = @FinalizadoINSSNovo, [FinalizadoINSSProc] = @FinalizadoINSSProc, [FinalizadoMes] = @FinalizadoMes, [FinalizadoParcelamentos] = @FinalizadoParcelamentos, [MotivoParcINSSAntigo] = @MotivoParcINSSAntigo, [MotivoParcINSSNovo] = @MotivoParcINSSNovo, [MotivoParcINSSProc] = @MotivoParcINSSProc, [MotivoParcMEI] = @MotivoParcMEI, [DataParcMEI] = @DataParcMEI, [DataProtocoloMEI] = @DataProtocoloMEI, [FinalizadoMEI] = @FinalizadoMEI, [GeralINSSAntigo] = @GeralINSSAntigo, [GeralINSSNovo] = @GeralINSSNovo, [GeralINSSProcuradoria] = @GeralINSSProcuradoria, [GeralMEI] = @GeralMEI, [MesEnviadoINSSAntigo] = @MesEnviadoINSSAntigo, [MesEnviadoINSSNovo] = @MesEnviadoINSSNovo, [MesEnviadoINSSProc] = @MesEnviadoINSSProc, [MesEnviadoMEI] = @MesEnviadoMEI, [HistoricoEnvioMEI] = @HistoricoEnvioMEI, [MEI] = @MEI, [MeiProtocolo] = @MeiProtocolo, [DataFimParcINSSAntigo] = @DataFimParcINSSAntigo, [DataFimParcINSSNovo] = @DataFimParcINSSNovo, [DataFimParcINSSProc] = @DataFimParcINSSProc, [DataFimParcMEI] = @DataFimParcMEI, [SocioResponsavel] = @SocioResponsavel, [CPFsocioResponsavel] = @CPFsocioResponsavel, [GovSenha] = @GovSenha, [FinalizadoParcelamento] = @FinalizadoParcelamento, [NomeResponsavel] = @NomeResponsavel, [TemDataLembrete] = @TemDataLembrete, [TemDataEnvio] = @TemDataEnvio, [TemDataEnvioINSSAntigo] = @TemDataEnvioINSSAntigo, [TemDataEnvioINSSNovo] = @TemDataEnvioINSSNovo, [TemDataEnvioINSSProcur] = @TemDataEnvioINSSProcur, [TemDataEnvioMEI] = @TemDataEnvioMEI, [TemDataFimINSSAntigo] = @TemDataFimINSSAntigo, [TemDataFimINSSNovo] = @TemDataFimINSSNovo, [TemDataFimINSSProcur] = @TemDataFimINSSProcur, [TemDataFimMEI] = @TemDataFimMEI WHERE (([ID_Parcelamentos] = @Original_ID_Parcelamentos));
-SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI FROM Parcelamentos WHERE (ID_Parcelamentos = @ID_Parcelamentos)</CommandText>
+                    <CommandText>UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [DataLembrete] = @DataLembrete, [DataCriacao] = @DataCriacao, [Observacao] = @Observacao, [FormaEnvio] = @FormaEnvio, [INSSAntigo] = @INSSAntigo, [INSSNovo] = @INSSNovo, [INSSProcuradoria] = @INSSProcuradoria, [DataParcelINSSantigo] = @DataParcelINSSantigo, [DataParcelINSSnovo] = @DataParcelINSSnovo, [DataParcelINSSproc] = @DataParcelINSSproc, [DataEnvio] = @DataEnvio, [WhatsApp] = @WhatsApp, [Email] = @Email, [INSSAntigoProt] = @INSSAntigoProt, [INSSAntigoObs] = @INSSAntigoObs, [INSSNovoProt] = @INSSNovoProt, [INSSNovoObs] = @INSSNovoObs, [INSSProcProt] = @INSSProcProt, [INSSProcObs] = @INSSProcObs, [HistoricoEnvioINSSAntigo] = @HistoricoEnvioINSSAntigo, [HistoricoEnvioINSSNovo] = @HistoricoEnvioINSSNovo, [HistoricoEnvioINSSProc] = @HistoricoEnvioINSSProc, [Cidade] = @Cidade, [Estado] = @Estado, [Rua] = @Rua, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bairro, [FinalizadoINSSAntigo] = @FinalizadoINSSAntigo, [FinalizadoINSSNovo] = @FinalizadoINSSNovo, [FinalizadoINSSProc] = @FinalizadoINSSProc, [FinalizadoMes] = @FinalizadoMes, [FinalizadoParcelamentos] = @FinalizadoParcelamentos, [MotivoParcINSSAntigo] = @MotivoParcINSSAntigo, [MotivoParcINSSNovo] = @MotivoParcINSSNovo, [MotivoParcINSSProc] = @MotivoParcINSSProc, [MotivoParcMEI] = @MotivoParcMEI, [DataParcMEI] = @DataParcMEI, [DataProtocoloMEI] = @DataProtocoloMEI, [FinalizadoMEI] = @FinalizadoMEI, [GeralINSSAntigo] = @GeralINSSAntigo, [GeralINSSNovo] = @GeralINSSNovo, [GeralINSSProcuradoria] = @GeralINSSProcuradoria, [GeralMEI] = @GeralMEI, [MesEnviadoINSSAntigo] = @MesEnviadoINSSAntigo, [MesEnviadoINSSNovo] = @MesEnviadoINSSNovo, [MesEnviadoINSSProc] = @MesEnviadoINSSProc, [MesEnviadoMEI] = @MesEnviadoMEI, [HistoricoEnvioMEI] = @HistoricoEnvioMEI, [MEI] = @MEI, [MeiProtocolo] = @MeiProtocolo, [DataFimParcINSSAntigo] = @DataFimParcINSSAntigo, [DataFimParcINSSNovo] = @DataFimParcINSSNovo, [DataFimParcINSSProc] = @DataFimParcINSSProc, [DataFimParcMEI] = @DataFimParcMEI, [SocioResponsavel] = @SocioResponsavel, [CPFsocioResponsavel] = @CPFsocioResponsavel, [GovSenha] = @GovSenha, [FinalizadoParcelamento] = @FinalizadoParcelamento, [NomeResponsavel] = @NomeResponsavel, [TemDataLembrete] = @TemDataLembrete, [TemDataEnvio] = @TemDataEnvio, [TemDataEnvioINSSAntigo] = @TemDataEnvioINSSAntigo, [TemDataEnvioINSSNovo] = @TemDataEnvioINSSNovo, [TemDataEnvioINSSProcur] = @TemDataEnvioINSSProcur, [TemDataEnvioMEI] = @TemDataEnvioMEI, [TemDataFimINSSAntigo] = @TemDataFimINSSAntigo, [TemDataFimINSSNovo] = @TemDataFimINSSNovo, [TemDataFimINSSProcur] = @TemDataFimINSSProcur, [TemDataFimMEI] = @TemDataFimMEI, [TemDataEntradaMEI] = @TemDataEntradaMEI, [TemDataEntradaINSSAntigo] = @TemDataEntradaINSSAntigo, [TemDataEntradaINSSNovo] = @TemDataEntradaINSSNovo, [TemDataEntradaINSSProcu] = @TemDataEntradaINSSProcu, [TemDataFimParcelamento] = @TemDataFimParcelamento, [QtoParcelasMEI] = @QtoParcelasMEI, [QtoParcelasINSSAntigo] = @QtoParcelasINSSAntigo, [QtoParcelasINSSNovo] = @QtoParcelasINSSNovo, [QtoParcelasINSSProcuradoria] = @QtoParcelasINSSProcuradoria, [ParcelaEnviadaMEI] = @ParcelaEnviadaMEI, [ParcelaEnviadaINSSAntigo] = @ParcelaEnviadaINSSAntigo, [ParcelaEnviadaINSSNovo] = @ParcelaEnviadaINSSNovo, [ParcelaEnviadaINSSProcuradoria] = @ParcelaEnviadaINSSProcuradoria WHERE (([ID_Parcelamentos] = @Original_ID_Parcelamentos));
+SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observacao, FormaEnvio, INSSAntigo, INSSNovo, INSSProcuradoria, DataParcelINSSantigo, DataParcelINSSnovo, DataParcelINSSproc, DataEnvio, WhatsApp, Email, INSSAntigoProt, INSSAntigoObs, INSSNovoProt, INSSNovoObs, INSSProcProt, INSSProcObs, HistoricoEnvioINSSAntigo, HistoricoEnvioINSSNovo, HistoricoEnvioINSSProc, Cidade, Estado, Rua, Numero, Complemento, Bairro, FinalizadoINSSAntigo, FinalizadoINSSNovo, FinalizadoINSSProc, FinalizadoMes, FinalizadoParcelamentos, MotivoParcINSSAntigo, MotivoParcINSSNovo, MotivoParcINSSProc, MotivoParcMEI, DataParcMEI, DataProtocoloMEI, FinalizadoMEI, GeralINSSAntigo, GeralINSSNovo, GeralINSSProcuradoria, GeralMEI, MesEnviadoINSSAntigo, MesEnviadoINSSNovo, MesEnviadoINSSProc, MesEnviadoMEI, HistoricoEnvioMEI, MEI, MeiProtocolo, DataFimParcINSSAntigo, DataFimParcINSSNovo, DataFimParcINSSProc, DataFimParcMEI, SocioResponsavel, CPFsocioResponsavel, GovSenha, FinalizadoParcelamento, NomeResponsavel, TemDataLembrete, TemDataEnvio, TemDataEnvioINSSAntigo, TemDataEnvioINSSNovo, TemDataEnvioINSSProcur, TemDataEnvioMEI, TemDataFimINSSAntigo, TemDataFimINSSNovo, TemDataFimINSSProcur, TemDataFimMEI, TemDataEntradaMEI, TemDataEntradaINSSAntigo, TemDataEntradaINSSNovo, TemDataEntradaINSSProcu, TemDataFimParcelamento, QtoParcelasMEI, QtoParcelasINSSAntigo, QtoParcelasINSSNovo, QtoParcelasINSSProcuradoria, ParcelaEnviadaMEI, ParcelaEnviadaINSSAntigo, ParcelaEnviadaINSSNovo, ParcelaEnviadaINSSProcuradoria FROM Parcelamentos WHERE (ID_Parcelamentos = @ID_Parcelamentos)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RazaoSocial" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RazaoSocial" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CNPJ" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CNPJ" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -3212,6 +3225,19 @@ SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observaca
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimINSSProcur" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimINSSProcur" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataEntradaINSSProcu" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataEntradaINSSProcu" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TemDataFimParcelamento" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TemDataFimParcelamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QtoParcelasINSSProcuradoria" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QtoParcelasINSSProcuradoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaMEI" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaMEI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSAntigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSAntigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSNovo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSNovo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ParcelaEnviadaINSSProcuradoria" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ParcelaEnviadaINSSProcuradoria" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID_Parcelamentos" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_Parcelamentos" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="ID_Parcelamentos" ColumnName="ID_Parcelamentos" DataSourceName="PrinceDB.dbo.Parcelamentos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID_Parcelamentos" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Parcelamentos" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -3293,6 +3319,19 @@ SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observaca
               <Mapping SourceColumn="TemDataFimINSSNovo" DataSetColumn="TemDataFimINSSNovo" />
               <Mapping SourceColumn="TemDataFimINSSProcur" DataSetColumn="TemDataFimINSSProcur" />
               <Mapping SourceColumn="TemDataFimMEI" DataSetColumn="TemDataFimMEI" />
+              <Mapping SourceColumn="TemDataEntradaMEI" DataSetColumn="TemDataEntradaMEI" />
+              <Mapping SourceColumn="TemDataEntradaINSSAntigo" DataSetColumn="TemDataEntradaINSSAntigo" />
+              <Mapping SourceColumn="TemDataEntradaINSSNovo" DataSetColumn="TemDataEntradaINSSNovo" />
+              <Mapping SourceColumn="TemDataEntradaINSSProcu" DataSetColumn="TemDataEntradaINSSProcu" />
+              <Mapping SourceColumn="TemDataFimParcelamento" DataSetColumn="TemDataFimParcelamento" />
+              <Mapping SourceColumn="QtoParcelasMEI" DataSetColumn="QtoParcelasMEI" />
+              <Mapping SourceColumn="QtoParcelasINSSAntigo" DataSetColumn="QtoParcelasINSSAntigo" />
+              <Mapping SourceColumn="QtoParcelasINSSNovo" DataSetColumn="QtoParcelasINSSNovo" />
+              <Mapping SourceColumn="QtoParcelasINSSProcuradoria" DataSetColumn="QtoParcelasINSSProcuradoria" />
+              <Mapping SourceColumn="ParcelaEnviadaMEI" DataSetColumn="ParcelaEnviadaMEI" />
+              <Mapping SourceColumn="ParcelaEnviadaINSSAntigo" DataSetColumn="ParcelaEnviadaINSSAntigo" />
+              <Mapping SourceColumn="ParcelaEnviadaINSSNovo" DataSetColumn="ParcelaEnviadaINSSNovo" />
+              <Mapping SourceColumn="ParcelaEnviadaINSSProcuradoria" DataSetColumn="ParcelaEnviadaINSSProcuradoria" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -5675,14 +5714,14 @@ SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observaca
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CNAEdescricaoOficial" msprop:Generator_UserColumnName="CNAEdescricaoOficial" msprop:Generator_ColumnPropNameInTable="CNAEdescricaoOficialColumn" msprop:Generator_ColumnPropNameInRow="CNAEdescricaoOficial" msprop:Generator_ColumnVarNameInTable="columnCNAEdescricaoOficial" minOccurs="0">
+              <xs:element name="CNAEdescricaoOficial" msprop:Generator_ColumnPropNameInTable="CNAEdescricaoOficialColumn" msprop:Generator_ColumnPropNameInRow="CNAEdescricaoOficial" msprop:Generator_UserColumnName="CNAEdescricaoOficial" msprop:Generator_ColumnVarNameInTable="columnCNAEdescricaoOficial" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ObjetoDOEstabelecimento" msprop:Generator_ColumnPropNameInRow="ObjetoDOEstabelecimento" msprop:Generator_ColumnPropNameInTable="ObjetoDOEstabelecimentoColumn" msprop:Generator_ColumnVarNameInTable="columnObjetoDOEstabelecimento" msprop:Generator_UserColumnName="ObjetoDOEstabelecimento" minOccurs="0">
+              <xs:element name="ObjetoDOEstabelecimento" msprop:Generator_ColumnPropNameInTable="ObjetoDOEstabelecimentoColumn" msprop:Generator_ColumnPropNameInRow="ObjetoDOEstabelecimento" msprop:Generator_UserColumnName="ObjetoDOEstabelecimento" msprop:Generator_ColumnVarNameInTable="columnObjetoDOEstabelecimento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -6382,508 +6421,599 @@ SELECT ID_Parcelamentos, RazaoSocial, CNPJ, DataLembrete, DataCriacao, Observaca
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Parcelamentos" msprop:Generator_RowEvHandlerName="ParcelamentosRowChangeEventHandler" msprop:Generator_RowDeletedName="ParcelamentosRowDeleted" msprop:Generator_RowDeletingName="ParcelamentosRowDeleting" msprop:Generator_RowEvArgName="ParcelamentosRowChangeEvent" msprop:Generator_TablePropName="Parcelamentos" msprop:Generator_RowChangedName="ParcelamentosRowChanged" msprop:Generator_UserTableName="Parcelamentos" msprop:Generator_RowChangingName="ParcelamentosRowChanging" msprop:Generator_RowClassName="ParcelamentosRow" msprop:Generator_TableClassName="ParcelamentosDataTable" msprop:Generator_TableVarName="tableParcelamentos">
+        <xs:element name="Parcelamentos" msprop:Generator_RowEvHandlerName="ParcelamentosRowChangeEventHandler" msprop:Generator_RowDeletedName="ParcelamentosRowDeleted" msprop:Generator_RowDeletingName="ParcelamentosRowDeleting" msprop:Generator_RowEvArgName="ParcelamentosRowChangeEvent" msprop:Generator_TablePropName="Parcelamentos" msprop:Generator_RowChangedName="ParcelamentosRowChanged" msprop:Generator_RowChangingName="ParcelamentosRowChanging" msprop:Generator_TableClassName="ParcelamentosDataTable" msprop:Generator_RowClassName="ParcelamentosRow" msprop:Generator_TableVarName="tableParcelamentos" msprop:Generator_UserTableName="Parcelamentos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_Parcelamentos" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_ParcelamentosColumn" msprop:Generator_ColumnPropNameInRow="ID_Parcelamentos" msprop:Generator_UserColumnName="ID_Parcelamentos" msprop:Generator_ColumnVarNameInTable="columnID_Parcelamentos" type="xs:int" />
-              <xs:element name="RazaoSocial" msprop:Generator_ColumnPropNameInTable="RazaoSocialColumn" msprop:Generator_ColumnPropNameInRow="RazaoSocial" msprop:Generator_UserColumnName="RazaoSocial" msprop:Generator_ColumnVarNameInTable="columnRazaoSocial" minOccurs="0">
+              <xs:element name="ID_Parcelamentos" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID_Parcelamentos" msprop:Generator_ColumnPropNameInTable="ID_ParcelamentosColumn" msprop:Generator_ColumnVarNameInTable="columnID_Parcelamentos" msprop:Generator_UserColumnName="ID_Parcelamentos" type="xs:int" />
+              <xs:element name="RazaoSocial" msprop:Generator_ColumnPropNameInRow="RazaoSocial" msprop:Generator_ColumnPropNameInTable="RazaoSocialColumn" msprop:Generator_ColumnVarNameInTable="columnRazaoSocial" msprop:Generator_UserColumnName="RazaoSocial" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CNPJ" msprop:Generator_ColumnPropNameInTable="CNPJColumn" msprop:Generator_ColumnPropNameInRow="CNPJ" msprop:Generator_UserColumnName="CNPJ" msprop:Generator_ColumnVarNameInTable="columnCNPJ" minOccurs="0">
+              <xs:element name="CNPJ" msprop:Generator_ColumnPropNameInRow="CNPJ" msprop:Generator_ColumnPropNameInTable="CNPJColumn" msprop:Generator_ColumnVarNameInTable="columnCNPJ" msprop:Generator_UserColumnName="CNPJ" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataLembrete" msprop:Generator_ColumnPropNameInTable="DataLembreteColumn" msprop:Generator_ColumnPropNameInRow="DataLembrete" msprop:Generator_UserColumnName="DataLembrete" msprop:Generator_ColumnVarNameInTable="columnDataLembrete" minOccurs="0">
+              <xs:element name="DataLembrete" msprop:Generator_ColumnPropNameInRow="DataLembrete" msprop:Generator_ColumnPropNameInTable="DataLembreteColumn" msprop:Generator_ColumnVarNameInTable="columnDataLembrete" msprop:Generator_UserColumnName="DataLembrete" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataCriacao" msprop:Generator_ColumnPropNameInTable="DataCriacaoColumn" msprop:Generator_ColumnPropNameInRow="DataCriacao" msprop:Generator_UserColumnName="DataCriacao" msprop:Generator_ColumnVarNameInTable="columnDataCriacao" minOccurs="0">
+              <xs:element name="DataCriacao" msprop:Generator_ColumnPropNameInRow="DataCriacao" msprop:Generator_ColumnPropNameInTable="DataCriacaoColumn" msprop:Generator_ColumnVarNameInTable="columnDataCriacao" msprop:Generator_UserColumnName="DataCriacao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Observacao" msprop:Generator_ColumnPropNameInTable="ObservacaoColumn" msprop:Generator_ColumnPropNameInRow="Observacao" msprop:Generator_UserColumnName="Observacao" msprop:Generator_ColumnVarNameInTable="columnObservacao" minOccurs="0">
+              <xs:element name="Observacao" msprop:Generator_ColumnPropNameInRow="Observacao" msprop:Generator_ColumnPropNameInTable="ObservacaoColumn" msprop:Generator_ColumnVarNameInTable="columnObservacao" msprop:Generator_UserColumnName="Observacao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FormaEnvio" msprop:Generator_ColumnPropNameInTable="FormaEnvioColumn" msprop:Generator_ColumnPropNameInRow="FormaEnvio" msprop:Generator_UserColumnName="FormaEnvio" msprop:Generator_ColumnVarNameInTable="columnFormaEnvio" minOccurs="0">
+              <xs:element name="FormaEnvio" msprop:Generator_ColumnPropNameInRow="FormaEnvio" msprop:Generator_ColumnPropNameInTable="FormaEnvioColumn" msprop:Generator_ColumnVarNameInTable="columnFormaEnvio" msprop:Generator_UserColumnName="FormaEnvio" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSAntigo" msprop:Generator_ColumnPropNameInTable="INSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="INSSAntigo" msprop:Generator_UserColumnName="INSSAntigo" msprop:Generator_ColumnVarNameInTable="columnINSSAntigo" minOccurs="0">
+              <xs:element name="INSSAntigo" msprop:Generator_ColumnPropNameInRow="INSSAntigo" msprop:Generator_ColumnPropNameInTable="INSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnINSSAntigo" msprop:Generator_UserColumnName="INSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSNovo" msprop:Generator_ColumnPropNameInTable="INSSNovoColumn" msprop:Generator_ColumnPropNameInRow="INSSNovo" msprop:Generator_UserColumnName="INSSNovo" msprop:Generator_ColumnVarNameInTable="columnINSSNovo" minOccurs="0">
+              <xs:element name="INSSNovo" msprop:Generator_ColumnPropNameInRow="INSSNovo" msprop:Generator_ColumnPropNameInTable="INSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnINSSNovo" msprop:Generator_UserColumnName="INSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSProcuradoria" msprop:Generator_ColumnPropNameInTable="INSSProcuradoriaColumn" msprop:Generator_ColumnPropNameInRow="INSSProcuradoria" msprop:Generator_UserColumnName="INSSProcuradoria" msprop:Generator_ColumnVarNameInTable="columnINSSProcuradoria" minOccurs="0">
+              <xs:element name="INSSProcuradoria" msprop:Generator_ColumnPropNameInRow="INSSProcuradoria" msprop:Generator_ColumnPropNameInTable="INSSProcuradoriaColumn" msprop:Generator_ColumnVarNameInTable="columnINSSProcuradoria" msprop:Generator_UserColumnName="INSSProcuradoria" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataParcelINSSantigo" msprop:Generator_ColumnPropNameInTable="DataParcelINSSantigoColumn" msprop:Generator_ColumnPropNameInRow="DataParcelINSSantigo" msprop:Generator_UserColumnName="DataParcelINSSantigo" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSantigo" minOccurs="0">
+              <xs:element name="DataParcelINSSantigo" msprop:Generator_ColumnPropNameInRow="DataParcelINSSantigo" msprop:Generator_ColumnPropNameInTable="DataParcelINSSantigoColumn" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSantigo" msprop:Generator_UserColumnName="DataParcelINSSantigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataParcelINSSnovo" msprop:Generator_ColumnPropNameInTable="DataParcelINSSnovoColumn" msprop:Generator_ColumnPropNameInRow="DataParcelINSSnovo" msprop:Generator_UserColumnName="DataParcelINSSnovo" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSnovo" minOccurs="0">
+              <xs:element name="DataParcelINSSnovo" msprop:Generator_ColumnPropNameInRow="DataParcelINSSnovo" msprop:Generator_ColumnPropNameInTable="DataParcelINSSnovoColumn" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSnovo" msprop:Generator_UserColumnName="DataParcelINSSnovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataParcelINSSproc" msprop:Generator_ColumnPropNameInTable="DataParcelINSSprocColumn" msprop:Generator_ColumnPropNameInRow="DataParcelINSSproc" msprop:Generator_UserColumnName="DataParcelINSSproc" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSproc" minOccurs="0">
+              <xs:element name="DataParcelINSSproc" msprop:Generator_ColumnPropNameInRow="DataParcelINSSproc" msprop:Generator_ColumnPropNameInTable="DataParcelINSSprocColumn" msprop:Generator_ColumnVarNameInTable="columnDataParcelINSSproc" msprop:Generator_UserColumnName="DataParcelINSSproc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataEnvio" msprop:Generator_ColumnPropNameInTable="DataEnvioColumn" msprop:Generator_ColumnPropNameInRow="DataEnvio" msprop:Generator_UserColumnName="DataEnvio" msprop:Generator_ColumnVarNameInTable="columnDataEnvio" minOccurs="0">
+              <xs:element name="DataEnvio" msprop:Generator_ColumnPropNameInRow="DataEnvio" msprop:Generator_ColumnPropNameInTable="DataEnvioColumn" msprop:Generator_ColumnVarNameInTable="columnDataEnvio" msprop:Generator_UserColumnName="DataEnvio" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="WhatsApp" msprop:Generator_ColumnPropNameInTable="WhatsAppColumn" msprop:Generator_ColumnPropNameInRow="WhatsApp" msprop:Generator_UserColumnName="WhatsApp" msprop:Generator_ColumnVarNameInTable="columnWhatsApp" minOccurs="0">
+              <xs:element name="WhatsApp" msprop:Generator_ColumnPropNameInRow="WhatsApp" msprop:Generator_ColumnPropNameInTable="WhatsAppColumn" msprop:Generator_ColumnVarNameInTable="columnWhatsApp" msprop:Generator_UserColumnName="WhatsApp" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_UserColumnName="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" minOccurs="0">
+              <xs:element name="Email" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_UserColumnName="Email" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSAntigoProt" msprop:Generator_ColumnPropNameInTable="INSSAntigoProtColumn" msprop:Generator_ColumnPropNameInRow="INSSAntigoProt" msprop:Generator_UserColumnName="INSSAntigoProt" msprop:Generator_ColumnVarNameInTable="columnINSSAntigoProt" minOccurs="0">
+              <xs:element name="INSSAntigoProt" msprop:Generator_ColumnPropNameInRow="INSSAntigoProt" msprop:Generator_ColumnPropNameInTable="INSSAntigoProtColumn" msprop:Generator_ColumnVarNameInTable="columnINSSAntigoProt" msprop:Generator_UserColumnName="INSSAntigoProt" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSAntigoObs" msprop:Generator_ColumnPropNameInTable="INSSAntigoObsColumn" msprop:Generator_ColumnPropNameInRow="INSSAntigoObs" msprop:Generator_UserColumnName="INSSAntigoObs" msprop:Generator_ColumnVarNameInTable="columnINSSAntigoObs" minOccurs="0">
+              <xs:element name="INSSAntigoObs" msprop:Generator_ColumnPropNameInRow="INSSAntigoObs" msprop:Generator_ColumnPropNameInTable="INSSAntigoObsColumn" msprop:Generator_ColumnVarNameInTable="columnINSSAntigoObs" msprop:Generator_UserColumnName="INSSAntigoObs" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSNovoProt" msprop:Generator_ColumnPropNameInTable="INSSNovoProtColumn" msprop:Generator_ColumnPropNameInRow="INSSNovoProt" msprop:Generator_UserColumnName="INSSNovoProt" msprop:Generator_ColumnVarNameInTable="columnINSSNovoProt" minOccurs="0">
+              <xs:element name="INSSNovoProt" msprop:Generator_ColumnPropNameInRow="INSSNovoProt" msprop:Generator_ColumnPropNameInTable="INSSNovoProtColumn" msprop:Generator_ColumnVarNameInTable="columnINSSNovoProt" msprop:Generator_UserColumnName="INSSNovoProt" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSNovoObs" msprop:Generator_ColumnPropNameInTable="INSSNovoObsColumn" msprop:Generator_ColumnPropNameInRow="INSSNovoObs" msprop:Generator_UserColumnName="INSSNovoObs" msprop:Generator_ColumnVarNameInTable="columnINSSNovoObs" minOccurs="0">
+              <xs:element name="INSSNovoObs" msprop:Generator_ColumnPropNameInRow="INSSNovoObs" msprop:Generator_ColumnPropNameInTable="INSSNovoObsColumn" msprop:Generator_ColumnVarNameInTable="columnINSSNovoObs" msprop:Generator_UserColumnName="INSSNovoObs" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSProcProt" msprop:Generator_ColumnPropNameInTable="INSSProcProtColumn" msprop:Generator_ColumnPropNameInRow="INSSProcProt" msprop:Generator_UserColumnName="INSSProcProt" msprop:Generator_ColumnVarNameInTable="columnINSSProcProt" minOccurs="0">
+              <xs:element name="INSSProcProt" msprop:Generator_ColumnPropNameInRow="INSSProcProt" msprop:Generator_ColumnPropNameInTable="INSSProcProtColumn" msprop:Generator_ColumnVarNameInTable="columnINSSProcProt" msprop:Generator_UserColumnName="INSSProcProt" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSSProcObs" msprop:Generator_ColumnPropNameInTable="INSSProcObsColumn" msprop:Generator_ColumnPropNameInRow="INSSProcObs" msprop:Generator_UserColumnName="INSSProcObs" msprop:Generator_ColumnVarNameInTable="columnINSSProcObs" minOccurs="0">
+              <xs:element name="INSSProcObs" msprop:Generator_ColumnPropNameInRow="INSSProcObs" msprop:Generator_ColumnPropNameInTable="INSSProcObsColumn" msprop:Generator_ColumnVarNameInTable="columnINSSProcObs" msprop:Generator_UserColumnName="INSSProcObs" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HistoricoEnvioINSSAntigo" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSAntigo" msprop:Generator_UserColumnName="HistoricoEnvioINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSAntigo" minOccurs="0">
+              <xs:element name="HistoricoEnvioINSSAntigo" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSAntigo" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSAntigo" msprop:Generator_UserColumnName="HistoricoEnvioINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HistoricoEnvioINSSNovo" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSNovo" msprop:Generator_UserColumnName="HistoricoEnvioINSSNovo" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSNovo" minOccurs="0">
+              <xs:element name="HistoricoEnvioINSSNovo" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSNovo" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSNovo" msprop:Generator_UserColumnName="HistoricoEnvioINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HistoricoEnvioINSSProc" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSProcColumn" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSProc" msprop:Generator_UserColumnName="HistoricoEnvioINSSProc" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSProc" minOccurs="0">
+              <xs:element name="HistoricoEnvioINSSProc" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioINSSProc" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioINSSProcColumn" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioINSSProc" msprop:Generator_UserColumnName="HistoricoEnvioINSSProc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Cidade" msprop:Generator_ColumnPropNameInTable="CidadeColumn" msprop:Generator_ColumnPropNameInRow="Cidade" msprop:Generator_UserColumnName="Cidade" msprop:Generator_ColumnVarNameInTable="columnCidade" minOccurs="0">
+              <xs:element name="Cidade" msprop:Generator_ColumnPropNameInRow="Cidade" msprop:Generator_ColumnPropNameInTable="CidadeColumn" msprop:Generator_ColumnVarNameInTable="columnCidade" msprop:Generator_UserColumnName="Cidade" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_UserColumnName="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" minOccurs="0">
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Rua" msprop:Generator_ColumnPropNameInTable="RuaColumn" msprop:Generator_ColumnPropNameInRow="Rua" msprop:Generator_UserColumnName="Rua" msprop:Generator_ColumnVarNameInTable="columnRua" minOccurs="0">
+              <xs:element name="Rua" msprop:Generator_ColumnPropNameInRow="Rua" msprop:Generator_ColumnPropNameInTable="RuaColumn" msprop:Generator_ColumnVarNameInTable="columnRua" msprop:Generator_UserColumnName="Rua" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_UserColumnName="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" minOccurs="0">
+              <xs:element name="Numero" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_ColumnVarNameInTable="columnNumero" msprop:Generator_UserColumnName="Numero" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Complemento" msprop:Generator_ColumnPropNameInTable="ComplementoColumn" msprop:Generator_ColumnPropNameInRow="Complemento" msprop:Generator_UserColumnName="Complemento" msprop:Generator_ColumnVarNameInTable="columnComplemento" minOccurs="0">
+              <xs:element name="Complemento" msprop:Generator_ColumnPropNameInRow="Complemento" msprop:Generator_ColumnPropNameInTable="ComplementoColumn" msprop:Generator_ColumnVarNameInTable="columnComplemento" msprop:Generator_UserColumnName="Complemento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Bairro" msprop:Generator_ColumnPropNameInTable="BairroColumn" msprop:Generator_ColumnPropNameInRow="Bairro" msprop:Generator_UserColumnName="Bairro" msprop:Generator_ColumnVarNameInTable="columnBairro" minOccurs="0">
+              <xs:element name="Bairro" msprop:Generator_ColumnPropNameInRow="Bairro" msprop:Generator_ColumnPropNameInTable="BairroColumn" msprop:Generator_ColumnVarNameInTable="columnBairro" msprop:Generator_UserColumnName="Bairro" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoINSSAntigo" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSAntigo" msprop:Generator_UserColumnName="FinalizadoINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSAntigo" minOccurs="0">
+              <xs:element name="FinalizadoINSSAntigo" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSAntigo" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSAntigo" msprop:Generator_UserColumnName="FinalizadoINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoINSSNovo" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSNovo" msprop:Generator_UserColumnName="FinalizadoINSSNovo" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSNovo" minOccurs="0">
+              <xs:element name="FinalizadoINSSNovo" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSNovo" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSNovo" msprop:Generator_UserColumnName="FinalizadoINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoINSSProc" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSProcColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSProc" msprop:Generator_UserColumnName="FinalizadoINSSProc" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSProc" minOccurs="0">
+              <xs:element name="FinalizadoINSSProc" msprop:Generator_ColumnPropNameInRow="FinalizadoINSSProc" msprop:Generator_ColumnPropNameInTable="FinalizadoINSSProcColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoINSSProc" msprop:Generator_UserColumnName="FinalizadoINSSProc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoMes" msprop:Generator_ColumnPropNameInTable="FinalizadoMesColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoMes" msprop:Generator_UserColumnName="FinalizadoMes" msprop:Generator_ColumnVarNameInTable="columnFinalizadoMes" minOccurs="0">
+              <xs:element name="FinalizadoMes" msprop:Generator_ColumnPropNameInRow="FinalizadoMes" msprop:Generator_ColumnPropNameInTable="FinalizadoMesColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoMes" msprop:Generator_UserColumnName="FinalizadoMes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoParcelamentos" msprop:Generator_ColumnPropNameInTable="FinalizadoParcelamentosColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoParcelamentos" msprop:Generator_UserColumnName="FinalizadoParcelamentos" msprop:Generator_ColumnVarNameInTable="columnFinalizadoParcelamentos" minOccurs="0">
+              <xs:element name="FinalizadoParcelamentos" msprop:Generator_ColumnPropNameInRow="FinalizadoParcelamentos" msprop:Generator_ColumnPropNameInTable="FinalizadoParcelamentosColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoParcelamentos" msprop:Generator_UserColumnName="FinalizadoParcelamentos" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MotivoParcINSSAntigo" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSAntigo" msprop:Generator_UserColumnName="MotivoParcINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSAntigo" minOccurs="0">
+              <xs:element name="MotivoParcINSSAntigo" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSAntigo" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSAntigo" msprop:Generator_UserColumnName="MotivoParcINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MotivoParcINSSNovo" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSNovo" msprop:Generator_UserColumnName="MotivoParcINSSNovo" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSNovo" minOccurs="0">
+              <xs:element name="MotivoParcINSSNovo" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSNovo" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSNovo" msprop:Generator_UserColumnName="MotivoParcINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MotivoParcINSSProc" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSProcColumn" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSProc" msprop:Generator_UserColumnName="MotivoParcINSSProc" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSProc" minOccurs="0">
+              <xs:element name="MotivoParcINSSProc" msprop:Generator_ColumnPropNameInRow="MotivoParcINSSProc" msprop:Generator_ColumnPropNameInTable="MotivoParcINSSProcColumn" msprop:Generator_ColumnVarNameInTable="columnMotivoParcINSSProc" msprop:Generator_UserColumnName="MotivoParcINSSProc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MotivoParcMEI" msprop:Generator_ColumnPropNameInTable="MotivoParcMEIColumn" msprop:Generator_ColumnPropNameInRow="MotivoParcMEI" msprop:Generator_UserColumnName="MotivoParcMEI" msprop:Generator_ColumnVarNameInTable="columnMotivoParcMEI" minOccurs="0">
+              <xs:element name="MotivoParcMEI" msprop:Generator_ColumnPropNameInRow="MotivoParcMEI" msprop:Generator_ColumnPropNameInTable="MotivoParcMEIColumn" msprop:Generator_ColumnVarNameInTable="columnMotivoParcMEI" msprop:Generator_UserColumnName="MotivoParcMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataParcMEI" msprop:Generator_ColumnPropNameInTable="DataParcMEIColumn" msprop:Generator_ColumnPropNameInRow="DataParcMEI" msprop:Generator_UserColumnName="DataParcMEI" msprop:Generator_ColumnVarNameInTable="columnDataParcMEI" minOccurs="0">
+              <xs:element name="DataParcMEI" msprop:Generator_ColumnPropNameInRow="DataParcMEI" msprop:Generator_ColumnPropNameInTable="DataParcMEIColumn" msprop:Generator_ColumnVarNameInTable="columnDataParcMEI" msprop:Generator_UserColumnName="DataParcMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataProtocoloMEI" msprop:Generator_ColumnPropNameInTable="DataProtocoloMEIColumn" msprop:Generator_ColumnPropNameInRow="DataProtocoloMEI" msprop:Generator_UserColumnName="DataProtocoloMEI" msprop:Generator_ColumnVarNameInTable="columnDataProtocoloMEI" minOccurs="0">
+              <xs:element name="DataProtocoloMEI" msprop:Generator_ColumnPropNameInRow="DataProtocoloMEI" msprop:Generator_ColumnPropNameInTable="DataProtocoloMEIColumn" msprop:Generator_ColumnVarNameInTable="columnDataProtocoloMEI" msprop:Generator_UserColumnName="DataProtocoloMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoMEI" msprop:Generator_ColumnPropNameInTable="FinalizadoMEIColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoMEI" msprop:Generator_UserColumnName="FinalizadoMEI" msprop:Generator_ColumnVarNameInTable="columnFinalizadoMEI" minOccurs="0">
+              <xs:element name="FinalizadoMEI" msprop:Generator_ColumnPropNameInRow="FinalizadoMEI" msprop:Generator_ColumnPropNameInTable="FinalizadoMEIColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoMEI" msprop:Generator_UserColumnName="FinalizadoMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GeralINSSAntigo" msprop:Generator_ColumnPropNameInTable="GeralINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="GeralINSSAntigo" msprop:Generator_UserColumnName="GeralINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnGeralINSSAntigo" minOccurs="0">
+              <xs:element name="GeralINSSAntigo" msprop:Generator_ColumnPropNameInRow="GeralINSSAntigo" msprop:Generator_ColumnPropNameInTable="GeralINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnGeralINSSAntigo" msprop:Generator_UserColumnName="GeralINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GeralINSSNovo" msprop:Generator_ColumnPropNameInTable="GeralINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="GeralINSSNovo" msprop:Generator_UserColumnName="GeralINSSNovo" msprop:Generator_ColumnVarNameInTable="columnGeralINSSNovo" minOccurs="0">
+              <xs:element name="GeralINSSNovo" msprop:Generator_ColumnPropNameInRow="GeralINSSNovo" msprop:Generator_ColumnPropNameInTable="GeralINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnGeralINSSNovo" msprop:Generator_UserColumnName="GeralINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GeralINSSProcuradoria" msprop:Generator_ColumnPropNameInTable="GeralINSSProcuradoriaColumn" msprop:Generator_ColumnPropNameInRow="GeralINSSProcuradoria" msprop:Generator_UserColumnName="GeralINSSProcuradoria" msprop:Generator_ColumnVarNameInTable="columnGeralINSSProcuradoria" minOccurs="0">
+              <xs:element name="GeralINSSProcuradoria" msprop:Generator_ColumnPropNameInRow="GeralINSSProcuradoria" msprop:Generator_ColumnPropNameInTable="GeralINSSProcuradoriaColumn" msprop:Generator_ColumnVarNameInTable="columnGeralINSSProcuradoria" msprop:Generator_UserColumnName="GeralINSSProcuradoria" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GeralMEI" msprop:Generator_ColumnPropNameInTable="GeralMEIColumn" msprop:Generator_ColumnPropNameInRow="GeralMEI" msprop:Generator_UserColumnName="GeralMEI" msprop:Generator_ColumnVarNameInTable="columnGeralMEI" minOccurs="0">
+              <xs:element name="GeralMEI" msprop:Generator_ColumnPropNameInRow="GeralMEI" msprop:Generator_ColumnPropNameInTable="GeralMEIColumn" msprop:Generator_ColumnVarNameInTable="columnGeralMEI" msprop:Generator_UserColumnName="GeralMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MesEnviadoINSSAntigo" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSAntigo" msprop:Generator_UserColumnName="MesEnviadoINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSAntigo" minOccurs="0">
+              <xs:element name="MesEnviadoINSSAntigo" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSAntigo" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSAntigo" msprop:Generator_UserColumnName="MesEnviadoINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MesEnviadoINSSNovo" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSNovo" msprop:Generator_UserColumnName="MesEnviadoINSSNovo" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSNovo" minOccurs="0">
+              <xs:element name="MesEnviadoINSSNovo" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSNovo" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSNovo" msprop:Generator_UserColumnName="MesEnviadoINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MesEnviadoINSSProc" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSProcColumn" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSProc" msprop:Generator_UserColumnName="MesEnviadoINSSProc" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSProc" minOccurs="0">
+              <xs:element name="MesEnviadoINSSProc" msprop:Generator_ColumnPropNameInRow="MesEnviadoINSSProc" msprop:Generator_ColumnPropNameInTable="MesEnviadoINSSProcColumn" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoINSSProc" msprop:Generator_UserColumnName="MesEnviadoINSSProc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MesEnviadoMEI" msprop:Generator_ColumnPropNameInTable="MesEnviadoMEIColumn" msprop:Generator_ColumnPropNameInRow="MesEnviadoMEI" msprop:Generator_UserColumnName="MesEnviadoMEI" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoMEI" minOccurs="0">
+              <xs:element name="MesEnviadoMEI" msprop:Generator_ColumnPropNameInRow="MesEnviadoMEI" msprop:Generator_ColumnPropNameInTable="MesEnviadoMEIColumn" msprop:Generator_ColumnVarNameInTable="columnMesEnviadoMEI" msprop:Generator_UserColumnName="MesEnviadoMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HistoricoEnvioMEI" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioMEIColumn" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioMEI" msprop:Generator_UserColumnName="HistoricoEnvioMEI" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioMEI" minOccurs="0">
+              <xs:element name="HistoricoEnvioMEI" msprop:Generator_ColumnPropNameInRow="HistoricoEnvioMEI" msprop:Generator_ColumnPropNameInTable="HistoricoEnvioMEIColumn" msprop:Generator_ColumnVarNameInTable="columnHistoricoEnvioMEI" msprop:Generator_UserColumnName="HistoricoEnvioMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MEI" msprop:Generator_ColumnPropNameInTable="MEIColumn" msprop:Generator_ColumnPropNameInRow="MEI" msprop:Generator_UserColumnName="MEI" msprop:Generator_ColumnVarNameInTable="columnMEI" minOccurs="0">
+              <xs:element name="MEI" msprop:Generator_ColumnPropNameInRow="MEI" msprop:Generator_ColumnPropNameInTable="MEIColumn" msprop:Generator_ColumnVarNameInTable="columnMEI" msprop:Generator_UserColumnName="MEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MeiProtocolo" msprop:Generator_ColumnPropNameInTable="MeiProtocoloColumn" msprop:Generator_ColumnPropNameInRow="MeiProtocolo" msprop:Generator_UserColumnName="MeiProtocolo" msprop:Generator_ColumnVarNameInTable="columnMeiProtocolo" minOccurs="0">
+              <xs:element name="MeiProtocolo" msprop:Generator_ColumnPropNameInRow="MeiProtocolo" msprop:Generator_ColumnPropNameInTable="MeiProtocoloColumn" msprop:Generator_ColumnVarNameInTable="columnMeiProtocolo" msprop:Generator_UserColumnName="MeiProtocolo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataFimParcINSSAntigo" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSAntigo" msprop:Generator_UserColumnName="DataFimParcINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSAntigo" minOccurs="0">
+              <xs:element name="DataFimParcINSSAntigo" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSAntigo" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSAntigo" msprop:Generator_UserColumnName="DataFimParcINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataFimParcINSSNovo" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSNovo" msprop:Generator_UserColumnName="DataFimParcINSSNovo" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSNovo" minOccurs="0">
+              <xs:element name="DataFimParcINSSNovo" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSNovo" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSNovo" msprop:Generator_UserColumnName="DataFimParcINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataFimParcINSSProc" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSProcColumn" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSProc" msprop:Generator_UserColumnName="DataFimParcINSSProc" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSProc" minOccurs="0">
+              <xs:element name="DataFimParcINSSProc" msprop:Generator_ColumnPropNameInRow="DataFimParcINSSProc" msprop:Generator_ColumnPropNameInTable="DataFimParcINSSProcColumn" msprop:Generator_ColumnVarNameInTable="columnDataFimParcINSSProc" msprop:Generator_UserColumnName="DataFimParcINSSProc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DataFimParcMEI" msprop:Generator_ColumnPropNameInTable="DataFimParcMEIColumn" msprop:Generator_ColumnPropNameInRow="DataFimParcMEI" msprop:Generator_UserColumnName="DataFimParcMEI" msprop:Generator_ColumnVarNameInTable="columnDataFimParcMEI" minOccurs="0">
+              <xs:element name="DataFimParcMEI" msprop:Generator_ColumnPropNameInRow="DataFimParcMEI" msprop:Generator_ColumnPropNameInTable="DataFimParcMEIColumn" msprop:Generator_ColumnVarNameInTable="columnDataFimParcMEI" msprop:Generator_UserColumnName="DataFimParcMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SocioResponsavel" msprop:Generator_ColumnPropNameInTable="SocioResponsavelColumn" msprop:Generator_ColumnPropNameInRow="SocioResponsavel" msprop:Generator_UserColumnName="SocioResponsavel" msprop:Generator_ColumnVarNameInTable="columnSocioResponsavel" minOccurs="0">
+              <xs:element name="SocioResponsavel" msprop:Generator_ColumnPropNameInRow="SocioResponsavel" msprop:Generator_ColumnPropNameInTable="SocioResponsavelColumn" msprop:Generator_ColumnVarNameInTable="columnSocioResponsavel" msprop:Generator_UserColumnName="SocioResponsavel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CPFsocioResponsavel" msprop:Generator_ColumnPropNameInTable="CPFsocioResponsavelColumn" msprop:Generator_ColumnPropNameInRow="CPFsocioResponsavel" msprop:Generator_UserColumnName="CPFsocioResponsavel" msprop:Generator_ColumnVarNameInTable="columnCPFsocioResponsavel" minOccurs="0">
+              <xs:element name="CPFsocioResponsavel" msprop:Generator_ColumnPropNameInRow="CPFsocioResponsavel" msprop:Generator_ColumnPropNameInTable="CPFsocioResponsavelColumn" msprop:Generator_ColumnVarNameInTable="columnCPFsocioResponsavel" msprop:Generator_UserColumnName="CPFsocioResponsavel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GovSenha" msprop:Generator_ColumnPropNameInTable="GovSenhaColumn" msprop:Generator_ColumnPropNameInRow="GovSenha" msprop:Generator_UserColumnName="GovSenha" msprop:Generator_ColumnVarNameInTable="columnGovSenha" minOccurs="0">
+              <xs:element name="GovSenha" msprop:Generator_ColumnPropNameInRow="GovSenha" msprop:Generator_ColumnPropNameInTable="GovSenhaColumn" msprop:Generator_ColumnVarNameInTable="columnGovSenha" msprop:Generator_UserColumnName="GovSenha" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FinalizadoParcelamento" msprop:Generator_ColumnPropNameInTable="FinalizadoParcelamentoColumn" msprop:Generator_ColumnPropNameInRow="FinalizadoParcelamento" msprop:Generator_UserColumnName="FinalizadoParcelamento" msprop:Generator_ColumnVarNameInTable="columnFinalizadoParcelamento" minOccurs="0">
+              <xs:element name="FinalizadoParcelamento" msprop:Generator_ColumnPropNameInRow="FinalizadoParcelamento" msprop:Generator_ColumnPropNameInTable="FinalizadoParcelamentoColumn" msprop:Generator_ColumnVarNameInTable="columnFinalizadoParcelamento" msprop:Generator_UserColumnName="FinalizadoParcelamento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NomeResponsavel" msprop:Generator_ColumnPropNameInTable="NomeResponsavelColumn" msprop:Generator_ColumnPropNameInRow="NomeResponsavel" msprop:Generator_UserColumnName="NomeResponsavel" msprop:Generator_ColumnVarNameInTable="columnNomeResponsavel" minOccurs="0">
+              <xs:element name="NomeResponsavel" msprop:Generator_ColumnPropNameInRow="NomeResponsavel" msprop:Generator_ColumnPropNameInTable="NomeResponsavelColumn" msprop:Generator_ColumnVarNameInTable="columnNomeResponsavel" msprop:Generator_UserColumnName="NomeResponsavel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataLembrete" msprop:Generator_ColumnPropNameInTable="TemDataLembreteColumn" msprop:Generator_ColumnPropNameInRow="TemDataLembrete" msprop:Generator_UserColumnName="TemDataLembrete" msprop:Generator_ColumnVarNameInTable="columnTemDataLembrete" minOccurs="0">
+              <xs:element name="TemDataLembrete" msprop:Generator_ColumnPropNameInRow="TemDataLembrete" msprop:Generator_ColumnPropNameInTable="TemDataLembreteColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataLembrete" msprop:Generator_UserColumnName="TemDataLembrete" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataEnvio" msprop:Generator_ColumnPropNameInTable="TemDataEnvioColumn" msprop:Generator_ColumnPropNameInRow="TemDataEnvio" msprop:Generator_UserColumnName="TemDataEnvio" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvio" minOccurs="0">
+              <xs:element name="TemDataEnvio" msprop:Generator_ColumnPropNameInRow="TemDataEnvio" msprop:Generator_ColumnPropNameInTable="TemDataEnvioColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvio" msprop:Generator_UserColumnName="TemDataEnvio" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataEnvioINSSAntigo" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSAntigo" msprop:Generator_UserColumnName="TemDataEnvioINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSAntigo" minOccurs="0">
+              <xs:element name="TemDataEnvioINSSAntigo" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSAntigo" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSAntigo" msprop:Generator_UserColumnName="TemDataEnvioINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataEnvioINSSNovo" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSNovo" msprop:Generator_UserColumnName="TemDataEnvioINSSNovo" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSNovo" minOccurs="0">
+              <xs:element name="TemDataEnvioINSSNovo" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSNovo" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSNovo" msprop:Generator_UserColumnName="TemDataEnvioINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataEnvioINSSProcur" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSProcurColumn" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSProcur" msprop:Generator_UserColumnName="TemDataEnvioINSSProcur" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSProcur" minOccurs="0">
+              <xs:element name="TemDataEnvioINSSProcur" msprop:Generator_ColumnPropNameInRow="TemDataEnvioINSSProcur" msprop:Generator_ColumnPropNameInTable="TemDataEnvioINSSProcurColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioINSSProcur" msprop:Generator_UserColumnName="TemDataEnvioINSSProcur" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataEnvioMEI" msprop:Generator_ColumnPropNameInTable="TemDataEnvioMEIColumn" msprop:Generator_ColumnPropNameInRow="TemDataEnvioMEI" msprop:Generator_UserColumnName="TemDataEnvioMEI" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioMEI" minOccurs="0">
+              <xs:element name="TemDataEnvioMEI" msprop:Generator_ColumnPropNameInRow="TemDataEnvioMEI" msprop:Generator_ColumnPropNameInTable="TemDataEnvioMEIColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEnvioMEI" msprop:Generator_UserColumnName="TemDataEnvioMEI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataFimINSSAntigo" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSAntigoColumn" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSAntigo" msprop:Generator_UserColumnName="TemDataFimINSSAntigo" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSAntigo" minOccurs="0">
+              <xs:element name="TemDataFimINSSAntigo" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSAntigo" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSAntigo" msprop:Generator_UserColumnName="TemDataFimINSSAntigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataFimINSSNovo" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSNovoColumn" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSNovo" msprop:Generator_UserColumnName="TemDataFimINSSNovo" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSNovo" minOccurs="0">
+              <xs:element name="TemDataFimINSSNovo" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSNovo" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSNovo" msprop:Generator_UserColumnName="TemDataFimINSSNovo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataFimINSSProcur" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSProcurColumn" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSProcur" msprop:Generator_UserColumnName="TemDataFimINSSProcur" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSProcur" minOccurs="0">
+              <xs:element name="TemDataFimINSSProcur" msprop:Generator_ColumnPropNameInRow="TemDataFimINSSProcur" msprop:Generator_ColumnPropNameInTable="TemDataFimINSSProcurColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataFimINSSProcur" msprop:Generator_UserColumnName="TemDataFimINSSProcur" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TemDataFimMEI" msprop:Generator_ColumnPropNameInTable="TemDataFimMEIColumn" msprop:Generator_ColumnPropNameInRow="TemDataFimMEI" msprop:Generator_UserColumnName="TemDataFimMEI" msprop:Generator_ColumnVarNameInTable="columnTemDataFimMEI" minOccurs="0">
+              <xs:element name="TemDataFimMEI" msprop:Generator_ColumnPropNameInRow="TemDataFimMEI" msprop:Generator_ColumnPropNameInTable="TemDataFimMEIColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataFimMEI" msprop:Generator_UserColumnName="TemDataFimMEI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TemDataEntradaMEI" msprop:Generator_ColumnPropNameInRow="TemDataEntradaMEI" msprop:Generator_ColumnPropNameInTable="TemDataEntradaMEIColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEntradaMEI" msprop:Generator_UserColumnName="TemDataEntradaMEI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TemDataEntradaINSSAntigo" msprop:Generator_ColumnPropNameInRow="TemDataEntradaINSSAntigo" msprop:Generator_ColumnPropNameInTable="TemDataEntradaINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEntradaINSSAntigo" msprop:Generator_UserColumnName="TemDataEntradaINSSAntigo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TemDataEntradaINSSNovo" msprop:Generator_ColumnPropNameInRow="TemDataEntradaINSSNovo" msprop:Generator_ColumnPropNameInTable="TemDataEntradaINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEntradaINSSNovo" msprop:Generator_UserColumnName="TemDataEntradaINSSNovo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TemDataEntradaINSSProcu" msprop:Generator_ColumnPropNameInRow="TemDataEntradaINSSProcu" msprop:Generator_ColumnPropNameInTable="TemDataEntradaINSSProcuColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataEntradaINSSProcu" msprop:Generator_UserColumnName="TemDataEntradaINSSProcu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TemDataFimParcelamento" msprop:Generator_ColumnPropNameInRow="TemDataFimParcelamento" msprop:Generator_ColumnPropNameInTable="TemDataFimParcelamentoColumn" msprop:Generator_ColumnVarNameInTable="columnTemDataFimParcelamento" msprop:Generator_UserColumnName="TemDataFimParcelamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QtoParcelasMEI" msprop:Generator_ColumnPropNameInRow="QtoParcelasMEI" msprop:Generator_ColumnPropNameInTable="QtoParcelasMEIColumn" msprop:Generator_ColumnVarNameInTable="columnQtoParcelasMEI" msprop:Generator_UserColumnName="QtoParcelasMEI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QtoParcelasINSSAntigo" msprop:Generator_ColumnPropNameInRow="QtoParcelasINSSAntigo" msprop:Generator_ColumnPropNameInTable="QtoParcelasINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnQtoParcelasINSSAntigo" msprop:Generator_UserColumnName="QtoParcelasINSSAntigo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QtoParcelasINSSNovo" msprop:Generator_ColumnPropNameInRow="QtoParcelasINSSNovo" msprop:Generator_ColumnPropNameInTable="QtoParcelasINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnQtoParcelasINSSNovo" msprop:Generator_UserColumnName="QtoParcelasINSSNovo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QtoParcelasINSSProcuradoria" msprop:Generator_ColumnPropNameInRow="QtoParcelasINSSProcuradoria" msprop:Generator_ColumnPropNameInTable="QtoParcelasINSSProcuradoriaColumn" msprop:Generator_ColumnVarNameInTable="columnQtoParcelasINSSProcuradoria" msprop:Generator_UserColumnName="QtoParcelasINSSProcuradoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParcelaEnviadaMEI" msprop:Generator_ColumnPropNameInRow="ParcelaEnviadaMEI" msprop:Generator_ColumnPropNameInTable="ParcelaEnviadaMEIColumn" msprop:Generator_ColumnVarNameInTable="columnParcelaEnviadaMEI" msprop:Generator_UserColumnName="ParcelaEnviadaMEI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParcelaEnviadaINSSAntigo" msprop:Generator_ColumnPropNameInRow="ParcelaEnviadaINSSAntigo" msprop:Generator_ColumnPropNameInTable="ParcelaEnviadaINSSAntigoColumn" msprop:Generator_ColumnVarNameInTable="columnParcelaEnviadaINSSAntigo" msprop:Generator_UserColumnName="ParcelaEnviadaINSSAntigo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParcelaEnviadaINSSNovo" msprop:Generator_ColumnPropNameInRow="ParcelaEnviadaINSSNovo" msprop:Generator_ColumnPropNameInTable="ParcelaEnviadaINSSNovoColumn" msprop:Generator_ColumnVarNameInTable="columnParcelaEnviadaINSSNovo" msprop:Generator_UserColumnName="ParcelaEnviadaINSSNovo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParcelaEnviadaINSSProcuradoria" msprop:Generator_ColumnPropNameInRow="ParcelaEnviadaINSSProcuradoria" msprop:Generator_ColumnPropNameInTable="ParcelaEnviadaINSSProcuradoriaColumn" msprop:Generator_ColumnVarNameInTable="columnParcelaEnviadaINSSProcuradoria" msprop:Generator_UserColumnName="ParcelaEnviadaINSSProcuradoria" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />

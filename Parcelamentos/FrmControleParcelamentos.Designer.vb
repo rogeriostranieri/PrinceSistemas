@@ -41,6 +41,18 @@ Partial Class FrmControleParcelamentos
         Dim GovSenhaLabel As System.Windows.Forms.Label
         Dim RazaoSocialLabel1 As System.Windows.Forms.Label
         Dim CNPJLabel1 As System.Windows.Forms.Label
+        Dim MeiProtocoloLabel As System.Windows.Forms.Label
+        Dim INSSAntigoProtLabel As System.Windows.Forms.Label
+        Dim INSSNovoProtLabel As System.Windows.Forms.Label
+        Dim INSSProcProtLabel As System.Windows.Forms.Label
+        Dim QtoParcelasMEILabel As System.Windows.Forms.Label
+        Dim ParcelaEnviadaMEILabel As System.Windows.Forms.Label
+        Dim QtoParcelasINSSAntigoLabel As System.Windows.Forms.Label
+        Dim ParcelaEnviadaINSSAntigoLabel As System.Windows.Forms.Label
+        Dim QtoParcelasINSSNovoLabel As System.Windows.Forms.Label
+        Dim ParcelaEnviadaINSSNovoLabel As System.Windows.Forms.Label
+        Dim QtoParcelasINSSProcuradoriaLabel As System.Windows.Forms.Label
+        Dim ParcelaEnviadaINSSProcuradoriaLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmControleParcelamentos))
         Me.ParcelamentosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
@@ -63,10 +75,10 @@ Partial Class FrmControleParcelamentos
         Me.RazaoSocialComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TabControlPrincipal = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TemDataEnvioCheckBox = New System.Windows.Forms.CheckBox()
+        Me.Geral = New System.Windows.Forms.TabPage()
+        Me.TemDataFimParcelamentoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.FinalizadoParcelamentosDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.TemDataLembreteCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DataEnvioDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.BtnBImportarEmpresa = New System.Windows.Forms.Button()
         Me.BtnCopiarCNPJ = New System.Windows.Forms.Button()
         Me.RazaoSocialTextBox = New System.Windows.Forms.TextBox()
@@ -79,14 +91,14 @@ Partial Class FrmControleParcelamentos
         Me.INSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
         Me.DataLembreteDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.DataCriacaoDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Endereço = New System.Windows.Forms.TabPage()
         Me.EstadoTextBox = New System.Windows.Forms.TextBox()
         Me.CidadeTextBox = New System.Windows.Forms.TextBox()
         Me.BairroTextBox = New System.Windows.Forms.TextBox()
         Me.ComplementoTextBox = New System.Windows.Forms.TextBox()
         Me.NumeroTextBox = New System.Windows.Forms.TextBox()
         Me.RuaTextBox = New System.Windows.Forms.TextBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.FormadeEnvio = New System.Windows.Forms.TabPage()
         Me.BtnAbriremail = New System.Windows.Forms.Button()
         Me.BtnAbrirWhatsApp = New System.Windows.Forms.Button()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
@@ -94,7 +106,7 @@ Partial Class FrmControleParcelamentos
         Me.BtnImportaSocio = New System.Windows.Forms.Button()
         Me.NomeResponsavelTextBox = New System.Windows.Forms.TextBox()
         Me.FormaEnvioComboBox = New System.Windows.Forms.ComboBox()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Responsável = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GovSenhaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.CPFsocioResponsavelMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -103,32 +115,95 @@ Partial Class FrmControleParcelamentos
         Me.TabControleParcelamentos = New System.Windows.Forms.TabControl()
         Me.TabPageMEI = New System.Windows.Forms.TabPage()
         Me.TabControlMEI = New System.Windows.Forms.TabControl()
-        Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.TabPageMEIGeral = New System.Windows.Forms.TabPage()
+        Me.BtnVerDetalhesMEI = New System.Windows.Forms.Button()
+        Me.MotivoParcMEILabel = New System.Windows.Forms.Label()
+        Me.ParcelaEnviadaMEITextBox = New System.Windows.Forms.TextBox()
+        Me.QtoParcelasMEITextBox = New System.Windows.Forms.TextBox()
+        Me.BtnRegistrarEnvioMEI = New System.Windows.Forms.Button()
+        Me.TemDataEntradaMEICheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataEnvioMEICheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataFimMEICheckBox = New System.Windows.Forms.CheckBox()
+        Me.DataFimParcMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MotivoParcMEIRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.DataParcMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MesEnviadoMEIDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MeiProtocoloTextBox = New System.Windows.Forms.TextBox()
+        Me.TabPageMEIHistorico = New System.Windows.Forms.TabPage()
         Me.HistoricoEnvioMEIRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPageMEIObservacoes = New System.Windows.Forms.TabPage()
+        Me.GeralMEIRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPageINSSAntigo = New System.Windows.Forms.TabPage()
         Me.TabControlInssAntigo = New System.Windows.Forms.TabControl()
-        Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.TabPageINSSAntigoGeral = New System.Windows.Forms.TabPage()
+        Me.BtnVerDetalhesINSSAntigo = New System.Windows.Forms.Button()
+        Me.MotivoParcINSSAntigoLabel = New System.Windows.Forms.Label()
+        Me.ParcelaEnviadaINSSAntigoTextBox = New System.Windows.Forms.TextBox()
+        Me.QtoParcelasINSSAntigoTextBox = New System.Windows.Forms.TextBox()
+        Me.BtnRegistrarEnvioINSSantigo = New System.Windows.Forms.Button()
+        Me.TemDataEntradaINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataFimINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataEnvioINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DataParcelINSSantigoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.INSSAntigoProtTextBox = New System.Windows.Forms.TextBox()
+        Me.MesEnviadoINSSAntigoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MotivoParcINSSAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.FinalizadoINSSAntigoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.TabPageINSSAntigoHistorico = New System.Windows.Forms.TabPage()
         Me.HistoricoEnvioINSSAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPageINSSAntigoObservacoes = New System.Windows.Forms.TabPage()
+        Me.INSSAntigoObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPageINSSNovo = New System.Windows.Forms.TabPage()
         Me.TabControlInssNovo = New System.Windows.Forms.TabControl()
-        Me.TabPage13 = New System.Windows.Forms.TabPage()
-        Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.TabPageINSSNovoGeral = New System.Windows.Forms.TabPage()
+        Me.BtnVerDetalhesINSSNovo = New System.Windows.Forms.Button()
+        Me.MotivoParcINSSNovoLabel = New System.Windows.Forms.Label()
+        Me.ParcelaEnviadaINSSNovoTextBox = New System.Windows.Forms.TextBox()
+        Me.QtoParcelasINSSNovoTextBox = New System.Windows.Forms.TextBox()
+        Me.BtnRegistrarEnvioINSSnovo = New System.Windows.Forms.Button()
+        Me.TemDataEntradaINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataFimINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataEnvioINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
+        Me.MesEnviadoINSSNovoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MotivoParcINSSNovoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.FinalizadoINSSNovoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.INSSNovoProtTextBox = New System.Windows.Forms.TextBox()
+        Me.DataParcelINSSnovoDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.TabPageINSSNovoHistorico = New System.Windows.Forms.TabPage()
+        Me.HistoricoEnvioINSSNovoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPageINSSNovoObservacoes = New System.Windows.Forms.TabPage()
+        Me.INSSNovoObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPageINSSProcuradoria = New System.Windows.Forms.TabPage()
         Me.TabControlInssProcuradoria = New System.Windows.Forms.TabControl()
-        Me.TabPage15 = New System.Windows.Forms.TabPage()
-        Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.TabPageINSSProcuradoriaGeral = New System.Windows.Forms.TabPage()
+        Me.BtnVerDetalhesINSSProcuradoria = New System.Windows.Forms.Button()
+        Me.MotivoParcINSSProcLabel = New System.Windows.Forms.Label()
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox = New System.Windows.Forms.TextBox()
+        Me.QtoParcelasINSSProcuradoriaTextBox = New System.Windows.Forms.TextBox()
+        Me.BtnRegistrarEnvioINSSProcuradoria = New System.Windows.Forms.Button()
+        Me.TemDataEntradaINSSProcuCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataFimINSSProcurCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TemDataEnvioINSSProcurCheckBox = New System.Windows.Forms.CheckBox()
+        Me.MesEnviadoINSSProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.MotivoParcINSSProcRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.FinalizadoINSSProcDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.INSSProcProtTextBox = New System.Windows.Forms.TextBox()
+        Me.DataParcelINSSprocDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.TabPageINSSProcuradoriaHistorico = New System.Windows.Forms.TabPage()
+        Me.HistoricoEnvioINSSProcRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPageINSSProcuradoriaObservacoes = New System.Windows.Forms.TabPage()
+        Me.INSSProcObsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
         Me.BtnFechar = New System.Windows.Forms.Button()
         Me.BtnNovo = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
         Me.BtnExcluir = New System.Windows.Forms.Button()
+        Me.GroupBoxSalvando = New System.Windows.Forms.GroupBox()
+        Me.ProgressBarSalvando = New System.Windows.Forms.ProgressBar()
+        Me.LabelSalvando = New System.Windows.Forms.Label()
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.HistoricoEnvioINSSNovoRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.HistoricoEnvioINSSProcRichTextBox = New System.Windows.Forms.RichTextBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         DataCriacaoLabel = New System.Windows.Forms.Label()
@@ -147,6 +222,18 @@ Partial Class FrmControleParcelamentos
         GovSenhaLabel = New System.Windows.Forms.Label()
         RazaoSocialLabel1 = New System.Windows.Forms.Label()
         CNPJLabel1 = New System.Windows.Forms.Label()
+        MeiProtocoloLabel = New System.Windows.Forms.Label()
+        INSSAntigoProtLabel = New System.Windows.Forms.Label()
+        INSSNovoProtLabel = New System.Windows.Forms.Label()
+        INSSProcProtLabel = New System.Windows.Forms.Label()
+        QtoParcelasMEILabel = New System.Windows.Forms.Label()
+        ParcelaEnviadaMEILabel = New System.Windows.Forms.Label()
+        QtoParcelasINSSAntigoLabel = New System.Windows.Forms.Label()
+        ParcelaEnviadaINSSAntigoLabel = New System.Windows.Forms.Label()
+        QtoParcelasINSSNovoLabel = New System.Windows.Forms.Label()
+        ParcelaEnviadaINSSNovoLabel = New System.Windows.Forms.Label()
+        QtoParcelasINSSProcuradoriaLabel = New System.Windows.Forms.Label()
+        ParcelaEnviadaINSSProcuradoriaLabel = New System.Windows.Forms.Label()
         CType(Me.ParcelamentosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ParcelamentosBindingNavigator.SuspendLayout()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,26 +242,35 @@ Partial Class FrmControleParcelamentos
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabControlPrincipal.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.Geral.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.Endereço.SuspendLayout()
+        Me.FormadeEnvio.SuspendLayout()
+        Me.Responsável.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabControleParcelamentos.SuspendLayout()
         Me.TabPageMEI.SuspendLayout()
         Me.TabControlMEI.SuspendLayout()
-        Me.TabPage10.SuspendLayout()
+        Me.TabPageMEIGeral.SuspendLayout()
+        Me.TabPageMEIHistorico.SuspendLayout()
+        Me.TabPageMEIObservacoes.SuspendLayout()
         Me.TabPageINSSAntigo.SuspendLayout()
         Me.TabControlInssAntigo.SuspendLayout()
-        Me.TabPage12.SuspendLayout()
+        Me.TabPageINSSAntigoGeral.SuspendLayout()
+        Me.TabPageINSSAntigoHistorico.SuspendLayout()
+        Me.TabPageINSSAntigoObservacoes.SuspendLayout()
         Me.TabPageINSSNovo.SuspendLayout()
         Me.TabControlInssNovo.SuspendLayout()
-        Me.TabPage14.SuspendLayout()
+        Me.TabPageINSSNovoGeral.SuspendLayout()
+        Me.TabPageINSSNovoHistorico.SuspendLayout()
+        Me.TabPageINSSNovoObservacoes.SuspendLayout()
         Me.TabPageINSSProcuradoria.SuspendLayout()
         Me.TabControlInssProcuradoria.SuspendLayout()
-        Me.TabPage16.SuspendLayout()
+        Me.TabPageINSSProcuradoriaGeral.SuspendLayout()
+        Me.TabPageINSSProcuradoriaHistorico.SuspendLayout()
+        Me.TabPageINSSProcuradoriaObservacoes.SuspendLayout()
         Me.GroupBoxMenu.SuspendLayout()
+        Me.GroupBoxSalvando.SuspendLayout()
         Me.SuspendLayout()
         '
         'RazaoSocialLabel
@@ -339,6 +435,114 @@ Partial Class FrmControleParcelamentos
         CNPJLabel1.TabIndex = 2
         CNPJLabel1.Text = "CNPJ:"
         '
+        'MeiProtocoloLabel
+        '
+        MeiProtocoloLabel.AutoSize = True
+        MeiProtocoloLabel.Location = New System.Drawing.Point(160, 50)
+        MeiProtocoloLabel.Name = "MeiProtocoloLabel"
+        MeiProtocoloLabel.Size = New System.Drawing.Size(78, 18)
+        MeiProtocoloLabel.TabIndex = 0
+        MeiProtocoloLabel.Text = "Protocolo:"
+        '
+        'INSSAntigoProtLabel
+        '
+        INSSAntigoProtLabel.AutoSize = True
+        INSSAntigoProtLabel.Location = New System.Drawing.Point(160, 50)
+        INSSAntigoProtLabel.Name = "INSSAntigoProtLabel"
+        INSSAntigoProtLabel.Size = New System.Drawing.Size(78, 18)
+        INSSAntigoProtLabel.TabIndex = 8
+        INSSAntigoProtLabel.Text = "Protocolo:"
+        '
+        'INSSNovoProtLabel
+        '
+        INSSNovoProtLabel.AutoSize = True
+        INSSNovoProtLabel.Location = New System.Drawing.Point(160, 50)
+        INSSNovoProtLabel.Name = "INSSNovoProtLabel"
+        INSSNovoProtLabel.Size = New System.Drawing.Size(78, 18)
+        INSSNovoProtLabel.TabIndex = 2
+        INSSNovoProtLabel.Text = "Protocolo:"
+        '
+        'INSSProcProtLabel
+        '
+        INSSProcProtLabel.AutoSize = True
+        INSSProcProtLabel.Location = New System.Drawing.Point(160, 50)
+        INSSProcProtLabel.Name = "INSSProcProtLabel"
+        INSSProcProtLabel.Size = New System.Drawing.Size(78, 18)
+        INSSProcProtLabel.TabIndex = 4
+        INSSProcProtLabel.Text = "Protocolo:"
+        '
+        'QtoParcelasMEILabel
+        '
+        QtoParcelasMEILabel.AutoSize = True
+        QtoParcelasMEILabel.Location = New System.Drawing.Point(111, 80)
+        QtoParcelasMEILabel.Name = "QtoParcelasMEILabel"
+        QtoParcelasMEILabel.Size = New System.Drawing.Size(127, 18)
+        QtoParcelasMEILabel.TabIndex = 16
+        QtoParcelasMEILabel.Text = "Total de Parcelas:"
+        '
+        'ParcelaEnviadaMEILabel
+        '
+        ParcelaEnviadaMEILabel.AutoSize = True
+        ParcelaEnviadaMEILabel.Location = New System.Drawing.Point(152, 177)
+        ParcelaEnviadaMEILabel.Name = "ParcelaEnviadaMEILabel"
+        ParcelaEnviadaMEILabel.Size = New System.Drawing.Size(158, 18)
+        ParcelaEnviadaMEILabel.TabIndex = 17
+        ParcelaEnviadaMEILabel.Text = "Nº da Parcela Enviada:"
+        '
+        'QtoParcelasINSSAntigoLabel
+        '
+        QtoParcelasINSSAntigoLabel.AutoSize = True
+        QtoParcelasINSSAntigoLabel.Location = New System.Drawing.Point(111, 80)
+        QtoParcelasINSSAntigoLabel.Name = "QtoParcelasINSSAntigoLabel"
+        QtoParcelasINSSAntigoLabel.Size = New System.Drawing.Size(127, 18)
+        QtoParcelasINSSAntigoLabel.TabIndex = 18
+        QtoParcelasINSSAntigoLabel.Text = "Total de Parcelas:"
+        '
+        'ParcelaEnviadaINSSAntigoLabel
+        '
+        ParcelaEnviadaINSSAntigoLabel.AutoSize = True
+        ParcelaEnviadaINSSAntigoLabel.Location = New System.Drawing.Point(152, 177)
+        ParcelaEnviadaINSSAntigoLabel.Name = "ParcelaEnviadaINSSAntigoLabel"
+        ParcelaEnviadaINSSAntigoLabel.Size = New System.Drawing.Size(158, 18)
+        ParcelaEnviadaINSSAntigoLabel.TabIndex = 19
+        ParcelaEnviadaINSSAntigoLabel.Text = "Nº da Parcela Enviada:"
+        '
+        'QtoParcelasINSSNovoLabel
+        '
+        QtoParcelasINSSNovoLabel.AutoSize = True
+        QtoParcelasINSSNovoLabel.Location = New System.Drawing.Point(111, 80)
+        QtoParcelasINSSNovoLabel.Name = "QtoParcelasINSSNovoLabel"
+        QtoParcelasINSSNovoLabel.Size = New System.Drawing.Size(127, 18)
+        QtoParcelasINSSNovoLabel.TabIndex = 18
+        QtoParcelasINSSNovoLabel.Text = "Total de Parcelas:"
+        '
+        'ParcelaEnviadaINSSNovoLabel
+        '
+        ParcelaEnviadaINSSNovoLabel.AutoSize = True
+        ParcelaEnviadaINSSNovoLabel.Location = New System.Drawing.Point(153, 177)
+        ParcelaEnviadaINSSNovoLabel.Name = "ParcelaEnviadaINSSNovoLabel"
+        ParcelaEnviadaINSSNovoLabel.Size = New System.Drawing.Size(158, 18)
+        ParcelaEnviadaINSSNovoLabel.TabIndex = 19
+        ParcelaEnviadaINSSNovoLabel.Text = "Nº da Parcela Enviada:"
+        '
+        'QtoParcelasINSSProcuradoriaLabel
+        '
+        QtoParcelasINSSProcuradoriaLabel.AutoSize = True
+        QtoParcelasINSSProcuradoriaLabel.Location = New System.Drawing.Point(111, 80)
+        QtoParcelasINSSProcuradoriaLabel.Name = "QtoParcelasINSSProcuradoriaLabel"
+        QtoParcelasINSSProcuradoriaLabel.Size = New System.Drawing.Size(127, 18)
+        QtoParcelasINSSProcuradoriaLabel.TabIndex = 18
+        QtoParcelasINSSProcuradoriaLabel.Text = "Total de Parcelas:"
+        '
+        'ParcelaEnviadaINSSProcuradoriaLabel
+        '
+        ParcelaEnviadaINSSProcuradoriaLabel.AutoSize = True
+        ParcelaEnviadaINSSProcuradoriaLabel.Location = New System.Drawing.Point(153, 177)
+        ParcelaEnviadaINSSProcuradoriaLabel.Name = "ParcelaEnviadaINSSProcuradoriaLabel"
+        ParcelaEnviadaINSSProcuradoriaLabel.Size = New System.Drawing.Size(158, 18)
+        ParcelaEnviadaINSSProcuradoriaLabel.TabIndex = 19
+        ParcelaEnviadaINSSProcuradoriaLabel.Text = "Nº da Parcela Enviada:"
+        '
         'ParcelamentosBindingNavigator
         '
         Me.ParcelamentosBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -473,6 +677,7 @@ Partial Class FrmControleParcelamentos
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenu, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxSalvando, 1, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
@@ -534,10 +739,10 @@ Partial Class FrmControleParcelamentos
         '
         'TabControlPrincipal
         '
-        Me.TabControlPrincipal.Controls.Add(Me.TabPage1)
-        Me.TabControlPrincipal.Controls.Add(Me.TabPage2)
-        Me.TabControlPrincipal.Controls.Add(Me.TabPage3)
-        Me.TabControlPrincipal.Controls.Add(Me.TabPage4)
+        Me.TabControlPrincipal.Controls.Add(Me.Geral)
+        Me.TabControlPrincipal.Controls.Add(Me.Endereço)
+        Me.TabControlPrincipal.Controls.Add(Me.FormadeEnvio)
+        Me.TabControlPrincipal.Controls.Add(Me.Responsável)
         Me.TabControlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlPrincipal.Location = New System.Drawing.Point(4, 21)
         Me.TabControlPrincipal.Name = "TabControlPrincipal"
@@ -545,40 +750,48 @@ Partial Class FrmControleParcelamentos
         Me.TabControlPrincipal.Size = New System.Drawing.Size(817, 261)
         Me.TabControlPrincipal.TabIndex = 0
         '
-        'TabPage1
+        'Geral
         '
-        Me.TabPage1.AutoScroll = True
-        Me.TabPage1.Controls.Add(Me.TemDataEnvioCheckBox)
-        Me.TabPage1.Controls.Add(Me.TemDataLembreteCheckBox)
-        Me.TabPage1.Controls.Add(Me.DataEnvioDateTimePicker)
-        Me.TabPage1.Controls.Add(Me.BtnBImportarEmpresa)
-        Me.TabPage1.Controls.Add(RazaoSocialLabel)
-        Me.TabPage1.Controls.Add(Me.BtnCopiarCNPJ)
-        Me.TabPage1.Controls.Add(Me.RazaoSocialTextBox)
-        Me.TabPage1.Controls.Add(Me.BtnDuplicidade)
-        Me.TabPage1.Controls.Add(Me.CNPJMaskedTextBox)
-        Me.TabPage1.Controls.Add(Me.GroupBox4)
-        Me.TabPage1.Controls.Add(CNPJLabel)
-        Me.TabPage1.Controls.Add(DataCriacaoLabel)
-        Me.TabPage1.Controls.Add(Me.DataLembreteDateTimePicker)
-        Me.TabPage1.Controls.Add(Me.DataCriacaoDateTimePicker)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(809, 230)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Geral"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.Geral.AutoScroll = True
+        Me.Geral.Controls.Add(Me.TemDataFimParcelamentoCheckBox)
+        Me.Geral.Controls.Add(Me.FinalizadoParcelamentosDateTimePicker)
+        Me.Geral.Controls.Add(Me.TemDataLembreteCheckBox)
+        Me.Geral.Controls.Add(Me.BtnBImportarEmpresa)
+        Me.Geral.Controls.Add(RazaoSocialLabel)
+        Me.Geral.Controls.Add(Me.BtnCopiarCNPJ)
+        Me.Geral.Controls.Add(Me.RazaoSocialTextBox)
+        Me.Geral.Controls.Add(Me.BtnDuplicidade)
+        Me.Geral.Controls.Add(Me.CNPJMaskedTextBox)
+        Me.Geral.Controls.Add(Me.GroupBox4)
+        Me.Geral.Controls.Add(CNPJLabel)
+        Me.Geral.Controls.Add(DataCriacaoLabel)
+        Me.Geral.Controls.Add(Me.DataLembreteDateTimePicker)
+        Me.Geral.Controls.Add(Me.DataCriacaoDateTimePicker)
+        Me.Geral.Location = New System.Drawing.Point(4, 27)
+        Me.Geral.Name = "Geral"
+        Me.Geral.Padding = New System.Windows.Forms.Padding(3)
+        Me.Geral.Size = New System.Drawing.Size(809, 230)
+        Me.Geral.TabIndex = 0
+        Me.Geral.Text = "Geral"
+        Me.Geral.UseVisualStyleBackColor = True
         '
-        'TemDataEnvioCheckBox
+        'TemDataFimParcelamentoCheckBox
         '
-        Me.TemDataEnvioCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEnvio", True))
-        Me.TemDataEnvioCheckBox.Location = New System.Drawing.Point(6, 183)
-        Me.TemDataEnvioCheckBox.Name = "TemDataEnvioCheckBox"
-        Me.TemDataEnvioCheckBox.Size = New System.Drawing.Size(214, 24)
-        Me.TemDataEnvioCheckBox.TabIndex = 75
-        Me.TemDataEnvioCheckBox.Text = "Data Mensal de Finalização:"
-        Me.TemDataEnvioCheckBox.UseVisualStyleBackColor = True
+        Me.TemDataFimParcelamentoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataFimParcelamento", True))
+        Me.TemDataFimParcelamentoCheckBox.Location = New System.Drawing.Point(6, 186)
+        Me.TemDataFimParcelamentoCheckBox.Name = "TemDataFimParcelamentoCheckBox"
+        Me.TemDataFimParcelamentoCheckBox.Size = New System.Drawing.Size(225, 24)
+        Me.TemDataFimParcelamentoCheckBox.TabIndex = 75
+        Me.TemDataFimParcelamentoCheckBox.Text = "Data Fim dos Parcelamentos:"
+        Me.TemDataFimParcelamentoCheckBox.UseVisualStyleBackColor = True
+        '
+        'FinalizadoParcelamentosDateTimePicker
+        '
+        Me.FinalizadoParcelamentosDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "FinalizadoParcelamentos", True))
+        Me.FinalizadoParcelamentosDateTimePicker.Location = New System.Drawing.Point(237, 183)
+        Me.FinalizadoParcelamentosDateTimePicker.Name = "FinalizadoParcelamentosDateTimePicker"
+        Me.FinalizadoParcelamentosDateTimePicker.Size = New System.Drawing.Size(294, 24)
+        Me.FinalizadoParcelamentosDateTimePicker.TabIndex = 9
         '
         'TemDataLembreteCheckBox
         '
@@ -589,14 +802,6 @@ Partial Class FrmControleParcelamentos
         Me.TemDataLembreteCheckBox.TabIndex = 74
         Me.TemDataLembreteCheckBox.Text = "Data Lembrete:"
         Me.TemDataLembreteCheckBox.UseVisualStyleBackColor = True
-        '
-        'DataEnvioDateTimePicker
-        '
-        Me.DataEnvioDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataEnvio", True))
-        Me.DataEnvioDateTimePicker.Location = New System.Drawing.Point(226, 183)
-        Me.DataEnvioDateTimePicker.Name = "DataEnvioDateTimePicker"
-        Me.DataEnvioDateTimePicker.Size = New System.Drawing.Size(301, 24)
-        Me.DataEnvioDateTimePicker.TabIndex = 73
         '
         'BtnBImportarEmpresa
         '
@@ -726,27 +931,27 @@ Partial Class FrmControleParcelamentos
         Me.DataCriacaoDateTimePicker.Size = New System.Drawing.Size(319, 24)
         Me.DataCriacaoDateTimePicker.TabIndex = 7
         '
-        'TabPage2
+        'Endereço
         '
-        Me.TabPage2.Controls.Add(EstadoLabel)
-        Me.TabPage2.Controls.Add(Me.EstadoTextBox)
-        Me.TabPage2.Controls.Add(CidadeLabel)
-        Me.TabPage2.Controls.Add(Me.CidadeTextBox)
-        Me.TabPage2.Controls.Add(BairroLabel)
-        Me.TabPage2.Controls.Add(Me.BairroTextBox)
-        Me.TabPage2.Controls.Add(ComplementoLabel)
-        Me.TabPage2.Controls.Add(Me.ComplementoTextBox)
-        Me.TabPage2.Controls.Add(NumeroLabel)
-        Me.TabPage2.Controls.Add(Me.NumeroTextBox)
-        Me.TabPage2.Controls.Add(RuaLabel)
-        Me.TabPage2.Controls.Add(Me.RuaTextBox)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(809, 234)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Endereço"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.Endereço.Controls.Add(EstadoLabel)
+        Me.Endereço.Controls.Add(Me.EstadoTextBox)
+        Me.Endereço.Controls.Add(CidadeLabel)
+        Me.Endereço.Controls.Add(Me.CidadeTextBox)
+        Me.Endereço.Controls.Add(BairroLabel)
+        Me.Endereço.Controls.Add(Me.BairroTextBox)
+        Me.Endereço.Controls.Add(ComplementoLabel)
+        Me.Endereço.Controls.Add(Me.ComplementoTextBox)
+        Me.Endereço.Controls.Add(NumeroLabel)
+        Me.Endereço.Controls.Add(Me.NumeroTextBox)
+        Me.Endereço.Controls.Add(RuaLabel)
+        Me.Endereço.Controls.Add(Me.RuaTextBox)
+        Me.Endereço.Location = New System.Drawing.Point(4, 27)
+        Me.Endereço.Name = "Endereço"
+        Me.Endereço.Padding = New System.Windows.Forms.Padding(3)
+        Me.Endereço.Size = New System.Drawing.Size(809, 234)
+        Me.Endereço.TabIndex = 1
+        Me.Endereço.Text = "Endereço"
+        Me.Endereço.UseVisualStyleBackColor = True
         '
         'EstadoTextBox
         '
@@ -795,25 +1000,25 @@ Partial Class FrmControleParcelamentos
         Me.RuaTextBox.Size = New System.Drawing.Size(467, 24)
         Me.RuaTextBox.TabIndex = 1
         '
-        'TabPage3
+        'FormadeEnvio
         '
-        Me.TabPage3.Controls.Add(Me.BtnAbriremail)
-        Me.TabPage3.Controls.Add(Me.BtnAbrirWhatsApp)
-        Me.TabPage3.Controls.Add(EmailLabel)
-        Me.TabPage3.Controls.Add(Me.EmailTextBox)
-        Me.TabPage3.Controls.Add(WhatsAppLabel)
-        Me.TabPage3.Controls.Add(Me.WhatsAppTextBox)
-        Me.TabPage3.Controls.Add(Me.BtnImportaSocio)
-        Me.TabPage3.Controls.Add(NomeResponsavelLabel)
-        Me.TabPage3.Controls.Add(Me.NomeResponsavelTextBox)
-        Me.TabPage3.Controls.Add(FormaEnvioLabel)
-        Me.TabPage3.Controls.Add(Me.FormaEnvioComboBox)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(809, 234)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Forma de Envio"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.FormadeEnvio.Controls.Add(Me.BtnAbriremail)
+        Me.FormadeEnvio.Controls.Add(Me.BtnAbrirWhatsApp)
+        Me.FormadeEnvio.Controls.Add(EmailLabel)
+        Me.FormadeEnvio.Controls.Add(Me.EmailTextBox)
+        Me.FormadeEnvio.Controls.Add(WhatsAppLabel)
+        Me.FormadeEnvio.Controls.Add(Me.WhatsAppTextBox)
+        Me.FormadeEnvio.Controls.Add(Me.BtnImportaSocio)
+        Me.FormadeEnvio.Controls.Add(NomeResponsavelLabel)
+        Me.FormadeEnvio.Controls.Add(Me.NomeResponsavelTextBox)
+        Me.FormadeEnvio.Controls.Add(FormaEnvioLabel)
+        Me.FormadeEnvio.Controls.Add(Me.FormaEnvioComboBox)
+        Me.FormadeEnvio.Location = New System.Drawing.Point(4, 27)
+        Me.FormadeEnvio.Name = "FormadeEnvio"
+        Me.FormadeEnvio.Size = New System.Drawing.Size(809, 234)
+        Me.FormadeEnvio.TabIndex = 2
+        Me.FormadeEnvio.Text = "Forma de Envio"
+        Me.FormadeEnvio.UseVisualStyleBackColor = True
         '
         'BtnAbriremail
         '
@@ -891,21 +1096,21 @@ Partial Class FrmControleParcelamentos
         Me.FormaEnvioComboBox.Size = New System.Drawing.Size(121, 26)
         Me.FormaEnvioComboBox.TabIndex = 1
         '
-        'TabPage4
+        'Responsável
         '
-        Me.TabPage4.Controls.Add(Me.Button1)
-        Me.TabPage4.Controls.Add(GovSenhaLabel)
-        Me.TabPage4.Controls.Add(Me.GovSenhaMaskedTextBox)
-        Me.TabPage4.Controls.Add(CPFsocioResponsavelLabel)
-        Me.TabPage4.Controls.Add(Me.CPFsocioResponsavelMaskedTextBox)
-        Me.TabPage4.Controls.Add(SocioResponsavelLabel)
-        Me.TabPage4.Controls.Add(Me.SocioResponsavelTextBox)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(809, 234)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Sócio/Responsável"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.Responsável.Controls.Add(Me.Button1)
+        Me.Responsável.Controls.Add(GovSenhaLabel)
+        Me.Responsável.Controls.Add(Me.GovSenhaMaskedTextBox)
+        Me.Responsável.Controls.Add(CPFsocioResponsavelLabel)
+        Me.Responsável.Controls.Add(Me.CPFsocioResponsavelMaskedTextBox)
+        Me.Responsável.Controls.Add(SocioResponsavelLabel)
+        Me.Responsável.Controls.Add(Me.SocioResponsavelTextBox)
+        Me.Responsável.Location = New System.Drawing.Point(4, 27)
+        Me.Responsável.Name = "Responsável"
+        Me.Responsável.Size = New System.Drawing.Size(809, 234)
+        Me.Responsável.TabIndex = 3
+        Me.Responsável.Text = "Sócio/Responsável"
+        Me.Responsável.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -961,13 +1166,14 @@ Partial Class FrmControleParcelamentos
         '
         'TabControleParcelamentos
         '
-        Me.TabControleParcelamentos.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControleParcelamentos.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.TabControleParcelamentos.Controls.Add(Me.TabPageMEI)
         Me.TabControleParcelamentos.Controls.Add(Me.TabPageINSSAntigo)
         Me.TabControleParcelamentos.Controls.Add(Me.TabPageINSSNovo)
         Me.TabControleParcelamentos.Controls.Add(Me.TabPageINSSProcuradoria)
         Me.TabControleParcelamentos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControleParcelamentos.Location = New System.Drawing.Point(4, 21)
+        Me.TabControleParcelamentos.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControleParcelamentos.Name = "TabControleParcelamentos"
         Me.TabControleParcelamentos.SelectedIndex = 0
         Me.TabControleParcelamentos.Size = New System.Drawing.Size(817, 315)
@@ -986,35 +1192,181 @@ Partial Class FrmControleParcelamentos
         '
         'TabControlMEI
         '
-        Me.TabControlMEI.Controls.Add(Me.TabPage9)
-        Me.TabControlMEI.Controls.Add(Me.TabPage10)
+        Me.TabControlMEI.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControlMEI.Controls.Add(Me.TabPageMEIGeral)
+        Me.TabControlMEI.Controls.Add(Me.TabPageMEIHistorico)
+        Me.TabControlMEI.Controls.Add(Me.TabPageMEIObservacoes)
         Me.TabControlMEI.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlMEI.Location = New System.Drawing.Point(3, 3)
+        Me.TabControlMEI.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMEI.Name = "TabControlMEI"
         Me.TabControlMEI.SelectedIndex = 0
         Me.TabControlMEI.Size = New System.Drawing.Size(803, 275)
         Me.TabControlMEI.TabIndex = 0
         '
-        'TabPage9
+        'TabPageMEIGeral
         '
-        Me.TabPage9.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(795, 244)
-        Me.TabPage9.TabIndex = 0
-        Me.TabPage9.Text = "Geral"
-        Me.TabPage9.UseVisualStyleBackColor = True
+        Me.TabPageMEIGeral.AutoScroll = True
+        Me.TabPageMEIGeral.Controls.Add(Me.BtnVerDetalhesMEI)
+        Me.TabPageMEIGeral.Controls.Add(Me.MotivoParcMEILabel)
+        Me.TabPageMEIGeral.Controls.Add(ParcelaEnviadaMEILabel)
+        Me.TabPageMEIGeral.Controls.Add(Me.ParcelaEnviadaMEITextBox)
+        Me.TabPageMEIGeral.Controls.Add(QtoParcelasMEILabel)
+        Me.TabPageMEIGeral.Controls.Add(Me.QtoParcelasMEITextBox)
+        Me.TabPageMEIGeral.Controls.Add(Me.BtnRegistrarEnvioMEI)
+        Me.TabPageMEIGeral.Controls.Add(Me.TemDataEntradaMEICheckBox)
+        Me.TabPageMEIGeral.Controls.Add(Me.TemDataEnvioMEICheckBox)
+        Me.TabPageMEIGeral.Controls.Add(Me.TemDataFimMEICheckBox)
+        Me.TabPageMEIGeral.Controls.Add(Me.DataFimParcMEIDateTimePicker)
+        Me.TabPageMEIGeral.Controls.Add(Me.MotivoParcMEIRichTextBox)
+        Me.TabPageMEIGeral.Controls.Add(Me.DataParcMEIDateTimePicker)
+        Me.TabPageMEIGeral.Controls.Add(Me.MesEnviadoMEIDateTimePicker)
+        Me.TabPageMEIGeral.Controls.Add(MeiProtocoloLabel)
+        Me.TabPageMEIGeral.Controls.Add(Me.MeiProtocoloTextBox)
+        Me.TabPageMEIGeral.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageMEIGeral.Name = "TabPageMEIGeral"
+        Me.TabPageMEIGeral.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageMEIGeral.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageMEIGeral.TabIndex = 0
+        Me.TabPageMEIGeral.Text = "Geral"
+        Me.TabPageMEIGeral.UseVisualStyleBackColor = True
         '
-        'TabPage10
+        'BtnVerDetalhesMEI
         '
-        Me.TabPage10.Controls.Add(Me.HistoricoEnvioMEIRichTextBox)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(795, 244)
-        Me.TabPage10.TabIndex = 1
-        Me.TabPage10.Text = "Histórico"
-        Me.TabPage10.UseVisualStyleBackColor = True
+        Me.BtnVerDetalhesMEI.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesMEI.FlatAppearance.BorderSize = 2
+        Me.BtnVerDetalhesMEI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDetalhesMEI.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerDetalhesMEI.ForeColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesMEI.Location = New System.Drawing.Point(6, 197)
+        Me.BtnVerDetalhesMEI.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnVerDetalhesMEI.Name = "BtnVerDetalhesMEI"
+        Me.BtnVerDetalhesMEI.Size = New System.Drawing.Size(102, 37)
+        Me.BtnVerDetalhesMEI.TabIndex = 20
+        Me.BtnVerDetalhesMEI.Text = "Detalhes"
+        Me.BtnVerDetalhesMEI.UseVisualStyleBackColor = True
+        '
+        'MotivoParcMEILabel
+        '
+        Me.MotivoParcMEILabel.AutoSize = True
+        Me.MotivoParcMEILabel.Location = New System.Drawing.Point(560, 19)
+        Me.MotivoParcMEILabel.Name = "MotivoParcMEILabel"
+        Me.MotivoParcMEILabel.Size = New System.Drawing.Size(57, 18)
+        Me.MotivoParcMEILabel.TabIndex = 19
+        Me.MotivoParcMEILabel.Text = "Motivo:"
+        '
+        'ParcelaEnviadaMEITextBox
+        '
+        Me.ParcelaEnviadaMEITextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "ParcelaEnviadaMEI", True))
+        Me.ParcelaEnviadaMEITextBox.Location = New System.Drawing.Point(316, 174)
+        Me.ParcelaEnviadaMEITextBox.Name = "ParcelaEnviadaMEITextBox"
+        Me.ParcelaEnviadaMEITextBox.Size = New System.Drawing.Size(100, 24)
+        Me.ParcelaEnviadaMEITextBox.TabIndex = 18
+        '
+        'QtoParcelasMEITextBox
+        '
+        Me.QtoParcelasMEITextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "QtoParcelasMEI", True))
+        Me.QtoParcelasMEITextBox.Location = New System.Drawing.Point(244, 77)
+        Me.QtoParcelasMEITextBox.Name = "QtoParcelasMEITextBox"
+        Me.QtoParcelasMEITextBox.Size = New System.Drawing.Size(100, 24)
+        Me.QtoParcelasMEITextBox.TabIndex = 17
+        '
+        'BtnRegistrarEnvioMEI
+        '
+        Me.BtnRegistrarEnvioMEI.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnRegistrarEnvioMEI.FlatAppearance.BorderSize = 2
+        Me.BtnRegistrarEnvioMEI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRegistrarEnvioMEI.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRegistrarEnvioMEI.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnRegistrarEnvioMEI.Location = New System.Drawing.Point(425, 168)
+        Me.BtnRegistrarEnvioMEI.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnRegistrarEnvioMEI.Name = "BtnRegistrarEnvioMEI"
+        Me.BtnRegistrarEnvioMEI.Size = New System.Drawing.Size(132, 37)
+        Me.BtnRegistrarEnvioMEI.TabIndex = 16
+        Me.BtnRegistrarEnvioMEI.Text = "Registrar Envio"
+        Me.BtnRegistrarEnvioMEI.UseVisualStyleBackColor = True
+        '
+        'TemDataEntradaMEICheckBox
+        '
+        Me.TemDataEntradaMEICheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEntradaMEI", True))
+        Me.TemDataEntradaMEICheckBox.Location = New System.Drawing.Point(9, 17)
+        Me.TemDataEntradaMEICheckBox.Name = "TemDataEntradaMEICheckBox"
+        Me.TemDataEntradaMEICheckBox.Size = New System.Drawing.Size(234, 24)
+        Me.TemDataEntradaMEICheckBox.TabIndex = 15
+        Me.TemDataEntradaMEICheckBox.Text = "Data Entrada do Parcelamento:"
+        Me.TemDataEntradaMEICheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataEnvioMEICheckBox
+        '
+        Me.TemDataEnvioMEICheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEnvioMEI", True))
+        Me.TemDataEnvioMEICheckBox.Location = New System.Drawing.Point(124, 137)
+        Me.TemDataEnvioMEICheckBox.Name = "TemDataEnvioMEICheckBox"
+        Me.TemDataEnvioMEICheckBox.Size = New System.Drawing.Size(118, 24)
+        Me.TemDataEnvioMEICheckBox.TabIndex = 14
+        Me.TemDataEnvioMEICheckBox.Text = "Mes Enviado:"
+        Me.TemDataEnvioMEICheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataFimMEICheckBox
+        '
+        Me.TemDataFimMEICheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataFimMEI", True))
+        Me.TemDataFimMEICheckBox.Location = New System.Drawing.Point(68, 107)
+        Me.TemDataFimMEICheckBox.Name = "TemDataFimMEICheckBox"
+        Me.TemDataFimMEICheckBox.Size = New System.Drawing.Size(174, 24)
+        Me.TemDataFimMEICheckBox.TabIndex = 13
+        Me.TemDataFimMEICheckBox.Text = "Fim do Parcelamento:"
+        Me.TemDataFimMEICheckBox.UseVisualStyleBackColor = True
+        '
+        'DataFimParcMEIDateTimePicker
+        '
+        Me.DataFimParcMEIDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataFimParcMEI", True))
+        Me.DataFimParcMEIDateTimePicker.Location = New System.Drawing.Point(244, 107)
+        Me.DataFimParcMEIDateTimePicker.Name = "DataFimParcMEIDateTimePicker"
+        Me.DataFimParcMEIDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.DataFimParcMEIDateTimePicker.TabIndex = 11
+        '
+        'MotivoParcMEIRichTextBox
+        '
+        Me.MotivoParcMEIRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoParcMEI", True))
+        Me.MotivoParcMEIRichTextBox.Location = New System.Drawing.Point(618, 17)
+        Me.MotivoParcMEIRichTextBox.Name = "MotivoParcMEIRichTextBox"
+        Me.MotivoParcMEIRichTextBox.Size = New System.Drawing.Size(165, 220)
+        Me.MotivoParcMEIRichTextBox.TabIndex = 9
+        Me.MotivoParcMEIRichTextBox.Text = ""
+        '
+        'DataParcMEIDateTimePicker
+        '
+        Me.DataParcMEIDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataParcMEI", True))
+        Me.DataParcMEIDateTimePicker.Location = New System.Drawing.Point(244, 17)
+        Me.DataParcMEIDateTimePicker.Name = "DataParcMEIDateTimePicker"
+        Me.DataParcMEIDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.DataParcMEIDateTimePicker.TabIndex = 7
+        '
+        'MesEnviadoMEIDateTimePicker
+        '
+        Me.MesEnviadoMEIDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoMEI", True))
+        Me.MesEnviadoMEIDateTimePicker.Location = New System.Drawing.Point(244, 137)
+        Me.MesEnviadoMEIDateTimePicker.Name = "MesEnviadoMEIDateTimePicker"
+        Me.MesEnviadoMEIDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.MesEnviadoMEIDateTimePicker.TabIndex = 3
+        '
+        'MeiProtocoloTextBox
+        '
+        Me.MeiProtocoloTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MeiProtocolo", True))
+        Me.MeiProtocoloTextBox.Location = New System.Drawing.Point(244, 47)
+        Me.MeiProtocoloTextBox.Name = "MeiProtocoloTextBox"
+        Me.MeiProtocoloTextBox.Size = New System.Drawing.Size(313, 24)
+        Me.MeiProtocoloTextBox.TabIndex = 1
+        '
+        'TabPageMEIHistorico
+        '
+        Me.TabPageMEIHistorico.Controls.Add(Me.HistoricoEnvioMEIRichTextBox)
+        Me.TabPageMEIHistorico.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageMEIHistorico.Name = "TabPageMEIHistorico"
+        Me.TabPageMEIHistorico.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageMEIHistorico.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageMEIHistorico.TabIndex = 1
+        Me.TabPageMEIHistorico.Text = "Histórico"
+        Me.TabPageMEIHistorico.UseVisualStyleBackColor = True
         '
         'HistoricoEnvioMEIRichTextBox
         '
@@ -1022,14 +1374,36 @@ Partial Class FrmControleParcelamentos
         Me.HistoricoEnvioMEIRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.HistoricoEnvioMEIRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.HistoricoEnvioMEIRichTextBox.Name = "HistoricoEnvioMEIRichTextBox"
-        Me.HistoricoEnvioMEIRichTextBox.Size = New System.Drawing.Size(789, 238)
+        Me.HistoricoEnvioMEIRichTextBox.ReadOnly = True
+        Me.HistoricoEnvioMEIRichTextBox.Size = New System.Drawing.Size(789, 235)
         Me.HistoricoEnvioMEIRichTextBox.TabIndex = 1
         Me.HistoricoEnvioMEIRichTextBox.Text = ""
+        '
+        'TabPageMEIObservacoes
+        '
+        Me.TabPageMEIObservacoes.Controls.Add(Me.GeralMEIRichTextBox)
+        Me.TabPageMEIObservacoes.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageMEIObservacoes.Name = "TabPageMEIObservacoes"
+        Me.TabPageMEIObservacoes.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageMEIObservacoes.TabIndex = 2
+        Me.TabPageMEIObservacoes.Text = "Detalhes"
+        Me.TabPageMEIObservacoes.UseVisualStyleBackColor = True
+        '
+        'GeralMEIRichTextBox
+        '
+        Me.GeralMEIRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "GeralMEI", True))
+        Me.GeralMEIRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GeralMEIRichTextBox.Location = New System.Drawing.Point(0, 0)
+        Me.GeralMEIRichTextBox.Name = "GeralMEIRichTextBox"
+        Me.GeralMEIRichTextBox.Size = New System.Drawing.Size(795, 241)
+        Me.GeralMEIRichTextBox.TabIndex = 6
+        Me.GeralMEIRichTextBox.Text = ""
         '
         'TabPageINSSAntigo
         '
         Me.TabPageINSSAntigo.Controls.Add(Me.TabControlInssAntigo)
         Me.TabPageINSSAntigo.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabPageINSSAntigo.Name = "TabPageINSSAntigo"
         Me.TabPageINSSAntigo.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPageINSSAntigo.Size = New System.Drawing.Size(809, 281)
@@ -1039,35 +1413,181 @@ Partial Class FrmControleParcelamentos
         '
         'TabControlInssAntigo
         '
-        Me.TabControlInssAntigo.Controls.Add(Me.TabPage11)
-        Me.TabControlInssAntigo.Controls.Add(Me.TabPage12)
+        Me.TabControlInssAntigo.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControlInssAntigo.Controls.Add(Me.TabPageINSSAntigoGeral)
+        Me.TabControlInssAntigo.Controls.Add(Me.TabPageINSSAntigoHistorico)
+        Me.TabControlInssAntigo.Controls.Add(Me.TabPageINSSAntigoObservacoes)
         Me.TabControlInssAntigo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlInssAntigo.Location = New System.Drawing.Point(3, 3)
+        Me.TabControlInssAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlInssAntigo.Name = "TabControlInssAntigo"
         Me.TabControlInssAntigo.SelectedIndex = 0
         Me.TabControlInssAntigo.Size = New System.Drawing.Size(803, 275)
         Me.TabControlInssAntigo.TabIndex = 1
         '
-        'TabPage11
+        'TabPageINSSAntigoGeral
         '
-        Me.TabPage11.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(795, 244)
-        Me.TabPage11.TabIndex = 0
-        Me.TabPage11.Text = "Geral"
-        Me.TabPage11.UseVisualStyleBackColor = True
+        Me.TabPageINSSAntigoGeral.AutoScroll = True
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.BtnVerDetalhesINSSAntigo)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.MotivoParcINSSAntigoLabel)
+        Me.TabPageINSSAntigoGeral.Controls.Add(ParcelaEnviadaINSSAntigoLabel)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.ParcelaEnviadaINSSAntigoTextBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(QtoParcelasINSSAntigoLabel)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.QtoParcelasINSSAntigoTextBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.BtnRegistrarEnvioINSSantigo)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.TemDataEntradaINSSAntigoCheckBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.TemDataFimINSSAntigoCheckBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.TemDataEnvioINSSAntigoCheckBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.DataParcelINSSantigoDateTimePicker)
+        Me.TabPageINSSAntigoGeral.Controls.Add(INSSAntigoProtLabel)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.INSSAntigoProtTextBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.MesEnviadoINSSAntigoDateTimePicker)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.MotivoParcINSSAntigoRichTextBox)
+        Me.TabPageINSSAntigoGeral.Controls.Add(Me.FinalizadoINSSAntigoDateTimePicker)
+        Me.TabPageINSSAntigoGeral.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSAntigoGeral.Name = "TabPageINSSAntigoGeral"
+        Me.TabPageINSSAntigoGeral.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSAntigoGeral.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageINSSAntigoGeral.TabIndex = 0
+        Me.TabPageINSSAntigoGeral.Text = "Geral"
+        Me.TabPageINSSAntigoGeral.UseVisualStyleBackColor = True
         '
-        'TabPage12
+        'BtnVerDetalhesINSSAntigo
         '
-        Me.TabPage12.Controls.Add(Me.HistoricoEnvioINSSAntigoRichTextBox)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(795, 244)
-        Me.TabPage12.TabIndex = 1
-        Me.TabPage12.Text = "Histórico"
-        Me.TabPage12.UseVisualStyleBackColor = True
+        Me.BtnVerDetalhesINSSAntigo.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSAntigo.FlatAppearance.BorderSize = 2
+        Me.BtnVerDetalhesINSSAntigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDetalhesINSSAntigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerDetalhesINSSAntigo.ForeColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSAntigo.Location = New System.Drawing.Point(6, 197)
+        Me.BtnVerDetalhesINSSAntigo.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnVerDetalhesINSSAntigo.Name = "BtnVerDetalhesINSSAntigo"
+        Me.BtnVerDetalhesINSSAntigo.Size = New System.Drawing.Size(102, 37)
+        Me.BtnVerDetalhesINSSAntigo.TabIndex = 22
+        Me.BtnVerDetalhesINSSAntigo.Text = "Detalhes"
+        Me.BtnVerDetalhesINSSAntigo.UseVisualStyleBackColor = True
+        '
+        'MotivoParcINSSAntigoLabel
+        '
+        Me.MotivoParcINSSAntigoLabel.AutoSize = True
+        Me.MotivoParcINSSAntigoLabel.Location = New System.Drawing.Point(560, 19)
+        Me.MotivoParcINSSAntigoLabel.Name = "MotivoParcINSSAntigoLabel"
+        Me.MotivoParcINSSAntigoLabel.Size = New System.Drawing.Size(57, 18)
+        Me.MotivoParcINSSAntigoLabel.TabIndex = 21
+        Me.MotivoParcINSSAntigoLabel.Text = "Motivo:"
+        '
+        'ParcelaEnviadaINSSAntigoTextBox
+        '
+        Me.ParcelaEnviadaINSSAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "ParcelaEnviadaINSSAntigo", True))
+        Me.ParcelaEnviadaINSSAntigoTextBox.Location = New System.Drawing.Point(316, 174)
+        Me.ParcelaEnviadaINSSAntigoTextBox.Name = "ParcelaEnviadaINSSAntigoTextBox"
+        Me.ParcelaEnviadaINSSAntigoTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.ParcelaEnviadaINSSAntigoTextBox.TabIndex = 20
+        '
+        'QtoParcelasINSSAntigoTextBox
+        '
+        Me.QtoParcelasINSSAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "QtoParcelasINSSAntigo", True))
+        Me.QtoParcelasINSSAntigoTextBox.Location = New System.Drawing.Point(244, 77)
+        Me.QtoParcelasINSSAntigoTextBox.Name = "QtoParcelasINSSAntigoTextBox"
+        Me.QtoParcelasINSSAntigoTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.QtoParcelasINSSAntigoTextBox.TabIndex = 19
+        '
+        'BtnRegistrarEnvioINSSantigo
+        '
+        Me.BtnRegistrarEnvioINSSantigo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnRegistrarEnvioINSSantigo.FlatAppearance.BorderSize = 2
+        Me.BtnRegistrarEnvioINSSantigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRegistrarEnvioINSSantigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRegistrarEnvioINSSantigo.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnRegistrarEnvioINSSantigo.Location = New System.Drawing.Point(425, 168)
+        Me.BtnRegistrarEnvioINSSantigo.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnRegistrarEnvioINSSantigo.Name = "BtnRegistrarEnvioINSSantigo"
+        Me.BtnRegistrarEnvioINSSantigo.Size = New System.Drawing.Size(132, 37)
+        Me.BtnRegistrarEnvioINSSantigo.TabIndex = 18
+        Me.BtnRegistrarEnvioINSSantigo.Text = "Registrar Envio"
+        Me.BtnRegistrarEnvioINSSantigo.UseVisualStyleBackColor = True
+        '
+        'TemDataEntradaINSSAntigoCheckBox
+        '
+        Me.TemDataEntradaINSSAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEntradaINSSAntigo", True))
+        Me.TemDataEntradaINSSAntigoCheckBox.Location = New System.Drawing.Point(9, 17)
+        Me.TemDataEntradaINSSAntigoCheckBox.Name = "TemDataEntradaINSSAntigoCheckBox"
+        Me.TemDataEntradaINSSAntigoCheckBox.Size = New System.Drawing.Size(234, 24)
+        Me.TemDataEntradaINSSAntigoCheckBox.TabIndex = 17
+        Me.TemDataEntradaINSSAntigoCheckBox.Text = "Data Entrada do Parcelamento:"
+        Me.TemDataEntradaINSSAntigoCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataFimINSSAntigoCheckBox
+        '
+        Me.TemDataFimINSSAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataFimINSSAntigo", True))
+        Me.TemDataFimINSSAntigoCheckBox.Location = New System.Drawing.Point(68, 107)
+        Me.TemDataFimINSSAntigoCheckBox.Name = "TemDataFimINSSAntigoCheckBox"
+        Me.TemDataFimINSSAntigoCheckBox.Size = New System.Drawing.Size(174, 24)
+        Me.TemDataFimINSSAntigoCheckBox.TabIndex = 15
+        Me.TemDataFimINSSAntigoCheckBox.Text = "Fim do Parcelamento:"
+        Me.TemDataFimINSSAntigoCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataEnvioINSSAntigoCheckBox
+        '
+        Me.TemDataEnvioINSSAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEnvioINSSAntigo", True))
+        Me.TemDataEnvioINSSAntigoCheckBox.Location = New System.Drawing.Point(124, 137)
+        Me.TemDataEnvioINSSAntigoCheckBox.Name = "TemDataEnvioINSSAntigoCheckBox"
+        Me.TemDataEnvioINSSAntigoCheckBox.Size = New System.Drawing.Size(118, 24)
+        Me.TemDataEnvioINSSAntigoCheckBox.TabIndex = 13
+        Me.TemDataEnvioINSSAntigoCheckBox.Text = "Mes Enviado:"
+        Me.TemDataEnvioINSSAntigoCheckBox.UseVisualStyleBackColor = True
+        '
+        'DataParcelINSSantigoDateTimePicker
+        '
+        Me.DataParcelINSSantigoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataParcelINSSantigo", True))
+        Me.DataParcelINSSantigoDateTimePicker.Location = New System.Drawing.Point(244, 17)
+        Me.DataParcelINSSantigoDateTimePicker.Name = "DataParcelINSSantigoDateTimePicker"
+        Me.DataParcelINSSantigoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.DataParcelINSSantigoDateTimePicker.TabIndex = 11
+        '
+        'INSSAntigoProtTextBox
+        '
+        Me.INSSAntigoProtTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSAntigoProt", True))
+        Me.INSSAntigoProtTextBox.Location = New System.Drawing.Point(244, 47)
+        Me.INSSAntigoProtTextBox.Name = "INSSAntigoProtTextBox"
+        Me.INSSAntigoProtTextBox.Size = New System.Drawing.Size(313, 24)
+        Me.INSSAntigoProtTextBox.TabIndex = 9
+        '
+        'MesEnviadoINSSAntigoDateTimePicker
+        '
+        Me.MesEnviadoINSSAntigoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSAntigo", True))
+        Me.MesEnviadoINSSAntigoDateTimePicker.Location = New System.Drawing.Point(244, 137)
+        Me.MesEnviadoINSSAntigoDateTimePicker.Name = "MesEnviadoINSSAntigoDateTimePicker"
+        Me.MesEnviadoINSSAntigoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.MesEnviadoINSSAntigoDateTimePicker.TabIndex = 7
+        '
+        'MotivoParcINSSAntigoRichTextBox
+        '
+        Me.MotivoParcINSSAntigoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoParcINSSAntigo", True))
+        Me.MotivoParcINSSAntigoRichTextBox.Location = New System.Drawing.Point(618, 17)
+        Me.MotivoParcINSSAntigoRichTextBox.Name = "MotivoParcINSSAntigoRichTextBox"
+        Me.MotivoParcINSSAntigoRichTextBox.Size = New System.Drawing.Size(165, 220)
+        Me.MotivoParcINSSAntigoRichTextBox.TabIndex = 3
+        Me.MotivoParcINSSAntigoRichTextBox.Text = ""
+        '
+        'FinalizadoINSSAntigoDateTimePicker
+        '
+        Me.FinalizadoINSSAntigoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "FinalizadoINSSAntigo", True))
+        Me.FinalizadoINSSAntigoDateTimePicker.Location = New System.Drawing.Point(244, 107)
+        Me.FinalizadoINSSAntigoDateTimePicker.Name = "FinalizadoINSSAntigoDateTimePicker"
+        Me.FinalizadoINSSAntigoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.FinalizadoINSSAntigoDateTimePicker.TabIndex = 1
+        '
+        'TabPageINSSAntigoHistorico
+        '
+        Me.TabPageINSSAntigoHistorico.Controls.Add(Me.HistoricoEnvioINSSAntigoRichTextBox)
+        Me.TabPageINSSAntigoHistorico.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSAntigoHistorico.Name = "TabPageINSSAntigoHistorico"
+        Me.TabPageINSSAntigoHistorico.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSAntigoHistorico.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageINSSAntigoHistorico.TabIndex = 1
+        Me.TabPageINSSAntigoHistorico.Text = "Histórico"
+        Me.TabPageINSSAntigoHistorico.UseVisualStyleBackColor = True
         '
         'HistoricoEnvioINSSAntigoRichTextBox
         '
@@ -1075,14 +1595,37 @@ Partial Class FrmControleParcelamentos
         Me.HistoricoEnvioINSSAntigoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.HistoricoEnvioINSSAntigoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.HistoricoEnvioINSSAntigoRichTextBox.Name = "HistoricoEnvioINSSAntigoRichTextBox"
-        Me.HistoricoEnvioINSSAntigoRichTextBox.Size = New System.Drawing.Size(789, 238)
+        Me.HistoricoEnvioINSSAntigoRichTextBox.ReadOnly = True
+        Me.HistoricoEnvioINSSAntigoRichTextBox.Size = New System.Drawing.Size(789, 235)
         Me.HistoricoEnvioINSSAntigoRichTextBox.TabIndex = 1
         Me.HistoricoEnvioINSSAntigoRichTextBox.Text = ""
+        '
+        'TabPageINSSAntigoObservacoes
+        '
+        Me.TabPageINSSAntigoObservacoes.Controls.Add(Me.INSSAntigoObsRichTextBox)
+        Me.TabPageINSSAntigoObservacoes.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSAntigoObservacoes.Name = "TabPageINSSAntigoObservacoes"
+        Me.TabPageINSSAntigoObservacoes.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSAntigoObservacoes.Size = New System.Drawing.Size(795, 241)
+        Me.TabPageINSSAntigoObservacoes.TabIndex = 2
+        Me.TabPageINSSAntigoObservacoes.Text = "Detalhes"
+        Me.TabPageINSSAntigoObservacoes.UseVisualStyleBackColor = True
+        '
+        'INSSAntigoObsRichTextBox
+        '
+        Me.INSSAntigoObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSAntigoObs", True))
+        Me.INSSAntigoObsRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.INSSAntigoObsRichTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.INSSAntigoObsRichTextBox.Name = "INSSAntigoObsRichTextBox"
+        Me.INSSAntigoObsRichTextBox.Size = New System.Drawing.Size(789, 235)
+        Me.INSSAntigoObsRichTextBox.TabIndex = 19
+        Me.INSSAntigoObsRichTextBox.Text = ""
         '
         'TabPageINSSNovo
         '
         Me.TabPageINSSNovo.Controls.Add(Me.TabControlInssNovo)
         Me.TabPageINSSNovo.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabPageINSSNovo.Name = "TabPageINSSNovo"
         Me.TabPageINSSNovo.Size = New System.Drawing.Size(809, 281)
         Me.TabPageINSSNovo.TabIndex = 2
@@ -1091,36 +1634,214 @@ Partial Class FrmControleParcelamentos
         '
         'TabControlInssNovo
         '
-        Me.TabControlInssNovo.Controls.Add(Me.TabPage13)
-        Me.TabControlInssNovo.Controls.Add(Me.TabPage14)
+        Me.TabControlInssNovo.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControlInssNovo.Controls.Add(Me.TabPageINSSNovoGeral)
+        Me.TabControlInssNovo.Controls.Add(Me.TabPageINSSNovoHistorico)
+        Me.TabControlInssNovo.Controls.Add(Me.TabPageINSSNovoObservacoes)
         Me.TabControlInssNovo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlInssNovo.Location = New System.Drawing.Point(0, 0)
+        Me.TabControlInssNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlInssNovo.Name = "TabControlInssNovo"
         Me.TabControlInssNovo.SelectedIndex = 0
         Me.TabControlInssNovo.Size = New System.Drawing.Size(809, 281)
         Me.TabControlInssNovo.TabIndex = 1
         '
-        'TabPage13
+        'TabPageINSSNovoGeral
         '
-        Me.TabPage13.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(801, 250)
-        Me.TabPage13.TabIndex = 0
-        Me.TabPage13.Text = "Geral"
-        Me.TabPage13.UseVisualStyleBackColor = True
+        Me.TabPageINSSNovoGeral.AutoScroll = True
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.BtnVerDetalhesINSSNovo)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.MotivoParcINSSNovoLabel)
+        Me.TabPageINSSNovoGeral.Controls.Add(ParcelaEnviadaINSSNovoLabel)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.ParcelaEnviadaINSSNovoTextBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(QtoParcelasINSSNovoLabel)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.QtoParcelasINSSNovoTextBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.BtnRegistrarEnvioINSSnovo)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.TemDataEntradaINSSNovoCheckBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.TemDataFimINSSNovoCheckBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.TemDataEnvioINSSNovoCheckBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.MesEnviadoINSSNovoDateTimePicker)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.MotivoParcINSSNovoRichTextBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.FinalizadoINSSNovoDateTimePicker)
+        Me.TabPageINSSNovoGeral.Controls.Add(INSSNovoProtLabel)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.INSSNovoProtTextBox)
+        Me.TabPageINSSNovoGeral.Controls.Add(Me.DataParcelINSSnovoDateTimePicker)
+        Me.TabPageINSSNovoGeral.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSNovoGeral.Name = "TabPageINSSNovoGeral"
+        Me.TabPageINSSNovoGeral.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSNovoGeral.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSNovoGeral.TabIndex = 0
+        Me.TabPageINSSNovoGeral.Text = "Geral"
+        Me.TabPageINSSNovoGeral.UseVisualStyleBackColor = True
         '
-        'TabPage14
+        'BtnVerDetalhesINSSNovo
         '
-        Me.TabPage14.AutoScroll = True
-        Me.TabPage14.Controls.Add(Me.HistoricoEnvioINSSNovoRichTextBox)
-        Me.TabPage14.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(801, 250)
-        Me.TabPage14.TabIndex = 1
-        Me.TabPage14.Text = "Histórico"
-        Me.TabPage14.UseVisualStyleBackColor = True
+        Me.BtnVerDetalhesINSSNovo.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSNovo.FlatAppearance.BorderSize = 2
+        Me.BtnVerDetalhesINSSNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDetalhesINSSNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerDetalhesINSSNovo.ForeColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSNovo.Location = New System.Drawing.Point(6, 197)
+        Me.BtnVerDetalhesINSSNovo.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnVerDetalhesINSSNovo.Name = "BtnVerDetalhesINSSNovo"
+        Me.BtnVerDetalhesINSSNovo.Size = New System.Drawing.Size(102, 37)
+        Me.BtnVerDetalhesINSSNovo.TabIndex = 23
+        Me.BtnVerDetalhesINSSNovo.Text = "Detalhes"
+        Me.BtnVerDetalhesINSSNovo.UseVisualStyleBackColor = True
+        '
+        'MotivoParcINSSNovoLabel
+        '
+        Me.MotivoParcINSSNovoLabel.AutoSize = True
+        Me.MotivoParcINSSNovoLabel.Location = New System.Drawing.Point(560, 19)
+        Me.MotivoParcINSSNovoLabel.Name = "MotivoParcINSSNovoLabel"
+        Me.MotivoParcINSSNovoLabel.Size = New System.Drawing.Size(57, 18)
+        Me.MotivoParcINSSNovoLabel.TabIndex = 22
+        Me.MotivoParcINSSNovoLabel.Text = "Motivo:"
+        '
+        'ParcelaEnviadaINSSNovoTextBox
+        '
+        Me.ParcelaEnviadaINSSNovoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "ParcelaEnviadaINSSNovo", True))
+        Me.ParcelaEnviadaINSSNovoTextBox.Location = New System.Drawing.Point(317, 174)
+        Me.ParcelaEnviadaINSSNovoTextBox.Name = "ParcelaEnviadaINSSNovoTextBox"
+        Me.ParcelaEnviadaINSSNovoTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.ParcelaEnviadaINSSNovoTextBox.TabIndex = 20
+        '
+        'QtoParcelasINSSNovoTextBox
+        '
+        Me.QtoParcelasINSSNovoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "QtoParcelasINSSNovo", True))
+        Me.QtoParcelasINSSNovoTextBox.Location = New System.Drawing.Point(244, 77)
+        Me.QtoParcelasINSSNovoTextBox.Name = "QtoParcelasINSSNovoTextBox"
+        Me.QtoParcelasINSSNovoTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.QtoParcelasINSSNovoTextBox.TabIndex = 19
+        '
+        'BtnRegistrarEnvioINSSnovo
+        '
+        Me.BtnRegistrarEnvioINSSnovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnRegistrarEnvioINSSnovo.FlatAppearance.BorderSize = 2
+        Me.BtnRegistrarEnvioINSSnovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRegistrarEnvioINSSnovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRegistrarEnvioINSSnovo.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnRegistrarEnvioINSSnovo.Location = New System.Drawing.Point(426, 168)
+        Me.BtnRegistrarEnvioINSSnovo.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnRegistrarEnvioINSSnovo.Name = "BtnRegistrarEnvioINSSnovo"
+        Me.BtnRegistrarEnvioINSSnovo.Size = New System.Drawing.Size(132, 37)
+        Me.BtnRegistrarEnvioINSSnovo.TabIndex = 18
+        Me.BtnRegistrarEnvioINSSnovo.Text = "Registrar Envio"
+        Me.BtnRegistrarEnvioINSSnovo.UseVisualStyleBackColor = True
+        '
+        'TemDataEntradaINSSNovoCheckBox
+        '
+        Me.TemDataEntradaINSSNovoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEntradaINSSNovo", True))
+        Me.TemDataEntradaINSSNovoCheckBox.Location = New System.Drawing.Point(9, 17)
+        Me.TemDataEntradaINSSNovoCheckBox.Name = "TemDataEntradaINSSNovoCheckBox"
+        Me.TemDataEntradaINSSNovoCheckBox.Size = New System.Drawing.Size(234, 24)
+        Me.TemDataEntradaINSSNovoCheckBox.TabIndex = 17
+        Me.TemDataEntradaINSSNovoCheckBox.Text = "Data Entrada do Parcelamento:"
+        Me.TemDataEntradaINSSNovoCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataFimINSSNovoCheckBox
+        '
+        Me.TemDataFimINSSNovoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataFimINSSNovo", True))
+        Me.TemDataFimINSSNovoCheckBox.Location = New System.Drawing.Point(68, 107)
+        Me.TemDataFimINSSNovoCheckBox.Name = "TemDataFimINSSNovoCheckBox"
+        Me.TemDataFimINSSNovoCheckBox.Size = New System.Drawing.Size(174, 24)
+        Me.TemDataFimINSSNovoCheckBox.TabIndex = 15
+        Me.TemDataFimINSSNovoCheckBox.Text = "Fim do Parcelamento:"
+        Me.TemDataFimINSSNovoCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataEnvioINSSNovoCheckBox
+        '
+        Me.TemDataEnvioINSSNovoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEnvioINSSNovo", True))
+        Me.TemDataEnvioINSSNovoCheckBox.Location = New System.Drawing.Point(124, 137)
+        Me.TemDataEnvioINSSNovoCheckBox.Name = "TemDataEnvioINSSNovoCheckBox"
+        Me.TemDataEnvioINSSNovoCheckBox.Size = New System.Drawing.Size(118, 24)
+        Me.TemDataEnvioINSSNovoCheckBox.TabIndex = 13
+        Me.TemDataEnvioINSSNovoCheckBox.Text = "Mes Enviado:"
+        Me.TemDataEnvioINSSNovoCheckBox.UseVisualStyleBackColor = True
+        '
+        'MesEnviadoINSSNovoDateTimePicker
+        '
+        Me.MesEnviadoINSSNovoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSNovo", True))
+        Me.MesEnviadoINSSNovoDateTimePicker.Location = New System.Drawing.Point(244, 137)
+        Me.MesEnviadoINSSNovoDateTimePicker.Name = "MesEnviadoINSSNovoDateTimePicker"
+        Me.MesEnviadoINSSNovoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.MesEnviadoINSSNovoDateTimePicker.TabIndex = 11
+        '
+        'MotivoParcINSSNovoRichTextBox
+        '
+        Me.MotivoParcINSSNovoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoParcINSSNovo", True))
+        Me.MotivoParcINSSNovoRichTextBox.Location = New System.Drawing.Point(618, 17)
+        Me.MotivoParcINSSNovoRichTextBox.Name = "MotivoParcINSSNovoRichTextBox"
+        Me.MotivoParcINSSNovoRichTextBox.Size = New System.Drawing.Size(165, 220)
+        Me.MotivoParcINSSNovoRichTextBox.TabIndex = 9
+        Me.MotivoParcINSSNovoRichTextBox.Text = ""
+        '
+        'FinalizadoINSSNovoDateTimePicker
+        '
+        Me.FinalizadoINSSNovoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "FinalizadoINSSNovo", True))
+        Me.FinalizadoINSSNovoDateTimePicker.Location = New System.Drawing.Point(244, 107)
+        Me.FinalizadoINSSNovoDateTimePicker.Name = "FinalizadoINSSNovoDateTimePicker"
+        Me.FinalizadoINSSNovoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.FinalizadoINSSNovoDateTimePicker.TabIndex = 7
+        '
+        'INSSNovoProtTextBox
+        '
+        Me.INSSNovoProtTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSNovoProt", True))
+        Me.INSSNovoProtTextBox.Location = New System.Drawing.Point(244, 47)
+        Me.INSSNovoProtTextBox.Name = "INSSNovoProtTextBox"
+        Me.INSSNovoProtTextBox.Size = New System.Drawing.Size(313, 24)
+        Me.INSSNovoProtTextBox.TabIndex = 3
+        '
+        'DataParcelINSSnovoDateTimePicker
+        '
+        Me.DataParcelINSSnovoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataParcelINSSnovo", True))
+        Me.DataParcelINSSnovoDateTimePicker.Location = New System.Drawing.Point(244, 17)
+        Me.DataParcelINSSnovoDateTimePicker.Name = "DataParcelINSSnovoDateTimePicker"
+        Me.DataParcelINSSnovoDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.DataParcelINSSnovoDateTimePicker.TabIndex = 1
+        '
+        'TabPageINSSNovoHistorico
+        '
+        Me.TabPageINSSNovoHistorico.AutoScroll = True
+        Me.TabPageINSSNovoHistorico.Controls.Add(Me.HistoricoEnvioINSSNovoRichTextBox)
+        Me.TabPageINSSNovoHistorico.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSNovoHistorico.Name = "TabPageINSSNovoHistorico"
+        Me.TabPageINSSNovoHistorico.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSNovoHistorico.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSNovoHistorico.TabIndex = 1
+        Me.TabPageINSSNovoHistorico.Text = "Histórico"
+        Me.TabPageINSSNovoHistorico.UseVisualStyleBackColor = True
+        '
+        'HistoricoEnvioINSSNovoRichTextBox
+        '
+        Me.HistoricoEnvioINSSNovoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioINSSNovo", True))
+        Me.HistoricoEnvioINSSNovoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.HistoricoEnvioINSSNovoRichTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.HistoricoEnvioINSSNovoRichTextBox.Name = "HistoricoEnvioINSSNovoRichTextBox"
+        Me.HistoricoEnvioINSSNovoRichTextBox.ReadOnly = True
+        Me.HistoricoEnvioINSSNovoRichTextBox.Size = New System.Drawing.Size(795, 241)
+        Me.HistoricoEnvioINSSNovoRichTextBox.TabIndex = 1
+        Me.HistoricoEnvioINSSNovoRichTextBox.Text = ""
+        '
+        'TabPageINSSNovoObservacoes
+        '
+        Me.TabPageINSSNovoObservacoes.Controls.Add(Me.INSSNovoObsRichTextBox)
+        Me.TabPageINSSNovoObservacoes.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSNovoObservacoes.Name = "TabPageINSSNovoObservacoes"
+        Me.TabPageINSSNovoObservacoes.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSNovoObservacoes.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSNovoObservacoes.TabIndex = 2
+        Me.TabPageINSSNovoObservacoes.Text = "Detalhes"
+        Me.TabPageINSSNovoObservacoes.UseVisualStyleBackColor = True
+        '
+        'INSSNovoObsRichTextBox
+        '
+        Me.INSSNovoObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSNovoObs", True))
+        Me.INSSNovoObsRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.INSSNovoObsRichTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.INSSNovoObsRichTextBox.Name = "INSSNovoObsRichTextBox"
+        Me.INSSNovoObsRichTextBox.Size = New System.Drawing.Size(795, 241)
+        Me.INSSNovoObsRichTextBox.TabIndex = 6
+        Me.INSSNovoObsRichTextBox.Text = ""
         '
         'TabPageINSSProcuradoria
         '
@@ -1134,35 +1855,213 @@ Partial Class FrmControleParcelamentos
         '
         'TabControlInssProcuradoria
         '
-        Me.TabControlInssProcuradoria.Controls.Add(Me.TabPage15)
-        Me.TabControlInssProcuradoria.Controls.Add(Me.TabPage16)
+        Me.TabControlInssProcuradoria.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControlInssProcuradoria.Controls.Add(Me.TabPageINSSProcuradoriaGeral)
+        Me.TabControlInssProcuradoria.Controls.Add(Me.TabPageINSSProcuradoriaHistorico)
+        Me.TabControlInssProcuradoria.Controls.Add(Me.TabPageINSSProcuradoriaObservacoes)
         Me.TabControlInssProcuradoria.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlInssProcuradoria.Location = New System.Drawing.Point(0, 0)
+        Me.TabControlInssProcuradoria.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlInssProcuradoria.Name = "TabControlInssProcuradoria"
         Me.TabControlInssProcuradoria.SelectedIndex = 0
         Me.TabControlInssProcuradoria.Size = New System.Drawing.Size(809, 281)
         Me.TabControlInssProcuradoria.TabIndex = 1
         '
-        'TabPage15
+        'TabPageINSSProcuradoriaGeral
         '
-        Me.TabPage15.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage15.Size = New System.Drawing.Size(801, 250)
-        Me.TabPage15.TabIndex = 0
-        Me.TabPage15.Text = "Geral"
-        Me.TabPage15.UseVisualStyleBackColor = True
+        Me.TabPageINSSProcuradoriaGeral.AutoScroll = True
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.BtnVerDetalhesINSSProcuradoria)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.MotivoParcINSSProcLabel)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(ParcelaEnviadaINSSProcuradoriaLabel)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.ParcelaEnviadaINSSProcuradoriaTextBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(QtoParcelasINSSProcuradoriaLabel)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.QtoParcelasINSSProcuradoriaTextBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.BtnRegistrarEnvioINSSProcuradoria)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.TemDataEntradaINSSProcuCheckBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.TemDataFimINSSProcurCheckBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.TemDataEnvioINSSProcurCheckBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.MesEnviadoINSSProcDateTimePicker)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.MotivoParcINSSProcRichTextBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.FinalizadoINSSProcDateTimePicker)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(INSSProcProtLabel)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.INSSProcProtTextBox)
+        Me.TabPageINSSProcuradoriaGeral.Controls.Add(Me.DataParcelINSSprocDateTimePicker)
+        Me.TabPageINSSProcuradoriaGeral.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSProcuradoriaGeral.Name = "TabPageINSSProcuradoriaGeral"
+        Me.TabPageINSSProcuradoriaGeral.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSProcuradoriaGeral.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSProcuradoriaGeral.TabIndex = 0
+        Me.TabPageINSSProcuradoriaGeral.Text = "Geral"
+        Me.TabPageINSSProcuradoriaGeral.UseVisualStyleBackColor = True
         '
-        'TabPage16
+        'BtnVerDetalhesINSSProcuradoria
         '
-        Me.TabPage16.Controls.Add(Me.HistoricoEnvioINSSProcRichTextBox)
-        Me.TabPage16.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(801, 250)
-        Me.TabPage16.TabIndex = 1
-        Me.TabPage16.Text = "Histórico"
-        Me.TabPage16.UseVisualStyleBackColor = True
+        Me.BtnVerDetalhesINSSProcuradoria.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSProcuradoria.FlatAppearance.BorderSize = 2
+        Me.BtnVerDetalhesINSSProcuradoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerDetalhesINSSProcuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVerDetalhesINSSProcuradoria.ForeColor = System.Drawing.Color.Blue
+        Me.BtnVerDetalhesINSSProcuradoria.Location = New System.Drawing.Point(6, 197)
+        Me.BtnVerDetalhesINSSProcuradoria.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnVerDetalhesINSSProcuradoria.Name = "BtnVerDetalhesINSSProcuradoria"
+        Me.BtnVerDetalhesINSSProcuradoria.Size = New System.Drawing.Size(102, 37)
+        Me.BtnVerDetalhesINSSProcuradoria.TabIndex = 22
+        Me.BtnVerDetalhesINSSProcuradoria.Text = "Detalhes"
+        Me.BtnVerDetalhesINSSProcuradoria.UseVisualStyleBackColor = True
+        '
+        'MotivoParcINSSProcLabel
+        '
+        Me.MotivoParcINSSProcLabel.AutoSize = True
+        Me.MotivoParcINSSProcLabel.Location = New System.Drawing.Point(560, 19)
+        Me.MotivoParcINSSProcLabel.Name = "MotivoParcINSSProcLabel"
+        Me.MotivoParcINSSProcLabel.Size = New System.Drawing.Size(57, 18)
+        Me.MotivoParcINSSProcLabel.TabIndex = 21
+        Me.MotivoParcINSSProcLabel.Text = "Motivo:"
+        '
+        'ParcelaEnviadaINSSProcuradoriaTextBox
+        '
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "ParcelaEnviadaINSSProcuradoria", True))
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox.Location = New System.Drawing.Point(317, 174)
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox.Name = "ParcelaEnviadaINSSProcuradoriaTextBox"
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.ParcelaEnviadaINSSProcuradoriaTextBox.TabIndex = 20
+        '
+        'QtoParcelasINSSProcuradoriaTextBox
+        '
+        Me.QtoParcelasINSSProcuradoriaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "QtoParcelasINSSProcuradoria", True))
+        Me.QtoParcelasINSSProcuradoriaTextBox.Location = New System.Drawing.Point(244, 77)
+        Me.QtoParcelasINSSProcuradoriaTextBox.Name = "QtoParcelasINSSProcuradoriaTextBox"
+        Me.QtoParcelasINSSProcuradoriaTextBox.Size = New System.Drawing.Size(100, 24)
+        Me.QtoParcelasINSSProcuradoriaTextBox.TabIndex = 19
+        '
+        'BtnRegistrarEnvioINSSProcuradoria
+        '
+        Me.BtnRegistrarEnvioINSSProcuradoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnRegistrarEnvioINSSProcuradoria.FlatAppearance.BorderSize = 2
+        Me.BtnRegistrarEnvioINSSProcuradoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRegistrarEnvioINSSProcuradoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRegistrarEnvioINSSProcuradoria.ForeColor = System.Drawing.Color.DarkGreen
+        Me.BtnRegistrarEnvioINSSProcuradoria.Location = New System.Drawing.Point(426, 168)
+        Me.BtnRegistrarEnvioINSSProcuradoria.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.BtnRegistrarEnvioINSSProcuradoria.Name = "BtnRegistrarEnvioINSSProcuradoria"
+        Me.BtnRegistrarEnvioINSSProcuradoria.Size = New System.Drawing.Size(132, 37)
+        Me.BtnRegistrarEnvioINSSProcuradoria.TabIndex = 18
+        Me.BtnRegistrarEnvioINSSProcuradoria.Text = "Registrar Envio"
+        Me.BtnRegistrarEnvioINSSProcuradoria.UseVisualStyleBackColor = True
+        '
+        'TemDataEntradaINSSProcuCheckBox
+        '
+        Me.TemDataEntradaINSSProcuCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEntradaINSSProcu", True))
+        Me.TemDataEntradaINSSProcuCheckBox.Location = New System.Drawing.Point(9, 17)
+        Me.TemDataEntradaINSSProcuCheckBox.Name = "TemDataEntradaINSSProcuCheckBox"
+        Me.TemDataEntradaINSSProcuCheckBox.Size = New System.Drawing.Size(234, 24)
+        Me.TemDataEntradaINSSProcuCheckBox.TabIndex = 17
+        Me.TemDataEntradaINSSProcuCheckBox.Text = "Data Entrada do Parcelamento:"
+        Me.TemDataEntradaINSSProcuCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataFimINSSProcurCheckBox
+        '
+        Me.TemDataFimINSSProcurCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataFimINSSProcur", True))
+        Me.TemDataFimINSSProcurCheckBox.Location = New System.Drawing.Point(68, 107)
+        Me.TemDataFimINSSProcurCheckBox.Name = "TemDataFimINSSProcurCheckBox"
+        Me.TemDataFimINSSProcurCheckBox.Size = New System.Drawing.Size(174, 24)
+        Me.TemDataFimINSSProcurCheckBox.TabIndex = 15
+        Me.TemDataFimINSSProcurCheckBox.Text = "Fim do Parcelamento:"
+        Me.TemDataFimINSSProcurCheckBox.UseVisualStyleBackColor = True
+        '
+        'TemDataEnvioINSSProcurCheckBox
+        '
+        Me.TemDataEnvioINSSProcurCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "TemDataEnvioINSSProcur", True))
+        Me.TemDataEnvioINSSProcurCheckBox.Location = New System.Drawing.Point(124, 137)
+        Me.TemDataEnvioINSSProcurCheckBox.Name = "TemDataEnvioINSSProcurCheckBox"
+        Me.TemDataEnvioINSSProcurCheckBox.Size = New System.Drawing.Size(118, 24)
+        Me.TemDataEnvioINSSProcurCheckBox.TabIndex = 13
+        Me.TemDataEnvioINSSProcurCheckBox.Text = "Mes Enviado:"
+        Me.TemDataEnvioINSSProcurCheckBox.UseVisualStyleBackColor = True
+        '
+        'MesEnviadoINSSProcDateTimePicker
+        '
+        Me.MesEnviadoINSSProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "MesEnviadoINSSProc", True))
+        Me.MesEnviadoINSSProcDateTimePicker.Location = New System.Drawing.Point(244, 137)
+        Me.MesEnviadoINSSProcDateTimePicker.Name = "MesEnviadoINSSProcDateTimePicker"
+        Me.MesEnviadoINSSProcDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.MesEnviadoINSSProcDateTimePicker.TabIndex = 11
+        '
+        'MotivoParcINSSProcRichTextBox
+        '
+        Me.MotivoParcINSSProcRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoParcINSSProc", True))
+        Me.MotivoParcINSSProcRichTextBox.Location = New System.Drawing.Point(618, 17)
+        Me.MotivoParcINSSProcRichTextBox.Name = "MotivoParcINSSProcRichTextBox"
+        Me.MotivoParcINSSProcRichTextBox.Size = New System.Drawing.Size(165, 220)
+        Me.MotivoParcINSSProcRichTextBox.TabIndex = 9
+        Me.MotivoParcINSSProcRichTextBox.Text = ""
+        '
+        'FinalizadoINSSProcDateTimePicker
+        '
+        Me.FinalizadoINSSProcDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "FinalizadoINSSProc", True))
+        Me.FinalizadoINSSProcDateTimePicker.Location = New System.Drawing.Point(244, 107)
+        Me.FinalizadoINSSProcDateTimePicker.Name = "FinalizadoINSSProcDateTimePicker"
+        Me.FinalizadoINSSProcDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.FinalizadoINSSProcDateTimePicker.TabIndex = 7
+        '
+        'INSSProcProtTextBox
+        '
+        Me.INSSProcProtTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSProcProt", True))
+        Me.INSSProcProtTextBox.Location = New System.Drawing.Point(244, 47)
+        Me.INSSProcProtTextBox.Name = "INSSProcProtTextBox"
+        Me.INSSProcProtTextBox.Size = New System.Drawing.Size(313, 24)
+        Me.INSSProcProtTextBox.TabIndex = 5
+        '
+        'DataParcelINSSprocDateTimePicker
+        '
+        Me.DataParcelINSSprocDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ParcelamentosBindingSource, "DataParcelINSSproc", True))
+        Me.DataParcelINSSprocDateTimePicker.Location = New System.Drawing.Point(244, 17)
+        Me.DataParcelINSSprocDateTimePicker.Name = "DataParcelINSSprocDateTimePicker"
+        Me.DataParcelINSSprocDateTimePicker.Size = New System.Drawing.Size(313, 24)
+        Me.DataParcelINSSprocDateTimePicker.TabIndex = 1
+        '
+        'TabPageINSSProcuradoriaHistorico
+        '
+        Me.TabPageINSSProcuradoriaHistorico.Controls.Add(Me.HistoricoEnvioINSSProcRichTextBox)
+        Me.TabPageINSSProcuradoriaHistorico.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSProcuradoriaHistorico.Name = "TabPageINSSProcuradoriaHistorico"
+        Me.TabPageINSSProcuradoriaHistorico.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSProcuradoriaHistorico.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSProcuradoriaHistorico.TabIndex = 1
+        Me.TabPageINSSProcuradoriaHistorico.Text = "Histórico"
+        Me.TabPageINSSProcuradoriaHistorico.UseVisualStyleBackColor = True
+        '
+        'HistoricoEnvioINSSProcRichTextBox
+        '
+        Me.HistoricoEnvioINSSProcRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioINSSProc", True))
+        Me.HistoricoEnvioINSSProcRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.HistoricoEnvioINSSProcRichTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.HistoricoEnvioINSSProcRichTextBox.Name = "HistoricoEnvioINSSProcRichTextBox"
+        Me.HistoricoEnvioINSSProcRichTextBox.ReadOnly = True
+        Me.HistoricoEnvioINSSProcRichTextBox.Size = New System.Drawing.Size(795, 241)
+        Me.HistoricoEnvioINSSProcRichTextBox.TabIndex = 1
+        Me.HistoricoEnvioINSSProcRichTextBox.Text = ""
+        '
+        'TabPageINSSProcuradoriaObservacoes
+        '
+        Me.TabPageINSSProcuradoriaObservacoes.Controls.Add(Me.INSSProcObsRichTextBox)
+        Me.TabPageINSSProcuradoriaObservacoes.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageINSSProcuradoriaObservacoes.Name = "TabPageINSSProcuradoriaObservacoes"
+        Me.TabPageINSSProcuradoriaObservacoes.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageINSSProcuradoriaObservacoes.Size = New System.Drawing.Size(801, 247)
+        Me.TabPageINSSProcuradoriaObservacoes.TabIndex = 2
+        Me.TabPageINSSProcuradoriaObservacoes.Text = "Detalhes"
+        Me.TabPageINSSProcuradoriaObservacoes.UseVisualStyleBackColor = True
+        '
+        'INSSProcObsRichTextBox
+        '
+        Me.INSSProcObsRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "INSSProcObs", True))
+        Me.INSSProcObsRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.INSSProcObsRichTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.INSSProcObsRichTextBox.Name = "INSSProcObsRichTextBox"
+        Me.INSSProcObsRichTextBox.Size = New System.Drawing.Size(795, 241)
+        Me.INSSProcObsRichTextBox.TabIndex = 7
+        Me.INSSProcObsRichTextBox.Text = ""
         '
         'GroupBoxMenu
         '
@@ -1186,7 +2085,7 @@ Partial Class FrmControleParcelamentos
         '
         Me.BtnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFechar.Location = New System.Drawing.Point(12, 206)
         Me.BtnFechar.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
         Me.BtnFechar.Name = "BtnFechar"
@@ -1200,7 +2099,7 @@ Partial Class FrmControleParcelamentos
         Me.BtnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.BtnNovo.FlatAppearance.BorderSize = 2
         Me.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNovo.ForeColor = System.Drawing.Color.Black
         Me.BtnNovo.Location = New System.Drawing.Point(12, 30)
         Me.BtnNovo.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
@@ -1213,7 +2112,7 @@ Partial Class FrmControleParcelamentos
         'BtnEditar
         '
         Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEditar.Location = New System.Drawing.Point(12, 72)
         Me.BtnEditar.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
         Me.BtnEditar.Name = "BtnEditar"
@@ -1225,7 +2124,7 @@ Partial Class FrmControleParcelamentos
         'BtnSalvar
         '
         Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSalvar.Location = New System.Drawing.Point(12, 114)
         Me.BtnSalvar.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
         Me.BtnSalvar.Name = "BtnSalvar"
@@ -1239,7 +2138,7 @@ Partial Class FrmControleParcelamentos
         Me.BtnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.Red
         Me.BtnExcluir.FlatAppearance.BorderSize = 2
         Me.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExcluir.ForeColor = System.Drawing.Color.Black
         Me.BtnExcluir.Location = New System.Drawing.Point(12, 159)
         Me.BtnExcluir.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
@@ -1248,6 +2147,35 @@ Partial Class FrmControleParcelamentos
         Me.BtnExcluir.TabIndex = 9
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
+        '
+        'GroupBoxSalvando
+        '
+        Me.GroupBoxSalvando.Controls.Add(Me.ProgressBarSalvando)
+        Me.GroupBoxSalvando.Controls.Add(Me.LabelSalvando)
+        Me.GroupBoxSalvando.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBoxSalvando.Location = New System.Drawing.Point(825, 351)
+        Me.GroupBoxSalvando.Margin = New System.Windows.Forms.Padding(0)
+        Me.GroupBoxSalvando.Name = "GroupBoxSalvando"
+        Me.GroupBoxSalvando.Size = New System.Drawing.Size(161, 340)
+        Me.GroupBoxSalvando.TabIndex = 59
+        Me.GroupBoxSalvando.TabStop = False
+        '
+        'ProgressBarSalvando
+        '
+        Me.ProgressBarSalvando.Location = New System.Drawing.Point(6, 55)
+        Me.ProgressBarSalvando.Name = "ProgressBarSalvando"
+        Me.ProgressBarSalvando.Size = New System.Drawing.Size(144, 35)
+        Me.ProgressBarSalvando.TabIndex = 1
+        '
+        'LabelSalvando
+        '
+        Me.LabelSalvando.AutoSize = True
+        Me.LabelSalvando.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSalvando.Location = New System.Drawing.Point(7, 32)
+        Me.LabelSalvando.Name = "LabelSalvando"
+        Me.LabelSalvando.Size = New System.Drawing.Size(57, 20)
+        Me.LabelSalvando.TabIndex = 0
+        Me.LabelSalvando.Text = "Label1"
         '
         'ParcelamentosTableAdapter
         '
@@ -1285,26 +2213,6 @@ Partial Class FrmControleParcelamentos
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'HistoricoEnvioINSSNovoRichTextBox
-        '
-        Me.HistoricoEnvioINSSNovoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioINSSNovo", True))
-        Me.HistoricoEnvioINSSNovoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.HistoricoEnvioINSSNovoRichTextBox.Location = New System.Drawing.Point(3, 3)
-        Me.HistoricoEnvioINSSNovoRichTextBox.Name = "HistoricoEnvioINSSNovoRichTextBox"
-        Me.HistoricoEnvioINSSNovoRichTextBox.Size = New System.Drawing.Size(795, 244)
-        Me.HistoricoEnvioINSSNovoRichTextBox.TabIndex = 1
-        Me.HistoricoEnvioINSSNovoRichTextBox.Text = ""
-        '
-        'HistoricoEnvioINSSProcRichTextBox
-        '
-        Me.HistoricoEnvioINSSProcRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "HistoricoEnvioINSSProc", True))
-        Me.HistoricoEnvioINSSProcRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.HistoricoEnvioINSSProcRichTextBox.Location = New System.Drawing.Point(3, 3)
-        Me.HistoricoEnvioINSSProcRichTextBox.Name = "HistoricoEnvioINSSProcRichTextBox"
-        Me.HistoricoEnvioINSSProcRichTextBox.Size = New System.Drawing.Size(795, 244)
-        Me.HistoricoEnvioINSSProcRichTextBox.TabIndex = 1
-        Me.HistoricoEnvioINSSProcRichTextBox.Text = ""
-        '
         'FrmControleParcelamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -1331,30 +2239,44 @@ Partial Class FrmControleParcelamentos
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.TabControlPrincipal.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
+        Me.Geral.ResumeLayout(False)
+        Me.Geral.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
+        Me.Endereço.ResumeLayout(False)
+        Me.Endereço.PerformLayout()
+        Me.FormadeEnvio.ResumeLayout(False)
+        Me.FormadeEnvio.PerformLayout()
+        Me.Responsável.ResumeLayout(False)
+        Me.Responsável.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.TabControleParcelamentos.ResumeLayout(False)
         Me.TabPageMEI.ResumeLayout(False)
         Me.TabControlMEI.ResumeLayout(False)
-        Me.TabPage10.ResumeLayout(False)
+        Me.TabPageMEIGeral.ResumeLayout(False)
+        Me.TabPageMEIGeral.PerformLayout()
+        Me.TabPageMEIHistorico.ResumeLayout(False)
+        Me.TabPageMEIObservacoes.ResumeLayout(False)
         Me.TabPageINSSAntigo.ResumeLayout(False)
         Me.TabControlInssAntigo.ResumeLayout(False)
-        Me.TabPage12.ResumeLayout(False)
+        Me.TabPageINSSAntigoGeral.ResumeLayout(False)
+        Me.TabPageINSSAntigoGeral.PerformLayout()
+        Me.TabPageINSSAntigoHistorico.ResumeLayout(False)
+        Me.TabPageINSSAntigoObservacoes.ResumeLayout(False)
         Me.TabPageINSSNovo.ResumeLayout(False)
         Me.TabControlInssNovo.ResumeLayout(False)
-        Me.TabPage14.ResumeLayout(False)
+        Me.TabPageINSSNovoGeral.ResumeLayout(False)
+        Me.TabPageINSSNovoGeral.PerformLayout()
+        Me.TabPageINSSNovoHistorico.ResumeLayout(False)
+        Me.TabPageINSSNovoObservacoes.ResumeLayout(False)
         Me.TabPageINSSProcuradoria.ResumeLayout(False)
         Me.TabControlInssProcuradoria.ResumeLayout(False)
-        Me.TabPage16.ResumeLayout(False)
+        Me.TabPageINSSProcuradoriaGeral.ResumeLayout(False)
+        Me.TabPageINSSProcuradoriaGeral.PerformLayout()
+        Me.TabPageINSSProcuradoriaHistorico.ResumeLayout(False)
+        Me.TabPageINSSProcuradoriaObservacoes.ResumeLayout(False)
         Me.GroupBoxMenu.ResumeLayout(False)
+        Me.GroupBoxSalvando.ResumeLayout(False)
+        Me.GroupBoxSalvando.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1399,10 +2321,10 @@ Partial Class FrmControleParcelamentos
     Friend WithEvents BtnCopiarCNPJ As Button
     Friend WithEvents BtnDuplicidade As Button
     Friend WithEvents TabControlPrincipal As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents Geral As TabPage
+    Friend WithEvents Endereço As TabPage
+    Friend WithEvents FormadeEnvio As TabPage
+    Friend WithEvents Responsável As TabPage
     Friend WithEvents EstadoTextBox As TextBox
     Friend WithEvents CidadeTextBox As TextBox
     Friend WithEvents BairroTextBox As TextBox
@@ -1422,28 +2344,91 @@ Partial Class FrmControleParcelamentos
     Friend WithEvents Button1 As Button
     Friend WithEvents RazaoSocialComboBox As ComboBox
     Friend WithEvents CNPJComboBox As ComboBox
-    Friend WithEvents DataEnvioDateTimePicker As DateTimePicker
     Friend WithEvents TabControleParcelamentos As TabControl
     Friend WithEvents TabPageMEI As TabPage
     Friend WithEvents TabPageINSSAntigo As TabPage
-    Friend WithEvents TemDataEnvioCheckBox As CheckBox
     Friend WithEvents TemDataLembreteCheckBox As CheckBox
     Friend WithEvents TabPageINSSNovo As TabPage
     Friend WithEvents TabPageINSSProcuradoria As TabPage
     Friend WithEvents TabControlMEI As TabControl
-    Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents TabPageMEIGeral As TabPage
+    Friend WithEvents TabPageMEIHistorico As TabPage
     Friend WithEvents TabControlInssAntigo As TabControl
-    Friend WithEvents TabPage11 As TabPage
-    Friend WithEvents TabPage12 As TabPage
+    Friend WithEvents TabPageINSSAntigoGeral As TabPage
+    Friend WithEvents TabPageINSSAntigoHistorico As TabPage
     Friend WithEvents TabControlInssNovo As TabControl
-    Friend WithEvents TabPage13 As TabPage
-    Friend WithEvents TabPage14 As TabPage
+    Friend WithEvents TabPageINSSNovoGeral As TabPage
+    Friend WithEvents TabPageINSSNovoHistorico As TabPage
     Friend WithEvents TabControlInssProcuradoria As TabControl
-    Friend WithEvents TabPage15 As TabPage
-    Friend WithEvents TabPage16 As TabPage
+    Friend WithEvents TabPageINSSProcuradoriaGeral As TabPage
+    Friend WithEvents TabPageINSSProcuradoriaHistorico As TabPage
     Friend WithEvents HistoricoEnvioMEIRichTextBox As RichTextBox
     Friend WithEvents HistoricoEnvioINSSAntigoRichTextBox As RichTextBox
     Friend WithEvents HistoricoEnvioINSSNovoRichTextBox As RichTextBox
     Friend WithEvents HistoricoEnvioINSSProcRichTextBox As RichTextBox
+    Friend WithEvents DataFimParcMEIDateTimePicker As DateTimePicker
+    Friend WithEvents MotivoParcMEIRichTextBox As RichTextBox
+    Friend WithEvents DataParcMEIDateTimePicker As DateTimePicker
+    Friend WithEvents MesEnviadoMEIDateTimePicker As DateTimePicker
+    Friend WithEvents MeiProtocoloTextBox As TextBox
+    Friend WithEvents TemDataFimMEICheckBox As CheckBox
+    Friend WithEvents DataParcelINSSantigoDateTimePicker As DateTimePicker
+    Friend WithEvents INSSAntigoProtTextBox As TextBox
+    Friend WithEvents MesEnviadoINSSAntigoDateTimePicker As DateTimePicker
+    Friend WithEvents MotivoParcINSSAntigoRichTextBox As RichTextBox
+    Friend WithEvents FinalizadoINSSAntigoDateTimePicker As DateTimePicker
+    Friend WithEvents TemDataFimINSSAntigoCheckBox As CheckBox
+    Friend WithEvents TemDataEnvioINSSAntigoCheckBox As CheckBox
+    Friend WithEvents TemDataEnvioMEICheckBox As CheckBox
+    Friend WithEvents TemDataEntradaMEICheckBox As CheckBox
+    Friend WithEvents TemDataEntradaINSSAntigoCheckBox As CheckBox
+    Friend WithEvents MesEnviadoINSSNovoDateTimePicker As DateTimePicker
+    Friend WithEvents MotivoParcINSSNovoRichTextBox As RichTextBox
+    Friend WithEvents FinalizadoINSSNovoDateTimePicker As DateTimePicker
+    Friend WithEvents INSSNovoProtTextBox As TextBox
+    Friend WithEvents DataParcelINSSnovoDateTimePicker As DateTimePicker
+    Friend WithEvents TemDataEnvioINSSNovoCheckBox As CheckBox
+    Friend WithEvents TemDataEntradaINSSNovoCheckBox As CheckBox
+    Friend WithEvents TemDataFimINSSNovoCheckBox As CheckBox
+    Friend WithEvents FinalizadoParcelamentosDateTimePicker As DateTimePicker
+    Friend WithEvents FinalizadoINSSProcDateTimePicker As DateTimePicker
+    Friend WithEvents INSSProcProtTextBox As TextBox
+    Friend WithEvents DataParcelINSSprocDateTimePicker As DateTimePicker
+    Friend WithEvents MesEnviadoINSSProcDateTimePicker As DateTimePicker
+    Friend WithEvents MotivoParcINSSProcRichTextBox As RichTextBox
+    Friend WithEvents TemDataEntradaINSSProcuCheckBox As CheckBox
+    Friend WithEvents TemDataFimINSSProcurCheckBox As CheckBox
+    Friend WithEvents TemDataEnvioINSSProcurCheckBox As CheckBox
+    Friend WithEvents TemDataFimParcelamentoCheckBox As CheckBox
+    Friend WithEvents BtnRegistrarEnvioMEI As Button
+    Friend WithEvents TabPageMEIObservacoes As TabPage
+    Friend WithEvents GeralMEIRichTextBox As RichTextBox
+    Friend WithEvents BtnRegistrarEnvioINSSantigo As Button
+    Friend WithEvents TabPageINSSAntigoObservacoes As TabPage
+    Friend WithEvents INSSAntigoObsRichTextBox As RichTextBox
+    Friend WithEvents BtnRegistrarEnvioINSSnovo As Button
+    Friend WithEvents TabPageINSSNovoObservacoes As TabPage
+    Friend WithEvents INSSNovoObsRichTextBox As RichTextBox
+    Friend WithEvents BtnRegistrarEnvioINSSProcuradoria As Button
+    Friend WithEvents TabPageINSSProcuradoriaObservacoes As TabPage
+    Friend WithEvents INSSProcObsRichTextBox As RichTextBox
+    Friend WithEvents GroupBoxSalvando As GroupBox
+    Friend WithEvents LabelSalvando As Label
+    Friend WithEvents ProgressBarSalvando As ProgressBar
+    Friend WithEvents ParcelaEnviadaMEITextBox As TextBox
+    Friend WithEvents QtoParcelasMEITextBox As TextBox
+    Friend WithEvents QtoParcelasINSSAntigoTextBox As TextBox
+    Friend WithEvents ParcelaEnviadaINSSAntigoTextBox As TextBox
+    Friend WithEvents ParcelaEnviadaINSSNovoTextBox As TextBox
+    Friend WithEvents QtoParcelasINSSNovoTextBox As TextBox
+    Friend WithEvents ParcelaEnviadaINSSProcuradoriaTextBox As TextBox
+    Friend WithEvents QtoParcelasINSSProcuradoriaTextBox As TextBox
+    Friend WithEvents MotivoParcMEILabel As Label
+    Friend WithEvents MotivoParcINSSAntigoLabel As Label
+    Friend WithEvents MotivoParcINSSNovoLabel As Label
+    Friend WithEvents MotivoParcINSSProcLabel As Label
+    Friend WithEvents BtnVerDetalhesMEI As Button
+    Friend WithEvents BtnVerDetalhesINSSAntigo As Button
+    Friend WithEvents BtnVerDetalhesINSSNovo As Button
+    Friend WithEvents BtnVerDetalhesINSSProcuradoria As Button
 End Class

@@ -324,6 +324,8 @@ Public Class Avisos
 
             ' Exibir o resultado no Label
             ExibirAviso(temLembrete, mesEnvioDiferente)
+
+
         End Using
     End Sub
 
@@ -349,14 +351,29 @@ Public Class Avisos
 
     Private Function VerificarMesEnvioDiferente(conexão As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
         ' Verifica se algum parcelamento tem DataEnvio em um mês diferente do mês da data selecionada
-        Dim comando As New SqlCommand("SELECT DataEnvio FROM Parcelamentos", conexão)
+        Dim comando As New SqlCommand("SELECT MesRealizado, Ano FROM ParcelamentosAviso", conexão)
         Dim leitor As SqlDataReader = comando.ExecuteReader()
 
         Dim mesEnvioDiferente As Boolean = False
         While leitor.Read()
-            Dim dataEnvio As DateTime
-            If DateTime.TryParse(leitor("DataEnvio").ToString(), dataEnvio) AndAlso dataEnvio.Month <> mesSelecionado Then
-                listaMensalDiferente.Add(dataEnvio)
+            ' Pegando o nome do mês e o ano do banco de dados
+            Dim mesRealizado As String = leitor("MesRealizado").ToString().ToLower()
+
+            ' Mostrar o valor do mês extraído do banco de dados para depuração
+            ' MessageBox.Show("Mês Realizado (do banco): " & mesRealizado)
+
+            ' Converter o nome do mês em número
+            Dim mesNumero As Integer = ObterNumeroMes(mesRealizado)
+
+            ' Mostrar o número do mês convertido para depuração
+            '  MessageBox.Show("Mês Convertido para Número: " & mesNumero.ToString())
+
+            ' ' Exibir o mês selecionado para comparação
+            ' MessageBox.Show("Mês Selecionado para Comparação: " & mesSelecionado.ToString())
+
+            ' Verifica se o mês extraído do banco de dados é diferente do mês selecionado
+            If mesNumero <> mesSelecionado Then
+                listaMensalDiferente.Add(New DateTime(leitor("Ano"), mesNumero, 1)) ' Cria uma data apenas com ano e mês
                 mesEnvioDiferente = True
             End If
         End While
@@ -364,6 +381,39 @@ Public Class Avisos
 
         Return mesEnvioDiferente
     End Function
+
+    ' Função para converter o nome do mês em número
+    Private Function ObterNumeroMes(mesNome As String) As Integer
+        Select Case mesNome
+            Case "janeiro"
+                Return 1
+            Case "fevereiro"
+                Return 2
+            Case "março", "marco"
+                Return 3
+            Case "abril"
+                Return 4
+            Case "maio"
+                Return 5
+            Case "junho"
+                Return 6
+            Case "julho"
+                Return 7
+            Case "agosto"
+                Return 8
+            Case "setembro"
+                Return 9
+            Case "outubro"
+                Return 10
+            Case "novembro"
+                Return 11
+            Case "dezembro"
+                Return 12
+            Case Else
+                Return 0 ' Caso o mês não seja encontrado
+        End Select
+    End Function
+
 
     Private Sub ExibirAviso(temLembrete As Boolean, mesEnvioDiferente As Boolean)
         ' Atualiza o label com base nos resultados

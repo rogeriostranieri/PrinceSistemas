@@ -3081,7 +3081,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
-    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs)
+    Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
         'copiar para area de trabalho RamoDeAtividadeRichTextBox
         Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
     End Sub
@@ -3820,15 +3820,6 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
-    Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
-        If EndCidadeTextBox.Text = "MARINGA" Then
-            EndCidadeTextBox.Text = "Maringá"
-        ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
-            EndCidadeTextBox.Text = "Paiçandu"
-        ElseIf EndCidadeTextBox.Text = "NOVA ESPERANCA" Then
-            EndCidadeTextBox.Text = "Nova Esperança"
-        End If
-    End Sub
 
     '////////////////////////// ARRUMAR CNAE PRINCIPAL E SECUNDARIO'
 
@@ -3975,7 +3966,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             End If
         End If
     End Sub
-    Private Sub LinkLabelLimparRamo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub LinkLabelLimparRamo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelLimparRamo.LinkClicked
         ' Perguntar ao usuário se deseja limpar o RamoDeAtividadeRichTextBox
         Dim resultado As DialogResult = MessageBox.Show("Deseja limpar o conteúdo do campo Ramo de Atividade?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -3995,7 +3986,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ElseIf PontoDeReferenciaComboBox.Text = "Não" Then
             ' Define a cor de fundo como vermelho e a cor do texto como branco
             PontoDeReferenciaComboBox.BackColor = Color.Red
-            PontoDeReferenciaComboBox.ForeColor = Color.White
+            PontoDeReferenciaComboBox.ForeColor = Color.Black
         Else
             ' Redefine para as cores padrão quando não for "Sim" ou "Não"
             PontoDeReferenciaComboBox.BackColor = SystemColors.Window
@@ -4025,18 +4016,18 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub CNAEAtividadeNoLocalComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CNAEAtividadeNoLocalComboBox.SelectedIndexChanged
         ' Verifica o texto selecionado no ComboBox
-        If PontoDeReferenciaComboBox.Text = "Todos" Or PontoDeReferenciaComboBox.Text = "Parcial" Then
+        If CNAEAtividadeNoLocalComboBox.Text = "Todos" Or CNAEAtividadeNoLocalComboBox.Text = "Parcial" Then
             ' Define a cor de fundo como verde e a cor do texto como branco
-            PontoDeReferenciaComboBox.BackColor = Color.Green
-            PontoDeReferenciaComboBox.ForeColor = Color.White
-        ElseIf PontoDeReferenciaComboBox.Text = "Não" Then
+            CNAEAtividadeNoLocalComboBox.BackColor = Color.Green
+            CNAEAtividadeNoLocalComboBox.ForeColor = Color.White
+        ElseIf CNAEAtividadeNoLocalComboBox.Text = "Não" Then
             ' Define a cor de fundo como vermelho e a cor do texto como branco
-            PontoDeReferenciaComboBox.BackColor = Color.Red
-            PontoDeReferenciaComboBox.ForeColor = Color.White
+            CNAEAtividadeNoLocalComboBox.BackColor = Color.Red
+            CNAEAtividadeNoLocalComboBox.ForeColor = Color.Black
         Else
             ' Redefine para as cores padrão quando não for "Sim" ou "Não"
-            PontoDeReferenciaComboBox.BackColor = SystemColors.Window
-            PontoDeReferenciaComboBox.ForeColor = SystemColors.WindowText
+            CNAEAtividadeNoLocalComboBox.BackColor = SystemColors.Window
+            CNAEAtividadeNoLocalComboBox.ForeColor = SystemColors.WindowText
         End If
     End Sub
 
@@ -4056,5 +4047,77 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
+    Private Sub LinkLabelCopiarRamo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelCopiarRamo.LinkClicked
+        ObjetoDOEstabelecimentoRichTextBox.Text = RamoDeAtividadeRichTextBox.Text
+    End Sub
 
+    '/////////// ARRUMA ENDEREÇO ///////
+    Private Sub EndBairroTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndBairroTextBox.TextChanged
+        EndBairroTextBox.Text = StrConv(EndBairroTextBox.Text, VbStrConv.ProperCase)
+        EndBairroTextBox.SelectionStart = EndBairroTextBox.Text.Length
+    End Sub
+
+    Private Sub EndComplementoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndComplementoTextBox.TextChanged
+        EndComplementoTextBox.Text = StrConv(EndComplementoTextBox.Text, VbStrConv.ProperCase)
+        EndComplementoTextBox.SelectionStart = EndComplementoTextBox.Text.Length
+    End Sub
+
+    Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
+        EndCidadeTextBox.Text = StrConv(EndCidadeTextBox.Text, VbStrConv.ProperCase)
+        EndCidadeTextBox.SelectionStart = EndCidadeTextBox.Text.Length
+    End Sub
+
+    Private Sub EnderecoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EnderecoTextBox.TextChanged
+        Dim palavras() As String = EnderecoTextBox.Text.Split(" "c)
+
+        If palavras.Length > 1 Then
+            palavras(0) = palavras(0).ToLower
+            For i As Integer = 1 To palavras.Length - 1
+                palavras(i) = StrConv(palavras(i), VbStrConv.ProperCase)
+            Next
+            EnderecoTextBox.Text = String.Join(" ", palavras)
+        Else
+            EnderecoTextBox.Text = StrConv(EnderecoTextBox.Text, VbStrConv.ProperCase)
+        End If
+
+        EnderecoTextBox.SelectionStart = EnderecoTextBox.Text.Length
+
+        If EndCidadeTextBox.Text = "MARINGA" Then
+            EndCidadeTextBox.Text = "Maringá"
+        ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
+            EndCidadeTextBox.Text = "Paiçandu"
+        ElseIf EndCidadeTextBox.Text = "NOVA ESPERANCA" Then
+            EndCidadeTextBox.Text = "Nova Esperança"
+        End If
+    End Sub
+
+    ' Evento TextChanged para converter o conteúdo para maiúsculas e definir o país como Brasil
+    Private Sub EndEstadoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndEstadoTextBox.TextChanged
+        ' Lista de estados brasileiros
+        Dim estadosBrasileiros As New List(Of String) From {
+        "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS",
+        "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC",
+        "SP", "SE", "TO"
+    }
+
+        ' Converte o texto para maiúsculas
+        EndEstadoTextBox.Text = EndEstadoTextBox.Text.ToUpper()
+        EndEstadoTextBox.SelectionStart = EndEstadoTextBox.Text.Length ' Mantém o cursor no final do texto
+
+        ' Verifica se o estado é brasileiro
+        If estadosBrasileiros.Contains(EndEstadoTextBox.Text) Then
+            EndPaisTextBox.Text = "Brasil"
+        Else
+            EndPaisTextBox.Clear() ' Limpa o campo se o estado não for válido
+        End If
+    End Sub
+    '/////////////////////////////////
+    Private Sub NomeFantasiaTextBox_TextChanged(sender As Object, e As EventArgs) Handles NomeFantasiaTextBox.TextChanged
+
+        ' Converte o texto para maiúsculas
+        NomeFantasiaTextBox.Text = StrConv(NomeFantasiaTextBox.Text, VbStrConv.ProperCase)
+        NomeFantasiaTextBox.SelectionStart = NomeFantasiaTextBox.Text.Length
+    End Sub
+
+    '//////////////////////////////////////
 End Class

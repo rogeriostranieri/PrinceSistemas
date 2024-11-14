@@ -51,7 +51,7 @@
         Dim mesAviso As Integer = Integer.Parse(dataAviso.Split("/")(1))
         Dim anoAviso As Integer = Integer.Parse(dataAviso.Split("/")(2))
 
-        Dim meses() As String = {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}
+        Dim meses() As String = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}
 
         If MesRealizadoComboBox.SelectedItem IsNot Nothing Then
             If MesRealizadoComboBox.SelectedItem.ToString.ToLower <> meses(mesAviso - 1).ToLower Then
@@ -110,14 +110,23 @@
     End Sub
 
     Private Sub BtnVerParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnVerParcelamentos.Click
+        ' Verifica se o formulário já está aberto
         Dim formParcelamentos = Application.OpenForms.OfType(Of FrmControleParcelamentos)().FirstOrDefault()
 
-        If FrmControleParcelamentos IsNot Nothing Then
-            FrmControleParcelamentos.Focus()
+        If formParcelamentos IsNot Nothing Then
+            ' Se o formulário já estiver aberto, traz ele para frente e define o MdiParent, caso necessário
+            ' formParcelamentos.MdiParent = MDIPrincipal
+            formParcelamentos.BringToFront()
+            formParcelamentos.Focus()
         Else
-            FrmControleParcelamentos.Show()
+            ' Caso contrário, cria uma nova instância do formulário, define o MdiParent e exibe o formulário
+            formParcelamentos = New FrmControleParcelamentos()
+            ' formParcelamentos.MdiParent = MDIPrincipal
+            formParcelamentos.Show()
+            formParcelamentos.BringToFront()
+            formParcelamentos.Focus()
         End If
-        '  Me.Close()
-
+        Me.Close()
     End Sub
+
 End Class

@@ -1,12 +1,46 @@
-﻿TemDataLembreteCheckBox
-TemDataEnvioCheckBox
+﻿
 
-TemDataEnvioINSSAntigoCheckBox
-TemDataEnvioINSSNovoCheckBox
-TemDataEnvioINSSProcurCheckBox
-TemDataEnvioMEICheckBox
 
-TemDataFimINSSAntigoCheckBox
-TemDataFimINSSNovoCheckBox
-TemDataFimINSSProcurCheckBox
-TemDataFimMEICheckBox
+    Private Sub BtnRegistrarEnvioMEI_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioMEI.Click
+        'HistoricoEnvioMEIRichTextBox
+    End Sub
+
+    Private Sub BtnRegistrarEnvioINSSantigo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSantigo.Click
+        'HistoricoEnvioINSSAntigoRichTextBox
+    End Sub
+
+    Private Sub BtnRegistrarEnvioINSSnovo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSnovo.Click
+        'HistoricoEnvioINSSNovoRichTextBox
+    End Sub
+
+    Private Sub BtnRegistrarEnvioINSSProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSProcuradoria.Click
+        'HistoricoEnvioINSSProcRichTextBox
+    End Sub
+
+    atenção = 
+    inicia usando o select TabControleParcelamentos (1) e volta pro (0) depois tambem TabControlPrincipal ( aqui pode ser MEI, inss antigo e outros)
+   pois:
+   TabControleParcelamentos tem TabPageMEI / TabPageINSSAntigo / TabPageINSSNovo / TabPageINSSProcuradoria
+    TabControlPrincipal tem TabPageMEIGeral / TabPageHistorico e TabPageMEIObservacoes e assim muda com INSSAntigo e INSSProcuradoria
+
+ esses botao regitrar, ao clicar eles vai pegar:
+Data do envio DATAPICK (exemplo MesEnviadoMEIDateTimePicker)
+selecionar TabControlPrincipal na aba chamada (FormadeEnvio) depois pegar texto dentro do combobox.text chamado "FormaEnvioComboBox"
+pegar a parcela enviada ParcelaEnviadaMEITextBox e tambem QtoParcelasMEITextBox (MEI mas coloca tambem dos INSSAntigo e dos outros)
+
+Total =
+QtoParcelasMEI
+QtoParcelasINSSAntigo
+QtoParcelasINSSNovo
+QtoParcelasINSSProcuradoria
+
+Parcela enviada =
+ParcelaEnviadaMEI
+ParcelaEnviadaINSSAntigo
+ParcelaEnviadaINSSNovo
+ParcelaEnviadaINSSProcuradoria
+
+e registrar no historico assim 
+"(data de envio) foi enviado a (parcela enviada "de" total de parcela) do parcelamento (INSS ou MEI ou outro)"
+
+Obs: fazer isso com MEI, INSSAntigo, INSSNovo e INSSProcuradoria pois cada um vai ter seu botao de registro para salvar o historico de envios

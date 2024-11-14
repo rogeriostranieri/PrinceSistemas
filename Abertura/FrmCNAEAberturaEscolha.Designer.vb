@@ -35,12 +35,12 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnInterno.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnInterno.FlatAppearance.BorderSize = 0
         Me.BtnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnInterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnInterno.ForeColor = System.Drawing.Color.White
-        Me.BtnInterno.Location = New System.Drawing.Point(16, 50)
+        Me.BtnInterno.Location = New System.Drawing.Point(-8, 44)
         Me.BtnInterno.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnInterno.Name = "BtnInterno"
-        Me.BtnInterno.Size = New System.Drawing.Size(176, 69)
+        Me.BtnInterno.Size = New System.Drawing.Size(226, 90)
         Me.BtnInterno.TabIndex = 17
         Me.BtnInterno.Text = "Abrir Sistema Interno"
         Me.BtnInterno.UseVisualStyleBackColor = False
@@ -53,12 +53,12 @@ Partial Class FrmCNAEAberturaEscolha
         Me.BtnExterno.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnExterno.FlatAppearance.BorderSize = 0
         Me.BtnExterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExterno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExterno.ForeColor = System.Drawing.Color.White
-        Me.BtnExterno.Location = New System.Drawing.Point(200, 50)
+        Me.BtnExterno.Location = New System.Drawing.Point(226, 44)
         Me.BtnExterno.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnExterno.Name = "BtnExterno"
-        Me.BtnExterno.Size = New System.Drawing.Size(176, 69)
+        Me.BtnExterno.Size = New System.Drawing.Size(226, 90)
         Me.BtnExterno.TabIndex = 16
         Me.BtnExterno.Text = "Abrir Site Oficial"
         Me.BtnExterno.UseVisualStyleBackColor = False
@@ -68,7 +68,7 @@ Partial Class FrmCNAEAberturaEscolha
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(51, 12)
+        Me.Label6.Location = New System.Drawing.Point(86, 13)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(286, 27)
@@ -77,15 +77,15 @@ Partial Class FrmCNAEAberturaEscolha
         '
         'FrmCNAEAberturaEscolha
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(394, 132)
+        Me.ClientSize = New System.Drawing.Size(449, 147)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.BtnInterno)
         Me.Controls.Add(Me.BtnExterno)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False

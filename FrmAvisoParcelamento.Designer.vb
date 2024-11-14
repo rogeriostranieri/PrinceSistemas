@@ -157,7 +157,6 @@ Partial Class FrmAvisoParcelamento
         Me.MesRealizadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosAvisoBindingSource, "MesRealizado", True))
         Me.MesRealizadoComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MesRealizadoComboBox.FormattingEnabled = True
-        Me.MesRealizadoComboBox.Items.AddRange(New Object() {"A", "B", "C"})
         Me.MesRealizadoComboBox.Location = New System.Drawing.Point(368, 79)
         Me.MesRealizadoComboBox.Name = "MesRealizadoComboBox"
         Me.MesRealizadoComboBox.Size = New System.Drawing.Size(175, 28)

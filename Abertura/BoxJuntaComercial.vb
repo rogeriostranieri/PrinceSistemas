@@ -37,7 +37,7 @@ Public Class BoxJuntaComercial
         Try
             ' Selecionar a aba correta nos TabControles
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
 
             ' Obter Estado e Cidade do formulário
             Dim estado As String = FrmLegalizacao.EndEstadoTextBox.Text
@@ -88,7 +88,7 @@ Public Class BoxJuntaComercial
 
             ' Selecionar as abas em caso de erro
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
         End Try
     End Sub
 
@@ -96,7 +96,7 @@ Public Class BoxJuntaComercial
         Try
             ' Selecionar a aba correta nos TabControles do FrmLegalizacao
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
 
             ' Obter Estado e Cidade do formulário FrmLegalizacao
             Dim estado As String = FrmLegalizacao.EndEstadoTextBox.Text
@@ -164,7 +164,7 @@ Public Class BoxJuntaComercial
 
             ' Selecionar as abas em caso de erro
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
         End Try
     End Sub
 
@@ -204,7 +204,7 @@ Public Class BoxJuntaComercial
         Try
             ' Selecionar a aba correta nos TabControles
             FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(3)
+            FrmLegalizacao.TabControl2.SelectTab(4)
             FrmLegalizacao.TabControle.SelectTab(2)
 
         Catch ex As Exception
