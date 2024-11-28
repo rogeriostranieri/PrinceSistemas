@@ -79,6 +79,7 @@ Partial Class FrmAlvara
         Dim NlaudoSecundarioLabel As System.Windows.Forms.Label
         Dim CNAEPrimarioLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
+        Dim AlvaraLabel As System.Windows.Forms.Label
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -203,6 +204,8 @@ Partial Class FrmAlvara
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.NaturezaDoPedidoOBSRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.BtnCorrigeCidade = New System.Windows.Forms.Button()
+        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.BtnMapa = New System.Windows.Forms.Button()
         Me.EndCidadeTextBox = New System.Windows.Forms.TextBox()
@@ -321,7 +324,7 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
-        Me.BtnCopiaEndereco = New System.Windows.Forms.Button()
+        Me.AlvaraComboBox = New System.Windows.Forms.ComboBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -377,6 +380,7 @@ Partial Class FrmAlvara
         MatrizLabel = New System.Windows.Forms.Label()
         NlaudoSecundarioLabel = New System.Windows.Forms.Label()
         CNAEPrimarioLabel = New System.Windows.Forms.Label()
+        AlvaraLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaudosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -532,7 +536,7 @@ Partial Class FrmAlvara
         '
         SituacaoLabel.AutoSize = True
         SituacaoLabel.BackColor = System.Drawing.Color.Transparent
-        SituacaoLabel.Location = New System.Drawing.Point(271, 108)
+        SituacaoLabel.Location = New System.Drawing.Point(329, 146)
         SituacaoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SituacaoLabel.Name = "SituacaoLabel"
         SituacaoLabel.Size = New System.Drawing.Size(58, 15)
@@ -543,7 +547,7 @@ Partial Class FrmAlvara
         '
         AvisarDiaLabel.AutoSize = True
         AvisarDiaLabel.BackColor = System.Drawing.Color.Transparent
-        AvisarDiaLabel.Location = New System.Drawing.Point(15, 138)
+        AvisarDiaLabel.Location = New System.Drawing.Point(15, 147)
         AvisarDiaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         AvisarDiaLabel.Name = "AvisarDiaLabel"
         AvisarDiaLabel.Size = New System.Drawing.Size(64, 15)
@@ -907,7 +911,7 @@ Partial Class FrmAlvara
         '
         EndCidadeLabel1.AutoSize = True
         EndCidadeLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndCidadeLabel1.Location = New System.Drawing.Point(329, 134)
+        EndCidadeLabel1.Location = New System.Drawing.Point(28, 191)
         EndCidadeLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndCidadeLabel1.Name = "EndCidadeLabel1"
         EndCidadeLabel1.Size = New System.Drawing.Size(54, 16)
@@ -918,7 +922,7 @@ Partial Class FrmAlvara
         '
         EndEstadoLabel1.AutoSize = True
         EndEstadoLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EndEstadoLabel1.Location = New System.Drawing.Point(329, 158)
+        EndEstadoLabel1.Location = New System.Drawing.Point(253, 191)
         EndEstadoLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EndEstadoLabel1.Name = "EndEstadoLabel1"
         EndEstadoLabel1.Size = New System.Drawing.Size(53, 16)
@@ -968,7 +972,7 @@ Partial Class FrmAlvara
         'MatrizLabel
         '
         MatrizLabel.AutoSize = True
-        MatrizLabel.Location = New System.Drawing.Point(547, 79)
+        MatrizLabel.Location = New System.Drawing.Point(546, 79)
         MatrizLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         MatrizLabel.Name = "MatrizLabel"
         MatrizLabel.Size = New System.Drawing.Size(43, 15)
@@ -1033,6 +1037,7 @@ Partial Class FrmAlvara
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
         Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
@@ -1054,7 +1059,7 @@ Partial Class FrmAlvara
         Me.LaudosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.LaudosBindingNavigator.Name = "LaudosBindingNavigator"
         Me.LaudosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(1011, 25)
+        Me.LaudosBindingNavigator.Size = New System.Drawing.Size(1040, 25)
         Me.LaudosBindingNavigator.TabIndex = 0
         Me.LaudosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -2181,7 +2186,7 @@ Partial Class FrmAlvara
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox3.Size = New System.Drawing.Size(195, 192)
+        Me.GroupBox3.Size = New System.Drawing.Size(195, 217)
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Vencimento Alvará Provisório "
@@ -2322,11 +2327,11 @@ Partial Class FrmAlvara
         Me.GroupBox4.Controls.Add(Me.NlaudoTextBox)
         Me.GroupBox4.Controls.Add(Me.ModeloSistemaComboBox)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(4, 248)
+        Me.GroupBox4.Location = New System.Drawing.Point(4, 258)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(902, 501)
+        Me.GroupBox4.Size = New System.Drawing.Size(921, 501)
         Me.GroupBox4.TabIndex = 55
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CENTRAL DE LAUDOS E ALVARÁS"
@@ -2499,6 +2504,7 @@ Partial Class FrmAlvara
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
+        Me.TabPage7.Controls.Add(Me.BtnCorrigeCidade)
         Me.TabPage7.Controls.Add(Me.BtnCopiaEndereco)
         Me.TabPage7.Controls.Add(Me.BtnCopiaCEP)
         Me.TabPage7.Controls.Add(Me.BtnMapa)
@@ -2540,6 +2546,32 @@ Partial Class FrmAlvara
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Endereço"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'BtnCorrigeCidade
+        '
+        Me.BtnCorrigeCidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorrigeCidade.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCorrigeCidade.Location = New System.Drawing.Point(496, 170)
+        Me.BtnCorrigeCidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCorrigeCidade.Name = "BtnCorrigeCidade"
+        Me.BtnCorrigeCidade.Size = New System.Drawing.Size(119, 29)
+        Me.BtnCorrigeCidade.TabIndex = 78
+        Me.BtnCorrigeCidade.Text = "Arrumar Cidade"
+        Me.BtnCorrigeCidade.UseVisualStyleBackColor = True
+        '
+        'BtnCopiaEndereco
+        '
+        Me.BtnCopiaEndereco.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiaEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(624, 203)
+        Me.BtnCopiaEndereco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
+        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(88, 29)
+        Me.BtnCopiaEndereco.TabIndex = 75
+        Me.BtnCopiaEndereco.Text = "Copiar Tudo"
+        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
         '
         'BtnCopiaCEP
         '
@@ -3482,11 +3514,11 @@ Partial Class FrmAlvara
         Me.GroupBox5.Controls.Add(Me.Button17)
         Me.GroupBox5.Controls.Add(Me.Button19)
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Location = New System.Drawing.Point(914, 3)
+        Me.GroupBox5.Location = New System.Drawing.Point(933, 3)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox5.Size = New System.Drawing.Size(93, 239)
+        Me.GroupBox5.Size = New System.Drawing.Size(97, 249)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -3589,7 +3621,7 @@ Partial Class FrmAlvara
         'AvisarDiaMaskedTextBox
         '
         Me.AvisarDiaMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "AvisarDia", True))
-        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(90, 134)
+        Me.AvisarDiaMaskedTextBox.Location = New System.Drawing.Point(90, 143)
         Me.AvisarDiaMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.AvisarDiaMaskedTextBox.Mask = "00/00/0000"
         Me.AvisarDiaMaskedTextBox.Name = "AvisarDiaMaskedTextBox"
@@ -3645,6 +3677,8 @@ Partial Class FrmAlvara
         'CheckBoxPrioridade
         '
         Me.CheckBoxPrioridade.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBoxPrioridade.Controls.Add(AlvaraLabel)
+        Me.CheckBoxPrioridade.Controls.Add(Me.AlvaraComboBox)
         Me.CheckBoxPrioridade.Controls.Add(MatrizLabel)
         Me.CheckBoxPrioridade.Controls.Add(Me.BtnFiliais)
         Me.CheckBoxPrioridade.Controls.Add(Me.MatrizComboBox)
@@ -3678,7 +3712,7 @@ Partial Class FrmAlvara
         Me.CheckBoxPrioridade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CheckBoxPrioridade.Name = "CheckBoxPrioridade"
         Me.CheckBoxPrioridade.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CheckBoxPrioridade.Size = New System.Drawing.Size(694, 185)
+        Me.CheckBoxPrioridade.Size = New System.Drawing.Size(686, 216)
         Me.CheckBoxPrioridade.TabIndex = 78
         Me.CheckBoxPrioridade.TabStop = False
         '
@@ -3701,16 +3735,16 @@ Partial Class FrmAlvara
         Me.MatrizComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Matriz", True))
         Me.MatrizComboBox.FormattingEnabled = True
         Me.MatrizComboBox.Items.AddRange(New Object() {"Matriz", "Filial 1", "Filial 2", "Filial 3", "Filial 4", "Filial 5", "Filial 6", "Filial 7", "Filial 8", "Filial 9", "Filial 10"})
-        Me.MatrizComboBox.Location = New System.Drawing.Point(594, 75)
+        Me.MatrizComboBox.Location = New System.Drawing.Point(589, 75)
         Me.MatrizComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MatrizComboBox.Name = "MatrizComboBox"
-        Me.MatrizComboBox.Size = New System.Drawing.Size(93, 23)
+        Me.MatrizComboBox.Size = New System.Drawing.Size(88, 23)
         Me.MatrizComboBox.TabIndex = 58
         '
         'LabelFilial
         '
         Me.LabelFilial.AutoSize = True
-        Me.LabelFilial.Location = New System.Drawing.Point(597, 47)
+        Me.LabelFilial.Location = New System.Drawing.Point(597, 44)
         Me.LabelFilial.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelFilial.Name = "LabelFilial"
         Me.LabelFilial.Size = New System.Drawing.Size(69, 30)
@@ -3720,7 +3754,7 @@ Partial Class FrmAlvara
         'PrioridadeCheckBox
         '
         Me.PrioridadeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Prioridade", True))
-        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(173, 157)
+        Me.PrioridadeCheckBox.Location = New System.Drawing.Point(173, 166)
         Me.PrioridadeCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PrioridadeCheckBox.Name = "PrioridadeCheckBox"
         Me.PrioridadeCheckBox.Size = New System.Drawing.Size(85, 28)
@@ -3746,7 +3780,7 @@ Partial Class FrmAlvara
         'BtnMgsBoxAvisarDia
         '
         Me.BtnMgsBoxAvisarDia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(226, 133)
+        Me.BtnMgsBoxAvisarDia.Location = New System.Drawing.Point(226, 142)
         Me.BtnMgsBoxAvisarDia.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnMgsBoxAvisarDia.Name = "BtnMgsBoxAvisarDia"
         Me.BtnMgsBoxAvisarDia.Size = New System.Drawing.Size(93, 23)
@@ -3757,7 +3791,7 @@ Partial Class FrmAlvara
         'LembreteCheckBox
         '
         Me.LembreteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.LaudosBindingSource, "Lembrete", True))
-        Me.LembreteCheckBox.Location = New System.Drawing.Point(90, 157)
+        Me.LembreteCheckBox.Location = New System.Drawing.Point(90, 166)
         Me.LembreteCheckBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.LembreteCheckBox.Name = "LembreteCheckBox"
         Me.LembreteCheckBox.Size = New System.Drawing.Size(121, 28)
@@ -3781,17 +3815,17 @@ Partial Class FrmAlvara
         Me.SituacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.SituacaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Situacao", True))
         Me.SituacaoComboBox.FormattingEnabled = True
-        Me.SituacaoComboBox.Location = New System.Drawing.Point(334, 104)
+        Me.SituacaoComboBox.Location = New System.Drawing.Point(392, 142)
         Me.SituacaoComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SituacaoComboBox.Name = "SituacaoComboBox"
-        Me.SituacaoComboBox.Size = New System.Drawing.Size(241, 23)
+        Me.SituacaoComboBox.Size = New System.Drawing.Size(285, 23)
         Me.SituacaoComboBox.TabIndex = 78
         '
         'EndEstadoLabel2
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndEstado", True))
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndEstadoLabel2.Location = New System.Drawing.Point(387, 158)
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(311, 191)
         Me.EndEstadoLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
         Me.EndEstadoLabel2.Size = New System.Drawing.Size(159, 17)
@@ -3803,7 +3837,7 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.EndCidadeLabel2.Location = New System.Drawing.Point(388, 134)
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(87, 189)
         Me.EndCidadeLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
         Me.EndCidadeLabel2.Size = New System.Drawing.Size(158, 21)
@@ -3812,7 +3846,7 @@ Partial Class FrmAlvara
         'BtnData1
         '
         Me.BtnData1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnData1.Location = New System.Drawing.Point(173, 133)
+        Me.BtnData1.Location = New System.Drawing.Point(173, 142)
         Me.BtnData1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnData1.Name = "BtnData1"
         Me.BtnData1.Size = New System.Drawing.Size(50, 24)
@@ -3858,8 +3892,8 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.AutoSize = True
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.00989!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.990108!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox10, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxCima, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox4, 0, 1)
@@ -3871,7 +3905,7 @@ Partial Class FrmAlvara
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1011, 752)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1040, 733)
         Me.TableLayoutPanel1.TabIndex = 82
         '
         'GroupBox10
@@ -3887,11 +3921,11 @@ Partial Class FrmAlvara
         Me.GroupBox10.Controls.Add(Me.Button14)
         Me.GroupBox10.Controls.Add(Me.Button13)
         Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(914, 248)
+        Me.GroupBox10.Location = New System.Drawing.Point(933, 258)
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox10.Size = New System.Drawing.Size(93, 501)
+        Me.GroupBox10.Size = New System.Drawing.Size(97, 501)
         Me.GroupBox10.TabIndex = 58
         Me.GroupBox10.TabStop = False
         '
@@ -3919,7 +3953,7 @@ Partial Class FrmAlvara
         Me.GroupBoxCima.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxCima.Name = "GroupBoxCima"
         Me.GroupBoxCima.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxCima.Size = New System.Drawing.Size(902, 239)
+        Me.GroupBoxCima.Size = New System.Drawing.Size(921, 249)
         Me.GroupBoxCima.TabIndex = 0
         Me.GroupBoxCima.TabStop = False
         '
@@ -3953,19 +3987,24 @@ Partial Class FrmAlvara
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
         '
-        'BtnCopiaEndereco
+        'AlvaraLabel
         '
-        Me.BtnCopiaEndereco.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
-        Me.BtnCopiaEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCopiaEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCopiaEndereco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCopiaEndereco.Location = New System.Drawing.Point(624, 203)
-        Me.BtnCopiaEndereco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnCopiaEndereco.Name = "BtnCopiaEndereco"
-        Me.BtnCopiaEndereco.Size = New System.Drawing.Size(88, 29)
-        Me.BtnCopiaEndereco.TabIndex = 75
-        Me.BtnCopiaEndereco.Text = "Copiar Tudo"
-        Me.BtnCopiaEndereco.UseVisualStyleBackColor = True
+        AlvaraLabel.AutoSize = True
+        AlvaraLabel.Location = New System.Drawing.Point(217, 109)
+        AlvaraLabel.Name = "AlvaraLabel"
+        AlvaraLabel.Size = New System.Drawing.Size(43, 15)
+        AlvaraLabel.TabIndex = 85
+        AlvaraLabel.Text = "Alvara:"
+        '
+        'AlvaraComboBox
+        '
+        Me.AlvaraComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Alvara", True))
+        Me.AlvaraComboBox.FormattingEnabled = True
+        Me.AlvaraComboBox.Items.AddRange(New Object() {"Alvará Definitivo", "Alvará Provisório", "Alvará Vencido"})
+        Me.AlvaraComboBox.Location = New System.Drawing.Point(266, 104)
+        Me.AlvaraComboBox.Name = "AlvaraComboBox"
+        Me.AlvaraComboBox.Size = New System.Drawing.Size(195, 23)
+        Me.AlvaraComboBox.TabIndex = 86
         '
         'FrmAlvara
         '
@@ -3973,8 +4012,9 @@ Partial Class FrmAlvara
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.ClientSize = New System.Drawing.Size(1011, 777)
+        Me.ClientSize = New System.Drawing.Size(1040, 758)
         Me.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -4323,4 +4363,6 @@ Partial Class FrmAlvara
     Friend WithEvents BtnCopiarRamo As Button
     Friend WithEvents BtnRemovCaract As Button
     Friend WithEvents BtnCopiaEndereco As Button
+    Friend WithEvents BtnCorrigeCidade As Button
+    Friend WithEvents AlvaraComboBox As ComboBox
 End Class

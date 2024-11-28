@@ -853,16 +853,11 @@ Art. 60. A firma individual ou a sociedade que não proceder a qualquer arquivam
 
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles BtnConsultaRedeSim.Click
-        Dim frm As New WebSiteGERAL
-
         Try
             If ProtocoloREDESIMTextBox.Text <> "" Then
                 BoxREDESIM.Show()
-
             Else
                 BoxREDESIM.Show()
-
-
             End If
 
         Catch ex As Exception
@@ -1015,6 +1010,8 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     PorteDaEmpresaComboBox.SelectedIndex = -1
                     RegimeFederalComboBox.SelectedIndex = -1
                     NaturezaJuridicaComboBox.SelectedIndex = -1
+                    SituacaoCadastralComboBox.SelectedText = "ATIVO"
+                    SEDEComboBox.SelectedIndex = 1
 
                     ' Definir valores padrão
                     RegimeFederalComboBox.SelectedIndex = 4  ' RegimeFederal = Pendência
@@ -1857,7 +1854,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     End Sub
 
-    Private Sub CnaeSimples_Click(sender As Object, e As EventArgs)
+    Private Sub CnaeSimples_Click(sender As Object, e As EventArgs) Handles CnaeSimples.Click
 
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
             WebSiteGERAL.Focus()
@@ -2928,7 +2925,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         End Try
     End Sub
 
-    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs)
+    Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
         RamoDeAtividadeRichTextBox.Text = LimparTextoRamo(RamoDeAtividadeRichTextBox.Text)
     End Sub
     Function LimparTextoRamo(sText As String) As String
@@ -2999,10 +2996,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
         TabControl2.SelectedIndex = 7
     End Sub
 
-    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs)
-        'TabControl2 ir para tab6
-        TabControl2.SelectedIndex = 7
-    End Sub
+
 
     Private Sub BtnAjudaAréa_Click(sender As Object, e As EventArgs) Handles BtnAjudaAréa.Click
         'mgsbox ajudando informando = " IMPORTANTE SABER!
@@ -3184,6 +3178,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf
+
+                BtnCorrigeCidade.PerformClick() ' corrigir o nome da cidade sem acentos
             Else
                 MessageBox.Show("CEP não encontrado.")
             End If
@@ -3962,7 +3958,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             ' Verificar se o CapitalAntigoMudouComboBox está vazio
             If String.IsNullOrWhiteSpace(CapitalAntigoMudouComboBox.Text) Then
                 ' Alterar a seleção para o item de índice 1 do ComboBox
-                CapitalAntigoMudouComboBox.SelectedIndex = 1
+                CapitalAntigoMudouComboBox.SelectedText = "Não"
             End If
         End If
     End Sub
@@ -4119,5 +4115,57 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         NomeFantasiaTextBox.SelectionStart = NomeFantasiaTextBox.Text.Length
     End Sub
 
+    Private Sub BtnAtividadeLocal_Click(sender As Object, e As EventArgs) Handles BtnAtividadeLocal.Click
+        TabControl2.SelectedIndex = 8
+    End Sub
+
+
     '//////////////////////////////////////
+
+
+    Private Sub BtnCorrigeCidade_Click(sender As Object, e As EventArgs) Handles BtnCorrigeCidade.Click
+        Try
+            ' Obter o nome da cidade inserida no campo
+            Dim CidadeInserida As String = EndCidadeTextBox.Text.Trim()
+
+            ' Verificar se o campo de cidade não está vazio
+            If String.IsNullOrWhiteSpace(CidadeInserida) Then
+                MessageBox.Show("O campo de cidade está vazio. Por favor, insira uma cidade para corrigir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Conectar ao banco de dados para buscar a cidade correta
+            Using conn As New SqlConnection(connectionString)
+                conn.Open()
+
+                ' Consulta SQL ajustada para ignorar acentos
+                Dim query As String = "
+                SELECT TOP 1 nome
+                FROM BrasilMunicipios
+                WHERE nome COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%' + @cidade + '%'
+            "
+
+                Using cmd As New SqlCommand(query, conn)
+                    ' Adicionar o parâmetro para a consulta
+                    cmd.Parameters.AddWithValue("@cidade", CidadeInserida)
+
+                    ' Executar a consulta
+                    Dim resultado As Object = cmd.ExecuteScalar()
+
+                    ' Verificar se a cidade foi encontrada
+                    If resultado IsNot Nothing Then
+                        Dim cidadeCorrigida As String = resultado.ToString()
+                        EndCidadeTextBox.Text = cidadeCorrigida
+                        MessageBox.Show($"Cidade corrigida para: {cidadeCorrigida}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Cidade não encontrada na tabela 'BrasilMunicipios'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao corrigir a cidade! " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
 End Class

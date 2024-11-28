@@ -560,33 +560,19 @@
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parcelamentos\DialogCalendarioParcelamento.Designer.vb">
-      <DependentUpon>DialogCalendarioParcelamento.vb</DependentUpon>
+    <Compile Include="Parcelamentos\FrmGeralParcelamento.Designer.vb">
+      <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Parcelamentos\DialogCalendarioParcelamento.vb">
+    <Compile Include="Parcelamentos\FrmGeralParcelamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parcelamentos\FrmControleParcelamentos.Designer.vb">
-      <DependentUpon>FrmControleParcelamentos.vb</DependentUpon>
+    <Compile Include="Parcelamentos\FrmParcelamento.Designer.vb">
+      <DependentUpon>FrmParcelamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Parcelamentos\FrmControleParcelamentos.vb">
+    <Compile Include="Parcelamentos\FrmParcelamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parcelamentos\FrmDetalhesParcelamento.Designer.vb">
-      <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Parcelamentos\FrmDetalhesParcelamento.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Parcelamentos\FrmParcelamentos.Designer.vb">
-      <DependentUpon>FrmParcelamentos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Parcelamentos\FrmParcelamentos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Parcelamentos\InputDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Parcelamentos\ListViewColumnSorter.vb" />
     <Compile Include="PrinceDBDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -991,17 +977,11 @@
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parcelamentos\DialogCalendarioParcelamento.resx">
-      <DependentUpon>DialogCalendarioParcelamento.vb</DependentUpon>
+    <EmbeddedResource Include="Parcelamentos\FrmGeralParcelamento.resx">
+      <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parcelamentos\FrmControleParcelamentos.resx">
-      <DependentUpon>FrmControleParcelamentos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Parcelamentos\FrmDetalhesParcelamento.resx">
-      <DependentUpon>FrmDetalhesParcelamento.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Parcelamentos\FrmParcelamentos.resx">
-      <DependentUpon>FrmParcelamentos.vb</DependentUpon>
+    <EmbeddedResource Include="Parcelamentos\FrmParcelamento.resx">
+      <DependentUpon>FrmParcelamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>

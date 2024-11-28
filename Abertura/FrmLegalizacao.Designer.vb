@@ -191,8 +191,6 @@ Partial Class FrmLegalizacao
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CNAEAtvLocalSEcundariosRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.LabelDescricaoCnaeSec = New System.Windows.Forms.Label()
-        Me.LabelDescricaoCNAE = New System.Windows.Forms.Label()
         Me.CNAEAtvLocalPrincipalTextBox = New System.Windows.Forms.TextBox()
         Me.CNAEAtividadeNoLocalComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnVerDescricaoCNAE = New System.Windows.Forms.Button()
@@ -218,6 +216,7 @@ Partial Class FrmLegalizacao
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.RamoDeAtividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.BtnCorrigeCidade = New System.Windows.Forms.Button()
         Me.BtnArrumaEnd = New System.Windows.Forms.Button()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.BtnMapa = New System.Windows.Forms.Button()
@@ -2409,8 +2408,6 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalSEcundariosRichTextBox)
-        Me.GroupBox1.Controls.Add(Me.LabelDescricaoCnaeSec)
-        Me.GroupBox1.Controls.Add(Me.LabelDescricaoCNAE)
         Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalPrincipalTextBox)
         Me.GroupBox1.Controls.Add(CNAEAtividadeNoLocalLabel)
         Me.GroupBox1.Controls.Add(Me.CNAEAtividadeNoLocalComboBox)
@@ -2438,7 +2435,7 @@ Partial Class FrmLegalizacao
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(267, 47)
+        Me.Label6.Location = New System.Drawing.Point(196, 47)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(211, 15)
         Me.Label6.TabIndex = 92
@@ -2446,37 +2443,22 @@ Partial Class FrmLegalizacao
         '
         'CNAEAtvLocalSEcundariosRichTextBox
         '
+        Me.CNAEAtvLocalSEcundariosRichTextBox.BackColor = System.Drawing.SystemColors.Control
         Me.CNAEAtvLocalSEcundariosRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtvLocalSEcundarios", True))
-        Me.CNAEAtvLocalSEcundariosRichTextBox.Location = New System.Drawing.Point(270, 91)
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Location = New System.Drawing.Point(199, 91)
         Me.CNAEAtvLocalSEcundariosRichTextBox.Name = "CNAEAtvLocalSEcundariosRichTextBox"
-        Me.CNAEAtvLocalSEcundariosRichTextBox.Size = New System.Drawing.Size(536, 95)
+        Me.CNAEAtvLocalSEcundariosRichTextBox.ReadOnly = True
+        Me.CNAEAtvLocalSEcundariosRichTextBox.Size = New System.Drawing.Size(607, 95)
         Me.CNAEAtvLocalSEcundariosRichTextBox.TabIndex = 91
         Me.CNAEAtvLocalSEcundariosRichTextBox.Text = ""
-        '
-        'LabelDescricaoCnaeSec
-        '
-        Me.LabelDescricaoCnaeSec.AutoSize = True
-        Me.LabelDescricaoCnaeSec.Location = New System.Drawing.Point(199, 94)
-        Me.LabelDescricaoCnaeSec.Name = "LabelDescricaoCnaeSec"
-        Me.LabelDescricaoCnaeSec.Size = New System.Drawing.Size(71, 15)
-        Me.LabelDescricaoCnaeSec.TabIndex = 90
-        Me.LabelDescricaoCnaeSec.Text = "Descrições:"
-        '
-        'LabelDescricaoCNAE
-        '
-        Me.LabelDescricaoCNAE.AutoSize = True
-        Me.LabelDescricaoCNAE.Location = New System.Drawing.Point(199, 68)
-        Me.LabelDescricaoCNAE.Name = "LabelDescricaoCNAE"
-        Me.LabelDescricaoCNAE.Size = New System.Drawing.Size(65, 15)
-        Me.LabelDescricaoCNAE.TabIndex = 89
-        Me.LabelDescricaoCNAE.Text = "Descrição:"
         '
         'CNAEAtvLocalPrincipalTextBox
         '
         Me.CNAEAtvLocalPrincipalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CNAEAtvLocalPrincipal", True))
-        Me.CNAEAtvLocalPrincipalTextBox.Location = New System.Drawing.Point(270, 65)
+        Me.CNAEAtvLocalPrincipalTextBox.Location = New System.Drawing.Point(199, 65)
         Me.CNAEAtvLocalPrincipalTextBox.Name = "CNAEAtvLocalPrincipalTextBox"
-        Me.CNAEAtvLocalPrincipalTextBox.Size = New System.Drawing.Size(536, 21)
+        Me.CNAEAtvLocalPrincipalTextBox.ReadOnly = True
+        Me.CNAEAtvLocalPrincipalTextBox.Size = New System.Drawing.Size(607, 21)
         Me.CNAEAtvLocalPrincipalTextBox.TabIndex = 88
         '
         'CNAEAtividadeNoLocalComboBox
@@ -2494,7 +2476,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnVerDescricaoCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnVerDescricaoCNAE.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(643, 190)
+        Me.BtnVerDescricaoCNAE.Location = New System.Drawing.Point(201, 189)
         Me.BtnVerDescricaoCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnVerDescricaoCNAE.Name = "BtnVerDescricaoCNAE"
         Me.BtnVerDescricaoCNAE.Size = New System.Drawing.Size(163, 28)
@@ -2519,7 +2501,7 @@ Partial Class FrmLegalizacao
         Me.BtnGrauDeRisco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnGrauDeRisco.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGrauDeRisco.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(270, 192)
+        Me.BtnGrauDeRisco.Location = New System.Drawing.Point(90, 189)
         Me.BtnGrauDeRisco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnGrauDeRisco.Name = "BtnGrauDeRisco"
         Me.BtnGrauDeRisco.Size = New System.Drawing.Size(102, 28)
@@ -2531,7 +2513,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(489, 192)
+        Me.Button25.Location = New System.Drawing.Point(596, 20)
         Me.Button25.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(102, 28)
@@ -2543,7 +2525,7 @@ Partial Class FrmLegalizacao
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button4.Location = New System.Drawing.Point(380, 192)
+        Me.Button4.Location = New System.Drawing.Point(704, 20)
         Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(102, 28)
@@ -2767,6 +2749,7 @@ Partial Class FrmLegalizacao
         'TabPage14
         '
         Me.TabPage14.AutoScroll = True
+        Me.TabPage14.Controls.Add(Me.BtnCorrigeCidade)
         Me.TabPage14.Controls.Add(Me.BtnArrumaEnd)
         Me.TabPage14.Controls.Add(Me.BtnCopiaCEP)
         Me.TabPage14.Controls.Add(Me.BtnMapa)
@@ -2812,6 +2795,18 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'BtnCorrigeCidade
+        '
+        Me.BtnCorrigeCidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorrigeCidade.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCorrigeCidade.Location = New System.Drawing.Point(139, 193)
+        Me.BtnCorrigeCidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCorrigeCidade.Name = "BtnCorrigeCidade"
+        Me.BtnCorrigeCidade.Size = New System.Drawing.Size(119, 29)
+        Me.BtnCorrigeCidade.TabIndex = 77
+        Me.BtnCorrigeCidade.Text = "Arrumar Cidade"
+        Me.BtnCorrigeCidade.UseVisualStyleBackColor = True
         '
         'BtnArrumaEnd
         '
@@ -6869,8 +6864,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnRemovCaract As Button
     Friend WithEvents RamoDeAtividadeRichTextBox As RichTextBox
     Friend WithEvents CNAEAtvLocalSEcundariosRichTextBox As RichTextBox
-    Friend WithEvents LabelDescricaoCnaeSec As Label
-    Friend WithEvents LabelDescricaoCNAE As Label
     Friend WithEvents CNAEAtvLocalPrincipalTextBox As TextBox
     Friend WithEvents CNAEAtividadeNoLocalComboBox As ComboBox
     Friend WithEvents Label6 As Label
@@ -6878,4 +6871,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnAjudaRamoObjeto1 As Button
     Friend WithEvents BtnAjudaRamoObjeto2 As Button
     Friend WithEvents LinkLabelCopiarRamo As LinkLabel
+    Friend WithEvents BtnCorrigeCidade As Button
 End Class

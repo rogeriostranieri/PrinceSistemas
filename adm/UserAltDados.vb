@@ -58,16 +58,21 @@ Public Class UserAltDados
     ' Método para carregar imagens no TemaComboBox
     Private Sub UserAltDados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo")
-                Dim imgName As String = IO.Path.GetFileName(img)
-                If imgName.StartsWith("planodefundo") Then
+            ' Definir as extensões permitidas
+            Dim extensoes As String() = {"*.jpeg", "*.jpg", "*.png", "*.gif"}
+
+            ' Loop por todas as extensões e adicionar os arquivos ao ComboBox
+            For Each ext As String In extensoes
+                For Each img As String In IO.Directory.EnumerateFiles(Application.StartupPath & "\Imagens\Plano de Fundo", ext)
+                    Dim imgName As String = IO.Path.GetFileName(img)
                     TemaComboBox.Items.Add(imgName)
-                End If
+                Next
             Next
         Catch ex As Exception
             MsgBox("Erro ao carregar imagens: " & ex.Message)
         End Try
     End Sub
+
 
     ' Limpar os campos
     Private Sub BtnLimpar_Click(sender As Object, e As EventArgs) Handles BtnLimpar.Click

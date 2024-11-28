@@ -990,6 +990,8 @@ Public Class FrmAlvara
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf
+
+                BtnCorrigeCidade.PerformClick() 'corrige a cidade com acentos
             Else
                 MessageBox.Show("CEP não encontrado.")
             End If
@@ -2211,4 +2213,68 @@ Public Class FrmAlvara
         End If
 
     End Sub
+
+    Private Sub BtnCorrigeCidade_Click(sender As Object, e As EventArgs) Handles BtnCorrigeCidade.Click
+        Try
+            ' Obter o nome da cidade inserida no campo
+            Dim CidadeInserida As String = EndCidadeTextBox.Text.Trim()
+
+            ' Verificar se o campo de cidade não está vazio
+            If String.IsNullOrWhiteSpace(CidadeInserida) Then
+                MessageBox.Show("O campo de cidade está vazio. Por favor, insira uma cidade para corrigir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Conectar ao banco de dados para buscar a cidade correta
+            Using conn As New SqlConnection(connectionString)
+                conn.Open()
+
+                ' Consulta SQL ajustada para ignorar acentos
+                Dim query As String = "
+                SELECT TOP 1 nome
+                FROM BrasilMunicipios
+                WHERE nome COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%' + @cidade + '%'
+            "
+
+                Using cmd As New SqlCommand(query, conn)
+                    ' Adicionar o parâmetro para a consulta
+                    cmd.Parameters.AddWithValue("@cidade", CidadeInserida)
+
+                    ' Executar a consulta
+                    Dim resultado As Object = cmd.ExecuteScalar()
+
+                    ' Verificar se a cidade foi encontrada
+                    If resultado IsNot Nothing Then
+                        Dim cidadeCorrigida As String = resultado.ToString()
+                        EndCidadeTextBox.Text = cidadeCorrigida
+                        MessageBox.Show($"Cidade corrigida para: {cidadeCorrigida}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Cidade não encontrada na tabela 'BrasilMunicipios'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao corrigir a cidade! " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub AlvaraComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AlvaraComboBox.SelectedIndexChanged
+        Select Case AlvaraComboBox.Text
+            Case "Alvará Definitivo"
+                AlvaraComboBox.BackColor = Color.Green
+                AlvaraComboBox.ForeColor = Color.White
+            Case "Alvará Provisório"
+                AlvaraComboBox.BackColor = Color.Yellow
+                AlvaraComboBox.ForeColor = Color.Black ' Letras pretas para contraste
+            Case "Alvará Vencido"
+                AlvaraComboBox.BackColor = Color.Red
+                AlvaraComboBox.ForeColor = Color.White
+            Case Else
+                ' Define cores padrão se nenhum dos casos for atendido
+                AlvaraComboBox.BackColor = SystemColors.Window
+                AlvaraComboBox.ForeColor = SystemColors.WindowText
+        End Select
+    End Sub
+
+
 End Class

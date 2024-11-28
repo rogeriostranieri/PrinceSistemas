@@ -1543,13 +1543,13 @@ Novos dados:" + "
         Try
             ' Verifica se o FrmParcelamentos já está aberto
             Dim frmParcelamentosAberto As Boolean = False
-            Dim formParcelamentosInstanciado As FrmParcelamentos = Nothing
+            Dim formParcelamentosInstanciado As FrmParcelamento = Nothing
 
             ' Procura pelo formulário entre os forms abertos
             For Each form In Application.OpenForms
-                If TypeOf form Is FrmParcelamentos Then
+                If TypeOf form Is FrmParcelamento Then
                     frmParcelamentosAberto = True
-                    formParcelamentosInstanciado = CType(form, FrmParcelamentos)
+                    formParcelamentosInstanciado = CType(form, FrmParcelamento)
                     Exit For
                 End If
             Next
@@ -1564,16 +1564,16 @@ Novos dados:" + "
                 Dim SenhaGOV As String = SenhaGOVTextBox.Text
 
                 ' Ativa a aba 3 do TabControlPrincipal no FrmParcelamentos
-                formParcelamentosInstanciado.TabControlPrincipal.SelectedTab = formParcelamentosInstanciado.TabControlPrincipal.TabPages(3)
+                'formParcelamentosInstanciado.TabControlPrincipal.SelectedTab = formParcelamentosInstanciado.TabControlPrincipal.TabPages(3)
 
                 ' Preenche os campos do FrmParcelamentos
-                formParcelamentosInstanciado.SocioResponsavelTextBox.Text = NomeSocio
-                formParcelamentosInstanciado.CPFsocioResponsavelMaskedTextBox.Text = CPF
-                formParcelamentosInstanciado.GovSenhaMaskedTextBox.Text = SenhaGOV
+                ' formParcelamentosInstanciado.SocioResponsavelTextBox.Text = NomeSocio
+                ' formParcelamentosInstanciado.CPFsocioResponsavelMaskedTextBox.Text = CPF
+                ' formParcelamentosInstanciado.GovSenhaMaskedTextBox.Text = SenhaGOV
             Else
                 ' Se o formulário não estiver aberto, cria e abre o formulário
-                Dim newFrmParcelamentos As New FrmParcelamentos()
-                newFrmParcelamentos.Show()
+                'Dim newFrmParcelamentos As New FrmParcelamentos()
+                ' newFrmParcelamentos.Show()
 
                 ' Mensagem de aviso
                 MsgBox("Abrir o formulário de Parcelamentos antes de prosseguir.")

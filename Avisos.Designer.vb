@@ -125,6 +125,7 @@ Partial Class Avisos
         '
         Me.LaudosDataGridView.AllowUserToAddRows = False
         Me.LaudosDataGridView.AllowUserToDeleteRows = False
+        Me.LaudosDataGridView.AllowUserToOrderColumns = True
         Me.LaudosDataGridView.AutoGenerateColumns = False
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.Matriz, Me.DataGridViewTextBoxColumn59, Me.BombeiroSituacao, Me.DataGridViewTextBoxColumn1})
@@ -189,6 +190,7 @@ Partial Class Avisos
         '
         Me.EmpresasDataGridView.AllowUserToAddRows = False
         Me.EmpresasDataGridView.AllowUserToDeleteRows = False
+        Me.EmpresasDataGridView.AllowUserToOrderColumns = True
         Me.EmpresasDataGridView.AutoGenerateColumns = False
         Me.EmpresasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EmpresasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn68, Me.SEDE, Me.Processo, Me.DataGridViewTextBoxColumn89, Me.CNPJ})

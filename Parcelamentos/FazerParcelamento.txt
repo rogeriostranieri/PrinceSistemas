@@ -1,46 +1,141 @@
-﻿
+﻿Private Sub RegistrarEnvioMEI()
+        If MEICheckBox.Checked Then
+
+            If String.IsNullOrWhiteSpace(ParcelaEnviadaMEITextBox.Text) OrElse String.IsNullOrWhiteSpace(QtoParcelasMEITextBox.Text) Then
+                    MessageBox.Show("Os campos 'Parcela Enviada' e 'Quantidade de Parcelas' são obrigatórios para o MEI.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                TabControlPrincipal.SelectTab(2)
+                TabControleParcelamentos.SelectTab(TabPageMEI)
+                TabControlMEI.SelectTab(1)
+
+                Dim dataEnvio = MesEnviadoMEIDateTimePicker.Value
+                Dim parcelaEnviada = CInt(ParcelaEnviadaMEITextBox.Text)
+                Dim qtoParcelas = CInt(QtoParcelasMEITextBox.Text)
+                Dim MeioDeEnvio = CInt(FormaEnvioComboBox.Text)
+
+                Dim mensagemHistorico = $"{dataEnvio:dddd, dd 'de' MMMM 'de' yyyy 'às' HH:mm} - Foi enviado, por: {MeioDeEnvio}, a Parcela nº: {parcelaEnviada} de {qtoParcelas} parcelas do parcelamento MEI."
+                TabControlMEI.SelectTab(1) ' Aba de histórico
+                TabControlPrincipal.SelectTab(0)
+                HistoricoEnvioMEIRichTextBox.AppendText(mensagemHistorico & Environment.NewLine)
 
 
-    Private Sub BtnRegistrarEnvioMEI_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioMEI.Click
-        'HistoricoEnvioMEIRichTextBox
+                ' Montar o texto para copiar
+                Dim tipoParcela = "MEI"
+                Dim RazaoSocial = RazaoSocialTextBox.Text
+                Dim mesAno = $"{dataEnvio:MMMM/yyyy}"
+                Dim textoParaCopiar = "Olá," & vbCrLf &
+                                      $"Segue o DARF referente ao *parcelamento do INSS {tipoParcela}* da Empresa: {RazaoSocial}, mensal." & vbCrLf & vbCrLf &
+                                      $"Parcela: {parcelaEnviada} de {qtoParcelas} - referente ao *mês {mesAno}*" & vbCrLf & vbCrLf &
+                                      "Atenciosamente," & vbCrLf &
+                                      "Rogerio"
+                Clipboard.SetText(textoParaCopiar) ' Copiar para a área de transferência
+        End If
+
     End Sub
 
-    Private Sub BtnRegistrarEnvioINSSantigo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSantigo.Click
-        'HistoricoEnvioINSSAntigoRichTextBox
+    Private Sub RegistrarEnvioINSSAntigo()
+        If INSSAntigoCheckBox.Checked Then
+            If String.IsNullOrWhiteSpace(ParcelaEnviadaINSSAntigoTextBox.Text) OrElse String.IsNullOrWhiteSpace(QtoParcelasINSSAntigoTextBox.Text) Then
+                MessageBox.Show("Os campos 'Parcela Enviada' e 'Quantidade de Parcelas' são obrigatórios para o INSS Antigo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            TabControlPrincipal.SelectTab(2)
+            TabControleParcelamentos.SelectTab(TabPageINSSAntigo)
+            TabControlInssAntigo.SelectTab(1)
+
+            Dim dataEnvio = MesEnviadoINSSAntigoDateTimePicker.Value
+            Dim parcelaEnviada = CInt(ParcelaEnviadaINSSAntigoTextBox.Text)
+            Dim qtoParcelas = CInt(QtoParcelasINSSAntigoTextBox.Text)
+            Dim MeioDeEnvio = CInt(FormaEnvioComboBox.Text)
+
+            Dim mensagemHistorico = $"{dataEnvio:dddd, dd 'de' MMMM 'de' yyyy 'às' HH:mm} - Foi enviado, por: {MeioDeEnvio}, a Parcela nº: {parcelaEnviada} de {qtoParcelas} parcelas do parcelamento INSS Antigo."
+            TabControlInssAntigo.SelectTab(1) ' Aba de histórico
+            TabControlPrincipal.SelectTab(0)
+            HistoricoEnvioINSSAntigoRichTextBox.AppendText(mensagemHistorico & Environment.NewLine)
+
+
+            ' Montar o texto para copiar
+            Dim tipoParcela = "Antigo"
+            Dim RazaoSocial = RazaoSocialTextBox.Text
+            Dim mesAno = $"{dataEnvio:MMMM/yyyy}"
+            Dim textoParaCopiar = "Olá," & vbCrLf &
+                                  $"Segue o DARF referente ao *parcelamento do INSS {tipoParcela}* da Empresa: {RazaoSocial}, mensal." & vbCrLf & vbCrLf &
+                                  $"Parcela: {parcelaEnviada} de {qtoParcelas} - referente ao *mês {mesAno}*" & vbCrLf & vbCrLf &
+                                  "Atenciosamente," & vbCrLf &
+                                  "Rogerio"
+            Clipboard.SetText(textoParaCopiar) ' Copiar para a área de transferência
+        End If
     End Sub
 
-    Private Sub BtnRegistrarEnvioINSSnovo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSnovo.Click
-        'HistoricoEnvioINSSNovoRichTextBox
+    Private Sub RegistrarEnvioINSSNovo()
+        If INSSNovoCheckBox.Checked Then
+            If String.IsNullOrWhiteSpace(ParcelaEnviadaINSSNovoTextBox.Text) OrElse String.IsNullOrWhiteSpace(QtoParcelasINSSNovoTextBox.Text) Then
+                MessageBox.Show("Os campos 'Parcela Enviada' e 'Quantidade de Parcelas' são obrigatórios para o INSS Novo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            TabControlPrincipal.SelectTab(2)
+            TabControleParcelamentos.SelectTab(TabPageINSSNovo)
+            TabControlInssNovo.SelectTab(1)
+
+            Dim dataEnvio = MesEnviadoINSSNovoDateTimePicker.Value
+            Dim parcelaEnviada = CInt(ParcelaEnviadaINSSNovoTextBox.Text)
+            Dim qtoParcelas = CInt(QtoParcelasINSSNovoTextBox.Text)
+            Dim MeioDeEnvio = CInt(FormaEnvioComboBox.Text)
+
+            Dim mensagemHistorico = $"{dataEnvio:dddd, dd 'de' MMMM 'de' yyyy 'às' HH:mm} - Foi enviado, por: {MeioDeEnvio}, a Parcela nº: {parcelaEnviada} de {qtoParcelas} parcelas do parcelamento INSS Novo."
+            TabControlInssNovo.SelectTab(1) ' Aba de histórico
+            TabControlPrincipal.SelectTab(0)
+            HistoricoEnvioINSSNovoRichTextBox.AppendText(mensagemHistorico & Environment.NewLine)
+
+
+            ' Montar o texto para copiar
+            Dim tipoParcela = "Novo"
+            Dim RazaoSocial = RazaoSocialTextBox.Text
+            Dim mesAno = $"{dataEnvio:MMMM/yyyy}"
+            Dim textoParaCopiar = "Olá," & vbCrLf &
+                                  $"Segue o DARF referente ao *parcelamento do INSS {tipoParcela}* da Empresa: {RazaoSocial}, mensal." & vbCrLf & vbCrLf &
+                                  $"Parcela: {parcelaEnviada} de {qtoParcelas} - referente ao *mês {mesAno}*" & vbCrLf & vbCrLf &
+                                  "Atenciosamente," & vbCrLf &
+                                  "Rogerio"
+            Clipboard.SetText(textoParaCopiar) ' Copiar para a área de transferência
+        End If
     End Sub
 
-    Private Sub BtnRegistrarEnvioINSSProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnRegistrarEnvioINSSProcuradoria.Click
-        'HistoricoEnvioINSSProcRichTextBox
+    Private Sub RegistrarEnvioINSSProcuradoria()
+        If INSSProcuradoriaCheckBox.Checked Then
+            If String.IsNullOrWhiteSpace(ParcelaEnviadaINSSProcuradoriaTextBox.Text) OrElse String.IsNullOrWhiteSpace(QtoParcelasINSSProcuradoriaTextBox.Text) Then
+                MessageBox.Show("Os campos 'Parcela Enviada' e 'Quantidade de Parcelas' são obrigatórios para o INSS Procuradoria.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            TabControlPrincipal.SelectTab(2)
+            TabControleParcelamentos.SelectTab(TabPageINSSProcuradoria)
+            TabControlInssProcuradoria.SelectTab(1)
+
+            Dim dataEnvio = MesEnviadoINSSProcDateTimePicker.Value
+            Dim parcelaEnviada = CInt(ParcelaEnviadaINSSProcuradoriaTextBox.Text)
+            Dim qtoParcelas = CInt(QtoParcelasINSSProcuradoriaTextBox.Text)
+            Dim MeioDeEnvio = CInt(FormaEnvioComboBox.Text)
+
+            Dim mensagemHistorico = $"{dataEnvio:dddd, dd 'de' MMMM 'de' yyyy 'às' HH:mm} - Foi enviado, por: {MeioDeEnvio}, a Parcela nº: {parcelaEnviada} de {qtoParcelas} parcelas do parcelamento INSS Procuradoria."
+            TabControlInssProcuradoria.SelectTab(1) ' Aba de histórico
+            TabControlPrincipal.SelectTab(0)
+            HistoricoEnvioINSSProcRichTextBox.AppendText(mensagemHistorico & Environment.NewLine)
+
+
+            ' Montar o texto para copiar
+            Dim tipoParcela = "Procuradoria"
+            Dim RazaoSocial = RazaoSocialTextBox.Text
+            Dim mesAno = $"{dataEnvio:MMMM/yyyy}"
+            Dim textoParaCopiar = "Olá," & vbCrLf &
+                                  $"Segue o DARF referente ao *parcelamento do INSS {tipoParcela}* da Empresa: {RazaoSocial}, mensal." & vbCrLf & vbCrLf &
+                                  $"Parcela: {parcelaEnviada} de {qtoParcelas} - referente ao *mês {mesAno}*" & vbCrLf & vbCrLf &
+                                  "Atenciosamente," & vbCrLf &
+                                  "Rogerio"
+            Clipboard.SetText(textoParaCopiar) ' Copiar para a área de transferência
+        End If
     End Sub
-
-    atenção = 
-    inicia usando o select TabControleParcelamentos (1) e volta pro (0) depois tambem TabControlPrincipal ( aqui pode ser MEI, inss antigo e outros)
-   pois:
-   TabControleParcelamentos tem TabPageMEI / TabPageINSSAntigo / TabPageINSSNovo / TabPageINSSProcuradoria
-    TabControlPrincipal tem TabPageMEIGeral / TabPageHistorico e TabPageMEIObservacoes e assim muda com INSSAntigo e INSSProcuradoria
-
- esses botao regitrar, ao clicar eles vai pegar:
-Data do envio DATAPICK (exemplo MesEnviadoMEIDateTimePicker)
-selecionar TabControlPrincipal na aba chamada (FormadeEnvio) depois pegar texto dentro do combobox.text chamado "FormaEnvioComboBox"
-pegar a parcela enviada ParcelaEnviadaMEITextBox e tambem QtoParcelasMEITextBox (MEI mas coloca tambem dos INSSAntigo e dos outros)
-
-Total =
-QtoParcelasMEI
-QtoParcelasINSSAntigo
-QtoParcelasINSSNovo
-QtoParcelasINSSProcuradoria
-
-Parcela enviada =
-ParcelaEnviadaMEI
-ParcelaEnviadaINSSAntigo
-ParcelaEnviadaINSSNovo
-ParcelaEnviadaINSSProcuradoria
-
-e registrar no historico assim 
-"(data de envio) foi enviado a (parcela enviada "de" total de parcela) do parcelamento (INSS ou MEI ou outro)"
-
-Obs: fazer isso com MEI, INSSAntigo, INSSNovo e INSSProcuradoria pois cada um vai ter seu botao de registro para salvar o historico de envios

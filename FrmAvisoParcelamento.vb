@@ -87,19 +87,19 @@
     End Sub
 
     Private Sub ParcelamentosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ParcelamentosDataGridView.CellContentDoubleClick
-        If Application.OpenForms.OfType(Of FrmParcelamentos)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmParcelamento)().Count() > 0 Then
             Dim Sair As String
             Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
             '  Dim novoEmpresa As New FrmLegalizacao
-            FrmParcelamentos.Focus()
-            FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmParcelamentos.RazaoSocialComboBox.Select()
+            '  FrmParcelamentos.Focus()
+            ' FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
+            '  FrmParcelamentos.RazaoSocialComboBox.Select()
         Else
             ' Dim novoEmpresa As New FrmLegalizacao
             ' novoEmpresa.MdiParent = MDIPrincipal
-            FrmParcelamentos.Show()
-            FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
-            FrmParcelamentos.RazaoSocialComboBox.Select()
+            ' FrmParcelamentos.Show()
+            '  FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
+            ' FrmParcelamentos.RazaoSocialComboBox.Select()
         End If
     End Sub
 
@@ -111,20 +111,20 @@
 
     Private Sub BtnVerParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnVerParcelamentos.Click
         ' Verifica se o formulário já está aberto
-        Dim formParcelamentos = Application.OpenForms.OfType(Of FrmControleParcelamentos)().FirstOrDefault()
+        Dim Parcelamentos = Application.OpenForms.OfType(Of FrmParcelamento)().FirstOrDefault()
 
-        If formParcelamentos IsNot Nothing Then
+        If Parcelamentos IsNot Nothing Then
             ' Se o formulário já estiver aberto, traz ele para frente e define o MdiParent, caso necessário
-            ' formParcelamentos.MdiParent = MDIPrincipal
-            formParcelamentos.BringToFront()
-            formParcelamentos.Focus()
+            FrmParcelamento.MdiParent = MDIPrincipal
+            FrmParcelamento.BringToFront()
+            FrmParcelamento.Focus()
         Else
             ' Caso contrário, cria uma nova instância do formulário, define o MdiParent e exibe o formulário
-            formParcelamentos = New FrmControleParcelamentos()
-            ' formParcelamentos.MdiParent = MDIPrincipal
-            formParcelamentos.Show()
-            formParcelamentos.BringToFront()
-            formParcelamentos.Focus()
+            FrmParcelamento = New FrmParcelamento()
+            FrmParcelamento.MdiParent = MDIPrincipal
+            FrmParcelamento.Show()
+            FrmParcelamento.BringToFront()
+            FrmParcelamento.Focus()
         End If
         Me.Close()
     End Sub

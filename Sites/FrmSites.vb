@@ -437,7 +437,7 @@ Public Class FrmSites
     End Sub
 
     Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
-        BombeiroREDESIMTextBox.Text = "https://protegefacil.paas.pr.gov.br"
+        BombeiroUnificadoTextBox.Text = "https://protegefacil.paas.pr.gov.br"
 
     End Sub
 
