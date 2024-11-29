@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FrmAvisoParcelamentos
+Partial Class FrmAvisoParcelamento
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -31,25 +31,26 @@ Partial Class FrmAvisoParcelamentos
         Me.ParcelamentosAvisoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParcelamentosAvisoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.MesRealizadoComboBox = New System.Windows.Forms.ComboBox()
         Me.AnoComboBox = New System.Windows.Forms.ComboBox()
-        Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ParcelamentosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnVerParcelamentos = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
+        Me.ParcelamentosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnTodosParcel = New System.Windows.Forms.Button()
         MesRealizadoLabel = New System.Windows.Forms.Label()
         AnoLabel = New System.Windows.Forms.Label()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MesRealizadoLabel
@@ -142,15 +143,11 @@ Partial Class FrmAvisoParcelamentos
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
         Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Me.ParcelamentosAvisoTableAdapter
-        Me.TableAdapterManager.ParcelamentosTableAdapter = Me.ParcelamentosTableAdapter
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'ParcelamentosTableAdapter
-        '
-        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
         '
         'MesRealizadoComboBox
         '
@@ -171,34 +168,6 @@ Partial Class FrmAvisoParcelamentos
         Me.AnoComboBox.Name = "AnoComboBox"
         Me.AnoComboBox.Size = New System.Drawing.Size(121, 28)
         Me.AnoComboBox.TabIndex = 10
-        '
-        'ParcelamentosBindingSource
-        '
-        Me.ParcelamentosBindingSource.DataMember = "Parcelamentos"
-        Me.ParcelamentosBindingSource.DataSource = Me.PrinceDBDataSet
-        '
-        'ParcelamentosDataGridView
-        '
-        Me.ParcelamentosDataGridView.AllowUserToAddRows = False
-        Me.ParcelamentosDataGridView.AllowUserToDeleteRows = False
-        Me.ParcelamentosDataGridView.AllowUserToOrderColumns = True
-        Me.ParcelamentosDataGridView.AutoGenerateColumns = False
-        Me.ParcelamentosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ParcelamentosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
-        Me.ParcelamentosDataGridView.DataSource = Me.ParcelamentosBindingSource
-        Me.ParcelamentosDataGridView.Location = New System.Drawing.Point(19, 250)
-        Me.ParcelamentosDataGridView.Name = "ParcelamentosDataGridView"
-        Me.ParcelamentosDataGridView.ReadOnly = True
-        Me.ParcelamentosDataGridView.Size = New System.Drawing.Size(542, 220)
-        Me.ParcelamentosDataGridView.TabIndex = 10
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razao Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 450
         '
         'BtnFechar
         '
@@ -245,7 +214,7 @@ Partial Class FrmAvisoParcelamentos
         Me.BtnVerParcelamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnVerParcelamentos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnVerParcelamentos.ForeColor = System.Drawing.Color.White
-        Me.BtnVerParcelamentos.Location = New System.Drawing.Point(116, 488)
+        Me.BtnVerParcelamentos.Location = New System.Drawing.Point(268, 476)
         Me.BtnVerParcelamentos.Name = "BtnVerParcelamentos"
         Me.BtnVerParcelamentos.Size = New System.Drawing.Size(309, 58)
         Me.BtnVerParcelamentos.TabIndex = 18
@@ -268,6 +237,52 @@ Partial Class FrmAvisoParcelamentos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Controle de Parcelamentos"
         '
+        'ParcelamentosBindingSource
+        '
+        Me.ParcelamentosBindingSource.DataMember = "Parcelamentos"
+        Me.ParcelamentosBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'ParcelamentosTableAdapter
+        '
+        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
+        '
+        'ParcelamentosDataGridView
+        '
+        Me.ParcelamentosDataGridView.AllowUserToAddRows = False
+        Me.ParcelamentosDataGridView.AllowUserToDeleteRows = False
+        Me.ParcelamentosDataGridView.AllowUserToOrderColumns = True
+        Me.ParcelamentosDataGridView.AutoGenerateColumns = False
+        Me.ParcelamentosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ParcelamentosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
+        Me.ParcelamentosDataGridView.DataSource = Me.ParcelamentosBindingSource
+        Me.ParcelamentosDataGridView.Location = New System.Drawing.Point(19, 250)
+        Me.ParcelamentosDataGridView.Name = "ParcelamentosDataGridView"
+        Me.ParcelamentosDataGridView.Size = New System.Drawing.Size(558, 220)
+        Me.ParcelamentosDataGridView.TabIndex = 20
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 500
+        '
+        'BtnTodosParcel
+        '
+        Me.BtnTodosParcel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BtnTodosParcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BtnTodosParcel.FlatAppearance.BorderSize = 5
+        Me.BtnTodosParcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnTodosParcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnTodosParcel.ForeColor = System.Drawing.Color.White
+        Me.BtnTodosParcel.Location = New System.Drawing.Point(19, 476)
+        Me.BtnTodosParcel.Name = "BtnTodosParcel"
+        Me.BtnTodosParcel.Size = New System.Drawing.Size(243, 58)
+        Me.BtnTodosParcel.TabIndex = 21
+        Me.BtnTodosParcel.Text = "Todos Parcelamentos"
+        Me.BtnTodosParcel.UseVisualStyleBackColor = False
+        '
         'FrmAvisoParcelamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -277,11 +292,12 @@ Partial Class FrmAvisoParcelamentos
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(577, 561)
+        Me.ClientSize = New System.Drawing.Size(597, 566)
+        Me.Controls.Add(Me.BtnTodosParcel)
+        Me.Controls.Add(Me.ParcelamentosDataGridView)
         Me.Controls.Add(Me.BtnVerParcelamentos)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnFechar)
-        Me.Controls.Add(Me.ParcelamentosDataGridView)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.LblDataAviso)
         Me.Controls.Add(Me.GroupBox1)
@@ -295,11 +311,11 @@ Partial Class FrmAvisoParcelamentos
         Me.Text = "Controle Parcelamentos"
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -312,13 +328,14 @@ Partial Class FrmAvisoParcelamentos
     Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
     Friend WithEvents MesRealizadoComboBox As ComboBox
     Friend WithEvents AnoComboBox As ComboBox
-    Friend WithEvents ParcelamentosTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter
-    Friend WithEvents ParcelamentosBindingSource As BindingSource
-    Friend WithEvents ParcelamentosDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents BtnFechar As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnVerParcelamentos As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents ParcelamentosBindingSource As BindingSource
+    Friend WithEvents ParcelamentosTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter
+    Friend WithEvents ParcelamentosDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents BtnTodosParcel As Button
 End Class

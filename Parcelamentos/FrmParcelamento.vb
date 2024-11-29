@@ -39,8 +39,6 @@ Public Class FrmParcelamento
         ParcelamentosBindingSource.CancelEdit()
         BloqueiaTudo() ' Bloqueia os campos novamente
         BtnEditar.Text = "Editar" ' Muda o texto do botão para "Editar"
-        BtnSalvar.Enabled = False
-        BtnExcluir.Enabled = True
 
     End Sub
 
@@ -56,10 +54,8 @@ Public Class FrmParcelamento
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         Me.ParcelamentosBindingSource.AddNew() ' Adiciona um novo registro
         DesBloqueiaTudo() ' Habilita os campos para edição
-        BtnSalvar.Enabled = True ' Habilita o botão Salvar
         BtnEditar.Enabled = False ' Desabilita o botão Editar enquanto está no modo Novo
-        BtnExcluir.Enabled = False ' Desabilita o botão Excluir
-
+        MEICheckBox.CheckState = CheckState.Unchecked
     End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
@@ -245,26 +241,30 @@ Public Class FrmParcelamento
             ' Se não estiver em modo de edição, entrar no modo de edição
             DesBloqueiaTudo() ' Habilita os campos para edição
             BtnEditar.Text = "Cancelar" ' Muda o texto do botão para "Cancelar"
-            BtnSalvar.Enabled = True ' Habilita o botão Salvar
-            BtnExcluir.Enabled = False ' Desabilita o botão Excluir
+
         Else
             ' Se estiver em modo de edição, cancelar as alterações
             ParcelamentosBindingSource.CancelEdit()
             BloqueiaTudo() ' Bloqueia os campos novamente
             BtnEditar.Text = "Editar" ' Muda o texto do botão para "Editar"
-            BtnSalvar.Enabled = False
-            BtnExcluir.Enabled = True
+
         End If
     End Sub
 
     Private Sub BloqueiaTudo()
         TabControlGeral.Enabled = False
         TabControlParcelamento.Enabled = False
+        BtnSalvar.Enabled = False
+        BtnExcluir.Enabled = True
+        BtnEditar.Text = "Editar"
     End Sub
 
     Private Sub DesBloqueiaTudo()
         TabControlGeral.Enabled = True
         TabControlParcelamento.Enabled = True
+        BtnSalvar.Enabled = True
+        BtnExcluir.Enabled = False
+        BtnEditar.Text = "Cancelar"
     End Sub
 
 
@@ -567,6 +567,14 @@ Public Class FrmParcelamento
         End Using
     End Sub
 
+    Private Sub BtnDataCriacao_Click(sender As Object, e As EventArgs) Handles BtnDataCriacao.Click
+        DataCriacaoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+    End Sub
+
+
+
+
     '/////////////////////////////////////////////
+
 
 End Class

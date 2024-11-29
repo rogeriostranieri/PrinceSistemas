@@ -78,8 +78,8 @@ Partial Class FrmAlvara
         Dim MatrizLabel As System.Windows.Forms.Label
         Dim NlaudoSecundarioLabel As System.Windows.Forms.Label
         Dim CNAEPrimarioLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Dim AlvaraLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAlvara))
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
@@ -299,6 +299,7 @@ Partial Class FrmAlvara
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.CMCLabel = New System.Windows.Forms.LinkLabel()
         Me.CheckBoxPrioridade = New System.Windows.Forms.GroupBox()
+        Me.AlvaraComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnFiliais = New System.Windows.Forms.Button()
         Me.MatrizComboBox = New System.Windows.Forms.ComboBox()
         Me.LabelFilial = New System.Windows.Forms.Label()
@@ -324,7 +325,6 @@ Partial Class FrmAlvara
         Me.BombeiroSituacaoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.BombeiroSituacaoTableAdapter()
         Me.AlvaraSistemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlvaraSistemaTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.AlvaraSistemaTableAdapter()
-        Me.AlvaraComboBox = New System.Windows.Forms.ComboBox()
         RazaoSocialLabel = New System.Windows.Forms.Label()
         BombeirosSituacaoLabel = New System.Windows.Forms.Label()
         BombeiroNProcessoLabel = New System.Windows.Forms.Label()
@@ -997,6 +997,15 @@ Partial Class FrmAlvara
         CNAEPrimarioLabel.Size = New System.Drawing.Size(92, 15)
         CNAEPrimarioLabel.TabIndex = 81
         CNAEPrimarioLabel.Text = "CNAE Primario:"
+        '
+        'AlvaraLabel
+        '
+        AlvaraLabel.AutoSize = True
+        AlvaraLabel.Location = New System.Drawing.Point(217, 109)
+        AlvaraLabel.Name = "AlvaraLabel"
+        AlvaraLabel.Size = New System.Drawing.Size(43, 15)
+        AlvaraLabel.TabIndex = 85
+        AlvaraLabel.Text = "Alvara:"
         '
         'PrinceDBDataSet
         '
@@ -3518,7 +3527,7 @@ Partial Class FrmAlvara
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox5.Size = New System.Drawing.Size(97, 249)
+        Me.GroupBox5.Size = New System.Drawing.Size(95, 249)
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "MENU"
@@ -3715,6 +3724,16 @@ Partial Class FrmAlvara
         Me.CheckBoxPrioridade.Size = New System.Drawing.Size(686, 216)
         Me.CheckBoxPrioridade.TabIndex = 78
         Me.CheckBoxPrioridade.TabStop = False
+        '
+        'AlvaraComboBox
+        '
+        Me.AlvaraComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Alvara", True))
+        Me.AlvaraComboBox.FormattingEnabled = True
+        Me.AlvaraComboBox.Items.AddRange(New Object() {"Alvará Definitivo", "Alvará Prestador de Serviços", "Alvará Provisório", "Alvará Vencido", "Em Andamento", "Sem Alvará"})
+        Me.AlvaraComboBox.Location = New System.Drawing.Point(266, 104)
+        Me.AlvaraComboBox.Name = "AlvaraComboBox"
+        Me.AlvaraComboBox.Size = New System.Drawing.Size(264, 23)
+        Me.AlvaraComboBox.TabIndex = 86
         '
         'BtnFiliais
         '
@@ -3925,7 +3944,7 @@ Partial Class FrmAlvara
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox10.Size = New System.Drawing.Size(97, 501)
+        Me.GroupBox10.Size = New System.Drawing.Size(95, 501)
         Me.GroupBox10.TabIndex = 58
         Me.GroupBox10.TabStop = False
         '
@@ -3986,25 +4005,6 @@ Partial Class FrmAlvara
         'AlvaraSistemaTableAdapter
         '
         Me.AlvaraSistemaTableAdapter.ClearBeforeFill = True
-        '
-        'AlvaraLabel
-        '
-        AlvaraLabel.AutoSize = True
-        AlvaraLabel.Location = New System.Drawing.Point(217, 109)
-        AlvaraLabel.Name = "AlvaraLabel"
-        AlvaraLabel.Size = New System.Drawing.Size(43, 15)
-        AlvaraLabel.TabIndex = 85
-        AlvaraLabel.Text = "Alvara:"
-        '
-        'AlvaraComboBox
-        '
-        Me.AlvaraComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Alvara", True))
-        Me.AlvaraComboBox.FormattingEnabled = True
-        Me.AlvaraComboBox.Items.AddRange(New Object() {"Alvará Definitivo", "Alvará Provisório", "Alvará Vencido"})
-        Me.AlvaraComboBox.Location = New System.Drawing.Point(266, 104)
-        Me.AlvaraComboBox.Name = "AlvaraComboBox"
-        Me.AlvaraComboBox.Size = New System.Drawing.Size(195, 23)
-        Me.AlvaraComboBox.TabIndex = 86
         '
         'FrmAlvara
         '

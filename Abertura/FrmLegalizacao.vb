@@ -454,6 +454,8 @@ Public Class FrmLegalizacao
                 CapitalAntigoMudouLabel.Visible = True
                 CapitalAntigoMudouComboBox.Visible = True
 
+
+
             Else
                 'MotivoRichTextBox.Visible = True
                 'MotivoLabel.Visible = True
@@ -545,7 +547,7 @@ Public Class FrmLegalizacao
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Aguardando Pagamento das Taxas")
+                Case StatusComboBox.Text.Contains("Taxas")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
@@ -561,77 +563,30 @@ Public Class FrmLegalizacao
                 '//////////////////////////////////////////////
                 ' Empresa Fácil
                 '//////////////////////////////////////////////
-                Case StatusComboBox.Text.Contains("Empresa Fácil - Prefeitura: EM ANÁLISE")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
-                Case StatusComboBox.Text.Contains("Empresa Fácil - Busca de Nome")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
-                Case StatusComboBox.Text.Contains("Empresa Fácil - Aguardando Atualização")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
-
-                Case StatusComboBox.Text.Contains("Empresa Fácil - Protocolado")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
-
                 Case StatusComboBox.Text.Contains("Empresa Fácil")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Receita Federal")
+                Case StatusComboBox.Text.Contains("Federal")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.redeSim_Divulgação
                     PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Receita Estadual - Protocolado")
+                Case StatusComboBox.Text.Contains("Estadual")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.governo2019_400x173px
                     PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Receita Estadual")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.governo2019_400x173px
-                    PictureBox1.Image = My.Resources.emandamento
+                Case StatusComboBox.Text.Contains("Simples")
 
-
-                Case StatusComboBox.Text.Contains("Receita Estadual - Em Andamento")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.governo2019_400x173px
-                    PictureBox1.Image = My.Resources.emandamento
-                '
-
-                Case StatusComboBox.Text.Contains("Simples Nacional - Protocolado")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
                     PictureBox1.Image = My.Resources.emandamento
-
-                Case StatusComboBox.Text.Contains("Simples Nacional")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
-                    PictureBox1.Image = My.Resources.emandamento
-
-                Case StatusComboBox.Text.Contains("Prefeitura/Alvará - Em Andamento")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.alvara
 
                 Case StatusComboBox.Text.Contains("Prefeitura")
                     StatusComboBox.BackColor = Color.White
@@ -639,7 +594,7 @@ Public Class FrmLegalizacao
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.alvara
                 '
-                Case StatusComboBox.Text.Contains("Aguardando Cliente")
+                Case StatusComboBox.Text.Contains("Cliente")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
@@ -660,6 +615,22 @@ Public Class FrmLegalizacao
 
             End Select
 
+
+            Select Case True
+
+                Case StatusComboBox.Text = "Simples Nacional - Em Andamento"
+                    TabControle.SelectTab(5)
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
+                    PictureBox1.Image = My.Resources.emandamento
+                Case StatusComboBox.Text = "Simples Nacional - Em Andamento"
+                    TabControle.SelectTab(5)
+                    StatusComboBox.BackColor = Color.White
+                    StatusComboBox.ForeColor = Color.Black
+                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
+                    PictureBox1.Image = My.Resources.emandamento
+            End Select
 
 
 
@@ -4167,5 +4138,11 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End Try
     End Sub
 
-
+    Private Sub SimplesEcacComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SimplesEcacComboBox.SelectedIndexChanged
+        If SimplesEcacComboBox.Text = "eCAC" Then
+            GroupBoxSimples.Visible = False
+        Else
+            GroupBoxSimples.Visible = True
+        End If
+    End Sub
 End Class

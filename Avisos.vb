@@ -50,8 +50,21 @@ Public Class Avisos
         FormBorderStyle = FormBorderStyle.FixedSingle
 
         VerificaParcelamentos()
-
     End Sub
+
+
+
+    Private Sub Avisos_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        ' Verifica se já existe uma instância aberta de FrmAvisoParcelamentos
+        If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
+            FrmAvisoParcelamento.Focus()
+            FrmAvisoParcelamento.MdiParent = MDIPrincipal
+            FrmAvisoParcelamento.BringToFront()
+        End If
+    End Sub
+
+
+
 
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -82,6 +95,7 @@ Public Class Avisos
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Filtro()
+        VerificaParcelamentos()
     End Sub
 
 
@@ -268,18 +282,13 @@ Public Class Avisos
 
     Private Sub LblParcelamentosAviso_Click(sender As Object, e As EventArgs) Handles LblParcelamentosAviso.Click
         ' Verifica se já existe uma instância aberta de FrmProtocoladosGeral
-        Dim AvisoProtocolo As FrmAvisoParcelamento = Application.OpenForms.OfType(Of FrmAvisoParcelamento)().FirstOrDefault()
-
-        ' Se já existir uma instância, foca no formulário
+        Dim AvisoProtocolo As FrmAvisoParcelamentos = Application.OpenForms.OfType(Of FrmAvisoParcelamentos)().FirstOrDefault()
         If AvisoProtocolo IsNot Nothing Then
-            AvisoProtocolo.Focus()
-            AvisoProtocolo.MdiParent = MDIPrincipal
+            FrmAvisoParcelamentos.Focus()
+            FrmAvisoParcelamentos.MdiParent = MDIPrincipal
         Else
-            ' Se não existir, cria uma nova instância e define o MDI parent
-            AvisoProtocolo = New FrmAvisoParcelamento()
-
-            AvisoProtocolo.Show()
-            AvisoProtocolo.MdiParent = MDIPrincipal
+            FrmAvisoParcelamentos.Show()
+            FrmAvisoParcelamentos.MdiParent = MDIPrincipal
         End If
     End Sub
 
@@ -294,8 +303,8 @@ Public Class Avisos
 
 
     '//////////////////////////// ver parcelamentos
-    'Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
     Private Sub VerificaParcelamentos()
+
         ' Verifica se está no modo de design, e sai da função se estiver
         If Me.DesignMode Then Return
 
@@ -305,6 +314,9 @@ Public Class Avisos
             MessageBox.Show("Data inválida. Verifique a data e tente novamente.", "Erro de Data", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+
+        ' Mostra a data selecionada para verificação
+        '   MessageBox.Show("Data selecionada: " & dataSelecionada.ToString("dd/MM/yyyy"), "Data Selecionada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         ' Extrai o mês da data selecionada para comparação
         Dim mesSelecionado As Integer = dataSelecionada.Month
@@ -319,8 +331,29 @@ Public Class Avisos
             ' Verificar lembretes para a data selecionada
             Dim temLembrete As Boolean = VerificarLembreteParaDia(conexão, dataSelecionada, listaLembretes)
 
+            ' Exibir mensagem sobre a verificação de lembretes
+            If temLembrete Then
+                ' MessageBox.Show("Parcelamento = Lembretes encontrados para a data selecionada.", "Resultado da Verificação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
+                    FrmAvisoParcelamento.Focus()
+                    FrmAvisoParcelamento.MdiParent = MDIPrincipal
+                Else
+                    FrmAvisoParcelamento.Show()
+                    FrmAvisoParcelamento.MdiParent = MDIPrincipal
+                End If
+            Else
+                ' MessageBox.Show("Nenhum lembrete encontrado para a data selecionada.", "Resultado da Verificação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+
             ' Verificar se algum DataEnvio possui mês diferente
             Dim mesEnvioDiferente As Boolean = VerificarMesEnvioDiferente(conexão, mesSelecionado, listaMensalDiferente)
+
+            ' Exibir mensagem sobre o mês de envio diferente
+            If mesEnvioDiferente Then
+                '  MessageBox.Show("Mês Diferente do atual.", "Mês de Envio Diferente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                ' MessageBox.Show("Não foram encontrados parcelamentos com mês diferente.", "Mês de Envio Diferente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
 
             ' Exibir o resultado no Label
             ExibirAviso(temLembrete, mesEnvioDiferente)
@@ -329,25 +362,40 @@ Public Class Avisos
         End Using
     End Sub
 
+    Private Function VerificarLembreteParaDia(ByVal conexão As SqlConnection, ByVal dataSelecionada As DateTime, ByRef listaLembretes As List(Of DateTime)) As Boolean
+        ' SQL para selecionar os lembretes com a data sem hora
+        Dim sql As String = "SELECT DataLembrete FROM Parcelamentos WHERE DataLembrete IS NOT NULL"
 
+        Using comando As New SqlCommand(sql, conexão)
+            Using leitor As SqlDataReader = comando.ExecuteReader()
+                While leitor.Read()
+                    ' Pegando a data de lembrete
+                    Dim dataLembrete As String = leitor("DataLembrete").ToString().Trim()
 
-    Private Function VerificarLembreteParaDia(conexão As SqlConnection, dataSelecionada As Date, ByRef listaLembretes As List(Of DateTime)) As Boolean
-        ' Verifica se existe um lembrete para a data selecionada (usando MaskedTextBox1)
-        Dim comando As New SqlCommand("SELECT DataLembrete FROM Parcelamentos WHERE CONVERT(date, DataLembrete) = @dataSelecionada", conexão)
-        comando.Parameters.AddWithValue("@dataSelecionada", dataSelecionada)
-        Dim leitor As SqlDataReader = comando.ExecuteReader()
+                    ' Verifica se a dataLembrete não está vazia ou em formato inválido
+                    If Not String.IsNullOrWhiteSpace(dataLembrete) Then
+                        ' Tenta converter dataLembrete para DateTime
+                        Dim dataLembreteFormatada As DateTime
+                        If DateTime.TryParseExact(dataLembrete.Substring(0, 10), "dd/MM/yyyy", CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None, dataLembreteFormatada) Then
+                            ' Adiciona a data formatada na lista
+                            listaLembretes.Add(dataLembreteFormatada)
+                        End If
+                    End If
+                End While
+            End Using
+        End Using
 
-        Dim temLembrete As Boolean = False
-        While leitor.Read()
-            ' Se encontrar um lembrete, adiciona à lista
-            Dim dataLembrete As DateTime = Convert.ToDateTime(leitor("DataLembrete"))
-            listaLembretes.Add(dataLembrete)
-            temLembrete = True
-        End While
-        leitor.Close()
-
-        Return temLembrete
+        ' Verifica se a dataSelecionada está presente na lista de lembretes
+        If listaLembretes.Contains(dataSelecionada.Date) Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
+
+
+
+
 
     Private Function VerificarMesEnvioDiferente(conexão As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
         ' Verifica se algum parcelamento tem DataEnvio em um mês diferente do mês da data selecionada

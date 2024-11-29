@@ -18,6 +18,11 @@ Public Class FrmGeralParcelamento
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
 
+
+    Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
+
     Private Sub FrmGeralParcelamento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         toolTip = New ToolTip()
         SetupListView()

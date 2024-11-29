@@ -560,6 +560,12 @@
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Parcelamentos\FrmAvisoParcelamentos.Designer.vb">
+      <DependentUpon>FrmAvisoParcelamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmAvisoParcelamentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parcelamentos\FrmGeralParcelamento.Designer.vb">
       <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>
     </Compile>
@@ -976,6 +982,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmAvisoParcelamentos.resx">
+      <DependentUpon>FrmAvisoParcelamentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\FrmGeralParcelamento.resx">
       <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>

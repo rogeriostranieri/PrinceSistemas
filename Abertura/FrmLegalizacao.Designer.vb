@@ -133,6 +133,7 @@ Partial Class FrmLegalizacao
         Dim CNAEAtividadeNoLocalLabel As System.Windows.Forms.Label
         Dim Label11 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
+        Dim SimplesEcacLabel As System.Windows.Forms.Label
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -511,6 +512,8 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.GroupBoxSimples = New System.Windows.Forms.GroupBox()
+        Me.SimplesEcacComboBox = New System.Windows.Forms.ComboBox()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -620,6 +623,7 @@ Partial Class FrmLegalizacao
         RamoDeAtividadeLabel = New System.Windows.Forms.Label()
         CNAEAtividadeNoLocalLabel = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
+        SimplesEcacLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -681,6 +685,7 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuCima.SuspendLayout()
         Me.GroupBoxMenuBaixo.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.GroupBoxSimples.SuspendLayout()
         Me.SuspendLayout()
         '
         'NomeFantasiaLabel
@@ -1036,7 +1041,7 @@ Partial Class FrmLegalizacao
         'CodigoSimplesLabel
         '
         CodigoSimplesLabel.AutoSize = True
-        CodigoSimplesLabel.Location = New System.Drawing.Point(121, 20)
+        CodigoSimplesLabel.Location = New System.Drawing.Point(119, 29)
         CodigoSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CodigoSimplesLabel.Name = "CodigoSimplesLabel"
         CodigoSimplesLabel.Size = New System.Drawing.Size(114, 15)
@@ -1146,7 +1151,7 @@ Partial Class FrmLegalizacao
         'ObsSimplesLabel
         '
         ObsSimplesLabel.AutoSize = True
-        ObsSimplesLabel.Location = New System.Drawing.Point(9, 148)
+        ObsSimplesLabel.Location = New System.Drawing.Point(7, 198)
         ObsSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ObsSimplesLabel.Name = "ObsSimplesLabel"
         ObsSimplesLabel.Size = New System.Drawing.Size(32, 15)
@@ -1176,7 +1181,7 @@ Partial Class FrmLegalizacao
         'DataSimplesLabel
         '
         DataSimplesLabel.AutoSize = True
-        DataSimplesLabel.Location = New System.Drawing.Point(103, 99)
+        DataSimplesLabel.Location = New System.Drawing.Point(102, 51)
         DataSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataSimplesLabel.Name = "DataSimplesLabel"
         DataSimplesLabel.Size = New System.Drawing.Size(131, 15)
@@ -1186,7 +1191,7 @@ Partial Class FrmLegalizacao
         'DataUltdefSimplesLabel
         '
         DataUltdefSimplesLabel.AutoSize = True
-        DataUltdefSimplesLabel.Location = New System.Drawing.Point(7, 45)
+        DataUltdefSimplesLabel.Location = New System.Drawing.Point(5, 54)
         DataUltdefSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataUltdefSimplesLabel.Name = "DataUltdefSimplesLabel"
         DataUltdefSimplesLabel.Size = New System.Drawing.Size(228, 15)
@@ -1196,7 +1201,7 @@ Partial Class FrmLegalizacao
         'OrgãoPedSimplesLabel
         '
         OrgãoPedSimplesLabel.AutoSize = True
-        OrgãoPedSimplesLabel.Location = New System.Drawing.Point(80, 74)
+        OrgãoPedSimplesLabel.Location = New System.Drawing.Point(78, 83)
         OrgãoPedSimplesLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         OrgãoPedSimplesLabel.Name = "OrgãoPedSimplesLabel"
         OrgãoPedSimplesLabel.Size = New System.Drawing.Size(152, 15)
@@ -4883,20 +4888,17 @@ Partial Class FrmLegalizacao
         'TabPage7
         '
         Me.TabPage7.AutoScroll = True
+        Me.TabPage7.Controls.Add(SimplesEcacLabel)
+        Me.TabPage7.Controls.Add(Me.SimplesEcacComboBox)
+        Me.TabPage7.Controls.Add(Me.GroupBoxSimples)
         Me.TabPage7.Controls.Add(Me.BtnMgsBoxDataSimples)
         Me.TabPage7.Controls.Add(Me.BtnAnotacoesSimples)
-        Me.TabPage7.Controls.Add(OrgãoPedSimplesLabel)
-        Me.TabPage7.Controls.Add(Me.OrgãoPedSimplesComboBox)
-        Me.TabPage7.Controls.Add(DataUltdefSimplesLabel)
-        Me.TabPage7.Controls.Add(Me.DataUltdefSimplesMaskedTextBox)
         Me.TabPage7.Controls.Add(DataSimplesLabel)
         Me.TabPage7.Controls.Add(Me.DataSimplesMaskedTextBox)
         Me.TabPage7.Controls.Add(ObsSimplesLabel)
         Me.TabPage7.Controls.Add(Me.ObsSimplesRichTextBox)
         Me.TabPage7.Controls.Add(Me.GroupBox11)
         Me.TabPage7.Controls.Add(Me.GroupBox8)
-        Me.TabPage7.Controls.Add(CodigoSimplesLabel)
-        Me.TabPage7.Controls.Add(Me.CodigoSimplesTextBox)
         Me.TabPage7.Location = New System.Drawing.Point(4, 24)
         Me.TabPage7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage7.Name = "TabPage7"
@@ -4909,7 +4911,7 @@ Partial Class FrmLegalizacao
         'BtnMgsBoxDataSimples
         '
         Me.BtnMgsBoxDataSimples.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnMgsBoxDataSimples.Location = New System.Drawing.Point(322, 96)
+        Me.BtnMgsBoxDataSimples.Location = New System.Drawing.Point(321, 48)
         Me.BtnMgsBoxDataSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnMgsBoxDataSimples.Name = "BtnMgsBoxDataSimples"
         Me.BtnMgsBoxDataSimples.Size = New System.Drawing.Size(66, 23)
@@ -4921,7 +4923,7 @@ Partial Class FrmLegalizacao
         '
         Me.BtnAnotacoesSimples.BackgroundImage = CType(resources.GetObject("BtnAnotacoesSimples.BackgroundImage"), System.Drawing.Image)
         Me.BtnAnotacoesSimples.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(349, 129)
+        Me.BtnAnotacoesSimples.Location = New System.Drawing.Point(761, 16)
         Me.BtnAnotacoesSimples.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAnotacoesSimples.Name = "BtnAnotacoesSimples"
         Me.BtnAnotacoesSimples.Size = New System.Drawing.Size(80, 27)
@@ -4936,7 +4938,7 @@ Partial Class FrmLegalizacao
         Me.OrgãoPedSimplesComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "OrgãoPedSimples", True))
         Me.OrgãoPedSimplesComboBox.FormattingEnabled = True
         Me.OrgãoPedSimplesComboBox.Items.AddRange(New Object() {"Estadual", "Municipal"})
-        Me.OrgãoPedSimplesComboBox.Location = New System.Drawing.Point(238, 68)
+        Me.OrgãoPedSimplesComboBox.Location = New System.Drawing.Point(236, 77)
         Me.OrgãoPedSimplesComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.OrgãoPedSimplesComboBox.Name = "OrgãoPedSimplesComboBox"
         Me.OrgãoPedSimplesComboBox.Size = New System.Drawing.Size(94, 23)
@@ -4945,7 +4947,7 @@ Partial Class FrmLegalizacao
         'DataUltdefSimplesMaskedTextBox
         '
         Me.DataUltdefSimplesMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataUltdefSimples", True))
-        Me.DataUltdefSimplesMaskedTextBox.Location = New System.Drawing.Point(238, 41)
+        Me.DataUltdefSimplesMaskedTextBox.Location = New System.Drawing.Point(236, 50)
         Me.DataUltdefSimplesMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataUltdefSimplesMaskedTextBox.Mask = "00/00/0000"
         Me.DataUltdefSimplesMaskedTextBox.Name = "DataUltdefSimplesMaskedTextBox"
@@ -4956,7 +4958,7 @@ Partial Class FrmLegalizacao
         'DataSimplesMaskedTextBox
         '
         Me.DataSimplesMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "DataSimples", True))
-        Me.DataSimplesMaskedTextBox.Location = New System.Drawing.Point(238, 96)
+        Me.DataSimplesMaskedTextBox.Location = New System.Drawing.Point(237, 48)
         Me.DataSimplesMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DataSimplesMaskedTextBox.Mask = "00/00/0000"
         Me.DataSimplesMaskedTextBox.Name = "DataSimplesMaskedTextBox"
@@ -4967,10 +4969,10 @@ Partial Class FrmLegalizacao
         'ObsSimplesRichTextBox
         '
         Me.ObsSimplesRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "ObsSimples", True))
-        Me.ObsSimplesRichTextBox.Location = New System.Drawing.Point(10, 163)
+        Me.ObsSimplesRichTextBox.Location = New System.Drawing.Point(10, 216)
         Me.ObsSimplesRichTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ObsSimplesRichTextBox.Name = "ObsSimplesRichTextBox"
-        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(418, 96)
+        Me.ObsSimplesRichTextBox.Size = New System.Drawing.Size(450, 62)
         Me.ObsSimplesRichTextBox.TabIndex = 49
         Me.ObsSimplesRichTextBox.Text = ""
         '
@@ -4983,7 +4985,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox11.Controls.Add(Me.txtDataASomar)
         Me.GroupBox11.Controls.Add(Me.PrazoSimplesMaskedTextBox)
         Me.GroupBox11.Controls.Add(Me.Label3)
-        Me.GroupBox11.Location = New System.Drawing.Point(436, 7)
+        Me.GroupBox11.Location = New System.Drawing.Point(490, 7)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -5062,11 +5064,11 @@ Partial Class FrmLegalizacao
         Me.GroupBox8.Controls.Add(Me.LinkLabel7)
         Me.GroupBox8.Controls.Add(Me.LinkLabel6)
         Me.GroupBox8.Controls.Add(Me.LinkLabel5)
-        Me.GroupBox8.Location = New System.Drawing.Point(441, 155)
+        Me.GroupBox8.Location = New System.Drawing.Point(490, 155)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox8.Size = New System.Drawing.Size(253, 107)
+        Me.GroupBox8.Size = New System.Drawing.Size(258, 107)
         Me.GroupBox8.TabIndex = 40
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Link de Serviços Simples Nacional"
@@ -5118,7 +5120,7 @@ Partial Class FrmLegalizacao
         'CodigoSimplesTextBox
         '
         Me.CodigoSimplesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CodigoSimples", True))
-        Me.CodigoSimplesTextBox.Location = New System.Drawing.Point(238, 15)
+        Me.CodigoSimplesTextBox.Location = New System.Drawing.Point(236, 24)
         Me.CodigoSimplesTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CodigoSimplesTextBox.Name = "CodigoSimplesTextBox"
         Me.CodigoSimplesTextBox.Size = New System.Drawing.Size(119, 21)
@@ -6367,6 +6369,40 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'GroupBoxSimples
+        '
+        Me.GroupBoxSimples.Controls.Add(OrgãoPedSimplesLabel)
+        Me.GroupBoxSimples.Controls.Add(Me.OrgãoPedSimplesComboBox)
+        Me.GroupBoxSimples.Controls.Add(DataUltdefSimplesLabel)
+        Me.GroupBoxSimples.Controls.Add(Me.DataUltdefSimplesMaskedTextBox)
+        Me.GroupBoxSimples.Controls.Add(CodigoSimplesLabel)
+        Me.GroupBoxSimples.Controls.Add(Me.CodigoSimplesTextBox)
+        Me.GroupBoxSimples.Location = New System.Drawing.Point(92, 108)
+        Me.GroupBoxSimples.Name = "GroupBoxSimples"
+        Me.GroupBoxSimples.Size = New System.Drawing.Size(368, 105)
+        Me.GroupBoxSimples.TabIndex = 77
+        Me.GroupBoxSimples.TabStop = False
+        Me.GroupBoxSimples.Text = "Dados"
+        '
+        'SimplesEcacLabel
+        '
+        SimplesEcacLabel.AutoSize = True
+        SimplesEcacLabel.Location = New System.Drawing.Point(102, 22)
+        SimplesEcacLabel.Name = "SimplesEcacLabel"
+        SimplesEcacLabel.Size = New System.Drawing.Size(130, 15)
+        SimplesEcacLabel.TabIndex = 77
+        SimplesEcacLabel.Text = "Simples Solicitado via:"
+        '
+        'SimplesEcacComboBox
+        '
+        Me.SimplesEcacComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SimplesEcac", True))
+        Me.SimplesEcacComboBox.FormattingEnabled = True
+        Me.SimplesEcacComboBox.Items.AddRange(New Object() {"eCAC", "Simples Nacional", "Outro"})
+        Me.SimplesEcacComboBox.Location = New System.Drawing.Point(237, 19)
+        Me.SimplesEcacComboBox.Name = "SimplesEcacComboBox"
+        Me.SimplesEcacComboBox.Size = New System.Drawing.Size(150, 23)
+        Me.SimplesEcacComboBox.TabIndex = 78
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -6489,6 +6525,8 @@ Partial Class FrmLegalizacao
         Me.GroupBoxMenuBaixo.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.GroupBoxSimples.ResumeLayout(False)
+        Me.GroupBoxSimples.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -6872,4 +6910,6 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnAjudaRamoObjeto2 As Button
     Friend WithEvents LinkLabelCopiarRamo As LinkLabel
     Friend WithEvents BtnCorrigeCidade As Button
+    Friend WithEvents GroupBoxSimples As GroupBox
+    Friend WithEvents SimplesEcacComboBox As ComboBox
 End Class

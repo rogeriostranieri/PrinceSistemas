@@ -1,4 +1,4 @@
-﻿Public Class FrmAvisoParcelamentos
+﻿Public Class FrmAvisoParcelamento
 
     Private Sub FrmAvisoParcelamento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.Parcelamentos'. Você pode movê-la ou removê-la conforme necessário.
@@ -13,6 +13,9 @@
         VerificarDataAviso()
 
         FiltroParcelamentos()
+
+        ' Configurações iniciais do DataGridView
+        ConfigurarParcelamentosDataGridView()
     End Sub
     Private Sub CarregaMeses()
         MesRealizadoComboBox.Items.Clear()
@@ -80,27 +83,15 @@
         FiltroParcelamentos()
     End Sub
 
+
+    Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
+
     Private Sub FiltroParcelamentos()
         'FILTRO  EMPRESA
         Dim FilterA As String = LblDataAviso.Text
         ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterA & "%'"
-    End Sub
-
-    Private Sub ParcelamentosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ParcelamentosDataGridView.CellContentDoubleClick
-        If Application.OpenForms.OfType(Of FrmParcelamento)().Count() > 0 Then
-            Dim Sair As String
-            Sair = MsgBox("O formulário ja está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-            '  Dim novoEmpresa As New FrmLegalizacao
-            '  FrmParcelamentos.Focus()
-            ' FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
-            '  FrmParcelamentos.RazaoSocialComboBox.Select()
-        Else
-            ' Dim novoEmpresa As New FrmLegalizacao
-            ' novoEmpresa.MdiParent = MDIPrincipal
-            ' FrmParcelamentos.Show()
-            '  FrmParcelamentos.RazaoSocialComboBox.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString
-            ' FrmParcelamentos.RazaoSocialComboBox.Select()
-        End If
     End Sub
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
@@ -125,7 +116,62 @@
             FrmParcelamento.BringToFront()
             FrmParcelamento.Focus()
         End If
-        Me.Close()
+        '   Me.Close()
+    End Sub
+    Private Sub ParcelamentosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ParcelamentosDataGridView.CellContentDoubleClick
+        Try
+            Dim Parcelamento As FrmParcelamento = Application.OpenForms.OfType(Of FrmParcelamento)().FirstOrDefault()
+            If Parcelamento IsNot Nothing Then
+                Parcelamento.Focus()
+                Parcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
+                Parcelamento.ComboBoxBuscarRazaoSocial.Select()
+            Else
+                Dim NovoParcelamento As New FrmParcelamento()
+                NovoParcelamento.MdiParent = MDIPrincipal
+                NovoParcelamento.Show()
+                NovoParcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
+                NovoParcelamento.ComboBoxBuscarRazaoSocial.Select()
+            End If
+            'Me.Close()
+        Catch ex As Exception
+            MessageBox.Show($"Erro ao abrir o formulário: {ex.Message}")
+        End Try
     End Sub
 
+
+    Private Sub ConfigurarParcelamentosDataGridView()
+        ' Certifica-se de que o DataGridView está habilitado
+        ParcelamentosDataGridView.Enabled = True
+
+        ' Permite edição e seleção
+        ParcelamentosDataGridView.ReadOnly = False
+        ParcelamentosDataGridView.AllowUserToAddRows = False ' Opcional: desativa linha de adição automática
+        ParcelamentosDataGridView.AllowUserToDeleteRows = False ' Opcional: evita exclusão
+        ParcelamentosDataGridView.AllowUserToResizeColumns = True
+        ParcelamentosDataGridView.AllowUserToResizeRows = True
+        ParcelamentosDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect ' Seleção de linha inteira
+
+
+        ' Garante que o DataGridView é atualizado
+        ParcelamentosDataGridView.Refresh()
+
+    End Sub
+
+    Private Sub BtnTodosParcel_Click(sender As Object, e As EventArgs) Handles BtnTodosParcel.Click
+        ' Verifica se o formulário já está aberto
+        Dim GeralParcelamentos = Application.OpenForms.OfType(Of FrmGeralParcelamento)().FirstOrDefault()
+
+        If GeralParcelamentos IsNot Nothing Then
+            ' Se o formulário já estiver aberto, traz ele para frente e define o MdiParent, caso necessário
+            FrmGeralParcelamento.MdiParent = MDIPrincipal
+            FrmGeralParcelamento.BringToFront()
+            FrmGeralParcelamento.Focus()
+        Else
+            ' Caso contrário, cria uma nova instância do formulário, define o MdiParent e exibe o formulário
+            FrmGeralParcelamento.Show()
+            FrmGeralParcelamento.MdiParent = MDIPrincipal
+            FrmGeralParcelamento.BringToFront()
+            FrmGeralParcelamento.Focus()
+        End If
+    End Sub
 End Class

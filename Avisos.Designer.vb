@@ -365,6 +365,7 @@ Partial Class Avisos
         Me.Calendar1.Location = New System.Drawing.Point(123, 184)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 18
+        Me.Calendar1.Visible = False
         '
         'LblParcelamentosAviso
         '

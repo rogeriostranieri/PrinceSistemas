@@ -227,6 +227,8 @@ Public Class MDIPrincipal
             End If
         Next
 
+        Me.IsMdiContainer = True
+
 
     End Sub
 
@@ -1013,7 +1015,7 @@ Public Class MDIPrincipal
 
     Private Sub AvisoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AvisoToolStripMenuItem.Click
         'FrmAvisoParcelamento
-        If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmAvisoParcelamentos)().Count() > 0 Then
             FrmAvisoParcelamento.Focus()
             FrmAvisoParcelamento.MdiParent = Me
         Else

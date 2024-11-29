@@ -277,6 +277,7 @@ Partial Class FrmGeralParcelamento
         Me.Controls.Add(Me.TextBoxBusca)
         Me.Controls.Add(Me.ListView1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmGeralParcelamento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
