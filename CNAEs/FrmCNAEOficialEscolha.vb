@@ -84,7 +84,7 @@ Public Class FrmCNAEOficialEscolha
             End If
 
             ' Fechar o formulário atual
-            Me.Close()
+            ' Me.Close()
         End If
     End Sub
 

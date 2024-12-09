@@ -3729,7 +3729,7 @@ Partial Class FrmAlvara
         '
         Me.AlvaraComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "Alvara", True))
         Me.AlvaraComboBox.FormattingEnabled = True
-        Me.AlvaraComboBox.Items.AddRange(New Object() {"Alvará Definitivo", "Alvará Prestador de Serviços", "Alvará Provisório", "Alvará Vencido", "Em Andamento", "Sem Alvará"})
+        Me.AlvaraComboBox.Items.AddRange(New Object() {"Alvará Definitivo", "Alvará Prestador de Serviços", "Alvará Provisório", "Alvará Vencido", "Alvará Baixado", "Cadastro Desatualizado", "Em Andamento", "Sem Alvará"})
         Me.AlvaraComboBox.Location = New System.Drawing.Point(266, 104)
         Me.AlvaraComboBox.Name = "AlvaraComboBox"
         Me.AlvaraComboBox.Size = New System.Drawing.Size(264, 23)
@@ -3844,7 +3844,7 @@ Partial Class FrmAlvara
         '
         Me.EndEstadoLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndEstado", True))
         Me.EndEstadoLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndEstadoLabel2.Location = New System.Drawing.Point(311, 191)
+        Me.EndEstadoLabel2.Location = New System.Drawing.Point(311, 193)
         Me.EndEstadoLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndEstadoLabel2.Name = "EndEstadoLabel2"
         Me.EndEstadoLabel2.Size = New System.Drawing.Size(159, 17)
@@ -3856,7 +3856,7 @@ Partial Class FrmAlvara
         Me.EndCidadeLabel2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaudosBindingSource, "EndCidade", True))
         Me.EndCidadeLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EndCidadeLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.EndCidadeLabel2.Location = New System.Drawing.Point(87, 189)
+        Me.EndCidadeLabel2.Location = New System.Drawing.Point(87, 193)
         Me.EndCidadeLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EndCidadeLabel2.Name = "EndCidadeLabel2"
         Me.EndCidadeLabel2.Size = New System.Drawing.Size(158, 21)

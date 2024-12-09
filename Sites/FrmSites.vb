@@ -470,10 +470,15 @@ Public Class FrmSites
     Private Sub BtnProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnProcuradoria.Click
         AbrirLink(FederalProcuradoriaTextBox)
     End Sub
+
+    Private Sub LinkLabelEmpresaFacilPR_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelEmpresaFacilPR.LinkClicked
+        SiteJuntaUnificadaTextBox.Text = "https://www.empresafacil.pr.gov.br/sigfacil/processo/acompanhar/co_protocolo/"
+
+    End Sub
     '
 
 
     '///////////////////// FIM BOTAO
-
+    '
 
 End Class

@@ -87,16 +87,16 @@ Public Class FrmProtocoladosGeral
             Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
 
             ' Verificar se o FrmLegalizacao já está aberto
-            Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
+            Dim Legalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
 
-            If frmLegalizacao IsNot Nothing Then
+            If Legalizacao IsNot Nothing Then
                 ' Se FrmLegalizacao já está aberto, trazê-lo para frente
-                frmLegalizacao.BringToFront()
+                FrmLegalizacao.BringToFront()
             Else
                 ' Se FrmLegalizacao não estiver aberto, criar nova instância e abrir o formulário
-                frmLegalizacao = New FrmLegalizacao()
-                frmLegalizacao.MdiParent = MDIPrincipal ' Se for um formulário MDI
-                frmLegalizacao.Show()
+                ' FrmLegalizacao = New FrmLegalizacao()
+                '  frmLegalizacao.MdiParent = MDIPrincipal ' Se for um formulário MDI
+                FrmLegalizacao.Show()
                 frmLegalizacao.BringToFront()
             End If
 
@@ -132,16 +132,16 @@ Public Class FrmProtocoladosGeral
             Dim razaoSocial As String = selectedRow.Cells("RazaoSocial").Value.ToString()
 
             ' Verificar se o FrmAlvara já está aberto
-            Dim frmAlvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
+            Dim Alvara As FrmAlvara = Application.OpenForms.OfType(Of FrmAlvara)().FirstOrDefault()
 
-            If frmAlvara IsNot Nothing Then
+            If Alvara IsNot Nothing Then
                 ' Se FrmAlvara já está aberto, trazê-lo para frente
-                frmAlvara.BringToFront()
+                FrmAlvara.BringToFront()
             Else
                 ' Se FrmAlvara não estiver aberto, criar nova instância e abrir o formulário
-                frmAlvara = New FrmAlvara()
-                frmAlvara.MdiParent = MDIPrincipal ' Se for um formulário MDI
-                frmAlvara.Show()
+                ' FrmAlvara = New FrmAlvara()
+                ' frmAlvara.MdiParent = MDIPrincipal ' Se for um formulário MDI
+                FrmAlvara.Show()
                 frmAlvara.BringToFront()
             End If
 
