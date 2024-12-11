@@ -242,6 +242,7 @@ Partial Class FrmLegalizacao
         Me.EndNumeroTextBox = New System.Windows.Forms.TextBox()
         Me.BtnBuscaCEP = New System.Windows.Forms.Button()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.BtnCopiarEmail = New System.Windows.Forms.Button()
         Me.EmpTel1TextBox = New System.Windows.Forms.TextBox()
         Me.EmpEmailTextBox = New System.Windows.Forms.TextBox()
         Me.PaginaWebTextBox = New System.Windows.Forms.TextBox()
@@ -3067,6 +3068,7 @@ Partial Class FrmLegalizacao
         '
         'TabPage15
         '
+        Me.TabPage15.Controls.Add(Me.BtnCopiarEmail)
         Me.TabPage15.Controls.Add(PaginaWebLabel)
         Me.TabPage15.Controls.Add(Me.EmpTel1TextBox)
         Me.TabPage15.Controls.Add(EmpTel1Label)
@@ -3082,6 +3084,21 @@ Partial Class FrmLegalizacao
         Me.TabPage15.TabIndex = 3
         Me.TabPage15.Text = "Telefone/Outros"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'BtnCopiarEmail
+        '
+        Me.BtnCopiarEmail.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCopiarEmail.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCopiarEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCopiarEmail.Location = New System.Drawing.Point(463, 72)
+        Me.BtnCopiarEmail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarEmail.Name = "BtnCopiarEmail"
+        Me.BtnCopiarEmail.Size = New System.Drawing.Size(54, 25)
+        Me.BtnCopiarEmail.TabIndex = 63
+        Me.BtnCopiarEmail.Text = "Copiar"
+        Me.BtnCopiarEmail.UseVisualStyleBackColor = False
         '
         'EmpTel1TextBox
         '
@@ -6912,4 +6929,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnCorrigeCidade As Button
     Friend WithEvents GroupBoxSimples As GroupBox
     Friend WithEvents SimplesEcacComboBox As ComboBox
+    Friend WithEvents BtnCopiarEmail As Button
 End Class

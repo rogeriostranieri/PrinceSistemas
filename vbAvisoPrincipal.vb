@@ -1,4 +1,7 @@
 ﻿Public Class VbAvisoPrincipal
+    Public Sub AtualizarMaskedTextBox1(valor As String)
+        Avisos.MaskedTextBox1.Text = valor
+    End Sub
 
     Private Sub VbAvisoPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

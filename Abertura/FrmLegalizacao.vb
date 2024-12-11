@@ -4145,4 +4145,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             GroupBoxSimples.Visible = True
         End If
     End Sub
+
+    Private Sub BtnCopiarEmail_Click(sender As Object, e As EventArgs) Handles BtnCopiarEmail.Click
+        Clipboard.SetText(EmpEmailTextBox.Text)
+    End Sub
 End Class

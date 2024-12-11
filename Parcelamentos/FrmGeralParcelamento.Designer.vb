@@ -23,10 +23,9 @@ Partial Class FrmGeralParcelamento
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnAtualizar = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxFECHAR = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxBusca = New System.Windows.Forms.TextBox()
         Me.CheckBoxEmAndamento = New System.Windows.Forms.CheckBox()
@@ -36,33 +35,26 @@ Partial Class FrmGeralParcelamento
         Me.CheckBoxINSSAntigo = New System.Windows.Forms.CheckBox()
         Me.CheckBoxINSSNovo = New System.Windows.Forms.CheckBox()
         Me.CheckBoxINSSProcuradoria = New System.Windows.Forms.CheckBox()
-        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
-        Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBoxMesFechamento = New System.Windows.Forms.ComboBox()
+        Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
+        Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
+        Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.CheckBoxMesFechamento = New System.Windows.Forms.CheckBox()
+        Me.LabelEscolhaMes = New System.Windows.Forms.Label()
         CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxFECHAR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ListView1
-        '
-        Me.ListView1.AllowColumnReorder = True
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(14, 201)
-        Me.ListView1.Margin = New System.Windows.Forms.Padding(4)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(664, 411)
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(55, 616)
+        Me.Label2.Location = New System.Drawing.Point(59, 616)
         Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 18)
@@ -81,19 +73,19 @@ Partial Class FrmGeralParcelamento
         Me.BtnAtualizar.TabIndex = 30
         Me.BtnAtualizar.TabStop = False
         '
-        'PictureBox2
+        'PictureBoxFECHAR
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(535, -3)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(153, 69)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 29
-        Me.PictureBox2.TabStop = False
+        Me.PictureBoxFECHAR.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBoxFECHAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBoxFECHAR.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxFECHAR.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.PictureBoxFECHAR.Location = New System.Drawing.Point(535, -3)
+        Me.PictureBoxFECHAR.Margin = New System.Windows.Forms.Padding(6, 4, 6, 4)
+        Me.PictureBoxFECHAR.Name = "PictureBoxFECHAR"
+        Me.PictureBoxFECHAR.Size = New System.Drawing.Size(153, 69)
+        Me.PictureBoxFECHAR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxFECHAR.TabIndex = 29
+        Me.PictureBoxFECHAR.TabStop = False
         '
         'Label1
         '
@@ -152,7 +144,7 @@ Partial Class FrmGeralParcelamento
         'CheckBoxMEI
         '
         Me.CheckBoxMEI.BackColor = System.Drawing.Color.Transparent
-        Me.CheckBoxMEI.Location = New System.Drawing.Point(13, 161)
+        Me.CheckBoxMEI.Location = New System.Drawing.Point(14, 161)
         Me.CheckBoxMEI.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBoxMEI.Name = "CheckBoxMEI"
         Me.CheckBoxMEI.Size = New System.Drawing.Size(61, 24)
@@ -163,7 +155,7 @@ Partial Class FrmGeralParcelamento
         'CheckBoxINSSAntigo
         '
         Me.CheckBoxINSSAntigo.BackColor = System.Drawing.Color.Transparent
-        Me.CheckBoxINSSAntigo.Location = New System.Drawing.Point(82, 161)
+        Me.CheckBoxINSSAntigo.Location = New System.Drawing.Point(83, 161)
         Me.CheckBoxINSSAntigo.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBoxINSSAntigo.Name = "CheckBoxINSSAntigo"
         Me.CheckBoxINSSAntigo.Size = New System.Drawing.Size(109, 24)
@@ -174,7 +166,7 @@ Partial Class FrmGeralParcelamento
         'CheckBoxINSSNovo
         '
         Me.CheckBoxINSSNovo.BackColor = System.Drawing.Color.Transparent
-        Me.CheckBoxINSSNovo.Location = New System.Drawing.Point(199, 161)
+        Me.CheckBoxINSSNovo.Location = New System.Drawing.Point(200, 161)
         Me.CheckBoxINSSNovo.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBoxINSSNovo.Name = "CheckBoxINSSNovo"
         Me.CheckBoxINSSNovo.Size = New System.Drawing.Size(109, 24)
@@ -185,13 +177,31 @@ Partial Class FrmGeralParcelamento
         'CheckBoxINSSProcuradoria
         '
         Me.CheckBoxINSSProcuradoria.BackColor = System.Drawing.Color.Transparent
-        Me.CheckBoxINSSProcuradoria.Location = New System.Drawing.Point(305, 161)
+        Me.CheckBoxINSSProcuradoria.Location = New System.Drawing.Point(306, 161)
         Me.CheckBoxINSSProcuradoria.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBoxINSSProcuradoria.Name = "CheckBoxINSSProcuradoria"
         Me.CheckBoxINSSProcuradoria.Size = New System.Drawing.Size(161, 24)
         Me.CheckBoxINSSProcuradoria.TabIndex = 37
         Me.CheckBoxINSSProcuradoria.Text = "INSS Procuradoria"
         Me.CheckBoxINSSProcuradoria.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Location = New System.Drawing.Point(15, 68)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(193, 18)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "Buscar por palavra ou texto:"
+        '
+        'ComboBoxMesFechamento
+        '
+        Me.ComboBoxMesFechamento.FormattingEnabled = True
+        Me.ComboBoxMesFechamento.Location = New System.Drawing.Point(474, 191)
+        Me.ComboBoxMesFechamento.Name = "ComboBoxMesFechamento"
+        Me.ComboBoxMesFechamento.Size = New System.Drawing.Size(202, 26)
+        Me.ComboBoxMesFechamento.TabIndex = 39
         '
         'PrinceDBDataSet
         '
@@ -202,6 +212,10 @@ Partial Class FrmGeralParcelamento
         '
         Me.ParcelamentosBindingSource.DataMember = "Parcelamentos"
         Me.ParcelamentosBindingSource.DataSource = Me.PrinceDBDataSet
+        '
+        'ParcelamentosTableAdapter
+        '
+        Me.ParcelamentosTableAdapter.ClearBeforeFill = True
         '
         'TableAdapterManager
         '
@@ -218,7 +232,6 @@ Partial Class FrmGeralParcelamento
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
         Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
         Me.TableAdapterManager.eMailCaixaDeSaidaTableAdapter = Nothing
@@ -230,29 +243,44 @@ Partial Class FrmGeralParcelamento
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
         Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
-        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Me.ParcelamentosTableAdapter
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'Label3
+        'ListView1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(15, 68)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 18)
-        Me.Label3.TabIndex = 38
-        Me.Label3.Text = "Buscar:"
+        Me.ListView1.AllowColumnReorder = True
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Location = New System.Drawing.Point(14, 223)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(664, 389)
+        Me.ListView1.TabIndex = 40
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.List
         '
-        'ComboBoxMesFechamento
+        'CheckBoxMesFechamento
         '
-        Me.ComboBoxMesFechamento.FormattingEnabled = True
-        Me.ComboBoxMesFechamento.Location = New System.Drawing.Point(505, 158)
-        Me.ComboBoxMesFechamento.Name = "ComboBoxMesFechamento"
-        Me.ComboBoxMesFechamento.Size = New System.Drawing.Size(121, 26)
-        Me.ComboBoxMesFechamento.TabIndex = 39
+        Me.CheckBoxMesFechamento.AutoSize = True
+        Me.CheckBoxMesFechamento.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBoxMesFechamento.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CheckBoxMesFechamento.Location = New System.Drawing.Point(474, 163)
+        Me.CheckBoxMesFechamento.Name = "CheckBoxMesFechamento"
+        Me.CheckBoxMesFechamento.Size = New System.Drawing.Size(203, 22)
+        Me.CheckBoxMesFechamento.TabIndex = 41
+        Me.CheckBoxMesFechamento.Text = "Usar Mês do fechamento?"
+        Me.CheckBoxMesFechamento.UseVisualStyleBackColor = False
+        '
+        'LabelEscolhaMes
+        '
+        Me.LabelEscolhaMes.AutoSize = True
+        Me.LabelEscolhaMes.BackColor = System.Drawing.Color.Transparent
+        Me.LabelEscolhaMes.Location = New System.Drawing.Point(354, 194)
+        Me.LabelEscolhaMes.Name = "LabelEscolhaMes"
+        Me.LabelEscolhaMes.Size = New System.Drawing.Size(120, 18)
+        Me.LabelEscolhaMes.TabIndex = 42
+        Me.LabelEscolhaMes.Text = "Escolha um mês"
         '
         'FrmGeralParcelamento
         '
@@ -260,7 +288,10 @@ Partial Class FrmGeralParcelamento
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(691, 657)
+        Me.ClientSize = New System.Drawing.Size(698, 672)
+        Me.Controls.Add(Me.LabelEscolhaMes)
+        Me.Controls.Add(Me.CheckBoxMesFechamento)
+        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.ComboBoxMesFechamento)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CheckBoxINSSProcuradoria)
@@ -272,34 +303,28 @@ Partial Class FrmGeralParcelamento
         Me.Controls.Add(Me.CheckBoxEmAndamento)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnAtualizar)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBoxFECHAR)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBoxBusca)
-        Me.Controls.Add(Me.ListView1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmGeralParcelamento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmGeralParcelamento"
+        Me.Text = "Todos Parcelamentos"
         CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxFECHAR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents ListView1 As ListView
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnAtualizar As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBoxFECHAR As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBoxBusca As TextBox
-    Friend WithEvents PrinceDBDataSet As PrinceDBDataSet
-    Friend WithEvents ParcelamentosBindingSource As BindingSource
-    Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
     Friend WithEvents CheckBoxEmAndamento As CheckBox
     Friend WithEvents CheckBoxFinalizada As CheckBox
     Friend WithEvents CheckBoxTodos As CheckBox
@@ -309,4 +334,11 @@ Partial Class FrmGeralParcelamento
     Friend WithEvents CheckBoxINSSProcuradoria As CheckBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBoxMesFechamento As ComboBox
+    Friend WithEvents PrinceDBDataSet As PrinceDBDataSet
+    Friend WithEvents ParcelamentosBindingSource As BindingSource
+    Friend WithEvents ParcelamentosTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter
+    Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents CheckBoxMesFechamento As CheckBox
+    Friend WithEvents LabelEscolhaMes As Label
 End Class

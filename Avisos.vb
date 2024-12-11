@@ -397,38 +397,43 @@ Public Class Avisos
 
 
 
-    Private Function VerificarMesEnvioDiferente(conexão As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
-        ' Verifica se algum parcelamento tem DataEnvio em um mês diferente do mês da data selecionada
-        Dim comando As New SqlCommand("SELECT MesRealizado, Ano FROM ParcelamentosAviso", conexão)
+    Private Function VerificarMesEnvioDiferente(conexao As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
+        ' Verifica se algum parcelamento tem FinalizadoMesGeral em um mês diferente do mês da data selecionada
+        Dim comando As New SqlCommand("SELECT FinalizadoMesGeral FROM Parcelamentos", conexao)
         Dim leitor As SqlDataReader = comando.ExecuteReader()
 
         Dim mesEnvioDiferente As Boolean = False
+
+        ' Dicionário para mapear o nome do mês para o número correspondente
+        Dim meses As New Dictionary(Of String, Integer) From {
+        {"Janeiro", 1}, {"Fevereiro", 2}, {"Março", 3}, {"Abril", 4},
+        {"Maio", 5}, {"Junho", 6}, {"Julho", 7}, {"Agosto", 8},
+        {"Setembro", 9}, {"Outubro", 10}, {"Novembro", 11}, {"Dezembro", 12}
+    }
+
         While leitor.Read()
-            ' Pegando o nome do mês e o ano do banco de dados
-            Dim mesRealizado As String = leitor("MesRealizado").ToString().ToLower()
+            ' Pegando o valor de FinalizadoMesGeral, que pode ser o nome do mês
+            Dim mesFinalizado As String = leitor("FinalizadoMesGeral").ToString()
 
-            ' Mostrar o valor do mês extraído do banco de dados para depuração
-            ' MessageBox.Show("Mês Realizado (do banco): " & mesRealizado)
+            ' Mostrar o nome do mês extraído do banco de dados para depuração
+            ' MessageBox.Show("Mês Finalizado (do banco): " & mesFinalizado)
 
-            ' Converter o nome do mês em número
-            Dim mesNumero As Integer = ObterNumeroMes(mesRealizado)
+            ' Verifica se o mês está no dicionário e converte para número
+            If meses.ContainsKey(mesFinalizado) Then
+                Dim mesFinalizadoNumero As Integer = meses(mesFinalizado)
 
-            ' Mostrar o número do mês convertido para depuração
-            '  MessageBox.Show("Mês Convertido para Número: " & mesNumero.ToString())
-
-            ' ' Exibir o mês selecionado para comparação
-            ' MessageBox.Show("Mês Selecionado para Comparação: " & mesSelecionado.ToString())
-
-            ' Verifica se o mês extraído do banco de dados é diferente do mês selecionado
-            If mesNumero <> mesSelecionado Then
-                listaMensalDiferente.Add(New DateTime(leitor("Ano"), mesNumero, 1)) ' Cria uma data apenas com ano e mês
-                mesEnvioDiferente = True
+                ' Verifica se o mês extraído do banco de dados é diferente do mês selecionado
+                If mesFinalizadoNumero <> mesSelecionado Then
+                    listaMensalDiferente.Add(New DateTime(DateTime.Now.Year, mesFinalizadoNumero, 1)) ' Cria uma data com o mês e o ano atual
+                    mesEnvioDiferente = True
+                End If
             End If
         End While
         leitor.Close()
 
         Return mesEnvioDiferente
     End Function
+
 
     ' Função para converter o nome do mês em número
     Private Function ObterNumeroMes(mesNome As String) As Integer

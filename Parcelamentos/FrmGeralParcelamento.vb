@@ -4,11 +4,17 @@ Imports System.Drawing
 Imports Microsoft.Web.WebView2
 
 
+
 Public Class FrmGeralParcelamento
-    Private allParcelamentos As DataTable
-    Private toolTip As ToolTip
-    ' Declarar uma variável para controlar a ordenação
-    Private listViewColumnSorter As ListViewColumnSorter
+
+    Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
+
+
+    Public Property RazaoSocial As String
+    Public Property CNPJ As String
+    Public Property DataCriacao As String
+
+
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
         If keyData = Keys.Escape Then
@@ -18,173 +24,183 @@ Public Class FrmGeralParcelamento
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
 
-
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
     End Sub
 
     Private Sub FrmGeralParcelamento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        toolTip = New ToolTip()
-        SetupListView()
-        LoadParcelamentos()
-        ' Configurar o ListView para suportar ordenação
-        ListView1.View = View.Details
-        ListView1.FullRowSelect = True
-        ListView1.OwnerDraw = True
+        ' Carregar os dados ao carregar o formulário
+        CarregarDados()
+        ' Adiciona todos os meses por extenso ao ComboBoxMesFechamento
+        ComboBoxMesFechamento.Items.AddRange(New String() {
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    })
+        ComboBoxMesFechamento.SelectedIndex = -1 ' Deixar vazio inicialmente
+        ConfigurarColunasListView()
+        CheckBoxMesFechamento.Checked = False
+        MudarMesFechamento()
 
-        ' Inicializar o ListViewColumnSorter e atribuí-lo ao ListView
-        listViewColumnSorter = New ListViewColumnSorter()
-        ListView1.ListViewItemSorter = listViewColumnSorter
-
-        ' Configurar CheckBoxes
-        CheckBoxTodos.Checked = True
+        CheckBoxMesFechamento.Checked = False
         CheckBoxEmAndamento.Checked = False
         CheckBoxFinalizada.Checked = False
-
-        ' Configurar os eventos
-        AddHandler CheckBoxTodos.CheckedChanged, AddressOf CheckBox_CheckedChanged
-        AddHandler CheckBoxEmAndamento.CheckedChanged, AddressOf CheckBox_CheckedChanged
-        AddHandler CheckBoxFinalizada.CheckedChanged, AddressOf CheckBox_CheckedChanged
-        AddHandler CheckBoxMEI.CheckedChanged, AddressOf CheckBoxFiltrar_CheckedChanged
-        AddHandler CheckBoxINSSAntigo.CheckedChanged, AddressOf CheckBoxFiltrar_CheckedChanged
-        AddHandler CheckBoxINSSNovo.CheckedChanged, AddressOf CheckBoxFiltrar_CheckedChanged
-        AddHandler CheckBoxINSSProcuradoria.CheckedChanged, AddressOf CheckBoxFiltrar_CheckedChanged
-
-
-
-        ' Configurar ListView e carregar dados
-        SetupListView()
-
-        ' Inicializa os meses por extenso no ComboBoxMesFechamento
-        Dim meses As String() = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}
-        ComboBoxMesFechamento.DataSource = meses
-
-        ' Seleciona o mês atual
-        Dim mesAtual As String = meses(DateTime.Now.Month - 1)
-        ComboBoxMesFechamento.SelectedItem = mesAtual
-
-        ' Atualiza o filtro ao carregar
-
-
+        CheckBoxTodos.Checked = True
+        CheckBoxMEI.Checked = False
+        CheckBoxINSSAntigo.Checked = False
+        CheckBoxINSSNovo.Checked = False
+        CheckBoxINSSProcuradoria.Checked = False
     End Sub
-    Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
-        ' Verificar se a coluna clicada já está sendo usada para ordenar
-        If e.Column = listViewColumnSorter.SortColumn Then
-            ' Alternar a ordem de classificação (ascendente/descendente)
-            If listViewColumnSorter.Order = SortOrder.Ascending Then
-                listViewColumnSorter.Order = SortOrder.Descending
-            Else
-                listViewColumnSorter.Order = SortOrder.Ascending
+    Private Sub ConfigurarColunasListView()
+        ' Configurar o ListView para exibição em modo de detalhes (View.Details)
+        ListView1.View = View.Details
+
+        ' Permitir que o usuário reorganize as colunas
+        ListView1.AllowColumnReorder = True
+
+        ' Limpar as colunas antes de adicionar novas (caso necessário)
+        ListView1.Columns.Clear()
+
+        ' Adicionar colunas ao ListView
+        ListView1.Columns.Add("Razão Social", 250)
+        ListView1.Columns.Add("CNPJ", 150)
+        ListView1.Columns.Add("MEI", 100)
+        ListView1.Columns.Add("INSS Antigo", 100)
+        ListView1.Columns.Add("INSS Novo", 100)
+        ListView1.Columns.Add("INSS Procuradoria", 100)
+        ListView1.Columns.Add("Finalizado", 100)
+        ListView1.Columns.Add("Data-Fim", 120)
+
+        ' Usar AddHandler para adicionar o manipulador do evento ColumnWidthChanged
+        AddHandler ListView1.ColumnWidthChanged, AddressOf ListView1_ColumnWidthChanged
+    End Sub
+
+    ' Método para lidar com o evento ColumnWidthChanged
+    Private Sub ListView1_ColumnWidthChanged(sender As Object, e As ColumnWidthChangedEventArgs)
+        ' Adicionar código aqui para reagir à mudança na largura da coluna, se necessário
+    End Sub
+
+
+
+
+
+    Private Sub CarregarDados()
+        ' Configurar as colunas antes de carregar os dados
+        ConfigurarColunasListView()
+
+        ' Construir a consulta SQL com base nos filtros aplicados
+        Dim query As New StringBuilder("SELECT RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, DataCriacao, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, FinalizadoEmpresa, FinalizadoMesGeral FROM Parcelamentos WHERE 1=1")
+
+        ' Verificar se todos os CheckBoxes estão marcados
+        Dim todosSelecionados As Boolean = CheckBoxMEI.Checked AndAlso CheckBoxINSSAntigo.Checked AndAlso CheckBoxINSSNovo.Checked AndAlso CheckBoxINSSProcuradoria.Checked
+
+        ' Filtragem para "Finalizado" e "Em Andamento"
+        If CheckBoxFinalizada.Checked Then
+            ' Filtra apenas os registros onde FinalizadoEmpresa = 'Sim'
+            query.Append(" AND FinalizadoEmpresa = 'Sim'")
+        ElseIf CheckBoxEmAndamento.Checked Then
+            ' Filtra apenas os registros onde FinalizadoEmpresa = 'Não'
+            query.Append(" AND FinalizadoEmpresa = 'Não'")
+
+            ' Quando "Em Andamento" estiver marcado, aplica os filtros para MEI, INSS Antigo, INSS Novo e INSS Procuradoria
+            If CheckBoxMEI.Checked Then
+                query.Append(" AND FinalizadoMEI = 'Não'")
             End If
-        Else
-            ' Configurar nova coluna para ordenar e definir a ordem como ascendente
-            listViewColumnSorter.SortColumn = e.Column
-            listViewColumnSorter.Order = SortOrder.Ascending
+            If CheckBoxINSSAntigo.Checked Then
+                query.Append(" AND FinalizadoINSSAnt = 'Não'")
+            End If
+            If CheckBoxINSSNovo.Checked Then
+                query.Append(" AND FinalizadoINSSNov = 'Não'")
+            End If
+            If CheckBoxINSSProcuradoria.Checked Then
+                query.Append(" AND FinalizadoINSSProc = 'Não'")
+            End If
+        ElseIf CheckBoxTodos.Checked Then
+            ' Quando "Todos" estiver marcado, retorna todos os registros sem filtrar FinalizadoEmpresa
+            ' Não faz filtragem específica
         End If
 
-        ' Realizar a ordenação
-        ListView1.Sort()
-    End Sub
+        ' Filtro extra de mês de fechamento (somente para "Em Andamento")
+        If CheckBoxEmAndamento.Checked Then
+            If ComboBoxMesFechamento.SelectedIndex >= 0 AndAlso Not String.IsNullOrEmpty(ComboBoxMesFechamento.SelectedItem.ToString()) Then
+                ' Obter o mês selecionado
+                Dim mesSelecionado As String = ComboBoxMesFechamento.SelectedItem.ToString()
 
-
-
-    Private Sub SetupListView()
-        ' Evitar a duplicação de colunas
-        If ListView1.Columns.Count = 0 Then
-            ListView1.View = View.Details
-            ListView1.Columns.Add("Razão Social", 250, HorizontalAlignment.Left)
-            ListView1.Columns.Add("MEI", 80, HorizontalAlignment.Left)
-            ListView1.Columns.Add("INSS Antigo", 100, HorizontalAlignment.Left)
-            ListView1.Columns.Add("INSS Novo", 100, HorizontalAlignment.Left)
-            ListView1.Columns.Add("INSS Procuradoria", 120, HorizontalAlignment.Left)
-
-            ' Habilitar desenho personalizado
-            ListView1.OwnerDraw = True
-            ListView1.FullRowSelect = True
-
-            ' Aumentar a fonte do ListView
-            Dim newFont As New Font("Arial", 12, FontStyle.Regular)
-            ListView1.Font = newFont
+                ' Filtra pela coluna FinalizadoMesGeral (mês por extenso)
+                query.Append(" AND FinalizadoMesGeral = '" & mesSelecionado & "'")
+            End If
         End If
-    End Sub
 
-
-
-    Private Sub ListView1_DrawColumnHeader(sender As Object, e As DrawListViewColumnHeaderEventArgs) Handles ListView1.DrawColumnHeader
-        ' Configurar a cor do título
-        Dim headerFont As New Font("Arial", 12, FontStyle.Bold)
-        Dim headerBrush As New SolidBrush(Color.White) ' Cor do texto
-        Dim backgroundBrush As New SolidBrush(Color.Blue) ' Cor de fundo
-
-        ' Preencher o fundo da coluna
-        e.Graphics.FillRectangle(backgroundBrush, e.Bounds)
-
-        ' Desenhar o texto do título da coluna
-        e.Graphics.DrawString(e.Header.Text, headerFont, headerBrush, e.Bounds)
-
-        ' Manter o estilo padrão para bordas e outros detalhes
-        e.DrawDefault = True
-    End Sub
-
-    Private Sub ListView1_DrawItem(sender As Object, e As DrawListViewItemEventArgs) Handles ListView1.DrawItem
-        e.DrawDefault = True
-    End Sub
-
-    Private Sub ListView1_DrawSubItem(sender As Object, e As DrawListViewSubItemEventArgs) Handles ListView1.DrawSubItem
-        ' Alternar cores das colunas
-        Dim columnIndex As Integer = e.ColumnIndex
-
-        ' Escolher a cor de fundo baseada no índice da coluna
-        Dim backColor As Brush = If(columnIndex Mod 2 = 0, Brushes.White, Brushes.LightGray)
-
-        ' Preencher o fundo da célula
-        e.Graphics.FillRectangle(backColor, e.Bounds)
-
-        ' Desenhar o texto do subitem
-        TextRenderer.DrawText(e.Graphics, e.SubItem.Text, ListView1.Font, e.Bounds, Color.Black, TextFormatFlags.VerticalCenter Or TextFormatFlags.Left)
-    End Sub
-
-    Private Sub LoadParcelamentos()
-        Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
-        Dim query As String = "SELECT RazaoSocial, MEI, InssAntigo, InssNovo, InssProcur FROM Parcelamentos"
-
+        ' Executar a consulta SQL com o filtro aplicado
         Using connection As New SqlConnection(connectionString)
-            Dim command As New SqlCommand(query, connection)
+            Dim command As New SqlCommand(query.ToString(), connection)
             Dim adapter As New SqlDataAdapter(command)
-            allParcelamentos = New DataTable()
-            adapter.Fill(allParcelamentos)
+            Dim dataTable As New DataTable()
+            connection.Open()
+            adapter.Fill(dataTable)
 
+            ' Limpar itens anteriores no ListView
             ListView1.Items.Clear()
 
-            ' Adicionar as linhas ao ListView
-            For Each row As DataRow In allParcelamentos.Rows
-                Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Razão Social não informada")
-
-                ' Verificar os valores de MEI, InssAntigo, InssNovo, InssProcur
-                Dim mei As String = If(row("MEI") IsNot DBNull.Value, row("MEI").ToString(), "Não")
-                Dim inssAntigo As String = If(row("InssAntigo") IsNot DBNull.Value, row("InssAntigo").ToString(), "Não")
-                Dim inssNovo As String = If(row("InssNovo") IsNot DBNull.Value, row("InssNovo").ToString(), "Não")
-                Dim inssProcur As String = If(row("InssProcur") IsNot DBNull.Value, row("InssProcur").ToString(), "Não")
-
-                ' Verificando se o valor é "Checked" ou "Unchecked"
-                mei = If(mei.ToLower() = "checked", "Sim", If(mei.ToLower() = "unchecked", "Não", "Não"))
-                inssAntigo = If(inssAntigo.ToLower() = "checked", "Sim", If(inssAntigo.ToLower() = "unchecked", "Não", "Não"))
-                inssNovo = If(inssNovo.ToLower() = "checked", "Sim", If(inssNovo.ToLower() = "unchecked", "Não", "Não"))
-                inssProcur = If(inssProcur.ToLower() = "checked", "Sim", If(inssProcur.ToLower() = "unchecked", "Não", "Não"))
-
-                ' Criar um item do ListView com a Razão Social e os outros valores
-                Dim listItem As New ListViewItem(razaoSocial)
-                listItem.SubItems.Add(mei)
-                listItem.SubItems.Add(inssAntigo)
-                listItem.SubItems.Add(inssNovo)
-                listItem.SubItems.Add(inssProcur)
+            ' Preencher o ListView com os dados da consulta
+            For Each row As DataRow In dataTable.Rows
+                Dim item As New ListViewItem(row("RazaoSocial").ToString())
+                item.SubItems.Add(row("CNPJ").ToString())
+                item.SubItems.Add(If(IsDBNull(row("MEI")), String.Empty, row("MEI").ToString()))
+                item.SubItems.Add(If(IsDBNull(row("InssAntigo")), String.Empty, row("InssAntigo").ToString()))
+                item.SubItems.Add(If(IsDBNull(row("InssNovo")), String.Empty, row("InssNovo").ToString()))
+                item.SubItems.Add(If(IsDBNull(row("InssProcur")), String.Empty, row("InssProcur").ToString()))
+                item.SubItems.Add(If(IsDBNull(row("FinalizadoEmpresa")), String.Empty, row("FinalizadoEmpresa").ToString()))
+                item.SubItems.Add(If(IsDBNull(row("DataFinalizado")), String.Empty, CDate(row("DataFinalizado")).ToString("dd/MM/yyyy")))
 
                 ' Adicionar o item ao ListView
-                ListView1.Items.Add(listItem)
+                ListView1.Items.Add(item)
+
+
             Next
 
-            ' Atualizar o Label com o total de registros
-            Label2.Text = "Total: " & ListView1.Items.Count.ToString() & " Parcelamentos"
+            ' Atualizar o Label com o total de empresas no ListView
+            Label2.Text = "Total de Empresas: " & ListView1.Items.Count.ToString()
+
+            ' Após preencher o ListView com os dados, altere os valores de "Checked" e "Unchecked" nas colunas 2, 3, 4, 5, 6 e 7
+            For Each item As ListViewItem In ListView1.Items
+                ' Verificar e alterar o texto para "Sim" ou "Não" conforme o valor do texto nas colunas 2, 3, 4, 5, 6, e 7
+                If item.SubItems(2).Text = "Checked" Then
+                    item.SubItems(2).Text = "Sim"
+                ElseIf item.SubItems(2).Text = "Unchecked" Then
+                    item.SubItems(2).Text = "Não"
+                End If
+
+                If item.SubItems(3).Text = "Checked" Then
+                    item.SubItems(3).Text = "Sim"
+                ElseIf item.SubItems(3).Text = "Unchecked" Then
+                    item.SubItems(3).Text = "Não"
+                End If
+
+                If item.SubItems(4).Text = "Checked" Then
+                    item.SubItems(4).Text = "Sim"
+                ElseIf item.SubItems(4).Text = "Unchecked" Then
+                    item.SubItems(4).Text = "Não"
+                End If
+
+                If item.SubItems(5).Text = "Checked" Then
+                    item.SubItems(5).Text = "Sim"
+                ElseIf item.SubItems(5).Text = "Unchecked" Then
+                    item.SubItems(5).Text = "Não"
+                End If
+
+                If item.SubItems(6).Text = "Checked" Then
+                    item.SubItems(6).Text = "Sim"
+                ElseIf item.SubItems(6).Text = "Unchecked" Then
+                    item.SubItems(6).Text = "Não"
+                End If
+
+                If item.SubItems(7).Text = "Checked" Then
+                    item.SubItems(7).Text = "Sim"
+                ElseIf item.SubItems(7).Text = "Unchecked" Then
+                    item.SubItems(7).Text = "Não"
+                End If
+            Next
+
         End Using
     End Sub
 
@@ -193,305 +209,168 @@ Public Class FrmGeralParcelamento
 
 
 
-    Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
-        Dim termoBusca As String = TextBoxBusca.Text.Trim()
 
-        ' Se a caixa de busca estiver vazia, recarregar todos os registros
-        If String.IsNullOrEmpty(termoBusca) Then
-            LoadParcelamentos()
-        Else
-            ' Caso contrário, filtrar os registros com base no termo de busca
-            BuscarParcelamentos(termoBusca)
-        End If
 
-        ' Atualizar o Label com o total de registros filtrados
-        Label2.Text = "Total: " & ListView1.Items.Count.ToString() & " Parcelamentos"
+    ' Chamada dos filtros quando um CheckBox for alterado
+    Private Sub CheckBoxEmAndamento_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxEmAndamento.CheckedChanged
+        CarregarDados()
     End Sub
 
-
-    Private Sub BuscarParcelamentos(ByVal termoBusca As String)
-        termoBusca = RemoverAcentos(termoBusca.ToLower())
-        Dim resultados As DataRow() = allParcelamentos.Select()
-
-        ListView1.Items.Clear()
-
-        ' Adicionar os resultados filtrados ao ListView
-        For Each row As DataRow In resultados
-            Dim razaoSocial As String = RemoverAcentos(row("RazaoSocial").ToString().ToLower())
-
-            If razaoSocial.Contains(termoBusca) Then
-                Dim mei As String = If(Convert.ToBoolean(row("MEI")), "Sim", "Não")
-                Dim inssAntigo As String = If(Convert.ToBoolean(row("InssAntigo")), "Sim", "Não")
-                Dim inssNovo As String = If(Convert.ToBoolean(row("InssNovo")), "Sim", "Não")
-                Dim inssProcur As String = If(Convert.ToBoolean(row("InssProcur")), "Sim", "Não")
-
-                Dim listItem As New ListViewItem(row("RazaoSocial").ToString())
-                listItem.SubItems.Add(mei)
-                listItem.SubItems.Add(inssAntigo)
-                listItem.SubItems.Add(inssNovo)
-                listItem.SubItems.Add(inssProcur)
-                listItem.Tag = row("RazaoSocial").ToString()
-                ListView1.Items.Add(listItem)
-            End If
-        Next
+    Private Sub CheckBoxFinalizada_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFinalizada.CheckedChanged
+        CarregarDados()
     End Sub
 
+    Private Sub CheckBoxTodos_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxTodos.CheckedChanged
+        CarregarDados()
+    End Sub
 
-    Private Function RemoverAcentos(texto As String) As String
-        Dim normalizedString As String = texto.Normalize(NormalizationForm.FormD)
-        Dim sb As New StringBuilder()
+    Private Sub CheckBoxMEI_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxMEI.CheckedChanged
+        CarregarDados()
+    End Sub
 
-        For Each c As Char In normalizedString
-            If System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) <> System.Globalization.UnicodeCategory.NonSpacingMark Then
+    Private Sub CheckBoxINSSAntigo_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxINSSAntigo.CheckedChanged
+        CarregarDados()
+    End Sub
+
+    Private Sub CheckBoxINSSNovo_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxINSSNovo.CheckedChanged
+        CarregarDados()
+    End Sub
+
+    Private Sub CheckBoxINSSProcuradoria_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxINSSProcuradoria.CheckedChanged
+        CarregarDados()
+    End Sub
+
+    Private Sub ComboBoxMesFechamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxMesFechamento.SelectedIndexChanged
+        CarregarDados()
+    End Sub
+
+    ' Função para remover acentos
+    Private Function RemoveDiacritics(ByVal text As String) As String
+        Dim stForm As String = text.Normalize(NormalizationForm.FormD)
+        Dim sb As New System.Text.StringBuilder()
+
+        For Each c As Char In stForm
+            ' Verificar se o caractere não é uma marca de acento
+            If Char.GetUnicodeCategory(c) <> Globalization.UnicodeCategory.NonSpacingMark Then
                 sb.Append(c)
             End If
         Next
 
-        Return sb.ToString().Normalize(NormalizationForm.FormC)
+        Return sb.ToString()
     End Function
 
-    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
-        If ListView1.SelectedItems.Count > 0 Then
-            ' Verificar o item selecionado
-            Dim selectedItem As ListViewItem = ListView1.SelectedItems(0)
+    Private Sub TextBoxBusca_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusca.TextChanged
+        ' Obter o texto digitado no TextBox e remover acentos
+        Dim busca As String = TextBoxBusca.Text.ToLower()
+        busca = RemoveDiacritics(busca)
 
-            ' Acessar os subitens do ListView
-            Dim razaoSocial As String = selectedItem.Text
-            Dim mei As String = selectedItem.SubItems(1).Text
-            Dim inssAntigo As String = selectedItem.SubItems(2).Text
-            Dim inssNovo As String = selectedItem.SubItems(3).Text
-            Dim inssProcur As String = selectedItem.SubItems(4).Text
+        ' Recarregar todos os itens antes de aplicar o filtro
+        CarregarDados()
 
-            ' Abrir o formulário FrmParcelamento
-            Dim frmParcelamento As New FrmParcelamento()
-
-
-            ' Mostrar o formulário
-            frmParcelamento.Show()
-
-            ' Passar os valores para o ComboBox do FrmParcelamento
-            frmParcelamento.ComboBoxBuscarRazaoSocial.Text = razaoSocial
-            frmParcelamento.ComboBoxBuscarRazaoSocial.Focus()
+        ' Caso o TextBox esteja vazio, não filtra e exibe todos os itens
+        If String.IsNullOrWhiteSpace(busca) Then
+            Label2.Text = "Total de Empresas Encontradas: " & ListView1.Items.Count.ToString()
+            Return
         End If
+
+        ' Criar uma lista para armazenar os itens que não correspondem ao filtro
+        Dim itensParaRemover As New List(Of ListViewItem)()
+
+        ' Loop através de todos os itens no ListView
+        Dim empresasEncontradas As Integer = 0
+        For Each item As ListViewItem In ListView1.Items
+            ' Obter o nome da empresa (ou outro campo que você usa no ListView)
+            Dim razaoSocial As String = item.SubItems(0).Text.ToLower()
+            razaoSocial = RemoveDiacritics(razaoSocial)
+
+            ' Verificar se o nome da empresa contém o texto da busca
+            If razaoSocial.Contains(busca) Then
+                empresasEncontradas += 1
+            Else
+                ' Adiciona o item à lista de itens a remover
+                itensParaRemover.Add(item)
+            End If
+        Next
+
+        ' Remover os itens que não correspondem ao filtro
+        For Each item As ListViewItem In itensParaRemover
+            ListView1.Items.Remove(item)
+        Next
+
+        ' Atualizar o Label2 com o número de empresas encontradas
+        Label2.Text = "Total de Empresas Encontradas: " & empresasEncontradas.ToString()
     End Sub
 
 
-    Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
-        Dim termoBusca As String = TextBoxBusca.Text.Trim()
 
-        If Not String.IsNullOrEmpty(termoBusca) Then
-            BuscarParcelamentos(termoBusca)
+    Private Sub CheckBoxMesFechamento_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxMesFechamento.CheckedChanged
+        ' Chama a função para alterar a visibilidade do ComboBox e label
+        MudarMesFechamento()
+    End Sub
+
+    Private Sub MudarMesFechamento()
+        If CheckBoxMesFechamento.Checked Then
+            ' Mostrar os controles se estiver marcado
+            LabelEscolhaMes.Visible = True
+            ComboBoxMesFechamento.Visible = True
+            ' Definir o mês atual no ComboBox (mes por extenso)
+            Dim mesAtual As String = DateTime.Now.ToString("MMMM", New Globalization.CultureInfo("pt-BR"))
+            ComboBoxMesFechamento.SelectedItem = mesAtual
         Else
-            LoadParcelamentos()
+            ' Ocultar os controles se estiver desmarcado
+            LabelEscolhaMes.Visible = False
+            ComboBoxMesFechamento.Visible = False
+            ComboBoxMesFechamento.Text = ""
         End If
-
-        MessageBox.Show("Dados atualizados com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Label2.Text = $"Total: {ListView1.Items.Count} Parcelamentos"
+        ' Recarregar os dados após a alteração
+        CarregarDados()
     End Sub
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+    Private Sub PictureBoxFECHAR_Click(sender As Object, e As EventArgs) Handles PictureBoxFECHAR.Click
         Me.Close()
     End Sub
 
 
-    Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs)
-        ' Recarregar os dados de parcelamentos com base nas opções selecionadas
-        Dim filtro As String = ""
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        ' Verificar se há um item selecionado no ListView
+        If ListView1.SelectedItems.Count > 0 Then
+            ' Obter o item selecionado
+            Dim itemSelecionado As ListViewItem = ListView1.SelectedItems(0)
 
-        ' Verificar se o CheckBox "Todos" foi marcado
-        If CheckBoxTodos.Checked Then
-            filtro = "" ' Se Todos estiver selecionado, exibe todos os parcelamentos
-            CheckBoxEmAndamento.Checked = False ' Desmarcar "Em Andamento" se "Todos" for marcado
-            CheckBoxFinalizada.Checked = False ' Também desmarcar "Finalizada" se "Todos" for marcado
-        Else
-            ' Se "Em Andamento" for marcado, desmarcar "Todos" automaticamente
-            If CheckBoxEmAndamento.Checked Then
-                CheckBoxTodos.Checked = False
-            End If
+            ' Extrair informações do item selecionado
+            Dim razaoSocial As String = itemSelecionado.SubItems(0).Text
+            ' Dim cnpj As String = itemSelecionado.SubItems(1).Text
+            ' Dim dataCriacao As String = itemSelecionado.SubItems(8).Text ' Ajuste o índice conforme necessário
 
-            ' Se "Finalizada" for marcado, desmarcar "Todos" automaticamente
-            If CheckBoxFinalizada.Checked Then
-                CheckBoxTodos.Checked = False
-            End If
+            ' Abrir o formulário FrmParcelamento e passar os dados
+            ' Dim frmParcelamento As New FrmParcelamento()
+            FrmParcelamento.Show()
+            ' Passar a RazaoSocial para o ComboBox, verificando se já existe
+            ' If frmParcelamento.ComboBoxBuscarRazaoSocial.Items.Contains(razaoSocial) Then
+            FrmParcelamento.ComboBoxBuscarRazaoSocial.Text = razaoSocial
+            'End If
+            'frmParcelamento.CNPJ = cnpj
+            'frmParcelamento.DataCriacao = dataCriacao
 
-            ' Aplica os filtros com base nas opções selecionadas
-            If CheckBoxEmAndamento.Checked Then
-                filtro &= " AND FinalizadoEmpresa = 'Não'" ' Considerando que FinalizadoEmpresa armazena o status dos parcelamentos
-            End If
-            If CheckBoxFinalizada.Checked Then
-                filtro &= " AND FinalizadoEmpresa = 'Sim'"
-            End If
-        End If
+            ' Exibir o formulário
+            ' frmParcelamento.ShowDialog()
+            FrmParcelamento.Focus()
+            FrmParcelamento.ComboBoxBuscarRazaoSocial.Focus()
 
-        ' Obter o mês atual por extenso
-        Dim mesAtual As String = MonthName(Now.Month, False) ' Retorna o mês atual por extenso
-
-        ' Adiciona filtro para o mês selecionado no ComboBoxMesFechamento, se houver valor selecionado
-        If Not String.IsNullOrEmpty(ComboBoxMesFechamento.Text) Then
-            ' Exclui empresas do mês atual
-            filtro &= $" AND (FinalizadoMesGeral IS NULL OR FinalizadoMesGeral <> '{mesAtual}')"
-        End If
-
-        ' Filtra os dados de parcelamentos
-        FiltrarParcelamentos(filtro)
-    End Sub
-
-
-
-    Private Sub FiltrarParcelamentos(filtro As String)
-        ' Atualiza a query com base no filtro
-        Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
-        Dim query As String = "SELECT RazaoSocial, MEI, InssAntigo, InssNovo, InssProcur FROM Parcelamentos WHERE 1=1" & filtro
-
-        Using connection As New SqlConnection(connectionString)
-            Dim command As New SqlCommand(query, connection)
-            Dim adapter As New SqlDataAdapter(command)
-            allParcelamentos = New DataTable()
-            adapter.Fill(allParcelamentos)
-
-            ListView1.Items.Clear()
-
-            ' Adicionar as linhas filtradas ao ListView
-            For Each row As DataRow In allParcelamentos.Rows
-                Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Razão Social não informada")
-                Dim mei As String = If(row("MEI") IsNot DBNull.Value, row("MEI").ToString(), "Não")
-                Dim inssAntigo As String = If(row("InssAntigo") IsNot DBNull.Value, row("InssAntigo").ToString(), "Não")
-                Dim inssNovo As String = If(row("InssNovo") IsNot DBNull.Value, row("InssNovo").ToString(), "Não")
-                Dim inssProcur As String = If(row("InssProcur") IsNot DBNull.Value, row("InssProcur").ToString(), "Não")
-
-                ' Criar item no ListView
-                Dim listItem As New ListViewItem(razaoSocial)
-                listItem.SubItems.Add(mei)
-                listItem.SubItems.Add(inssAntigo)
-                listItem.SubItems.Add(inssNovo)
-                listItem.SubItems.Add(inssProcur)
-
-                ListView1.Items.Add(listItem)
-            Next
-
-            ' Atualizar o total de registros
-            Label2.Text = "Total: " & ListView1.Items.Count.ToString() & " Parcelamentos"
-        End Using
-    End Sub
-
-
-    Private Sub CheckBoxFiltrar_CheckedChanged(sender As Object, e As EventArgs)
-        ' Refiltrar os resultados ao alterar subfiltros
-        If CheckBoxEmAndamento.Checked Then
-            FiltrarPorEmAndamento()
         End If
     End Sub
 
-    Private Sub FiltrarPorEmAndamento()
-        ' Remover dependência da coluna FinalizadoEmpresa
-        ' Aqui não estamos mais usando "FinalizadoEmpresa", apenas verificando os outros filtros.
-        Dim resultados As DataRow() = allParcelamentos.Select() ' Carregar todos os parcelamentos sem considerar FinalizadoEmpresa
-
-        ListView1.Items.Clear()
-
-        ' Verificar quantos checkboxes estão selecionados
-        Dim checkboxesSelecionados As Integer = 0
-
-        If CheckBoxMEI.Checked Then checkboxesSelecionados += 1
-        If CheckBoxINSSAntigo.Checked Then checkboxesSelecionados += 1
-        If CheckBoxINSSNovo.Checked Then checkboxesSelecionados += 1
-        If CheckBoxINSSProcuradoria.Checked Then checkboxesSelecionados += 1
-
-        ' Verificar se o número de checkboxes selecionados ultrapassa o limite permitido (ex: 2)
-        If checkboxesSelecionados > 2 Then
-            MessageBox.Show("Você pode selecionar no máximo 2 opções.", "Limite de Seleções", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
-            ' Desmarcar a última seleção para não ultrapassar o limite
-            If CheckBoxINSSProcuradoria.Checked Then CheckBoxINSSProcuradoria.Checked = False
-            If CheckBoxINSSNovo.Checked Then CheckBoxINSSNovo.Checked = False
-            If CheckBoxINSSAntigo.Checked Then CheckBoxINSSAntigo.Checked = False
-            If CheckBoxMEI.Checked Then CheckBoxMEI.Checked = False
-            checkboxesSelecionados = 2 ' Limitar para 2 seleções
-        End If
-
-        For Each row As DataRow In resultados
-            ' Filtrar pelos CheckBox secundários
-            Dim incluir As Boolean = True
-            If CheckBoxMEI.Checked Then
-                incluir = incluir AndAlso Not IsDBNull(row("MEI")) AndAlso row("MEI").ToString().ToLower() = "checked"
-            End If
-            If CheckBoxINSSAntigo.Checked Then
-                incluir = incluir AndAlso Not IsDBNull(row("InssAntigo")) AndAlso row("InssAntigo").ToString().ToLower() = "checked"
-            End If
-            If CheckBoxINSSNovo.Checked Then
-                incluir = incluir AndAlso Not IsDBNull(row("InssNovo")) AndAlso row("InssNovo").ToString().ToLower() = "checked"
-            End If
-            If CheckBoxINSSProcuradoria.Checked Then
-                incluir = incluir AndAlso Not IsDBNull(row("InssProcur")) AndAlso row("InssProcur").ToString().ToLower() = "checked"
-            End If
-
-            ' Adicionar apenas os itens que passaram na filtragem
-            If incluir Then
-                AdicionarItemListView(row)
-            End If
-        Next
-
-        AtualizarContador()
+    Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
+        ConfigurarColunasListView()
+        CheckBoxMesFechamento.Checked = False
+        CheckBoxEmAndamento.Checked = False
+        CheckBoxFinalizada.Checked = False
+        CheckBoxTodos.Checked = True
+        CheckBoxMEI.Checked = False
+        CheckBoxINSSAntigo.Checked = False
+        CheckBoxINSSNovo.Checked = False
+        CheckBoxINSSProcuradoria.Checked = False
+        MudarMesFechamento()
+        CarregarDados()
     End Sub
-
-
-    Private Sub FiltrarPorFinalizada()
-        ' Não estamos mais usando a coluna "FinalizadoEmpresa"
-        Dim resultados As DataRow() = allParcelamentos.Select() ' Carregar todos os parcelamentos
-
-        ListView1.Items.Clear()
-
-        For Each row As DataRow In resultados
-            AdicionarItemListView(row)
-        Next
-
-        AtualizarContador()
-    End Sub
-
-    Private Sub AdicionarItemListView(row As DataRow)
-        ' Adicionar linha ao ListView com as informações filtradas
-        Dim razaoSocial As String = If(Not String.IsNullOrEmpty(row("RazaoSocial").ToString()), row("RazaoSocial").ToString(), "Razão Social não informada")
-        Dim mei As String = If(row("MEI") IsNot DBNull.Value AndAlso row("MEI").ToString().ToLower() = "checked", "Sim", "Não")
-        Dim inssAntigo As String = If(row("InssAntigo") IsNot DBNull.Value AndAlso row("InssAntigo").ToString().ToLower() = "checked", "Sim", "Não")
-        Dim inssNovo As String = If(row("InssNovo") IsNot DBNull.Value AndAlso row("InssNovo").ToString().ToLower() = "checked", "Sim", "Não")
-        Dim inssProcur As String = If(row("InssProcur") IsNot DBNull.Value AndAlso row("InssProcur").ToString().ToLower() = "checked", "Sim", "Não")
-
-        ' Criar item do ListView com subitens
-        Dim listItem As New ListViewItem(razaoSocial)
-        listItem.SubItems.Add(mei)
-        listItem.SubItems.Add(inssAntigo)
-        listItem.SubItems.Add(inssNovo)
-        listItem.SubItems.Add(inssProcur)
-
-        ListView1.Items.Add(listItem)
-    End Sub
-
-    Private Sub AtualizarContador()
-        ' Atualizar o Label com o total de registros encontrados
-        Label2.Text = "Total: " & ListView1.Items.Count.ToString() & " Parcelamentos"
-    End Sub
-    '/////////////////////
-
-    Private Sub AtualizarCorComboBoxMes()
-        ' Obter o mês atual por extenso
-        Dim mesAtual As String = MonthName(Now.Month, True) ' Retorna o mês atual por extenso
-
-        ' Comparar o valor selecionado no ComboBox com o mês atual
-        If ComboBoxMesFechamento.Text.Equals(mesAtual, StringComparison.OrdinalIgnoreCase) Then
-            ' Se o mês selecionado for igual ao mês atual
-            ComboBoxMesFechamento.BackColor = Color.Green
-            ComboBoxMesFechamento.ForeColor = Color.White
-        Else
-            ' Se o mês selecionado for diferente do mês atual
-            ComboBoxMesFechamento.BackColor = Color.Yellow
-            ComboBoxMesFechamento.ForeColor = Color.Black
-        End If
-    End Sub
-
-    Private Sub ComboBoxMesFechamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxMesFechamento.SelectedIndexChanged
-        ' Atualizar a cor do ComboBox sempre que o mês for alterado
-        AtualizarCorComboBoxMes()
-    End Sub
-
-
 End Class

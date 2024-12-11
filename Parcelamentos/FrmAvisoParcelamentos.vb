@@ -5,81 +5,14 @@
         Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
         'TODO: esta linha de código carrega dados na tabela 'PrinceDBDataSet.ParcelamentosAviso'. Você pode movê-la ou removê-la conforme necessário.
         Me.ParcelamentosAvisoTableAdapter.Fill(Me.PrinceDBDataSet.ParcelamentosAviso)
-
-        CarregaMeses()
-        CarregaAnos()
-
-        LblDataAviso.Text = VbAvisoPrincipal.MaskedTextBox1.Text
-        VerificarDataAviso()
-
+        PegaDataAviso()
         FiltroParcelamentos()
-
         ' Configurações iniciais do DataGridView
         ConfigurarParcelamentosDataGridView()
     End Sub
-    Private Sub CarregaMeses()
-        MesRealizadoComboBox.Items.Clear()
-        For i As Integer = 1 To 12
-            MesRealizadoComboBox.Items.Add(MonthName(i))
-        Next
-    End Sub
-
-    Private Sub CarregaAnos()
-        AnoComboBox.Items.Clear()
-        Dim anoAtual As Integer = Today.Year
-        For i As Integer = anoAtual - 3 To anoAtual + 3
-            AnoComboBox.Items.Add(i)
-        Next
-    End Sub
 
 
-
-    Private Sub Salvar()
-        Me.Validate()
-        Me.ParcelamentosAvisoBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
-    End Sub
-    Private Sub MesRealizadoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MesRealizadoComboBox.SelectedIndexChanged
-        VerificarDataAviso()
-        Salvar()
-    End Sub
-
-    Private Sub AnoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AnoComboBox.SelectedIndexChanged
-        VerificarDataAviso()
-        Salvar()
-    End Sub
-
-    Private Sub VerificarDataAviso()
-        Dim dataAviso As String = LblDataAviso.Text
-        Dim mesAviso As Integer = Integer.Parse(dataAviso.Split("/")(1))
-        Dim anoAviso As Integer = Integer.Parse(dataAviso.Split("/")(2))
-
-        Dim meses() As String = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}
-
-        If MesRealizadoComboBox.SelectedItem IsNot Nothing Then
-            If MesRealizadoComboBox.SelectedItem.ToString.ToLower <> meses(mesAviso - 1).ToLower Then
-                MesRealizadoComboBox.ForeColor = Color.White
-                MesRealizadoComboBox.BackColor = Color.Red
-            Else
-                MesRealizadoComboBox.ForeColor = Color.White
-                MesRealizadoComboBox.BackColor = Color.Green
-            End If
-        Else
-            ' Nenhum item foi selecionado, você pode definir uma cor padrão aqui
-            MesRealizadoComboBox.ForeColor = Color.White
-            MesRealizadoComboBox.BackColor = Color.White
-        End If
-
-        If Integer.Parse(AnoComboBox.Text) <> anoAviso Then
-            AnoComboBox.ForeColor = Color.White
-            AnoComboBox.BackColor = Color.Red
-        Else
-            AnoComboBox.ForeColor = Color.White
-            AnoComboBox.BackColor = Color.Green
-        End If
-    End Sub
-
-    Private Sub LblDataAviso_TextChanged(sender As Object, e As EventArgs) Handles LblDataAviso.TextChanged
+    Private Sub LblDataAviso_TextChanged(sender As Object, e As EventArgs)
         FiltroParcelamentos()
     End Sub
 
@@ -90,14 +23,13 @@
 
     Private Sub FiltroParcelamentos()
         'FILTRO  EMPRESA
-        Dim FilterA As String = LblDataAviso.Text
+        Dim Data As String = MaskedTextBox1.Text
+        Dim FilterA As String = Data
         ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterA & "%'"
     End Sub
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
-        Salvar()
         Me.Close()
-
     End Sub
 
     Private Sub BtnVerParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnVerParcelamentos.Click
@@ -173,5 +105,62 @@
             FrmGeralParcelamento.BringToFront()
             FrmGeralParcelamento.Focus()
         End If
+    End Sub
+
+    Private Sub ButtonHoje_Click(sender As Object, e As EventArgs) Handles ButtonHoje.Click
+        ' Define a data de hoje no formato dd/mm/aaaa
+        MaskedTextBox1.Text = DateTime.Now.ToString("dd/MM/yyyy")
+        FiltroParcelamentos()
+    End Sub
+
+    Private Sub ButtonImportarData_Click(sender As Object, e As EventArgs) Handles ButtonImportarData.Click
+        PegaDataAviso()
+    End Sub
+
+    Private Sub PegaDataAviso()
+        ' Verifica se o formulário VbAvisoPrincipal está aberto
+        Dim VbAvisoPrincipalForm As VbAvisoPrincipal = Nothing
+
+        ' Procura o formulário VbAvisoPrincipal entre os filhos do MDI (MDIPrincipal)
+        For Each frm As Form In MDIPrincipal.MdiChildren
+            If TypeOf frm Is VbAvisoPrincipal Then
+                VbAvisoPrincipalForm = CType(frm, VbAvisoPrincipal)
+                Exit For
+            End If
+        Next
+
+        ' Se o formulário VbAvisoPrincipal foi encontrado
+        If VbAvisoPrincipalForm IsNot Nothing Then
+            ' Obtém a data do MaskedTextBox1 de VbAvisoPrincipal
+            Dim Data As String = VbAvisoPrincipalForm.MaskedTextBox1.Text
+
+            ' Verifica se a data não está vazia
+            If Not String.IsNullOrEmpty(Data) Then
+                ' Tenta analisar a data com o formato brasileiro (dd/MM/yyyy)
+                Dim parsedDate As DateTime
+                If DateTime.TryParseExact(Data, "dd/MM/yyyy", Globalization.CultureInfo.GetCultureInfo("pt-BR"), Globalization.DateTimeStyles.None, parsedDate) Then
+                    ' Se a data for válida, copia para o outro MaskedTextBox1
+                    MaskedTextBox1.Text = Data
+                Else
+                    ' Se a data for inválida, exibe uma mensagem
+                    MessageBox.Show("Data inválida no campo VbAvisoPrincipal.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Else
+                ' Se estiver vazio, avisa o usuário
+                MessageBox.Show("Por favor, insira uma data no campo VbAvisoPrincipal.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Else
+            ' Se o formulário VbAvisoPrincipal não estiver aberto, avisa o usuário
+            MessageBox.Show("O formulário VbAvisoPrincipal não está aberto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+
+    Private Sub MaskedTextBox1_Validated(sender As Object, e As EventArgs) Handles MaskedTextBox1.Validated
+        FiltroParcelamentos()
+    End Sub
+
+    Private Sub MaskedTextBox1_TextChanged(sender As Object, e As EventArgs) Handles MaskedTextBox1.TextChanged
+        FiltroParcelamentos()
     End Sub
 End Class

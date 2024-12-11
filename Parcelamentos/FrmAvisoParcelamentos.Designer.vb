@@ -23,85 +23,28 @@ Partial Class FrmAvisoParcelamento
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim MesRealizadoLabel As System.Windows.Forms.Label
-        Dim AnoLabel As System.Windows.Forms.Label
-        Me.LblDataAviso = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.ParcelamentosAvisoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParcelamentosAvisoTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
-        Me.MesRealizadoComboBox = New System.Windows.Forms.ComboBox()
-        Me.AnoComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnVerParcelamentos = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.ParcelamentosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnTodosParcel = New System.Windows.Forms.Button()
-        MesRealizadoLabel = New System.Windows.Forms.Label()
-        AnoLabel = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.ButtonHoje = New System.Windows.Forms.Button()
+        Me.ButtonImportarData = New System.Windows.Forms.Button()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'MesRealizadoLabel
-        '
-        MesRealizadoLabel.AutoSize = True
-        MesRealizadoLabel.BackColor = System.Drawing.Color.Transparent
-        MesRealizadoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        MesRealizadoLabel.ForeColor = System.Drawing.Color.Black
-        MesRealizadoLabel.Location = New System.Drawing.Point(196, 82)
-        MesRealizadoLabel.Name = "MesRealizadoLabel"
-        MesRealizadoLabel.Size = New System.Drawing.Size(166, 18)
-        MesRealizadoLabel.TabIndex = 3
-        MesRealizadoLabel.Text = "Mes de fechamento :"
-        '
-        'AnoLabel
-        '
-        AnoLabel.AutoSize = True
-        AnoLabel.BackColor = System.Drawing.Color.Transparent
-        AnoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AnoLabel.ForeColor = System.Drawing.Color.Black
-        AnoLabel.Location = New System.Drawing.Point(21, 82)
-        AnoLabel.Name = "AnoLabel"
-        AnoLabel.Size = New System.Drawing.Size(42, 18)
-        AnoLabel.TabIndex = 4
-        AnoLabel.Text = "Ano:"
-        '
-        'LblDataAviso
-        '
-        Me.LblDataAviso.AutoSize = True
-        Me.LblDataAviso.BackColor = System.Drawing.Color.Transparent
-        Me.LblDataAviso.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDataAviso.ForeColor = System.Drawing.Color.Black
-        Me.LblDataAviso.Location = New System.Drawing.Point(200, 9)
-        Me.LblDataAviso.Name = "LblDataAviso"
-        Me.LblDataAviso.Size = New System.Drawing.Size(95, 31)
-        Me.LblDataAviso.TabIndex = 6
-        Me.LblDataAviso.Text = "Label2"
-        Me.LblDataAviso.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(10, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(191, 31)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Data do Aviso:"
-        Me.Label3.Visible = False
         '
         'PrinceDBDataSet
         '
@@ -149,26 +92,6 @@ Partial Class FrmAvisoParcelamento
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'MesRealizadoComboBox
-        '
-        Me.MesRealizadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosAvisoBindingSource, "MesRealizado", True))
-        Me.MesRealizadoComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MesRealizadoComboBox.FormattingEnabled = True
-        Me.MesRealizadoComboBox.Location = New System.Drawing.Point(368, 79)
-        Me.MesRealizadoComboBox.Name = "MesRealizadoComboBox"
-        Me.MesRealizadoComboBox.Size = New System.Drawing.Size(175, 28)
-        Me.MesRealizadoComboBox.TabIndex = 9
-        '
-        'AnoComboBox
-        '
-        Me.AnoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosAvisoBindingSource, "Ano", True))
-        Me.AnoComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AnoComboBox.FormattingEnabled = True
-        Me.AnoComboBox.Location = New System.Drawing.Point(69, 79)
-        Me.AnoComboBox.Name = "AnoComboBox"
-        Me.AnoComboBox.Size = New System.Drawing.Size(121, 28)
-        Me.AnoComboBox.TabIndex = 10
-        '
         'BtnFechar
         '
         Me.BtnFechar.BackColor = System.Drawing.Color.Transparent
@@ -188,23 +111,11 @@ Partial Class FrmAvisoParcelamento
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(13, 216)
+        Me.Label1.Location = New System.Drawing.Point(6, 32)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(231, 31)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Lembrete de hoje:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(14, 36)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(259, 31)
-        Me.Label2.TabIndex = 17
-        Me.Label2.Text = "Fechamento Mensal"
         '
         'BtnVerParcelamentos
         '
@@ -213,29 +124,13 @@ Partial Class FrmAvisoParcelamento
         Me.BtnVerParcelamentos.FlatAppearance.BorderSize = 5
         Me.BtnVerParcelamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnVerParcelamentos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVerParcelamentos.ForeColor = System.Drawing.Color.White
-        Me.BtnVerParcelamentos.Location = New System.Drawing.Point(268, 476)
+        Me.BtnVerParcelamentos.ForeColor = System.Drawing.Color.Black
+        Me.BtnVerParcelamentos.Location = New System.Drawing.Point(261, 292)
         Me.BtnVerParcelamentos.Name = "BtnVerParcelamentos"
         Me.BtnVerParcelamentos.Size = New System.Drawing.Size(309, 58)
         Me.BtnVerParcelamentos.TabIndex = 18
         Me.BtnVerParcelamentos.Text = "Controle de Parcelamentos"
         Me.BtnVerParcelamentos.UseVisualStyleBackColor = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.LightBlue
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.AnoComboBox)
-        Me.GroupBox1.Controls.Add(MesRealizadoLabel)
-        Me.GroupBox1.Controls.Add(Me.MesRealizadoComboBox)
-        Me.GroupBox1.Controls.Add(AnoLabel)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(-1, 66)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(578, 133)
-        Me.GroupBox1.TabIndex = 20
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Controle de Parcelamentos"
         '
         'ParcelamentosBindingSource
         '
@@ -255,7 +150,7 @@ Partial Class FrmAvisoParcelamento
         Me.ParcelamentosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ParcelamentosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
         Me.ParcelamentosDataGridView.DataSource = Me.ParcelamentosBindingSource
-        Me.ParcelamentosDataGridView.Location = New System.Drawing.Point(19, 250)
+        Me.ParcelamentosDataGridView.Location = New System.Drawing.Point(12, 66)
         Me.ParcelamentosDataGridView.Name = "ParcelamentosDataGridView"
         Me.ParcelamentosDataGridView.Size = New System.Drawing.Size(558, 220)
         Me.ParcelamentosDataGridView.TabIndex = 20
@@ -275,13 +170,54 @@ Partial Class FrmAvisoParcelamento
         Me.BtnTodosParcel.FlatAppearance.BorderSize = 5
         Me.BtnTodosParcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnTodosParcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnTodosParcel.ForeColor = System.Drawing.Color.White
-        Me.BtnTodosParcel.Location = New System.Drawing.Point(19, 476)
+        Me.BtnTodosParcel.ForeColor = System.Drawing.Color.Black
+        Me.BtnTodosParcel.Location = New System.Drawing.Point(12, 292)
         Me.BtnTodosParcel.Name = "BtnTodosParcel"
         Me.BtnTodosParcel.Size = New System.Drawing.Size(243, 58)
         Me.BtnTodosParcel.TabIndex = 21
         Me.BtnTodosParcel.Text = "Todos Parcelamentos"
         Me.BtnTodosParcel.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(43, 18)
+        Me.Label2.TabIndex = 22
+        Me.Label2.Text = "Data:"
+        '
+        'MaskedTextBox1
+        '
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(61, 3)
+        Me.MaskedTextBox1.Mask = "00/00/0000"
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(82, 24)
+        Me.MaskedTextBox1.TabIndex = 23
+        Me.MaskedTextBox1.ValidatingType = GetType(Date)
+        '
+        'ButtonHoje
+        '
+        Me.ButtonHoje.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.ButtonHoje.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonHoje.Location = New System.Drawing.Point(149, 1)
+        Me.ButtonHoje.Name = "ButtonHoje"
+        Me.ButtonHoje.Size = New System.Drawing.Size(75, 26)
+        Me.ButtonHoje.TabIndex = 24
+        Me.ButtonHoje.Text = "Hoje"
+        Me.ButtonHoje.UseVisualStyleBackColor = False
+        '
+        'ButtonImportarData
+        '
+        Me.ButtonImportarData.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.ButtonImportarData.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonImportarData.Location = New System.Drawing.Point(230, 1)
+        Me.ButtonImportarData.Name = "ButtonImportarData"
+        Me.ButtonImportarData.Size = New System.Drawing.Size(142, 26)
+        Me.ButtonImportarData.TabIndex = 25
+        Me.ButtonImportarData.Text = "Importar de Avisos"
+        Me.ButtonImportarData.UseVisualStyleBackColor = False
         '
         'FrmAvisoParcelamento
         '
@@ -292,15 +228,16 @@ Partial Class FrmAvisoParcelamento
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(597, 566)
+        Me.ClientSize = New System.Drawing.Size(580, 363)
+        Me.Controls.Add(Me.ButtonImportarData)
+        Me.Controls.Add(Me.ButtonHoje)
+        Me.Controls.Add(Me.MaskedTextBox1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnTodosParcel)
         Me.Controls.Add(Me.ParcelamentosDataGridView)
         Me.Controls.Add(Me.BtnVerParcelamentos)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnFechar)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.LblDataAviso)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -312,30 +249,26 @@ Partial Class FrmAvisoParcelamento
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParcelamentosAvisoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParcelamentosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents LblDataAviso As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents PrinceDBDataSet As PrinceDBDataSet
     Friend WithEvents ParcelamentosAvisoBindingSource As BindingSource
     Friend WithEvents ParcelamentosAvisoTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosAvisoTableAdapter
     Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents MesRealizadoComboBox As ComboBox
-    Friend WithEvents AnoComboBox As ComboBox
     Friend WithEvents BtnFechar As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents BtnVerParcelamentos As Button
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ParcelamentosBindingSource As BindingSource
     Friend WithEvents ParcelamentosTableAdapter As PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter
     Friend WithEvents ParcelamentosDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents BtnTodosParcel As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents ButtonHoje As Button
+    Friend WithEvents ButtonImportarData As Button
 End Class

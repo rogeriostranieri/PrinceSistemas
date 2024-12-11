@@ -359,6 +359,12 @@
     <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Buscadores\FrmCNPJimportar.Designer.vb">
+      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscadores\FrmCNPJimportar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CNAEs\FrmBuscaCNAE.Designer.vb">
       <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>
     </Compile>
@@ -889,6 +895,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscadores\FrmCNPJimportar.resx">
+      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CNAEs\FrmBuscaCNAE.resx">
       <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>

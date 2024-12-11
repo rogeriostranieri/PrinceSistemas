@@ -3,7 +3,8 @@ Imports System.Net.Http
 Imports System.Net.Http.Headers
 Imports Newtonsoft.Json.Linq
 
-Public Class BoxConsultaCNPJEmpresa
+
+Public Class FrmCNPJimportar
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
@@ -121,7 +122,7 @@ Public Class BoxConsultaCNPJEmpresa
                 Else
 
                     ' Chamar o método de verificação
-                    VerificarCNPJ(frmLegalizacao.CNPJMaskedTextBox.Text)
+                    VerificarCNPJEmpresas(frmLegalizacao.CNPJMaskedTextBox.Text)
 
 
                     'pergunta se deseja importar o CNPJ
@@ -360,7 +361,7 @@ Public Class BoxConsultaCNPJEmpresa
                     Exit Sub
                 Else
                     ' Chamar o método de verificação
-                    VerificarCNPJ(FrmParcelamento.CNPJMaskedTextBox.Text)
+                    VerificarCNPJParcelamento(FrmParcelamento.CNPJMaskedTextBox.Text)
 
                     ' Pergunta se deseja importar o CNPJ
                     Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ? Isto irá sobrepor os dados existentes...", "Importar CNPJ", MessageBoxButtons.YesNo)
@@ -424,12 +425,6 @@ Public Class BoxConsultaCNPJEmpresa
         Me.Close()
     End Sub
 
-
-
-    Private Sub BoxConsultaCNPJEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Function IsFormOpen(formName As String) As Boolean
         For Each f As Form In Application.OpenForms
             If f.Name = formName Then
@@ -446,11 +441,11 @@ Public Class BoxConsultaCNPJEmpresa
 
 
 
-    Private Sub VerificarCNPJ(cnpj As String)
+    Private Sub VerificarCNPJEmpresas(cnpj As String)
         ' O CNPJ está no formato já formatado com máscara
         Dim cnpjFormatado As String = cnpj
 
-        Using connection As New SqlConnection(Str)
+        Using connection As New SqlConnection(str)
             Try
                 connection.Open()
 
@@ -485,6 +480,49 @@ Public Class BoxConsultaCNPJEmpresa
             End Try
         End Using
     End Sub
+
+
+    Private Sub VerificarCNPJParcelamento(cnpj As String)
+        ' O CNPJ está no formato já formatado com máscara
+        Dim cnpjFormatado As String = cnpj
+
+        Using connection As New SqlConnection(str)
+            Try
+                connection.Open()
+
+                ' Log da consulta
+                Debug.WriteLine("Consultando CNPJ: " & cnpjFormatado)
+
+                ' Consultar o CNPJ na tabela "Parcelamento"
+                Dim query As String = "SELECT CNPJ FROM Parcelamentos WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Parcelamentos: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Parcelamentos WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("CNPJ já cadastrado no Parcelamentos!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado no Parcelamentos.")
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao conectar ao banco de dados: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+
+
 
     Private Sub BtnImportarFederal_Click(sender As Object, e As EventArgs) Handles BtnImportarFederal.Click
         ' Verificar se ambos os formulários estão abertos
