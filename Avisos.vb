@@ -188,6 +188,8 @@ Public Class Avisos
             Me.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
             'reload TableAdapter do vbAvisoPrincipal
             VbAvisoPrincipal.LaudosTableAdapter.Fill(Me.PrinceDBDataSet.Laudos)
+
+            VerificaParcelamentos()
         Finally
         End Try
 

@@ -507,6 +507,8 @@ Public Class FrmSocios
 
             '///////////////////////////////////////////////////////////////////////////////////
             'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
+            Dim QuantidadeSocios As Integer
+
             If FrmLegalizacao.DadosSociosRichTextBox.Text.Contains(CPF) Then
                 MsgBox("CPF já cadastrado", MsgBoxStyle.Exclamation, "Atenção")
 
@@ -516,35 +518,54 @@ Public Class FrmSocios
                     'Novos dados na linha de baixo
                     FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
 
+                    ' Verificar se é Sócio-Administrador ou Sócio
+                    Dim ehAdministrador As String = ""
+                    If MsgBox("O sócio é administrador?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                        ehAdministrador = "Sócio-Administrador"
+                    Else
+                        ehAdministrador = "Sócio"
+                    End If
+
                     FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
-
-Novos dados:" + " 
-
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
-" + vbCrLf)
+Novos dados:
+Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+            ehAdministrador & vbCrLf & vbCrLf &
+            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+//////////////////////////////////////////////////////////////////////
+")
                 End If
 
             Else
-                'Contagem de Socios
+                'Contagem de Sócios
                 If FrmLegalizacao.QuantidadeSociosTextBox.Text = "" Then
                     FrmLegalizacao.QuantidadeSociosTextBox.Text = "1"
                 Else
                     FrmLegalizacao.QuantidadeSociosTextBox.Text = FrmLegalizacao.QuantidadeSociosTextBox.Text + 1
                 End If
-                Dim QuantidadeSocios As Integer = FrmLegalizacao.QuantidadeSociosTextBox.Text
+                QuantidadeSocios = CInt(FrmLegalizacao.QuantidadeSociosTextBox.Text)
+
+                ' Verificar se é Sócio-Administrador ou Sócio
+                Dim ehAdministrador As String = ""
+                If MsgBox("O sócio é administrador?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                    ehAdministrador = "Sócio-Administrador"
+                Else
+                    ehAdministrador = "Sócio"
+                End If
+
                 'FORMA FINAL
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-" Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////
-
-" & NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+            " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+            ehAdministrador & vbCrLf & vbCrLf &
+            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
-
             End If
+
             'Focar na frente o FrmLegalizacao
             FrmLegalizacao.Focus()
             FrmLegalizacao.DadosSociosRichTextBox.Focus()
             Me.Close()
+
         Catch ex As Exception
             'mostra mgs do local do erro + "Preencha todos os campos obrigatórios"
             MsgBox(ex.Message & "Preencha todos os campos obrigatórios", MsgBoxStyle.Critical, "Atenção")
@@ -1218,7 +1239,7 @@ Novos dados:" + "
             'ativar TabControle 1
             FrmLegalizacao.TabControl1.SelectedIndex = 1
             'TabControl2 5
-            FrmLegalizacao.TabControl2.SelectedIndex = 5
+            FrmLegalizacao.TabControl2.SelectedIndex = 6
 
             For Each row As DataGridViewRow In DataGridView1.Rows
                 ''para cada linha pegar nome do socio da coluna 0 e capital da coluna 3 da datagridview1

@@ -82,54 +82,43 @@ Public Class WebSiteGERAL
 
     Friend Sub WebsiteNavigate(ByVal dest As String)
         If WebView IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(dest) Then
-            'se no TxtURL for digitado algo separado " " pesquisar no google
-            '"https://www.google.com.br/search?q="  Replace(" ", "+")
-            If dest.Contains(" ") Then
-                dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
-            ElseIf dest.Contains(".") Then
-                If Not dest = "about:blank" AndAlso
-                 Not dest.StartsWith("edge://") AndAlso
-                 Not dest.StartsWith("file://") AndAlso
-                 Not dest.StartsWith("http://") AndAlso
-                 Not dest.StartsWith("https://") AndAlso
-                 Not System.Text.RegularExpressions.Regex.IsMatch(dest, "^([A-Z]|[a-z]):") Then
-
-                    'set value
-                    dest = "https://" & dest
-
-                End If
-            Else
-                dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
-            End If
-
-
-            'URL must start with one of the specified strings
-            'if Not, pre-pend with "https://"
-            If Not dest = "about:blank" AndAlso
+            Try
+                ' Se contiver espaço, considera uma pesquisa no Google
+                If dest.Contains(" ") Then
+                    dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
+                ElseIf dest.Contains(".") Then
+                    ' Se não começar com "http://" ou "https://", adicionar "https://"
+                    If Not dest.StartsWith("http://") AndAlso
+                   Not dest.StartsWith("https://") AndAlso
                    Not dest.StartsWith("edge://") AndAlso
                    Not dest.StartsWith("file://") AndAlso
-                   Not dest.StartsWith("http://") AndAlso
-                   Not dest.StartsWith("https://") AndAlso
-                   Not System.Text.RegularExpressions.Regex.IsMatch(dest, "^([A-Z]|[a-z]):") Then
+                   Not dest = "about:blank" Then
 
-                'set value
-                dest = "https://" & dest
+                        dest = "https://" & dest
+                    End If
+                Else
+                    ' Qualquer outro caso, realizar pesquisa no Google
+                    dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
+                End If
 
-            End If
-            '            
-            'option 1
-            WebView.Source = New Uri(dest, UriKind.Absolute)
+                ' Validar e criar a URI
+                Dim uriResult As Uri = Nothing
+                If Uri.TryCreate(dest, UriKind.Absolute, uriResult) AndAlso (uriResult.Scheme = Uri.UriSchemeHttp OrElse uriResult.Scheme = Uri.UriSchemeHttps) Then
+                    WebView.Source = uriResult
+                Else
+                    MessageBox.Show("A URL informada não é válida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
 
-            'option 2
-            'Caso contrário, irá realizar a pesquisa no google
-            'WebView.CoreWebView2.Navigate("https://www.google.com.br/search?q=" + dest.Replace(" ", "+"))
-            '  WebView.CoreWebView2.Navigate(dest)
-
-
-            'update address bar
-            UpdateAddressBar()
+                ' Atualizar barra de endereços
+                UpdateAddressBar()
+            Catch ex As Exception
+                MessageBox.Show($"Erro ao navegar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("O endereço informado está vazio ou é inválido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
+
 
     Private Sub TxtURL_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtURL.KeyDown
         If e.KeyCode = Keys.Enter Then

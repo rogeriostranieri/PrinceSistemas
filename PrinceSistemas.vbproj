@@ -228,6 +228,12 @@
     <Compile Include="Abertura\FormEmpresaFacil\FormadeAtuacao.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Abertura\FrmAvisoEmpresa.Designer.vb">
+      <DependentUpon>FrmAvisoEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Abertura\FrmAvisoEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abertura\FrmCNAEAberturaEscolha.Designer.vb">
       <DependentUpon>FrmCNAEAberturaEscolha.vb</DependentUpon>
     </Compile>
@@ -359,12 +365,6 @@
     <Compile Include="Buscadores\FrmBuscaEmpresas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buscadores\FrmCNPJimportar.Designer.vb">
-      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Buscadores\FrmCNPJimportar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CNAEs\FrmBuscaCNAE.Designer.vb">
       <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>
     </Compile>
@@ -405,6 +405,12 @@
       <DependentUpon>FrmCNAEtexto.vb</DependentUpon>
     </Compile>
     <Compile Include="CNAEs\FrmCNAEtexto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta CNPJ\FrmCNPJimportar.Designer.vb">
+      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta CNPJ\FrmCNPJimportar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consulta CNPJ\FrmExtraiCNPJ.Designer.vb">
@@ -833,6 +839,9 @@
     <EmbeddedResource Include="Abertura\FormEmpresaFacil\FormadeAtuacao.resx">
       <DependentUpon>FormadeAtuacao.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abertura\FrmAvisoEmpresa.resx">
+      <DependentUpon>FrmAvisoEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abertura\FrmCNAEAberturaEscolha.resx">
       <DependentUpon>FrmCNAEAberturaEscolha.vb</DependentUpon>
     </EmbeddedResource>
@@ -896,9 +905,6 @@
     <EmbeddedResource Include="Buscadores\FrmBuscaEmpresas.resx">
       <DependentUpon>FrmBuscaEmpresas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buscadores\FrmCNPJimportar.resx">
-      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CNAEs\FrmBuscaCNAE.resx">
       <DependentUpon>FrmBuscaCNAE.vb</DependentUpon>
     </EmbeddedResource>
@@ -919,6 +925,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CNAEs\FrmCNAEtexto.resx">
       <DependentUpon>FrmCNAEtexto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta CNPJ\FrmCNPJimportar.resx">
+      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta CNPJ\FrmExtraiCNPJ.resx">
       <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
@@ -1221,7 +1230,6 @@
     <None Include="Resources\interrogacao.png" />
     <None Include="Resources\pasta.png" />
     <None Include="Resources\protocolo1.png" />
-    <Content Include="CNAEs\CNAEBackup.txt" />
     <Content Include="Laudo\AlvaraBackupCode.txt" />
     <Content Include="Laudo\BACKUPlaudos.txt" />
     <Content Include="PARAFAZER.txt" />
@@ -1246,6 +1254,7 @@
     <None Include="Resources\AberturaEmpresa.png" />
     <None Include="Resources\AlteracaoEmpresa.png" />
     <None Include="Resources\baixaEmpresa.png" />
+    <None Include="Resources\LOGOsimplesnacional.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -316,6 +316,7 @@ Public Class FrmLegalizacao
         ' Carregar dados adicionais, se necessário
         VerificarFiliais()
 
+
     End Sub
 
 
@@ -323,6 +324,10 @@ Public Class FrmLegalizacao
         ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
         VerificarFiliais()
         'RecarregarFormulario()
+
+
+        ' verifica alerta da empresa
+        VerificarAvisoEmpresa()
     End Sub
 
 
@@ -2496,23 +2501,23 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
 
     Private Sub StatusComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles StatusComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
+        'e.Handled = True 'nao permitir escrita
     End Sub
 
     Private Sub ProcessoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ProcessoComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
+        ' e.Handled = True 'nao permitir escrita
     End Sub
 
     Private Sub AltConsolidadaComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles AltConsolidadaComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
+        '  e.Handled = True 'nao permitir escrita
     End Sub
 
     Private Sub NovaRazaoSocialComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles NovaRazaoSocialComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
+        ' e.Handled = True 'nao permitir escrita
     End Sub
 
     Private Sub SistemaExternoComboBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SistemaExternoComboBox.KeyPress
-        e.Handled = True 'nao permitir escrita
+        'e.Handled = True 'nao permitir escrita
     End Sub
 
 
@@ -2690,7 +2695,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         'pergunta se deseja add manual
         If Application.OpenForms.OfType(Of FrmSocios)().Count() > 0 Then
             FrmSocios.Focus()
-
+            FrmSocios.BtnCapitalSocial.PerformClick()
             FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
             FrmSocios.GroupBoxCapitalSocial.Visible = True
             FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
@@ -2702,7 +2707,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             FrmSocios.TextBoxCapitalSocial.Text = CapitalSocialEmpresas
         Else
             FrmSocios.Show()
-
+            FrmSocios.BtnCapitalSocial.PerformClick()
             FrmSocios.BtnCapitalSocial.Text = "Fechar Calculadora Capítal Social"
             FrmSocios.GroupBoxCapitalSocial.Visible = True
             FrmSocios.GroupBoxMenuCapitalSocial.Visible = True
@@ -2898,12 +2903,14 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
 
     Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
         RamoDeAtividadeRichTextBox.Text = LimparTextoRamo(RamoDeAtividadeRichTextBox.Text)
+
     End Sub
     Function LimparTextoRamo(sText As String) As String
         sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s+", " ")
         sText = sText.Replace(Environment.NewLine, ";")
         sText = System.Text.RegularExpressions.Regex.Replace(sText, "\s*;\s*", ";")
         sText = System.Text.RegularExpressions.Regex.Replace(sText, "[*+@!#$%&?]", "")
+        sText = sText.ToLower() ' Converte todo o texto para minúsculas
         Return sText
     End Function
 
@@ -3371,7 +3378,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnVerNovoNome_Click(sender As Object, e As EventArgs) Handles BtnVerNovoNome.Click
         TabControle.SelectTab(1)
-        TabControl2.SelectTab(6)
+        TabControl2.SelectTab(7)
     End Sub
 
     Private Sub SituacaoCadastralComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SituacaoCadastralComboBox.SelectedIndexChanged
@@ -3392,23 +3399,29 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End Select
     End Sub
 
+    Private registroCopiado As DataRow = Nothing
+
     Private Sub BtnCopiarRegistroEmpresa_Click(sender As Object, e As EventArgs) Handles BtnCopiarRegistroEmpresa.Click
         Try
-            If MsgBox("Deseja Copiar o atual registro para um novo registro?", MsgBoxStyle.YesNo, "Novo") = MsgBoxResult.Yes Then
+            ' Verificar se há um registro selecionado
+            If Me.EmpresasBindingSource.Current Is Nothing Then
+                MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
 
-                ' Verificar se há um registro selecionado no BindingSource
-                If Me.EmpresasBindingSource.Current Is Nothing Then
-                    MessageBox.Show("Nenhum registro selecionado para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return
-                End If
+            ' Confirmar se deseja criar um novo registro
+            Dim resultado = MessageBox.Show("Deseja copiar o registro atual e criar um novo?",
+                                        "Copiar Registro",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Question)
 
+            If resultado = DialogResult.Yes Then
                 ' Obter o registro atual da fonte de dados
                 Dim registroAtual As DataRowView = CType(Me.EmpresasBindingSource.Current, DataRowView)
                 Dim novaLinha As DataRow = PrinceDBDataSet.Empresas.NewRow()
 
                 ' Copiar os dados do registro atual para a nova linha
                 For Each column As DataColumn In PrinceDBDataSet.Empresas.Columns
-                    ' Não copiar o ID (supondo que o ID seja auto-incremento ou gerado automaticamente)
                     If column.ColumnName <> "ID_Empresas" Then
                         novaLinha(column.ColumnName) = registroAtual(column.ColumnName)
                     End If
@@ -3417,13 +3430,23 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                 ' Adicionar a nova linha à tabela
                 PrinceDBDataSet.Empresas.Rows.Add(novaLinha)
 
-                ' Ajustar o BindingSource para a nova linha
+                ' Posicionar no novo registro
                 Me.EmpresasBindingSource.Position = Me.EmpresasBindingSource.Count - 1
 
-                MessageBox.Show("Registro da empresa copiado com sucesso! Preencha os detalhes adicionais e salve.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ' Perguntar ao usuário o novo CNPJ
+                Dim novoCNPJ As String = InputBox("Digite o novo CNPJ para a filial:", "Novo CNPJ", "")
+
+                If Not String.IsNullOrWhiteSpace(novoCNPJ) Then
+                    novaLinha("CNPJ") = novoCNPJ
+                End If
+
+                ' Chamar o método Salvar
+                Salvar()
+
+                MessageBox.Show("Novo registro criado e salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MessageBox.Show("Erro ao copiar o registro da empresa: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro ao copiar o registro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -4149,4 +4172,92 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub BtnCopiarEmail_Click(sender As Object, e As EventArgs) Handles BtnCopiarEmail.Click
         Clipboard.SetText(EmpEmailTextBox.Text)
     End Sub
+
+    Private Sub AvisarEmpresaCheckBox_Click(sender As Object, e As EventArgs) Handles AvisarEmpresaCheckBox.Click
+        TabControle.SelectTab(10)
+
+    End Sub
+    Private Sub VerificarAvisoEmpresa()
+        Try
+            ' Verifica o estado atual do CheckBox
+            If AvisarEmpresaCheckBox.CheckState = CheckState.Indeterminate Then
+                ' Define como não marcado (Unchecked) se estiver no estado indeterminado (valor nulo no banco)
+                AvisarEmpresaCheckBox.CheckState = CheckState.Unchecked
+            End If
+
+            ' Se o checkbox estiver marcado, exibe o alerta
+            If AvisarEmpresaCheckBox.CheckState = CheckState.Checked Then
+                ' Seleciona a aba correspondente no TabControl
+                TabControle.SelectTab(10)
+                ' Exibe o alerta com o texto do campo AvisarEmpresaTextoRichTextBox
+                Dim mensagemAlerta As String = AvisarEmpresaTextoRichTextBox.Text
+                MessageBox.Show(mensagemAlerta, "Aviso da Empresa", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            ' Tratar erros para evitar falhas
+            MessageBox.Show("Erro ao verificar o aviso da empresa." & vbCrLf & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+
+    Private Sub BtnLimpaAviso_Click(sender As Object, e As EventArgs) Handles BtnLimpaAviso.Click
+        Try
+            ' Exibe uma mensagem de confirmação
+            Dim resposta As DialogResult = MessageBox.Show("Deseja realmente limpar todo o aviso?",
+                                                           "Confirmação",
+                                                           MessageBoxButtons.YesNo,
+                                                           MessageBoxIcon.Question)
+            ' Verifica a resposta do usuário
+            If resposta = DialogResult.Yes Then
+                ' Limpa o conteúdo do AvisarEmpresaTextoRichTextBox
+                AvisarEmpresaTextoRichTextBox.Clear()
+
+                ' Exibe mensagem de confirmação de limpeza
+                MessageBox.Show("O aviso foi limpo com sucesso.",
+                                "Confirmação",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            ' Trata possíveis erros
+            MessageBox.Show("Erro ao tentar limpar o aviso." & vbCrLf & ex.Message,
+                            "Erro",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub BtnCopiarNIRE_Click(sender As Object, e As EventArgs) Handles BtnCopiarNIRE.Click
+        ' Copia o conteúdo de ProtocoloJuntaComercialTextBox para a área de transferência
+        If Not String.IsNullOrEmpty(NIRETextBox.Text) Then
+            Clipboard.SetText(NIRETextBox.Text)
+        Else
+            MessageBox.Show("O campo NIRE Junta Comercial está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub BtnCopiarDataNire_Click(sender As Object, e As EventArgs) Handles BtnCopiarDataNire.Click
+        ' Verifica se o campo contém uma data válida
+        Dim dataTexto As String = NireDataMaskedTextBox.Text
+        Dim data As DateTime
+
+        If DateTime.TryParse(dataTexto, data) Then
+            ' Converte a data para o formato por extenso
+            Dim dataPorExtenso As String = $"{data.Day} de {data.ToString("MMMM")} de {data.Year}"
+
+            ' Converte o texto todo para minúsculas
+            dataPorExtenso = dataPorExtenso.ToLower()
+
+            ' Copia o texto para a área de transferência
+            Clipboard.SetText(dataPorExtenso)
+
+            ' Exibe uma mensagem de confirmação
+            '      MessageBox.Show("Data copiada para a área de transferência: " & dataPorExtenso, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ' Exibe mensagem de erro caso a data seja inválida
+            MessageBox.Show("Por favor, insira uma data válida no campo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
 End Class

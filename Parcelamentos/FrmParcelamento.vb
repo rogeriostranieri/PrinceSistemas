@@ -891,6 +891,18 @@ Public Class FrmParcelamento
         End Try
     End Sub
 
-
-
+    Private Sub BtnConsultaSimplesNacional_Click(sender As Object, e As EventArgs) Handles BtnConsultaSimplesNacional.Click
+        Dim CNPJ As String = CNPJMaskedTextBox.Text
+        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        If WebSiteGERAL.Visible = True Then
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        Else
+            WebSiteGERAL.Show()
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
+        End If
+    End Sub
 End Class

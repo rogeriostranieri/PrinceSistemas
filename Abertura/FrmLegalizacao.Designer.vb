@@ -133,6 +133,7 @@ Partial Class FrmLegalizacao
         Dim CNAEAtividadeNoLocalLabel As System.Windows.Forms.Label
         Dim Label11 As System.Windows.Forms.Label
         Dim SimplesEcacLabel As System.Windows.Forms.Label
+        Dim AvisarEmpresaTextoLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLegalizacao))
         Me.EmpresasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -306,6 +307,7 @@ Partial Class FrmLegalizacao
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarNIRE = New System.Windows.Forms.Button()
         Me.Button22 = New System.Windows.Forms.Button()
         Me.NireDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.NIRETextBox = New System.Windows.Forms.TextBox()
@@ -429,6 +431,10 @@ Partial Class FrmLegalizacao
         Me.BtnAnotacoesDemais = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPage25 = New System.Windows.Forms.TabPage()
+        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.BtnLimpaAviso = New System.Windows.Forms.Button()
+        Me.AvisarEmpresaTextoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NovaRazaoSocialComboBox = New System.Windows.Forms.ComboBox()
         Me.AvisarDiaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -489,6 +495,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.AvisarEmpresaCheckBox = New System.Windows.Forms.CheckBox()
         Me.PictureBoxCentralProcesso = New System.Windows.Forms.PictureBox()
         Me.BtnVerNovoNome = New System.Windows.Forms.Button()
         Me.BtnMgsBoxAvisarDia = New System.Windows.Forms.Button()
@@ -515,6 +522,7 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnCopiarDataNire = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -625,6 +633,7 @@ Partial Class FrmLegalizacao
         CNAEAtividadeNoLocalLabel = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
         SimplesEcacLabel = New System.Windows.Forms.Label()
+        AvisarEmpresaTextoLabel = New System.Windows.Forms.Label()
         CType(Me.EmpresasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpresasBindingNavigator.SuspendLayout()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -672,6 +681,8 @@ Partial Class FrmLegalizacao
         Me.TabPage23.SuspendLayout()
         Me.TabPage17.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage25.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1799,6 +1810,16 @@ Partial Class FrmLegalizacao
         SimplesEcacLabel.TabIndex = 77
         SimplesEcacLabel.Text = "Simples Solicitado via:"
         '
+        'AvisarEmpresaTextoLabel
+        '
+        AvisarEmpresaTextoLabel.AutoSize = True
+        AvisarEmpresaTextoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        AvisarEmpresaTextoLabel.Location = New System.Drawing.Point(19, 22)
+        AvisarEmpresaTextoLabel.Name = "AvisarEmpresaTextoLabel"
+        AvisarEmpresaTextoLabel.Size = New System.Drawing.Size(110, 18)
+        AvisarEmpresaTextoLabel.TabIndex = 0
+        AvisarEmpresaTextoLabel.Text = "Texto do Aviso:"
+        '
         'EmpresasBindingNavigator
         '
         Me.EmpresasBindingNavigator.AddNewItem = Nothing
@@ -1940,6 +1961,7 @@ Partial Class FrmLegalizacao
         Me.TabControle.Controls.Add(Me.TabPage23)
         Me.TabControle.Controls.Add(Me.TabPage17)
         Me.TabControle.Controls.Add(Me.TabPage2)
+        Me.TabControle.Controls.Add(Me.TabPage25)
         Me.TabControle.Location = New System.Drawing.Point(3, 174)
         Me.TabControle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControle.Multiline = True
@@ -3873,6 +3895,8 @@ Partial Class FrmLegalizacao
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.BtnCopiarDataNire)
+        Me.GroupBox6.Controls.Add(Me.BtnCopiarNIRE)
         Me.GroupBox6.Controls.Add(Me.Button22)
         Me.GroupBox6.Controls.Add(NireDataLabel)
         Me.GroupBox6.Controls.Add(Me.NireDataMaskedTextBox)
@@ -3882,19 +3906,32 @@ Partial Class FrmLegalizacao
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox6.Size = New System.Drawing.Size(258, 77)
+        Me.GroupBox6.Size = New System.Drawing.Size(309, 77)
         Me.GroupBox6.TabIndex = 34
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Nire Abertura"
+        '
+        'BtnCopiarNIRE
+        '
+        Me.BtnCopiarNIRE.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarNIRE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarNIRE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarNIRE.Location = New System.Drawing.Point(177, 17)
+        Me.BtnCopiarNIRE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarNIRE.Name = "BtnCopiarNIRE"
+        Me.BtnCopiarNIRE.Size = New System.Drawing.Size(54, 24)
+        Me.BtnCopiarNIRE.TabIndex = 82
+        Me.BtnCopiarNIRE.Text = "Copiar"
+        Me.BtnCopiarNIRE.UseVisualStyleBackColor = True
         '
         'Button22
         '
         Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button22.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button22.Location = New System.Drawing.Point(180, 18)
+        Me.Button22.Location = New System.Drawing.Point(233, 17)
         Me.Button22.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button22.Name = "Button22"
-        Me.Button22.Size = New System.Drawing.Size(72, 44)
+        Me.Button22.Size = New System.Drawing.Size(71, 44)
         Me.Button22.TabIndex = 41
         Me.Button22.Text = "Simples Nacional"
         Me.Button22.UseVisualStyleBackColor = True
@@ -5361,6 +5398,52 @@ Partial Class FrmLegalizacao
         Me.HistoricoRichTextBox.TabIndex = 1
         Me.HistoricoRichTextBox.Text = ""
         '
+        'TabPage25
+        '
+        Me.TabPage25.Controls.Add(Me.GroupBox15)
+        Me.TabPage25.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage25.Name = "TabPage25"
+        Me.TabPage25.Size = New System.Drawing.Size(849, 284)
+        Me.TabPage25.TabIndex = 11
+        Me.TabPage25.Text = "Avisos"
+        Me.TabPage25.UseVisualStyleBackColor = True
+        '
+        'GroupBox15
+        '
+        Me.GroupBox15.Controls.Add(Me.BtnLimpaAviso)
+        Me.GroupBox15.Controls.Add(AvisarEmpresaTextoLabel)
+        Me.GroupBox15.Controls.Add(Me.AvisarEmpresaTextoRichTextBox)
+        Me.GroupBox15.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox15.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox15.Margin = New System.Windows.Forms.Padding(0)
+        Me.GroupBox15.Name = "GroupBox15"
+        Me.GroupBox15.Size = New System.Drawing.Size(849, 284)
+        Me.GroupBox15.TabIndex = 0
+        Me.GroupBox15.TabStop = False
+        '
+        'BtnLimpaAviso
+        '
+        Me.BtnLimpaAviso.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnLimpaAviso.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLimpaAviso.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnLimpaAviso.Location = New System.Drawing.Point(19, 227)
+        Me.BtnLimpaAviso.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnLimpaAviso.Name = "BtnLimpaAviso"
+        Me.BtnLimpaAviso.Size = New System.Drawing.Size(80, 28)
+        Me.BtnLimpaAviso.TabIndex = 46
+        Me.BtnLimpaAviso.Text = "Limpar"
+        Me.BtnLimpaAviso.UseVisualStyleBackColor = False
+        '
+        'AvisarEmpresaTextoRichTextBox
+        '
+        Me.AvisarEmpresaTextoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "AvisarEmpresaTexto", True))
+        Me.AvisarEmpresaTextoRichTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.AvisarEmpresaTextoRichTextBox.Location = New System.Drawing.Point(22, 43)
+        Me.AvisarEmpresaTextoRichTextBox.Name = "AvisarEmpresaTextoRichTextBox"
+        Me.AvisarEmpresaTextoRichTextBox.Size = New System.Drawing.Size(395, 178)
+        Me.AvisarEmpresaTextoRichTextBox.TabIndex = 1
+        Me.AvisarEmpresaTextoRichTextBox.Text = ""
+        '
         'LaudosBindingSource
         '
         Me.LaudosBindingSource.DataMember = "Laudos"
@@ -6068,6 +6151,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.AvisarEmpresaCheckBox)
         Me.GroupBox10.Controls.Add(Me.PictureBoxCentralProcesso)
         Me.GroupBox10.Controls.Add(Me.BtnVerNovoNome)
         Me.GroupBox10.Controls.Add(Me.BtnMgsBoxAvisarDia)
@@ -6105,6 +6189,16 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
         '
+        'AvisarEmpresaCheckBox
+        '
+        Me.AvisarEmpresaCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "AvisarEmpresa", True))
+        Me.AvisarEmpresaCheckBox.Location = New System.Drawing.Point(242, 69)
+        Me.AvisarEmpresaCheckBox.Name = "AvisarEmpresaCheckBox"
+        Me.AvisarEmpresaCheckBox.Size = New System.Drawing.Size(58, 24)
+        Me.AvisarEmpresaCheckBox.TabIndex = 80
+        Me.AvisarEmpresaCheckBox.Text = "Aviso"
+        Me.AvisarEmpresaCheckBox.UseVisualStyleBackColor = True
+        '
         'PictureBoxCentralProcesso
         '
         Me.PictureBoxCentralProcesso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -6138,6 +6232,8 @@ Partial Class FrmLegalizacao
         '
         'StatusComboBox
         '
+        Me.StatusComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.StatusComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.StatusComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Status", True))
         Me.StatusComboBox.DropDownHeight = 200
         Me.StatusComboBox.FormattingEnabled = True
@@ -6420,6 +6516,19 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
+        'BtnCopiarDataNire
+        '
+        Me.BtnCopiarDataNire.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarDataNire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarDataNire.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarDataNire.Location = New System.Drawing.Point(177, 43)
+        Me.BtnCopiarDataNire.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarDataNire.Name = "BtnCopiarDataNire"
+        Me.BtnCopiarDataNire.Size = New System.Drawing.Size(54, 24)
+        Me.BtnCopiarDataNire.TabIndex = 83
+        Me.BtnCopiarDataNire.Text = "Copiar"
+        Me.BtnCopiarDataNire.UseVisualStyleBackColor = True
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -6525,6 +6634,9 @@ Partial Class FrmLegalizacao
         Me.TabPage17.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.TabPage25.ResumeLayout(False)
+        Me.GroupBox15.ResumeLayout(False)
+        Me.GroupBox15.PerformLayout()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NaturezajuridicaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CNAEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6930,4 +7042,11 @@ Partial Class FrmLegalizacao
     Friend WithEvents GroupBoxSimples As GroupBox
     Friend WithEvents SimplesEcacComboBox As ComboBox
     Friend WithEvents BtnCopiarEmail As Button
+    Friend WithEvents AvisarEmpresaCheckBox As CheckBox
+    Friend WithEvents TabPage25 As TabPage
+    Friend WithEvents GroupBox15 As GroupBox
+    Friend WithEvents AvisarEmpresaTextoRichTextBox As RichTextBox
+    Friend WithEvents BtnLimpaAviso As Button
+    Friend WithEvents BtnCopiarNIRE As Button
+    Friend WithEvents BtnCopiarDataNire As Button
 End Class
