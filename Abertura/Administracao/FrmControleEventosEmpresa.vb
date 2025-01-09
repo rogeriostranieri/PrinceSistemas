@@ -109,7 +109,7 @@
         Me.Close()
     End Sub
 
-    Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles EmpresaFacil.CheckedChanged, ReceitaFederal.CheckedChanged, ReceitaEstadual.CheckedChanged, PrefeituraMunicipal.CheckedChanged
+    Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs)
         ' Verifica qual CheckBox foi marcado
         Dim currentCheckBox As CheckBox = CType(sender, CheckBox)
 
