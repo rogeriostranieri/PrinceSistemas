@@ -1,9 +1,23 @@
 ﻿Imports Microsoft.Web.WebView2.WinForms
+Imports System.Data.SqlClient
+Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports Newtonsoft.Json.Linq
 Imports System.Net
 Imports System.Web
-
+Imports Newtonsoft.Json
+Imports System.IO
+Imports Microsoft.Web.WebView2.Core
 
 Public Class FrmExtraiCNPJ
+    ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
+    Private Sub AguardeMostrar()
+        PictureBoxAguarde.Visible = True
+    End Sub
+    Private Sub AguardeEsconder()
+        PictureBoxAguarde.Visible = False
+    End Sub
 
 
     '  Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs)
@@ -20,18 +34,22 @@ Public Class FrmExtraiCNPJ
     End Function
 
 
+
     '//////////////////////////////////////////////////////////////////
     Private Async Sub BtnExportar_Click(sender As Object, e As EventArgs) Handles BtnExportar.Click
         ' Verifica se o formulário FrmLegalizacao está aberto
         If Not IsFormOpen("FrmLegalizacao") Then
-            MessageBox.Show("O formulário FrmLegalizacao está fechado. Por favor, abra-o para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("O formulário Empresas está fechado. Por favor, abra-o para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
             ' FrmLegalizacao.Visible = True
         End If
 
         ' Certifique-se de que o WebView está totalmente carregado
-        If WebView21.CoreWebView2 IsNot Nothing Then
+        If WebSite.CoreWebView2 IsNot Nothing Then
+
+            AguardeMostrar()
+
 
             ' Dicionário contendo os XPaths utilizados para diferentes elementos da página
             Dim xpaths As New Dictionary(Of String, String) From {
@@ -40,7 +58,7 @@ Public Class FrmExtraiCNPJ
 
             ' Extrai o CNPJ da página usando o XPath do dicionário
             Dim scriptCNPJ As String = $"document.evaluate(""{xpaths("CNPJ")}"", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.textContent;"
-            Dim cnpjExtraido As String = Await WebView21.CoreWebView2.ExecuteScriptAsync(scriptCNPJ)
+            Dim cnpjExtraido As String = Await WebSite.CoreWebView2.ExecuteScriptAsync(scriptCNPJ)
 
             ' Remove aspas duplas e espaços do valor extraído
             cnpjExtraido = cnpjExtraido.Replace("""", "").Trim()
@@ -55,7 +73,7 @@ Public Class FrmExtraiCNPJ
             ' Verifica se o CNPJ extraído corresponde ao CNPJ no MaskedTextBox
             If cnpjExtraido = cnpjMasked Then
                 ' Certifique-se de que o WebView está totalmente carregado
-                If WebView21.CoreWebView2 IsNot Nothing Then
+                If WebSite.CoreWebView2 IsNot Nothing Then
                     Dim resultado As String = Await ExtrairDadosCNPJ()
                     '  RichTextBox1.Text = resultado
 
@@ -67,6 +85,10 @@ Public Class FrmExtraiCNPJ
 
                     ' Arruma o CNAE Secundário
                     FrmLegalizacao.ArrumaCNAESecundario()
+
+                    AguardeEsconder()
+
+
 
                     Me.Close()
                 Else
@@ -399,15 +421,37 @@ Public Class FrmExtraiCNPJ
     Private Async Function ExtrairValorPorXPath(xpath As String) As Task(Of String)
         ' Função para extrair um valor com base no XPath fornecido
         Dim script As String = $"var xpath = '{xpath}'; var result = document.evaluate(xpath, document, null, XPathResult.STRING_TYPE, null); result.stringValue;"
-        Dim valor As String = Await WebView21.CoreWebView2.ExecuteScriptAsync(script)
+        Dim valor As String = Await WebSite.CoreWebView2.ExecuteScriptAsync(script)
         Return WebUtility.HtmlDecode(valor)
     End Function
 
     Private Sub FrmExtraiCNPJ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Código para inicialização, se necessário
         Try
-            CNPJMaskedTextBox.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+
+
+            AguardeEsconder()
+
+        ' Verifica se os formulários FrmLegalizacao, FrmParcelamento ou FrmAlvara estão abertos
+        If Not IsSpecificFormOpen("FrmLegalizacao") AndAlso Not IsSpecificFormOpen("FrmParcelamento") AndAlso Not IsSpecificFormOpen("FrmAlvara") Then
+            MessageBox.Show("Nenhum dos formulários (Empresa, Parcelamento ou Alvará) está aberto. Por favor, digite o CNPJ e clique CONSULTAR.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            'Exit Sub
+        Else
+            ' Usar o CNPJ do formulário aberto
+            If IsSpecificFormOpen("FrmLegalizacao") Then
+                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmLegalizacao"), FrmLegalizacao).CNPJMaskedTextBox.Text
+            ElseIf IsSpecificFormOpen("FrmParcelamento") Then
+                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmParcelamento"), FrmParcelamento).CNPJMaskedTextBox.Text
+            ElseIf IsSpecificFormOpen("FrmAlvara") Then
+                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmAlvara"), FrmAlvara).CNPJMaskedTextBox.Text
+            End If
+        End If
+
+
+
+
             Abrir()
+            InitializeWebViewEvents()
         Catch ex As Exception
             MessageBox.Show("Abra o Formulário de Empresas")
         End Try
@@ -418,13 +462,16 @@ Public Class FrmExtraiCNPJ
         Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
         ' URL do site que você colocou na TextBox
-        Dim url As String = SITETextBox.Text.Trim() + CNPJ
+        Dim url As String = "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj="
+
+        Dim SiteFinal As String = url + CNPJ
 
         Try
             ' Certifica-se de que o WebView2 está inicializado
-            Await WebView21.EnsureCoreWebView2Async(Nothing)
+            Await WebSite.EnsureCoreWebView2Async(Nothing)
             ' Navega para a URL
-            WebView21.Source = New Uri(url)
+            SITETextBox.Text = SiteFinal
+            WebSite.Source = New Uri(SiteFinal)
         Catch ex As Exception
             MessageBox.Show("Erro ao navegar: " & ex.Message)
         End Try
@@ -438,16 +485,739 @@ Public Class FrmExtraiCNPJ
     End Sub
 
     Private Sub LinkLabelImportar_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelImportar.LinkClicked
-        ' Verifica se o formulário FrmLegalizacao está aberto
-        If Not IsFormOpen("FrmLegalizacao") Then
-            MessageBox.Show("O formulário FrmLegalizacao está fechado. Por favor, abra-o para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ' Verifica se os formulários FrmLegalizacao, FrmParcelamento ou FrmAlvara estão abertos
+        If Not IsSpecificFormOpen("FrmLegalizacao") AndAlso Not IsSpecificFormOpen("FrmParcelamento") AndAlso Not IsSpecificFormOpen("FrmAlvara") Then
+            MessageBox.Show("Nenhum dos formulários (Legalização, Parcelamento ou Alvará) está aberto. Por favor, abra um deles para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
-        Else
-            CNPJMaskedTextBox.Text = FrmLegalizacao.CNPJMaskedTextBox.Text
+        End If
+
+        ' Usar o CNPJ do formulário aberto
+        If IsSpecificFormOpen("FrmLegalizacao") Then
+            CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmLegalizacao"), FrmLegalizacao).CNPJMaskedTextBox.Text
+        ElseIf IsSpecificFormOpen("FrmParcelamento") Then
+            CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmParcelamento"), FrmParcelamento).CNPJMaskedTextBox.Text
+        ElseIf IsSpecificFormOpen("FrmAlvara") Then
+            CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmAlvara"), FrmAlvara).CNPJMaskedTextBox.Text
         End If
     End Sub
+
+
+    ' Função para verificar se um formulário específico está aberto
+    Private Function IsSpecificFormOpen(formName As String) As Boolean
+        Return Application.OpenForms.OfType(Of Form)().Any(Function(f) f.Name = formName)
+    End Function
+
+
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
         Me.Close()
     End Sub
+
+    Private Sub BtnAbrirExterno_Click(sender As Object, e As EventArgs) Handles BtnAbrirExterno.Click
+        Dim CNPJ As String = String.Empty
+
+        ' Verifica se o CNPJ do formulário atual está vazio
+        If Not String.IsNullOrWhiteSpace(CNPJMaskedTextBox.Text) Then
+            CNPJ = CNPJMaskedTextBox.Text
+        ElseIf Application.OpenForms.OfType(Of FrmLegalizacao)().Any() Then
+            ' Verifica se o formulário FrmLegalizacao está aberto
+            CNPJ = FrmLegalizacao.CNPJMaskedTextBox.Text
+        ElseIf Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
+            ' Verifica se o formulário FrmParcelamento está aberto
+            CNPJ = FrmParcelamento.CNPJMaskedTextBox.Text
+        End If
+
+        ' Se nenhum CNPJ foi encontrado, avisa o usuário
+        If String.IsNullOrWhiteSpace(CNPJ) Then
+            MessageBox.Show("Nenhum CNPJ encontrado nos formulários abertos. Por favor, preencha um CNPJ para continuar.", "CNPJ Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Remove caracteres indesejados do CNPJ e copia para a área de transferência
+        Dim CNPJFormatado As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+        Clipboard.SetText(CNPJFormatado)
+
+        ' Abre o site com o CNPJ
+        System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJFormatado)
+
+        ' Fecha o formulário atual
+        Me.Close()
+    End Sub
+
+    Private Sub BtnAbrirInterno_Click(sender As Object, e As EventArgs) Handles BtnAbrirInterno.Click
+        Dim CNPJ As String = String.Empty
+
+        ' Verifica se ambos os formulários estão abertos
+        If Application.OpenForms.OfType(Of FrmLegalizacao)().Any() AndAlso Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
+            MessageBox.Show("Ambos os formulários (Legalização e Parcelamento) estão abertos. Não é possível continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        ' Tenta obter o CNPJ do formulário atual
+        If Not String.IsNullOrWhiteSpace(CNPJMaskedTextBox.Text) Then
+            CNPJ = CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+        ElseIf Application.OpenForms.OfType(Of FrmLegalizacao)().Any() Then
+            ' Caso o formulário FrmLegalizacao esteja aberto
+            CNPJ = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+        ElseIf Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
+            ' Caso o formulário FrmParcelamento esteja aberto
+            CNPJ = FrmParcelamento.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+        End If
+
+        ' Se o CNPJ não foi encontrado, exibe uma mensagem
+        If String.IsNullOrWhiteSpace(CNPJ) Then
+            MessageBox.Show("Nenhum CNPJ encontrado nos formulários abertos. Por favor, preencha um CNPJ para continuar.", "CNPJ Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Verifica se o WebSiteGERAL já está aberto
+        If Application.OpenForms.OfType(Of WebSiteGERAL)().Any() Then
+            WebSiteGERAL.Focus()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            Me.Close()
+        Else
+            WebSiteGERAL.Show()
+            WebSiteGERAL.MdiParent = MDIPrincipal
+            WebSiteGERAL.WebView.Source = New Uri("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ)
+            Me.Close()
+        End If
+    End Sub
+
+    Private Async Sub BtnImportarAlternativo_Click(sender As Object, e As EventArgs) Handles BtnImportarAlternativo.Click
+        Try
+            ' Verificar se ambos os formulários estão abertos
+            If Application.OpenForms.OfType(Of FrmLegalizacao)().Any() AndAlso Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
+                MessageBox.Show("Ambos os formulários (Legalização e Parcelamento) estão abertos. Não é possível continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+
+            If Application.OpenForms().OfType(Of FrmLegalizacao)().Any() Then
+                ' O FrmLegalizacao está aberto, continue com o código para FrmLegalizacao
+                Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().First()
+
+                '////////////////////////////////////////////////////////////
+                ' Verifica se o formulário FrmLegalizacao está aberto
+                If Not IsFormOpen("FrmLegalizacao") Then
+                    MessageBox.Show("O formulário FrmLegalizacao está fechado. Por favor, abra-o para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                Else
+                    frmLegalizacao.Visible = True
+                End If
+
+
+                If frmLegalizacao.CNPJMaskedTextBox.Text = "" Then
+                    ' mensagme vazio CNPJ
+                    MessageBox.Show("O campo CNPJ esta vazio, nao sendo possivel continuar!", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+
+                ElseIf Len(frmLegalizacao.CNPJMaskedTextBox.Text.Replace(".", "").Replace("/", "").Replace("-", "")) < 14 Then
+                    ' Mensagem de CNPJ incompleto
+                    MessageBox.Show("O CNPJ informado está incompleto. Verifique e preencha corretamente.", "CNPJ incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                Else
+                    AguardeMostrar()
+
+                    ' Chamar o método de verificação
+                    VerificarCNPJEmpresas(frmLegalizacao.CNPJMaskedTextBox.Text)
+
+
+                    'pergunta se deseja importar o CNPJ
+                    Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ? Isto irá sobrepor os dados existentes...", "Importar CNPJ", MessageBoxButtons.YesNo)
+                    If result = DialogResult.Yes Then
+                        'mudar lavel para AGUARDE...
+                        AguardeMostrar()
+
+                        'pegar CNPJ
+                        'FrmLegalizacao.CNPJMaskedTextBox.Text
+                        'consulta https://www.receitaws.com.br/v1/cnpj/
+                        Dim CNPJ As String = frmLegalizacao.CNPJMaskedTextBox.Text
+                        Dim CNPJ_Limpo As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+                        'conectar no site https://www.receitaws.com.br/v1/cnpj/
+                        Dim client As New HttpClient
+                        client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+
+                        Dim response As HttpResponseMessage = Await client.GetAsync("https://www.receitaws.com.br/v1/cnpj/" + CNPJ_Limpo)
+                        Dim json As String = Await response.Content.ReadAsStringAsync
+                        'nome, natureza_juridica, data_abertura,fantasia,porte,logradouro,numero,complemento,bairro,municipio,uf,cep,telefone,email,capital_social,atividade_principal,atividades_secundarias
+                        Dim json_obj As JObject = JObject.Parse(json)
+
+                        ' Verifica se a resposta é bem-sucedida
+                        If Not response.IsSuccessStatusCode Then
+                            MessageBox.Show("Erro ao acessar o serviço da Receita Federal. Código de status: " & response.StatusCode.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            AguardeEsconder()
+                            Exit Sub
+                        End If
+
+                        'se der erro no Nome finaliza o sub
+                        If json_obj("nome") Is Nothing Then
+                            MessageBox.Show("CNPJ não encontrado no site da Receita Federal...", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            AguardeEsconder()
+                            Exit Sub
+                        End If
+
+                        '/////// PROCESSO IMPORTACAO
+                        Dim nome As String = json_obj.Item("nome").ToString
+
+                        Dim natureza_juridica As String = json_obj.Item("natureza_juridica").ToString
+                        Dim data_abertura As String = json_obj.Item("abertura").ToString
+                        Dim fantasia As String = json_obj.Item("fantasia").ToString
+                        Dim porte As String = json_obj.Item("porte").ToString
+                        'verificar se for MICRO EMPRESA mudar para Microempresa
+                        If porte = "MICRO EMPRESA" Then
+                            porte = "Microempresa"
+                        End If
+                        'Situação cadastral	
+                        Dim situacao_cadastral As String = json_obj.Item("situacao").ToString
+                        Dim logradouro As String = json_obj.Item("logradouro").ToString
+                        Dim numero As String = json_obj.Item("numero").ToString
+                        Dim complemento As String = json_obj.Item("complemento").ToString
+                        Dim bairro As String = json_obj.Item("bairro").ToString
+                        Dim municipio As String = json_obj.Item("municipio").ToString
+                        Dim uf As String = json_obj.Item("uf").ToString
+                        Dim cep As String = json_obj.Item("cep").ToString
+
+                        Dim telefone As String = json_obj.Item("telefone").ToString
+
+                        Dim email As String = json_obj.Item("email").ToString
+                        Dim capital_social As String = json_obj.Item("capital_social").ToString
+                        Dim capital_social_str As String = capital_social.Replace(".", ",")
+                        Dim capital_social_str_2 As String = capital_social_str.Replace("R$", "")
+
+
+                        Dim DataAtualizacao As String = json_obj.Item("ultima_atualizacao").ToString
+
+                        '//////////////////////////////// ATIVIDADE PRINCIPAL ///////////////////////////////////////
+
+                        ' "atividade_principal" object Atividade Principal
+                        ' code String Código da atividade principal
+                        ' text String Descrição da atividade principal
+                        ''Newtonsoft.Json.Linq.JArray'
+                        Dim atividade_principal As Newtonsoft.Json.Linq.JArray = json_obj.Item("atividade_principal")
+                        Dim atividade_principal_code As String = atividade_principal(0).Item("code").ToString
+                        Dim atividade_principal_text As String = atividade_principal(0).Item("text").ToString
+
+
+
+
+                        '//////////////////////////////// ATIVIDADE SECUNDÁRIA ///////////////////////////////////////
+                        ' "atividades_secundarias" object Atividades Secundárias
+                        ' code String Código da atividade secundária
+                        ' text String Descrição da atividade secundária
+                        ''Newtonsoft.Json.Linq.JArray'
+                        ''se tiver vazio array
+                        Dim atividades_secundarias As Newtonsoft.Json.Linq.JArray = json_obj.Item("atividades_secundarias")
+                        Dim atividades_secundarias_code As String = ""
+                        Dim atividades_secundarias_text As String = ""
+
+                        If atividades_secundarias.Count > 0 Then
+                            atividades_secundarias_code = atividades_secundarias(0).Item("code").ToString.ToString.Replace("-", "").Replace(".", "").Insert(4, "-").Insert(6, "/")
+                            atividades_secundarias_text = atividades_secundarias(0).Item("text").ToString
+
+                            'pegar todas as atividades secundárias texto e código
+                            For i = 1 To atividades_secundarias.Count - 1
+                                'NOVA LINHA atividades_secundarias_code = atividades_secundarias_code + vbCrLf + atividades_secundarias(i).Item("code").ToString
+                                ' atividades_secundarias_text = atividades_secundarias_text + vbNewLine + atividades_secundarias(i).Item("text").ToString
+                                '  'apenas numeros e mudar formato para 9999-9/99
+                                atividades_secundarias_code = atividades_secundarias_code + vbNewLine + atividades_secundarias(i).Item("code").ToString.Replace("-", "").Replace(".", "").Insert(4, "-").Insert(6, "/")
+                                atividades_secundarias_text = atividades_secundarias_text + vbNewLine + atividades_secundarias(i).Item("text").ToString
+                                'para cada CODE colocar no formato 9999-9/99
+                                ' atividades_secundarias_code = atividades_secundarias_code.Replace("-", "").Replace(".", "")
+                                'atividades_secundarias_code = atividades_secundarias_code.Insert(4, "-").Insert(6, "/")
+
+                            Next
+
+                        End If
+
+                        '////// FIM DO CODIGO DO CNAE ///////
+
+                        '//////////////////////////////////   IMPORTAÇÂO  ///////////////////////////////////////
+
+                        'INICIA A LEGALIZAÇÃO
+                        frmLegalizacao.TabControle.SelectedIndex = 0
+                        frmLegalizacao.TabControle.SelectedIndex = 1
+                        'TabControl2 3
+                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = 1
+                        frmLegalizacao.TabControl2.SelectedIndex = 2
+                        frmLegalizacao.TabControl2.SelectedIndex = 3
+                        frmLegalizacao.TabControl2.SelectedIndex = 4
+                        frmLegalizacao.TabControl2.SelectedIndex = 5
+                        frmLegalizacao.TabControl2.SelectedIndex = 6
+
+                        frmLegalizacao.TabControle.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        'FIM
+
+
+
+
+                        'atualizar campos do formulario
+                        frmLegalizacao.RazaoSocialTextBox.Text = nome
+                        frmLegalizacao.NaturezaJuridicaComboBox.Text = natureza_juridica
+                        frmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text = data_abertura
+                        frmLegalizacao.NomeFantasiaTextBox.Text = fantasia
+                        frmLegalizacao.PorteDaEmpresaComboBox.Text = porte
+                        frmLegalizacao.SituacaoCadastralComboBox.Text = situacao_cadastral
+
+
+                        'ENDEREÇo //////////////////////////////////////////////////
+
+
+                        frmLegalizacao.EnderecoTextBox.Text = logradouro
+                        frmLegalizacao.EndNumeroTextBox.Text = numero
+                        frmLegalizacao.EndComplementoTextBox.Text = complemento
+                        frmLegalizacao.EndBairroTextBox.Text = bairro
+                        frmLegalizacao.EndCidadeTextBox.Text = municipio
+                        frmLegalizacao.EndEstadoTextBox.Text = uf
+                        frmLegalizacao.EndCEPMaskedTextBox.Text = cep
+
+                        'TELEFONE E EMAIL //////////////////////////////////////////////////
+
+                        'verificar se tem "/" entre os telefones, e dividir em dois campos EmpTel1TextBox e EmpTel2TextBox
+                        'formato (44) 3035-0111/ (44) 3035-0111
+
+                        Dim tel_1 As String = telefone.Replace("-", "")
+                        Dim tel_2 As String = ""
+                        If telefone.Contains("/") Then
+                            tel_1 = telefone.Split("/")(0)
+                            tel_2 = telefone.Split("/ ")(1)
+                        End If
+                        'ignorar tel_1 e tel_2 for = "(0000) 0000-0000"
+                        If tel_1 <> "(0000) 0000-0000" Then
+                            frmLegalizacao.EmpTel1TextBox.Text = tel_1
+                        End If
+                        If tel_2 <> "(0000) 0000-0000" Then
+                            frmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
+                        End If
+
+                        'FrmLegalizacao.EmpTel1TextBox.Text = tel_1
+                        ' FrmLegalizacao.EmpTel2TextBox.Text = tel_2.TrimStart(" ")
+
+
+                        'EMAIL //////////////////////////////////////////////////
+                        frmLegalizacao.EmpEmailTextBox.Text = email
+
+                        'CAPITAL SOCIAL //////////////////////////////////////////////////
+
+                        frmLegalizacao.TabControl2.SelectedIndex = 5
+                        frmLegalizacao.CapitalSTextBox.Text = capital_social_str_2
+
+
+                        'RAMO DE ATIVIDADE //////////////////////////////////////////////////
+
+                        'CNAEPrincipalTextBox e CNAESecundarioRichTextBox
+
+                        'atividade_principal_code_str apenas numeros
+                        Dim atividade_principal_code_str As String = atividade_principal_code.Replace(".", "")
+                        Dim atividade_principal_code_str_2 As String = atividade_principal_code_str.Replace("-", "")
+
+                        'atividade_principal_code_str_2 0000000 para formato 9999-9/99
+                        Dim atividade_principal_code_str_3 As String = atividade_principal_code_str_2.Insert(4, "-")
+                        Dim atividade_principal_code_str_4 As String = atividade_principal_code_str_3.Insert(6, "/")
+                        frmLegalizacao.CNAEPrincipalTextBox.Text = atividade_principal_code_str_4
+
+                        'Atividade secundaria FrmLegalizacao.CNAESecundarioRichTextBox.Text CODE
+                        frmLegalizacao.CNAESecundarioRichTextBox.Text = atividades_secundarias_code
+
+
+
+
+
+                        'verificar se tem texto dentro RamoDeAtividadeRichTextBox, se nao tiver, preencher com atividade_principal_text + atividades_secundarias_text
+                        If frmLegalizacao.RamoDeAtividadeRichTextBox.Text = "" Then
+                            frmLegalizacao.RamoDeAtividadeRichTextBox.Text = atividade_principal_text + "; " + vbCrLf + atividades_secundarias_text + "; " + vbCrLf
+                        End If
+
+
+                        'FINALIZAR //////////////////////////////////////////////////
+
+                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControl1.SelectedIndex = 0
+
+                        AguardeEsconder()
+
+
+                        'mostrar mgs de sucesso
+                        MsgBox("Importação realizada com sucesso! Ultima atualização em:" & DataAtualizacao, MsgBoxStyle.Information, "Importação")
+                        'fechar formulario
+                        Me.Close()
+                    End If
+                End If
+
+            ElseIf Application.OpenForms().OfType(Of FrmParcelamento)().Any() Then
+                ' O FrmParcelamento está aberto, faça algo diferente
+                If FrmParcelamento.CNPJMaskedTextBox.Text = "" Then
+                    ' Mensagem para campo CNPJ vazio
+                    MessageBox.Show("O campo CNPJ está vazio, não sendo possível continuar!", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                ElseIf Len(FrmParcelamento.CNPJMaskedTextBox.Text.Replace(".", "").Replace("/", "").Replace("-", "")) < 14 Then
+                    ' Mensagem de CNPJ incompleto
+                    MessageBox.Show("O CNPJ informado está incompleto. Verifique e preencha corretamente.", "CNPJ incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                Else
+                    ' Chamar o método de verificação
+                    VerificarCNPJEmpresas(FrmParcelamento.CNPJMaskedTextBox.Text)
+
+                    ' Pergunta se deseja importar o CNPJ
+                    Dim result As DialogResult = MessageBox.Show("Deseja importar dados cadastrais do CNPJ? Isto irá sobrepor os dados existentes...", "Importar CNPJ", MessageBoxButtons.YesNo)
+                    If result = DialogResult.Yes Then
+                        ' Alterar texto do botão para "AGUARDE..."
+                        AguardeMostrar()
+
+                        ' Capturar o CNPJ e limpar formatação
+                        Dim CNPJ As String = FrmParcelamento.CNPJMaskedTextBox.Text
+                        Dim CNPJ_Limpo As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+                        ' Conectar ao serviço da Receita Federal
+                        Dim client As New HttpClient
+                        client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+
+                        Dim response As HttpResponseMessage = Await client.GetAsync("https://www.receitaws.com.br/v1/cnpj/" + CNPJ_Limpo)
+                        Dim json As String = Await response.Content.ReadAsStringAsync
+                        Dim json_obj As JObject = JObject.Parse(json)
+
+                        ' Verifica se a resposta é bem-sucedida
+                        If Not response.IsSuccessStatusCode Then
+                            MessageBox.Show("Erro ao acessar o serviço da Receita Federal. Código de status: " & response.StatusCode.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            AguardeEsconder()
+                            Exit Sub
+                        End If
+
+                        ' Se der erro no nome, finaliza o processo
+                        If json_obj("nome") Is Nothing Then
+                            MessageBox.Show("CNPJ não encontrado no site da Receita Federal...", "CNPJ não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            AguardeEsconder()
+                            Exit Sub
+                        End If
+
+                        AguardeMostrar()
+
+                        ' Processo de importação
+                        Dim nome As String = json_obj.Item("nome").ToString()
+                        FrmParcelamento.RazaoSocialTextBox.Text = nome
+                        FrmParcelamento.CNPJMaskedTextBox.Text = CNPJ
+
+                        ' Mensagem de sucesso
+                        MessageBox.Show("Dados importados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Me.Close()
+                    End If
+                End If
+
+
+            Else
+                ' Nenhum dos dois formulários está aberto, faça algo ou abra um deles
+                MessageBox.Show("Nenhum formulário está aberto.")
+            End If
+        Catch ex As HttpRequestException
+            MessageBox.Show("Erro de conexão ao acessar a API: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As JsonReaderException
+            MessageBox.Show("Erro ao processar os dados retornados pela API: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show("Erro inesperado: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        Me.Close()
+    End Sub
+
+
+    Private Sub VerificarCNPJEmpresas(cnpj As String)
+        ' O CNPJ está no formato já formatado com máscara
+        Dim cnpjFormatado As String = cnpj
+
+        ' Verifica se o formulário está aberto
+        If Not (IsFormOpen("FrmLegalizacao") OrElse IsFormOpen("FrmAlvara") OrElse IsFormOpen("FrmParcelamento")) Then
+            MessageBox.Show("Nenhum dos formulários necessários (Legalização, Alvara ou Parcelamento) está aberto. Por favor, abra um deles para continuar.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Conexão com o banco de dados
+        Using connection As New SqlConnection(str)
+            Try
+                connection.Open()
+
+                ' Log da consulta
+                Debug.WriteLine("Consultando CNPJ: " & cnpjFormatado)
+
+                ' Consultar o CNPJ na tabela "Empresas"
+                Dim query As String = "SELECT CNPJ FROM Empresas WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    ' Executa a consulta e captura o valor retornado
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Empresas: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Empresas WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            ' Executa a consulta para buscar a Razão Social
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("Empresa já cadastrada na tabela Empresas!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado na tabela Empresas.")
+                    End If
+                End Using
+
+                ' Consultar o CNPJ na tabela "Parcelamentos"
+                query = "SELECT CNPJ FROM Parcelamentos WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    ' Executa a consulta e captura o valor retornado
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Parcelamentos: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Parcelamentos WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            ' Executa a consulta para buscar a Razão Social
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("CNPJ encontrado na tabela Parcelamentos!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado na tabela Parcelamentos.")
+                    End If
+                End Using
+
+                ' Consultar o CNPJ na tabela "Laudos"
+                query = "SELECT CNPJ FROM Laudos WHERE CNPJ = @CNPJ"
+                Using cmd As New SqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                    ' Executa a consulta e captura o valor retornado
+                    Dim result As Object = cmd.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        ' Log do resultado encontrado
+                        Debug.WriteLine("CNPJ encontrado na tabela Laudos: " & cnpjFormatado)
+
+                        ' Se o CNPJ estiver cadastrado, buscar a razão social
+                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Laudos WHERE CNPJ = @CNPJ"
+                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
+                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
+
+                            ' Executa a consulta para buscar a Razão Social
+                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
+                            MessageBox.Show("CNPJ encontrado na tabela Laudos!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
+                        End Using
+                    Else
+                        MessageBox.Show("CNPJ não cadastrado na tabela Laudos.")
+                    End If
+                End Using
+
+            Catch ex As Exception
+                MessageBox.Show("Erro ao conectar ao banco de dados: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub LinkCadastro_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkCadastro.LinkClicked
+        ' Verifica se o formulário FrmLegalizacao já está aberto
+        If Not IsSpecificFormOpen("FrmLegalizacao") Then
+            ' Se o formulário não estiver aberto, abre-o
+            Dim frmLegalizacao As New FrmLegalizacao()
+            frmLegalizacao.Show()
+
+            ' Aguarda o formulário ser carregado, então clica no botão BtnNovo
+            AddHandler frmLegalizacao.Load, Sub()
+                                                frmLegalizacao.BtnNovo.PerformClick()
+                                            End Sub
+        Else
+            ' Se o formulário já estiver aberto, apenas foca nele
+            Application.OpenForms("FrmLegalizacao").Activate()
+        End If
+    End Sub
+
+
+    Private Sub BtnVoltar_Click(sender As Object, e As EventArgs) Handles BtnVoltar.Click
+        If WebSite IsNot Nothing AndAlso WebSite.CanGoBack Then
+            WebSite.GoBack()
+        End If
+    End Sub
+
+    Private Sub BtnAvancar_Click(sender As Object, e As EventArgs) Handles BtnAvancar.Click
+        If WebSite IsNot Nothing AndAlso WebSite.CanGoForward Then
+            WebSite.GoForward()
+        End If
+    End Sub
+
+    Private Sub BtnIR_Click(sender As Object, e As EventArgs) Handles BtnIR.Click
+        WebsiteNavigate(SITETextBox.Text)
+        'atualizar pagina
+        ' WebView.Refresh()
+    End Sub
+
+    Private Sub BtnAtualizar_Click(sender As Object, e As EventArgs) Handles BtnAtualizar.Click
+        Try
+            ' Tentar atualizar a página
+            WebSite?.Reload()
+        Catch ex As Exception
+            ' Se ocorrer um erro, não fazer nada para evitar página em branco ou outros imprevistos
+            ' Você pode adicionar um log ou mensagem aqui, se necessário, para registrar o erro
+        End Try
+    End Sub
+
+    Friend Sub WebsiteNavigate(ByVal dest As String)
+        If WebSite IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(dest) Then
+            Try
+                ' Se contiver espaço, considera uma pesquisa no Google
+                If dest.Contains(" ") Then
+                    dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
+                ElseIf dest.Contains(".") Then
+                    ' Se não começar com "http://" ou "https://", adicionar "https://"
+                    If Not dest.StartsWith("http://") AndAlso
+                   Not dest.StartsWith("https://") AndAlso
+                   Not dest.StartsWith("edge://") AndAlso
+                   Not dest.StartsWith("file://") AndAlso
+                   Not dest = "about:blank" Then
+
+                        dest = "https://" & dest
+                    End If
+                Else
+                    ' Qualquer outro caso, realizar pesquisa no Google
+                    dest = "https://www.google.com.br/search?q=" + dest.Replace(" ", "+")
+                End If
+
+                ' Validar e criar a URI
+                Dim uriResult As Uri = Nothing
+                If Uri.TryCreate(dest, UriKind.Absolute, uriResult) AndAlso (uriResult.Scheme = Uri.UriSchemeHttp OrElse uriResult.Scheme = Uri.UriSchemeHttps) Then
+                    WebSite.Source = uriResult
+                Else
+                    MessageBox.Show("A URL informada não é válida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+                ' Atualizar barra de endereços
+                UpdateAddressBar()
+            Catch ex As Exception
+                MessageBox.Show($"Erro ao navegar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("O endereço informado está vazio ou é inválido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub UpdateAddressBar()
+        'if necessary, update address bar
+        If SITETextBox.Text <> WebSite.Source.ToString() Then
+            SITETextBox.Text = WebSite.Source.ToString()
+
+            'move cursor to end of text
+            SITETextBox.SelectionStart = SITETextBox.Text.Length
+            SITETextBox.SelectionLength = 0
+        End If
+    End Sub
+
+    Private Sub BtnHome_Click(sender As Object, e As EventArgs) Handles BtnHome.Click
+        Try
+            'ler o txt e pegar o site inicial que está na frente "pagina_inicial:" do txt
+            Dim path As String = Application.StartupPath & "\PaginaInicial.txt"
+            Dim sr As New StreamReader(path)
+            Dim line As String = sr.ReadLine()
+            Dim site As String = ""
+            While line IsNot Nothing
+                If line.Contains("pagina_inicial:") Then
+                    site = line.Replace("pagina_inicial:", "")
+                End If
+                line = sr.ReadLine()
+            End While
+            sr.Close()
+            WebsiteNavigate(site)
+
+        Catch ex As Exception
+            'abrir o site do google no lugar
+            WebsiteNavigate("https://www.google.com.br/")
+        End Try
+
+    End Sub
+
+    Private Sub BtnSoltar_Click(sender As Object, e As EventArgs) Handles BtnSoltar.Click
+        'verificar se está maximizado
+        If Me.WindowState = FormWindowState.Maximized Then
+            AbrirFora()
+            Me.WindowState = FormWindowState.Maximized
+        ElseIf Me.WindowState = FormWindowState.Normal Then
+            AbrirFora()
+            Me.WindowState = FormWindowState.Maximized
+        End If
+
+    End Sub
+
+    Private Sub AbrirFora()
+        Me.WindowState = FormWindowState.Maximized
+
+    End Sub
+
+    Private Sub BtnParar_Click(sender As Object, e As EventArgs) Handles BtnParar.Click
+        Try
+            ' Interrompe o carregamento do site no controle WebView
+            WebSite.Stop()
+        Catch ex As Exception
+            ' Tratamento de erro caso algo inesperado aconteça
+            MessageBox.Show($"Erro ao tentar parar o carregamento: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    Private Sub WebView_NavigationStarting_1(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs) Handles WebSite.NavigationStarting
+        ProgressBar1.Visible = True
+        TxtCarregamento.Visible = True
+        TxtCarregamento.Text = "Carregando..."
+
+        'mostrar ProgressBar1 colorido
+        ProgressBar1.Style = ProgressBarStyle.Marquee
+        ProgressBar1.MarqueeAnimationSpeed = 30
+        ProgressBar1.Maximum = 100
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Value = 0
+        ProgressBar1.Step = 1
+    End Sub
+
+
+    Private Sub InitializeWebViewEvents()
+        If WebSite IsNot Nothing Then
+            ' Adicione um manipulador ao evento NavigationCompleted
+            AddHandler WebSite.NavigationCompleted, AddressOf WebSite_NavigationCompleted
+        End If
+    End Sub
+
+    Private Sub WebSite_NavigationCompleted(sender As Object, e As EventArgs)
+        Try
+
+            LogMsg("WebView_NavigationCompleted")
+            'mostrar barra de progresso e mudar LblStatusCarregamento
+            ProgressBar1.Visible = False
+            TxtCarregamento.Visible = True
+            TxtCarregamento.Text = "Carregamento Completo"
+
+            ' Atualiza o SITETextBox com a URL atual
+            If WebSite.Source IsNot Nothing Then
+                SITETextBox.Text = WebSite.Source.AbsoluteUri
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Erro ao atualizar o endereço: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub LogMsg(msg As String, Optional addTimestamp As Boolean = True)
+        'ToDo: add desired code
+
+        If addTimestamp Then
+            msg = String.Format("{0} - {1}", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff"), msg)
+        End If
+
+        Debug.WriteLine(msg)
+    End Sub
+
+
 End Class

@@ -911,19 +911,16 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        'verificar CNPJLabel contem a palavra "CNPJ"
-        'verificar se esta aberto BoxConsultaCNPJLaudo ou abrir
-        If BoxConsultaCNPJLaudo.Visible = False Then
-            ' BoxConsultaCNPJLaudo.Show()
-            If CNPJLabel.Text = "CNPJ:" Then
-                BoxConsultaCNPJLaudo.Show()
+        ' Verifica se o formulário já está aberto
+        For Each frm As Form In Application.OpenForms
+            If TypeOf frm Is FrmExtraiCNPJ Then
+                frm.Close() ' Fecha o formulário se ele já estiver aberto
+                Exit For
             End If
-        Else
-            'BoxConsultaCNPJLaudo.Focus()
-            If CNPJLabel.Text = "CNPJ:" Then
-                BoxConsultaCNPJLaudo.Focus()
-            End If
-        End If
+        Next
+
+        ' Abre o formulário
+        FrmExtraiCNPJ.Show()
 
 
     End Sub

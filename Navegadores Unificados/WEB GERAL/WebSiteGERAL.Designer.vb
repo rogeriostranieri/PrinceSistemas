@@ -30,8 +30,9 @@ Partial Class WebSiteGERAL
         Me.BtnAvancar = New System.Windows.Forms.PictureBox()
         Me.BtnAtualizar = New System.Windows.Forms.PictureBox()
         Me.BtnHome = New System.Windows.Forms.PictureBox()
-        Me.BtnFechar = New System.Windows.Forms.PictureBox()
+        Me.BtnParar = New System.Windows.Forms.PictureBox()
         Me.BtnSoltar = New System.Windows.Forms.PictureBox()
+        Me.BtnFechar = New System.Windows.Forms.PictureBox()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.TxtCarregamento = New System.Windows.Forms.ToolStripLabel()
@@ -125,8 +126,9 @@ Partial Class WebSiteGERAL
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnHome, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BtnParar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnSoltar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
         CType(Me.WebView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -141,7 +143,7 @@ Partial Class WebSiteGERAL
         '
         Me.BtnIR.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnIR.Image = Global.PrinceSistemas.My.Resources.Resources.acessar
-        Me.BtnIR.Location = New System.Drawing.Point(797, 3)
+        Me.BtnIR.Location = New System.Drawing.Point(709, 3)
         Me.BtnIR.Name = "BtnIR"
         Me.BtnIR.Size = New System.Drawing.Size(31, 30)
         Me.BtnIR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -197,31 +199,43 @@ Partial Class WebSiteGERAL
         Me.BtnHome.TabStop = False
         Me.ToolTip1.SetToolTip(Me.BtnHome, "Pagina Incial")
         '
-        'BtnFechar
+        'BtnParar
         '
-        Me.BtnFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.Fechar_Icone
-        Me.BtnFechar.Location = New System.Drawing.Point(878, 3)
-        Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(32, 30)
-        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BtnFechar.TabIndex = 6
-        Me.BtnFechar.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnFechar, "Clique para fechar o navegador web")
+        Me.BtnParar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnParar.Image = Global.PrinceSistemas.My.Resources.Resources.Fechar_Icone
+        Me.BtnParar.Location = New System.Drawing.Point(746, 3)
+        Me.BtnParar.Name = "BtnParar"
+        Me.BtnParar.Size = New System.Drawing.Size(32, 30)
+        Me.BtnParar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BtnParar.TabIndex = 6
+        Me.BtnParar.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.BtnParar, "Clique para fechar o navegador web")
         '
         'BtnSoltar
         '
         Me.BtnSoltar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnSoltar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSoltar.Image = Global.PrinceSistemas.My.Resources.Resources.expandirpagina
-        Me.BtnSoltar.Location = New System.Drawing.Point(837, 3)
+        Me.BtnSoltar.Location = New System.Drawing.Point(787, 3)
         Me.BtnSoltar.Name = "BtnSoltar"
         Me.BtnSoltar.Size = New System.Drawing.Size(32, 30)
         Me.BtnSoltar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BtnSoltar.TabIndex = 7
         Me.BtnSoltar.TabStop = False
         Me.ToolTip1.SetToolTip(Me.BtnSoltar, "Clique para soltar o navegador Web")
+        '
+        'BtnFechar
+        '
+        Me.BtnFechar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFechar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnFechar.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
+        Me.BtnFechar.Location = New System.Drawing.Point(825, 3)
+        Me.BtnFechar.Name = "BtnFechar"
+        Me.BtnFechar.Size = New System.Drawing.Size(85, 38)
+        Me.BtnFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BtnFechar.TabIndex = 8
+        Me.BtnFechar.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.BtnFechar, "Clique para fechar o navegador web")
         '
         'ToolStrip2
         '
@@ -255,7 +269,7 @@ Partial Class WebSiteGERAL
         Me.WebView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView.Location = New System.Drawing.Point(3, 3)
         Me.WebView.Name = "WebView"
-        Me.WebView.Size = New System.Drawing.Size(899, 472)
+        Me.WebView.Size = New System.Drawing.Size(899, 465)
         Me.WebView.TabIndex = 3
         Me.WebView.ZoomFactor = 1.0R
         '
@@ -263,10 +277,10 @@ Partial Class WebSiteGERAL
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(3, 99)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 106)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(913, 504)
+        Me.TabControl1.Size = New System.Drawing.Size(913, 497)
         Me.TabControl1.TabIndex = 4
         '
         'TabPage1
@@ -275,14 +289,14 @@ Partial Class WebSiteGERAL
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(905, 478)
+        Me.TabPage1.Size = New System.Drawing.Size(905, 471)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Navegador de Sites"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.ColumnCount = 9
+        Me.TableLayoutPanel2.ColumnCount = 10
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
@@ -290,22 +304,24 @@ Partial Class WebSiteGERAL
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.BtnIR, 6, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.BtnVoltar, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.BtnAvancar, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.BtnAtualizar, 3, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.BtnHome, 4, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TxtURL, 5, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.BtnFechar, 8, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.BtnSoltar, 7, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.BtnFechar, 9, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.BtnParar, 7, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.BtnSoltar, 8, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 29)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(913, 37)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(913, 44)
         Me.TableLayoutPanel2.TabIndex = 6
         '
         'TxtURL
@@ -314,7 +330,7 @@ Partial Class WebSiteGERAL
         Me.TxtURL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtURL.Location = New System.Drawing.Point(181, 3)
         Me.TxtURL.Name = "TxtURL"
-        Me.TxtURL.Size = New System.Drawing.Size(610, 26)
+        Me.TxtURL.Size = New System.Drawing.Size(522, 26)
         Me.TxtURL.TabIndex = 5
         '
         'TableLayoutPanel1
@@ -333,11 +349,10 @@ Partial Class WebSiteGERAL
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 5
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(919, 631)
         Me.TableLayoutPanel1.TabIndex = 7
         '
@@ -826,7 +841,7 @@ Partial Class WebSiteGERAL
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnAddFavoritos, Me.ToolStripSeparator1, Me.BtnFavoritos, Me.ToolStripSeparator11, Me.ToolStripButton1, Me.ToolStripSeparator13})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 69)
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 76)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(919, 27)
         Me.ToolStrip1.TabIndex = 8
@@ -892,8 +907,9 @@ Partial Class WebSiteGERAL
         CType(Me.BtnAvancar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnHome, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BtnParar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BtnSoltar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip2.ResumeLayout(False)
         Me.ToolStrip2.PerformLayout()
         CType(Me.WebView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -927,7 +943,7 @@ Partial Class WebSiteGERAL
     Friend WithEvents BtnAtualizar As PictureBox
     Friend WithEvents BtnHome As PictureBox
     Friend WithEvents TxtURL As TextBox
-    Friend WithEvents BtnFechar As PictureBox
+    Friend WithEvents BtnParar As PictureBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStrip3 As ToolStrip
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
@@ -1008,4 +1024,5 @@ Partial Class WebSiteGERAL
     Friend WithEvents AbrirNoNavegadorExternoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
+    Friend WithEvents BtnFechar As PictureBox
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class FrmSocios
 
@@ -63,7 +64,10 @@ Public Class FrmSocios
         BtnEditar.Text = "Editar"
 
 
+        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
+        AddHandler SociosBindingSource.CurrentChanged, AddressOf SociosBindingSource_CurrentChanged
 
+        ValidaIdadeMenor()
 
     End Sub
 
@@ -492,6 +496,21 @@ Public Class FrmSocios
                 Nascido = "nascida em"
             End If
 
+            'Verificar menor de idade
+            Dim RepresentanteLegal As String = ""
+            If MenorIdadeComboBox.Text <> "" Then
+                ' Alterar o texto para menor de idade
+                Dim MenorTexto As String = MenorIdadeComboBox.Text
+                NomeCompleto &= ", " & MenorTexto
+
+                ' Incluir representação legal
+                RepresentanteLegal = "neste ato representado por seu responsável legal"
+
+                ' Exibir mensagem solicitando o responsável
+                MsgBox("Por favor, insira o responsável legal pelo menor de idade.", MsgBoxStyle.Information, "Atenção")
+            End If
+
+            'continua
             If EstadoCivil = "solteira" Then
                 EstadoCivil = "maior, solteira"
             ElseIf EstadoCivil = "solteiro" Then
@@ -530,7 +549,7 @@ Public Class FrmSocios
 Novos dados:
 Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
             ehAdministrador & vbCrLf & vbCrLf &
-            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 ")
                 End If
@@ -556,7 +575,7 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
             " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
             ehAdministrador & vbCrLf & vbCrLf &
-            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & vbCrLf & "
+            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf & "
 //////////////////////////////////////////////////////////////////////
 "
             End If
@@ -1606,4 +1625,45 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
     End Sub
 
 
+    Private Sub ValidaIdadeMenor()
+        ' Limpar estado inicial
+        LblMenorIdade.Visible = False
+        MenorIdadeComboBox.Visible = False
+        If Not String.IsNullOrEmpty(MenorIdadeComboBox.Text) Then
+            MenorIdadeComboBox.Text = ""
+        End If
+
+        ' Verificar se a data é válida
+        Dim dataNascimento As Date
+        If Date.TryParse(DatadeNascMaskedTextBox.Text, dataNascimento) Then
+            ' Obter a data atual
+            Dim dataAtual As Date = Date.Now
+
+            ' Calcular a idade
+            Dim idade As Integer = dataAtual.Year - dataNascimento.Year
+
+            ' Verificar se o aniversário ainda não ocorreu neste ano
+            If dataAtual < dataNascimento.AddYears(idade) Then
+                idade -= 1
+            End If
+
+            ' Verificar se é menor de idade
+            If idade < 18 Then
+                LblMenorIdade.Visible = True
+                MenorIdadeComboBox.Visible = True
+            End If
+        Else
+            ' Caso a data seja inválida
+            MessageBox.Show("Por favor, insira uma data de nascimento válida.", "Data Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            DatadeNascMaskedTextBox.Focus()
+        End If
+    End Sub
+
+    Private Sub DatadeNascMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles DatadeNascMaskedTextBox.Leave
+        ValidaIdadeMenor()
+    End Sub
+
+    Private Sub SociosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+        ValidaIdadeMenor()
+    End Sub
 End Class

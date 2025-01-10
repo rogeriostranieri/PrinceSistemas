@@ -26,19 +26,26 @@ Partial Class FrmControleEventosEmpresa
         Dim EventosLabel As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
         Dim EventosLabel1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim EventosLabel2 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmControleEventosEmpresa))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxMeio = New System.Windows.Forms.GroupBox()
-        Me.PrefeituraMunicipal = New System.Windows.Forms.CheckBox()
         Me.EventosEmpresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
-        Me.EventosTextBox = New System.Windows.Forms.TextBox()
+        Me.PrefeituraMunicipalCheckBox = New System.Windows.Forms.CheckBox()
+        Me.ReceitaEstadualCheckBox = New System.Windows.Forms.CheckBox()
+        Me.ReceitaFederalCheckBox = New System.Windows.Forms.CheckBox()
+        Me.EmpresaFacilCheckBox = New System.Windows.Forms.CheckBox()
+        Me.EventosTextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBoxTopo = New System.Windows.Forms.GroupBox()
+        Me.PrefeituraMunicipal = New System.Windows.Forms.CheckBox()
         Me.ReceitaEstadual = New System.Windows.Forms.CheckBox()
         Me.ReceitaFederal = New System.Windows.Forms.CheckBox()
         Me.EmpresaFacil = New System.Windows.Forms.CheckBox()
-        Me.GroupBoxTopo = New System.Windows.Forms.GroupBox()
         Me.EventosEmpresaDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EventosTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.EventosComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
@@ -51,6 +58,8 @@ Partial Class FrmControleEventosEmpresa
         EventosLabel = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
         EventosLabel1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        EventosLabel2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBoxMeio.SuspendLayout()
         CType(Me.EventosEmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +74,8 @@ Partial Class FrmControleEventosEmpresa
         EventosLabel.AutoSize = True
         EventosLabel.BackColor = System.Drawing.Color.Transparent
         EventosLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EventosLabel.Location = New System.Drawing.Point(6, 23)
+        EventosLabel.Location = New System.Drawing.Point(9, 311)
+        EventosLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         EventosLabel.Name = "EventosLabel"
         EventosLabel.Size = New System.Drawing.Size(111, 16)
         EventosLabel.TabIndex = 44
@@ -76,7 +86,8 @@ Partial Class FrmControleEventosEmpresa
         Label5.AutoSize = True
         Label5.BackColor = System.Drawing.Color.Transparent
         Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label5.Location = New System.Drawing.Point(6, 55)
+        Label5.Location = New System.Drawing.Point(11, 101)
+        Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Label5.Name = "Label5"
         Label5.Size = New System.Drawing.Size(244, 18)
         Label5.TabIndex = 46
@@ -87,58 +98,77 @@ Partial Class FrmControleEventosEmpresa
         EventosLabel1.AutoSize = True
         EventosLabel1.BackColor = System.Drawing.Color.Transparent
         EventosLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        EventosLabel1.Location = New System.Drawing.Point(10, 58)
+        EventosLabel1.Location = New System.Drawing.Point(10, 43)
+        EventosLabel1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         EventosLabel1.Name = "EventosLabel1"
         EventosLabel1.Size = New System.Drawing.Size(125, 20)
         EventosLabel1.TabIndex = 53
         EventosLabel1.Text = "Filtar Eventos:"
         '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.BackColor = System.Drawing.Color.Transparent
+        Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label2.Location = New System.Drawing.Point(11, 19)
+        Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(77, 18)
+        Label2.TabIndex = 47
+        Label2.Text = "Cadastro"
+        '
+        'EventosLabel2
+        '
+        EventosLabel2.AutoSize = True
+        EventosLabel2.Location = New System.Drawing.Point(11, 49)
+        EventosLabel2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        EventosLabel2.Name = "EventosLabel2"
+        EventosLabel2.Size = New System.Drawing.Size(111, 16)
+        EventosLabel2.TabIndex = 47
+        EventosLabel2.Text = "Nome do Evento:"
+        '
         'TableLayoutPanel1
         '
+        Me.TableLayoutPanel1.AutoScroll = True
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.76978!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.23022!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMeio, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxTopo, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenu, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBoxMenu, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.14161!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.85839!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(685, 387)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(913, 531)
         Me.TableLayoutPanel1.TabIndex = 61
         '
         'GroupBoxMeio
         '
+        Me.GroupBoxMeio.AutoSize = True
+        Me.GroupBoxMeio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBoxMeio.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBoxMeio.Controls.Add(EventosLabel)
-        Me.GroupBoxMeio.Controls.Add(Me.PrefeituraMunicipal)
-        Me.GroupBoxMeio.Controls.Add(Me.EventosTextBox)
-        Me.GroupBoxMeio.Controls.Add(Me.ReceitaEstadual)
-        Me.GroupBoxMeio.Controls.Add(Label5)
-        Me.GroupBoxMeio.Controls.Add(Me.ReceitaFederal)
-        Me.GroupBoxMeio.Controls.Add(Me.EmpresaFacil)
+        Me.GroupBoxMeio.Controls.Add(Me.PrefeituraMunicipalCheckBox)
+        Me.GroupBoxMeio.Controls.Add(Me.ReceitaEstadualCheckBox)
+        Me.GroupBoxMeio.Controls.Add(Me.ReceitaFederalCheckBox)
+        Me.GroupBoxMeio.Controls.Add(Me.EmpresaFacilCheckBox)
+        Me.GroupBoxMeio.Controls.Add(EventosLabel2)
+        Me.GroupBoxMeio.Controls.Add(Me.EventosTextBox1)
+        Me.GroupBoxMeio.Controls.Add(Label2)
         Me.GroupBoxMeio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMeio.Location = New System.Drawing.Point(3, 255)
+        Me.GroupBoxMeio.Location = New System.Drawing.Point(5, 360)
+        Me.GroupBoxMeio.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.GroupBoxMeio.Name = "GroupBoxMeio"
-        Me.GroupBoxMeio.Size = New System.Drawing.Size(595, 129)
+        Me.GroupBoxMeio.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.GroupBoxMeio.Size = New System.Drawing.Size(782, 195)
         Me.GroupBoxMeio.TabIndex = 61
         Me.GroupBoxMeio.TabStop = False
-        '
-        'PrefeituraMunicipal
-        '
-        Me.PrefeituraMunicipal.BackColor = System.Drawing.Color.Transparent
-        Me.PrefeituraMunicipal.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "PrefeituraMunicipal", True))
-        Me.PrefeituraMunicipal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrefeituraMunicipal.Location = New System.Drawing.Point(395, 80)
-        Me.PrefeituraMunicipal.Name = "PrefeituraMunicipal"
-        Me.PrefeituraMunicipal.Size = New System.Drawing.Size(144, 24)
-        Me.PrefeituraMunicipal.TabIndex = 59
-        Me.PrefeituraMunicipal.Text = "Prefeitura Municipal"
-        Me.PrefeituraMunicipal.UseVisualStyleBackColor = False
         '
         'EventosEmpresaBindingSource
         '
@@ -150,64 +180,119 @@ Partial Class FrmControleEventosEmpresa
         Me.PrinceDBDataSet.DataSetName = "PrinceDBDataSet"
         Me.PrinceDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'EventosTextBox
+        'PrefeituraMunicipalCheckBox
         '
-        Me.EventosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EventosEmpresaBindingSource, "Eventos", True))
-        Me.EventosTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EventosTextBox.Location = New System.Drawing.Point(118, 20)
-        Me.EventosTextBox.Name = "EventosTextBox"
-        Me.EventosTextBox.Size = New System.Drawing.Size(464, 22)
-        Me.EventosTextBox.TabIndex = 45
+        Me.PrefeituraMunicipalCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "PrefeituraMunicipal", True))
+        Me.PrefeituraMunicipalCheckBox.Location = New System.Drawing.Point(632, 136)
+        Me.PrefeituraMunicipalCheckBox.Name = "PrefeituraMunicipalCheckBox"
+        Me.PrefeituraMunicipalCheckBox.Size = New System.Drawing.Size(141, 26)
+        Me.PrefeituraMunicipalCheckBox.TabIndex = 52
+        Me.PrefeituraMunicipalCheckBox.Text = "Prefeitura Municipal"
+        Me.PrefeituraMunicipalCheckBox.UseVisualStyleBackColor = True
         '
-        'ReceitaEstadual
+        'ReceitaEstadualCheckBox
         '
-        Me.ReceitaEstadual.BackColor = System.Drawing.Color.Transparent
-        Me.ReceitaEstadual.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "ReceitaEstadual", True))
-        Me.ReceitaEstadual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReceitaEstadual.Location = New System.Drawing.Point(259, 80)
-        Me.ReceitaEstadual.Name = "ReceitaEstadual"
-        Me.ReceitaEstadual.Size = New System.Drawing.Size(130, 24)
-        Me.ReceitaEstadual.TabIndex = 58
-        Me.ReceitaEstadual.Text = "Receita Estadual"
-        Me.ReceitaEstadual.UseVisualStyleBackColor = False
+        Me.ReceitaEstadualCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "ReceitaEstadual", True))
+        Me.ReceitaEstadualCheckBox.Location = New System.Drawing.Point(632, 104)
+        Me.ReceitaEstadualCheckBox.Name = "ReceitaEstadualCheckBox"
+        Me.ReceitaEstadualCheckBox.Size = New System.Drawing.Size(141, 26)
+        Me.ReceitaEstadualCheckBox.TabIndex = 51
+        Me.ReceitaEstadualCheckBox.Text = "Receita Estadual"
+        Me.ReceitaEstadualCheckBox.UseVisualStyleBackColor = True
         '
-        'ReceitaFederal
+        'ReceitaFederalCheckBox
         '
-        Me.ReceitaFederal.BackColor = System.Drawing.Color.Transparent
-        Me.ReceitaFederal.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "ReceitaFederal", True))
-        Me.ReceitaFederal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReceitaFederal.Location = New System.Drawing.Point(130, 80)
-        Me.ReceitaFederal.Name = "ReceitaFederal"
-        Me.ReceitaFederal.Size = New System.Drawing.Size(123, 24)
-        Me.ReceitaFederal.TabIndex = 57
-        Me.ReceitaFederal.Text = "Receita Federal"
-        Me.ReceitaFederal.UseVisualStyleBackColor = False
+        Me.ReceitaFederalCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "ReceitaFederal", True))
+        Me.ReceitaFederalCheckBox.Location = New System.Drawing.Point(632, 72)
+        Me.ReceitaFederalCheckBox.Name = "ReceitaFederalCheckBox"
+        Me.ReceitaFederalCheckBox.Size = New System.Drawing.Size(141, 26)
+        Me.ReceitaFederalCheckBox.TabIndex = 50
+        Me.ReceitaFederalCheckBox.Text = "Receita Federal"
+        Me.ReceitaFederalCheckBox.UseVisualStyleBackColor = True
         '
-        'EmpresaFacil
+        'EmpresaFacilCheckBox
         '
-        Me.EmpresaFacil.BackColor = System.Drawing.Color.Transparent
-        Me.EmpresaFacil.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "EmpresaFacil", True))
-        Me.EmpresaFacil.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmpresaFacil.Location = New System.Drawing.Point(9, 80)
-        Me.EmpresaFacil.Name = "EmpresaFacil"
-        Me.EmpresaFacil.Size = New System.Drawing.Size(115, 24)
-        Me.EmpresaFacil.TabIndex = 56
-        Me.EmpresaFacil.Text = "Empresa Fácil"
-        Me.EmpresaFacil.UseVisualStyleBackColor = False
+        Me.EmpresaFacilCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EventosEmpresaBindingSource, "EmpresaFacil", True))
+        Me.EmpresaFacilCheckBox.Location = New System.Drawing.Point(632, 40)
+        Me.EmpresaFacilCheckBox.Name = "EmpresaFacilCheckBox"
+        Me.EmpresaFacilCheckBox.Size = New System.Drawing.Size(141, 26)
+        Me.EmpresaFacilCheckBox.TabIndex = 49
+        Me.EmpresaFacilCheckBox.Text = "Empresa Fácil"
+        Me.EmpresaFacilCheckBox.UseVisualStyleBackColor = True
+        '
+        'EventosTextBox1
+        '
+        Me.EventosTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EventosEmpresaBindingSource, "Eventos", True))
+        Me.EventosTextBox1.Location = New System.Drawing.Point(130, 46)
+        Me.EventosTextBox1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.EventosTextBox1.Name = "EventosTextBox1"
+        Me.EventosTextBox1.Size = New System.Drawing.Size(480, 22)
+        Me.EventosTextBox1.TabIndex = 48
         '
         'GroupBoxTopo
         '
+        Me.GroupBoxTopo.AutoSize = True
+        Me.GroupBoxTopo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBoxTopo.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBoxTopo.Controls.Add(Me.PrefeituraMunicipal)
+        Me.GroupBoxTopo.Controls.Add(Me.ReceitaEstadual)
+        Me.GroupBoxTopo.Controls.Add(Me.ReceitaFederal)
+        Me.GroupBoxTopo.Controls.Add(Me.EmpresaFacil)
+        Me.GroupBoxTopo.Controls.Add(EventosLabel)
         Me.GroupBoxTopo.Controls.Add(Me.EventosEmpresaDataGridView)
+        Me.GroupBoxTopo.Controls.Add(Me.EventosTextBox)
         Me.GroupBoxTopo.Controls.Add(Me.Label1)
         Me.GroupBoxTopo.Controls.Add(Me.EventosComboBox)
+        Me.GroupBoxTopo.Controls.Add(Label5)
         Me.GroupBoxTopo.Controls.Add(EventosLabel1)
         Me.GroupBoxTopo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxTopo.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBoxTopo.Location = New System.Drawing.Point(5, 3)
+        Me.GroupBoxTopo.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.GroupBoxTopo.Name = "GroupBoxTopo"
-        Me.GroupBoxTopo.Size = New System.Drawing.Size(595, 246)
+        Me.GroupBoxTopo.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.GroupBoxTopo.Size = New System.Drawing.Size(782, 351)
         Me.GroupBoxTopo.TabIndex = 61
         Me.GroupBoxTopo.TabStop = False
+        '
+        'PrefeituraMunicipal
+        '
+        Me.PrefeituraMunicipal.AutoSize = True
+        Me.PrefeituraMunicipal.Location = New System.Drawing.Point(416, 122)
+        Me.PrefeituraMunicipal.Name = "PrefeituraMunicipal"
+        Me.PrefeituraMunicipal.Size = New System.Drawing.Size(143, 20)
+        Me.PrefeituraMunicipal.TabIndex = 64
+        Me.PrefeituraMunicipal.Text = "Prefeitura Municipal"
+        Me.PrefeituraMunicipal.UseVisualStyleBackColor = True
+        '
+        'ReceitaEstadual
+        '
+        Me.ReceitaEstadual.AutoSize = True
+        Me.ReceitaEstadual.Location = New System.Drawing.Point(273, 122)
+        Me.ReceitaEstadual.Name = "ReceitaEstadual"
+        Me.ReceitaEstadual.Size = New System.Drawing.Size(129, 20)
+        Me.ReceitaEstadual.TabIndex = 63
+        Me.ReceitaEstadual.Text = "Receita Estadual"
+        Me.ReceitaEstadual.UseVisualStyleBackColor = True
+        '
+        'ReceitaFederal
+        '
+        Me.ReceitaFederal.AutoSize = True
+        Me.ReceitaFederal.Location = New System.Drawing.Point(137, 122)
+        Me.ReceitaFederal.Name = "ReceitaFederal"
+        Me.ReceitaFederal.Size = New System.Drawing.Size(123, 20)
+        Me.ReceitaFederal.TabIndex = 62
+        Me.ReceitaFederal.Text = "Receita Federal"
+        Me.ReceitaFederal.UseVisualStyleBackColor = True
+        '
+        'EmpresaFacil
+        '
+        Me.EmpresaFacil.AutoSize = True
+        Me.EmpresaFacil.Location = New System.Drawing.Point(10, 122)
+        Me.EmpresaFacil.Name = "EmpresaFacil"
+        Me.EmpresaFacil.Size = New System.Drawing.Size(113, 20)
+        Me.EmpresaFacil.TabIndex = 61
+        Me.EmpresaFacil.Text = "Empresa Fácil"
+        Me.EmpresaFacil.UseVisualStyleBackColor = True
         '
         'EventosEmpresaDataGridView
         '
@@ -217,10 +302,11 @@ Partial Class FrmControleEventosEmpresa
         Me.EventosEmpresaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EventosEmpresaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         Me.EventosEmpresaDataGridView.DataSource = Me.EventosEmpresaBindingSource
-        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(14, 111)
+        Me.EventosEmpresaDataGridView.Location = New System.Drawing.Point(10, 150)
+        Me.EventosEmpresaDataGridView.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.EventosEmpresaDataGridView.Name = "EventosEmpresaDataGridView"
         Me.EventosEmpresaDataGridView.ReadOnly = True
-        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(568, 128)
+        Me.EventosEmpresaDataGridView.Size = New System.Drawing.Size(762, 158)
         Me.EventosEmpresaDataGridView.TabIndex = 54
         '
         'DataGridViewTextBoxColumn2
@@ -231,12 +317,24 @@ Partial Class FrmControleEventosEmpresa
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Width = 500
         '
+        'EventosTextBox
+        '
+        Me.EventosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EventosEmpresaBindingSource, "Eventos", True))
+        Me.EventosTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EventosTextBox.Location = New System.Drawing.Point(130, 308)
+        Me.EventosTextBox.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.EventosTextBox.Name = "EventosTextBox"
+        Me.EventosTextBox.ReadOnly = True
+        Me.EventosTextBox.Size = New System.Drawing.Size(642, 22)
+        Me.EventosTextBox.TabIndex = 45
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 16)
+        Me.Label1.Location = New System.Drawing.Point(8, 19)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(481, 24)
         Me.Label1.TabIndex = 42
@@ -250,9 +348,10 @@ Partial Class FrmControleEventosEmpresa
         Me.EventosComboBox.DisplayMember = "Eventos"
         Me.EventosComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EventosComboBox.FormattingEnabled = True
-        Me.EventosComboBox.Location = New System.Drawing.Point(10, 81)
+        Me.EventosComboBox.Location = New System.Drawing.Point(10, 70)
+        Me.EventosComboBox.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.EventosComboBox.Name = "EventosComboBox"
-        Me.EventosComboBox.Size = New System.Drawing.Size(572, 24)
+        Me.EventosComboBox.Size = New System.Drawing.Size(762, 24)
         Me.EventosComboBox.TabIndex = 54
         Me.EventosComboBox.ValueMember = "Eventos"
         '
@@ -263,9 +362,11 @@ Partial Class FrmControleEventosEmpresa
         Me.GroupBoxMenu.Controls.Add(Me.BtnSalvar)
         Me.GroupBoxMenu.Controls.Add(Me.BtnNovo)
         Me.GroupBoxMenu.Controls.Add(Me.BtnExcluir)
-        Me.GroupBoxMenu.Location = New System.Drawing.Point(604, 255)
+        Me.GroupBoxMenu.Location = New System.Drawing.Point(797, 3)
+        Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.GroupBoxMenu.Name = "GroupBoxMenu"
-        Me.GroupBoxMenu.Size = New System.Drawing.Size(78, 129)
+        Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(102, 159)
         Me.GroupBoxMenu.TabIndex = 61
         Me.GroupBoxMenu.TabStop = False
         '
@@ -274,9 +375,10 @@ Partial Class FrmControleEventosEmpresa
         Me.BtnFechar.BackgroundImage = CType(resources.GetObject("BtnFechar.BackgroundImage"), System.Drawing.Image)
         Me.BtnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFechar.Location = New System.Drawing.Point(4, 102)
+        Me.BtnFechar.Location = New System.Drawing.Point(6, 126)
+        Me.BtnFechar.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnFechar.Size = New System.Drawing.Size(91, 29)
         Me.BtnFechar.TabIndex = 38
         Me.BtnFechar.Text = "Fechar"
         Me.BtnFechar.UseVisualStyleBackColor = True
@@ -286,9 +388,10 @@ Partial Class FrmControleEventosEmpresa
         Me.BtnSalvar.BackgroundImage = CType(resources.GetObject("BtnSalvar.BackgroundImage"), System.Drawing.Image)
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSalvar.Location = New System.Drawing.Point(4, 44)
+        Me.BtnSalvar.Location = New System.Drawing.Point(6, 54)
+        Me.BtnSalvar.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(69, 23)
+        Me.BtnSalvar.Size = New System.Drawing.Size(91, 29)
         Me.BtnSalvar.TabIndex = 37
         Me.BtnSalvar.Text = "Salvar"
         Me.BtnSalvar.UseVisualStyleBackColor = True
@@ -299,9 +402,10 @@ Partial Class FrmControleEventosEmpresa
         Me.BtnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNovo.ForeColor = System.Drawing.Color.Green
-        Me.BtnNovo.Location = New System.Drawing.Point(4, 16)
+        Me.BtnNovo.Location = New System.Drawing.Point(6, 19)
+        Me.BtnNovo.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(69, 22)
+        Me.BtnNovo.Size = New System.Drawing.Size(91, 27)
         Me.BtnNovo.TabIndex = 35
         Me.BtnNovo.Text = "Novo"
         Me.BtnNovo.UseVisualStyleBackColor = True
@@ -312,9 +416,10 @@ Partial Class FrmControleEventosEmpresa
         Me.BtnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnExcluir.Location = New System.Drawing.Point(4, 73)
+        Me.BtnExcluir.Location = New System.Drawing.Point(6, 90)
+        Me.BtnExcluir.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(69, 23)
+        Me.BtnExcluir.Size = New System.Drawing.Size(91, 29)
         Me.BtnExcluir.TabIndex = 36
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
@@ -348,6 +453,8 @@ Partial Class FrmControleEventosEmpresa
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -355,13 +462,18 @@ Partial Class FrmControleEventosEmpresa
         '
         'FrmControleEventosEmpresa
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(685, 387)
+        Me.ClientSize = New System.Drawing.Size(913, 531)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmControleEventosEmpresa"
@@ -369,6 +481,7 @@ Partial Class FrmControleEventosEmpresa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Controle de Eventos Empresa"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBoxMeio.ResumeLayout(False)
         Me.GroupBoxMeio.PerformLayout()
         CType(Me.EventosEmpresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -378,16 +491,13 @@ Partial Class FrmControleEventosEmpresa
         CType(Me.EventosEmpresaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents GroupBoxMeio As GroupBox
-    Friend WithEvents PrefeituraMunicipal As CheckBox
     Friend WithEvents EventosTextBox As TextBox
-    Friend WithEvents ReceitaEstadual As CheckBox
-    Friend WithEvents ReceitaFederal As CheckBox
-    Friend WithEvents EmpresaFacil As CheckBox
     Friend WithEvents GroupBoxTopo As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents EventosComboBox As ComboBox
@@ -402,4 +512,13 @@ Partial Class FrmControleEventosEmpresa
     Friend WithEvents TableAdapterManager As PrinceDBDataSetTableAdapters.TableAdapterManager
     Friend WithEvents EventosEmpresaDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ReceitaEstadualCheckBox As CheckBox
+    Friend WithEvents ReceitaFederalCheckBox As CheckBox
+    Friend WithEvents EmpresaFacilCheckBox As CheckBox
+    Friend WithEvents EventosTextBox1 As TextBox
+    Friend WithEvents PrefeituraMunicipalCheckBox As CheckBox
+    Friend WithEvents EmpresaFacil As CheckBox
+    Friend WithEvents ReceitaFederal As CheckBox
+    Friend WithEvents ReceitaEstadual As CheckBox
+    Friend WithEvents PrefeituraMunicipal As CheckBox
 End Class

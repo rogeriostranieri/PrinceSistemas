@@ -407,12 +407,6 @@
     <Compile Include="CNAEs\FrmCNAEtexto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consulta CNPJ\FrmCNPJimportar.Designer.vb">
-      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Consulta CNPJ\FrmCNPJimportar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Consulta CNPJ\FrmExtraiCNPJ.Designer.vb">
       <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
     </Compile>
@@ -926,9 +920,6 @@
     <EmbeddedResource Include="CNAEs\FrmCNAEtexto.resx">
       <DependentUpon>FrmCNAEtexto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consulta CNPJ\FrmCNPJimportar.resx">
-      <DependentUpon>FrmCNPJimportar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Consulta CNPJ\FrmExtraiCNPJ.resx">
       <DependentUpon>FrmExtraiCNPJ.vb</DependentUpon>
     </EmbeddedResource>
@@ -1230,6 +1221,7 @@
     <None Include="Resources\interrogacao.png" />
     <None Include="Resources\pasta.png" />
     <None Include="Resources\protocolo1.png" />
+    <Content Include="Consulta CNPJ\TextFile1.txt" />
     <Content Include="Laudo\AlvaraBackupCode.txt" />
     <Content Include="Laudo\BACKUPlaudos.txt" />
     <Content Include="PARAFAZER.txt" />

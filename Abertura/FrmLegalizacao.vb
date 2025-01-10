@@ -324,7 +324,7 @@ Public Class FrmLegalizacao
         ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
         VerificarFiliais()
         'RecarregarFormulario()
-
+        TipodeEmpresa()
 
         ' verifica alerta da empresa
         VerificarAvisoEmpresa()
@@ -662,11 +662,22 @@ Public Class FrmLegalizacao
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If Application.OpenForms.OfType(Of BoxConsultaCNPJEmpresa)().Count() > 0 Then
-            BoxConsultaCNPJEmpresa.Focus()
-        Else
-            BoxConsultaCNPJEmpresa.Show()
-        End If
+        'If Application.OpenForms.OfType(Of BoxConsultaCNPJEmpresa)().Count() > 0 Then
+        'BoxConsultaCNPJEmpresa.Focus()
+        ' Else
+        '  BoxConsultaCNPJEmpresa.Show()
+        '  End If
+
+        ' Verifica se o formulário já está aberto
+        For Each frm As Form In Application.OpenForms
+            If TypeOf frm Is FrmExtraiCNPJ Then
+                frm.Close() ' Fecha o formulário se ele já estiver aberto
+                Exit For
+            End If
+        Next
+
+        ' Abre o formulário
+        FrmExtraiCNPJ.Show()
     End Sub
 
 
@@ -1135,17 +1146,46 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
 
     Private Sub TipoDeEmpresaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TipoDeEmpresaComboBox.SelectedIndexChanged
-        If TipoDeEmpresaComboBox.Text = "Microempreendedor Indivual ( MEI )" Then
+        TipodeEmpresa()
+
+    End Sub
+
+    Private Sub TipodeEmpresa()
+        If TipoDeEmpresaComboBox.Text = "Microempreendedor Indivual ( MEI )" OrElse
+       TipoDeEmpresaComboBox.Text = "Igreja" OrElse
+       TipoDeEmpresaComboBox.Text = "Comunidade e Similares" OrElse
+       TipoDeEmpresaComboBox.Text = "Associação Privada" Then
+
             Button24.Visible = True
             Button20.Visible = False
             Button25.Visible = True
 
+            NAlteracaoComboBox.Visible = False
+            NAlteracaoLabel.Visible = False
+            LabelConsolidar.Visible = False
+            AltConsolidadaComboBox.Visible = False
+            NovaRazaoSocialLabel.Visible = False
+            NovaRazaoSocialComboBox.Visible = False
+            BtnVerNovoNome.Visible = False
+
+            NAlteracaoLabel.Text = "Cartório"
         Else
             Button24.Visible = False
             Button20.Visible = True
             Button25.Visible = False
+
+            NAlteracaoComboBox.Visible = True
+            NAlteracaoLabel.Visible = True
+            LabelConsolidar.Visible = True
+            AltConsolidadaComboBox.Visible = True
+            NovaRazaoSocialLabel.Visible = True
+            NovaRazaoSocialComboBox.Visible = True
+            BtnVerNovoNome.Visible = True
+
+            NAlteracaoLabel.Text = "Nº.:"
         End If
     End Sub
+
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
         TabControle.SelectTab(5)
@@ -4192,6 +4232,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                 ' Exibe o alerta com o texto do campo AvisarEmpresaTextoRichTextBox
                 Dim mensagemAlerta As String = AvisarEmpresaTextoRichTextBox.Text
                 MessageBox.Show(mensagemAlerta, "Aviso da Empresa", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                BtnVerAviso.Visible = True
+            Else
+                BtnVerAviso.Visible = False
             End If
         Catch ex As Exception
             ' Tratar erros para evitar falhas
@@ -4218,6 +4261,15 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                                 "Confirmação",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information)
+                Dim MarcaAviso As DialogResult = MessageBox.Show("Deseja desativar o AVISO ?",
+                                                           "Confirmação",
+                                                           MessageBoxButtons.YesNo,
+                                                           MessageBoxIcon.Question)
+                If MarcaAviso = DialogResult.Yes Then
+                    AvisarEmpresaCheckBox.CheckState = CheckState.Unchecked
+
+                End If
+
             End If
         Catch ex As Exception
             ' Trata possíveis erros
@@ -4260,4 +4312,24 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
     End Sub
 
+    Private Sub TipoDeEmpresaComboBox_Validated(sender As Object, e As EventArgs) Handles TipoDeEmpresaComboBox.Validated
+        TipodeEmpresa()
+    End Sub
+
+    Private Sub BtnVerAviso_Click(sender As Object, e As EventArgs) Handles BtnVerAviso.Click
+        TabControle.SelectTab(10)
+    End Sub
+
+    Private Sub BtnVoltarInicio_Click(sender As Object, e As EventArgs) Handles BtnVoltarInicio.Click
+        TabControle.SelectTab(0)
+    End Sub
+
+    Private Sub BtnNovaRazao_Click(sender As Object, e As EventArgs) Handles BtnNovaRazao.Click
+        TabControle.SelectTab(1)
+        TabControl2.SelectTab(7)
+    End Sub
+
+    Private Sub BtnFormaDeAtuaCNAE_Click(sender As Object, e As EventArgs) Handles BtnFormaDeAtuaCNAE.Click
+        TabControl2.SelectedIndex = 7
+    End Sub
 End Class

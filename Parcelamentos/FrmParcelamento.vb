@@ -654,124 +654,54 @@ Public Class FrmParcelamento
         End Try
     End Sub
 
-    Private Function VerificarCNPJParcelamento(cnpj As String) As Boolean
-        ' O CNPJ está no formato já formatado com máscara
-        Dim cnpjFormatado As String = cnpj
-
-        Using connection As New SqlConnection(str)
-            Try
-                connection.Open()
-
-                ' Log da consulta
-                Debug.WriteLine("Consultando CNPJ: " & cnpjFormatado)
-
-                ' Consultar o CNPJ na tabela "Parcelamento"
-                Dim query As String = "SELECT CNPJ FROM Parcelamentos WHERE CNPJ = @CNPJ"
-                Using cmd As New SqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
-
-                    Dim result As Object = cmd.ExecuteScalar()
-                    If result IsNot Nothing Then
-                        ' Log do resultado encontrado
-                        Debug.WriteLine("CNPJ encontrado na tabela Parcelamentos: " & cnpjFormatado)
-
-                        ' Se o CNPJ estiver cadastrado, buscar a razão social
-                        Dim queryRazaoSocial As String = "SELECT RazaoSocial FROM Parcelamentos WHERE CNPJ = @CNPJ"
-                        Using cmdRazaoSocial As New SqlCommand(queryRazaoSocial, connection)
-                            cmdRazaoSocial.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
-
-                            Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
-                            MessageBox.Show("CNPJ já cadastrado no Parcelamentos!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
-                        End Using
-
-                        Return True ' Retornar True se o CNPJ foi encontrado
-                    End If
-                End Using
-
-                MessageBox.Show("CNPJ não cadastrado no Parcelamentos.")
-                Return False ' Retornar False se o CNPJ não foi encontrado
-            Catch ex As Exception
-                MessageBox.Show("Erro ao conectar ao banco de dados: " & ex.Message)
-                Return True ' Retornar True para evitar continuar em caso de erro
-            End Try
-        End Using
-    End Function
-
-
-
 
     Private Sub BtnImportar_Click(sender As Object, e As EventArgs) Handles BtnImportar.Click
-        ' Chamar o método de verificação
-        Dim cnpjJaCadastrado As Boolean = VerificarCNPJParcelamento(CNPJMaskedTextBox.Text)
-
-        ' Se o CNPJ já estiver cadastrado, cancelar a execução
-        If cnpjJaCadastrado Then
-            Exit Sub
-        End If
-
         ' Inicializar a ProgressBar
         ProgressBarSalvar.Value = 0
         ProgressBarSalvar.Visible = True
-        ' Atualizar a ProgressBar antes de executar a consulta
         ProgressBarSalvar.Maximum = 100
         ProgressBarSalvar.Step = 25
         ProgressBarSalvar.Value = 15
 
-
-        TabControlGeral.SelectedIndex = 0
-        TabControlGeral.SelectedIndex = 1
-        TabControlGeral.SelectedIndex = 2
-        TabControlGeral.SelectedIndex = 3
-        TabControlGeral.SelectedIndex = 0
-
         ' Verificar se o CNPJMaskedTextBox está vazio
         If String.IsNullOrWhiteSpace(CNPJMaskedTextBox.Text) Then
             MessageBox.Show("Por favor, insira um CNPJ válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            ProgressBarSalvar.Visible = False
             Return
         End If
 
-        ProgressBarSalvar.Value = 25
-
-        ' Mostrar o CNPJ que será pesquisado
-        '  MessageBox.Show($"CNPJ sendo pesquisado: {CNPJMaskedTextBox.Text}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Obter o CNPJ formatado
+        Dim cnpjFormatado As String = CNPJMaskedTextBox.Text.Trim()
 
         ' Conexão com o banco de dados
         Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
 
-        ' Consulta SQL sem usar REPLACE, procurando o CNPJ diretamente
-        Dim query As String = "SELECT E.RazaoSocial, E.NomeResponsavel, E.CPFResponsavel, E.SenhaGov 
-                         FROM Empresas AS E
-                         INNER JOIN Parcelamentos AS P ON E.CNPJ = P.CNPJ
-                         WHERE P.CNPJ = @CNPJ"
+        ' Verificar o CNPJ em Parcelamentos
+        If VerificarCNPJParcelamento(cnpjFormatado) Then
+            ProgressBarSalvar.Value = 100
+            MessageBox.Show("CNPJ encontrado na tabela Parcelamentos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ProgressBarSalvar.Visible = False
+            BtnEditar.PerformClick()
+            Return
+        End If
+
+        ' Se o CNPJ não foi encontrado em Parcelamentos, verificar na tabela Empresas
+        Dim queryImportar As String = "SELECT RazaoSocial, NomeResponsavel, CPFResponsavel, SenhaGov FROM Empresas WHERE CNPJ = @CNPJ"
 
         Using connection As New SqlClient.SqlConnection(connectionString)
-            Using command As New SqlClient.SqlCommand(query, connection)
-                ' Adicionar o parâmetro do CNPJ
-                command.Parameters.AddWithValue("@CNPJ", CNPJMaskedTextBox.Text)
+            Using command As New SqlClient.SqlCommand(queryImportar, connection)
+                command.Parameters.AddWithValue("@CNPJ", cnpjFormatado)
 
                 Try
-                    ' Atualizar a ProgressBar antes de executar a consulta
-                    ProgressBarSalvar.Maximum = 100
-                    'ProgressBarSalvar.Step = 35
-                    ProgressBarSalvar.Value = 35
-
-
                     connection.Open()
-
-                    ' Mostrar mensagem indicando a conexão com o banco
-                    ' MessageBox.Show("Conectado ao banco de dados 'PrinceDB'. Realizando consulta...", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
 
                     ' Executar a consulta
                     Using reader As SqlClient.SqlDataReader = command.ExecuteReader()
                         If reader.Read() Then
-                            ' Atualizar o progresso
+                            ' Atualizar a ProgressBar
                             ProgressBarSalvar.Value = 50
 
-                            ' Exibir o CNPJ encontrado no banco de dados para referência
-                            ' MessageBox.Show($"CNPJ encontrado no cadastro geral de 'Empresas': {reader("RazaoSocial")}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                            ' Alterar a aba do TabControl para os campos necessários
+                            ' Preencher os campos com os dados encontrados
                             TabControlGeral.SelectedIndex = 0
                             RazaoSocialTextBox.Text = reader("RazaoSocial").ToString()
 
@@ -782,42 +712,45 @@ Public Class FrmParcelamento
 
                             TabControlGeral.SelectedIndex = 0
 
-                            ' Atualizar o progresso
+                            ' Atualizar a ProgressBar
                             ProgressBarSalvar.Value = 100
 
-                            MessageBox.Show("Dados importados com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show("Dados importados com sucesso para um novo cadastro.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Else
-                            ' Caso não encontre o CNPJ no banco de dados
-                            ProgressBarSalvar.Value = 0 ' Resetar a barra
-                            MessageBox.Show("CNPJ não encontrado na base de dados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
-                            ' Pergunta se o usuário deseja importar os dados
-                            Dim result As DialogResult = MessageBox.Show("Deseja importar os dados do CNPJ de outra forma?", "Importação de CNPJ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-                            If result = DialogResult.Yes Then
-                                ' Verifica se o formulário FrmCNPJimportar já está aberto
-                                If Application.OpenForms.OfType(Of FrmCNPJimportar)().Any() Then
-                                    ' Fecha o formulário se estiver aberto
-                                    FrmCNPJimportar.Close()
-                                End If
-
-                                ' Abre o formulário FrmCNPJimportar
-                                FrmCNPJimportar.Show()
-                            Else
-                                ' Se o usuário escolher 'Não', fecha o processo ou realiza outra ação
-                                MessageBox.Show("A importação foi cancelada.", "Importação Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                ProgressBarSalvar.Visible = False
-                            End If
+                            ' Se o CNPJ não foi encontrado em Parcelamentos nem em Empresas
+                            ProgressBarSalvar.Value = 0
+                            MessageBox.Show("CNPJ não encontrado na base de dados. Por favor, insira os dados manualmente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         End If
                     End Using
                 Catch ex As Exception
-                    ' Tratamento de erros
-                    ProgressBarSalvar.Value = 0 ' Resetar a barra em caso de erro
+                    ProgressBarSalvar.Value = 0
                     MessageBox.Show($"Erro ao acessar o banco de dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End Using
         End Using
     End Sub
+
+    Private Function VerificarCNPJParcelamento(cnpj As String) As Boolean
+        ' Conexão com o banco de dados
+        Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
+        Dim queryParcelamento As String = "SELECT COUNT(*) FROM Parcelamentos WHERE CNPJ = @CNPJ"
+
+        Using connection As New SqlClient.SqlConnection(connectionString)
+            Using command As New SqlClient.SqlCommand(queryParcelamento, connection)
+                command.Parameters.AddWithValue("@CNPJ", cnpj)
+
+                Try
+                    connection.Open()
+                    Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+                    Return count > 0 ' Retorna verdadeiro se encontrou o CNPJ
+                Catch ex As Exception
+                    MessageBox.Show($"Erro ao verificar o CNPJ em Parcelamentos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End Try
+            End Using
+        End Using
+    End Function
+
 
 
     Private Sub BtnDataCriacao_Click(sender As Object, e As EventArgs) Handles BtnDataCriacao.Click

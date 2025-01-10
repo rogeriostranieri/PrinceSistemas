@@ -204,10 +204,7 @@ Public Class WebSiteGERAL
         LogMsg("WebView_WebMessageReceived")
     End Sub
 
-    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click, SairToolStripMenuItem.Click
-        WebView.Dispose()
-        Me.Close()
-    End Sub
+
 
     Private Sub BtnHome_Click(sender As Object, e As EventArgs) Handles BtnHome.Click
         Try
@@ -1213,5 +1210,20 @@ Public Class WebSiteGERAL
         'abrri site url no navegador externo
         Process.Start(WebView.Source.ToString)
 
+    End Sub
+
+    Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
+        WebView.Dispose()
+        Me.Close()
+    End Sub
+
+    Private Sub BtnParar_Click(sender As Object, e As EventArgs) Handles BtnParar.Click
+        Try
+            ' Interrompe o carregamento do site no controle WebView
+            WebView.Stop()
+        Catch ex As Exception
+            ' Tratamento de erro caso algo inesperado aconteça
+            MessageBox.Show($"Erro ao tentar parar o carregamento: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

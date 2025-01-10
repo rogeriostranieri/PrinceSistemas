@@ -255,7 +255,135 @@
     End Function
 
 
+    '///////////////////////////////////// ENVIAR EVENTOS PARA EMPRESAS ////////////////////////////////////////////////////
+
+
     Private Sub EventosEmpresaDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EventosEmpresaDataGridView.CellContentDoubleClick
+        Dim textoEvento As String = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value.ToString()
+        Dim titulo As String = EncontrarTituloNoRichTextBox()
+
+        If String.IsNullOrEmpty(titulo) Then
+            If EmpresaFacil.Checked Then
+                titulo = "EMPRESA FÁCIL"
+            ElseIf ReceitaFederal.Checked Then
+                titulo = "RECEITA FEDERAL"
+            ElseIf ReceitaEstadual.Checked Then
+                titulo = "RECEITA ESTADUAL"
+            ElseIf PrefeituraMunicipal.Checked Then
+                titulo = "PREFEITURA MUNICIPAL"
+            End If
+        End If
+
+        If String.IsNullOrEmpty(titulo) Then
+            MessageBox.Show("Nenhum título foi selecionado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If VerificaEvento(titulo, textoEvento) Then Return
+
+        AdicionarEvento(titulo, textoEvento)
+
+        FrmLegalizacao.MotivoRichTextBox.Text = FrmLegalizacao.MotivoRichTextBox.Text
+    End Sub
+
+
+    Private Function VerificaEvento(titulo As String, textoEvento As String) As Boolean
+        ' (Esta função permanece a mesma da resposta anterior)
+        Dim linhas As String() = FrmLegalizacao.MotivoRichTextBox.Text.Split(New String() {vbCrLf}, StringSplitOptions.RemoveEmptyEntries)
+        Dim indiceTitulo As Integer = -1
+
+        For i As Integer = 0 To linhas.Length - 1
+            If linhas(i).Trim().Equals(titulo, StringComparison.OrdinalIgnoreCase) Then
+                indiceTitulo = i
+                Exit For
+            End If
+        Next
+
+        If indiceTitulo = -1 Then Return False
+
+        For i As Integer = indiceTitulo + 1 To linhas.Length - 1
+            Dim linhaTrimmed As String = linhas(i).Trim()
+
+            If linhaTrimmed.Length > 0 AndAlso Not linhaTrimmed.StartsWith("- ") Then
+                Exit For
+            End If
+
+            If linhaTrimmed.Equals("- " & textoEvento, StringComparison.OrdinalIgnoreCase) Then
+                MessageBox.Show($"Este evento já está registrado sob o título {titulo}.", "Evento Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
+
+    Private Sub AdicionarEvento(titulo As String, textoEvento As String)
+        Dim richTextBox As RichTextBox = FrmLegalizacao.MotivoRichTextBox
+        Dim conteudoRTB As String = richTextBox.Text
+
+
+
+        ' Encontrar a posição do título no RichTextBox
+        Dim posTitulo As Integer = conteudoRTB.IndexOf(titulo, StringComparison.OrdinalIgnoreCase)
+
+        If posTitulo = -1 Then
+            ' Se o título não for encontrado, adiciona o título e o evento no início
+            richTextBox.AppendText(titulo & vbCrLf & "- " & textoEvento & vbCrLf)
+        Else
+            ' Encontrar o final do bloco de eventos do título específico
+            ' O bloco termina quando encontramos um título ou duas quebras de linha consecutivas
+            Dim posFinalBloco As Integer = conteudoRTB.IndexOf(vbCrLf & vbCrLf, posTitulo)
+
+            ' Se não encontrar uma quebra dupla, o bloco vai até o final do texto
+            If posFinalBloco = -1 Then
+                posFinalBloco = conteudoRTB.Length
+            End If
+
+            ' Verificar se o evento já existe para evitar duplicação
+            Dim posEvento As Integer = conteudoRTB.IndexOf(textoEvento, posTitulo, StringComparison.OrdinalIgnoreCase)
+
+            If posEvento = -1 Then
+                ' Se o evento não existe, adiciona o evento logo abaixo do título
+                richTextBox.Text = conteudoRTB.Insert(posTitulo + titulo.Length, vbCrLf & "- " & textoEvento)
+            Else
+                ' Se o evento já existir, mostra um aviso de duplicação
+                MessageBox.Show($"Este evento já está registrado sob o título {titulo}.", "Evento Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+        End If
+
+    End Sub
+
+
+
+    Private Function EncontrarTituloNoRichTextBox() As String
+        Dim linhas As String() = FrmLegalizacao.MotivoRichTextBox.Text.Split(New String() {vbCrLf}, StringSplitOptions.RemoveEmptyEntries)
+
+        If EmpresaFacil.Checked Then
+            For Each linha As String In linhas
+                If linha.Trim().Equals("EMPRESA FÁCIL", StringComparison.OrdinalIgnoreCase) Then Return "EMPRESA FÁCIL"
+            Next
+        ElseIf ReceitaFederal.Checked Then
+            For Each linha As String In linhas
+                If linha.Trim().Equals("RECEITA FEDERAL", StringComparison.OrdinalIgnoreCase) Then Return "RECEITA FEDERAL"
+            Next
+        ElseIf ReceitaEstadual.Checked Then
+            For Each linha As String In linhas
+                If linha.Trim().Equals("RECEITA ESTADUAL", StringComparison.OrdinalIgnoreCase) Then Return "RECEITA ESTADUAL"
+            Next
+        ElseIf PrefeituraMunicipal.Checked Then
+            For Each linha As String In linhas
+                If linha.Trim().Equals("PREFEITURA MUNICIPAL", StringComparison.OrdinalIgnoreCase) Then Return "PREFEITURA MUNICIPAL"
+            Next
+        End If
+
+        Return ""
+    End Function
+
+
+    '/////////////////////////////////////////////////////////////////////////////////////////
+
+    Private Sub APAGAR()
         ' Adiciona o Evento dentro do FrmLegalizacao.MotivoRichTextBox
         ' Verifica antes se tem texto no FrmLegalizacao.MotivoRichTextBox e adiciona na próxima linha
         Dim textoEvento As String = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value.ToString()

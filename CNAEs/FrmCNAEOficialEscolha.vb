@@ -103,12 +103,27 @@ Public Class FrmCNAEOficialEscolha
 
                     ' Focar na aba 1 do TabControl
                     FrmLegalizacao.TabControle.SelectedIndex = 1
+                    FrmLegalizacao.TabControl2.SelectedIndex = 3
                     FrmLegalizacao.TabControl2.SelectedIndex = 2
 
                     ' Exporta os dados do FrmCNAEOficialEscolha para o FrmLegalizacao
                     If FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = "" Then
+                        ' Se o campo estiver vazio, apenas preenche com o novo ramo de atividade
                         FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = Me.RamoDeAtividadeRichTextBox.Text
+                    Else
+                        ' Se o campo já estiver preenchido, exibe uma mensagem para o usuário
+                        Dim resultado As DialogResult
+                        resultado = MessageBox.Show("Já existe um ramo de atividade definido. Deseja apagar o atual e definir um novo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                        If resultado = DialogResult.Yes Then
+                            ' Apaga o ramo atual e insere o novo
+                            FrmLegalizacao.RamoDeAtividadeRichTextBox.Text = Me.RamoDeAtividadeRichTextBox.Text
+                        ElseIf resultado = DialogResult.No Then
+                            ' Acrescenta o novo ramo, mantendo o atual
+                            FrmLegalizacao.RamoDeAtividadeRichTextBox.AppendText(Environment.NewLine & Me.RamoDeAtividadeRichTextBox.Text)
+                        End If
                     End If
+
 
                     FrmLegalizacao.CNAEPrincipalTextBox.Text = Me.CNAEPrincipalTextBox.Text
                         FrmLegalizacao.CNAESecundarioRichTextBox.Text = Me.CNAESecundarioRichTextBox.Text
@@ -124,6 +139,8 @@ Public Class FrmCNAEOficialEscolha
             Exit Sub
         End If
         Me.Close()
+        FrmCNAEoficial.Close()
+        FrmLegalizacao.Focus()
     End Sub
 
     Private Sub BtnMostrar_Click(sender As Object, e As EventArgs) Handles BtnMostrar.Click

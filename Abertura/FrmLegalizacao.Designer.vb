@@ -307,6 +307,7 @@ Partial Class FrmLegalizacao
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.BtnCopiarDataNire = New System.Windows.Forms.Button()
         Me.BtnCopiarNIRE = New System.Windows.Forms.Button()
         Me.Button22 = New System.Windows.Forms.Button()
         Me.NireDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -522,7 +523,10 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnCopiarDataNire = New System.Windows.Forms.Button()
+        Me.BtnVerAviso = New System.Windows.Forms.Button()
+        Me.BtnVoltarInicio = New System.Windows.Forms.Button()
+        Me.BtnNovaRazao = New System.Windows.Forms.Button()
+        Me.BtnFormaDeAtuaCNAE = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -1926,7 +1930,7 @@ Partial Class FrmLegalizacao
         Me.RazaoSocialTextBox.Location = New System.Drawing.Point(115, 90)
         Me.RazaoSocialTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(649, 21)
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(575, 21)
         Me.RazaoSocialTextBox.TabIndex = 2
         '
         'CNPJMaskedTextBox
@@ -2443,6 +2447,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnFormaDeAtuaCNAE)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalSEcundariosRichTextBox)
         Me.GroupBox1.Controls.Add(Me.CNAEAtvLocalPrincipalTextBox)
@@ -2914,9 +2919,11 @@ Partial Class FrmLegalizacao
         'BtnDadosComplementares
         '
         Me.BtnDadosComplementares.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnDadosComplementares.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnDadosComplementares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnDadosComplementares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnDadosComplementares.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnDadosComplementares.Location = New System.Drawing.Point(531, 193)
+        Me.BtnDadosComplementares.Location = New System.Drawing.Point(495, 3)
         Me.BtnDadosComplementares.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnDadosComplementares.Name = "BtnDadosComplementares"
         Me.BtnDadosComplementares.Size = New System.Drawing.Size(200, 30)
@@ -3910,6 +3917,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox6.TabIndex = 34
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Nire Abertura"
+        '
+        'BtnCopiarDataNire
+        '
+        Me.BtnCopiarDataNire.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
+        Me.BtnCopiarDataNire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnCopiarDataNire.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCopiarDataNire.Location = New System.Drawing.Point(177, 43)
+        Me.BtnCopiarDataNire.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCopiarDataNire.Name = "BtnCopiarDataNire"
+        Me.BtnCopiarDataNire.Size = New System.Drawing.Size(54, 24)
+        Me.BtnCopiarDataNire.TabIndex = 83
+        Me.BtnCopiarDataNire.Text = "Copiar"
+        Me.BtnCopiarDataNire.UseVisualStyleBackColor = True
         '
         'BtnCopiarNIRE
         '
@@ -5410,6 +5430,7 @@ Partial Class FrmLegalizacao
         '
         'GroupBox15
         '
+        Me.GroupBox15.Controls.Add(Me.BtnVoltarInicio)
         Me.GroupBox15.Controls.Add(Me.BtnLimpaAviso)
         Me.GroupBox15.Controls.Add(AvisarEmpresaTextoLabel)
         Me.GroupBox15.Controls.Add(Me.AvisarEmpresaTextoRichTextBox)
@@ -5425,11 +5446,11 @@ Partial Class FrmLegalizacao
         '
         Me.BtnLimpaAviso.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnLimpaAviso.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLimpaAviso.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnLimpaAviso.Location = New System.Drawing.Point(19, 227)
+        Me.BtnLimpaAviso.ForeColor = System.Drawing.Color.Red
+        Me.BtnLimpaAviso.Location = New System.Drawing.Point(424, 87)
         Me.BtnLimpaAviso.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimpaAviso.Name = "BtnLimpaAviso"
-        Me.BtnLimpaAviso.Size = New System.Drawing.Size(80, 28)
+        Me.BtnLimpaAviso.Size = New System.Drawing.Size(80, 40)
         Me.BtnLimpaAviso.TabIndex = 46
         Me.BtnLimpaAviso.Text = "Limpar"
         Me.BtnLimpaAviso.UseVisualStyleBackColor = False
@@ -5669,6 +5690,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.BtnNovaRazao)
         Me.GroupBox2.Controls.Add(Me.EndEstadoLabel2)
         Me.GroupBox2.Controls.Add(EndEstadoLabel1)
         Me.GroupBox2.Controls.Add(EndCidadeLabel1)
@@ -5783,7 +5805,7 @@ Partial Class FrmLegalizacao
         Me.BtnAvancoRazao.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAvancoRazao.FlatAppearance.BorderSize = 0
         Me.BtnAvancoRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAvancoRazao.Location = New System.Drawing.Point(772, 87)
+        Me.BtnAvancoRazao.Location = New System.Drawing.Point(694, 86)
         Me.BtnAvancoRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnAvancoRazao.Name = "BtnAvancoRazao"
         Me.BtnAvancoRazao.Size = New System.Drawing.Size(31, 27)
@@ -5909,7 +5931,7 @@ Partial Class FrmLegalizacao
         '
         Me.TipoDeEmpresaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "TipoDeEmpresa", True))
         Me.TipoDeEmpresaComboBox.FormattingEnabled = True
-        Me.TipoDeEmpresaComboBox.Items.AddRange(New Object() {"Sociedade Empresária Limitada ( Ltda. )", "Empresa Individual de Responsabilidade Limitada ( Eireli )", "Empresa individual ( RE )", "Microempreendedor Indivual ( MEI )", "Sociedade Anônima (SA)", "Sociedade Simples", "Igreja", "Comunidade e Similares"})
+        Me.TipoDeEmpresaComboBox.Items.AddRange(New Object() {"Sociedade Empresária Limitada ( Ltda. )", "Empresa Individual de Responsabilidade Limitada ( Eireli )", "Empresa individual ( RE )", "Microempreendedor Indivual ( MEI )", "Sociedade Anônima (SA)", "Sociedade Simples", "Igreja", "Comunidade e Similares", "Associação Privada"})
         Me.TipoDeEmpresaComboBox.Location = New System.Drawing.Point(115, 34)
         Me.TipoDeEmpresaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TipoDeEmpresaComboBox.Name = "TipoDeEmpresaComboBox"
@@ -6151,6 +6173,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox10.AutoSize = True
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.BtnVerAviso)
         Me.GroupBox10.Controls.Add(Me.AvisarEmpresaCheckBox)
         Me.GroupBox10.Controls.Add(Me.PictureBoxCentralProcesso)
         Me.GroupBox10.Controls.Add(Me.BtnVerNovoNome)
@@ -6516,18 +6539,59 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
         '
-        'BtnCopiarDataNire
+        'BtnVerAviso
         '
-        Me.BtnCopiarDataNire.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundoColoridoBotao
-        Me.BtnCopiarDataNire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCopiarDataNire.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarDataNire.Location = New System.Drawing.Point(177, 43)
-        Me.BtnCopiarDataNire.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnCopiarDataNire.Name = "BtnCopiarDataNire"
-        Me.BtnCopiarDataNire.Size = New System.Drawing.Size(54, 24)
-        Me.BtnCopiarDataNire.TabIndex = 83
-        Me.BtnCopiarDataNire.Text = "Copiar"
-        Me.BtnCopiarDataNire.UseVisualStyleBackColor = True
+        Me.BtnVerAviso.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerAviso.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerAviso.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerAviso.Location = New System.Drawing.Point(293, 69)
+        Me.BtnVerAviso.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVerAviso.Name = "BtnVerAviso"
+        Me.BtnVerAviso.Size = New System.Drawing.Size(50, 24)
+        Me.BtnVerAviso.TabIndex = 81
+        Me.BtnVerAviso.Text = "Ver"
+        Me.BtnVerAviso.UseVisualStyleBackColor = False
+        '
+        'BtnVoltarInicio
+        '
+        Me.BtnVoltarInicio.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVoltarInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVoltarInicio.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVoltarInicio.Location = New System.Drawing.Point(424, 41)
+        Me.BtnVoltarInicio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVoltarInicio.Name = "BtnVoltarInicio"
+        Me.BtnVoltarInicio.Size = New System.Drawing.Size(80, 40)
+        Me.BtnVoltarInicio.TabIndex = 47
+        Me.BtnVoltarInicio.Text = "Voltar Inicial"
+        Me.BtnVoltarInicio.UseVisualStyleBackColor = False
+        '
+        'BtnNovaRazao
+        '
+        Me.BtnNovaRazao.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnNovaRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovaRazao.ForeColor = System.Drawing.Color.DarkRed
+        Me.BtnNovaRazao.Location = New System.Drawing.Point(733, 87)
+        Me.BtnNovaRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnNovaRazao.Name = "BtnNovaRazao"
+        Me.BtnNovaRazao.Size = New System.Drawing.Size(85, 25)
+        Me.BtnNovaRazao.TabIndex = 87
+        Me.BtnNovaRazao.Text = "Novo Nome"
+        Me.BtnNovaRazao.UseVisualStyleBackColor = False
+        '
+        'BtnFormaDeAtuaCNAE
+        '
+        Me.BtnFormaDeAtuaCNAE.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnFormaDeAtuaCNAE.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnFormaDeAtuaCNAE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFormaDeAtuaCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFormaDeAtuaCNAE.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnFormaDeAtuaCNAE.Location = New System.Drawing.Point(294, 16)
+        Me.BtnFormaDeAtuaCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnFormaDeAtuaCNAE.Name = "BtnFormaDeAtuaCNAE"
+        Me.BtnFormaDeAtuaCNAE.Size = New System.Drawing.Size(200, 30)
+        Me.BtnFormaDeAtuaCNAE.TabIndex = 93
+        Me.BtnFormaDeAtuaCNAE.Text = "Forma de Atividade da Empresa"
+        Me.BtnFormaDeAtuaCNAE.UseVisualStyleBackColor = False
         '
         'FrmLegalizacao
         '
@@ -7049,4 +7113,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnLimpaAviso As Button
     Friend WithEvents BtnCopiarNIRE As Button
     Friend WithEvents BtnCopiarDataNire As Button
+    Friend WithEvents BtnVerAviso As Button
+    Friend WithEvents BtnVoltarInicio As Button
+    Friend WithEvents BtnNovaRazao As Button
+    Friend WithEvents BtnFormaDeAtuaCNAE As Button
 End Class

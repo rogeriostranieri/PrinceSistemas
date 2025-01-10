@@ -46,7 +46,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(165, 349)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(168, 349)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -138,7 +138,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BtnImportarFederal.Name = "BtnImportarFederal"
         Me.BtnImportarFederal.Size = New System.Drawing.Size(176, 77)
         Me.BtnImportarFederal.TabIndex = 8
-        Me.BtnImportarFederal.Text = "Importar Dados FEDERAL"
+        Me.BtnImportarFederal.Text = "Abrir"
         Me.BtnImportarFederal.UseVisualStyleBackColor = False
         '
         'Label2
@@ -161,7 +161,7 @@ Partial Class BoxConsultaCNPJEmpresa
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(402, 412)
+        Me.ClientSize = New System.Drawing.Size(405, 412)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnImportarFederal)
         Me.Controls.Add(Me.BtnImportar)
