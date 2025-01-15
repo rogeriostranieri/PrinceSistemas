@@ -70,7 +70,7 @@ Partial Class DialogCalendarioEmpresas
         '
         Me.Calendar1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Calendar1.Location = New System.Drawing.Point(9, 8)
-        Me.Calendar1.Margin = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.Calendar1.Margin = New System.Windows.Forms.Padding(10)
         Me.Calendar1.Name = "Calendar1"
         Me.Calendar1.TabIndex = 2
         '

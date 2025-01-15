@@ -60,6 +60,7 @@ Partial Class FrmParcelamento
         Dim FinalizadoINSSNovLabel As System.Windows.Forms.Label
         Dim FinalizadoINSSProcLabel As System.Windows.Forms.Label
         Dim FinalizadoMesGeralLabel As System.Windows.Forms.Label
+        Dim GeralLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmParcelamento))
         Me.ProgressBarSalvar = New System.Windows.Forms.ProgressBar()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -73,6 +74,8 @@ Partial Class FrmParcelamento
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TabControlGeral = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ParaFazerCheckBox = New System.Windows.Forms.CheckBox()
+        Me.ButtonAtualizar = New System.Windows.Forms.Button()
         Me.BtnConsultaSimplesNacional = New System.Windows.Forms.Button()
         Me.BtnDataCriacao = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -109,6 +112,8 @@ Partial Class FrmParcelamento
         Me.BtnNovo = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TabControlParcelamento = New System.Windows.Forms.TabControl()
+        Me.TabPageGeral = New System.Windows.Forms.TabPage()
+        Me.GeralRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPageMei = New System.Windows.Forms.TabPage()
         Me.TabControlMei = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -129,6 +134,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSAntigo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSAntigo = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.TotalParcAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSAntigo = New System.Windows.Forms.Button()
         Me.BtnRegistrarINSSAntigo = New System.Windows.Forms.Button()
@@ -136,7 +142,6 @@ Partial Class FrmParcelamento
         Me.LabelMotivoINSSAntigo = New System.Windows.Forms.Label()
         Me.FinalizadoINSSAntComboBox = New System.Windows.Forms.ComboBox()
         Me.ParcelEnvINSSAntTextBox = New System.Windows.Forms.TextBox()
-        Me.TotalParcAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.MotivoAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.DataFinalAntigoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.DataEnviaAntigoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -146,6 +151,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSNovo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSNovo = New System.Windows.Forms.TabControl()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
+        Me.TotalParcNovoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSNovo = New System.Windows.Forms.Button()
         Me.BtnRegistrarINSSNovo = New System.Windows.Forms.Button()
@@ -156,13 +162,13 @@ Partial Class FrmParcelamento
         Me.MotivoNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.DataFinalNovoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.DataEnvioNovoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.TotalParcNovoTextBox = New System.Windows.Forms.TextBox()
         Me.DataSolicNovoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.EnviaParcNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPageINSSProcuradoria = New System.Windows.Forms.TabPage()
         Me.TabControlINSSProcuradoria = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.TotalParcProcTextBox = New System.Windows.Forms.TextBox()
         Me.ProtprocRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSProcuradoria = New System.Windows.Forms.Button()
         Me.BtnRegistrarINSSProcuradoria = New System.Windows.Forms.Button()
@@ -170,7 +176,6 @@ Partial Class FrmParcelamento
         Me.LabelMotivoINSSProc = New System.Windows.Forms.Label()
         Me.FinalizadoINSSProcComboBox = New System.Windows.Forms.ComboBox()
         Me.ParcelEnvINSSProcTextBox = New System.Windows.Forms.TextBox()
-        Me.TotalParcProcTextBox = New System.Windows.Forms.TextBox()
         Me.MotivoProcRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.DataFinalProcMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.DataEnviaProcMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -228,6 +233,7 @@ Partial Class FrmParcelamento
         FinalizadoINSSNovLabel = New System.Windows.Forms.Label()
         FinalizadoINSSProcLabel = New System.Windows.Forms.Label()
         FinalizadoMesGeralLabel = New System.Windows.Forms.Label()
+        GeralLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ParcelamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -241,6 +247,7 @@ Partial Class FrmParcelamento
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.TabControlParcelamento.SuspendLayout()
+        Me.TabPageGeral.SuspendLayout()
         Me.TabPageMei.SuspendLayout()
         Me.TabControlMei.SuspendLayout()
         Me.TabPage9.SuspendLayout()
@@ -347,7 +354,7 @@ Partial Class FrmParcelamento
         'DataCriacaoLabel
         '
         DataCriacaoLabel.AutoSize = True
-        DataCriacaoLabel.Location = New System.Drawing.Point(407, 49)
+        DataCriacaoLabel.Location = New System.Drawing.Point(345, 51)
         DataCriacaoLabel.Name = "DataCriacaoLabel"
         DataCriacaoLabel.Size = New System.Drawing.Size(99, 18)
         DataCriacaoLabel.TabIndex = 4
@@ -356,7 +363,7 @@ Partial Class FrmParcelamento
         'DataLembreteLabel
         '
         DataLembreteLabel.AutoSize = True
-        DataLembreteLabel.Location = New System.Drawing.Point(13, 99)
+        DataLembreteLabel.Location = New System.Drawing.Point(3, 78)
         DataLembreteLabel.Name = "DataLembreteLabel"
         DataLembreteLabel.Size = New System.Drawing.Size(109, 18)
         DataLembreteLabel.TabIndex = 6
@@ -545,7 +552,7 @@ Partial Class FrmParcelamento
         'FinalizadoEmpresaLabel
         '
         FinalizadoEmpresaLabel.AutoSize = True
-        FinalizadoEmpresaLabel.Location = New System.Drawing.Point(259, 97)
+        FinalizadoEmpresaLabel.Location = New System.Drawing.Point(314, 81)
         FinalizadoEmpresaLabel.Name = "FinalizadoEmpresaLabel"
         FinalizadoEmpresaLabel.Size = New System.Drawing.Size(175, 18)
         FinalizadoEmpresaLabel.TabIndex = 17
@@ -594,15 +601,25 @@ Partial Class FrmParcelamento
         FinalizadoMesGeralLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         FinalizadoMesGeralLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         FinalizadoMesGeralLabel.ForeColor = System.Drawing.Color.Black
-        FinalizadoMesGeralLabel.Location = New System.Drawing.Point(453, 20)
+        FinalizadoMesGeralLabel.Location = New System.Drawing.Point(446, 20)
         FinalizadoMesGeralLabel.Name = "FinalizadoMesGeralLabel"
         FinalizadoMesGeralLabel.Size = New System.Drawing.Size(167, 18)
         FinalizadoMesGeralLabel.TabIndex = 22
         FinalizadoMesGeralLabel.Text = "Fechamento do Mês:"
         '
+        'GeralLabel
+        '
+        GeralLabel.AutoSize = True
+        GeralLabel.Location = New System.Drawing.Point(16, 16)
+        GeralLabel.Name = "GeralLabel"
+        GeralLabel.Size = New System.Drawing.Size(48, 18)
+        GeralLabel.TabIndex = 0
+        GeralLabel.Text = "Geral:"
+        '
         'ProgressBarSalvar
         '
-        Me.ProgressBarSalvar.Location = New System.Drawing.Point(3, 701)
+        Me.ProgressBarSalvar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProgressBarSalvar.Location = New System.Drawing.Point(3, 693)
         Me.ProgressBarSalvar.Name = "ProgressBarSalvar"
         Me.ProgressBarSalvar.Size = New System.Drawing.Size(783, 14)
         Me.ProgressBarSalvar.TabIndex = 6
@@ -619,14 +636,14 @@ Partial Class FrmParcelamento
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(783, 85)
+        Me.GroupBox1.Size = New System.Drawing.Size(783, 64)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 39)
+        Me.Label2.Location = New System.Drawing.Point(21, 39)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(101, 18)
         Me.Label2.TabIndex = 6
@@ -672,7 +689,7 @@ Partial Class FrmParcelamento
         Me.ComboBoxBuscarRazaoSocial.FormattingEnabled = True
         Me.ComboBoxBuscarRazaoSocial.Location = New System.Drawing.Point(122, 36)
         Me.ComboBoxBuscarRazaoSocial.Name = "ComboBoxBuscarRazaoSocial"
-        Me.ComboBoxBuscarRazaoSocial.Size = New System.Drawing.Size(382, 26)
+        Me.ComboBoxBuscarRazaoSocial.Size = New System.Drawing.Size(402, 26)
         Me.ComboBoxBuscarRazaoSocial.TabIndex = 3
         '
         'RazaoSocialTextBox1
@@ -688,10 +705,10 @@ Partial Class FrmParcelamento
         Me.GroupBox3.Controls.Add(Me.TabControlGeral)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(0, 91)
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 70)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(789, 289)
+        Me.GroupBox3.Size = New System.Drawing.Size(789, 304)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Dados"
@@ -707,12 +724,14 @@ Partial Class FrmParcelamento
         Me.TabControlGeral.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlGeral.Name = "TabControlGeral"
         Me.TabControlGeral.SelectedIndex = 0
-        Me.TabControlGeral.Size = New System.Drawing.Size(783, 266)
+        Me.TabControlGeral.Size = New System.Drawing.Size(783, 281)
         Me.TabControlGeral.TabIndex = 4
         '
         'TabPage1
         '
         Me.TabPage1.AutoScroll = True
+        Me.TabPage1.Controls.Add(Me.ParaFazerCheckBox)
+        Me.TabPage1.Controls.Add(Me.ButtonAtualizar)
         Me.TabPage1.Controls.Add(Me.BtnConsultaSimplesNacional)
         Me.TabPage1.Controls.Add(Me.BtnDataCriacao)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
@@ -734,10 +753,31 @@ Partial Class FrmParcelamento
         Me.TabPage1.Location = New System.Drawing.Point(4, 27)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(775, 235)
+        Me.TabPage1.Size = New System.Drawing.Size(775, 250)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Empresa"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ParaFazerCheckBox
+        '
+        Me.ParaFazerCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "ParaFazer", True))
+        Me.ParaFazerCheckBox.Location = New System.Drawing.Point(118, 99)
+        Me.ParaFazerCheckBox.Name = "ParaFazerCheckBox"
+        Me.ParaFazerCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.ParaFazerCheckBox.TabIndex = 28
+        Me.ParaFazerCheckBox.Text = "Para Fazer"
+        Me.ParaFazerCheckBox.UseVisualStyleBackColor = True
+        '
+        'ButtonAtualizar
+        '
+        Me.ButtonAtualizar.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.ButtonAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonAtualizar.Location = New System.Drawing.Point(665, 15)
+        Me.ButtonAtualizar.Name = "ButtonAtualizar"
+        Me.ButtonAtualizar.Size = New System.Drawing.Size(78, 26)
+        Me.ButtonAtualizar.TabIndex = 27
+        Me.ButtonAtualizar.Text = "Atualizar"
+        Me.ButtonAtualizar.UseVisualStyleBackColor = False
         '
         'BtnConsultaSimplesNacional
         '
@@ -746,9 +786,9 @@ Partial Class FrmParcelamento
         Me.BtnConsultaSimplesNacional.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnConsultaSimplesNacional.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultaSimplesNacional.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnConsultaSimplesNacional.Location = New System.Drawing.Point(647, 136)
+        Me.BtnConsultaSimplesNacional.Location = New System.Drawing.Point(642, 144)
         Me.BtnConsultaSimplesNacional.Name = "BtnConsultaSimplesNacional"
-        Me.BtnConsultaSimplesNacional.Size = New System.Drawing.Size(123, 43)
+        Me.BtnConsultaSimplesNacional.Size = New System.Drawing.Size(117, 46)
         Me.BtnConsultaSimplesNacional.TabIndex = 26
         Me.ToolTip1.SetToolTip(Me.BtnConsultaSimplesNacional, "Consultar na Federal o Simples Nacional da Empresa Atual")
         Me.BtnConsultaSimplesNacional.UseVisualStyleBackColor = False
@@ -757,9 +797,9 @@ Partial Class FrmParcelamento
         '
         Me.BtnDataCriacao.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnDataCriacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnDataCriacao.Location = New System.Drawing.Point(643, 46)
+        Me.BtnDataCriacao.Location = New System.Drawing.Point(581, 47)
         Me.BtnDataCriacao.Name = "BtnDataCriacao"
-        Me.BtnDataCriacao.Size = New System.Drawing.Size(75, 26)
+        Me.BtnDataCriacao.Size = New System.Drawing.Size(78, 26)
         Me.BtnDataCriacao.TabIndex = 25
         Me.BtnDataCriacao.Text = "Agora"
         Me.BtnDataCriacao.UseVisualStyleBackColor = False
@@ -771,7 +811,7 @@ Partial Class FrmParcelamento
         Me.GroupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.GroupBox2.Controls.Add(FinalizadoMesGeralLabel)
         Me.GroupBox2.Controls.Add(Me.FinalizadoMesGeralComboBox)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 182)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 193)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(769, 52)
         Me.GroupBox2.TabIndex = 24
@@ -782,7 +822,7 @@ Partial Class FrmParcelamento
         Me.FinalizadoMesGeralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoMesGeral", True))
         Me.FinalizadoMesGeralComboBox.FormattingEnabled = True
         Me.FinalizadoMesGeralComboBox.Items.AddRange(New Object() {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"})
-        Me.FinalizadoMesGeralComboBox.Location = New System.Drawing.Point(620, 17)
+        Me.FinalizadoMesGeralComboBox.Location = New System.Drawing.Point(613, 17)
         Me.FinalizadoMesGeralComboBox.Name = "FinalizadoMesGeralComboBox"
         Me.FinalizadoMesGeralComboBox.Size = New System.Drawing.Size(143, 26)
         Me.FinalizadoMesGeralComboBox.TabIndex = 23
@@ -791,7 +831,7 @@ Partial Class FrmParcelamento
         '
         Me.BtnImportar.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnImportar.Location = New System.Drawing.Point(643, 15)
+        Me.BtnImportar.Location = New System.Drawing.Point(581, 15)
         Me.BtnImportar.Name = "BtnImportar"
         Me.BtnImportar.Size = New System.Drawing.Size(78, 26)
         Me.BtnImportar.TabIndex = 22
@@ -818,7 +858,7 @@ Partial Class FrmParcelamento
         Me.GroupBox6.Controls.Add(Me.InssProcurCheckBox)
         Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.Location = New System.Drawing.Point(115, 133)
+        Me.GroupBox6.Location = New System.Drawing.Point(115, 144)
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Padding = New System.Windows.Forms.Padding(0)
@@ -870,26 +910,26 @@ Partial Class FrmParcelamento
         'LabelDataFinalizado
         '
         Me.LabelDataFinalizado.AutoSize = True
-        Me.LabelDataFinalizado.Location = New System.Drawing.Point(550, 99)
+        Me.LabelDataFinalizado.Location = New System.Drawing.Point(579, 83)
         Me.LabelDataFinalizado.Name = "LabelDataFinalizado"
-        Me.LabelDataFinalizado.Size = New System.Drawing.Size(43, 18)
+        Me.LabelDataFinalizado.Size = New System.Drawing.Size(33, 18)
         Me.LabelDataFinalizado.TabIndex = 19
-        Me.LabelDataFinalizado.Text = "Data:"
+        Me.LabelDataFinalizado.Text = "em:"
         '
         'FinalizadoEmpresaComboBox
         '
         Me.FinalizadoEmpresaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "FinalizadoEmpresa", True))
         Me.FinalizadoEmpresaComboBox.FormattingEnabled = True
         Me.FinalizadoEmpresaComboBox.Items.AddRange(New Object() {"Sim", "Não"})
-        Me.FinalizadoEmpresaComboBox.Location = New System.Drawing.Point(440, 94)
+        Me.FinalizadoEmpresaComboBox.Location = New System.Drawing.Point(495, 78)
         Me.FinalizadoEmpresaComboBox.Name = "FinalizadoEmpresaComboBox"
-        Me.FinalizadoEmpresaComboBox.Size = New System.Drawing.Size(105, 26)
+        Me.FinalizadoEmpresaComboBox.Size = New System.Drawing.Size(80, 26)
         Me.FinalizadoEmpresaComboBox.TabIndex = 18
         '
         'DataFinalizadoMaskedTextBox
         '
         Me.DataFinalizadoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "DataFinalizado", True))
-        Me.DataFinalizadoMaskedTextBox.Location = New System.Drawing.Point(596, 96)
+        Me.DataFinalizadoMaskedTextBox.Location = New System.Drawing.Point(614, 80)
         Me.DataFinalizadoMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataFinalizadoMaskedTextBox.Name = "DataFinalizadoMaskedTextBox"
         Me.DataFinalizadoMaskedTextBox.Size = New System.Drawing.Size(125, 24)
@@ -899,7 +939,7 @@ Partial Class FrmParcelamento
         'DataLembreteMaskedTextBox
         '
         Me.DataLembreteMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "DataLembrete", True))
-        Me.DataLembreteMaskedTextBox.Location = New System.Drawing.Point(128, 96)
+        Me.DataLembreteMaskedTextBox.Location = New System.Drawing.Point(118, 75)
         Me.DataLembreteMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataLembreteMaskedTextBox.Name = "DataLembreteMaskedTextBox"
         Me.DataLembreteMaskedTextBox.Size = New System.Drawing.Size(125, 24)
@@ -909,7 +949,7 @@ Partial Class FrmParcelamento
         'DataCriacaoMaskedTextBox
         '
         Me.DataCriacaoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "DataCriacao", True))
-        Me.DataCriacaoMaskedTextBox.Location = New System.Drawing.Point(512, 46)
+        Me.DataCriacaoMaskedTextBox.Location = New System.Drawing.Point(450, 48)
         Me.DataCriacaoMaskedTextBox.Mask = "00/00/0000 90:00"
         Me.DataCriacaoMaskedTextBox.Name = "DataCriacaoMaskedTextBox"
         Me.DataCriacaoMaskedTextBox.Size = New System.Drawing.Size(125, 24)
@@ -921,7 +961,7 @@ Partial Class FrmParcelamento
         Me.RazaoSocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "RazaoSocial", True))
         Me.RazaoSocialTextBox.Location = New System.Drawing.Point(118, 15)
         Me.RazaoSocialTextBox.Name = "RazaoSocialTextBox"
-        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(519, 24)
+        Me.RazaoSocialTextBox.Size = New System.Drawing.Size(457, 24)
         Me.RazaoSocialTextBox.TabIndex = 1
         '
         'CNPJMaskedTextBox
@@ -1043,10 +1083,10 @@ Partial Class FrmParcelamento
         Me.GroupBox4.Controls.Add(Me.BtnSalvar)
         Me.GroupBox4.Controls.Add(Me.BtnNovo)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(789, 91)
+        Me.GroupBox4.Location = New System.Drawing.Point(789, 70)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(202, 289)
+        Me.GroupBox4.Size = New System.Drawing.Size(119, 304)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Menu"
@@ -1132,16 +1172,18 @@ Partial Class FrmParcelamento
         Me.GroupBox5.Controls.Add(Me.TabControlParcelamento)
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(0, 380)
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 374)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(0)
-        Me.GroupBox5.Size = New System.Drawing.Size(789, 318)
+        Me.GroupBox5.Size = New System.Drawing.Size(789, 316)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
         '
         'TabControlParcelamento
         '
+        Me.TabControlParcelamento.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControlParcelamento.Controls.Add(Me.TabPageGeral)
         Me.TabControlParcelamento.Controls.Add(Me.TabPageMei)
         Me.TabControlParcelamento.Controls.Add(Me.TabPageINSSAntigo)
         Me.TabControlParcelamento.Controls.Add(Me.TabPageINSSNovo)
@@ -1151,16 +1193,37 @@ Partial Class FrmParcelamento
         Me.TabControlParcelamento.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlParcelamento.Name = "TabControlParcelamento"
         Me.TabControlParcelamento.SelectedIndex = 0
-        Me.TabControlParcelamento.Size = New System.Drawing.Size(789, 301)
+        Me.TabControlParcelamento.ShowToolTips = True
+        Me.TabControlParcelamento.Size = New System.Drawing.Size(789, 299)
         Me.TabControlParcelamento.TabIndex = 5
+        '
+        'TabPageGeral
+        '
+        Me.TabPageGeral.Controls.Add(GeralLabel)
+        Me.TabPageGeral.Controls.Add(Me.GeralRichTextBox)
+        Me.TabPageGeral.Location = New System.Drawing.Point(4, 30)
+        Me.TabPageGeral.Name = "TabPageGeral"
+        Me.TabPageGeral.Size = New System.Drawing.Size(781, 334)
+        Me.TabPageGeral.TabIndex = 4
+        Me.TabPageGeral.Text = "Geral"
+        Me.TabPageGeral.UseVisualStyleBackColor = True
+        '
+        'GeralRichTextBox
+        '
+        Me.GeralRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "Geral", True))
+        Me.GeralRichTextBox.Location = New System.Drawing.Point(19, 37)
+        Me.GeralRichTextBox.Name = "GeralRichTextBox"
+        Me.GeralRichTextBox.Size = New System.Drawing.Size(705, 217)
+        Me.GeralRichTextBox.TabIndex = 1
+        Me.GeralRichTextBox.Text = ""
         '
         'TabPageMei
         '
         Me.TabPageMei.Controls.Add(Me.TabControlMei)
-        Me.TabPageMei.Location = New System.Drawing.Point(4, 27)
+        Me.TabPageMei.Location = New System.Drawing.Point(4, 30)
         Me.TabPageMei.Name = "TabPageMei"
         Me.TabPageMei.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMei.Size = New System.Drawing.Size(781, 270)
+        Me.TabPageMei.Size = New System.Drawing.Size(781, 334)
         Me.TabPageMei.TabIndex = 0
         Me.TabPageMei.Text = "MEI"
         Me.TabPageMei.UseVisualStyleBackColor = True
@@ -1174,7 +1237,7 @@ Partial Class FrmParcelamento
         Me.TabControlMei.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMei.Name = "TabControlMei"
         Me.TabControlMei.SelectedIndex = 0
-        Me.TabControlMei.Size = New System.Drawing.Size(775, 264)
+        Me.TabControlMei.Size = New System.Drawing.Size(775, 328)
         Me.TabControlMei.TabIndex = 0
         '
         'TabPage9
@@ -1201,7 +1264,7 @@ Partial Class FrmParcelamento
         Me.TabPage9.Location = New System.Drawing.Point(4, 27)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(767, 233)
+        Me.TabPage9.Size = New System.Drawing.Size(767, 297)
         Me.TabPage9.TabIndex = 0
         Me.TabPage9.Text = "Parcelamento"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1327,7 +1390,7 @@ Partial Class FrmParcelamento
         Me.TabPage10.Location = New System.Drawing.Point(4, 27)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(767, 233)
+        Me.TabPage10.Size = New System.Drawing.Size(767, 235)
         Me.TabPage10.TabIndex = 1
         Me.TabPage10.Text = "Histórico de Envio"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -1338,17 +1401,17 @@ Partial Class FrmParcelamento
         Me.EnviaParcMEIRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcMEIRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcMEIRichTextBox.Name = "EnviaParcMEIRichTextBox"
-        Me.EnviaParcMEIRichTextBox.Size = New System.Drawing.Size(761, 227)
+        Me.EnviaParcMEIRichTextBox.Size = New System.Drawing.Size(761, 229)
         Me.EnviaParcMEIRichTextBox.TabIndex = 1
         Me.EnviaParcMEIRichTextBox.Text = ""
         '
         'TabPageINSSAntigo
         '
         Me.TabPageINSSAntigo.Controls.Add(Me.TabControlINSSAntigo)
-        Me.TabPageINSSAntigo.Location = New System.Drawing.Point(4, 27)
+        Me.TabPageINSSAntigo.Location = New System.Drawing.Point(4, 30)
         Me.TabPageINSSAntigo.Name = "TabPageINSSAntigo"
         Me.TabPageINSSAntigo.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageINSSAntigo.Size = New System.Drawing.Size(781, 275)
+        Me.TabPageINSSAntigo.Size = New System.Drawing.Size(781, 334)
         Me.TabPageINSSAntigo.TabIndex = 1
         Me.TabPageINSSAntigo.Text = "INSS Antigo"
         Me.TabPageINSSAntigo.UseVisualStyleBackColor = True
@@ -1362,12 +1425,13 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSAntigo.Name = "TabControlINSSAntigo"
         Me.TabControlINSSAntigo.SelectedIndex = 0
-        Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 269)
+        Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 328)
         Me.TabControlINSSAntigo.TabIndex = 1
         '
         'TabPage11
         '
         Me.TabPage11.AutoScroll = True
+        Me.TabPage11.Controls.Add(Me.TotalParcAntigoTextBox)
         Me.TabPage11.Controls.Add(Me.ProtAntigoRichTextBox)
         Me.TabPage11.Controls.Add(Me.BtnAgoraINSSAntigo)
         Me.TabPage11.Controls.Add(Me.BtnRegistrarINSSAntigo)
@@ -1378,7 +1442,6 @@ Partial Class FrmParcelamento
         Me.TabPage11.Controls.Add(ParcelEnvINSSAntLabel)
         Me.TabPage11.Controls.Add(Me.ParcelEnvINSSAntTextBox)
         Me.TabPage11.Controls.Add(TotalParcAntigoLabel)
-        Me.TabPage11.Controls.Add(Me.TotalParcAntigoTextBox)
         Me.TabPage11.Controls.Add(ProtAntigoLabel)
         Me.TabPage11.Controls.Add(Me.MotivoAntigoRichTextBox)
         Me.TabPage11.Controls.Add(Me.DataFinalAntigoMaskedTextBox)
@@ -1389,10 +1452,18 @@ Partial Class FrmParcelamento
         Me.TabPage11.Location = New System.Drawing.Point(4, 27)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(767, 238)
+        Me.TabPage11.Size = New System.Drawing.Size(767, 297)
         Me.TabPage11.TabIndex = 0
         Me.TabPage11.Text = "Parcelamento"
         Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'TotalParcAntigoTextBox
+        '
+        Me.TotalParcAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcAntigo", True))
+        Me.TotalParcAntigoTextBox.Location = New System.Drawing.Point(150, 115)
+        Me.TotalParcAntigoTextBox.Name = "TotalParcAntigoTextBox"
+        Me.TotalParcAntigoTextBox.Size = New System.Drawing.Size(283, 24)
+        Me.TotalParcAntigoTextBox.TabIndex = 24
         '
         'ProtAntigoRichTextBox
         '
@@ -1463,14 +1534,6 @@ Partial Class FrmParcelamento
         Me.ParcelEnvINSSAntTextBox.Size = New System.Drawing.Size(206, 24)
         Me.ParcelEnvINSSAntTextBox.TabIndex = 13
         '
-        'TotalParcAntigoTextBox
-        '
-        Me.TotalParcAntigoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcAntigo", True))
-        Me.TotalParcAntigoTextBox.Location = New System.Drawing.Point(150, 115)
-        Me.TotalParcAntigoTextBox.Name = "TotalParcAntigoTextBox"
-        Me.TotalParcAntigoTextBox.Size = New System.Drawing.Size(286, 24)
-        Me.TotalParcAntigoTextBox.TabIndex = 11
-        '
         'MotivoAntigoRichTextBox
         '
         Me.MotivoAntigoRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoAntigo", True))
@@ -1516,7 +1579,7 @@ Partial Class FrmParcelamento
         Me.TabPage12.Location = New System.Drawing.Point(4, 27)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(767, 238)
+        Me.TabPage12.Size = New System.Drawing.Size(767, 235)
         Me.TabPage12.TabIndex = 1
         Me.TabPage12.Text = "Histórico de Envio"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1527,16 +1590,16 @@ Partial Class FrmParcelamento
         Me.EnviaParcAntigoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcAntigoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcAntigoRichTextBox.Name = "EnviaParcAntigoRichTextBox"
-        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 232)
+        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 229)
         Me.EnviaParcAntigoRichTextBox.TabIndex = 1
         Me.EnviaParcAntigoRichTextBox.Text = ""
         '
         'TabPageINSSNovo
         '
         Me.TabPageINSSNovo.Controls.Add(Me.TabControlINSSNovo)
-        Me.TabPageINSSNovo.Location = New System.Drawing.Point(4, 27)
+        Me.TabPageINSSNovo.Location = New System.Drawing.Point(4, 30)
         Me.TabPageINSSNovo.Name = "TabPageINSSNovo"
-        Me.TabPageINSSNovo.Size = New System.Drawing.Size(781, 275)
+        Me.TabPageINSSNovo.Size = New System.Drawing.Size(781, 334)
         Me.TabPageINSSNovo.TabIndex = 2
         Me.TabPageINSSNovo.Text = "INSS Novo"
         Me.TabPageINSSNovo.UseVisualStyleBackColor = True
@@ -1550,12 +1613,13 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSNovo.Name = "TabControlINSSNovo"
         Me.TabControlINSSNovo.SelectedIndex = 0
-        Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 275)
+        Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 334)
         Me.TabControlINSSNovo.TabIndex = 1
         '
         'TabPage13
         '
         Me.TabPage13.AutoScroll = True
+        Me.TabPage13.Controls.Add(Me.TotalParcNovoTextBox)
         Me.TabPage13.Controls.Add(Me.ProtNovoRichTextBox)
         Me.TabPage13.Controls.Add(Me.BtnAgoraINSSNovo)
         Me.TabPage13.Controls.Add(Me.BtnRegistrarINSSNovo)
@@ -1570,17 +1634,24 @@ Partial Class FrmParcelamento
         Me.TabPage13.Controls.Add(DataEnvioNovoLabel)
         Me.TabPage13.Controls.Add(Me.DataEnvioNovoMaskedTextBox)
         Me.TabPage13.Controls.Add(TotalParcNovoLabel)
-        Me.TabPage13.Controls.Add(Me.TotalParcNovoTextBox)
         Me.TabPage13.Controls.Add(ProtNovoLabel)
         Me.TabPage13.Controls.Add(DataSolicNovoLabel)
         Me.TabPage13.Controls.Add(Me.DataSolicNovoMaskedTextBox)
         Me.TabPage13.Location = New System.Drawing.Point(4, 27)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(773, 244)
+        Me.TabPage13.Size = New System.Drawing.Size(773, 303)
         Me.TabPage13.TabIndex = 0
         Me.TabPage13.Text = "Parcelamento"
         Me.TabPage13.UseVisualStyleBackColor = True
+        '
+        'TotalParcNovoTextBox
+        '
+        Me.TotalParcNovoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcNovo", True))
+        Me.TotalParcNovoTextBox.Location = New System.Drawing.Point(150, 115)
+        Me.TotalParcNovoTextBox.Name = "TotalParcNovoTextBox"
+        Me.TotalParcNovoTextBox.Size = New System.Drawing.Size(283, 24)
+        Me.TotalParcNovoTextBox.TabIndex = 24
         '
         'ProtNovoRichTextBox
         '
@@ -1680,14 +1751,6 @@ Partial Class FrmParcelamento
         Me.DataEnvioNovoMaskedTextBox.TabIndex = 7
         Me.DataEnvioNovoMaskedTextBox.ValidatingType = GetType(Date)
         '
-        'TotalParcNovoTextBox
-        '
-        Me.TotalParcNovoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcNovo", True))
-        Me.TotalParcNovoTextBox.Location = New System.Drawing.Point(150, 115)
-        Me.TotalParcNovoTextBox.Name = "TotalParcNovoTextBox"
-        Me.TotalParcNovoTextBox.Size = New System.Drawing.Size(283, 24)
-        Me.TotalParcNovoTextBox.TabIndex = 5
-        '
         'DataSolicNovoMaskedTextBox
         '
         Me.DataSolicNovoMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "DataSolicNovo", True))
@@ -1704,7 +1767,7 @@ Partial Class FrmParcelamento
         Me.TabPage14.Location = New System.Drawing.Point(4, 27)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(773, 244)
+        Me.TabPage14.Size = New System.Drawing.Size(773, 241)
         Me.TabPage14.TabIndex = 1
         Me.TabPage14.Text = "Histórico de Envio"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -1715,16 +1778,16 @@ Partial Class FrmParcelamento
         Me.EnviaParcNovoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcNovoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcNovoRichTextBox.Name = "EnviaParcNovoRichTextBox"
-        Me.EnviaParcNovoRichTextBox.Size = New System.Drawing.Size(767, 238)
+        Me.EnviaParcNovoRichTextBox.Size = New System.Drawing.Size(767, 235)
         Me.EnviaParcNovoRichTextBox.TabIndex = 1
         Me.EnviaParcNovoRichTextBox.Text = ""
         '
         'TabPageINSSProcuradoria
         '
         Me.TabPageINSSProcuradoria.Controls.Add(Me.TabControlINSSProcuradoria)
-        Me.TabPageINSSProcuradoria.Location = New System.Drawing.Point(4, 27)
+        Me.TabPageINSSProcuradoria.Location = New System.Drawing.Point(4, 30)
         Me.TabPageINSSProcuradoria.Name = "TabPageINSSProcuradoria"
-        Me.TabPageINSSProcuradoria.Size = New System.Drawing.Size(781, 275)
+        Me.TabPageINSSProcuradoria.Size = New System.Drawing.Size(781, 265)
         Me.TabPageINSSProcuradoria.TabIndex = 3
         Me.TabPageINSSProcuradoria.Text = "INSS Procuradoria"
         Me.TabPageINSSProcuradoria.UseVisualStyleBackColor = True
@@ -1738,12 +1801,13 @@ Partial Class FrmParcelamento
         Me.TabControlINSSProcuradoria.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSProcuradoria.Name = "TabControlINSSProcuradoria"
         Me.TabControlINSSProcuradoria.SelectedIndex = 0
-        Me.TabControlINSSProcuradoria.Size = New System.Drawing.Size(781, 275)
+        Me.TabControlINSSProcuradoria.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSProcuradoria.TabIndex = 1
         '
         'TabPage15
         '
         Me.TabPage15.AutoScroll = True
+        Me.TabPage15.Controls.Add(Me.TotalParcProcTextBox)
         Me.TabPage15.Controls.Add(Me.ProtprocRichTextBox)
         Me.TabPage15.Controls.Add(Me.BtnAgoraINSSProcuradoria)
         Me.TabPage15.Controls.Add(Me.BtnRegistrarINSSProcuradoria)
@@ -1754,7 +1818,6 @@ Partial Class FrmParcelamento
         Me.TabPage15.Controls.Add(ParcelEnvINSSProcLabel)
         Me.TabPage15.Controls.Add(Me.ParcelEnvINSSProcTextBox)
         Me.TabPage15.Controls.Add(TotalParcProcLabel)
-        Me.TabPage15.Controls.Add(Me.TotalParcProcTextBox)
         Me.TabPage15.Controls.Add(ProtprocLabel)
         Me.TabPage15.Controls.Add(Me.MotivoProcRichTextBox)
         Me.TabPage15.Controls.Add(Me.DataFinalProcMaskedTextBox)
@@ -1765,10 +1828,18 @@ Partial Class FrmParcelamento
         Me.TabPage15.Location = New System.Drawing.Point(4, 27)
         Me.TabPage15.Name = "TabPage15"
         Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage15.Size = New System.Drawing.Size(773, 244)
+        Me.TabPage15.Size = New System.Drawing.Size(773, 234)
         Me.TabPage15.TabIndex = 0
         Me.TabPage15.Text = "Parcelamento"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'TotalParcProcTextBox
+        '
+        Me.TotalParcProcTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcProc", True))
+        Me.TotalParcProcTextBox.Location = New System.Drawing.Point(150, 115)
+        Me.TotalParcProcTextBox.Name = "TotalParcProcTextBox"
+        Me.TotalParcProcTextBox.Size = New System.Drawing.Size(286, 24)
+        Me.TotalParcProcTextBox.TabIndex = 25
         '
         'ProtprocRichTextBox
         '
@@ -1839,14 +1910,6 @@ Partial Class FrmParcelamento
         Me.ParcelEnvINSSProcTextBox.Size = New System.Drawing.Size(206, 24)
         Me.ParcelEnvINSSProcTextBox.TabIndex = 13
         '
-        'TotalParcProcTextBox
-        '
-        Me.TotalParcProcTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "TotalParcProc", True))
-        Me.TotalParcProcTextBox.Location = New System.Drawing.Point(150, 114)
-        Me.TotalParcProcTextBox.Name = "TotalParcProcTextBox"
-        Me.TotalParcProcTextBox.Size = New System.Drawing.Size(283, 24)
-        Me.TotalParcProcTextBox.TabIndex = 11
-        '
         'MotivoProcRichTextBox
         '
         Me.MotivoProcRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParcelamentosBindingSource, "MotivoProc", True))
@@ -1893,7 +1956,7 @@ Partial Class FrmParcelamento
         Me.TabPage16.Location = New System.Drawing.Point(4, 27)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(773, 244)
+        Me.TabPage16.Size = New System.Drawing.Size(773, 241)
         Me.TabPage16.TabIndex = 1
         Me.TabPage16.Text = "Histórico de Envio"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -1904,7 +1967,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcProcRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcProcRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcProcRichTextBox.Name = "EnviaParcProcRichTextBox"
-        Me.EnviaParcProcRichTextBox.Size = New System.Drawing.Size(767, 238)
+        Me.EnviaParcProcRichTextBox.Size = New System.Drawing.Size(767, 235)
         Me.EnviaParcProcRichTextBox.TabIndex = 1
         Me.EnviaParcProcRichTextBox.Text = ""
         '
@@ -1929,11 +1992,11 @@ Partial Class FrmParcelamento
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 316.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(907, 718)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(908, 710)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'ParcelamentosBindingNavigator
@@ -1950,7 +2013,7 @@ Partial Class FrmParcelamento
         Me.ParcelamentosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ParcelamentosBindingNavigator.Name = "ParcelamentosBindingNavigator"
         Me.ParcelamentosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ParcelamentosBindingNavigator.Size = New System.Drawing.Size(907, 25)
+        Me.ParcelamentosBindingNavigator.Size = New System.Drawing.Size(908, 25)
         Me.ParcelamentosBindingNavigator.TabIndex = 1
         Me.ParcelamentosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -2064,7 +2127,7 @@ Partial Class FrmParcelamento
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(907, 718)
+        Me.ClientSize = New System.Drawing.Size(908, 710)
         Me.Controls.Add(Me.ParcelamentosBindingNavigator)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.KeyPreview = True
@@ -2090,6 +2153,8 @@ Partial Class FrmParcelamento
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.TabControlParcelamento.ResumeLayout(False)
+        Me.TabPageGeral.ResumeLayout(False)
+        Me.TabPageGeral.PerformLayout()
         Me.TabPageMei.ResumeLayout(False)
         Me.TabControlMei.ResumeLayout(False)
         Me.TabPage9.ResumeLayout(False)
@@ -2164,7 +2229,6 @@ Partial Class FrmParcelamento
     Friend WithEvents TabControlINSSAntigo As TabControl
     Friend WithEvents TabPage11 As TabPage
     Friend WithEvents ParcelEnvINSSAntTextBox As TextBox
-    Friend WithEvents TotalParcAntigoTextBox As TextBox
     Friend WithEvents MotivoAntigoRichTextBox As RichTextBox
     Friend WithEvents DataFinalAntigoMaskedTextBox As MaskedTextBox
     Friend WithEvents DataEnviaAntigoMaskedTextBox As MaskedTextBox
@@ -2178,7 +2242,6 @@ Partial Class FrmParcelamento
     Friend WithEvents MotivoNovoRichTextBox As RichTextBox
     Friend WithEvents DataFinalNovoMaskedTextBox As MaskedTextBox
     Friend WithEvents DataEnvioNovoMaskedTextBox As MaskedTextBox
-    Friend WithEvents TotalParcNovoTextBox As TextBox
     Friend WithEvents DataSolicNovoMaskedTextBox As MaskedTextBox
     Friend WithEvents TabPage14 As TabPage
     Friend WithEvents EnviaParcNovoRichTextBox As RichTextBox
@@ -2186,7 +2249,6 @@ Partial Class FrmParcelamento
     Friend WithEvents TabControlINSSProcuradoria As TabControl
     Friend WithEvents TabPage15 As TabPage
     Friend WithEvents ParcelEnvINSSProcTextBox As TextBox
-    Friend WithEvents TotalParcProcTextBox As TextBox
     Friend WithEvents MotivoProcRichTextBox As RichTextBox
     Friend WithEvents DataFinalProcMaskedTextBox As MaskedTextBox
     Friend WithEvents DataEnviaProcMaskedTextBox As MaskedTextBox
@@ -2213,8 +2275,6 @@ Partial Class FrmParcelamento
     Friend WithEvents InssNovoCheckBox As CheckBox
     Friend WithEvents InssAntigoCheckBox As CheckBox
     Friend WithEvents MEICheckBox As CheckBox
-    Friend WithEvents ComboBoxBuscarRazaoSocial As ComboBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents FinalizadoEmpresaComboBox As ComboBox
@@ -2250,4 +2310,13 @@ Partial Class FrmParcelamento
     Friend WithEvents ProtNovoRichTextBox As RichTextBox
     Friend WithEvents BtnConsultaSimplesNacional As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents TabPageGeral As TabPage
+    Friend WithEvents GeralRichTextBox As RichTextBox
+    Friend WithEvents TotalParcAntigoTextBox As TextBox
+    Friend WithEvents TotalParcNovoTextBox As TextBox
+    Friend WithEvents TotalParcProcTextBox As TextBox
+    Friend WithEvents ButtonAtualizar As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBoxBuscarRazaoSocial As ComboBox
+    Friend WithEvents ParaFazerCheckBox As CheckBox
 End Class

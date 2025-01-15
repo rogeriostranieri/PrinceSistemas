@@ -1187,6 +1187,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
 
 
+
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
         TabControle.SelectTab(5)
     End Sub
@@ -2202,12 +2203,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             LabelNovaRazaoFinal.Visible = True
             LinkLabelMudarRazaoSocial.Visible = True
             BtnVerNovoNome.Visible = True
+            BtnNovaRazao.Visible = True
 
         Else
             NovaRazaoSocialFinalTextBox.Visible = False
             LabelNovaRazaoFinal.Visible = False
             LinkLabelMudarRazaoSocial.Visible = False
             BtnVerNovoNome.Visible = False
+            BtnNovaRazao.Visible = False
         End If
 
 
@@ -2579,6 +2582,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         ProcessoMudar()
         StatusMudar()
         'MudarStatusFinalizado()
+        TipodeEmpresa()
     End Sub
     Private Sub MudarStatusFinalizado()
 

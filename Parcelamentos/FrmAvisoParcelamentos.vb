@@ -22,11 +22,18 @@
     End Sub
 
     Private Sub FiltroParcelamentos()
-        'FILTRO  EMPRESA
+        ' FILTRO EMPRESA
         Dim Data As String = MaskedTextBox1.Text
         Dim FilterA As String = Data
-        ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterA & "%'"
+        Dim FilterB As String = "Checked"
+
+        ' Aplicar filtro considerando a DataLembrete e a coluna ParaFazer marcada como Checked
+        ParcelamentosBindingSource.Filter = $"DataLembrete LIKE '{FilterA}%' Or ParaFazer = '{FilterB}'"
     End Sub
+
+
+
+
 
     Private Sub BtnFechar_Click(sender As Object, e As EventArgs) Handles BtnFechar.Click
         Me.Close()
@@ -54,15 +61,18 @@
         Try
             Dim Parcelamento As FrmParcelamento = Application.OpenForms.OfType(Of FrmParcelamento)().FirstOrDefault()
             If Parcelamento IsNot Nothing Then
-                Parcelamento.Focus()
-                Parcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
-                Parcelamento.ComboBoxBuscarRazaoSocial.Select()
+                FrmParcelamento.Focus()
+                FrmParcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
+                FrmParcelamento.ComboBoxBuscarRazaoSocial.Select()
+                FrmParcelamento.BtnEditar.PerformClick()
             Else
-                Dim NovoParcelamento As New FrmParcelamento()
-                NovoParcelamento.MdiParent = MDIPrincipal
-                NovoParcelamento.Show()
-                NovoParcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
-                NovoParcelamento.ComboBoxBuscarRazaoSocial.Select()
+                '  Dim NovoParcelamento As New FrmParcelamento()
+
+                FrmParcelamento.Show()
+                FrmParcelamento.MdiParent = MDIPrincipal
+                FrmParcelamento.ComboBoxBuscarRazaoSocial.Text = ParcelamentosDataGridView.SelectedCells.Item(0).Value.ToString()
+                FrmParcelamento.ComboBoxBuscarRazaoSocial.Select()
+                FrmParcelamento.BtnEditar.PerformClick()
             End If
             'Me.Close()
         Catch ex As Exception
@@ -100,8 +110,8 @@
             FrmGeralParcelamento.Focus()
         Else
             ' Caso contrário, cria uma nova instância do formulário, define o MdiParent e exibe o formulário
-            FrmGeralParcelamento.Show()
             FrmGeralParcelamento.MdiParent = MDIPrincipal
+            FrmGeralParcelamento.Show()
             FrmGeralParcelamento.BringToFront()
             FrmGeralParcelamento.Focus()
         End If

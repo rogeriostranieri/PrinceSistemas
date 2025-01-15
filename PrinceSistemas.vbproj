@@ -572,6 +572,12 @@
     <Compile Include="Parcelamentos\FrmAvisoParcelamentos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Parcelamentos\FrmCalendarioParcelamento.Designer.vb">
+      <DependentUpon>FrmCalendarioParcelamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmCalendarioParcelamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parcelamentos\FrmGeralParcelamento.Designer.vb">
       <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>
     </Compile>
@@ -582,6 +588,12 @@
       <DependentUpon>FrmParcelamento.vb</DependentUpon>
     </Compile>
     <Compile Include="Parcelamentos\FrmParcelamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmParcEscolha.Designer.vb">
+      <DependentUpon>FrmParcEscolha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parcelamentos\FrmParcEscolha.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parcelamentos\ListViewColumnSorter.vb" />
@@ -995,11 +1007,17 @@
     <EmbeddedResource Include="Parcelamentos\FrmAvisoParcelamentos.resx">
       <DependentUpon>FrmAvisoParcelamentos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmCalendarioParcelamento.resx">
+      <DependentUpon>FrmCalendarioParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\FrmGeralParcelamento.resx">
       <DependentUpon>FrmGeralParcelamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\FrmParcelamento.resx">
       <DependentUpon>FrmParcelamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parcelamentos\FrmParcEscolha.resx">
+      <DependentUpon>FrmParcEscolha.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedimento\FrmProcedimentos.resx">
       <DependentUpon>FrmProcedimentos.vb</DependentUpon>

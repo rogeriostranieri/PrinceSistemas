@@ -28,12 +28,10 @@ Public Class FrmParcelamento
         ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
         PrinceDBDataSet.AcceptChanges()
 
-        ' Permitir edições em todas as colunas da tabela Empresas
-        For Each col As DataColumn In Me.PrinceDBDataSet.Empresas.Columns
+        ' Permitir edições em todas as colunas da tabela Parcelamentos
+        For Each col As DataColumn In Me.PrinceDBDataSet.Parcelamentos.Columns
             col.ReadOnly = False
         Next
-
-        AtualizarAbasVisibilidade()
 
 
         ' Se estiver em modo de edição, cancelar as alterações
@@ -41,18 +39,18 @@ Public Class FrmParcelamento
         BloqueiaTudo() ' Bloqueia os campos novamente
         BtnEditar.Text = "Editar" ' Muda o texto do botão para "Editar"
 
+
+        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
+        AddHandler ParcelamentosBindingSource.CurrentChanged, AddressOf ParcelamentosBindingSource_CurrentChanged
+
+    End Sub
+    Private Sub ParcelamentosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+        VerificaAbaChecked()
     End Sub
 
-    ' Função para controlar a visibilidade das abas
-    Private Sub AtualizarAbasVisibilidade()
-        ' Verifica o estado de cada CheckBox e define a visibilidade das TabPages
-        TabControlParcelamento.TabPages(0).Visible = MEICheckBox.Checked
-        TabControlParcelamento.TabPages(1).Visible = InssAntigoCheckBox.Checked
-        TabControlParcelamento.TabPages(2).Visible = InssNovoCheckBox.Checked
-        TabControlParcelamento.TabPages(3).Visible = InssProcurCheckBox.Checked
-    End Sub
 
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
+        Salvar()
         Me.ParcelamentosBindingSource.AddNew() ' Adiciona um novo registro
         DesBloqueiaTudo() ' Habilita os campos para edição
         BtnEditar.Enabled = True ' Desabilita o botão Editar enquanto está no modo Novo
@@ -71,64 +69,63 @@ Public Class FrmParcelamento
     ' Variável para controlar o fechamento do formulário
     Private cancelarFechamento As Boolean = False
 
-    Private Sub Salvar()
-        Try
-            ' Perguntar ao usuário se deseja salvar, com opção de Cancelar
-            Dim result As DialogResult = MessageBox.Show("Deseja salvar as alterações?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+    Private Sub salvar()
+        ' Finaliza a edição dos dados vinculados ao BindingSource
+        Me.ParcelamentosBindingSource.EndEdit()
+
+        ' Obtém as alterações feitas na tabela Parcelamentos
+        Dim changedRecords As DataTable = PrinceDBDataSet.Parcelamentos.GetChanges()
+
+        ' Verifica se há alterações
+        If changedRecords IsNot Nothing Then
+            ' Exibe as alterações para o usuário
+            Dim changes As String = "As seguintes alterações foram feitas:" & Environment.NewLine
+
+            For Each row As DataRow In changedRecords.Rows
+                Select Case row.RowState
+                    Case DataRowState.Added
+                        changes &= "Registro Adicionado: " & String.Join(", ", row.ItemArray) & Environment.NewLine
+                    Case DataRowState.Modified
+                        changes &= "Registro Modificado: " & String.Join(", ", row.ItemArray) & Environment.NewLine
+                    Case DataRowState.Deleted
+                        changes &= "Registro Excluído" & Environment.NewLine
+                End Select
+            Next
+
+            ' Pergunta ao usuário se deseja salvar as alterações
+            Dim result As DialogResult = MessageBox.Show(changes & Environment.NewLine & "Deseja salvar essas alterações?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
-                ' Configurar a ProgressBar
-                ProgressBarSalvar.Visible = True
-                ProgressBarSalvar.Value = 0
-                ProgressBarSalvar.Step = 1
-                ProgressBarSalvar.Maximum = 100
+                Try
+                    ' Salva as alterações no banco de dados
+                    Me.ParcelamentosTableAdapter.Update(PrinceDBDataSet.Parcelamentos)
 
-                ' Simular progresso
-                For i As Integer = 1 To 100
-                    Threading.Thread.Sleep(10) ' Apenas para simulação
-                    ProgressBarSalvar.PerformStep()
-                Next
+                    ' Aceita as alterações feitas
+                    PrinceDBDataSet.Parcelamentos.AcceptChanges()
 
-                ' Finalizar edição e salvar alterações
-                Me.Validate()
-                Me.ParcelamentosBindingSource.EndEdit()
-                Me.TableAdapterManager.UpdateAll(Me.PrinceDBDataSet)
+                    ' Mensagem de confirmação
+                    MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    BtnEditar.PerformClick()
 
-                ' Exibir mensagem de sucesso
-                MessageBox.Show("Alterações salvas com sucesso.", "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                BloqueiaTudo()
-
-            ElseIf result = DialogResult.No Then
-                ' Caso o usuário escolha "Não", desfazer todas as alterações
-                ' Cancelar as edições e recarregar os dados
-                Me.ParcelamentosBindingSource.CancelEdit()
-
-                ' Recarregar os dados da tabela Parcelamentos usando o TableAdapter
-                Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
-
-                ' Exibir mensagem que as alterações foram descartadas
-                MessageBox.Show("As alterações foram descartadas e os dados foram recarregados.", "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            ElseIf result = DialogResult.Cancel Then
-                ' Caso o usuário escolha "Cancelar"
-                MessageBox.Show("A operação foi cancelada.", "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                Catch ex As Exception
+                    ' Trata erros durante o salvamento
+                    MessageBox.Show("Erro ao salvar as alterações: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            Else
+                ' Rejeita as alterações se o usuário optar por não salvar
+                PrinceDBDataSet.Parcelamentos.RejectChanges()
+                MessageBox.Show("Alterações descartadas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-
-        Catch ex As Exception
-            ' Tratamento de erros
-            MessageBox.Show($"Ocorreu um erro ao salvar:{vbCrLf}{ex.Message}", "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            ' Garantir que a ProgressBar esteja oculta ao final do processo
-            ProgressBarSalvar.Value = 0
-            ProgressBarSalvar.Visible = False
-        End Try
+        Else
+            ' Mensagem caso não haja alterações
+            MessageBox.Show("Nenhuma alteração foi feita.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
 
 
 
-    Private Sub SalvarBackup()
+    Private Sub BackupSalvar()
         Try
             ' Finalizar edição e obter registros alterados
             Me.ParcelamentosBindingSource.EndEdit()
@@ -404,244 +401,22 @@ Public Class FrmParcelamento
 
 
     Private Sub BtnRegistrarMEI_Click(sender As Object, e As EventArgs) Handles BtnRegistrarMEI.Click
-        TabControlGeral.SelectedIndex = 1
-        TabControlGeral.SelectedIndex = 0
-        TabControlMei.SelectedIndex = 0
-        TabControlMei.SelectedIndex = 1
+        AbrirEscolhaParcelamentoEnvio()
 
-        ' Verificar campos obrigatórios
-        If String.IsNullOrWhiteSpace(FormaDeEnvioComboBox.Text) Then
-            MessageBox.Show("O campo 'Forma de Envio' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlGeral.SelectedIndex = 1
-            TabControlMei.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(TotalParcMEITextBox.Text) Then
-            MessageBox.Show("O campo 'Total de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlMei.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(ParcelEnvMEITextBox.Text) Then
-            MessageBox.Show("O campo 'Parcela de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlMei.SelectedIndex = 0
-            Exit Sub
-        End If
-
-        ' Perguntar se deseja registrar o envio
-        Dim result As DialogResult = MessageBox.Show("Deseja registrar o envio?", "Confirmar Envio", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-            Dim FormaDeEnvio As String = FormaDeEnvioComboBox.Text
-            Dim TotalParcelamento As String = TotalParcMEITextBox.Text
-            Dim ParcelaParcelamento As String = ParcelEnvMEITextBox.Text
-            If String.IsNullOrWhiteSpace(DataEnviaMEIMaskedTextBox.Text.Replace("/", "").Replace(":", "").Trim()) OrElse Not IsDate(DataEnviaMEIMaskedTextBox.Text) Then
-                DataEnviaMEIMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            End If
-            Dim DataEnvio As String = DataEnviaMEIMaskedTextBox.Text
-            Dim Empresa As String = RazaoSocialTextBox.Text
-
-            ' Verificar se tem texto e colocar abaixo sem apagar os antigos textos dentro do RichTextBox
-            If EnviaParcMEIRichTextBox.Text <> "" Then
-                EnviaParcMEIRichTextBox.Text += Environment.NewLine ' Adiciona nova linha
-            End If
-            EnviaParcMEIRichTextBox.Text += "Foi enviado a parcela " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas, " + "enviado via " + FormaDeEnvio + ", no dia " + DataEnvio + "." + Environment.NewLine
-
-
-            ' Perguntar se deseja copiar o texto
-            Dim copyResult As DialogResult = MessageBox.Show("Deseja copiar o texto para anexar ao enviar para o cliente?", "Copiar Texto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If copyResult = DialogResult.Yes Then
-                Dim textoParaCopiar As String = "Olá, tudo bem?" + Environment.NewLine +
-                "Segue o DARF do *Parcelamento do MEI* da empresa: *" + Empresa + "*." + Environment.NewLine +
-                    "Parcela(s): " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas." + Environment.NewLine +
-                    "Atenciosamente" + Environment.NewLine +
-                    "Rogerio"
-                Clipboard.SetText(textoParaCopiar)
-                ' MessageBox.Show("Texto copiado para a área de transferência!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                MessageBox.Show(textoParaCopiar, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            End If
-        End If
     End Sub
 
     Private Sub BtnRegistrarINSSAntigo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarINSSAntigo.Click
-        TabControlGeral.SelectedIndex = 1
-        TabControlGeral.SelectedIndex = 0
-        TabControlINSSAntigo.SelectedIndex = 0
-        TabControlINSSAntigo.SelectedIndex = 1
+        AbrirEscolhaParcelamentoEnvio()
 
-        ' Verificar campos obrigatórios
-        If String.IsNullOrWhiteSpace(FormaDeEnvioComboBox.Text) Then
-            MessageBox.Show("O campo 'Forma de Envio' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlGeral.SelectedIndex = 1
-            TabControlINSSAntigo.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(TotalParcAntigoTextBox.Text) Then
-            MessageBox.Show("O campo 'Total de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSAntigo.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(ParcelEnvINSSAntTextBox.Text) Then
-            MessageBox.Show("O campo 'Parcela de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSAntigo.SelectedIndex = 0
-            Exit Sub
-        End If
-
-        ' Perguntar se deseja registrar o envio
-        Dim result As DialogResult = MessageBox.Show("Deseja registrar o envio?", "Confirmar Envio", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-            Dim FormaDeEnvio As String = FormaDeEnvioComboBox.Text
-            Dim TotalParcelamento As String = TotalParcAntigoTextBox.Text
-            Dim ParcelaParcelamento As String = ParcelEnvINSSAntTextBox.Text
-            If String.IsNullOrWhiteSpace(DataEnviaAntigoMaskedTextBox.Text.Replace("/", "").Replace(":", "").Trim()) OrElse Not IsDate(DataEnviaAntigoMaskedTextBox.Text) Then
-                DataEnviaAntigoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            End If
-            Dim DataEnvio As String = DataEnviaAntigoMaskedTextBox.Text
-            Dim Empresa As String = RazaoSocialTextBox.Text
-
-            ' Verificar se tem texto e colocar abaixo sem apagar os antigos textos dentro do RichTextBox
-            If EnviaParcAntigoRichTextBox.Text <> "" Then
-                EnviaParcAntigoRichTextBox.Text += Environment.NewLine ' Adiciona nova linha
-            End If
-            EnviaParcAntigoRichTextBox.Text += "Foi enviado a parcela " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas, " + "enviado via " + FormaDeEnvio + ", no dia " + DataEnvio + "." + Environment.NewLine
-
-
-            Dim copyResult As DialogResult = MessageBox.Show("Deseja copiar o texto para anexar ao enviar para o cliente?", "Copiar Texto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If copyResult = DialogResult.Yes Then
-                Dim textoParaCopiar As String = "Olá, tudo bem?" + Environment.NewLine +
-                "Segue o DARF do *Parcelamento do INSS Antigo* da empresa: *" + Empresa + "*." + Environment.NewLine +
-                    "Parcela(s): " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas." + Environment.NewLine +
-                    "Atenciosamente" + Environment.NewLine +
-                    "Rogerio"
-                Clipboard.SetText(textoParaCopiar)
-                'MessageBox.Show("Texto copiado para a área de transferência!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                MessageBox.Show(textoParaCopiar, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            End If
-
-        End If
     End Sub
 
     Private Sub BtnRegistrarINSSNovo_Click(sender As Object, e As EventArgs) Handles BtnRegistrarINSSNovo.Click
-        TabControlGeral.SelectedIndex = 1
-        TabControlGeral.SelectedIndex = 0
-        TabControlINSSNovo.SelectedIndex = 0
-        TabControlINSSNovo.SelectedIndex = 1
-
-        ' Verificar campos obrigatórios
-        If String.IsNullOrWhiteSpace(FormaDeEnvioComboBox.Text) Then
-            MessageBox.Show("O campo 'Forma de Envio' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlGeral.SelectedIndex = 1
-            TabControlINSSNovo.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(TotalParcNovoTextBox.Text) Then
-            MessageBox.Show("O campo 'Total de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSNovo.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(ParcelEnvINSSNovTextBox.Text) Then
-            MessageBox.Show("O campo 'Parcela de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSNovo.SelectedIndex = 0
-            Exit Sub
-        End If
-
-        ' Perguntar se deseja registrar o envio
-        Dim result As DialogResult = MessageBox.Show("Deseja registrar o envio?", "Confirmar Envio", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-            Dim FormaDeEnvio As String = FormaDeEnvioComboBox.Text
-            Dim TotalParcelamento As String = TotalParcNovoTextBox.Text
-            Dim ParcelaParcelamento As String = ParcelEnvINSSNovTextBox.Text
-            If String.IsNullOrWhiteSpace(DataEnvioNovoMaskedTextBox.Text.Replace("/", "").Replace(":", "").Trim()) OrElse Not IsDate(DataEnvioNovoMaskedTextBox.Text) Then
-                DataEnvioNovoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            End If
-            Dim DataEnvio As String = DataEnvioNovoMaskedTextBox.Text
-            Dim Empresa As String = RazaoSocialTextBox.Text
-
-
-            ' Verificar se tem texto e colocar abaixo sem apagar os antigos textos dentro do RichTextBox
-            If EnviaParcNovoRichTextBox.Text <> "" Then
-                EnviaParcNovoRichTextBox.Text += Environment.NewLine ' Adiciona nova linha
-            End If
-            EnviaParcNovoRichTextBox.Text += "Foi enviado a parcela " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas, " + "enviado via " + FormaDeEnvio + ", no dia " + DataEnvio + "." + Environment.NewLine
-
-
-            Dim copyResult As DialogResult = MessageBox.Show("Deseja copiar o texto para anexar ao enviar para o cliente?", "Copiar Texto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If copyResult = DialogResult.Yes Then
-                Dim textoParaCopiar As String = "Olá, tudo bem?" + Environment.NewLine +
-                "Segue o DARF do *Parcelamento do INSS Novo* da empresa: *" + Empresa + "*." + Environment.NewLine +
-                    "Parcela(s): " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas." + Environment.NewLine +
-                    "Atenciosamente" + Environment.NewLine +
-                    "Rogerio"
-                Clipboard.SetText(textoParaCopiar)
-                ' MessageBox.Show("Texto copiado para a área de transferência!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                MessageBox.Show(textoParaCopiar, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            End If
-        End If
+        AbrirEscolhaParcelamentoEnvio()
     End Sub
 
     Private Sub BtnRegistrarINSSProcuradoria_Click(sender As Object, e As EventArgs) Handles BtnRegistrarINSSProcuradoria.Click
-        TabControlGeral.SelectedIndex = 1
-        TabControlGeral.SelectedIndex = 0
-        TabControlINSSProcuradoria.SelectedIndex = 0
-        TabControlINSSProcuradoria.SelectedIndex = 1
+        AbrirEscolhaParcelamentoEnvio()
 
-        ' Verificar campos obrigatórios
-        If String.IsNullOrWhiteSpace(FormaDeEnvioComboBox.Text) Then
-            MessageBox.Show("O campo 'Forma de Envio' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlGeral.SelectedIndex = 1
-            TabControlINSSProcuradoria.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(TotalParcProcTextBox.Text) Then
-            MessageBox.Show("O campo 'Total de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSProcuradoria.SelectedIndex = 0
-            Exit Sub
-        End If
-        If String.IsNullOrWhiteSpace(ParcelEnvINSSProcTextBox.Text) Then
-            MessageBox.Show("O campo 'Parcela de Parcelamento' está vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TabControlINSSProcuradoria.SelectedIndex = 0
-            Exit Sub
-        End If
-
-        ' Perguntar se deseja registrar o envio
-        Dim result As DialogResult = MessageBox.Show("Deseja registrar o envio?", "Confirmar Envio", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-
-            Dim FormaDeEnvio As String = FormaDeEnvioComboBox.Text
-            Dim TotalParcelamento As String = TotalParcProcTextBox.Text
-            Dim ParcelaParcelamento As String = ParcelEnvINSSProcTextBox.Text
-            If String.IsNullOrWhiteSpace(DataEnviaProcMaskedTextBox.Text.Replace("/", "").Replace(":", "").Trim()) OrElse Not IsDate(DataEnviaProcMaskedTextBox.Text) Then
-                DataEnviaProcMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            End If
-            Dim DataEnvio As String = DataEnviaProcMaskedTextBox.Text
-            Dim Empresa As String = RazaoSocialTextBox.Text
-
-            ' Verificar se tem texto e colocar abaixo sem apagar os antigos textos dentro do RichTextBox
-            If EnviaParcProcRichTextBox.Text <> "" Then
-                EnviaParcProcRichTextBox.Text += Environment.NewLine ' Adiciona nova linha
-            End If
-            EnviaParcProcRichTextBox.Text += "Foi enviado a parcela " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas, " + "enviado via " + FormaDeEnvio + ", no dia " + DataEnvio + "." + Environment.NewLine
-
-
-            ' Perguntar se deseja copiar o texto para enviar ao cliente
-            Dim copyResult As DialogResult = MessageBox.Show("Deseja copiar o texto para anexar ao enviar para o cliente?", "Copiar Texto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If copyResult = DialogResult.Yes Then
-                Dim textoParaCopiar As String = "Olá, tudo bem?" + Environment.NewLine +
-                "Segue o DARF do *Parcelamento do INSS da Procuradoria* da empresa: *" + Empresa + "*." + Environment.NewLine +
-                "Parcela(s): " + ParcelaParcelamento + " do total de " + TotalParcelamento + " parcelas." + Environment.NewLine +
-                "Atenciosamente" + Environment.NewLine +
-                "Rogerio"
-                Clipboard.SetText(textoParaCopiar)
-                MessageBox.Show(textoParaCopiar, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'MessageBox.Show("Texto copiado para a área de transferência!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-
-        End If
     End Sub
 
     Private Sub BtnCopiarCNPJ_Click(sender As Object, e As EventArgs) Handles BtnCopiarCNPJ.Click
@@ -778,21 +553,25 @@ Public Class FrmParcelamento
         ' Obter o mês atual por extenso em português (exemplo: "novembro")
         Dim mesAtual As String = DateTime.Now.ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pt-BR")).ToLower()
 
-        ' Mostrar o mês atual em uma MessageBox
-        ' MessageBox.Show("Mês atual: " & mesAtual, "Mês Atual", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Verificar se há um item selecionado no ComboBox
+        If FinalizadoMesGeralComboBox.SelectedItem IsNot Nothing Then
+            ' Obter o texto do item selecionado e converter para minúsculas para comparação
+            Dim mesSelecionado As String = FinalizadoMesGeralComboBox.SelectedItem.ToString().Trim().ToLower()
 
-        ' Obter o texto do item selecionado e converter para minúsculas para comparação
-        Dim mesSelecionado As String = FinalizadoMesGeralComboBox.SelectedItem.ToString().Trim().ToLower()
-
-        ' Verificar se o mês selecionado é o mesmo que o mês atual
-        If mesSelecionado = mesAtual Then
-            ' Se for igual ao mês atual, mudar o fundo para verde
-            FinalizadoMesGeralComboBox.BackColor = Color.Green
+            ' Verificar se o mês selecionado é o mesmo que o mês atual
+            If mesSelecionado = mesAtual Then
+                ' Se for igual ao mês atual, mudar o fundo para verde
+                FinalizadoMesGeralComboBox.BackColor = Color.Green
+            Else
+                ' Se for diferente, mudar o fundo para amarelo
+                FinalizadoMesGeralComboBox.BackColor = Color.Yellow
+            End If
         Else
-            ' Se for diferente, mudar o fundo para amarelo
-            FinalizadoMesGeralComboBox.BackColor = Color.Yellow
+            ' Caso não haja item selecionado, você pode exibir uma mensagem ou lidar com a situação como necessário
+            MessageBox.Show("Nenhum mês selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
+
 
 
     '/////////////////////////////////////////////
@@ -837,5 +616,114 @@ Public Class FrmParcelamento
             WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
             MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
         End If
+    End Sub
+
+    Private Sub AbrirEscolhaParcelamentoEnvio()
+        ' Abrir FrmParcEscolha e transferir dados com base na aba ativa
+        ' Criar instância do FrmParcEscolha
+        Dim frmEscolha As New FrmParcEscolha()
+
+        ' Verificar qual aba está selecionada
+        Select Case TabControlParcelamento.SelectedTab.Name
+            Case "TabPageINSSNovo"
+                ' Transferir dados da aba Novo
+                frmEscolha.DadosProt = ProtNovoRichTextBox.Text
+                frmEscolha.DadosTotal = TotalParcNovoTextBox.Text
+                frmEscolha.DadosParcelamento = "Registro para INSS - Novo"
+
+            Case "TabPageINSSProcuradoria"
+                ' Transferir dados da aba Procuradoria
+                frmEscolha.DadosProt = ProtprocRichTextBox.Text
+                frmEscolha.DadosTotal = TotalParcProcTextBox.Text
+                frmEscolha.DadosParcelamento = "Registro para INSS - Procuradoria"
+
+            Case "TabPageINSSAntigo"
+                ' Transferir dados da aba Antigo
+                frmEscolha.DadosProt = ProtAntigoRichTextBox.Text
+                frmEscolha.DadosTotal = TotalParcAntigoTextBox.Text
+                frmEscolha.DadosParcelamento = "Registro para INSS - Antigo"
+
+            Case "TabPageMei"
+                ' Transferir dados da aba MEI
+                frmEscolha.DadosProt = ProtMEITextBox.Text
+                frmEscolha.DadosTotal = TotalParcMEITextBox.Text
+                frmEscolha.DadosParcelamento = "Registro para MEI"
+        End Select
+
+        ' Abrir o formulário FrmParcEscolha
+        frmEscolha.Show()
+        frmEscolha.MdiParent = MDIPrincipal
+    End Sub
+
+
+    '/////////// CALENDARIO
+
+
+    Private Sub DataLembreteMaskedTextBox_Click(sender As Object, e As EventArgs) Handles DataLembreteMaskedTextBox.Click
+        FrmCalendarioParcelamento.Show()
+        FrmCalendarioParcelamento.Focus()
+        'abrir no local do mouse
+        FrmCalendarioParcelamento.Location = New Point(MousePosition.X, MousePosition.Y)
+    End Sub
+
+    '/////// FIM CALENDARIO
+    Private Sub VerificaAbaChecked()
+        ' Primeiro, remove todas as abas
+        TabControlParcelamento.TabPages.Clear()
+
+        ' Adiciona sempre a aba Geral
+        TabControlParcelamento.TabPages.Add(TabPageGeral)
+
+        ' Adiciona somente a aba correspondente ao CheckBox marcado
+        If MEICheckBox.Checked Then
+            TabControlParcelamento.TabPages.Add(TabPageMei)
+        End If
+
+        If InssAntigoCheckBox.Checked Then
+            TabControlParcelamento.TabPages.Add(TabPageINSSAntigo)
+        End If
+
+        If InssNovoCheckBox.Checked Then
+            TabControlParcelamento.TabPages.Add(TabPageINSSNovo)
+        End If
+
+        If InssProcurCheckBox.Checked Then
+            TabControlParcelamento.TabPages.Add(TabPageINSSProcuradoria)
+        End If
+
+        ' Seleciona a aba Geral como padrão se nenhuma outra aba foi adicionada além dela
+        If TabControlParcelamento.TabPages.Count = 1 Then
+            TabControlParcelamento.SelectedTab = TabPageGeral
+        End If
+    End Sub
+
+    Private Sub CheckBox_Validated(sender As Object, e As EventArgs) Handles MEICheckBox.Validated, InssAntigoCheckBox.Validated, InssNovoCheckBox.Validated, InssProcurCheckBox.Validated
+        VerificaAbaChecked()
+    End Sub
+
+    Private Sub CheckBox_Changed(sender As Object, e As EventArgs) Handles MEICheckBox.CheckedChanged, InssAntigoCheckBox.CheckedChanged, InssNovoCheckBox.CheckedChanged, InssProcurCheckBox.CheckedChanged
+        VerificaAbaChecked()
+    End Sub
+
+    Private Sub ButtonAtualizar_Click(sender As Object, e As EventArgs) Handles ButtonAtualizar.Click
+        ' Verifica se o formulário já está aberto
+        For Each frm As Form In Application.OpenForms
+            If TypeOf frm Is FrmExtraiCNPJ Then
+                frm.Close() ' Fecha o formulário se ele já estiver aberto
+                Exit For
+            End If
+        Next
+
+        ' Abre o formulário
+        FrmExtraiCNPJ.Show()
+    End Sub
+
+    Private Sub RazaoSocialTextBox_TextChanged(sender As Object, e As EventArgs) Handles RazaoSocialTextBox.TextChanged
+        If RazaoSocialTextBox.Text <> "" Then
+            ButtonAtualizar.Visible = True
+        Else
+            ButtonAtualizar.Visible = False
+        End If
+
     End Sub
 End Class
