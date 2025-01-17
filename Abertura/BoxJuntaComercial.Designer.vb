@@ -33,6 +33,10 @@ Partial Class BoxJuntaComercial
         Me.BtnCopiaPRP = New System.Windows.Forms.Button()
         Me.ComboBoxEscolhaProtocolo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblCidade = New System.Windows.Forms.Label()
+        Me.LblEstado = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -169,6 +173,48 @@ Partial Class BoxJuntaComercial
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Copiar Numero do Protocolo"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(12, 267)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(70, 20)
+        Me.Label3.TabIndex = 28
+        Me.Label3.Text = "Cidade:"
+        '
+        'LblCidade
+        '
+        Me.LblCidade.AutoSize = True
+        Me.LblCidade.BackColor = System.Drawing.Color.Transparent
+        Me.LblCidade.Location = New System.Drawing.Point(75, 267)
+        Me.LblCidade.Name = "LblCidade"
+        Me.LblCidade.Size = New System.Drawing.Size(123, 20)
+        Me.LblCidade.TabIndex = 29
+        Me.LblCidade.Text = "Não encontrado"
+        '
+        'LblEstado
+        '
+        Me.LblEstado.AutoSize = True
+        Me.LblEstado.BackColor = System.Drawing.Color.Transparent
+        Me.LblEstado.Location = New System.Drawing.Point(75, 290)
+        Me.LblEstado.Name = "LblEstado"
+        Me.LblEstado.Size = New System.Drawing.Size(123, 20)
+        Me.LblEstado.TabIndex = 31
+        Me.LblEstado.Text = "Não encontrado"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(10, 290)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 20)
+        Me.Label5.TabIndex = 30
+        Me.Label5.Text = "Estado:"
+        '
         'BoxJuntaComercial
         '
         Me.AcceptButton = Me.OK_Button
@@ -178,6 +224,10 @@ Partial Class BoxJuntaComercial
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(594, 319)
+        Me.Controls.Add(Me.LblEstado)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.LblCidade)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBoxEscolhaProtocolo)
         Me.Controls.Add(Me.BtnCopiaPRP)
@@ -212,4 +262,8 @@ Partial Class BoxJuntaComercial
     Friend WithEvents BtnCopiaPRP As Button
     Friend WithEvents ComboBoxEscolhaProtocolo As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents LblCidade As Label
+    Friend WithEvents LblEstado As Label
+    Friend WithEvents Label5 As Label
 End Class

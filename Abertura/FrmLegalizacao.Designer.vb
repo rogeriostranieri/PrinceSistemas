@@ -191,6 +191,7 @@ Partial Class FrmLegalizacao
         Me.DadosSociosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnFormaDeAtuaCNAE = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CNAEAtvLocalSEcundariosRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.CNAEAtvLocalPrincipalTextBox = New System.Windows.Forms.TextBox()
@@ -428,12 +429,13 @@ Partial Class FrmLegalizacao
         Me.ProcuracaoNMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.ProcuracaoComboBox = New System.Windows.Forms.ComboBox()
         Me.Button45 = New System.Windows.Forms.Button()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPageHistorico = New System.Windows.Forms.TabPage()
         Me.BtnAnotacoesDemais = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.HistoricoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage25 = New System.Windows.Forms.TabPage()
         Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.BtnVoltarInicio = New System.Windows.Forms.Button()
         Me.BtnLimpaAviso = New System.Windows.Forms.Button()
         Me.AvisarEmpresaTextoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -458,6 +460,7 @@ Partial Class FrmLegalizacao
         Me.EmpCriadoMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnNovaRazao = New System.Windows.Forms.Button()
         Me.EndEstadoLabel2 = New System.Windows.Forms.Label()
         Me.BtnFiliais = New System.Windows.Forms.Button()
         Me.EndCidadeLabel2 = New System.Windows.Forms.Label()
@@ -496,6 +499,7 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.BtnVerAviso = New System.Windows.Forms.Button()
         Me.AvisarEmpresaCheckBox = New System.Windows.Forms.CheckBox()
         Me.PictureBoxCentralProcesso = New System.Windows.Forms.PictureBox()
         Me.BtnVerNovoNome = New System.Windows.Forms.Button()
@@ -520,13 +524,10 @@ Partial Class FrmLegalizacao
         Me.BtnCopiarRegistroEmpresa = New System.Windows.Forms.Button()
         Me.GroupBoxMenuBaixo = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.LabelTipoEmpresa = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnVerAviso = New System.Windows.Forms.Button()
-        Me.BtnVoltarInicio = New System.Windows.Forms.Button()
-        Me.BtnNovaRazao = New System.Windows.Forms.Button()
-        Me.BtnFormaDeAtuaCNAE = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -684,7 +685,7 @@ Partial Class FrmLegalizacao
         Me.TabPage6.SuspendLayout()
         Me.TabPage23.SuspendLayout()
         Me.TabPage17.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.TabPageHistorico.SuspendLayout()
         Me.TabPage25.SuspendLayout()
         Me.GroupBox15.SuspendLayout()
         CType(Me.LaudosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1964,7 +1965,7 @@ Partial Class FrmLegalizacao
         Me.TabControle.Controls.Add(Me.TabPage6)
         Me.TabControle.Controls.Add(Me.TabPage23)
         Me.TabControle.Controls.Add(Me.TabPage17)
-        Me.TabControle.Controls.Add(Me.TabPage2)
+        Me.TabControle.Controls.Add(Me.TabPageHistorico)
         Me.TabControle.Controls.Add(Me.TabPage25)
         Me.TabControle.Location = New System.Drawing.Point(3, 174)
         Me.TabControle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -2473,6 +2474,21 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
+        '
+        'BtnFormaDeAtuaCNAE
+        '
+        Me.BtnFormaDeAtuaCNAE.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnFormaDeAtuaCNAE.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
+        Me.BtnFormaDeAtuaCNAE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFormaDeAtuaCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFormaDeAtuaCNAE.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnFormaDeAtuaCNAE.Location = New System.Drawing.Point(294, 16)
+        Me.BtnFormaDeAtuaCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnFormaDeAtuaCNAE.Name = "BtnFormaDeAtuaCNAE"
+        Me.BtnFormaDeAtuaCNAE.Size = New System.Drawing.Size(200, 30)
+        Me.BtnFormaDeAtuaCNAE.TabIndex = 93
+        Me.BtnFormaDeAtuaCNAE.Text = "Forma de Atividade da Empresa"
+        Me.BtnFormaDeAtuaCNAE.UseVisualStyleBackColor = False
         '
         'Label6
         '
@@ -5371,19 +5387,19 @@ Partial Class FrmLegalizacao
         Me.Button45.Text = "Solicitar"
         Me.Button45.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'TabPageHistorico
         '
-        Me.TabPage2.Controls.Add(Me.BtnAnotacoesDemais)
-        Me.TabPage2.Controls.Add(Me.Button9)
-        Me.TabPage2.Controls.Add(HistoricoLabel)
-        Me.TabPage2.Controls.Add(Me.HistoricoRichTextBox)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(849, 284)
-        Me.TabPage2.TabIndex = 8
-        Me.TabPage2.Text = "Histórico"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.TabPageHistorico.Controls.Add(Me.BtnAnotacoesDemais)
+        Me.TabPageHistorico.Controls.Add(Me.Button9)
+        Me.TabPageHistorico.Controls.Add(HistoricoLabel)
+        Me.TabPageHistorico.Controls.Add(Me.HistoricoRichTextBox)
+        Me.TabPageHistorico.Location = New System.Drawing.Point(4, 24)
+        Me.TabPageHistorico.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageHistorico.Name = "TabPageHistorico"
+        Me.TabPageHistorico.Size = New System.Drawing.Size(849, 284)
+        Me.TabPageHistorico.TabIndex = 8
+        Me.TabPageHistorico.Text = "Histórico"
+        Me.TabPageHistorico.UseVisualStyleBackColor = True
         '
         'BtnAnotacoesDemais
         '
@@ -5441,6 +5457,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox15.Size = New System.Drawing.Size(849, 284)
         Me.GroupBox15.TabIndex = 0
         Me.GroupBox15.TabStop = False
+        '
+        'BtnVoltarInicio
+        '
+        Me.BtnVoltarInicio.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVoltarInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVoltarInicio.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVoltarInicio.Location = New System.Drawing.Point(424, 41)
+        Me.BtnVoltarInicio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVoltarInicio.Name = "BtnVoltarInicio"
+        Me.BtnVoltarInicio.Size = New System.Drawing.Size(80, 40)
+        Me.BtnVoltarInicio.TabIndex = 47
+        Me.BtnVoltarInicio.Text = "Voltar Inicial"
+        Me.BtnVoltarInicio.UseVisualStyleBackColor = False
         '
         'BtnLimpaAviso
         '
@@ -5734,6 +5763,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox2.Size = New System.Drawing.Size(858, 235)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
+        '
+        'BtnNovaRazao
+        '
+        Me.BtnNovaRazao.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnNovaRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovaRazao.ForeColor = System.Drawing.Color.DarkRed
+        Me.BtnNovaRazao.Location = New System.Drawing.Point(733, 87)
+        Me.BtnNovaRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnNovaRazao.Name = "BtnNovaRazao"
+        Me.BtnNovaRazao.Size = New System.Drawing.Size(85, 25)
+        Me.BtnNovaRazao.TabIndex = 87
+        Me.BtnNovaRazao.Text = "Novo Nome"
+        Me.BtnNovaRazao.UseVisualStyleBackColor = False
         '
         'EndEstadoLabel2
         '
@@ -6212,6 +6254,19 @@ Partial Class FrmLegalizacao
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Procedimentos"
         '
+        'BtnVerAviso
+        '
+        Me.BtnVerAviso.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnVerAviso.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnVerAviso.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnVerAviso.Location = New System.Drawing.Point(293, 69)
+        Me.BtnVerAviso.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnVerAviso.Name = "BtnVerAviso"
+        Me.BtnVerAviso.Size = New System.Drawing.Size(50, 24)
+        Me.BtnVerAviso.TabIndex = 81
+        Me.BtnVerAviso.Text = "Ver"
+        Me.BtnVerAviso.UseVisualStyleBackColor = False
+        '
         'AvisarEmpresaCheckBox
         '
         Me.AvisarEmpresaCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.EmpresasBindingSource, "AvisarEmpresa", True))
@@ -6502,6 +6557,7 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.33937!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.66064!))
+        Me.TableLayoutPanel2.Controls.Add(Me.LabelTipoEmpresa, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label8, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 3)
@@ -6511,6 +6567,18 @@ Partial Class FrmLegalizacao
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(858, 31)
         Me.TableLayoutPanel2.TabIndex = 47
+        '
+        'LabelTipoEmpresa
+        '
+        Me.LabelTipoEmpresa.AutoSize = True
+        Me.LabelTipoEmpresa.Font = New System.Drawing.Font("Microsoft YaHei", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTipoEmpresa.ForeColor = System.Drawing.Color.White
+        Me.LabelTipoEmpresa.Location = New System.Drawing.Point(221, 0)
+        Me.LabelTipoEmpresa.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelTipoEmpresa.Name = "LabelTipoEmpresa"
+        Me.LabelTipoEmpresa.Size = New System.Drawing.Size(0, 31)
+        Me.LabelTipoEmpresa.TabIndex = 1
+        Me.LabelTipoEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label8
         '
@@ -6538,60 +6606,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(156, 23)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'BtnVerAviso
-        '
-        Me.BtnVerAviso.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnVerAviso.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnVerAviso.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVerAviso.Location = New System.Drawing.Point(293, 69)
-        Me.BtnVerAviso.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnVerAviso.Name = "BtnVerAviso"
-        Me.BtnVerAviso.Size = New System.Drawing.Size(50, 24)
-        Me.BtnVerAviso.TabIndex = 81
-        Me.BtnVerAviso.Text = "Ver"
-        Me.BtnVerAviso.UseVisualStyleBackColor = False
-        '
-        'BtnVoltarInicio
-        '
-        Me.BtnVoltarInicio.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnVoltarInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnVoltarInicio.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnVoltarInicio.Location = New System.Drawing.Point(424, 41)
-        Me.BtnVoltarInicio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnVoltarInicio.Name = "BtnVoltarInicio"
-        Me.BtnVoltarInicio.Size = New System.Drawing.Size(80, 40)
-        Me.BtnVoltarInicio.TabIndex = 47
-        Me.BtnVoltarInicio.Text = "Voltar Inicial"
-        Me.BtnVoltarInicio.UseVisualStyleBackColor = False
-        '
-        'BtnNovaRazao
-        '
-        Me.BtnNovaRazao.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnNovaRazao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNovaRazao.ForeColor = System.Drawing.Color.DarkRed
-        Me.BtnNovaRazao.Location = New System.Drawing.Point(733, 87)
-        Me.BtnNovaRazao.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnNovaRazao.Name = "BtnNovaRazao"
-        Me.BtnNovaRazao.Size = New System.Drawing.Size(85, 25)
-        Me.BtnNovaRazao.TabIndex = 87
-        Me.BtnNovaRazao.Text = "Novo Nome"
-        Me.BtnNovaRazao.UseVisualStyleBackColor = False
-        '
-        'BtnFormaDeAtuaCNAE
-        '
-        Me.BtnFormaDeAtuaCNAE.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnFormaDeAtuaCNAE.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
-        Me.BtnFormaDeAtuaCNAE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFormaDeAtuaCNAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFormaDeAtuaCNAE.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnFormaDeAtuaCNAE.Location = New System.Drawing.Point(294, 16)
-        Me.BtnFormaDeAtuaCNAE.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnFormaDeAtuaCNAE.Name = "BtnFormaDeAtuaCNAE"
-        Me.BtnFormaDeAtuaCNAE.Size = New System.Drawing.Size(200, 30)
-        Me.BtnFormaDeAtuaCNAE.TabIndex = 93
-        Me.BtnFormaDeAtuaCNAE.Text = "Forma de Atividade da Empresa"
-        Me.BtnFormaDeAtuaCNAE.UseVisualStyleBackColor = False
         '
         'FrmLegalizacao
         '
@@ -6696,8 +6710,8 @@ Partial Class FrmLegalizacao
         Me.TabPage23.PerformLayout()
         Me.TabPage17.ResumeLayout(False)
         Me.TabPage17.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
+        Me.TabPageHistorico.ResumeLayout(False)
+        Me.TabPageHistorico.PerformLayout()
         Me.TabPage25.ResumeLayout(False)
         Me.GroupBox15.ResumeLayout(False)
         Me.GroupBox15.PerformLayout()
@@ -6881,7 +6895,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents TabPage14 As TabPage
     Friend WithEvents TabPage15 As TabPage
     Friend WithEvents RespRGTextBox As TextBox
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TabPageHistorico As TabPage
     Friend WithEvents HistoricoRichTextBox As RichTextBox
     Friend WithEvents BtnAlteracao As Button
     Friend WithEvents Button9 As Button
@@ -7117,4 +7131,5 @@ Partial Class FrmLegalizacao
     Friend WithEvents BtnVoltarInicio As Button
     Friend WithEvents BtnNovaRazao As Button
     Friend WithEvents BtnFormaDeAtuaCNAE As Button
+    Friend WithEvents LabelTipoEmpresa As Label
 End Class

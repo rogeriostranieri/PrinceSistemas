@@ -58,6 +58,7 @@ Public Class FrmParcelamento
         InssAntigoCheckBox.CheckState = CheckState.Unchecked
         InssNovoCheckBox.CheckState = CheckState.Unchecked
         InssProcurCheckBox.CheckState = CheckState.Unchecked
+        ParaFazerCheckBox.CheckState = CheckState.Unchecked
     End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
@@ -494,7 +495,17 @@ Public Class FrmParcelamento
                         Else
                             ' Se o CNPJ não foi encontrado em Parcelamentos nem em Empresas
                             ProgressBarSalvar.Value = 0
-                            MessageBox.Show("CNPJ não encontrado na base de dados. Por favor, insira os dados manualmente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            MessageBox.Show("CNPJ não encontrado na base de dados. Por favor, realize a importação.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            ' Verifica se o formulário já está aberto
+                            For Each frm As Form In Application.OpenForms
+                                If TypeOf frm Is FrmExtraiCNPJ Then
+                                    frm.Close() ' Fecha o formulário se ele já estiver aberto
+                                    Exit For
+                                End If
+                            Next
+
+                            ' Abre o formulário
+                            FrmExtraiCNPJ.Show()
                         End If
                     End Using
                 Catch ex As Exception

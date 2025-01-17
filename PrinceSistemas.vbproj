@@ -1265,6 +1265,8 @@
     <None Include="Resources\AlteracaoEmpresa.png" />
     <None Include="Resources\baixaEmpresa.png" />
     <None Include="Resources\LOGOsimplesnacional.png" />
+    <None Include="Resources\MEI.png" />
+    <None Include="Resources\MEImenu.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

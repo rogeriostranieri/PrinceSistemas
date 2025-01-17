@@ -2,9 +2,8 @@
     ' Propriedades para receber dados do FrmParcelamento
     Public Property DadosProt As String
     Public Property DadosTotal As String
-
     Public Property DadosParcelamento As String
-
+    Public Property ParcelaEnviada As String
     ' Evento de carregamento do formulário
     Private Sub FrmParcEscolha_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -28,6 +27,36 @@
                 ComboBoxTotalParc.SelectedIndex = 0
             End If
 
+
+
+            ' consultar a aba e colocar os dados 
+            Select Case FrmParcelamento.TabControlParcelamento.SelectedTab.Name
+                Case "TabPageGeral"
+
+                Case "TabPageMei"
+                    If FrmParcelamento.ParcelEnvMEITextBox.Text <> "" Then
+                        TextBoxNparcEnviada.Text = FrmParcelamento.ParcelEnvMEITextBox.Text
+                    End If '
+
+                Case "TabPageINSSAntigo"
+                    If FrmParcelamento.ParcelEnvINSSAntTextBox.Text <> "" Then
+                        TextBoxNparcEnviada.Text = FrmParcelamento.ParcelEnvINSSAntTextBox.Text
+                    End If '
+
+                Case "TabPageINSSNovo"
+                    If FrmParcelamento.ParcelEnvINSSNovTextBox.Text <> "" Then
+                        TextBoxNparcEnviada.Text = FrmParcelamento.ParcelEnvINSSNovTextBox.Text
+                    End If '
+
+
+                Case "TabPageINSSProcuradoria"
+                    If FrmParcelamento.ParcelEnvINSSProcTextBox.Text <> "" Then
+                        TextBoxNparcEnviada.Text = FrmParcelamento.ParcelEnvINSSProcTextBox.Text
+                    End If '
+
+                Case Else
+                    TextBoxNparcEnviada.Text = ""
+            End Select
 
         Catch ex As Exception
             ' Tratamento de erros caso algo falhe ao carregar os dados
@@ -53,155 +82,122 @@
 
     Private Sub BtnRegistrar_Click(sender As Object, e As EventArgs) Handles BtnRegistrar.Click
         Try
-            'deixa N parcela enviada 
+            Dim cultura As New Globalization.CultureInfo("pt-BR")
+            ' Obter valores iniciais
             Dim NParcela As String = TextBoxNparcEnviada.Text
-
-            ' Obter valores para registro de frmParcelamento
             Dim razaoSocial As String = LabelGeral.Text
-
-            ' Obter valores de FrmParcEscolha
             Dim totalParcelamento As Integer
-            Dim parcelaAtual As String ' Agora aceita texto ou número
-            Dim Protocol As String ' Agora aceita texto ou número
+            Dim parcelaAtual As String
+            Dim Protocol As String
+            Dim HoraEnvio As String = DateTime.Now.ToString("'no dia' dd 'de' MMMM 'de' yyyy, dddd 'às' HH:mm:ss", cultura)
 
-            ' Verificar se o ComboBox tem um valor válido para totalParcelamento
+            ' Validar total de parcelamento
             If Not Integer.TryParse(ComboBoxTotalParc.SelectedItem?.ToString(), totalParcelamento) Then
                 MessageBox.Show("O total de parcelamento não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
-            ' Verificar se o TextBoxNparcEnviada contém um valor válido (aceita números ou texto)
+            ' Validar parcela atual
             parcelaAtual = TextBoxNparcEnviada.Text.Trim()
             If String.IsNullOrWhiteSpace(parcelaAtual) Then
                 MessageBox.Show("A parcela atual não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
-            ' Verificar se o ComboBoxProtParc contém um valor válido (aceita números ou texto)
+            ' Validar protocolo
             Protocol = ComboBoxProtParc.SelectedItem?.ToString().Trim()
             If String.IsNullOrWhiteSpace(Protocol) Then
                 MessageBox.Show("O protocolo de parcelamento não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
-
-            ' Obter aba principal selecionada no TabControlParcelamento
+            ' Identificar aba e controles associados
             Dim abaSelecionada As String = ""
             Dim richTextBoxSelecionado As RichTextBox = Nothing
-            Dim HoraEnvio As String = ""
 
-
-            'pegar forma de envio
-            ' Selecionar a aba 1
-            FrmParcelamento.TabControlGeral.SelectedIndex = 1
-
-            ' Voltar para a aba 0
-            FrmParcelamento.TabControlGeral.SelectedIndex = 0
-
-            Dim FormaDeEnvio As String = FrmParcelamento.FormaDeEnvioComboBox.Text
-
-
-            ' Verificar qual aba principal está selecionada no TabControlParcelamento
             Select Case FrmParcelamento.TabControlParcelamento.SelectedTab.Name
-
                 Case "TabPageGeral"
                     abaSelecionada = "Geral"
-                ' Aba Geral não tem sub-abas, portanto richTextBoxSelecionado permanece Nothing.
 
                 Case "TabPageMei"
                     abaSelecionada = "MEI"
-                    ' Selecionar a sub-aba 1 para registro
                     FrmParcelamento.TabControlMei.SelectedIndex = 1
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcMEIRichTextBox
-                    HoraEnvio = FrmParcelamento.DataEnviaMEIMaskedTextBox.Text
+                    HoraEnvio = ValidarHoraEnvio(FrmParcelamento.DataEnviaMEIMaskedTextBox.Text, cultura)
+                   ' FrmParcelamento.ParcelEnvMEITextBox.Text = parcelaAtual
 
                 Case "TabPageINSSAntigo"
                     abaSelecionada = "INSS Antigo"
-                    ' Selecionar a sub-aba 1 para registro
                     FrmParcelamento.TabControlINSSAntigo.SelectedIndex = 1
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcAntigoRichTextBox
-                    HoraEnvio = FrmParcelamento.DataFinalAntigoMaskedTextBox.Text
+                    HoraEnvio = ValidarHoraEnvio(FrmParcelamento.DataEnviaAntigoMaskedTextBox.Text, cultura)
+                  '  FrmParcelamento.ParcelEnvINSSAntTextBox.Text = parcelaAtual
+
                 Case "TabPageINSSNovo"
                     abaSelecionada = "INSS Novo"
-                    ' Selecionar a sub-aba 1 para registro
                     FrmParcelamento.TabControlINSSNovo.SelectedIndex = 1
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcNovoRichTextBox
-                    HoraEnvio = FrmParcelamento.DataFinalNovoMaskedTextBox.Text
+                    HoraEnvio = ValidarHoraEnvio(FrmParcelamento.DataEnvioNovoMaskedTextBox.Text, cultura)
+                    'FrmParcelamento.ParcelEnvINSSNovTextBox.Text = parcelaAtual
 
                 Case "TabPageINSSProcuradoria"
                     abaSelecionada = "INSS Procuradoria"
-                    ' Selecionar a sub-aba 1 para registro
                     FrmParcelamento.TabControlINSSProcuradoria.SelectedIndex = 1
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcProcRichTextBox
-                    HoraEnvio = FrmParcelamento.DataFinalProcMaskedTextBox.Text
-
+                    HoraEnvio = ValidarHoraEnvio(FrmParcelamento.DataEnviaProcMaskedTextBox.Text, cultura)
+                    '  FrmParcelamento.ParcelEnvINSSProcTextBox.Text = parcelaAtual
                 Case Else
                     abaSelecionada = "Indefinida"
             End Select
 
-            'Adiciona data de agora se tiver vazio
-            If HoraEnvio = "" Then
-                HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            End If
-
-            ' Validar os valores capturados
-            If String.IsNullOrWhiteSpace(razaoSocial) Then
-                MessageBox.Show("A razão social não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End If
-
-            ' Exemplo de uso: registrar os dados (simulação de salvamento no banco de dados)
+            ' Gerar mensagem para registro
+            Dim FormaDeEnvio As String = FrmParcelamento.FormaDeEnvioComboBox.Text
             Dim mensagem As String = $"==========================================" & Environment.NewLine &
-                         $"Foi enviado via {FormaDeEnvio} no dia {HoraEnvio}, referente ao {Protocol}, a parcela {parcelaAtual} de um total de {totalParcelamento}."
+                              $"Foi enviado via {FormaDeEnvio}, {HoraEnvio}, referente ao {Protocol}, a parcela {parcelaAtual} de um total de {totalParcelamento}."
 
-
-            ' Verificar se richTextBoxSelecionado está associado a algum campo e registrar a mensagem
+            ' Registrar mensagem no RichTextBox correspondente
             If richTextBoxSelecionado IsNot Nothing Then
                 richTextBoxSelecionado.AppendText(mensagem & Environment.NewLine)
+
+                Select Case FrmParcelamento.TabControlParcelamento.SelectedTab.Name
+                    Case "TabPageGeral"
+                        'nada
+                    Case "TabPageMei"
+                        HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm", cultura)
+                        FrmParcelamento.DataEnviaMEIMaskedTextBox.Text = HoraEnvio
+                        FrmParcelamento.ParcelEnvMEITextBox.Text = parcelaAtual
+
+                    Case "TabPageINSSAntigo"
+                        HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm", cultura)
+                        FrmParcelamento.DataEnviaAntigoMaskedTextBox.Text = HoraEnvio
+                        FrmParcelamento.ParcelEnvINSSAntTextBox.Text = parcelaAtual
+
+                    Case "TabPageINSSNovo"
+                        HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm", cultura)
+                        FrmParcelamento.DataEnvioNovoMaskedTextBox.Text = HoraEnvio
+                        FrmParcelamento.ParcelEnvINSSNovTextBox.Text = parcelaAtual
+
+                    Case "TabPageINSSProcuradoria"
+                        HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm", cultura)
+                        FrmParcelamento.DataEnviaProcMaskedTextBox.Text = HoraEnvio
+                        FrmParcelamento.ParcelEnvINSSProcTextBox.Text = parcelaAtual
+
+                    Case Else
+                        HoraEnvio = DateTime.Now.ToString("dd/MM/yyyy HH:mm", cultura)
+                End Select
+
             Else
-                MessageBox.Show("Nenhuma sub-aba válida foi selecionada para registro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Nenhum RichTextBox foi encontrado para registro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
-            ' Exibição da mensagem de sucesso
+            ' Exibir mensagem de sucesso
             MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' levar dados para o parcelamento apos
-            ' Verificar qual aba principal está selecionada no TabControlParcelamento
-            Select Case FrmParcelamento.TabControlParcelamento.SelectedIndex
-                Case 0
-                    abaSelecionada = "Geral"
-                ' Aba Geral não tem sub-abas, portanto richTextBoxSelecionado permanece Nothing.
-
-                Case 1
-                    abaSelecionada = "MEI"
-                    ' envia o numero da parcela
-                    NParcela = FrmParcelamento.ParcelEnvMEITextBox.Text
-
-                Case 2
-                    abaSelecionada = "INSS Antigo"
-                    'envia o numero da parcela
-                    NParcela = FrmParcelamento.ParcelEnvINSSAntTextBox.Text
-
-                Case 3
-                    abaSelecionada = "INSS Novo"
-                    ' envia o numero da parcela
-                    NParcela = FrmParcelamento.ParcelEnvINSSNovTextBox.Text
-
-                Case 4
-                    abaSelecionada = "INSS Procuradoria"
-                    'envia o numero da parcela
-                    NParcela = FrmParcelamento.ParcelEnvINSSProcTextBox.Text
-
-                Case Else
-                    abaSelecionada = "Indefinida"
-            End Select
-
-
-
-            If ConfirmarFechamento() Then
-                Me.Close()
-            End If
+            ' Confirmar fechamento
+            'If ConfirmarFechamento() Then
+            Me.Close()
+            'End' If
 
         Catch ex As Exception
             ' Tratamento de erros
@@ -209,8 +205,22 @@
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Valida o campo de data e hora para garantir que esteja no formato correto ou use a hora atual.
+    ''' </summary>
+    ''' <param name="dataCampo">Texto do campo de data.</param>
+    ''' <param name="cultura">Cultura para formatação da hora.</param>
+    ''' <returns>String formatada com data e hora válidas.</returns>
+    Private Function ValidarHoraEnvio(dataCampo As String, cultura As Globalization.CultureInfo) As String
+        Dim dataValida As DateTime
+        If String.IsNullOrWhiteSpace(dataCampo) OrElse dataCampo.Trim() = "  /  /" OrElse Not DateTime.TryParse(dataCampo, dataValida) Then
+            Return DateTime.Now.ToString("'no dia' dd 'de' MMMM 'de' yyyy, dddd 'às' HH:mm:ss", cultura)
+        Else
+            Return dataValida.ToString("'no dia' dd 'de' MMMM 'de' yyyy, dddd 'às' HH:mm:ss", cultura)
+        End If
+    End Function
 
-
+    '////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

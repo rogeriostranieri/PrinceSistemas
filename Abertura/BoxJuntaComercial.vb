@@ -32,16 +32,26 @@ Public Class BoxJuntaComercial
     Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
         AbrirJunta()
     End Sub
-
-    Private Sub AbrirJunta()
-        Try
+    Private Sub AchaCidade()
+        If FrmLegalizacao.EndCidadeLabel2.Text = "" Then
             ' Selecionar a aba correta nos TabControles
             FrmLegalizacao.TabControle.SelectTab(1)
             FrmLegalizacao.TabControl2.SelectTab(4)
+            FrmLegalizacao.TabControle.SelectTab(2)
+            LblCidade.Text = FrmLegalizacao.EndEstadoTextBox.Text
+            LblEstado.Text = FrmLegalizacao.EndCidadeTextBox.Text
+
+        Else
+            LblCidade.Text = FrmLegalizacao.EndCidadeLabel2.Text
+            LblEstado.Text = FrmLegalizacao.EndEstadoLabel2.Text
+        End If
+    End Sub
+    Private Sub AbrirJunta()
+        Try
 
             ' Obter Estado e Cidade do formulário
-            Dim estado As String = FrmLegalizacao.EndEstadoTextBox.Text
-            Dim cidade As String = FrmLegalizacao.EndCidadeTextBox.Text
+            Dim estado As String = LblEstado.Text
+            Dim cidade As String = LblCidade.Text
 
             ' Connection string para acessar o banco de dados
             Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
@@ -94,13 +104,9 @@ Public Class BoxJuntaComercial
 
     Private Sub AbrirJuntaLegalizacaoInterno()
         Try
-            ' Selecionar a aba correta nos TabControles do FrmLegalizacao
-            FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(4)
-
-            ' Obter Estado e Cidade do formulário FrmLegalizacao
-            Dim estado As String = FrmLegalizacao.EndEstadoTextBox.Text
-            Dim cidade As String = FrmLegalizacao.EndCidadeTextBox.Text
+            ' Obter Estado e Cidade do formulário
+            Dim estado As String = LblEstado.Text
+            Dim cidade As String = LblCidade.Text
 
             ' Connection string para acessar o banco de dados
             Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
@@ -202,13 +208,10 @@ Public Class BoxJuntaComercial
         ' Ou selecione um item específico pelo valor:
         ' ComboBoxEscolhaProtocolo.SelectedItem = "Redesim"
         Try
-            ' Selecionar a aba correta nos TabControles
-            FrmLegalizacao.TabControle.SelectTab(1)
-            FrmLegalizacao.TabControl2.SelectTab(4)
-            FrmLegalizacao.TabControle.SelectTab(2)
+            AchaCidade()
 
         Catch ex As Exception
-            MessageBox.Show("Erro ao abrir o Formulario Empresa, abrir para usar a função " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro ao encontrar a cidade e estado, favor preencher no cadastro da empresa, erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

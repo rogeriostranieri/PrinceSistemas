@@ -295,6 +295,7 @@ Public Class FrmLegalizacao
             Me.ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
 
+
         Catch ex As Exception
             MessageBox.Show("Ocorreu um Erro ao carregar o formulário" & vbCrLf & ex.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -307,31 +308,19 @@ Public Class FrmLegalizacao
             col.ReadOnly = False
         Next
 
-        ' Inicializa o formulário e configura o estado inicial dos controles
-        AtualizaDados2()
 
         ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
         AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
 
-        ' Carregar dados adicionais, se necessário
-        VerificarFiliais()
-
+        AtualizaDados2()
 
     End Sub
 
 
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
-        VerificarFiliais()
-        'RecarregarFormulario()
-        TipodeEmpresa()
-
-        ' verifica alerta da empresa
-        VerificarAvisoEmpresa()
+        AtualizaDados2()
     End Sub
-
-
-
 
     Private Sub FrmEmpresa_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         AtualizaDados2()
@@ -344,7 +333,18 @@ Public Class FrmLegalizacao
         BtnEditar.Text = "Editar"
         Editar()
         InicializarControles()
+
         VerificarFiliais()
+        'RecarregarFormulario()
+        ' verifica alerta da empresa
+        VerificarAvisoEmpresa()
+
+        ProcessoMudar()
+        StatusMudar()
+        MudaContratoAviso()
+        TipodeEmpresa()
+
+
     End Sub
 
 
@@ -1150,18 +1150,25 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     End Sub
 
-    Private Sub TipodeEmpresa()
-        If TipoDeEmpresaComboBox.Text = "Microempreendedor Indivual ( MEI )" OrElse
-       TipoDeEmpresaComboBox.Text = "Igreja" OrElse
-       TipoDeEmpresaComboBox.Text = "Comunidade e Similares" OrElse
-       TipoDeEmpresaComboBox.Text = "Associação Privada" Then
 
+    Private Sub TipodeEmpresa()
+        Dim tiposCartorio As String() = {
+        "Microempreendedor Indivual ( MEI )",
+        "Igreja",
+        "Comunidade e Similares",
+        "Associação Privada"
+    }
+
+        Dim tipoSelecionado As String = TipoDeEmpresaComboBox.Text
+
+        ' Configuração geral baseada no tipo de empresa
+        If tiposCartorio.Contains(tipoSelecionado) Then
             Button24.Visible = True
             Button20.Visible = False
             Button25.Visible = True
 
             NAlteracaoComboBox.Visible = False
-            NAlteracaoLabel.Visible = False
+            NAlteracaoLabel.Visible = True
             LabelConsolidar.Visible = False
             AltConsolidadaComboBox.Visible = False
             NovaRazaoSocialLabel.Visible = False
@@ -1184,7 +1191,32 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
             NAlteracaoLabel.Text = "Nº.:"
         End If
+
+        ' Atualizar o LabelTipoEmpresa baseado no tipo de empresa
+        Select Case tipoSelecionado
+            Case "Microempreendedor Indivual ( MEI )"
+                LabelTipoEmpresa.Text = "MEI"
+            Case "Sociedade Empresária Limitada ( Ltda. )"
+                LabelTipoEmpresa.Text = "Limitada - LTDA"
+            Case "Empresa Individual de Responsabilidade Limitada ( Eireli )"
+                LabelTipoEmpresa.Text = "Eireli"
+            Case "Empresa individual(RE)"
+                LabelTipoEmpresa.Text = "Empresa individual"
+            Case "Sociedade Anônima(SA)"
+                LabelTipoEmpresa.Text = "Sociedade Anônima"
+            Case "Sociedade Simples"
+                LabelTipoEmpresa.Text = "Sociedade Simples"
+            Case "Igreja"
+                LabelTipoEmpresa.Text = "Igreja"
+            Case "Comunidade e Similares"
+                LabelTipoEmpresa.Text = "Comunidade e Similares"
+            Case "Associação Privada"
+                LabelTipoEmpresa.Text = "Associação Privada"
+            Case Else
+                LabelTipoEmpresa.Text = ""
+        End Select
     End Sub
+
 
 
 
@@ -1420,17 +1452,16 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub BtnAlteracao_Click(sender As Object, e As EventArgs) Handles BtnAlteracao.Click
         Try
             If MsgBox("Limpar o Procedimento e salvar no Histórico?", MsgBoxStyle.YesNo, "Salvar") = MsgBoxResult.Yes Then
-                ' Alternar entre as guias
-                Dim tabsToSelect = {0, 2, 3, 4, 7}
-                For Each index In tabsToSelect
-                    TabControle.SelectTab(index)
+                ' Percorrer todas as abas do TabControle
+                For Each tab As TabPage In TabControle.TabPages
+                    TabControle.SelectTab(tab)
                 Next
 
-                Dim tabsToSelect2 = {6}
-                For Each index In tabsToSelect2
-                    TabControl2.SelectTab(index)
-                Next
-
+                ' Selecionar a TabPage específica onde o histórico será salvo
+                Dim tabPageHistorico As TabPage = tabPageHistorico
+                If tabPageHistorico IsNot Nothing Then
+                    TabControle.SelectTab(tabPageHistorico)
+                End If
 
                 ' Capturar os valores dos campos
                 Dim A = NAlteracaoComboBox.Text.ToString()
@@ -1441,7 +1472,6 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                 Dim G = ProtocoloREDESIMTextBox.Text.ToString()
                 Dim RazaoAntiga = RazaoSocialAntigaTextBox.Text.ToString()
                 Dim RazaoAtual = RazaoSocialTextBox.Text.ToString()
-
 
                 ' Atualizar o histórico
                 HistoricoRichTextBox.AppendText(
@@ -1460,13 +1490,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
                 ' Verificar se é uma nova alteração ou mudar o status
                 HandleProcessStatus(A, B, C, D, F, G)
-
             End If
 
         Catch ex As Exception
             MessageBox.Show("Erro ao salvar no Histórico" & vbCrLf & ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+
 
     Private Sub ClearFields()
         ' Limpar campos
@@ -4335,5 +4365,12 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Sub BtnFormaDeAtuaCNAE_Click(sender As Object, e As EventArgs) Handles BtnFormaDeAtuaCNAE.Click
         TabControl2.SelectedIndex = 7
+    End Sub
+
+    Private Sub ProcessoComboBox_TextUpdate(sender As Object, e As EventArgs) Handles ProcessoComboBox.TextUpdate
+
+        ProcessoMudar()
+        StatusMudar()
+        MudaContratoAviso()
     End Sub
 End Class

@@ -986,7 +986,7 @@ Partial Class FrmParcelamento
         Me.TabPage2.Location = New System.Drawing.Point(4, 27)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(775, 235)
+        Me.TabPage2.Size = New System.Drawing.Size(775, 250)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Envio"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1035,7 +1035,7 @@ Partial Class FrmParcelamento
         Me.TabPage5.Controls.Add(Me.SocioTextBox)
         Me.TabPage5.Location = New System.Drawing.Point(4, 27)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(775, 235)
+        Me.TabPage5.Size = New System.Drawing.Size(775, 250)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Responsável"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -1069,7 +1069,7 @@ Partial Class FrmParcelamento
         '
         Me.TabPage6.Location = New System.Drawing.Point(4, 27)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(775, 235)
+        Me.TabPage6.Size = New System.Drawing.Size(775, 250)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Endereço"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -1203,7 +1203,7 @@ Partial Class FrmParcelamento
         Me.TabPageGeral.Controls.Add(Me.GeralRichTextBox)
         Me.TabPageGeral.Location = New System.Drawing.Point(4, 30)
         Me.TabPageGeral.Name = "TabPageGeral"
-        Me.TabPageGeral.Size = New System.Drawing.Size(781, 334)
+        Me.TabPageGeral.Size = New System.Drawing.Size(781, 265)
         Me.TabPageGeral.TabIndex = 4
         Me.TabPageGeral.Text = "Geral"
         Me.TabPageGeral.UseVisualStyleBackColor = True
@@ -1223,7 +1223,7 @@ Partial Class FrmParcelamento
         Me.TabPageMei.Location = New System.Drawing.Point(4, 30)
         Me.TabPageMei.Name = "TabPageMei"
         Me.TabPageMei.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMei.Size = New System.Drawing.Size(781, 334)
+        Me.TabPageMei.Size = New System.Drawing.Size(781, 265)
         Me.TabPageMei.TabIndex = 0
         Me.TabPageMei.Text = "MEI"
         Me.TabPageMei.UseVisualStyleBackColor = True
@@ -1237,7 +1237,7 @@ Partial Class FrmParcelamento
         Me.TabControlMei.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMei.Name = "TabControlMei"
         Me.TabControlMei.SelectedIndex = 0
-        Me.TabControlMei.Size = New System.Drawing.Size(775, 328)
+        Me.TabControlMei.Size = New System.Drawing.Size(775, 259)
         Me.TabControlMei.TabIndex = 0
         '
         'TabPage9
@@ -1264,7 +1264,7 @@ Partial Class FrmParcelamento
         Me.TabPage9.Location = New System.Drawing.Point(4, 27)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(767, 297)
+        Me.TabPage9.Size = New System.Drawing.Size(767, 228)
         Me.TabPage9.TabIndex = 0
         Me.TabPage9.Text = "Parcelamento"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1390,7 +1390,7 @@ Partial Class FrmParcelamento
         Me.TabPage10.Location = New System.Drawing.Point(4, 27)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(767, 235)
+        Me.TabPage10.Size = New System.Drawing.Size(767, 228)
         Me.TabPage10.TabIndex = 1
         Me.TabPage10.Text = "Histórico de Envio"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -1401,7 +1401,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcMEIRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcMEIRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcMEIRichTextBox.Name = "EnviaParcMEIRichTextBox"
-        Me.EnviaParcMEIRichTextBox.Size = New System.Drawing.Size(761, 229)
+        Me.EnviaParcMEIRichTextBox.Size = New System.Drawing.Size(761, 222)
         Me.EnviaParcMEIRichTextBox.TabIndex = 1
         Me.EnviaParcMEIRichTextBox.Text = ""
         '
@@ -1411,7 +1411,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSAntigo.Location = New System.Drawing.Point(4, 30)
         Me.TabPageINSSAntigo.Name = "TabPageINSSAntigo"
         Me.TabPageINSSAntigo.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageINSSAntigo.Size = New System.Drawing.Size(781, 334)
+        Me.TabPageINSSAntigo.Size = New System.Drawing.Size(781, 265)
         Me.TabPageINSSAntigo.TabIndex = 1
         Me.TabPageINSSAntigo.Text = "INSS Antigo"
         Me.TabPageINSSAntigo.UseVisualStyleBackColor = True
@@ -1425,7 +1425,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSAntigo.Name = "TabControlINSSAntigo"
         Me.TabControlINSSAntigo.SelectedIndex = 0
-        Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 328)
+        Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 259)
         Me.TabControlINSSAntigo.TabIndex = 1
         '
         'TabPage11
@@ -1452,7 +1452,7 @@ Partial Class FrmParcelamento
         Me.TabPage11.Location = New System.Drawing.Point(4, 27)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(767, 297)
+        Me.TabPage11.Size = New System.Drawing.Size(767, 228)
         Me.TabPage11.TabIndex = 0
         Me.TabPage11.Text = "Parcelamento"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -1579,7 +1579,7 @@ Partial Class FrmParcelamento
         Me.TabPage12.Location = New System.Drawing.Point(4, 27)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(767, 235)
+        Me.TabPage12.Size = New System.Drawing.Size(767, 297)
         Me.TabPage12.TabIndex = 1
         Me.TabPage12.Text = "Histórico de Envio"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1590,7 +1590,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcAntigoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcAntigoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcAntigoRichTextBox.Name = "EnviaParcAntigoRichTextBox"
-        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 229)
+        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 291)
         Me.EnviaParcAntigoRichTextBox.TabIndex = 1
         Me.EnviaParcAntigoRichTextBox.Text = ""
         '
@@ -1599,7 +1599,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSNovo.Controls.Add(Me.TabControlINSSNovo)
         Me.TabPageINSSNovo.Location = New System.Drawing.Point(4, 30)
         Me.TabPageINSSNovo.Name = "TabPageINSSNovo"
-        Me.TabPageINSSNovo.Size = New System.Drawing.Size(781, 334)
+        Me.TabPageINSSNovo.Size = New System.Drawing.Size(781, 265)
         Me.TabPageINSSNovo.TabIndex = 2
         Me.TabPageINSSNovo.Text = "INSS Novo"
         Me.TabPageINSSNovo.UseVisualStyleBackColor = True
@@ -1613,7 +1613,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSNovo.Name = "TabControlINSSNovo"
         Me.TabControlINSSNovo.SelectedIndex = 0
-        Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 334)
+        Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSNovo.TabIndex = 1
         '
         'TabPage13
@@ -1640,7 +1640,7 @@ Partial Class FrmParcelamento
         Me.TabPage13.Location = New System.Drawing.Point(4, 27)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(773, 303)
+        Me.TabPage13.Size = New System.Drawing.Size(773, 234)
         Me.TabPage13.TabIndex = 0
         Me.TabPage13.Text = "Parcelamento"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -1767,7 +1767,7 @@ Partial Class FrmParcelamento
         Me.TabPage14.Location = New System.Drawing.Point(4, 27)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(773, 241)
+        Me.TabPage14.Size = New System.Drawing.Size(773, 234)
         Me.TabPage14.TabIndex = 1
         Me.TabPage14.Text = "Histórico de Envio"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -1778,7 +1778,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcNovoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcNovoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcNovoRichTextBox.Name = "EnviaParcNovoRichTextBox"
-        Me.EnviaParcNovoRichTextBox.Size = New System.Drawing.Size(767, 235)
+        Me.EnviaParcNovoRichTextBox.Size = New System.Drawing.Size(767, 228)
         Me.EnviaParcNovoRichTextBox.TabIndex = 1
         Me.EnviaParcNovoRichTextBox.Text = ""
         '
@@ -1956,7 +1956,7 @@ Partial Class FrmParcelamento
         Me.TabPage16.Location = New System.Drawing.Point(4, 27)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(773, 241)
+        Me.TabPage16.Size = New System.Drawing.Size(773, 234)
         Me.TabPage16.TabIndex = 1
         Me.TabPage16.Text = "Histórico de Envio"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -1967,7 +1967,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcProcRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcProcRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcProcRichTextBox.Name = "EnviaParcProcRichTextBox"
-        Me.EnviaParcProcRichTextBox.Size = New System.Drawing.Size(767, 235)
+        Me.EnviaParcProcRichTextBox.Size = New System.Drawing.Size(767, 228)
         Me.EnviaParcProcRichTextBox.TabIndex = 1
         Me.EnviaParcProcRichTextBox.Text = ""
         '

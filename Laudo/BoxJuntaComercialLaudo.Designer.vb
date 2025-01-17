@@ -32,6 +32,10 @@ Partial Class BoxJuntaComercialLaudo
         Me.UsarLaudoCheck = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CopiarLaudoCheck = New System.Windows.Forms.CheckBox()
+        Me.LblEstado = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblCidade = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -156,6 +160,48 @@ Partial Class BoxJuntaComercialLaudo
         Me.CopiarLaudoCheck.Text = "Copiar Nº Laudo"
         Me.CopiarLaudoCheck.UseVisualStyleBackColor = False
         '
+        'LblEstado
+        '
+        Me.LblEstado.AutoSize = True
+        Me.LblEstado.BackColor = System.Drawing.Color.Transparent
+        Me.LblEstado.Location = New System.Drawing.Point(67, 233)
+        Me.LblEstado.Name = "LblEstado"
+        Me.LblEstado.Size = New System.Drawing.Size(104, 16)
+        Me.LblEstado.TabIndex = 39
+        Me.LblEstado.Text = "Não encontrado"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(2, 233)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 20)
+        Me.Label5.TabIndex = 38
+        Me.Label5.Text = "Estado:"
+        '
+        'LblCidade
+        '
+        Me.LblCidade.AutoSize = True
+        Me.LblCidade.BackColor = System.Drawing.Color.Transparent
+        Me.LblCidade.Location = New System.Drawing.Point(67, 210)
+        Me.LblCidade.Name = "LblCidade"
+        Me.LblCidade.Size = New System.Drawing.Size(104, 16)
+        Me.LblCidade.TabIndex = 37
+        Me.LblCidade.Text = "Não encontrado"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(4, 210)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(70, 20)
+        Me.Label3.TabIndex = 36
+        Me.Label3.Text = "Cidade:"
+        '
         'BoxJuntaComercialLaudo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -163,6 +209,10 @@ Partial Class BoxJuntaComercialLaudo
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(523, 251)
+        Me.Controls.Add(Me.LblEstado)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.LblCidade)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CopiarLaudoCheck)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.UsarLaudoCheck)
@@ -195,4 +245,8 @@ Partial Class BoxJuntaComercialLaudo
     Friend WithEvents UsarLaudoCheck As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents CopiarLaudoCheck As CheckBox
+    Friend WithEvents LblEstado As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents LblCidade As Label
+    Friend WithEvents Label3 As Label
 End Class

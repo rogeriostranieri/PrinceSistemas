@@ -36,7 +36,7 @@ Partial Class FrmParcEscolha
         'ComboBoxProtParc
         '
         Me.ComboBoxProtParc.FormattingEnabled = True
-        Me.ComboBoxProtParc.Location = New System.Drawing.Point(216, 69)
+        Me.ComboBoxProtParc.Location = New System.Drawing.Point(206, 100)
         Me.ComboBoxProtParc.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBoxProtParc.Name = "ComboBoxProtParc"
         Me.ComboBoxProtParc.Size = New System.Drawing.Size(257, 26)
@@ -46,7 +46,7 @@ Partial Class FrmParcEscolha
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(13, 72)
+        Me.Label1.Location = New System.Drawing.Point(3, 103)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(195, 18)
@@ -57,7 +57,7 @@ Partial Class FrmParcEscolha
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(81, 106)
+        Me.Label2.Location = New System.Drawing.Point(71, 137)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(127, 18)
@@ -68,7 +68,7 @@ Partial Class FrmParcEscolha
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(50, 140)
+        Me.Label3.Location = New System.Drawing.Point(40, 171)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(158, 18)
@@ -79,7 +79,7 @@ Partial Class FrmParcEscolha
         '
         Me.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRegistrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRegistrar.Location = New System.Drawing.Point(216, 170)
+        Me.BtnRegistrar.Location = New System.Drawing.Point(206, 201)
         Me.BtnRegistrar.Name = "BtnRegistrar"
         Me.BtnRegistrar.Size = New System.Drawing.Size(257, 46)
         Me.BtnRegistrar.TabIndex = 4
@@ -89,7 +89,7 @@ Partial Class FrmParcEscolha
         'ComboBoxTotalParc
         '
         Me.ComboBoxTotalParc.FormattingEnabled = True
-        Me.ComboBoxTotalParc.Location = New System.Drawing.Point(216, 103)
+        Me.ComboBoxTotalParc.Location = New System.Drawing.Point(206, 134)
         Me.ComboBoxTotalParc.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBoxTotalParc.Name = "ComboBoxTotalParc"
         Me.ComboBoxTotalParc.Size = New System.Drawing.Size(257, 26)
@@ -97,7 +97,7 @@ Partial Class FrmParcEscolha
         '
         'TextBoxNparcEnviada
         '
-        Me.TextBoxNparcEnviada.Location = New System.Drawing.Point(216, 136)
+        Me.TextBoxNparcEnviada.Location = New System.Drawing.Point(206, 167)
         Me.TextBoxNparcEnviada.Name = "TextBoxNparcEnviada"
         Me.TextBoxNparcEnviada.Size = New System.Drawing.Size(257, 24)
         Me.TextBoxNparcEnviada.TabIndex = 6
@@ -106,9 +106,10 @@ Partial Class FrmParcEscolha
         '
         Me.LabelGeral.AutoSize = True
         Me.LabelGeral.BackColor = System.Drawing.Color.Transparent
-        Me.LabelGeral.Location = New System.Drawing.Point(213, 11)
+        Me.LabelGeral.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGeral.Location = New System.Drawing.Point(11, 9)
         Me.LabelGeral.Name = "LabelGeral"
-        Me.LabelGeral.Size = New System.Drawing.Size(51, 18)
+        Me.LabelGeral.Size = New System.Drawing.Size(92, 29)
         Me.LabelGeral.TabIndex = 7
         Me.LabelGeral.Text = "Label4"
         '
@@ -116,9 +117,10 @@ Partial Class FrmParcEscolha
         '
         Me.Lbltexto.AutoSize = True
         Me.Lbltexto.BackColor = System.Drawing.Color.Transparent
-        Me.Lbltexto.Location = New System.Drawing.Point(213, 47)
+        Me.Lbltexto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbltexto.Location = New System.Drawing.Point(13, 44)
         Me.Lbltexto.Name = "Lbltexto"
-        Me.Lbltexto.Size = New System.Drawing.Size(51, 18)
+        Me.Lbltexto.Size = New System.Drawing.Size(66, 24)
         Me.Lbltexto.TabIndex = 8
         Me.Lbltexto.Text = "Label4"
         '
@@ -131,7 +133,7 @@ Partial Class FrmParcEscolha
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(513, 235)
+        Me.ClientSize = New System.Drawing.Size(480, 261)
         Me.Controls.Add(Me.Lbltexto)
         Me.Controls.Add(Me.LabelGeral)
         Me.Controls.Add(Me.TextBoxNparcEnviada)

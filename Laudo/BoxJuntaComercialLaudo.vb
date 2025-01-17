@@ -85,6 +85,29 @@ Public Class BoxJuntaComercialLaudo
         End If
         ComboBox1.Focus()
         ComboBox1.DroppedDown = True
+
+        Try
+            AchaCidade()
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao encontrar a cidade e estado, favor preencher no cadastro da empresa, erro:" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    Private Sub AchaCidade()
+        If FrmAlvara.EndCidadeLabel2.Text = "" Then
+            ' Selecionar a aba correta nos TabControles
+            FrmAlvara.TabAlvara.SelectTab(0)
+            FrmAlvara.TabControl2.SelectTab(1)
+            LblCidade.Text = FrmAlvara.EndCidadeTextBox.Text
+            LblEstado.Text = FrmAlvara.EndEstadoTextBox.Text
+
+
+        Else
+            LblCidade.Text = FrmAlvara.EndCidadeLabel2.Text
+            LblEstado.Text = FrmAlvara.EndEstadoLabel2.Text
+        End If
     End Sub
 
 
@@ -106,13 +129,10 @@ Public Class BoxJuntaComercialLaudo
     ' Função genérica para abrir links baseado na seleção e no botão clicado
     Private Sub AbrirSite(interno As Boolean)
         Try
-            ' Selecionar a aba correta no formulário FrmAlvara
-            FrmAlvara.TabAlvara.SelectTab(0)
-            FrmAlvara.TabControl2.SelectTab(1)
 
             ' Obter Estado e Cidade do formulário FrmAlvara
-            Dim estado As String = FrmAlvara.EndEstadoTextBox.Text
-            Dim cidade As String = FrmAlvara.EndCidadeTextBox.Text
+            Dim cidade As String = LblCidade.Text
+            Dim estado As String = LblEstado.Text
 
             ' Certifique-se de que o estado e cidade não estão vazios
             If String.IsNullOrEmpty(estado) Or String.IsNullOrEmpty(cidade) Then
