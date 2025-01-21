@@ -107,7 +107,7 @@ Public Class FrmParcelamento
                     ' Mensagem de confirmação
                     MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     BtnEditar.PerformClick()
-
+                    AtualizarFiltro()
                 Catch ex As Exception
                     ' Trata erros durante o salvamento
                     MessageBox.Show("Erro ao salvar as alterações: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -116,6 +116,7 @@ Public Class FrmParcelamento
                 ' Rejeita as alterações se o usuário optar por não salvar
                 PrinceDBDataSet.Parcelamentos.RejectChanges()
                 MessageBox.Show("Alterações descartadas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                AtualizarFiltro()
             End If
         Else
             ' Mensagem caso não haja alterações
@@ -312,16 +313,41 @@ Public Class FrmParcelamento
 
 
     Private Sub FinalizadoEmpresaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FinalizadoEmpresaComboBox.SelectedIndexChanged
-
+        ' Verifica se a seleção é "Sim"
         If FinalizadoEmpresaComboBox.Text = "Sim" Then
+            ' Torna visíveis o rótulo e o campo de data
             LabelDataFinalizado.Visible = True
             DataFinalizadoMaskedTextBox.Visible = True
+            LinkLabelAgoraFinal.Visible = True
+
+            ' Solicita confirmação antes de desmarcar os CheckBoxes
+            Dim confirmResult As DialogResult = MessageBox.Show(
+            "Você tem certeza de que deseja finalizar e desmarcar todas as opções?",
+            "Confirmação de Finalização",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+        )
+
+            If confirmResult = DialogResult.Yes Then
+                ' Desmarca todos os CheckBoxes
+                MEICheckBox.CheckState = CheckState.Unchecked
+                InssAntigoCheckBox.CheckState = CheckState.Unchecked
+                InssNovoCheckBox.CheckState = CheckState.Unchecked
+                InssProcurCheckBox.CheckState = CheckState.Unchecked
+                ParaFazerCheckBox.CheckState = CheckState.Unchecked
+            Else
+                ' Reverte o ComboBox para o estado anterior
+                FinalizadoEmpresaComboBox.SelectedIndex = -1
+            End If
 
         Else
+            ' Oculta o rótulo e o campo de data se "Sim" não for selecionado
             LabelDataFinalizado.Visible = False
             DataFinalizadoMaskedTextBox.Visible = False
+            LinkLabelAgoraFinal.Visible = False
         End If
     End Sub
+
 
     Private Sub FinalizadoMEIComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FinalizadoMEIComboBox.SelectedIndexChanged
         If FinalizadoMEIComboBox.Text = "Sim" Then
@@ -641,25 +667,32 @@ Public Class FrmParcelamento
                 frmEscolha.DadosProt = ProtNovoRichTextBox.Text
                 frmEscolha.DadosTotal = TotalParcNovoTextBox.Text
                 frmEscolha.DadosParcelamento = "Registro para INSS - Novo"
+                frmEscolha.DataEnviado = DataEnvioNovoMaskedTextBox.Text
 
             Case "TabPageINSSProcuradoria"
                 ' Transferir dados da aba Procuradoria
                 frmEscolha.DadosProt = ProtprocRichTextBox.Text
                 frmEscolha.DadosTotal = TotalParcProcTextBox.Text
                 frmEscolha.DadosParcelamento = "Registro para INSS - Procuradoria"
+                frmEscolha.DataEnviado = DataEnviaProcMaskedTextBox.Text
 
             Case "TabPageINSSAntigo"
                 ' Transferir dados da aba Antigo
                 frmEscolha.DadosProt = ProtAntigoRichTextBox.Text
                 frmEscolha.DadosTotal = TotalParcAntigoTextBox.Text
                 frmEscolha.DadosParcelamento = "Registro para INSS - Antigo"
+                frmEscolha.DataEnviado = DataEnviaAntigoMaskedTextBox.Text
 
             Case "TabPageMei"
                 ' Transferir dados da aba MEI
                 frmEscolha.DadosProt = ProtMEITextBox.Text
                 frmEscolha.DadosTotal = TotalParcMEITextBox.Text
                 frmEscolha.DadosParcelamento = "Registro para MEI"
+                frmEscolha.DataEnviado = DataEnviaMEIMaskedTextBox.Text
         End Select
+
+        TabControlGeral.SelectedIndex = 1
+        frmEscolha.FormaDeEnvio = FormaDeEnvioComboBox.Text
 
         ' Abrir o formulário FrmParcEscolha
         frmEscolha.Show()
@@ -736,5 +769,82 @@ Public Class FrmParcelamento
             ButtonAtualizar.Visible = False
         End If
 
+    End Sub
+
+    Private Sub CheckBoxNaoEnviado_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxNaoEnviado.CheckedChanged
+        AtualizarFiltro()
+    End Sub
+
+    Private Sub CheckBoxFiltroEmAndamento_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFiltroEmAndamento.CheckedChanged
+        AtualizarFiltro()
+    End Sub
+
+    Private Sub AtualizarFiltro()
+        ' Variáveis para armazenar os filtros
+        Dim filtroMes As String = String.Empty
+        Dim filtroEmpresa As String = String.Empty
+        Dim filtroParaFazer As String = String.Empty
+
+        ' Verifica se a opção "Não Enviado" está marcada
+        If CheckBoxNaoEnviado.Checked Then
+            ' Obtém o mês atual com a primeira letra maiúscula e o restante minúscula
+            Dim mesAtual As String = Char.ToUpper(MonthName(DateTime.Now.Month)(0)) & MonthName(DateTime.Now.Month).Substring(1).ToLower()
+
+            ' Exibe o mês atual para depuração
+            '  MessageBox.Show("Mês Atual: " & mesAtual, "Depuração", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Aplica o filtro para ocultar registros que já foram enviados no mês atual
+            filtroMes = $"FinalizadoMesGeral <> '{mesAtual}'"
+        End If
+
+        ' Verifica se o filtro "Em Andamento" está marcado
+        If CheckBoxFiltroEmAndamento.Checked Then
+            filtroEmpresa = "FinalizadoEmpresa = 'Não'"
+        End If
+        'colocar aqui o CheckBoxParaFazer.checked SIM e se for marcado vai filtrar tambem "ParaFazer" 
+        If CheckBoxParaFazer.Checked Then
+            filtroParaFazer = "ParaFazer = 'Checked'"
+        End If
+
+
+        ' Montando o filtro final
+        Dim filtroFinal As String = String.Empty
+
+        ' Se todos os filtros existirem, combina com "AND"
+        If Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroEmpresa) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroMes} AND {filtroEmpresa} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroEmpresa) Then
+            filtroFinal = $"{filtroEmpresa} AND {filtroMes}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroMes} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroEmpresa) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroEmpresa} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) Then
+            filtroFinal = filtroMes
+        ElseIf Not String.IsNullOrEmpty(filtroEmpresa) Then
+            filtroFinal = filtroEmpresa
+        ElseIf Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = filtroParaFazer
+        End If
+
+        ' Aplica o filtro final
+        If Not String.IsNullOrEmpty(filtroFinal) Then
+            ParcelamentosBindingSource.Filter = filtroFinal
+        Else
+            ' Caso nenhum filtro seja configurado, exibe mensagem de depuração
+            '  MessageBox.Show("Nenhum filtro foi aplicado.", "Depuração", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ParcelamentosBindingSource.Filter = String.Empty
+        End If
+
+        ' Exibe o filtro final para depuração
+        ' MessageBox.Show("Filtro Final: " & filtroFinal, "Depuração", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub LinkLabelAgoraFinal_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAgoraFinal.LinkClicked
+        DataFinalizadoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+    End Sub
+
+    Private Sub CheckBoxParaFazer_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxParaFazer.CheckedChanged
+        AtualizarFiltro()
     End Sub
 End Class

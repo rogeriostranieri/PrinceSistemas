@@ -74,6 +74,7 @@ Partial Class FrmParcelamento
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TabControlGeral = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.LinkLabelAgoraFinal = New System.Windows.Forms.LinkLabel()
         Me.ParaFazerCheckBox = New System.Windows.Forms.CheckBox()
         Me.ButtonAtualizar = New System.Windows.Forms.Button()
         Me.BtnConsultaSimplesNacional = New System.Windows.Forms.Button()
@@ -104,6 +105,8 @@ Partial Class FrmParcelamento
         Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.SocioTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.CheckBoxNaoEnviado = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxFiltroEmAndamento = New System.Windows.Forms.CheckBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.BtnFechar = New System.Windows.Forms.Button()
         Me.BtnExcluir = New System.Windows.Forms.Button()
@@ -117,6 +120,7 @@ Partial Class FrmParcelamento
         Me.TabPageMei = New System.Windows.Forms.TabPage()
         Me.TabControlMei = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.AtrasoParcelaMEICheckBox = New System.Windows.Forms.CheckBox()
         Me.BtnAgoraMEI = New System.Windows.Forms.Button()
         Me.BtnRegistrarMEI = New System.Windows.Forms.Button()
         Me.LblFinalizadoDataMEI = New System.Windows.Forms.Label()
@@ -134,6 +138,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSAntigo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSAntigo = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.AtrasoParcelaINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSAntigo = New System.Windows.Forms.Button()
@@ -151,6 +156,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSNovo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSNovo = New System.Windows.Forms.TabControl()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
+        Me.AtrasoParcelaINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcNovoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSNovo = New System.Windows.Forms.Button()
@@ -168,6 +174,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSProcuradoria = New System.Windows.Forms.TabPage()
         Me.TabControlINSSProcuradoria = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.AtrasoParcelaINSSProcuCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcProcTextBox = New System.Windows.Forms.TextBox()
         Me.ProtprocRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSProcuradoria = New System.Windows.Forms.Button()
@@ -183,6 +190,8 @@ Partial Class FrmParcelamento
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.EnviaParcProcRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxParaFazer = New System.Windows.Forms.CheckBox()
         Me.ParcelamentosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -265,6 +274,7 @@ Partial Class FrmParcelamento
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         CType(Me.ParcelamentosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ParcelamentosBindingNavigator.SuspendLayout()
         Me.SuspendLayout()
@@ -598,12 +608,13 @@ Partial Class FrmParcelamento
         '
         FinalizadoMesGeralLabel.AutoSize = True
         FinalizadoMesGeralLabel.BackColor = System.Drawing.Color.Transparent
+        FinalizadoMesGeralLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         FinalizadoMesGeralLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         FinalizadoMesGeralLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        FinalizadoMesGeralLabel.ForeColor = System.Drawing.Color.Black
+        FinalizadoMesGeralLabel.ForeColor = System.Drawing.Color.White
         FinalizadoMesGeralLabel.Location = New System.Drawing.Point(446, 20)
         FinalizadoMesGeralLabel.Name = "FinalizadoMesGeralLabel"
-        FinalizadoMesGeralLabel.Size = New System.Drawing.Size(167, 18)
+        FinalizadoMesGeralLabel.Size = New System.Drawing.Size(169, 20)
         FinalizadoMesGeralLabel.TabIndex = 22
         FinalizadoMesGeralLabel.Text = "Fechamento do Mês:"
         '
@@ -643,7 +654,7 @@ Partial Class FrmParcelamento
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 39)
+        Me.Label2.Location = New System.Drawing.Point(-1, 33)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(101, 18)
         Me.Label2.TabIndex = 6
@@ -652,7 +663,7 @@ Partial Class FrmParcelamento
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(527, 39)
+        Me.Label1.Location = New System.Drawing.Point(511, 33)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 18)
         Me.Label1.TabIndex = 5
@@ -665,9 +676,9 @@ Partial Class FrmParcelamento
         Me.ComboBox1.DataSource = Me.ParcelamentosBindingSource
         Me.ComboBox1.DisplayMember = "CNPJ"
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(585, 36)
+        Me.ComboBox1.Location = New System.Drawing.Point(569, 30)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(191, 26)
+        Me.ComboBox1.Size = New System.Drawing.Size(178, 26)
         Me.ComboBox1.TabIndex = 4
         '
         'ParcelamentosBindingSource
@@ -687,7 +698,7 @@ Partial Class FrmParcelamento
         Me.ComboBoxBuscarRazaoSocial.DataSource = Me.ParcelamentosBindingSource
         Me.ComboBoxBuscarRazaoSocial.DisplayMember = "RazaoSocial"
         Me.ComboBoxBuscarRazaoSocial.FormattingEnabled = True
-        Me.ComboBoxBuscarRazaoSocial.Location = New System.Drawing.Point(122, 36)
+        Me.ComboBoxBuscarRazaoSocial.Location = New System.Drawing.Point(100, 30)
         Me.ComboBoxBuscarRazaoSocial.Name = "ComboBoxBuscarRazaoSocial"
         Me.ComboBoxBuscarRazaoSocial.Size = New System.Drawing.Size(402, 26)
         Me.ComboBoxBuscarRazaoSocial.TabIndex = 3
@@ -730,6 +741,7 @@ Partial Class FrmParcelamento
         'TabPage1
         '
         Me.TabPage1.AutoScroll = True
+        Me.TabPage1.Controls.Add(Me.LinkLabelAgoraFinal)
         Me.TabPage1.Controls.Add(Me.ParaFazerCheckBox)
         Me.TabPage1.Controls.Add(Me.ButtonAtualizar)
         Me.TabPage1.Controls.Add(Me.BtnConsultaSimplesNacional)
@@ -757,6 +769,16 @@ Partial Class FrmParcelamento
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Empresa"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'LinkLabelAgoraFinal
+        '
+        Me.LinkLabelAgoraFinal.AutoSize = True
+        Me.LinkLabelAgoraFinal.Location = New System.Drawing.Point(692, 104)
+        Me.LinkLabelAgoraFinal.Name = "LinkLabelAgoraFinal"
+        Me.LinkLabelAgoraFinal.Size = New System.Drawing.Size(47, 18)
+        Me.LinkLabelAgoraFinal.TabIndex = 29
+        Me.LinkLabelAgoraFinal.TabStop = True
+        Me.LinkLabelAgoraFinal.Text = "Agora"
         '
         'ParaFazerCheckBox
         '
@@ -1074,6 +1096,26 @@ Partial Class FrmParcelamento
         Me.TabPage6.Text = "Endereço"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'CheckBoxNaoEnviado
+        '
+        Me.CheckBoxNaoEnviado.AutoSize = True
+        Me.CheckBoxNaoEnviado.Location = New System.Drawing.Point(7, 52)
+        Me.CheckBoxNaoEnviado.Name = "CheckBoxNaoEnviado"
+        Me.CheckBoxNaoEnviado.Size = New System.Drawing.Size(130, 24)
+        Me.CheckBoxNaoEnviado.TabIndex = 30
+        Me.CheckBoxNaoEnviado.Text = """Não Enviado"""
+        Me.CheckBoxNaoEnviado.UseVisualStyleBackColor = True
+        '
+        'CheckBoxFiltroEmAndamento
+        '
+        Me.CheckBoxFiltroEmAndamento.AutoSize = True
+        Me.CheckBoxFiltroEmAndamento.Location = New System.Drawing.Point(7, 22)
+        Me.CheckBoxFiltroEmAndamento.Name = "CheckBoxFiltroEmAndamento"
+        Me.CheckBoxFiltroEmAndamento.Size = New System.Drawing.Size(151, 24)
+        Me.CheckBoxFiltroEmAndamento.TabIndex = 29
+        Me.CheckBoxFiltroEmAndamento.Text = """Em Andamento"""
+        Me.CheckBoxFiltroEmAndamento.UseVisualStyleBackColor = True
+        '
         'GroupBox4
         '
         Me.GroupBox4.AutoSize = True
@@ -1086,7 +1128,7 @@ Partial Class FrmParcelamento
         Me.GroupBox4.Location = New System.Drawing.Point(789, 70)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(119, 304)
+        Me.GroupBox4.Size = New System.Drawing.Size(160, 304)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Menu"
@@ -1101,7 +1143,7 @@ Partial Class FrmParcelamento
         Me.BtnFechar.Location = New System.Drawing.Point(7, 228)
         Me.BtnFechar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnFechar.Name = "BtnFechar"
-        Me.BtnFechar.Size = New System.Drawing.Size(103, 41)
+        Me.BtnFechar.Size = New System.Drawing.Size(130, 41)
         Me.BtnFechar.TabIndex = 7
         Me.BtnFechar.Text = "Fechar"
         Me.BtnFechar.UseVisualStyleBackColor = True
@@ -1116,7 +1158,7 @@ Partial Class FrmParcelamento
         Me.BtnExcluir.Location = New System.Drawing.Point(7, 176)
         Me.BtnExcluir.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnExcluir.Name = "BtnExcluir"
-        Me.BtnExcluir.Size = New System.Drawing.Size(103, 41)
+        Me.BtnExcluir.Size = New System.Drawing.Size(130, 41)
         Me.BtnExcluir.TabIndex = 6
         Me.BtnExcluir.Text = "Excluir"
         Me.BtnExcluir.UseVisualStyleBackColor = True
@@ -1131,7 +1173,7 @@ Partial Class FrmParcelamento
         Me.BtnEditar.Location = New System.Drawing.Point(7, 72)
         Me.BtnEditar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(103, 41)
+        Me.BtnEditar.Size = New System.Drawing.Size(130, 41)
         Me.BtnEditar.TabIndex = 5
         Me.BtnEditar.Text = "Editar"
         Me.BtnEditar.UseVisualStyleBackColor = True
@@ -1146,7 +1188,7 @@ Partial Class FrmParcelamento
         Me.BtnSalvar.Location = New System.Drawing.Point(7, 124)
         Me.BtnSalvar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnSalvar.Name = "BtnSalvar"
-        Me.BtnSalvar.Size = New System.Drawing.Size(103, 41)
+        Me.BtnSalvar.Size = New System.Drawing.Size(130, 41)
         Me.BtnSalvar.TabIndex = 4
         Me.BtnSalvar.Text = "Salvar"
         Me.BtnSalvar.UseVisualStyleBackColor = True
@@ -1161,7 +1203,7 @@ Partial Class FrmParcelamento
         Me.BtnNovo.Location = New System.Drawing.Point(7, 20)
         Me.BtnNovo.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnNovo.Name = "BtnNovo"
-        Me.BtnNovo.Size = New System.Drawing.Size(103, 41)
+        Me.BtnNovo.Size = New System.Drawing.Size(130, 41)
         Me.BtnNovo.TabIndex = 3
         Me.BtnNovo.Text = "Novo"
         Me.BtnNovo.UseVisualStyleBackColor = True
@@ -1243,6 +1285,7 @@ Partial Class FrmParcelamento
         'TabPage9
         '
         Me.TabPage9.AutoScroll = True
+        Me.TabPage9.Controls.Add(Me.AtrasoParcelaMEICheckBox)
         Me.TabPage9.Controls.Add(Me.BtnAgoraMEI)
         Me.TabPage9.Controls.Add(Me.BtnRegistrarMEI)
         Me.TabPage9.Controls.Add(Me.LblFinalizadoDataMEI)
@@ -1268,6 +1311,16 @@ Partial Class FrmParcelamento
         Me.TabPage9.TabIndex = 0
         Me.TabPage9.Text = "Parcelamento"
         Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'AtrasoParcelaMEICheckBox
+        '
+        Me.AtrasoParcelaMEICheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaMEI", True))
+        Me.AtrasoParcelaMEICheckBox.Location = New System.Drawing.Point(137, 116)
+        Me.AtrasoParcelaMEICheckBox.Name = "AtrasoParcelaMEICheckBox"
+        Me.AtrasoParcelaMEICheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.AtrasoParcelaMEICheckBox.TabIndex = 21
+        Me.AtrasoParcelaMEICheckBox.Text = "Em Atraso"
+        Me.AtrasoParcelaMEICheckBox.UseVisualStyleBackColor = True
         '
         'BtnAgoraMEI
         '
@@ -1431,6 +1484,7 @@ Partial Class FrmParcelamento
         'TabPage11
         '
         Me.TabPage11.AutoScroll = True
+        Me.TabPage11.Controls.Add(Me.AtrasoParcelaINSSAntigoCheckBox)
         Me.TabPage11.Controls.Add(Me.TotalParcAntigoTextBox)
         Me.TabPage11.Controls.Add(Me.ProtAntigoRichTextBox)
         Me.TabPage11.Controls.Add(Me.BtnAgoraINSSAntigo)
@@ -1456,6 +1510,16 @@ Partial Class FrmParcelamento
         Me.TabPage11.TabIndex = 0
         Me.TabPage11.Text = "Parcelamento"
         Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'AtrasoParcelaINSSAntigoCheckBox
+        '
+        Me.AtrasoParcelaINSSAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSAntigo", True))
+        Me.AtrasoParcelaINSSAntigoCheckBox.Location = New System.Drawing.Point(148, 142)
+        Me.AtrasoParcelaINSSAntigoCheckBox.Name = "AtrasoParcelaINSSAntigoCheckBox"
+        Me.AtrasoParcelaINSSAntigoCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.AtrasoParcelaINSSAntigoCheckBox.TabIndex = 25
+        Me.AtrasoParcelaINSSAntigoCheckBox.Text = "Em Atraso"
+        Me.AtrasoParcelaINSSAntigoCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcAntigoTextBox
         '
@@ -1579,7 +1643,7 @@ Partial Class FrmParcelamento
         Me.TabPage12.Location = New System.Drawing.Point(4, 27)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(767, 297)
+        Me.TabPage12.Size = New System.Drawing.Size(767, 228)
         Me.TabPage12.TabIndex = 1
         Me.TabPage12.Text = "Histórico de Envio"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1590,7 +1654,7 @@ Partial Class FrmParcelamento
         Me.EnviaParcAntigoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EnviaParcAntigoRichTextBox.Location = New System.Drawing.Point(3, 3)
         Me.EnviaParcAntigoRichTextBox.Name = "EnviaParcAntigoRichTextBox"
-        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 291)
+        Me.EnviaParcAntigoRichTextBox.Size = New System.Drawing.Size(761, 222)
         Me.EnviaParcAntigoRichTextBox.TabIndex = 1
         Me.EnviaParcAntigoRichTextBox.Text = ""
         '
@@ -1619,6 +1683,7 @@ Partial Class FrmParcelamento
         'TabPage13
         '
         Me.TabPage13.AutoScroll = True
+        Me.TabPage13.Controls.Add(Me.AtrasoParcelaINSSNovoCheckBox)
         Me.TabPage13.Controls.Add(Me.TotalParcNovoTextBox)
         Me.TabPage13.Controls.Add(Me.ProtNovoRichTextBox)
         Me.TabPage13.Controls.Add(Me.BtnAgoraINSSNovo)
@@ -1644,6 +1709,16 @@ Partial Class FrmParcelamento
         Me.TabPage13.TabIndex = 0
         Me.TabPage13.Text = "Parcelamento"
         Me.TabPage13.UseVisualStyleBackColor = True
+        '
+        'AtrasoParcelaINSSNovoCheckBox
+        '
+        Me.AtrasoParcelaINSSNovoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSNovo", True))
+        Me.AtrasoParcelaINSSNovoCheckBox.Location = New System.Drawing.Point(148, 142)
+        Me.AtrasoParcelaINSSNovoCheckBox.Name = "AtrasoParcelaINSSNovoCheckBox"
+        Me.AtrasoParcelaINSSNovoCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.AtrasoParcelaINSSNovoCheckBox.TabIndex = 25
+        Me.AtrasoParcelaINSSNovoCheckBox.Text = "Em Atraso"
+        Me.AtrasoParcelaINSSNovoCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcNovoTextBox
         '
@@ -1807,6 +1882,7 @@ Partial Class FrmParcelamento
         'TabPage15
         '
         Me.TabPage15.AutoScroll = True
+        Me.TabPage15.Controls.Add(Me.AtrasoParcelaINSSProcuCheckBox)
         Me.TabPage15.Controls.Add(Me.TotalParcProcTextBox)
         Me.TabPage15.Controls.Add(Me.ProtprocRichTextBox)
         Me.TabPage15.Controls.Add(Me.BtnAgoraINSSProcuradoria)
@@ -1832,6 +1908,16 @@ Partial Class FrmParcelamento
         Me.TabPage15.TabIndex = 0
         Me.TabPage15.Text = "Parcelamento"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'AtrasoParcelaINSSProcuCheckBox
+        '
+        Me.AtrasoParcelaINSSProcuCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSProcu", True))
+        Me.AtrasoParcelaINSSProcuCheckBox.Location = New System.Drawing.Point(148, 142)
+        Me.AtrasoParcelaINSSProcuCheckBox.Name = "AtrasoParcelaINSSProcuCheckBox"
+        Me.AtrasoParcelaINSSProcuCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.AtrasoParcelaINSSProcuCheckBox.TabIndex = 26
+        Me.AtrasoParcelaINSSProcuCheckBox.Text = "Em Atraso"
+        Me.AtrasoParcelaINSSProcuCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcProcTextBox
         '
@@ -1987,6 +2073,7 @@ Partial Class FrmParcelamento
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ProgressBarSalvar, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox7, 1, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -1996,8 +2083,33 @@ Partial Class FrmParcelamento
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 316.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(908, 710)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(949, 710)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.CheckBoxParaFazer)
+        Me.GroupBox7.Controls.Add(Me.CheckBoxNaoEnviado)
+        Me.GroupBox7.Controls.Add(Me.CheckBoxFiltroEmAndamento)
+        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox7.Location = New System.Drawing.Point(789, 374)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(0)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(0)
+        Me.GroupBox7.Size = New System.Drawing.Size(157, 122)
+        Me.GroupBox7.TabIndex = 7
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Filtrar Dados"
+        '
+        'CheckBoxParaFazer
+        '
+        Me.CheckBoxParaFazer.AutoSize = True
+        Me.CheckBoxParaFazer.Location = New System.Drawing.Point(7, 82)
+        Me.CheckBoxParaFazer.Name = "CheckBoxParaFazer"
+        Me.CheckBoxParaFazer.Size = New System.Drawing.Size(118, 24)
+        Me.CheckBoxParaFazer.TabIndex = 31
+        Me.CheckBoxParaFazer.Text = """Para Fazer"""
+        Me.CheckBoxParaFazer.UseVisualStyleBackColor = True
         '
         'ParcelamentosBindingNavigator
         '
@@ -2013,7 +2125,7 @@ Partial Class FrmParcelamento
         Me.ParcelamentosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ParcelamentosBindingNavigator.Name = "ParcelamentosBindingNavigator"
         Me.ParcelamentosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ParcelamentosBindingNavigator.Size = New System.Drawing.Size(908, 25)
+        Me.ParcelamentosBindingNavigator.Size = New System.Drawing.Size(949, 25)
         Me.ParcelamentosBindingNavigator.TabIndex = 1
         Me.ParcelamentosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -2127,7 +2239,7 @@ Partial Class FrmParcelamento
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(908, 710)
+        Me.ClientSize = New System.Drawing.Size(949, 710)
         Me.Controls.Add(Me.ParcelamentosBindingNavigator)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.KeyPreview = True
@@ -2177,6 +2289,8 @@ Partial Class FrmParcelamento
         Me.TabPage16.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         CType(Me.ParcelamentosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ParcelamentosBindingNavigator.ResumeLayout(False)
         Me.ParcelamentosBindingNavigator.PerformLayout()
@@ -2319,4 +2433,13 @@ Partial Class FrmParcelamento
     Friend WithEvents Label2 As Label
     Friend WithEvents ComboBoxBuscarRazaoSocial As ComboBox
     Friend WithEvents ParaFazerCheckBox As CheckBox
+    Friend WithEvents CheckBoxFiltroEmAndamento As CheckBox
+    Friend WithEvents CheckBoxNaoEnviado As CheckBox
+    Friend WithEvents AtrasoParcelaMEICheckBox As CheckBox
+    Friend WithEvents AtrasoParcelaINSSAntigoCheckBox As CheckBox
+    Friend WithEvents AtrasoParcelaINSSNovoCheckBox As CheckBox
+    Friend WithEvents AtrasoParcelaINSSProcuCheckBox As CheckBox
+    Friend WithEvents LinkLabelAgoraFinal As LinkLabel
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents CheckBoxParaFazer As CheckBox
 End Class

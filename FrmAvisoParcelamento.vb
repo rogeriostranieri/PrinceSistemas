@@ -81,9 +81,13 @@
     End Sub
 
     Private Sub FiltroParcelamentos()
-        'FILTRO  EMPRESA
-        Dim FilterA As String = LblDataAviso.Text
-        ParcelamentosBindingSource.Filter = "DataLembrete like '" & FilterA & "%'"
+        ' FILTRO EMPRESA
+        Dim Data As String = Avisos.MaskedTextBox1.Text
+        Dim FilterA As String = Data
+        Dim FilterB As String = "Checked"
+
+        ' Aplicar filtro considerando a DataLembrete e a coluna ParaFazer marcada como Checked
+        ParcelamentosBindingSource.Filter = $"DataLembrete LIKE '{FilterA}%' Or ParaFazer = '{FilterB}'"
     End Sub
 
     Private Sub ParcelamentosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ParcelamentosDataGridView.CellContentDoubleClick

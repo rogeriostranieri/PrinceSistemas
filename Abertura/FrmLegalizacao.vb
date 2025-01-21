@@ -320,10 +320,14 @@ Public Class FrmLegalizacao
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
         AtualizaDados2()
+        ProcessoMudar()
+        TipodeEmpresa()
     End Sub
 
     Private Sub FrmEmpresa_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         AtualizaDados2()
+        ProcessoMudar()
+        TipodeEmpresa()
     End Sub
 
 
@@ -423,6 +427,13 @@ Public Class FrmLegalizacao
                 PictureBoxCentralProcesso.Image = My.Resources.AberturaEmpresa
                 PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
 
+                'bota para ver razao social e busca
+                BtnVerNovoNome.Visible = True
+                BtnVerNovoNome.Location = New Point(208, 111)
+                BtnVerNovoNome.Size = New Size(120, 24)
+                BtnVerNovoNome.Text = "Busca de Nome"
+
+
 
             ElseIf ProcessoComboBox.Text = "Alteração" Then
                 NAlteracaoComboBox.Visible = True
@@ -440,6 +451,12 @@ Public Class FrmLegalizacao
 
                 CapitalAntigoMudouLabel.Visible = True
                 CapitalAntigoMudouComboBox.Visible = True
+                'bota para ver razao social e busca
+                BtnVerNovoNome.Visible = True
+                BtnVerNovoNome.Location = New Point(391, 143)
+                BtnVerNovoNome.Size = New Size(50, 24)
+                BtnVerNovoNome.Text = "Ver"
+
 
             ElseIf ProcessoComboBox.Text = "Baixa" Then
                 ' MotivoRichTextBox.Visible = False
@@ -458,7 +475,8 @@ Public Class FrmLegalizacao
 
                 CapitalAntigoMudouLabel.Visible = True
                 CapitalAntigoMudouComboBox.Visible = True
-
+                'botao busca de nome
+                BtnVerNovoNome.Visible = False
 
 
             Else
@@ -478,6 +496,11 @@ Public Class FrmLegalizacao
                 'imagem central
                 PictureBoxCentralProcesso.Visible = False
 
+                'bota para ver razao social e busca
+                BtnVerNovoNome.Visible = True
+                BtnVerNovoNome.Location = New Point(391, 143)
+                BtnVerNovoNome.Size = New Size(50, 24)
+                BtnVerNovoNome.Text = "Ver"
             End If
 
         Catch ex As Exception

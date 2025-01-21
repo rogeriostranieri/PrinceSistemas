@@ -270,6 +270,8 @@ Public Class FrmCNAEoficial
     End Sub
 
     Private Sub TextBoxBusca_MouseEnter(sender As Object, e As EventArgs) Handles TextBoxBusca.MouseEnter
-        TextBoxBusca.Text = ""
+        If TextBoxBusca.Text = "Digite aqui o que deseja busca" Then
+            TextBoxBusca.Text = ""
+        End If
     End Sub
 End Class

@@ -14703,6 +14703,14 @@ Partial Public Class PrinceDBDataSet
         
         Private columnParaFazer As Global.System.Data.DataColumn
         
+        Private columnAtrasoParcelaMEI As Global.System.Data.DataColumn
+        
+        Private columnAtrasoParcelaINSSAntigo As Global.System.Data.DataColumn
+        
+        Private columnAtrasoParcelaINSSNovo As Global.System.Data.DataColumn
+        
+        Private columnAtrasoParcelaINSSProcu As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -15195,6 +15203,38 @@ Partial Public Class PrinceDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AtrasoParcelaMEIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAtrasoParcelaMEI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AtrasoParcelaINSSAntigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAtrasoParcelaINSSAntigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AtrasoParcelaINSSNovoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAtrasoParcelaINSSNovo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property AtrasoParcelaINSSProcuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAtrasoParcelaINSSProcu
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -15287,9 +15327,13 @@ Partial Public Class PrinceDBDataSet
                     ByVal FinalizadoINSSProc As String,  _
                     ByVal FinalizadoMesGeral As String,  _
                     ByVal Geral As String,  _
-                    ByVal ParaFazer As String) As ParcelamentosRow
+                    ByVal ParaFazer As String,  _
+                    ByVal AtrasoParcelaMEI As String,  _
+                    ByVal AtrasoParcelaINSSAntigo As String,  _
+                    ByVal AtrasoParcelaINSSNovo As String,  _
+                    ByVal AtrasoParcelaINSSProcu As String) As ParcelamentosRow
             Dim rowParcelamentosRow As ParcelamentosRow = CType(Me.NewRow,ParcelamentosRow)
-            Dim columnValuesArray() As Object = New Object() {RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, Nothing, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer}
+            Dim columnValuesArray() As Object = New Object() {RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, Nothing, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer, AtrasoParcelaMEI, AtrasoParcelaINSSAntigo, AtrasoParcelaINSSNovo, AtrasoParcelaINSSProcu}
             rowParcelamentosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowParcelamentosRow)
             Return rowParcelamentosRow
@@ -15375,6 +15419,10 @@ Partial Public Class PrinceDBDataSet
             Me.columnFinalizadoMesGeral = MyBase.Columns("FinalizadoMesGeral")
             Me.columnGeral = MyBase.Columns("Geral")
             Me.columnParaFazer = MyBase.Columns("ParaFazer")
+            Me.columnAtrasoParcelaMEI = MyBase.Columns("AtrasoParcelaMEI")
+            Me.columnAtrasoParcelaINSSAntigo = MyBase.Columns("AtrasoParcelaINSSAntigo")
+            Me.columnAtrasoParcelaINSSNovo = MyBase.Columns("AtrasoParcelaINSSNovo")
+            Me.columnAtrasoParcelaINSSProcu = MyBase.Columns("AtrasoParcelaINSSProcu")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15494,6 +15542,14 @@ Partial Public Class PrinceDBDataSet
             MyBase.Columns.Add(Me.columnGeral)
             Me.columnParaFazer = New Global.System.Data.DataColumn("ParaFazer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnParaFazer)
+            Me.columnAtrasoParcelaMEI = New Global.System.Data.DataColumn("AtrasoParcelaMEI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAtrasoParcelaMEI)
+            Me.columnAtrasoParcelaINSSAntigo = New Global.System.Data.DataColumn("AtrasoParcelaINSSAntigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAtrasoParcelaINSSAntigo)
+            Me.columnAtrasoParcelaINSSNovo = New Global.System.Data.DataColumn("AtrasoParcelaINSSNovo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAtrasoParcelaINSSNovo)
+            Me.columnAtrasoParcelaINSSProcu = New Global.System.Data.DataColumn("AtrasoParcelaINSSProcu", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAtrasoParcelaINSSProcu)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_Parcel}, true))
             Me.columnRazaoSocial.MaxLength = 2147483647
             Me.columnCNPJ.MaxLength = 2147483647
@@ -15557,6 +15613,10 @@ Partial Public Class PrinceDBDataSet
             Me.columnFinalizadoMesGeral.MaxLength = 2147483647
             Me.columnGeral.MaxLength = 2147483647
             Me.columnParaFazer.MaxLength = 2147483647
+            Me.columnAtrasoParcelaMEI.MaxLength = 2147483647
+            Me.columnAtrasoParcelaINSSAntigo.MaxLength = 2147483647
+            Me.columnAtrasoParcelaINSSNovo.MaxLength = 2147483647
+            Me.columnAtrasoParcelaINSSProcu.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -29190,6 +29250,66 @@ Partial Public Class PrinceDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AtrasoParcelaMEI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.AtrasoParcelaMEIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AtrasoParcelaMEI' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.AtrasoParcelaMEIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AtrasoParcelaINSSAntigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.AtrasoParcelaINSSAntigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AtrasoParcelaINSSAntigo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.AtrasoParcelaINSSAntigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AtrasoParcelaINSSNovo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.AtrasoParcelaINSSNovoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AtrasoParcelaINSSNovo' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.AtrasoParcelaINSSNovoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property AtrasoParcelaINSSProcu() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcelamentos.AtrasoParcelaINSSProcuColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'AtrasoParcelaINSSProcu' na tabela 'Parcelamentos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcelamentos.AtrasoParcelaINSSProcuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsRazaoSocialNull() As Boolean
             Return Me.IsNull(Me.tableParcelamentos.RazaoSocialColumn)
         End Function
@@ -29858,6 +29978,54 @@ Partial Public Class PrinceDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetParaFazerNull()
             Me(Me.tableParcelamentos.ParaFazerColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAtrasoParcelaMEINull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.AtrasoParcelaMEIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAtrasoParcelaMEINull()
+            Me(Me.tableParcelamentos.AtrasoParcelaMEIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAtrasoParcelaINSSAntigoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.AtrasoParcelaINSSAntigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAtrasoParcelaINSSAntigoNull()
+            Me(Me.tableParcelamentos.AtrasoParcelaINSSAntigoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAtrasoParcelaINSSNovoNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.AtrasoParcelaINSSNovoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAtrasoParcelaINSSNovoNull()
+            Me(Me.tableParcelamentos.AtrasoParcelaINSSNovoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAtrasoParcelaINSSProcuNull() As Boolean
+            Return Me.IsNull(Me.tableParcelamentos.AtrasoParcelaINSSProcuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAtrasoParcelaINSSProcuNull()
+            Me(Me.tableParcelamentos.AtrasoParcelaINSSProcuColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -49217,6 +49385,10 @@ Namespace PrinceDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("FinalizadoMesGeral", "FinalizadoMesGeral")
             tableMapping.ColumnMappings.Add("Geral", "Geral")
             tableMapping.ColumnMappings.Add("ParaFazer", "ParaFazer")
+            tableMapping.ColumnMappings.Add("AtrasoParcelaMEI", "AtrasoParcelaMEI")
+            tableMapping.ColumnMappings.Add("AtrasoParcelaINSSAntigo", "AtrasoParcelaINSSAntigo")
+            tableMapping.ColumnMappings.Add("AtrasoParcelaINSSNovo", "AtrasoParcelaINSSNovo")
+            tableMapping.ColumnMappings.Add("AtrasoParcelaINSSProcu", "AtrasoParcelaINSSProcu")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -49236,28 +49408,31 @@ Namespace PrinceDBDataSetTableAdapters
                 "c], [TotalParcProc], [EnviaParcProc], [ParcelEnvMEI], [ParcelEnvINSSAnt], [Parce"& _ 
                 "lEnvINSSNov], [ParcelEnvINSSProc], [FinalizadoEmpresa], [FinalizadoMEI], [Finali"& _ 
                 "zadoINSSAnt], [FinalizadoINSSNov], [FinalizadoINSSProc], [FinalizadoMesGeral], ["& _ 
-                "Geral], [ParaFazer]) VALUES (@RazaoSocial, @CNPJ, @FormaDeEnvio, @Responsavel, @"& _ 
-                "Whatsapp, @Email, @Socio, @CPF, @SenhaGov, @DataCriacao, @DataLembrete, @DataFin"& _ 
-                "alizado, @MEI, @InssAntigo, @InssNovo, @InssProcur, @DataSolicMEI, @DataEnviaMEI"& _ 
-                ", @DataFinalMEI, @MotivoMEI, @ProtMEI, @TotalParcMEI, @EnviaParcMEI, @DataSolicA"& _ 
-                "ntigo, @DataEnviaAntigo, @DataFinalAntigo, @MotivoAntigo, @ProtAntigo, @TotalPar"& _ 
-                "cAntigo, @EnviaParcAntigo, @DataSolicNovo, @DataEnvioNovo, @DataFinalNovo, @Moti"& _ 
-                "voNovo, @ProtNovo, @TotalParcNovo, @EnviaParcNovo, @DataSolicProc, @DataEnviaPro"& _ 
-                "c, @DataFinalProc, @MotivoProc, @Protproc, @TotalParcProc, @EnviaParcProc, @Parc"& _ 
-                "elEnvMEI, @ParcelEnvINSSAnt, @ParcelEnvINSSNov, @ParcelEnvINSSProc, @FinalizadoE"& _ 
-                "mpresa, @FinalizadoMEI, @FinalizadoINSSAnt, @FinalizadoINSSNov, @FinalizadoINSSP"& _ 
-                "roc, @FinalizadoMesGeral, @Geral, @ParaFazer);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RazaoSocial, CNPJ, FormaD"& _ 
-                "eEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao, DataLem"& _ 
-                "brete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolicMEI, Data"& _ 
-                "EnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI, DataSoli"& _ 
-                "cAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, TotalParcAn"& _ 
-                "tigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, MotivoNovo, "& _ 
-                "ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, DataFinalP"& _ 
-                "roc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, ID_Parcel, ParcelEnvMEI"& _ 
-                ", ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpresa, Fina"& _ 
-                "lizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, FinalizadoM"& _ 
-                "esGeral, Geral, ParaFazer FROM Parcelamentos WHERE (ID_Parcel = SCOPE_IDENTITY()"& _ 
-                ")"
+                "Geral], [ParaFazer], [AtrasoParcelaMEI], [AtrasoParcelaINSSAntigo], [AtrasoParce"& _ 
+                "laINSSNovo], [AtrasoParcelaINSSProcu]) VALUES (@RazaoSocial, @CNPJ, @FormaDeEnvi"& _ 
+                "o, @Responsavel, @Whatsapp, @Email, @Socio, @CPF, @SenhaGov, @DataCriacao, @Data"& _ 
+                "Lembrete, @DataFinalizado, @MEI, @InssAntigo, @InssNovo, @InssProcur, @DataSolic"& _ 
+                "MEI, @DataEnviaMEI, @DataFinalMEI, @MotivoMEI, @ProtMEI, @TotalParcMEI, @EnviaPa"& _ 
+                "rcMEI, @DataSolicAntigo, @DataEnviaAntigo, @DataFinalAntigo, @MotivoAntigo, @Pro"& _ 
+                "tAntigo, @TotalParcAntigo, @EnviaParcAntigo, @DataSolicNovo, @DataEnvioNovo, @Da"& _ 
+                "taFinalNovo, @MotivoNovo, @ProtNovo, @TotalParcNovo, @EnviaParcNovo, @DataSolicP"& _ 
+                "roc, @DataEnviaProc, @DataFinalProc, @MotivoProc, @Protproc, @TotalParcProc, @En"& _ 
+                "viaParcProc, @ParcelEnvMEI, @ParcelEnvINSSAnt, @ParcelEnvINSSNov, @ParcelEnvINSS"& _ 
+                "Proc, @FinalizadoEmpresa, @FinalizadoMEI, @FinalizadoINSSAnt, @FinalizadoINSSNov"& _ 
+                ", @FinalizadoINSSProc, @FinalizadoMesGeral, @Geral, @ParaFazer, @AtrasoParcelaME"& _ 
+                "I, @AtrasoParcelaINSSAntigo, @AtrasoParcelaINSSNovo, @AtrasoParcelaINSSProcu);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "SELECT RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF"& _ 
+                ", SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo"& _ 
+                ", InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, Tota"& _ 
+                "lParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, Motiv"& _ 
+                "oAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioN"& _ 
+                "ovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSoli"& _ 
+                "cProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaP"& _ 
+                "arcProc, ID_Parcel, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvI"& _ 
+                "NSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov,"& _ 
+                " FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer, AtrasoParcelaMEI, Atr"& _ 
+                "asoParcelaINSSAntigo, AtrasoParcelaINSSNovo, AtrasoParcelaINSSProcu FROM Parcela"& _ 
+                "mentos WHERE (ID_Parcel = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -49315,6 +49490,10 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMesGeral", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMesGeral", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Geral", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Geral", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ParaFazer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ParaFazer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSProcu", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSProcu", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Parcelamentos] SET [RazaoSocial] = @RazaoSocial, [CNPJ] = @CNPJ, [FormaDe"& _ 
@@ -49339,18 +49518,21 @@ Namespace PrinceDBDataSetTableAdapters
                 ", [FinalizadoMEI] = @FinalizadoMEI, [FinalizadoINSSAnt] = @FinalizadoINSSAnt, [F"& _ 
                 "inalizadoINSSNov] = @FinalizadoINSSNov, [FinalizadoINSSProc] = @FinalizadoINSSPr"& _ 
                 "oc, [FinalizadoMesGeral] = @FinalizadoMesGeral, [Geral] = @Geral, [ParaFazer] = "& _ 
-                "@ParaFazer WHERE (([ID_Parcel] = @Original_ID_Parcel));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RazaoSocial, CNP"& _ 
-                "J, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao"& _ 
-                ", DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolic"& _ 
-                "MEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI,"& _ 
-                " DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, To"& _ 
-                "talParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, Mot"& _ 
-                "ivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, D"& _ 
-                "ataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, ID_Parcel, Par"& _ 
-                "celEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpr"& _ 
-                "esa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, Fi"& _ 
-                "nalizadoMesGeral, Geral, ParaFazer FROM Parcelamentos WHERE (ID_Parcel = @ID_Par"& _ 
-                "cel)"
+                "@ParaFazer, [AtrasoParcelaMEI] = @AtrasoParcelaMEI, [AtrasoParcelaINSSAntigo] = "& _ 
+                "@AtrasoParcelaINSSAntigo, [AtrasoParcelaINSSNovo] = @AtrasoParcelaINSSNovo, [Atr"& _ 
+                "asoParcelaINSSProcu] = @AtrasoParcelaINSSProcu WHERE (([ID_Parcel] = @Original_I"& _ 
+                "D_Parcel));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Emai"& _ 
+                "l, Socio, CPF, SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAnt"& _ 
+                "igo, InssNovo, InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, "& _ 
+                "ProtMEI, TotalParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinal"& _ 
+                "Antigo, MotivoAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNov"& _ 
+                "o, DataEnvioNovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcN"& _ 
+                "ovo, DataSolicProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalPar"& _ 
+                "cProc, EnviaParcProc, ID_Parcel, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNo"& _ 
+                "v, ParcelEnvINSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, Final"& _ 
+                "izadoINSSNov, FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer, AtrasoPa"& _ 
+                "rcelaMEI, AtrasoParcelaINSSAntigo, AtrasoParcelaINSSNovo, AtrasoParcelaINSSProcu"& _ 
+                " FROM Parcelamentos WHERE (ID_Parcel = @ID_Parcel)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazaoSocial", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazaoSocial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -49408,6 +49590,10 @@ Namespace PrinceDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FinalizadoMesGeral", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FinalizadoMesGeral", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Geral", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Geral", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ParaFazer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ParaFazer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaMEI", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaMEI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSAntigo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSAntigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSNovo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSNovo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AtrasoParcelaINSSProcu", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AtrasoParcelaINSSProcu", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Parcel", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcel", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Parcel", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Parcel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -49562,7 +49748,11 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal FinalizadoINSSProc As String,  _
                     ByVal FinalizadoMesGeral As String,  _
                     ByVal Geral As String,  _
-                    ByVal ParaFazer As String) As Integer
+                    ByVal ParaFazer As String,  _
+                    ByVal AtrasoParcelaMEI As String,  _
+                    ByVal AtrasoParcelaINSSAntigo As String,  _
+                    ByVal AtrasoParcelaINSSNovo As String,  _
+                    ByVal AtrasoParcelaINSSProcu As String) As Integer
             If (RazaoSocial Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -49843,6 +50033,26 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(55).Value = CType(ParaFazer,String)
             End If
+            If (AtrasoParcelaMEI Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(AtrasoParcelaMEI,String)
+            End If
+            If (AtrasoParcelaINSSAntigo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(57).Value = CType(AtrasoParcelaINSSAntigo,String)
+            End If
+            If (AtrasoParcelaINSSNovo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(58).Value = CType(AtrasoParcelaINSSNovo,String)
+            End If
+            If (AtrasoParcelaINSSProcu Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(AtrasoParcelaINSSProcu,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -49919,6 +50129,10 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal FinalizadoMesGeral As String,  _
                     ByVal Geral As String,  _
                     ByVal ParaFazer As String,  _
+                    ByVal AtrasoParcelaMEI As String,  _
+                    ByVal AtrasoParcelaINSSAntigo As String,  _
+                    ByVal AtrasoParcelaINSSNovo As String,  _
+                    ByVal AtrasoParcelaINSSProcu As String,  _
                     ByVal Original_ID_Parcel As Integer,  _
                     ByVal ID_Parcel As Integer) As Integer
             If (RazaoSocial Is Nothing) Then
@@ -50201,8 +50415,28 @@ Namespace PrinceDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(55).Value = CType(ParaFazer,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_ID_Parcel,Integer)
-            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(ID_Parcel,Integer)
+            If (AtrasoParcelaMEI Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(AtrasoParcelaMEI,String)
+            End If
+            If (AtrasoParcelaINSSAntigo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(AtrasoParcelaINSSAntigo,String)
+            End If
+            If (AtrasoParcelaINSSNovo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(AtrasoParcelaINSSNovo,String)
+            End If
+            If (AtrasoParcelaINSSProcu Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(AtrasoParcelaINSSProcu,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ID_Parcel,Integer)
+            Me.Adapter.UpdateCommand.Parameters(61).Value = CType(ID_Parcel,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -50279,8 +50513,12 @@ Namespace PrinceDBDataSetTableAdapters
                     ByVal FinalizadoMesGeral As String,  _
                     ByVal Geral As String,  _
                     ByVal ParaFazer As String,  _
+                    ByVal AtrasoParcelaMEI As String,  _
+                    ByVal AtrasoParcelaINSSAntigo As String,  _
+                    ByVal AtrasoParcelaINSSNovo As String,  _
+                    ByVal AtrasoParcelaINSSProcu As String,  _
                     ByVal Original_ID_Parcel As Integer) As Integer
-            Return Me.Update(RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer, Original_ID_Parcel, Original_ID_Parcel)
+            Return Me.Update(RazaoSocial, CNPJ, FormaDeEnvio, Responsavel, Whatsapp, Email, Socio, CPF, SenhaGov, DataCriacao, DataLembrete, DataFinalizado, MEI, InssAntigo, InssNovo, InssProcur, DataSolicMEI, DataEnviaMEI, DataFinalMEI, MotivoMEI, ProtMEI, TotalParcMEI, EnviaParcMEI, DataSolicAntigo, DataEnviaAntigo, DataFinalAntigo, MotivoAntigo, ProtAntigo, TotalParcAntigo, EnviaParcAntigo, DataSolicNovo, DataEnvioNovo, DataFinalNovo, MotivoNovo, ProtNovo, TotalParcNovo, EnviaParcNovo, DataSolicProc, DataEnviaProc, DataFinalProc, MotivoProc, Protproc, TotalParcProc, EnviaParcProc, ParcelEnvMEI, ParcelEnvINSSAnt, ParcelEnvINSSNov, ParcelEnvINSSProc, FinalizadoEmpresa, FinalizadoMEI, FinalizadoINSSAnt, FinalizadoINSSNov, FinalizadoINSSProc, FinalizadoMesGeral, Geral, ParaFazer, AtrasoParcelaMEI, AtrasoParcelaINSSAntigo, AtrasoParcelaINSSNovo, AtrasoParcelaINSSProcu, Original_ID_Parcel, Original_ID_Parcel)
         End Function
     End Class
     

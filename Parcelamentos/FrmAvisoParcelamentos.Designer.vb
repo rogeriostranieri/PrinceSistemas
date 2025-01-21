@@ -216,7 +216,7 @@ Partial Class FrmAvisoParcelamento
         Me.ButtonImportarData.Name = "ButtonImportarData"
         Me.ButtonImportarData.Size = New System.Drawing.Size(142, 26)
         Me.ButtonImportarData.TabIndex = 25
-        Me.ButtonImportarData.Text = "Importar de Avisos"
+        Me.ButtonImportarData.Text = "Importar Data"
         Me.ButtonImportarData.UseVisualStyleBackColor = False
         '
         'FrmAvisoParcelamento
