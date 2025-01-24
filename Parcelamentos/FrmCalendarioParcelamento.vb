@@ -7,8 +7,32 @@
         Dim hora As String = ComboBoxHora.SelectedItem.ToString()
         Dim minuto As String = ComboBoxMinuto.SelectedItem.ToString()
 
+        ' Valida a entrada de hora e minuto
+        If hora.Length <> 2 Or minuto.Length <> 2 Then
+            MessageBox.Show("Hora e minuto devem ter 2 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If Not IsNumeric(hora) Or Not IsNumeric(minuto) Then
+            MessageBox.Show("Hora e minuto devem ser números.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        Dim horaInt As Integer = CInt(hora)
+        Dim minutoInt As Integer = CInt(minuto)
+
+        If horaInt < 0 Or horaInt > 23 Then
+            MessageBox.Show("Hora inválida. Deve estar entre 00 e 23.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If minutoInt < 0 Or minutoInt > 59 Then
+            MessageBox.Show("Minuto inválido. Deve estar entre 00 e 59.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         ' Formata a data e a hora no formato 00/00/0000 90:00
-        Dim dataHora As String = dataSelecionada.ToString("dd/MM/yyyy") & " " & hora & ":" & minuto
+        Dim dataHora As String = dataSelecionada.ToString("dd/MM/yyyy") & " " & hora.PadLeft(2, "0"c) & ":" & minuto.PadLeft(2, "0"c)
 
         ' Define o valor formatado no MaskedTextBox
         FrmParcelamento.DataLembreteMaskedTextBox.Text = dataHora
@@ -17,7 +41,6 @@
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
-
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()

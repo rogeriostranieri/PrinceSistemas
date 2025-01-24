@@ -9,7 +9,7 @@ Imports System.Data
 Public Class Avisos
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
-    Private WithEvents timerParcelamentos As New Timer()
+    Private WithEvents TimerParcelamentos As New Timer()
     Private contador As Integer = 0
     Private cores() As Color = {Color.White, Color.Yellow, Color.Red}
 
@@ -267,8 +267,9 @@ Public Class Avisos
             Protocolos.Focus()
         Else
             ' Se não existir, cria uma nova instância e define o MDI parent
-            Protocolos = New FrmProtocoladosGeral()
-            Protocolos.MdiParent = MDIPrincipal
+            Protocolos = New FrmProtocoladosGeral With {
+                .MdiParent = MDIPrincipal
+            }
             Protocolos.Show()
         End If
     End Sub
@@ -277,20 +278,20 @@ Public Class Avisos
     '/////////// fim do codigo de mostrar calendario
     '
 
-    Private Sub timerParcelamentos_Tick(sender As Object, e As EventArgs) Handles timerParcelamentos.Tick
+    Private Sub TimerParcelamentos_Tick(sender As Object, e As EventArgs) Handles TimerParcelamentos.Tick
         contador += 1
         LblParcelamentosAviso.ForeColor = cores(contador Mod 3)
     End Sub
 
     Private Sub LblParcelamentosAviso_Click(sender As Object, e As EventArgs) Handles LblParcelamentosAviso.Click
         ' Verifica se já existe uma instância aberta de FrmProtocoladosGeral
-        Dim AvisoProtocolo As FrmAvisoParcelamentos = Application.OpenForms.OfType(Of FrmAvisoParcelamentos)().FirstOrDefault()
+        Dim AvisoProtocolo As FrmAvisoParcelamento = Application.OpenForms.OfType(Of FrmAvisoParcelamento)().FirstOrDefault()
         If AvisoProtocolo IsNot Nothing Then
-            FrmAvisoParcelamentos.Focus()
-            FrmAvisoParcelamentos.MdiParent = MDIPrincipal
+            FrmAvisoParcelamento.Focus()
+            FrmAvisoParcelamento.MdiParent = MDIPrincipal
         Else
-            FrmAvisoParcelamentos.Show()
-            FrmAvisoParcelamentos.MdiParent = MDIPrincipal
+            FrmAvisoParcelamento.Show()
+            FrmAvisoParcelamento.MdiParent = MDIPrincipal
         End If
     End Sub
 

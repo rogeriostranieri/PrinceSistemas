@@ -1809,6 +1809,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
         InicializarControles()
+        AtualizaDados2()
 
     End Sub
 
@@ -3238,10 +3239,13 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
     Private Async Sub BtnBuscaCEP_Click(sender As Object, e As EventArgs) Handles BtnBuscaCEP.Click
         Try
+            BtnBuscaCEP.Enabled = False
+            BtnBuscaCEP.Text = "AGUARDE..."
             ' Chamar o método de busca de CEP no módulo
             Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
 
             If resultado IsNot Nothing Then
+
                 ' Modificar apenas a primeira letra para minúscula
                 EnderecoTextBox.Text = PrimeiraLetraMinuscula(resultado.logradouro)
                 'EndComplementoTextBox.Text = resultado.complemento
@@ -3255,6 +3259,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                 EndEstadoTextBox.Text = resultado.uf
 
                 BtnCorrigeCidade.PerformClick() ' corrigir o nome da cidade sem acentos
+
+                BtnBuscaCEP.Text = "Preencher"
+                BtnBuscaCEP.Enabled = True
             Else
                 MessageBox.Show("CEP não encontrado.")
             End If

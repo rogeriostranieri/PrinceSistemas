@@ -431,12 +431,6 @@
     <Compile Include="Filiais\FrmFiliais.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAvisoParcelamento.Designer.vb">
-      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAvisoParcelamento.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmEscolha.Designer.vb">
       <DependentUpon>FrmEscolha.vb</DependentUpon>
     </Compile>
@@ -566,10 +560,10 @@
     <Compile Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parcelamentos\FrmAvisoParcelamentos.Designer.vb">
-      <DependentUpon>FrmAvisoParcelamentos.vb</DependentUpon>
+    <Compile Include="Parcelamentos\FrmAvisoParcelamento.Designer.vb">
+      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Parcelamentos\FrmAvisoParcelamentos.vb">
+    <Compile Include="Parcelamentos\FrmAvisoParcelamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parcelamentos\FrmCalendarioParcelamento.Designer.vb">
@@ -944,9 +938,6 @@
     <EmbeddedResource Include="Filiais\FrmFiliais.resx">
       <DependentUpon>FrmFiliais.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAvisoParcelamento.resx">
-      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmEscolha.resx">
       <DependentUpon>FrmEscolha.vb</DependentUpon>
     </EmbeddedResource>
@@ -1004,8 +995,8 @@
     <EmbeddedResource Include="Navegadores Unificados\WEB GERAL\WebSiteGERAL.resx">
       <DependentUpon>WebSiteGERAL.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parcelamentos\FrmAvisoParcelamentos.resx">
-      <DependentUpon>FrmAvisoParcelamentos.vb</DependentUpon>
+    <EmbeddedResource Include="Parcelamentos\FrmAvisoParcelamento.resx">
+      <DependentUpon>FrmAvisoParcelamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parcelamentos\FrmCalendarioParcelamento.resx">
       <DependentUpon>FrmCalendarioParcelamento.vb</DependentUpon>

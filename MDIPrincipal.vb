@@ -26,9 +26,10 @@ Public Class MDIPrincipal
             ' Verifica se hoje é o aniversário
             If dataNascimento.Month = DateTime.Now.Month And dataNascimento.Day = DateTime.Now.Day Then
                 ' Abre o formulário de parabéns
-                Dim frmParabens As New FrmParabens()
-                frmParabens.UsuarioLogado = nomeCompleto
-                frmParabens.MdiParent = Me
+                Dim frmParabens As New FrmParabens With {
+                    .UsuarioLogado = nomeCompleto,
+                    .MdiParent = Me
+                }
                 ' Posiciona o formulário abaixo do ButtonEmpresas
                 Dim btnEmpresasPos As Point = ButtonEmpresas.PointToScreen(Point.Empty)
                 frmParabens.StartPosition = FormStartPosition.Manual
@@ -1015,7 +1016,7 @@ Public Class MDIPrincipal
 
     Private Sub AvisoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AvisoToolStripMenuItem.Click
         'FrmAvisoParcelamento
-        If Application.OpenForms.OfType(Of FrmAvisoParcelamentos)().Count() > 0 Then
+        If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
             FrmAvisoParcelamento.Focus()
             FrmAvisoParcelamento.MdiParent = Me
         Else

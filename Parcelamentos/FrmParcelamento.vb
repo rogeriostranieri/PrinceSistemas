@@ -790,6 +790,68 @@ Public Class FrmParcelamento
             ' Obtém o mês atual com a primeira letra maiúscula e o restante minúscula
             Dim mesAtual As String = Char.ToUpper(MonthName(DateTime.Now.Month)(0)) & MonthName(DateTime.Now.Month).Substring(1).ToLower()
 
+            ' Verifica se o mês na coluna "FinalizadoMesGeral" é diferente do mês atual
+            filtroMes = $"FinalizadoMesGeral <> '{mesAtual}'"
+
+            ' Adiciona a regra adicional para considerar "FinalizadoEmpresa = 'Não'" para meses diferentes
+            filtroMes &= " AND FinalizadoEmpresa = 'Não'"
+        End If
+
+        ' Verifica se o filtro "Em Andamento" está marcado
+        If CheckBoxFiltroEmAndamento.Checked Then
+            filtroEmpresa = "FinalizadoEmpresa = 'Não'"
+        End If
+
+        ' Verifica se o filtro "Para Fazer" está marcado
+        If CheckBoxParaFazer.Checked Then
+            filtroParaFazer = "ParaFazer = 'Checked'"
+        End If
+
+        ' Montando o filtro final
+        Dim filtroFinal As String = String.Empty
+
+        ' Combina os filtros existentes
+        If Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroEmpresa) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroMes} AND {filtroEmpresa} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroEmpresa) Then
+            filtroFinal = $"{filtroMes} AND {filtroEmpresa}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroMes} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroEmpresa) AndAlso Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = $"{filtroEmpresa} AND {filtroParaFazer}"
+        ElseIf Not String.IsNullOrEmpty(filtroMes) Then
+            filtroFinal = filtroMes
+        ElseIf Not String.IsNullOrEmpty(filtroEmpresa) Then
+            filtroFinal = filtroEmpresa
+        ElseIf Not String.IsNullOrEmpty(filtroParaFazer) Then
+            filtroFinal = filtroParaFazer
+        End If
+
+        ' Aplica o filtro final
+        If Not String.IsNullOrEmpty(filtroFinal) Then
+            ParcelamentosBindingSource.Filter = filtroFinal
+        Else
+            ' Caso nenhum filtro seja configurado, limpa o filtro
+            ParcelamentosBindingSource.Filter = String.Empty
+        End If
+
+        ' Exibe o filtro final para depuração (opcional)
+        ' MessageBox.Show("Filtro Final: " & filtroFinal, "Depuração", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+
+    '//////////////////////////
+    Private Sub BAckupAPAGARAtualizarFiltro()
+        ' Variáveis para armazenar os filtros
+        Dim filtroMes As String = String.Empty
+        Dim filtroEmpresa As String = String.Empty
+        Dim filtroParaFazer As String = String.Empty
+
+        ' Verifica se a opção "Não Enviado" está marcada
+        If CheckBoxNaoEnviado.Checked Then
+            ' Obtém o mês atual com a primeira letra maiúscula e o restante minúscula
+            Dim mesAtual As String = Char.ToUpper(MonthName(DateTime.Now.Month)(0)) & MonthName(DateTime.Now.Month).Substring(1).ToLower()
+
             ' Exibe o mês atual para depuração
             '  MessageBox.Show("Mês Atual: " & mesAtual, "Depuração", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
