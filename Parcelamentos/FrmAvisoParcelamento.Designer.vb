@@ -65,6 +65,7 @@ Partial Class FrmAvisoParcelamento
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.AvisosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
@@ -113,9 +114,9 @@ Partial Class FrmAvisoParcelamento
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(6, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(394, 31)
+        Me.Label1.Size = New System.Drawing.Size(146, 31)
         Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Lembrete de hoje e Para Fazer:"
+        Me.Label1.Text = "ATENÇÃO"
         '
         'BtnVerParcelamentos
         '

@@ -1809,7 +1809,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         Editar()
         InicializarControles()
-        AtualizaDados2()
+        ' AtualizaDados2()
 
     End Sub
 
@@ -3408,6 +3408,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
     Private Sub BtnGrauDeRisco_Click(sender As Object, e As EventArgs) Handles BtnGrauDeRisco.Click
+        ArrumaCnae()
         ' Verificar se o formulário já está aberto
         If FrmCNAEescolha.Visible Then
             FrmCNAEescolha.Close()
@@ -3979,6 +3980,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub LblLinkArrumarCNAE_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LblLinkArrumarCNAE.LinkClicked
+        ArrumaCnae()
+    End Sub
+
+    Private Sub ArrumaCnae()
         ' Limpar caracteres e formatar o CNAEPrincipalTextBox
         If CNAEPrincipalTextBox.Text.Length >= 7 Then
             Dim cnaePrincipal As String = CNAEPrincipalTextBox.Text
@@ -4043,6 +4048,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub BtnVerDescricaoCNAE_Click(sender As Object, e As EventArgs) Handles BtnVerDescricaoCNAE.Click
+        ArrumaCnae()
+
         If Application.OpenForms.OfType(Of FrmCNAEtexto)().Count() > 0 Then
             FrmCNAEtexto.Focus()
         Else

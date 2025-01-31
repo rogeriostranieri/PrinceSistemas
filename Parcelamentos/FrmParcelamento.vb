@@ -692,6 +692,16 @@ Public Class FrmParcelamento
         End Select
 
         TabControlGeral.SelectedIndex = 1
+
+
+        'verifica antes se tem forma de envio
+        If Not String.IsNullOrEmpty(FormaDeEnvioComboBox.Text) Then
+            'nao faz nada e segue
+        Else
+            MessageBox.Show($"Ocorreu um erro: FORMA DE ENVIO NAO LOCALIZADA", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         frmEscolha.FormaDeEnvio = FormaDeEnvioComboBox.Text
 
         ' Abrir o formulário FrmParcEscolha
@@ -908,5 +918,53 @@ Public Class FrmParcelamento
 
     Private Sub CheckBoxParaFazer_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxParaFazer.CheckedChanged
         AtualizarFiltro()
+    End Sub
+    'Botao de agora para nova solicitacao
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        DataSolicMEIMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+        FinalizadoMEIComboBox.SelectedIndex = 1
+        AtrasoParcelaMEICheckBox.CheckState = CheckState.Unchecked
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        DataSolicAntigoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+        FinalizadoINSSAntComboBox.SelectedIndex = 1
+        AtrasoParcelaINSSAntigoCheckBox.CheckState = CheckState.Unchecked
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        DataSolicNovoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+        FinalizadoINSSNovComboBox.SelectedIndex = 1
+        AtrasoParcelaINSSNovoCheckBox.CheckState = CheckState.Unchecked
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        DataSolicProcMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+        FinalizadoINSSProcComboBox.SelectedIndex = 1
+        AtrasoParcelaINSSProcuCheckBox.CheckState = CheckState.Unchecked
+    End Sub
+    '//////////////////////////////////////////////
+    Private Function FormatarNumeroWhatsapp(numeroCompleto As String) As String
+        ' Remove o "+55", os espaços e o traço
+        Dim numeroFormatado As String = numeroCompleto.Replace("+55", "").Replace(" ", "").Replace("-", "")
+
+        ' Retorna o número formatado
+        Return numeroFormatado
+    End Function
+    Private Sub SalvarNumeroWhatsapp()
+        Dim numeroCompleto As String = WhatsappMaskedTextBox.Text
+        Dim numeroFormatado As String = FormatarNumeroWhatsapp(numeroCompleto)
+
+        ' Agora você pode salvar ou usar o número formatado
+        MessageBox.Show("Número formatado: " & numeroFormatado, "Número WhatsApp", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub WhatsappMaskedTextBox_TextChanged(sender As Object, e As EventArgs) Handles WhatsappMaskedTextBox.TextChanged
+        ' Chama a função para formatar o número
+        Dim numeroFormatado As String = FormatarNumeroWhatsapp(WhatsappMaskedTextBox.Text)
+
+        ' Atualiza o TextBox com o número formatado (opcional)
+        WhatsappMaskedTextBox.Text = numeroFormatado
     End Sub
 End Class

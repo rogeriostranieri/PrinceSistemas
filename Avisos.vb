@@ -307,7 +307,6 @@ Public Class Avisos
 
     '//////////////////////////// ver parcelamentos
     Private Sub VerificaParcelamentos()
-
         ' Verifica se está no modo de design, e sai da função se estiver
         If Me.DesignMode Then Return
 
@@ -318,9 +317,6 @@ Public Class Avisos
             Return
         End If
 
-        ' Mostra a data selecionada para verificação
-        '   MessageBox.Show("Data selecionada: " & dataSelecionada.ToString("dd/MM/yyyy"), "Data Selecionada", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
         ' Extrai o mês da data selecionada para comparação
         Dim mesSelecionado As Integer = dataSelecionada.Month
 
@@ -328,42 +324,73 @@ Public Class Avisos
         Dim listaLembretes As New List(Of DateTime)
         Dim listaMensalDiferente As New List(Of DateTime)
 
+        ' Variáveis para armazenar os resultados das verificações
+        Dim temLembrete As Boolean = False
+        Dim mesEnvioDiferente As Boolean = False
+        Dim temParaFazer As Boolean = False
+
         Using conexão As New SqlConnection(connectionString)
             conexão.Open()
 
             ' Verificar lembretes para a data selecionada
-            Dim temLembrete As Boolean = VerificarLembreteParaDia(conexão, dataSelecionada, listaLembretes)
-
-            ' Exibir mensagem sobre a verificação de lembretes
-            If temLembrete Then
-                ' MessageBox.Show("Parcelamento = Lembretes encontrados para a data selecionada.", "Resultado da Verificação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                If Application.OpenForms.OfType(Of FrmAvisoParcelamento)().Count() > 0 Then
-                    FrmAvisoParcelamento.Focus()
-                    FrmAvisoParcelamento.MdiParent = MDIPrincipal
-                Else
-                    FrmAvisoParcelamento.Show()
-                    FrmAvisoParcelamento.MdiParent = MDIPrincipal
-                End If
-            Else
-                ' MessageBox.Show("Nenhum lembrete encontrado para a data selecionada.", "Resultado da Verificação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
+            temLembrete = VerificarLembreteParaDia(conexão, dataSelecionada, listaLembretes)
 
             ' Verificar se algum DataEnvio possui mês diferente
-            Dim mesEnvioDiferente As Boolean = VerificarMesEnvioDiferente(conexão, mesSelecionado, listaMensalDiferente)
+            mesEnvioDiferente = VerificarMesEnvioDiferente(conexão, mesSelecionado, listaMensalDiferente)
 
-            ' Exibir mensagem sobre o mês de envio diferente
-            If mesEnvioDiferente Then
-                '  MessageBox.Show("Mês Diferente do atual.", "Mês de Envio Diferente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                ' MessageBox.Show("Não foram encontrados parcelamentos com mês diferente.", "Mês de Envio Diferente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-
-            ' Exibir o resultado no Label
-            ExibirAviso(temLembrete, mesEnvioDiferente)
-
-
+            ' Verificar se há parcelamentos "Para Fazer" marcados
+            temParaFazer = VerificarParaFazer(conexão)
         End Using
+
+        ' Exibir o resultado no Label
+        ExibirAviso(temLembrete, mesEnvioDiferente, temParaFazer)
     End Sub
+
+    Private Function VerificarParaFazer(conexao As SqlConnection) As Boolean
+        ' Verifica se há parcelamentos com "ParaFazer" marcado (checked)
+        Dim comando As New SqlCommand("SELECT ParaFazer FROM Parcelamentos WHERE ParaFazer = 'Checked'", conexao)
+        Dim leitor As SqlDataReader = comando.ExecuteReader()
+
+        ' Retorna True se houver pelo menos um registro com "ParaFazer" marcado
+        Return leitor.HasRows
+    End Function
+
+    Private Sub ExibirAviso(temLembrete As Boolean, mesEnvioDiferente As Boolean, temParaFazer As Boolean)
+        ' Atualiza o label com base nos resultados
+        Dim mensagem As String = ""
+
+        ' Verifica todas as combinações possíveis
+        If temParaFazer Then
+            mensagem = "Parcelamento Para Fazer"
+        End If
+
+        If mesEnvioDiferente Then
+            If Not String.IsNullOrEmpty(mensagem) Then
+                mensagem &= ", Mensal"
+            Else
+                mensagem = "Parcelamento Mensal"
+            End If
+        End If
+
+        If temLembrete Then
+            If Not String.IsNullOrEmpty(mensagem) Then
+                mensagem &= " e Lembrete"
+            Else
+                mensagem = "Parcelamento Lembrete"
+            End If
+        End If
+
+        ' Exibe a mensagem no Label
+        If Not String.IsNullOrEmpty(mensagem) Then
+            LblParcelamentosAviso.Text = mensagem
+            LblParcelamentosAviso.Visible = True
+            IniciarPiscarLabel()
+        Else
+            LblParcelamentosAviso.Visible = False
+        End If
+    End Sub
+
+
 
     Private Function VerificarLembreteParaDia(ByVal conexão As SqlConnection, ByVal dataSelecionada As DateTime, ByRef listaLembretes As List(Of DateTime)) As Boolean
         ' SQL para selecionar os lembretes com a data sem hora
@@ -402,7 +429,8 @@ Public Class Avisos
 
     Private Function VerificarMesEnvioDiferente(conexao As SqlConnection, mesSelecionado As Integer, ByRef listaMensalDiferente As List(Of DateTime)) As Boolean
         ' Verifica se algum parcelamento tem FinalizadoMesGeral em um mês diferente do mês da data selecionada
-        Dim comando As New SqlCommand("SELECT FinalizadoMesGeral FROM Parcelamentos", conexao)
+        ' Apenas considera registros onde FinalizadoEmpresa = 'NÃO'
+        Dim comando As New SqlCommand("SELECT FinalizadoMesGeral FROM Parcelamentos WHERE FinalizadoEmpresa = 'NÃO'", conexao)
         Dim leitor As SqlDataReader = comando.ExecuteReader()
 
         Dim mesEnvioDiferente As Boolean = False
@@ -415,27 +443,28 @@ Public Class Avisos
     }
 
         While leitor.Read()
-            ' Pegando o valor de FinalizadoMesGeral, que pode ser o nome do mês
-            Dim mesFinalizado As String = leitor("FinalizadoMesGeral").ToString()
+            ' Verifica se o valor não é nulo ou vazio antes de processar
+            If Not leitor.IsDBNull(0) Then
+                Dim mesFinalizado As String = leitor("FinalizadoMesGeral").ToString().Trim()
 
-            ' Mostrar o nome do mês extraído do banco de dados para depuração
-            ' MessageBox.Show("Mês Finalizado (do banco): " & mesFinalizado)
+                ' Verifica se o campo contém um mês válido
+                If meses.ContainsKey(mesFinalizado) Then
+                    Dim mesFinalizadoNumero As Integer = meses(mesFinalizado)
 
-            ' Verifica se o mês está no dicionário e converte para número
-            If meses.ContainsKey(mesFinalizado) Then
-                Dim mesFinalizadoNumero As Integer = meses(mesFinalizado)
-
-                ' Verifica se o mês extraído do banco de dados é diferente do mês selecionado
-                If mesFinalizadoNumero <> mesSelecionado Then
-                    listaMensalDiferente.Add(New DateTime(DateTime.Now.Year, mesFinalizadoNumero, 1)) ' Cria uma data com o mês e o ano atual
-                    mesEnvioDiferente = True
+                    ' Verifica se o mês extraído do banco de dados é diferente do mês selecionado
+                    If mesFinalizadoNumero <> mesSelecionado Then
+                        listaMensalDiferente.Add(New DateTime(DateTime.Now.Year, mesFinalizadoNumero, 1)) ' Cria uma data com o mês e o ano atual
+                        mesEnvioDiferente = True
+                    End If
                 End If
             End If
         End While
         leitor.Close()
 
+        ' Retorna True apenas se houver pelo menos um mês válido diferente
         Return mesEnvioDiferente
     End Function
+
 
 
     ' Função para converter o nome do mês em número
@@ -507,4 +536,19 @@ Public Class Avisos
         End If
     End Sub
 
+    Private Sub BtnAvisoUrgente_Click(sender As Object, e As EventArgs) Handles BtnAvisoUrgente.Click
+        If Application.OpenForms.OfType(Of AlertaCentral)().Count() > 0 Then
+
+            AlertaCentral.Focus()
+            AlertaCentral.Close()
+            AlertaCentral.MdiParent = MDIPrincipal
+            AlertaCentral.Show()
+
+        Else
+
+            AlertaCentral.MdiParent = MDIPrincipal
+            AlertaCentral.Show()
+
+        End If
+    End Sub
 End Class

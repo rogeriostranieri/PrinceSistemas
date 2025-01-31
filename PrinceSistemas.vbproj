@@ -347,6 +347,12 @@
     <Compile Include="Anotacoes\FrmBuscaAnotacoes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Avisos\AlertaCentral.Designer.vb">
+      <DependentUpon>AlertaCentral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Avisos\AlertaCentral.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Buscadores\FrmAtalhoBuscadores.Designer.vb">
       <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
     </Compile>
@@ -896,6 +902,9 @@
     <EmbeddedResource Include="Anotacoes\FrmBuscaAnotacoes.resx">
       <DependentUpon>FrmBuscaAnotacoes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Avisos\AlertaCentral.resx">
+      <DependentUpon>AlertaCentral.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscadores\FrmAtalhoBuscadores.resx">
       <DependentUpon>FrmAtalhoBuscadores.vb</DependentUpon>
     </EmbeddedResource>
@@ -1251,13 +1260,14 @@
     <None Include="Resources\FundoBtnFechar.jpeg" />
     <None Include="Resources\unnamed.png" />
     <None Include="Resources\CoporDeBombeiro.png" />
-    <Content Include="Parcelamentos\FazerParcelamento.txt" />
     <None Include="Resources\AberturaEmpresa.png" />
     <None Include="Resources\AlteracaoEmpresa.png" />
     <None Include="Resources\baixaEmpresa.png" />
     <None Include="Resources\LOGOsimplesnacional.png" />
     <None Include="Resources\MEI.png" />
     <None Include="Resources\MEImenu.png" />
+    <None Include="Resources\urgente.png" />
+    <None Include="Resources\fundobotaoroxo.png" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

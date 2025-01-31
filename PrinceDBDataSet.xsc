@@ -601,177 +601,152 @@
     <TableUISetting Name="Parcelamentos">
       <ColumnUISettings>
         <ColumnUISetting Name="RazaoSocial">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="CNPJ">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="MaskedTextBox" Type="System.Windows.Forms.MaskedTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FormaDeEnvio">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="MEI">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="InssAntigo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="InssNovo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="InssProcur">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="ProtAntigo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="TotalParcAntigo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="TextBox" Type="System.Windows.Forms.TextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="ProtNovo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="TotalParcNovo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="TextBox" Type="System.Windows.Forms.TextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="Protproc">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="TotalParcProc">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="TextBox" Type="System.Windows.Forms.TextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoEmpresa">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoMEI">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoINSSAnt">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoINSSNov">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoINSSProc">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
+            </ControlSetting></ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="FinalizadoMesGeral">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="Geral">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="ParaFazer">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="AtrasoParcelaMEI">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="AtrasoParcelaINSSAntigo">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="AtrasoParcelaINSSNovo">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="AtrasoParcelaINSSProcu">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+      </ColumnUISettings>
+    </TableUISetting>
+    <TableUISetting Name="Avisos">
+      <ColumnUISettings>
+        <ColumnUISetting Name="Avisar">
           <ControlSettings>
             <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
             </ControlSetting>
           </ControlSettings>
         </ColumnUISetting>
-        <ColumnUISetting Name="Geral">
+        <ColumnUISetting Name="DataAviso">
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+              <BindableControlInfo Name="DateTimePicker" Type="System.Windows.Forms.DateTimePicker" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+            </ControlSetting>
+          </ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="TextoAviso">
           <ControlSettings>
             <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
               <BindableControlInfo Name="RichTextBox" Type="System.Windows.Forms.RichTextBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.8.1" />
-            </ControlSetting>
-          </ControlSettings>
-        </ColumnUISetting>
-        <ColumnUISetting Name="ParaFazer">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
-        </ColumnUISetting>
-        <ColumnUISetting Name="AtrasoParcelaMEI">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
-        </ColumnUISetting>
-        <ColumnUISetting Name="AtrasoParcelaINSSAntigo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
-        </ColumnUISetting>
-        <ColumnUISetting Name="AtrasoParcelaINSSNovo">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-            </ControlSetting>
-          </ControlSettings>
-        </ColumnUISetting>
-        <ColumnUISetting Name="AtrasoParcelaINSSProcu">
-          <ControlSettings>
-            <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-              <BindableControlInfo Name="CheckBox" Type="System.Windows.Forms.CheckBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
             </ControlSetting>
           </ControlSettings>
         </ColumnUISetting>

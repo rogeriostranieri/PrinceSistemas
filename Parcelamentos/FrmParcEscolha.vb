@@ -81,6 +81,7 @@
                 Timer1.Enabled = True
             Else
                 MessageBox.Show($"Ocorreu um erro: FORMA DE ENVIO NAO LOCALIZADA", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
             End If
 
         Catch ex As Exception
@@ -265,18 +266,31 @@
             'EM ATRASO??
 
             If Atrasado = "" Then
-                textoCopiar = $"Olá,
-Segue o DARF mensal, referente ao parcelamento do *{abaSelecionada}* da Empresa: *{razaoSocial}*.
+                If parcelaAtual = "1" Then
+                    textoCopiar = $"Olá,
+Segue o DARF mensal, referente ao *parcelamento INCIAL* do *{abaSelecionada}* da Empresa: *{razaoSocial}*.
 
-Parcela: {parcelaAtual} do total de: {totalParcelamento} parcelas referente ao de mês de {mesAnoReferencia}
+Recibo/Prot.: {Protocol}.
+Parcela: {parcelaAtual} do total de: {totalParcelamento} parcelas referente a *PRIMEIRA PARCELA* deste mês de {mesAnoReferencia}.
 
 Atenciosamente,
 Rogerio"
-            Else
-                textoCopiar = $"Olá,
+                Else
+                    textoCopiar = $"Olá,
 Segue o DARF mensal, referente ao parcelamento do *{abaSelecionada}* da Empresa: *{razaoSocial}*.
 
-Parcela: {parcelaAtual} do total de: {totalParcelamento} parcelas referente ao de mês de {mesAnoReferencia}
+Recibo/Prot.: {Protocol}.
+Parcela: {parcelaAtual} do total de: {totalParcelamento} parcelas referente ao de mês de {mesAnoReferencia}.
+
+Atenciosamente,
+Rogerio"
+                End If
+            Else
+                    textoCopiar = $"Olá,
+Segue o DARF mensal, referente ao parcelamento do *{abaSelecionada}* da Empresa: *{razaoSocial}*.
+
+Recibo/Prot.: {Protocol}.
+Parcela: {parcelaAtual} do total de: {totalParcelamento} parcelas referente ao de mês de {mesAnoReferencia}.
 *ATENÇÃO: Parcelamento em atraso! O não pagamento pode resultar na perda.*
 
 Atenciosamente,

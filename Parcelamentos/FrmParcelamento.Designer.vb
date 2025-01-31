@@ -205,6 +205,10 @@ Partial Class FrmParcelamento
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         SocioLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         SenhaGovLabel = New System.Windows.Forms.Label()
@@ -1285,6 +1289,7 @@ Partial Class FrmParcelamento
         'TabPage9
         '
         Me.TabPage9.AutoScroll = True
+        Me.TabPage9.Controls.Add(Me.Button1)
         Me.TabPage9.Controls.Add(Me.AtrasoParcelaMEICheckBox)
         Me.TabPage9.Controls.Add(Me.BtnAgoraMEI)
         Me.TabPage9.Controls.Add(Me.BtnRegistrarMEI)
@@ -1484,6 +1489,7 @@ Partial Class FrmParcelamento
         'TabPage11
         '
         Me.TabPage11.AutoScroll = True
+        Me.TabPage11.Controls.Add(Me.Button2)
         Me.TabPage11.Controls.Add(Me.AtrasoParcelaINSSAntigoCheckBox)
         Me.TabPage11.Controls.Add(Me.TotalParcAntigoTextBox)
         Me.TabPage11.Controls.Add(Me.ProtAntigoRichTextBox)
@@ -1683,6 +1689,7 @@ Partial Class FrmParcelamento
         'TabPage13
         '
         Me.TabPage13.AutoScroll = True
+        Me.TabPage13.Controls.Add(Me.Button3)
         Me.TabPage13.Controls.Add(Me.AtrasoParcelaINSSNovoCheckBox)
         Me.TabPage13.Controls.Add(Me.TotalParcNovoTextBox)
         Me.TabPage13.Controls.Add(Me.ProtNovoRichTextBox)
@@ -1882,6 +1889,7 @@ Partial Class FrmParcelamento
         'TabPage15
         '
         Me.TabPage15.AutoScroll = True
+        Me.TabPage15.Controls.Add(Me.Button4)
         Me.TabPage15.Controls.Add(Me.AtrasoParcelaINSSProcuCheckBox)
         Me.TabPage15.Controls.Add(Me.TotalParcProcTextBox)
         Me.TabPage15.Controls.Add(Me.ProtprocRichTextBox)
@@ -2206,6 +2214,7 @@ Partial Class FrmParcelamento
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.AvisosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
@@ -2232,6 +2241,42 @@ Partial Class FrmParcelamento
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(293, 20)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 28)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Agora"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(281, 9)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 28)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Agora"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(281, 9)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 28)
+        Me.Button3.TabIndex = 26
+        Me.Button3.Text = "Agora"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(297, 8)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 28)
+        Me.Button4.TabIndex = 27
+        Me.Button4.Text = "Agora"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'FrmParcelamento
         '
@@ -2442,4 +2487,8 @@ Partial Class FrmParcelamento
     Friend WithEvents LinkLabelAgoraFinal As LinkLabel
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents CheckBoxParaFazer As CheckBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class
