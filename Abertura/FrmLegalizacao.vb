@@ -278,85 +278,75 @@ Public Class FrmLegalizacao
     ' LOAD INICIAL
 
     Public Property RazaoSocialSelecionada As String
-
     Private Sub FrmLegalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             ' Preenche os dados das tabelas relacionadas
             Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
-            StatusComboBox.DataSource = Me.CADstatusBindingSource
-            StatusComboBox.DisplayMember = "Descricao"
-            StatusComboBox.ValueMember = "Descricao"
-
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
-            ' Configura ComboBox e foco inicial
+            ' Configura ComboBox de Status
+            With StatusComboBox
+                .DataSource = CADstatusBindingSource
+                .DisplayMember = "Descricao"
+                .ValueMember = "Descricao"
+            End With
+
+            ' Configurações iniciais
             ModCombobox.ComboboxLegalizacaoProcesso()
-            Me.ComboBoxBuscaEmpresa.Focus()
+            ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
 
+            ' Permitir edições em todas as colunas da tabela Empresas
+            For Each col As DataColumn In PrinceDBDataSet.Empresas.Columns
+                col.ReadOnly = False
+            Next
+
+            ' Vincula o evento CurrentChanged do BindingSource
+            AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
+
+            ' Atualização inicial de dados
+            AtualizaDados2()
+
+            ' Força a atualização do BindingSource
+            EmpresasBindingSource.ResetBindings(False)
+
+            ' Chama o ProcessoMudar após garantir que os dados estão carregados
+            If EmpresasBindingSource.Current IsNot Nothing Then
+                ProcessoMudar()
+                TipodeEmpresa()
+            End If
 
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um Erro ao carregar o formulário" & vbCrLf & ex.Message & vbCrLf & vbCrLf & "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocorreu um erro ao carregar o formulário." & vbCrLf &
+                        ex.Message & vbCrLf & ex.StackTrace,
+                        "Prince Sistemas - Alerta",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation)
         End Try
-
-        ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
-        PrinceDBDataSet.AcceptChanges()
-
-        ' Permitir edições em todas as colunas da tabela Empresas
-        For Each col As DataColumn In Me.PrinceDBDataSet.Empresas.Columns
-            col.ReadOnly = False
-        Next
-
-
-        ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
-        AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
-
-        AtualizaDados2()
-
     End Sub
-
 
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
-        ' Sempre que o item atual no BindingSource mudar, chama VerificarFiliais
         AtualizaDados2()
-        ProcessoMudar()
-        TipodeEmpresa()
     End Sub
-
-    Private Sub FrmEmpresa_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        AtualizaDados2()
-        ProcessoMudar()
-        TipodeEmpresa()
-    End Sub
-
 
     Private Sub AtualizaDados2()
-
-        ' Chama o método para verificar as filiais
         BtnEditar.Text = "Editar"
         Editar()
         InicializarControles()
 
         VerificarFiliais()
-        'RecarregarFormulario()
-        ' verifica alerta da empresa
         VerificarAvisoEmpresa()
-
-        ProcessoMudar()
         StatusMudar()
         MudaContratoAviso()
         TipodeEmpresa()
 
-
+        ' Chama ProcessoMudar somente se houver um item selecionado
+        If EmpresasBindingSource.Current IsNot Nothing Then
+            ProcessoMudar()
+        End If
     End Sub
 
-
-    Private Sub AtualizarBindingSource()
-        ' Forçar a atualização do BindingSource
-        EmpresasBindingSource.EndEdit()
-        EmpresasBindingSource.ResetBindings(False)
-    End Sub
 
 
     Private Sub InicializarControles()
@@ -433,6 +423,11 @@ Public Class FrmLegalizacao
                 BtnVerNovoNome.Size = New Size(120, 24)
                 BtnVerNovoNome.Text = "Busca de Nome"
 
+                LabelConsolidar.Visible = False
+                AltConsolidadaComboBox.Visible = False
+                NovaRazaoSocialLabel.Visible = False
+                NovaRazaoSocialComboBox.Visible = False
+
 
 
             ElseIf ProcessoComboBox.Text = "Alteração" Then
@@ -457,6 +452,11 @@ Public Class FrmLegalizacao
                 BtnVerNovoNome.Size = New Size(50, 24)
                 BtnVerNovoNome.Text = "Ver"
 
+                LabelConsolidar.Visible = True
+                AltConsolidadaComboBox.Visible = True
+                NovaRazaoSocialLabel.Visible = True
+                NovaRazaoSocialComboBox.Visible = True
+
 
             ElseIf ProcessoComboBox.Text = "Baixa" Then
                 ' MotivoRichTextBox.Visible = False
@@ -477,6 +477,12 @@ Public Class FrmLegalizacao
                 CapitalAntigoMudouComboBox.Visible = True
                 'botao busca de nome
                 BtnVerNovoNome.Visible = False
+
+                LabelConsolidar.Visible = False
+                AltConsolidadaComboBox.Visible = False
+                NovaRazaoSocialLabel.Visible = False
+                NovaRazaoSocialComboBox.Visible = False
+
 
 
             Else
@@ -501,6 +507,13 @@ Public Class FrmLegalizacao
                 BtnVerNovoNome.Location = New Point(391, 143)
                 BtnVerNovoNome.Size = New Size(50, 24)
                 BtnVerNovoNome.Text = "Ver"
+
+
+                LabelConsolidar.Visible = True
+                AltConsolidadaComboBox.Visible = True
+                NovaRazaoSocialLabel.Visible = True
+                NovaRazaoSocialComboBox.Visible = True
+
             End If
 
         Catch ex As Exception
@@ -2624,6 +2637,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         ProcessoMudar()
         StatusMudar()
         MudaContratoAviso()
+        TipodeEmpresa()
     End Sub
 
     Private Sub MudaContratoAviso()
@@ -4401,7 +4415,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub BtnFormaDeAtuaCNAE_Click(sender As Object, e As EventArgs) Handles BtnFormaDeAtuaCNAE.Click
-        TabControl2.SelectedIndex = 7
+        TabControl2.SelectedIndex = 8
     End Sub
 
     Private Sub ProcessoComboBox_TextUpdate(sender As Object, e As EventArgs) Handles ProcessoComboBox.TextUpdate

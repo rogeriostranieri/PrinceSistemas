@@ -3,6 +3,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class FrmSocios
 
+    Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
 
     Private Sub AtivarTab()
         'ativar TabControl1 1
@@ -309,6 +310,8 @@ Public Class FrmSocios
 
     Private Async Sub BtnCorreios_Click(sender As Object, e As EventArgs) Handles BtnCorreios.Click
         Try
+            BtnCorreios.Text = "AGUARDE..."
+            BtnCorreios.Enabled = False
             ' Chamar o método de busca de CEP no módulo
             Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(CEPMaskedTextBox.Text)
 
@@ -325,6 +328,9 @@ Public Class FrmSocios
             Else
                 MessageBox.Show("CEP não encontrado.")
             End If
+            BtnCorreios.Text = "Preencher"
+            BtnCorreios.Enabled = True
+
         Catch ex As ArgumentException
             MessageBox.Show(ex.Message)
         Catch ex As Exception
@@ -1665,5 +1671,44 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
 
     Private Sub SociosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         ValidaIdadeMenor()
+    End Sub
+
+
+    Private Sub BtnBuscarEmpresa_Click(sender As Object, e As EventArgs) Handles BtnBuscarEmpresa.Click
+        ConsultaEmpresa()
+    End Sub
+
+    Private Sub ConsultaEmpresa()
+        Dim nomeSocio As String = NomeCompletoTextBox.Text.Trim()
+
+        If String.IsNullOrWhiteSpace(nomeSocio) Then
+            MessageBox.Show("Por favor, insira o nome do sócio para a busca.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+
+                Dim query As String = "SELECT RazaoSocial, CNPJ FROM Empresas WHERE DadosSocios LIKE @NomeSocio OR ResponsavelNome LIKE @NomeSocio OR NomeResponsavel LIKE @NomeSocio"
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@NomeSocio", "%" & nomeSocio & "%")
+
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+
+                    DataGridViewEmpresa.DataSource = dataTable
+                    LblContaEmpresa.Text = "Total de Empresas Encontradas: " & dataTable.Rows.Count.ToString()
+
+                    If dataTable.Rows.Count = 0 Then
+                        MessageBox.Show("Nenhuma empresa encontrada para o sócio informado.", "Resultado da Busca", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao buscar empresas: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

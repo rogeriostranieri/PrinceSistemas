@@ -77,7 +77,7 @@
         FrmLegalizacao.ProcessoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         'FrmLegalizacao.ProcessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "Processo", True))
         FrmLegalizacao.ProcessoComboBox.FormattingEnabled = True
-        FrmLegalizacao.ProcessoComboBox.Items.AddRange(New Object() {"Abertura", "Alteração", "Baixa", "Reativação", "Cancelado", "Outros", "Receita Estadual", "Receita Federal", "Prefeitura", "Transformação", "Incorporação", "Fusão", "Anulação de Atos"})
+        FrmLegalizacao.ProcessoComboBox.Items.AddRange(New Object() {"Abertura", "Alteração", "Baixa", "Reativação", "Cancelado", "Outros", "Receita Estadual", "Receita Federal", "Prefeitura", "Transformação", "Incorporação", "Fusão", "Anulação de Atos", "Livro Digital"})
         'FrmLegalizacao.ProcessoComboBox.Location = New System.Drawing.Point(75, 87)
         FrmLegalizacao.ProcessoComboBox.Name = "ProcessoComboBox"
         'FrmLegalizacao.ProcessoComboBox.Size = New System.Drawing.Size(107, 21)
