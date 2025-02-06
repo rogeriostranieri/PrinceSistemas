@@ -186,18 +186,29 @@ Public Class BoxJuntaComercial
             Select Case protocoloSelecionado
                 Case "Empresa Fácil"
                     FrmLegalizacao.TabControle.SelectTab(2)
-                    Clipboard.SetText(Protocolo)
-                    MessageBox.Show("Protocolo copiado para a área de transferência")
+                    ' Verificar se o protocolo não é nulo ou vazio antes de copiar
+                    If Not String.IsNullOrEmpty(Protocolo) Then
+                        Clipboard.SetText(Protocolo)
+                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                    Else
+                        MessageBox.Show("O protocolo 'Empresa Fácil' está vazio.")
+                    End If
                 Case "Redesim"
                     FrmLegalizacao.TabControle.SelectTab(3)
-                    Clipboard.SetText(ProtocoloRedesim)
-                    MessageBox.Show("Protocolo copiado para a área de transferência")
+                    ' Verificar se o protocolo não é nulo ou vazio antes de copiar
+                    If Not String.IsNullOrEmpty(ProtocoloRedesim) Then
+                        Clipboard.SetText(ProtocoloRedesim)
+                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                    Else
+                        MessageBox.Show("O protocolo 'Redesim' está vazio.")
+                    End If
             End Select
             Me.Focus()
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro inesperado: " & ex.Message)
         End Try
     End Sub
+
     Private Sub BoxJuntaComercial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Adiciona as opções ao ComboBox
         ComboBoxEscolhaProtocolo.Items.Add("Empresa Fácil")

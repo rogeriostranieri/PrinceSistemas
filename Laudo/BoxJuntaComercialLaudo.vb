@@ -110,18 +110,23 @@ Public Class BoxJuntaComercialLaudo
         End If
     End Sub
 
-
     Private Sub Copiar()
-
-        If CopiarLaudoCheck.Checked = True Then
-            ' Copiar o conteúdo do NlaudoTextBox para a área de transferência
-            If FrmAlvara.NlaudoTextBox.Text <> "" Then
+        If CopiarLaudoCheck.Checked Then
+            ' Verifica se o campo NlaudoTextBox não está vazio
+            If Not String.IsNullOrEmpty(FrmAlvara.NlaudoTextBox.Text) Then
+                ' Copiar o conteúdo do NlaudoTextBox para a área de transferência
                 Clipboard.SetText(FrmAlvara.NlaudoTextBox.Text)
+                MessageBox.Show("O conteúdo foi copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                ' Caso o NlaudoTextBox esteja vazio
+                MessageBox.Show("O campo de Laudo está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Else
-                ' Caso a checkbox não esteja marcada, você pode adicionar outra lógica aqui, se necessário
-            End If
+            ' Caso a checkbox não esteja marcada, pode adicionar outra lógica aqui, se necessário
+            MessageBox.Show("A opção de copiar não está selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
+
 
     '///////////////////////////////////////////
 

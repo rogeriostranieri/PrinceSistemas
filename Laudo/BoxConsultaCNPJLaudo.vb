@@ -16,12 +16,32 @@ Public Class BoxConsultaCNPJLaudo
 
 
     Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click
-        Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+        Try
+            ' Verifica se o campo CNPJ está vazio
+            Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text
+            If String.IsNullOrWhiteSpace(CNPJ) Then
+                MessageBox.Show("O campo CNPJ está vazio. Por favor, preencha o CNPJ para continuar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
 
-        System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        Me.Close()
+            ' Formata o CNPJ removendo caracteres especiais
+            Dim CNPJFormatado As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+            ' Copia o CNPJ formatado para a área de transferência
+            Clipboard.SetText(CNPJFormatado)
+
+            ' Abre a página da Receita Federal com o CNPJ
+            System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJFormatado)
+
+            ' Fecha o formulário atual após a operação
+            Me.Close()
+
+        Catch ex As Exception
+            ' Exibe mensagem de erro caso algo aconteça
+            MessageBox.Show("Erro ao processar o CNPJ: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub BtnInterno_Click(sender As Object, e As EventArgs) Handles BtnInterno.Click
         Dim CNPJ As String = FrmAlvara.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")

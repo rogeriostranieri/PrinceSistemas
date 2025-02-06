@@ -641,19 +641,42 @@ Public Class FrmParcelamento
     End Sub
 
     Private Sub BtnConsultaSimplesNacional_Click(sender As Object, e As EventArgs) Handles BtnConsultaSimplesNacional.Click
-        Dim CNPJ As String = CNPJMaskedTextBox.Text
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        If WebSiteGERAL.Visible = True Then
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
-        Else
-            WebSiteGERAL.Show()
-            WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
-        End If
+        Try
+            ' Obter o CNPJ e remover caracteres indesejados
+            Dim CNPJ As String = CNPJMaskedTextBox.Text
+            If String.IsNullOrWhiteSpace(CNPJ) Then
+                MessageBox.Show("O CNPJ não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            ' Remover caracteres indesejados e copiar para a área de transferência
+            Dim CNPJFormatado As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+            Clipboard.SetText(CNPJFormatado)
+
+            ' Definir a URL
+            Dim url As String = "https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21"
+
+            ' Verificar se a janela WebSiteGERAL está visível
+            If WebSiteGERAL.Visible Then
+                ' Colocar foco e atualizar a URL
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.WebView.Source = New Uri(url)
+            Else
+                ' Mostrar a janela e atualizar a URL
+                WebSiteGERAL.Show()
+                WebSiteGERAL.Focus()
+                WebSiteGERAL.WebView.Source = New Uri(url)
+            End If
+
+            ' Informar o usuário que o CNPJ foi copiado
+            MessageBox.Show("CNPJ copiado, use CTRL+V para colar no local desejado.", "CNPJ Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Tratar qualquer erro inesperado
+            MessageBox.Show("Ocorreu um erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub AbrirEscolhaParcelamentoEnvio()
         ' Abrir FrmParcEscolha e transferir dados com base na aba ativa

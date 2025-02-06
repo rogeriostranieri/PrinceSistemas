@@ -776,6 +776,12 @@
     <Compile Include="Socios\FrmgeralSocios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Socios\FrmSociosExportar.Designer.vb">
+      <DependentUpon>FrmSociosExportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\FrmSociosExportar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SplashScreen.designer.vb">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </Compile>
@@ -1103,6 +1109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Socios\FrmgeralSocios.resx">
       <DependentUpon>FrmgeralSocios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\FrmSociosExportar.resx">
+      <DependentUpon>FrmSociosExportar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>

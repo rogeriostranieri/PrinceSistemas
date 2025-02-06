@@ -37,12 +37,22 @@ Public Class BoxREDESIM
             Select Case protocoloSelecionado
                 Case "Empresa Fácil"
                     FrmLegalizacao.TabControle.SelectTab(2)
-                    Clipboard.SetText(Protocolo)
-                    MessageBox.Show("Protocolo copiado para a área de transferência")
+                    ' Verificar se o Protocolo não está vazio ou nulo
+                    If Not String.IsNullOrEmpty(Protocolo) Then
+                        Clipboard.SetText(Protocolo)
+                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                    Else
+                        MessageBox.Show("O protocolo 'Empresa Fácil' está vazio.")
+                    End If
                 Case "Redesim"
                     FrmLegalizacao.TabControle.SelectTab(3)
-                    Clipboard.SetText(ProtocoloRedesim)
-                    MessageBox.Show("Protocolo copiado para a área de transferência")
+                    ' Verificar se o ProtocoloRedesim não está vazio ou nulo
+                    If Not String.IsNullOrEmpty(ProtocoloRedesim) Then
+                        Clipboard.SetText(ProtocoloRedesim)
+                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                    Else
+                        MessageBox.Show("O protocolo 'Redesim' está vazio.")
+                    End If
             End Select
 
             Me.Focus()
@@ -50,6 +60,7 @@ Public Class BoxREDESIM
             MessageBox.Show("Ocorreu um erro inesperado: " & ex.Message)
         End Try
     End Sub
+
 
     ' Evento de carregamento do formulário
     Private Sub BoxREDESIM_Load(sender As Object, e As EventArgs) Handles MyBase.Load

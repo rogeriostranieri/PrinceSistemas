@@ -1344,13 +1344,28 @@ Public Class FrmAlvara
         BombeiroDataPedProcessoMaskedTextBox.Text = DateTime.Now.ToString()
 
     End Sub
-
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
-        Dim Processo As String = BombeiroNProcessoMaskedTextBox.Text
-        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-        Clipboard.SetText(Processo.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) ''
+        Try
+            ' Obter o valor do campo
+            Dim Processo As String = BombeiroNProcessoMaskedTextBox.Text
 
+            ' Verifica se o campo está vazio ou nulo
+            If String.IsNullOrWhiteSpace(Processo) Then
+                MessageBox.Show("O campo de número de processo está vazio. Por favor, preencha o campo para copiar.", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Copiar o valor para a área de transferência, removendo caracteres indesejados
+            Clipboard.SetText(Processo.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+
+            ' Informar ao usuário que o processo foi copiado
+            MessageBox.Show("Número do processo copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            ' Tratar erros inesperados
+            MessageBox.Show("Ocorreu um erro ao copiar o número do processo: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
 
 
@@ -1713,16 +1728,21 @@ Public Class FrmAlvara
         Clipboard.SetText(cadastroImobiliario)
 
         ' Mensagem de pergunta ao usuário
-        Dim result As DialogResult = MessageBox.Show("Deseja abrir o mapa da cidade com o cadastro imobiliário " & cadastroImobiliario & "?", "Abrir Mapa", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result As DialogResult = MessageBox.Show(
+        String.Format("Deseja abrir o mapa da cidade com o cadastro imobiliário {0}?", cadastroImobiliario),
+        "Abrir Mapa",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question)
 
         ' Verifica a resposta do usuário
         If result = DialogResult.Yes Then
-            If WebSiteGERAL.Visible = True Then
-                ' Coloca foco e frente
+            ' Verifica se a janela do site já está visível
+            If WebSiteGERAL.Visible Then
+                ' Coloca foco e traz para a frente
                 WebSiteGERAL.Focus()
                 WebSiteGERAL.BringToFront()
             Else
-                ' Mostra a janela
+                ' Mostra a janela do site
                 WebSiteGERAL.Show()
                 WebSiteGERAL.BringToFront()
             End If
@@ -1743,9 +1763,9 @@ Public Class FrmAlvara
         Clipboard.SetText(cepSemHifen)
 
         ' Informar ao usuário que o CEP foi copiado
-        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 
     '//////////////////////////////////////// INICIO DATA PROVISORIO ////////////////////////////////////////////////////////////////
     Private Sub SalvarAlteracoes()
@@ -2139,9 +2159,27 @@ Public Class FrmAlvara
     End Function
 
     Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
-        'copiar para area de trabalho RamoDeAtividadeRichTextBox
-        Clipboard.SetText(RamodeatividadeRichTextBox.Text)
+        Try
+            ' Obter o texto do RichTextBox
+            Dim ramoDeAtividade As String = RamodeatividadeRichTextBox.Text
+
+            ' Verifica se o campo está vazio ou nulo
+            If String.IsNullOrWhiteSpace(ramoDeAtividade) Then
+                MessageBox.Show("O campo Ramo de Atividade está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Copiar o texto para a área de transferência
+            Clipboard.SetText(ramoDeAtividade)
+
+            ' Informar ao usuário que o texto foi copiado
+            MessageBox.Show("Texto copiado para a área de transferência!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            ' Tratar qualquer erro inesperado
+            MessageBox.Show("Ocorreu um erro ao copiar o texto: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
         If EndCidadeTextBox.Text = "MARINGA" Then
@@ -2191,24 +2229,40 @@ Public Class FrmAlvara
         ArrumarCNPJ()
     End Sub
     'FIM ARRUMA CNPJ
-
     Private Sub BtnCopiaEndereco_Click(sender As Object, e As EventArgs) Handles BtnCopiaEndereco.Click
-        'copiar no formato "avenida Pioneiro Antônio Franco de Morais, Nº 1373, Sala 02, Jardim Brasil, CEP: 87083-260, Maringá-PR"
-        Dim Endereco As String = EnderecoTextBox.Text
-        Dim Numero As String = EndNumTextBox.Text
-        Dim Complemento As String = EndCompTextBox.Text
-        Dim Bairro As String = EndBairroTextBox.Text
-        Dim CEP As String = EndCEPMaskedTextBox.Text
-        Dim Cidade As String = EndCidadeTextBox.Text
-        Dim UF As String = EndEstadoTextBox.Text
+        Try
+            ' Obter os valores dos campos
+            Dim Endereco As String = EnderecoTextBox.Text
+            Dim Numero As String = EndNumTextBox.Text
+            Dim Complemento As String = EndCompTextBox.Text
+            Dim Bairro As String = EndBairroTextBox.Text
+            Dim CEP As String = EndCEPMaskedTextBox.Text
+            Dim Cidade As String = EndCidadeTextBox.Text
+            Dim UF As String = EndEstadoTextBox.Text
 
-        'se tiver complemento ou retirar o complemento
-        If Complemento = "" Then
-            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
-        Else
-            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
-        End If
+            ' Verifica se os campos principais estão vazios ou nulos
+            If String.IsNullOrWhiteSpace(Endereco) OrElse String.IsNullOrWhiteSpace(Numero) OrElse String.IsNullOrWhiteSpace(Bairro) OrElse String.IsNullOrWhiteSpace(CEP) OrElse String.IsNullOrWhiteSpace(Cidade) OrElse String.IsNullOrWhiteSpace(UF) Then
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios (Endereço, Número, Bairro, CEP, Cidade e UF).", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
 
+            ' Formatar o endereço
+            Dim enderecoCompleto As String
+            If String.IsNullOrWhiteSpace(Complemento) Then
+                enderecoCompleto = String.Format("{0}, n.º {1}, {2}, CEP: {3}, na cidade de {4}-{5}", Endereco, Numero, Bairro, CEP, Cidade, UF)
+            Else
+                enderecoCompleto = String.Format("{0}, n.º {1}, {2}, {3}, CEP: {4}, na cidade de {5}-{6}", Endereco, Numero, Complemento, Bairro, CEP, Cidade, UF)
+            End If
+
+            ' Copiar para a área de transferência
+            Clipboard.SetText(enderecoCompleto)
+
+            ' Informar o sucesso
+            MessageBox.Show("Endereço copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            ' Tratar erros inesperados
+            MessageBox.Show("Ocorreu um erro ao copiar o endereço: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub BtnCorrigeCidade_Click(sender As Object, e As EventArgs) Handles BtnCorrigeCidade.Click

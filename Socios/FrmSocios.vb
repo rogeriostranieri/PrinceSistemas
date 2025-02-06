@@ -432,7 +432,7 @@ Public Class FrmSocios
             'ativar TabControle 1
             FrmLegalizacao.TabControl1.SelectedIndex = 1
 
-            'aativar TabControl2 0
+            'ativar TabControl2 0
             FrmLegalizacao.TabControl2.SelectedIndex = 1
 
             'Dados
@@ -452,8 +452,6 @@ Public Class FrmSocios
                 Dim DataDeNascimentoFormatada As String = Format(CDate(DataDeNascimento), "dd 'de' MMMM 'de' yyyy")
                 DataDeNascimento = DataDeNascimentoFormatada
             End If
-
-
 
             Dim RG As String = RGTextBox.Text
             Dim OrgaoRG As String = OrgaoRGTextBox.Text
@@ -488,7 +486,7 @@ Public Class FrmSocios
             Dim Brasileiro As String
             Dim Nascido As String
 
-            'verificar se está no masculino ou feminio no campo GeneroComboBox
+            'verificar se está no masculino ou feminino no campo GeneroComboBox
             If Genero = "Masculino" Then
                 domiciliado = "domiciliado"
                 Portador = "portador"
@@ -543,7 +541,14 @@ Public Class FrmSocios
                     'Novos dados na linha de baixo
                     FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Remove(Posição, CPF.Length)
 
-                    ' Verificar se é Sócio-Administrador ou Sócio
+                    ' Pergunta sobre saída de sócio
+                    Dim saidaDeSocio As String = ""
+                    If MsgBox("O sócio está saindo da empresa?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
+                        saidaDeSocio = "Saída de Sócio "
+                        FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Replace("Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////", saidaDeSocio & "//////////////////////////////////////////////////////////")
+                    End If
+
+                    ' Perguntar se é sócio-administrador ou sócio
                     Dim ehAdministrador As String = ""
                     If MsgBox("O sócio é administrador?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                         ehAdministrador = "Sócio-Administrador"
@@ -553,11 +558,10 @@ Public Class FrmSocios
 
                     FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
 Novos dados:
-Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
-            ehAdministrador & vbCrLf & vbCrLf &
-            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf & "
-//////////////////////////////////////////////////////////////////////
-")
+" & saidaDeSocio & "Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+ehAdministrador & vbCrLf & vbCrLf &
+NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
+"//////////////////////////////////////////////////////////////////////")
                 End If
 
             Else
@@ -569,7 +573,7 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
                 End If
                 QuantidadeSocios = CInt(FrmLegalizacao.QuantidadeSociosTextBox.Text)
 
-                ' Verificar se é Sócio-Administrador ou Sócio
+                ' Perguntar se é sócio-administrador ou sócio
                 Dim ehAdministrador As String = ""
                 If MsgBox("O sócio é administrador?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
                     ehAdministrador = "Sócio-Administrador"
@@ -579,11 +583,10 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
 
                 'FORMA FINAL
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-            " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
-            ehAdministrador & vbCrLf & vbCrLf &
-            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf & "
-//////////////////////////////////////////////////////////////////////
-"
+        " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+        ehAdministrador & vbCrLf & vbCrLf &
+        NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
+        "//////////////////////////////////////////////////////////////////////"
             End If
 
             'Focar na frente o FrmLegalizacao
@@ -598,27 +601,36 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
         End Try
 
     End Sub
+
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         Try
+            ' Verifica se FrmLegalizacao está visível
             If FrmLegalizacao.Visible = True Then
-                FrmLegalizacao.Focus()
+                FrmLegalizacao.Focus() ' Coloca o foco no FrmLegalizacao
                 Dim NomeEmpresa As String = FrmLegalizacao.RazaoSocialTextBox.Text
                 Dim NomeSocio As String = NomeCompletoTextBox.Text
 
+                ' Pergunta ao usuário se deseja exportar os dados
                 If MsgBox("Deseja exportar os dados do " & NomeSocio & " para Empresa " & NomeEmpresa & " ?", MsgBoxStyle.YesNo, "Confirmação") = MsgBoxResult.Yes Then
-                    AtivarTab()
-                    AddSocios()
+                    AtivarTab() ' Ativa a tabulação (se necessário)
+
+                    ' Verifica se FrmSocios está aberto
+                    If Application.OpenForms().OfType(Of FrmSociosExportar).Any() Then
+                        MsgBox("O formulário FrmSocios Exportar já está aberto.", MsgBoxStyle.Information, "Atenção")
+                        FrmSociosExportar.Focus() ' Coloca o foco no FrmSocios
+                    Else
+                        FrmSociosExportar.Show() ' Abre o FrmSocios se não estiver aberto
+                    End If
                 End If
             Else
+                ' Se FrmLegalizacao não estiver visível, abre e exibe uma mensagem
                 FrmLegalizacao.Show()
-                ' ExportarDados()
-                'mgsbox abrir a empresa onde deseja exportar
-                MsgBox("Abrir a empresa onde deseja exportar!")
+                MsgBox("Abra a empresa onde deseja exportar os dados!", MsgBoxStyle.Information, "Atenção")
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' Exibe mensagem de erro caso ocorra uma exceção
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Erro")
         End Try
-
     End Sub
     Private Sub Form_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then Me.Close()
@@ -1508,8 +1520,29 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
     End Sub
 
     Private Sub BtnCopiarSenhaGov_Click(sender As Object, e As EventArgs) Handles BtnCopiarSenhaGov.Click
-        'copiar SenhaGOVTextBox sem os *
-        Clipboard.SetText(SenhaGOVTextBox.Text)
+        Try
+            ' Obter o texto da SenhaGOVTextBox
+            Dim senha As String = SenhaGOVTextBox.Text
+
+            ' Verificar se o campo está vazio
+            If String.IsNullOrEmpty(senha) Then
+                MessageBox.Show("O campo de senha está vazio. Por favor, insira uma senha válida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            ' Remover os asteriscos (*) da senha
+            Dim senhaSemAsterisco As String = senha.Replace("*", "")
+
+            ' Copiar a senha sem os asteriscos para a área de transferência
+            Clipboard.SetText(senhaSemAsterisco)
+
+            ' Informar ao usuário que a senha foi copiada
+            MessageBox.Show("Senha copiada para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Tratar qualquer erro inesperado
+            MessageBox.Show("Ocorreu um erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub SenhaGOVTextBox_Click(sender As Object, e As EventArgs) Handles SenhaGOVTextBox.Click
@@ -1562,28 +1595,64 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
     End Sub
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
-        ' Obter o texto do CEPMaskedTextBox
-        Dim cep As String = CEPMaskedTextBox.Text
+        Try
+            ' Obter o texto do CEPMaskedTextBox
+            Dim cep As String = CEPMaskedTextBox.Text.Trim()
 
-        ' Remover o hífen
-        Dim cepSemHifen As String = cep.Replace("-", "")
+            ' Verificar se o campo está vazio
+            If String.IsNullOrEmpty(cep) Then
+                MessageBox.Show("O campo de CEP está vazio. Por favor, insira um CEP válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
 
-        ' Copiar o resultado para a área de transferência
-        Clipboard.SetText(cepSemHifen)
+            ' Remover o hífen
+            Dim cepSemHifen As String = cep.Replace("-", "")
 
+            ' Copiar o resultado para a área de transferência
+            Clipboard.SetText(cepSemHifen)
 
+            ' Informar ao usuário que o CEP foi copiado
+            MessageBox.Show("CEP copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Tratar qualquer erro inesperado
+            MessageBox.Show("Ocorreu um erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub BtnCopiarCPF_Click(sender As Object, e As EventArgs) Handles BtnCopiarCPF.Click
-        ' Copiar CPF sem os caracteres especiais
-        Dim CPF As String = CPFMaskedTextBox.Text
+        Try
+            ' Obter o texto do CPFMaskedTextBox
+            Dim CPF As String = CPFMaskedTextBox.Text.Trim()
 
-        ' Remover o hífen e os pontos
-        Dim CPFLimpo As String = CPF.Replace("-", "").Replace(".", "")
+            ' Verificar se o CPF está vazio ou inválido
+            If String.IsNullOrEmpty(CPF) Then
+                MessageBox.Show("O campo de CPF está vazio. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
 
-        ' Copiar o CPF limpo para a área de transferência
-        Clipboard.SetText(CPFLimpo)
+            ' Remover o hífen e os pontos
+            Dim CPFLimpo As String = CPF.Replace("-", "").Replace(".", "")
+
+            ' Verificar se o CPF tem o tamanho correto (11 dígitos)
+            If CPFLimpo.Length <> 11 Then
+                MessageBox.Show("CPF inválido. Um CPF deve ter 11 dígitos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            ' Copiar o CPF limpo para a área de transferência
+            Clipboard.SetText(CPFLimpo)
+
+            ' Informar ao usuário que o CPF foi copiado
+            MessageBox.Show("CPF copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Tratar qualquer erro inesperado
+            MessageBox.Show("Ocorreu um erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub BtnParcelamentos_Click(sender As Object, e As EventArgs) Handles BtnParcelamentos.Click
         Try

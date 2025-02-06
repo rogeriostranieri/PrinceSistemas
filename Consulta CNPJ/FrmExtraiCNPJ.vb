@@ -519,12 +519,14 @@ Public Class FrmExtraiCNPJ
         ' Verifica se o CNPJ do formulário atual está vazio
         If Not String.IsNullOrWhiteSpace(CNPJMaskedTextBox.Text) Then
             CNPJ = CNPJMaskedTextBox.Text
-        ElseIf Application.OpenForms.OfType(Of FrmLegalizacao)().Any() Then
+        Else
             ' Verifica se o formulário FrmLegalizacao está aberto
-            CNPJ = FrmLegalizacao.CNPJMaskedTextBox.Text
-        ElseIf Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
-            ' Verifica se o formulário FrmParcelamento está aberto
-            CNPJ = FrmParcelamento.CNPJMaskedTextBox.Text
+            If Application.OpenForms.OfType(Of FrmLegalizacao)().Any() Then
+                CNPJ = FrmLegalizacao.CNPJMaskedTextBox.Text
+                ' Verifica se o formulário FrmParcelamento está aberto
+            ElseIf Application.OpenForms.OfType(Of FrmParcelamento)().Any() Then
+                CNPJ = FrmParcelamento.CNPJMaskedTextBox.Text
+            End If
         End If
 
         ' Se nenhum CNPJ foi encontrado, avisa o usuário
@@ -533,12 +535,18 @@ Public Class FrmExtraiCNPJ
             Exit Sub
         End If
 
-        ' Remove caracteres indesejados do CNPJ e copia para a área de transferência
+        ' Remove caracteres indesejados do CNPJ
         Dim CNPJFormatado As String = CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
+
+        ' Copia o CNPJ formatado para a área de transferência
         Clipboard.SetText(CNPJFormatado)
 
         ' Abre o site com o CNPJ
-        System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJFormatado)
+        Try
+            System.Diagnostics.Process.Start("https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_Solicitacao.asp?cnpj=" + CNPJFormatado)
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao tentar abrir o site: " & ex.Message, "Erro ao Abrir Site", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
         ' Fecha o formulário atual
         Me.Close()

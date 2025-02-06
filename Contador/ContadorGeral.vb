@@ -155,11 +155,31 @@
     End Sub
 
     Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
-        Dim CNPJ As String = CPFMaskedTextBox.Text
-        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+        Try
+            ' Obter o texto do CPFMaskedTextBox
+            Dim CPF As String = CPFMaskedTextBox.Text
 
+            ' Verificar se o campo não está vazio
+            If String.IsNullOrWhiteSpace(CPF) Then
+                MessageBox.Show("O campo CPF está vazio. Por favor, insira um CPF.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            ' Remover caracteres especiais do CPF (como pontos, hífens, etc.)
+            Dim CPFFormatado As String = CPF.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "")
+
+            ' Copiar o CPF formatado para a área de transferência
+            Clipboard.SetText(CPFFormatado)
+
+            ' Informar ao usuário que o CPF foi copiado
+            MessageBox.Show("CPF copiado para a área de transferência.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Exibir mensagem de erro caso algo dê errado
+            MessageBox.Show("Erro ao copiar CPF: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     ' ESTADO CIVIL DO CONTADOR
 
@@ -207,17 +227,28 @@
     End Sub
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
-        ' Obter o texto do CEPMaskedTextBox
-        Dim cep As String = EndCEPMaskedTextBox.Text
+        Try
+            ' Obter o texto do CEPMaskedTextBox
+            Dim cep As String = EndCEPMaskedTextBox.Text
 
-        ' Remover o hífen
-        Dim cepSemHifen As String = cep.Replace("-", "")
+            ' Verificar se o CEP não está vazio
+            If String.IsNullOrWhiteSpace(cep) Then
+                MessageBox.Show("O campo CEP está vazio!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
 
-        ' Copiar o resultado para a área de transferência
-        Clipboard.SetText(cepSemHifen)
+            ' Remover o hífen
+            Dim cepSemHifen As String = cep.Replace("-", "")
 
-        ' Informar ao usuário que o CEP foi copiado
-        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Copiar o resultado para a área de transferência
+            Clipboard.SetText(cepSemHifen)
 
+            ' Informar ao usuário que o CEP foi copiado
+            MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Em caso de erro, exibe uma mensagem de erro
+            MessageBox.Show("Erro ao copiar CEP: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

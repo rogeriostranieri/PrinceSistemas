@@ -1331,27 +1331,25 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         TabControle.SelectTab(2)
 
     End Sub
-
     Private Sub Button34_Click(sender As Object, e As EventArgs)
         Try
-
+            ' Verifica se o campo CNPJ está vazio
             If Trim(CNPJMaskedTextBox.Text) = "" Then
-
                 MsgBox("O Campo CNPJ está vazio!", MsgBoxStyle.Information, "Prince Sistemas Informa!")
             Else
-
+                ' Remove caracteres especiais do CNPJ e copia para a área de transferência
                 Dim CNPJ As String = CNPJMaskedTextBox.Text
-
                 Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-                ' MsgBox("CNPJ Copiado!", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+
+                ' Notifica o usuário que o CNPJ foi copiado
+                MsgBox("CNPJ Copiado!", MsgBoxStyle.Information, "Prince Sistemas Informa!")
             End If
-
         Catch ex As Exception
+            ' Tratamento de erro
             MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
         End Try
-
     End Sub
+
 
     Private Sub Button35_Click(sender As Object, e As EventArgs)
         Try
@@ -1623,10 +1621,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub Button43_Click(sender As Object, e As EventArgs) Handles Button43.Click
         Try
+            ' Obtém o CNPJ e remove os caracteres especiais
             Dim CNPJ As String = CNPJMaskedTextBox.Text
-            Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+            Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
+            ' Mensagem de confirmação
+            MessageBox.Show("CNPJ copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
+            ' Trata qualquer erro que possa ocorrer
             MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
@@ -1718,11 +1720,23 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
 
     Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
-        Dim CNPJ As String = CPFResponsavelMaskedTextBox.Text
-        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-        Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")) '
+        Try
+            ' Obtém o CNPJ ou CPF e remove os caracteres especiais
+            Dim CNPJ As String = CPFResponsavelMaskedTextBox.Text
+            ' Descomente se você desejar substituir os caracteres especiais de forma diferente
+            ' CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
 
+            ' Copia o valor tratado para a área de transferência
+            Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
+
+            ' Mensagem de confirmação
+            MessageBox.Show("CPF copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            ' Trata qualquer erro que possa ocorrer
+            MessageBox.Show("Erro ao copiar CPF" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
+
 
     Private Sub Button45_Click(sender As Object, e As EventArgs) Handles Button45.Click
         Try
@@ -1767,9 +1781,18 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
 
     Private Sub BtnCopiarSenhaGov_Click(sender As Object, e As EventArgs) Handles BtnCopiarSenhaGov.Click
+        ' Verifica se o campo SenhaGovTextBox não está vazio
         Dim Senha As String = SenhaGovTextBox.Text
-        'CNPJ = CNPJ.Replace("/", ",").Replace(".", "-")
-        Clipboard.SetText(Senha) '
+        If Not String.IsNullOrEmpty(Senha) Then
+            ' Copia o conteúdo de SenhaGovTextBox para a área de transferência
+            Clipboard.SetText(Senha)
+
+            ' Exibe uma mensagem de confirmação ao usuário
+            MessageBox.Show("Senha copiada para a área de transferência!", "Copiar Senha", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ' Exibe uma mensagem de alerta caso o campo esteja vazio
+            MessageBox.Show("O campo Senha está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
 
@@ -3043,20 +3066,25 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
     End Function
 
     Private Sub BtnConsultaOptante_Click(sender As Object, e As EventArgs) Handles BtnConsultaOptante.Click
-        ' System.Diagnostics.Process.Start("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+        ' Obtém o CNPJ do campo e remove os caracteres especiais
         Dim CNPJ As String = CNPJMaskedTextBox.Text
         Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
-        If WebSiteGERAL.Visible = True Then
+
+        ' Verifica se o WebSiteGERAL está visível e atualiza a URL
+        If WebSiteGERAL.Visible Then
             WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
         Else
             WebSiteGERAL.Show()
             WebSiteGERAL.Focus()
-            WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
-            MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
         End If
+
+        ' Atualiza o WebView com a URL de consulta
+        WebSiteGERAL.WebView.Source = New Uri("https://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21")
+
+        ' Exibe mensagem informando que o CNPJ foi copiado
+        MsgBox("CNPJ copiado, use CTRL+V para colar no local desejado")
     End Sub
+
 
     Private Sub BtnAvancoRazao_Click(sender As Object, e As EventArgs) Handles BtnAvancoRazao.Click
         'mostrar por mgsbox a RazaoSocialTextBox completa, mgsbox alerta
@@ -3180,11 +3208,20 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             FormaDeAtuacaoLabel.Visible = False
         End If
     End Sub
-
     Private Sub BtnCopiarRamo_Click(sender As Object, e As EventArgs) Handles BtnCopiarRamo.Click
-        'copiar para area de trabalho RamoDeAtividadeRichTextBox
-        Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
+        ' Verifica se o RichTextBox não está vazio
+        If Not String.IsNullOrEmpty(RamoDeAtividadeRichTextBox.Text) Then
+            ' Copia o conteúdo do RamoDeAtividadeRichTextBox para a área de transferência
+            Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
+
+            ' Exibe uma mensagem de confirmação ao usuário
+            MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ' Exibe uma mensagem de alerta caso o campo esteja vazio
+            MessageBox.Show("O campo Ramo de Atividade está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
+
 
     Private Sub BtnCopiaEndereco_Click(sender As Object, e As EventArgs) Handles BtnCopiaEndereco.Click
         'copiar no formato "avenida Pioneiro Antônio Franco de Morais, Nº 1373, Sala 02, Jardim Brasil, CEP: 87083-260, Maringá-PR"
@@ -3399,9 +3436,11 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             End If
 
             ' Define a URL com o número do cadastro imobiliário
-            WebSiteGERAL.WebView.Source = New Uri("http://geoproc.maringa.pr.gov.br:8090/SIGMARINGA/")
+            Dim url As String = "http://geoproc.maringa.pr.gov.br:8090/SIGMARINGA/" & cadastroImobiliario
+            WebSiteGERAL.WebView.Source = New Uri(url)
         End If
     End Sub
+
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
         ' Obter o texto do CEPMaskedTextBox
@@ -3414,9 +3453,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Clipboard.SetText(cepSemHifen)
 
         ' Informar ao usuário que o CEP foi copiado
-        'MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 
     Private Sub BtnFiliais_Click(sender As Object, e As EventArgs) Handles BtnFiliais.Click
         ' Obtém o CNPJ do MaskedTextBox no FrmAlvara
@@ -3860,14 +3899,19 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
     Private Sub BtnCopiarPRP_Click(sender As Object, e As EventArgs) Handles BtnCopiarPRP.Click
-        ' Copia o conteúdo de ProtocoloJuntaComercialTextBox para a área de transferência
+        ' Verifica se o campo ProtocoloJuntaComercialTextBox não está vazio
         If Not String.IsNullOrEmpty(ProtocoloJuntaComercialTextBox.Text) Then
+            ' Copia o conteúdo do TextBox para a área de transferência
             Clipboard.SetText(ProtocoloJuntaComercialTextBox.Text)
-            'MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Exibe uma mensagem informando que o texto foi copiado com sucesso
+            MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
+            ' Exibe uma mensagem de alerta caso o campo esteja vazio
             MessageBox.Show("O campo Protocolo Junta Comercial está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
+
 
     Private Sub BtnCopiarREDESIM_Click(sender As Object, e As EventArgs) Handles BtnCopiarREDESIM.Click
         ' Copia o conteúdo de ProtocoloREDESIMTextBox para a área de transferência
@@ -4309,10 +4353,20 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             GroupBoxSimples.Visible = True
         End If
     End Sub
-
     Private Sub BtnCopiarEmail_Click(sender As Object, e As EventArgs) Handles BtnCopiarEmail.Click
-        Clipboard.SetText(EmpEmailTextBox.Text)
+        ' Verifica se o campo de email não está vazio
+        If Not String.IsNullOrEmpty(EmpEmailTextBox.Text) Then
+            ' Copia o conteúdo do TextBox para a área de transferência
+            Clipboard.SetText(EmpEmailTextBox.Text)
+
+            ' Exibe uma mensagem informando que o email foi copiado
+            MessageBox.Show("Email copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ' Exibe uma mensagem caso o campo esteja vazio
+            MessageBox.Show("O campo de email está vazio. Não foi possível copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
+
 
     Private Sub AvisarEmpresaCheckBox_Click(sender As Object, e As EventArgs) Handles AvisarEmpresaCheckBox.Click
         TabControle.SelectTab(10)

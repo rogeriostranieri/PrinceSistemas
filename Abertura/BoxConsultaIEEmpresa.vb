@@ -46,16 +46,20 @@
 
         If IE = "" Then
             Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", "")
-            My.Computer.Clipboard.SetText(CNPJ)
-            MsgBox("CNPJ copiado, use o CTRL+V para colar no campo do CNPJ")
-            Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+
+            ' Verificar se CNPJ não está vazio antes de copiar
+            If Not String.IsNullOrEmpty(CNPJ) Then
+                My.Computer.Clipboard.SetText(CNPJ)
+                MsgBox("CNPJ copiado, use o CTRL+V para colar no campo do CNPJ")
+                Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=")
+            Else
+                MsgBox("CNPJ está vazio. Não foi possível copiar.")
+            End If
             Me.Close()
         Else
             Process.Start("https://www.arinternet.pr.gov.br/cadicms/lecadicms.asp?eCad=" + IE)
             Me.Close()
         End If
-        Me.Close()
-
     End Sub
 
     Private Sub BtnImportar_Click(sender As Object, e As EventArgs) Handles BtnImportar.Click
