@@ -257,7 +257,7 @@ Partial Class FrmMail
         Me.TabControle.Location = New System.Drawing.Point(4, 90)
         Me.TabControle.Margin = New System.Windows.Forms.Padding(4)
         Me.TabControle.Name = "TabControle"
-        Me.TabControle.SelectedIndex = 0
+        Me.TabControle.SelectedIndex = -1
         Me.TabControle.Size = New System.Drawing.Size(748, 458)
         Me.TabControle.TabIndex = 7
         '

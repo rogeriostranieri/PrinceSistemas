@@ -33,7 +33,7 @@ Public Class FrmCNAEoficial
         ' Configuração do ComboBox para escolher o tipo de CNAE (Principal ou Secundário)
         ComboBoxTipoCNAE.Items.Clear()
         ComboBoxTipoCNAE.Items.AddRange(New String() {"Principal", "Secundário"})
-        ComboBoxTipoCNAE.SelectedIndex = 0 ' Define "Principal" como o valor padrão
+        ComboBoxTipoCNAE.SelectedIndex = -1 ' Define "Principal" como o valor padrão
 
         ' Adiciona a mensagem inicial no ListView
         Dim noResultItem As New ListViewItem("Sem resultado... favor digitar e clicar em buscar")

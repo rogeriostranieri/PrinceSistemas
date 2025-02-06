@@ -16,7 +16,7 @@ Public Class FrmMail
         ProgressBar1.Value = 0
         ProgressBar1.BackColor = Color.Green
         'inicia selecionando ComboBoxCaixaSaida primeiro item
-        ComboBoxCaixaSaida.SelectedIndex = 0
+        ComboBoxCaixaSaida.SelectedIndex = -1
 
     End Sub
 
@@ -78,7 +78,7 @@ Public Class FrmMail
 
             ProgressBar1.BackColor = Color.Green
             TabControle.SelectedIndex = 2
-            TabControle.SelectedIndex = 0
+            TabControle.SelectedIndex = -1
 
             'codigo de entrada de dados 
             Dim UserName As String = EMailTextBox.Text
@@ -303,7 +303,7 @@ Public Class FrmMail
 
     Private Sub ButtonGeral_Click(sender As Object, e As EventArgs) Handles ButtonGeral.Click
         TabControle.SelectedIndex = 2
-        TabControle.SelectedIndex = 0
+        TabControle.SelectedIndex = -1
         TextBoxPara.Text = ParaGeralRichTextBox.Text
 
     End Sub

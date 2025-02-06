@@ -704,7 +704,7 @@ Partial Class FrmSites
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(15, 115)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(689, 300)
         Me.TabControl1.TabIndex = 56
         '

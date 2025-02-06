@@ -136,17 +136,17 @@ Public Class BoxConsultaCNPJLaudo
                 '//////////////////////////////////   IMPORTAÇÂO  ///////////////////////////////////////
 
                 'INICIA A Alvara
-                FrmAlvara.TabAlvara.SelectedIndex = 0
-                FrmAlvara.TabControl2.SelectedIndex = 0
+                FrmAlvara.TabAlvara.SelectedIndex = -1
+                FrmAlvara.TabControl2.SelectedIndex = -1
                 'TabControl2 3
-                FrmAlvara.TabControl2.SelectedIndex = 0
+                FrmAlvara.TabControl2.SelectedIndex = -1
                 FrmAlvara.TabControl2.SelectedIndex = 1
                 FrmAlvara.TabControl2.SelectedIndex = 2
                 FrmAlvara.TabControl2.SelectedIndex = 3
                 FrmAlvara.TabControl2.SelectedIndex = 4
 
-                FrmAlvara.TabAlvara.SelectedIndex = 0
-                FrmAlvara.TabControl2.SelectedIndex = 0
+                FrmAlvara.TabAlvara.SelectedIndex = -1
+                FrmAlvara.TabControl2.SelectedIndex = -1
                 'FIM
 
 
@@ -231,8 +231,8 @@ Public Class BoxConsultaCNPJLaudo
 
                 'FINALIZAR //////////////////////////////////////////////////
 
-                FrmAlvara.TabControl2.SelectedIndex = 0
-                FrmAlvara.TabAlvara.SelectedIndex = 0
+                FrmAlvara.TabControl2.SelectedIndex = -1
+                FrmAlvara.TabAlvara.SelectedIndex = -1
 
                 'mostrar mgs de sucesso
                 MsgBox("Importação realizada com sucesso! Ultima atualização em:" & DataAtualizacao, MsgBoxStyle.Information, "Importação")

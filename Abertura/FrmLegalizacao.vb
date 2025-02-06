@@ -279,17 +279,24 @@ Public Class FrmLegalizacao
 
     Public Property RazaoSocialSelecionada As String
     Private Sub FrmLegalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         Try
             ' Preenche os dados das tabelas relacionadas
             Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
             Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
             Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
-            ' Configura ComboBox de Status
+
             With StatusComboBox
                 .DataSource = CADstatusBindingSource
                 .DisplayMember = "Descricao"
                 .ValueMember = "Descricao"
+                If .Items.Count > 0 Then
+                    .SelectedIndex = 0 ' Defina o índice apenas se houver itens
+                Else
+                    .SelectedIndex = -1 ' Caso contrário, defina como -1
+                End If
             End With
 
             ' Configurações iniciais
@@ -1032,20 +1039,21 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     TipoDeEmpresaComboBox.SelectedIndex = -1
                     PorteDaEmpresaComboBox.SelectedIndex = -1
                     RegimeFederalComboBox.SelectedIndex = -1
-                    NaturezaJuridicaComboBox.SelectedIndex = -1
+
+
                     SituacaoCadastralComboBox.SelectedText = "ATIVO"
                     SEDEComboBox.SelectedIndex = 1
 
                     ' Definir valores padrão
                     RegimeFederalComboBox.SelectedIndex = 4  ' RegimeFederal = Pendência
-                    StatusComboBox.SelectedText = "Não Iniciado"
-                    ProcessoComboBox.SelectedIndex = -1
+                    '  StatusComboBox.SelectedText = "Não Iniciado"
+                    ' ProcessoComboBox.SelectedIndex = -1
                     SistemaExternoComboBox.SelectedIndex = 1  ' SistemaExterno = Não
 
                     ' Preencher campos com a data e hora atuais
                     EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-                    SEDEComboBox.SelectedIndex = 0
+                    SEDEComboBox.SelectedIndex = -1
                     HabilitaEdicao()
 
 
@@ -1792,8 +1800,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     GroupBox10.Enabled = False
 
                     ' Reposicionar o foco nos controles
+                    ' Reposicionar o foco nos controles
                     Dim NomeEmpresa As String = RazaoSocialTextBox.Text
-                    ComboBoxBuscaEmpresa.Text = NomeEmpresa
+
+                    ' Verificar se o ComboBox tem itens e o valor da empresa é válido
+                    If ComboBoxBuscaEmpresa.Items.Count > 0 AndAlso NomeEmpresa IsNot Nothing Then
+                        ComboBoxBuscaEmpresa.Text = NomeEmpresa
+                    End If
+
                     ComboBoxBuscaEmpresa.Focus()
                     RazaoSocialTextBox.Focus()
 
@@ -1813,8 +1827,10 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Erro ao editar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Erro ao editar: " & ex.Message & vbCrLf & "Detalhes: " & ex.StackTrace,
+                             "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
+
     End Sub
 
 
@@ -2067,7 +2083,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub BtnAdicionarSocio_Click(sender As Object, e As EventArgs) Handles BtnAdicionarSocio.Click
         'ativa TabControl2 inicia 0
-        TabControl2.SelectedIndex = 0
+        TabControl2.SelectedIndex = -1
         'verifica se esta vazio NomeResponsavelTextBox
 
         If NomeResponsavelTextBox.Text = "" Then
@@ -2190,7 +2206,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         Try
             'If StatusComboBox.Text = "Finalizado" Then
             'selecioanr Index 0
-            If SistemaExternoComboBox.SelectedIndex = 0 Then
+            If SistemaExternoComboBox.SelectedIndex = -1 Then
                 EnviarEmail()
             End If
         Catch ex As Exception
@@ -2225,12 +2241,12 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
             ElseIf result = DialogResult.Yes Then
                 If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-                    SistemaExternoComboBox.SelectedIndex = 0
+                    SistemaExternoComboBox.SelectedIndex = -1
                     Dim Sair As String
                     Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
 
                     'SistemaExternoComboBox muda para Sim
-                    SistemaExternoComboBox.SelectedIndex = 0
+                    SistemaExternoComboBox.SelectedIndex = -1
 
                     FrmMail.MdiParent = MDIPrincipal
                     FrmMail.Show()
@@ -2241,7 +2257,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
                 Else
                     'SistemaExternoComboBox muda para Sim
-                    SistemaExternoComboBox.SelectedIndex = 0
+                    SistemaExternoComboBox.SelectedIndex = -1
 
                     FrmMail.MdiParent = MDIPrincipal
                     FrmMail.Show()
@@ -2666,7 +2682,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.fechadaempresa
-                        SistemaExternoComboBox.SelectedIndex = 0
+                        SistemaExternoComboBox.SelectedIndex = -1
                         EMAIL()
 
                     ElseIf ProcessoComboBox.Text = "Abertura" Then
@@ -2675,7 +2691,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-                        SistemaExternoComboBox.SelectedIndex = 0
+                        SistemaExternoComboBox.SelectedIndex = -1
                         EMAIL()
                     Else
 
@@ -2684,7 +2700,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                         AvisarDiaMaskedTextBox.Text = ""
                         PictureBox1.Image = My.Resources.check
                         PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-                        SistemaExternoComboBox.SelectedIndex = 0
+                        SistemaExternoComboBox.SelectedIndex = -1
                         EMAIL()
                     End If
                 Else
@@ -2697,7 +2713,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     SistemaExternoComboBox.SelectedIndex = 1
                 End If
 
-            ElseIf SistemaExternoComboBox.SelectedIndex = 0 Then
+            ElseIf SistemaExternoComboBox.SelectedIndex = -1 Then
 
                 If ProcessoComboBox.Text = "Baixa" Then
                     StatusComboBox.BackColor = Color.Green

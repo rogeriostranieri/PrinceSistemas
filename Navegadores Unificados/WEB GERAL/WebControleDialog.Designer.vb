@@ -120,7 +120,7 @@ Partial Class WebControleDialog
         Me.TabControleGeral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControleGeral.Location = New System.Drawing.Point(4, 21)
         Me.TabControleGeral.Name = "TabControleGeral"
-        Me.TabControleGeral.SelectedIndex = 0
+        Me.TabControleGeral.SelectedIndex = -1
         Me.TabControleGeral.Size = New System.Drawing.Size(541, 172)
         Me.TabControleGeral.TabIndex = 2
         '

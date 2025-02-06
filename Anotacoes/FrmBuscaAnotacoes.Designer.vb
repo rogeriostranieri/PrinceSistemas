@@ -172,7 +172,7 @@ Partial Class FrmBuscaAnotacoes
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(620, 285)
         Me.TabControl1.TabIndex = 1
         '

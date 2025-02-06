@@ -58,7 +58,7 @@ Public Class FrmSocios
         GroupBoxCapitalSocial.Enabled = False
 
         'seleciona o primeiro do ComboBox1
-        ComboBox1.SelectedIndex = 0
+        ComboBox1.SelectedIndex = -1
 
         BtnDuplicidade.Visible = False
 
@@ -160,8 +160,8 @@ Public Class FrmSocios
 
 
             'selecionar  index 0 GeneroComboBox e CivilComboBox
-            GeneroComboBox.SelectedIndex = 0
-            ListBoxEstadoCivil.SelectedIndex = 0
+            GeneroComboBox.SelectedIndex = -1
+            ListBoxEstadoCivil.SelectedIndex = -1
 
             TextBoxExtensoDN.Visible = False
             BtnDuplicidade.Visible = True
@@ -369,7 +369,7 @@ Public Class FrmSocios
         FrmLegalizacao.TabControl1.SelectedIndex = 1
 
         'aativar TabControl2 0
-        FrmLegalizacao.TabControl2.SelectedIndex = 0
+        FrmLegalizacao.TabControl2.SelectedIndex = -1
 
         'pega CPFMaskedTextBox e copa para  frmLegalizacao.CPFResponsavelMaskedTextBox.text
         FrmLegalizacao.CPFResponsavelMaskedTextBox.Text = CPFMaskedTextBox.Text
@@ -1460,7 +1460,7 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
     End Sub
 
     Private Sub BtnAtablhoSocio_Click(sender As Object, e As EventArgs) Handles BtnAtablhoSocio.Click, BtnAtablhoSocio3.Click
-        TabControl1.SelectedIndex = 0
+        TabControl1.SelectedIndex = -1
     End Sub
 
     Private Sub TextBoxCapitalSocial_Validated(sender As Object, e As EventArgs) Handles TextBoxCapitalSocial.Validated
@@ -1690,7 +1690,7 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "SELECT RazaoSocial, CNPJ FROM Empresas WHERE DadosSocios LIKE @NomeSocio OR ResponsavelNome LIKE @NomeSocio OR NomeResponsavel LIKE @NomeSocio"
+                Dim query As String = "SELECT RazaoSocial, CNPJ FROM Empresas WHERE DadosSocios LIKE @NomeSocio OR ResponsavelNome LIKE @NomeSocio OR NomeResponsavel LIKE @NomeSocio ORDER BY RazaoSocial ASC"
                 Using command As New SqlCommand(query, connection)
                     command.Parameters.AddWithValue("@NomeSocio", "%" & nomeSocio & "%")
 
@@ -1699,6 +1699,15 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
                     adapter.Fill(dataTable)
 
                     DataGridViewEmpresa.DataSource = dataTable
+
+                    ' Ajustar tamanho das colunas automaticamente
+                    DataGridViewEmpresa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+                    ' Ajustar tamanho das linhas automaticamente
+                    DataGridViewEmpresa.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+                    ' Permitir ordenação nas colunas
+                    DataGridViewEmpresa.Sort(DataGridViewEmpresa.Columns("RazaoSocial"), System.ComponentModel.ListSortDirection.Ascending)
+
+                    ' Atualizar contagem de empresas encontradas
                     LblContaEmpresa.Text = "Total de Empresas Encontradas: " & dataTable.Rows.Count.ToString()
 
                     If dataTable.Rows.Count = 0 Then
@@ -1710,5 +1719,32 @@ Sócio Nº:" & QuantidadeSocios & " ////////////////////////////////////////////
         Catch ex As Exception
             MessageBox.Show("Erro ao buscar empresas: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub DataGridViewEmpresa_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewEmpresa.CellDoubleClick
+        ' Verifica se a célula clicada é válida
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim cnpjValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(1).Value.ToString().Trim()
+            Dim razaoSocialValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
+
+            ' Verifica se o formulário já está aberto
+            If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
+                MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                FrmLegalizacao.Focus()
+            Else
+                FrmLegalizacao.Show()
+            End If
+
+            ' Apenas define o ComboBox se houver itens nele
+            If FrmLegalizacao.ComboBoxBuscaEmpresa.Items.Count > 0 Then
+                FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
+                FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
+            End If
+
+            If FrmLegalizacao.ComboBoxBuscaCNPJ.Items.Count > 0 Then
+                FrmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpjValue
+                FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
+            End If
+        End If
     End Sub
 End Class

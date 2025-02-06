@@ -279,7 +279,7 @@ Partial Class WebSiteGERAL
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(3, 106)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(913, 497)
         Me.TabControl1.TabIndex = 4
         '

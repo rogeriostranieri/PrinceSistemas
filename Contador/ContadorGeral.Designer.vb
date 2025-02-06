@@ -759,7 +759,7 @@ Partial Class ContadorGeral
         Me.TabControlContador.Location = New System.Drawing.Point(176, 48)
         Me.TabControlContador.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TabControlContador.Name = "TabControlContador"
-        Me.TabControlContador.SelectedIndex = 0
+        Me.TabControlContador.SelectedIndex = -1
         Me.TabControlContador.Size = New System.Drawing.Size(716, 434)
         Me.TabControlContador.TabIndex = 71
         '

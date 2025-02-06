@@ -56,13 +56,13 @@ Public Class BoxREDESIM
         ' Adiciona as opções ao ComboBox
         ComboBoxEscolhaProtocolo.Items.Add("Empresa Fácil")
         ComboBoxEscolhaProtocolo.Items.Add("Redesim")
-        ComboBoxEscolhaProtocolo.SelectedIndex = 0
+        ComboBoxEscolhaProtocolo.SelectedIndex = -1
 
         ' Adiciona as opções ao ComboBox1
         ComboBox1.Items.Add("Consultar DBE")
         ComboBox1.Items.Add("Abrir CNPJ")
         ComboBox1.Items.Add("Meu CNPJ")
-        ComboBox1.SelectedIndex = 0
+        ComboBox1.SelectedIndex = -1
         Try
             AchaCidade()
 

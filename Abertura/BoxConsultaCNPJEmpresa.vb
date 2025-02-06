@@ -240,10 +240,10 @@ Public Class BoxConsultaCNPJEmpresa
                         '//////////////////////////////////   IMPORTAÇÂO  ///////////////////////////////////////
 
                         'INICIA A LEGALIZAÇÃO
-                        frmLegalizacao.TabControle.SelectedIndex = 0
+                        frmLegalizacao.TabControle.SelectedIndex = -1
                         frmLegalizacao.TabControle.SelectedIndex = 1
                         'TabControl2 3
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
                         frmLegalizacao.TabControl2.SelectedIndex = 1
                         frmLegalizacao.TabControl2.SelectedIndex = 2
                         frmLegalizacao.TabControl2.SelectedIndex = 3
@@ -251,8 +251,8 @@ Public Class BoxConsultaCNPJEmpresa
                         frmLegalizacao.TabControl2.SelectedIndex = 5
                         frmLegalizacao.TabControl2.SelectedIndex = 6
 
-                        frmLegalizacao.TabControle.SelectedIndex = 0
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControle.SelectedIndex = -1
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
                         'FIM
 
 
@@ -338,8 +338,8 @@ Public Class BoxConsultaCNPJEmpresa
 
                         'FINALIZAR //////////////////////////////////////////////////
 
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
-                        frmLegalizacao.TabControl1.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
+                        frmLegalizacao.TabControl1.SelectedIndex = -1
 
                         'mostrar mgs de sucesso
                         MsgBox("Importação realizada com sucesso! Ultima atualização em:" & DataAtualizacao, MsgBoxStyle.Information, "Importação")

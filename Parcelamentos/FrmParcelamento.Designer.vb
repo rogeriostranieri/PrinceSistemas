@@ -738,7 +738,7 @@ Partial Class FrmParcelamento
         Me.TabControlGeral.Location = New System.Drawing.Point(3, 20)
         Me.TabControlGeral.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlGeral.Name = "TabControlGeral"
-        Me.TabControlGeral.SelectedIndex = 0
+        Me.TabControlGeral.SelectedIndex = -1
         Me.TabControlGeral.Size = New System.Drawing.Size(783, 281)
         Me.TabControlGeral.TabIndex = 4
         '
@@ -1238,7 +1238,7 @@ Partial Class FrmParcelamento
         Me.TabControlParcelamento.Location = New System.Drawing.Point(0, 17)
         Me.TabControlParcelamento.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlParcelamento.Name = "TabControlParcelamento"
-        Me.TabControlParcelamento.SelectedIndex = 0
+        Me.TabControlParcelamento.SelectedIndex = -1
         Me.TabControlParcelamento.ShowToolTips = True
         Me.TabControlParcelamento.Size = New System.Drawing.Size(789, 299)
         Me.TabControlParcelamento.TabIndex = 5
@@ -1282,7 +1282,7 @@ Partial Class FrmParcelamento
         Me.TabControlMei.Location = New System.Drawing.Point(3, 3)
         Me.TabControlMei.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMei.Name = "TabControlMei"
-        Me.TabControlMei.SelectedIndex = 0
+        Me.TabControlMei.SelectedIndex = -1
         Me.TabControlMei.Size = New System.Drawing.Size(775, 259)
         Me.TabControlMei.TabIndex = 0
         '
@@ -1482,7 +1482,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo.Location = New System.Drawing.Point(3, 3)
         Me.TabControlINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSAntigo.Name = "TabControlINSSAntigo"
-        Me.TabControlINSSAntigo.SelectedIndex = 0
+        Me.TabControlINSSAntigo.SelectedIndex = -1
         Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 259)
         Me.TabControlINSSAntigo.TabIndex = 1
         '
@@ -1682,7 +1682,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSNovo.Name = "TabControlINSSNovo"
-        Me.TabControlINSSNovo.SelectedIndex = 0
+        Me.TabControlINSSNovo.SelectedIndex = -1
         Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSNovo.TabIndex = 1
         '
@@ -1882,7 +1882,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSProcuradoria.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSProcuradoria.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSProcuradoria.Name = "TabControlINSSProcuradoria"
-        Me.TabControlINSSProcuradoria.SelectedIndex = 0
+        Me.TabControlINSSProcuradoria.SelectedIndex = -1
         Me.TabControlINSSProcuradoria.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSProcuradoria.TabIndex = 1
         '

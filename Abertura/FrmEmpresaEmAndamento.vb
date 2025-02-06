@@ -6,7 +6,7 @@
         Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
 
         EmpresasBindingSource.Filter = "Status <> 'Finalizado' AND Status <>'Paralisado' AND Status <>'Cancelado'"
-        ' StatusComboBox.SelectedIndex = 0
+        ' StatusComboBox.SelectedIndex = -1
         Button1.PerformClick()
 
         ModCombobox.ComboboxLegalizacao()

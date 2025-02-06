@@ -51,7 +51,7 @@ Public Class BoxJuntaComercialLaudo
                 ComboBox1.SelectedItem = "Protocolar Prefeitura"
             Else
                 ' Seleção padrão caso nenhuma condição seja atendida
-                ComboBox1.SelectedIndex = 0
+                ComboBox1.SelectedIndex = -1
             End If
 
             ' Verificar se o SituacaoComboBox contém o texto "Não iniciado"
@@ -81,7 +81,7 @@ Public Class BoxJuntaComercialLaudo
                 MessageBox.Show("O formulário FrmAlvara não está aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             ' Definir seleção padrão do ComboBox
-            ComboBox1.SelectedIndex = 0
+            ComboBox1.SelectedIndex = -1
         End If
         ComboBox1.Focus()
         ComboBox1.DroppedDown = True

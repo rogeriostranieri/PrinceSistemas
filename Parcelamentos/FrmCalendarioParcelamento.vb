@@ -60,8 +60,8 @@
         Next
 
         ' Selecionar a primeira opção por padrão
-        ComboBoxHora.SelectedIndex = 0
-        ComboBoxMinuto.SelectedIndex = 0
+        ComboBoxHora.SelectedIndex = -1
+        ComboBoxMinuto.SelectedIndex = -1
     End Sub
 
     Private Sub FrmCalendarioParcelamento_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave

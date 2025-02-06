@@ -54,11 +54,14 @@ Public Class AlertaCentral
                     Return False ' Indica que o usuário cancelou a operação
             End Select
         Else
-            ' Se não houver alterações, exibe uma mensagem informativa
-            '  MessageBox.Show("Nenhuma alteração foi detectada.", "Sem Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Se não houver alterações, retorna True indicando que está tudo certo
             Return True ' Indica que não há alterações pendentes
         End If
+
+        ' Retorno de segurança para cobrir todos os caminhos de código
+        Return False
     End Function
+
 
     Private Sub AlertaCentral_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         ' Chama a função para salvar alterações

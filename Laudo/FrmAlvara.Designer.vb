@@ -1420,7 +1420,7 @@ Partial Class FrmAlvara
         Me.TabControlAcompanhamento.Location = New System.Drawing.Point(294, 9)
         Me.TabControlAcompanhamento.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControlAcompanhamento.Name = "TabControlAcompanhamento"
-        Me.TabControlAcompanhamento.SelectedIndex = 0
+        Me.TabControlAcompanhamento.SelectedIndex = -1
         Me.TabControlAcompanhamento.Size = New System.Drawing.Size(597, 238)
         Me.TabControlAcompanhamento.TabIndex = 11
         '
@@ -2437,7 +2437,7 @@ Partial Class FrmAlvara
         Me.TabAlvara.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabAlvara.Multiline = True
         Me.TabAlvara.Name = "TabAlvara"
-        Me.TabAlvara.SelectedIndex = 0
+        Me.TabAlvara.SelectedIndex = -1
         Me.TabAlvara.Size = New System.Drawing.Size(913, 337)
         Me.TabAlvara.TabIndex = 75
         '
@@ -2482,7 +2482,7 @@ Partial Class FrmAlvara
         Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.SelectedIndex = -1
         Me.TabControl2.Size = New System.Drawing.Size(724, 269)
         Me.TabControl2.TabIndex = 32
         '

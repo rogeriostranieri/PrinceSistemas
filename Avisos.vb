@@ -103,75 +103,51 @@ Public Class Avisos
 
 
     Private Sub EmpresasDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpresasDataGridView.CellContentDoubleClick
-        ' Verifica se a célula clicada é a primeira (índice 0)
+        ' Verifica se a célula clicada é válida
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim cnpjValue As String = EmpresasDataGridView.Rows(e.RowIndex).Cells(4).Value.ToString().Trim()
+            ' Pega apenas a Razão Social
             Dim razaoSocialValue As String = EmpresasDataGridView.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
 
+            ' Verifica se o formulário já está aberto
             If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then
-                Dim Sair As String
-                Sair = MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
                 FrmLegalizacao.Focus()
-
-                If String.IsNullOrEmpty(cnpjValue) Then
-                    FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
-                    FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
-                Else
-                    FrmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpjValue
-                    FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
-                End If
-
             Else
                 FrmLegalizacao.Show()
+            End If
 
-                If String.IsNullOrEmpty(cnpjValue) Then
-                    FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
-                    FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
-                Else
-                    FrmLegalizacao.ComboBoxBuscaCNPJ.Text = cnpjValue
-                    FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
-                End If
-
-
+            ' Definir apenas a Razão Social no ComboBox
+            If FrmLegalizacao.ComboBoxBuscaEmpresa.Items.Count > 0 Then
+                FrmLegalizacao.ComboBoxBuscaEmpresa.Text = razaoSocialValue
+                FrmLegalizacao.ComboBoxBuscaEmpresa.Focus()
             End If
         End If
     End Sub
+
+
 
     Private Sub LaudosDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles LaudosDataGridView.CellContentDoubleClick
-        ' Verifica se a célula clicada é a primeira (índice 0)
+        ' Verifica se a célula clicada é válida
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim cnpjValue As String = LaudosDataGridView.Rows(e.RowIndex).Cells(4).Value.ToString().Trim()
+            ' Pega apenas a Razão Social
             Dim razaoSocialValue As String = LaudosDataGridView.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
 
+            ' Verifica se o formulário já está aberto
             If Application.OpenForms.OfType(Of FrmAlvara)().Count() > 0 Then
-                Dim Sair As String
-                Sair = MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
+                MsgBox("O formulário já está aberto", MsgBoxStyle.Question, "Prince Sistemas Informa!")
                 FrmAlvara.Focus()
-
-                If String.IsNullOrEmpty(cnpjValue) Then
-                    FrmAlvara.ComboBoxBuscaAlvara.Text = razaoSocialValue
-                    FrmAlvara.ComboBoxBuscaAlvara.Focus()
-                Else
-                    FrmAlvara.ComboBoxBuscaCNPJ.Text = cnpjValue
-                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
-                End If
-
-
             Else
                 FrmAlvara.Show()
+            End If
 
-                If String.IsNullOrEmpty(cnpjValue) Then
-                    FrmAlvara.ComboBoxBuscaAlvara.Text = razaoSocialValue
-                    FrmAlvara.ComboBoxBuscaAlvara.Focus()
-                Else
-                    FrmAlvara.ComboBoxBuscaCNPJ.Text = cnpjValue
-                    FrmAlvara.ComboBoxBuscaCNPJ.Focus()
-                End If
-
-                FrmAlvara.ComboBoxBuscaCNPJ.Focus()
+            ' Definir apenas a Razão Social no ComboBox
+            If FrmAlvara.ComboBoxBuscaAlvara.Items.Count > 0 Then
+                FrmAlvara.ComboBoxBuscaAlvara.Text = razaoSocialValue
+                FrmAlvara.ComboBoxBuscaAlvara.Focus()
             End If
         End If
     End Sub
+
 
 
 

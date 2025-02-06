@@ -1971,7 +1971,7 @@ Partial Class FrmLegalizacao
         Me.TabControle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControle.Multiline = True
         Me.TabControle.Name = "TabControle"
-        Me.TabControle.SelectedIndex = 0
+        Me.TabControle.SelectedIndex = -1
         Me.TabControle.Size = New System.Drawing.Size(857, 312)
         Me.TabControle.TabIndex = 11
         '
@@ -2120,7 +2120,7 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.SelectedIndex = -1
         Me.TabControl2.Size = New System.Drawing.Size(849, 284)
         Me.TabControl2.TabIndex = 36
         '
@@ -3899,7 +3899,7 @@ Partial Class FrmLegalizacao
         Me.TabControl1.Location = New System.Drawing.Point(487, 16)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(341, 257)
         Me.TabControl1.TabIndex = 46
         '

@@ -9,7 +9,7 @@ Public Class FrmProtegeFacil
     Private Sub FrmProtegeFacil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Configurar o ComboBox com opções
         ComboBox1.Items.AddRange(New String() {"Acompanhar", "Solicitar", "ProtegeFácil"})
-        ComboBox1.SelectedIndex = 0 ' Definir um valor padrão
+        ComboBox1.SelectedIndex = -1 ' Definir um valor padrão
 
         Try
             ' Verificar se o formulário FrmAlvara está aberto e selecionar as abas corretas

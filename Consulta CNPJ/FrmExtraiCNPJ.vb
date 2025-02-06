@@ -195,18 +195,18 @@ Public Class FrmExtraiCNPJ
     Private Async Function ExtrairDadosCNPJ() As Task(Of String)
 
         'INICIA A LEGALIZAÇÃO
-        FrmLegalizacao.TabControle.SelectedIndex = 0
+        FrmLegalizacao.TabControle.SelectedIndex = -1
         FrmLegalizacao.TabControle.SelectedIndex = 1
         'TabControl2 3
-        FrmLegalizacao.TabControl2.SelectedIndex = 0
+        FrmLegalizacao.TabControl2.SelectedIndex = -1
         FrmLegalizacao.TabControl2.SelectedIndex = 1
         FrmLegalizacao.TabControl2.SelectedIndex = 2
         FrmLegalizacao.TabControl2.SelectedIndex = 3
         FrmLegalizacao.TabControl2.SelectedIndex = 4
         FrmLegalizacao.TabControl2.SelectedIndex = 5
 
-        FrmLegalizacao.TabControle.SelectedIndex = 0
-        FrmLegalizacao.TabControl2.SelectedIndex = 0
+        FrmLegalizacao.TabControle.SelectedIndex = -1
+        FrmLegalizacao.TabControl2.SelectedIndex = -1
         'FIM
 
         Dim dados As String = ""
@@ -736,10 +736,10 @@ Public Class FrmExtraiCNPJ
                         '//////////////////////////////////   IMPORTAÇÂO  ///////////////////////////////////////
 
                         'INICIA A LEGALIZAÇÃO
-                        frmLegalizacao.TabControle.SelectedIndex = 0
+                        frmLegalizacao.TabControle.SelectedIndex = -1
                         frmLegalizacao.TabControle.SelectedIndex = 1
                         'TabControl2 3
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
                         frmLegalizacao.TabControl2.SelectedIndex = 1
                         frmLegalizacao.TabControl2.SelectedIndex = 2
                         frmLegalizacao.TabControl2.SelectedIndex = 3
@@ -747,8 +747,8 @@ Public Class FrmExtraiCNPJ
                         frmLegalizacao.TabControl2.SelectedIndex = 5
                         frmLegalizacao.TabControl2.SelectedIndex = 6
 
-                        frmLegalizacao.TabControle.SelectedIndex = 0
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
+                        frmLegalizacao.TabControle.SelectedIndex = -1
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
                         'FIM
 
 
@@ -834,8 +834,8 @@ Public Class FrmExtraiCNPJ
 
                         'FINALIZAR //////////////////////////////////////////////////
 
-                        frmLegalizacao.TabControl2.SelectedIndex = 0
-                        frmLegalizacao.TabControl1.SelectedIndex = 0
+                        frmLegalizacao.TabControl2.SelectedIndex = -1
+                        frmLegalizacao.TabControl1.SelectedIndex = -1
 
                         AguardeEsconder()
 

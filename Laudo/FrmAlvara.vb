@@ -806,7 +806,7 @@ Public Class FrmAlvara
             Me.Validate()
             Me.LaudosBindingSource.AddNew()
 
-            SituacaoComboBox.SelectedIndex = 0
+            SituacaoComboBox.SelectedIndex = -1
 
             'unchek lembrete
             LembreteCheckBox.CheckState = CheckState.Unchecked
@@ -828,7 +828,7 @@ Public Class FrmAlvara
             DataCriadoMaskedTextBox.Text = DateTime.Now.ToString()
 
             Editar()
-            MatrizComboBox.SelectedIndex = 0
+            MatrizComboBox.SelectedIndex = -1
 
         Else
 
@@ -1164,7 +1164,7 @@ Public Class FrmAlvara
 
         ElseIf System.Windows.Forms.DialogResult.No Then
             If MessageBox.Show("Tem certeza que deseja limpar os dados do andamento geral?", "Prince Sistemas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
-                SituacaoComboBox.SelectedIndex = 0
+                SituacaoComboBox.SelectedIndex = -1
                 'Limpando as BOX
                 NlaudoTextBox.Text = ""
                 NlaudoSecundarioTextBox.Text = ""

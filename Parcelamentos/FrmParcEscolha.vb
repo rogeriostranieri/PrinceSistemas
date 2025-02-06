@@ -27,12 +27,12 @@
             'COLOCA SELECIONAR O PRIMEIRO SE TIVER NO COMBOBOX 
             ' Verifica e seleciona o primeiro item do ComboBoxProtParc
             If ComboBoxProtParc.Items.Count > 0 Then
-                ComboBoxProtParc.SelectedIndex = 0
+                ComboBoxProtParc.SelectedIndex = -1
             End If
 
             ' Verifica e seleciona o primeiro item do ComboBoxTotalParc
             If ComboBoxTotalParc.Items.Count > 0 Then
-                ComboBoxTotalParc.SelectedIndex = 0
+                ComboBoxTotalParc.SelectedIndex = -1
             End If
 
             ' Verificar se DataEnviado tem valor no formato correto

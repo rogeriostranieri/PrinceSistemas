@@ -120,6 +120,10 @@ Partial Class FrmSocios
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.OutrosDadosRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.LblContaEmpresa = New System.Windows.Forms.Label()
+        Me.DataGridViewEmpresa = New System.Windows.Forms.DataGridView()
+        Me.BtnBuscarEmpresa = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnParcelamentos = New System.Windows.Forms.Button()
         Me.BtnExportaSocioLaudo = New System.Windows.Forms.Button()
@@ -164,10 +168,6 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.BtnBuscarEmpresa = New System.Windows.Forms.Button()
-        Me.DataGridViewEmpresa = New System.Windows.Forms.DataGridView()
-        Me.LblContaEmpresa = New System.Windows.Forms.Label()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -209,6 +209,8 @@ Partial Class FrmSocios
         Me.GroupBoxConjuge.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        CType(Me.DataGridViewEmpresa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -218,8 +220,6 @@ Partial Class FrmSocios
         Me.GroupBox3.SuspendLayout()
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SociosBindingNavigator.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        CType(Me.DataGridViewEmpresa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CEPLabel
@@ -632,7 +632,7 @@ Partial Class FrmSocios
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(697, 386)
         Me.TabControl1.TabIndex = 61
         '
@@ -1317,6 +1317,51 @@ Partial Class FrmSocios
         Me.OutrosDadosRichTextBox.TabIndex = 1
         Me.OutrosDadosRichTextBox.Text = ""
         '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.LblContaEmpresa)
+        Me.TabPage5.Controls.Add(Me.DataGridViewEmpresa)
+        Me.TabPage5.Controls.Add(Me.BtnBuscarEmpresa)
+        Me.TabPage5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPage5.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage5.TabIndex = 5
+        Me.TabPage5.Text = "Empresas"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'LblContaEmpresa
+        '
+        Me.LblContaEmpresa.AutoSize = True
+        Me.LblContaEmpresa.Location = New System.Drawing.Point(12, 324)
+        Me.LblContaEmpresa.Name = "LblContaEmpresa"
+        Me.LblContaEmpresa.Size = New System.Drawing.Size(13, 18)
+        Me.LblContaEmpresa.TabIndex = 2
+        Me.LblContaEmpresa.Text = "-"
+        '
+        'DataGridViewEmpresa
+        '
+        Me.DataGridViewEmpresa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
+        Me.DataGridViewEmpresa.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
+        Me.DataGridViewEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewEmpresa.Location = New System.Drawing.Point(15, 74)
+        Me.DataGridViewEmpresa.Name = "DataGridViewEmpresa"
+        Me.DataGridViewEmpresa.ReadOnly = True
+        Me.DataGridViewEmpresa.Size = New System.Drawing.Size(642, 247)
+        Me.DataGridViewEmpresa.TabIndex = 1
+        '
+        'BtnBuscarEmpresa
+        '
+        Me.BtnBuscarEmpresa.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.BtnBuscarEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBuscarEmpresa.Location = New System.Drawing.Point(15, 25)
+        Me.BtnBuscarEmpresa.Name = "BtnBuscarEmpresa"
+        Me.BtnBuscarEmpresa.Size = New System.Drawing.Size(264, 31)
+        Me.BtnBuscarEmpresa.TabIndex = 0
+        Me.BtnBuscarEmpresa.Text = "Buscar Empresa no qual faz parte"
+        Me.BtnBuscarEmpresa.UseVisualStyleBackColor = False
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.BtnParcelamentos)
@@ -1845,49 +1890,6 @@ Partial Class FrmSocios
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.LblContaEmpresa)
-        Me.TabPage5.Controls.Add(Me.DataGridViewEmpresa)
-        Me.TabPage5.Controls.Add(Me.BtnBuscarEmpresa)
-        Me.TabPage5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage5.Location = New System.Drawing.Point(4, 27)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(689, 355)
-        Me.TabPage5.TabIndex = 5
-        Me.TabPage5.Text = "Empresas"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'BtnBuscarEmpresa
-        '
-        Me.BtnBuscarEmpresa.Location = New System.Drawing.Point(15, 25)
-        Me.BtnBuscarEmpresa.Name = "BtnBuscarEmpresa"
-        Me.BtnBuscarEmpresa.Size = New System.Drawing.Size(264, 31)
-        Me.BtnBuscarEmpresa.TabIndex = 0
-        Me.BtnBuscarEmpresa.Text = "Buscar Empresa no qual faz parte"
-        Me.BtnBuscarEmpresa.UseVisualStyleBackColor = True
-        '
-        'DataGridViewEmpresa
-        '
-        Me.DataGridViewEmpresa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
-        Me.DataGridViewEmpresa.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
-        Me.DataGridViewEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewEmpresa.Location = New System.Drawing.Point(15, 74)
-        Me.DataGridViewEmpresa.Name = "DataGridViewEmpresa"
-        Me.DataGridViewEmpresa.ReadOnly = True
-        Me.DataGridViewEmpresa.Size = New System.Drawing.Size(642, 247)
-        Me.DataGridViewEmpresa.TabIndex = 1
-        '
-        'LblContaEmpresa
-        '
-        Me.LblContaEmpresa.AutoSize = True
-        Me.LblContaEmpresa.Location = New System.Drawing.Point(12, 324)
-        Me.LblContaEmpresa.Name = "LblContaEmpresa"
-        Me.LblContaEmpresa.Size = New System.Drawing.Size(13, 18)
-        Me.LblContaEmpresa.TabIndex = 2
-        Me.LblContaEmpresa.Text = "-"
-        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1923,6 +1925,9 @@ Partial Class FrmSocios
         Me.TabPage4.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        CType(Me.DataGridViewEmpresa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
@@ -1937,9 +1942,6 @@ Partial Class FrmSocios
         CType(Me.SociosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SociosBindingNavigator.ResumeLayout(False)
         Me.SociosBindingNavigator.PerformLayout()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
-        CType(Me.DataGridViewEmpresa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

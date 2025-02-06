@@ -37,7 +37,7 @@
         ComboBox1.Items.Add("Vencimentos diários")
         ComboBox1.Items.Add("Vencimentos sem dia específico")
         ComboBox1.Items.Add("Prazo de entrega de declarações (obrigações acessórias)")
-        ComboBox1.SelectedIndex = 0
+        ComboBox1.SelectedIndex = -1
     End Sub
 
 

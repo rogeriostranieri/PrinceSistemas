@@ -102,7 +102,7 @@ Module ModeMail
         FrmMail.RichTextBoxMensagem.Text = ""
 
         'igual esta no comando no formulario FrmLegalizacao
-        FrmLegalizacao.SistemaExternoComboBox.SelectedIndex = 0
+        FrmLegalizacao.SistemaExternoComboBox.SelectedIndex = -1
 
 
 

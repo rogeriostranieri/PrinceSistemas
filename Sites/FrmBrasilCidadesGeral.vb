@@ -186,7 +186,7 @@ Public Class FrmBrasilCidadesGeral
             ComboBox1.ValueMember = "codigo_uf"
 
             ' Selecionar o primeiro item se houver resultados
-            ComboBox1.SelectedIndex = 0
+            ComboBox1.SelectedIndex = -1
         Else
             ComboBox1.DataSource = Nothing
         End If

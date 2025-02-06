@@ -252,13 +252,13 @@ Public Class WebSiteGERAL
                 'ativa TabControle 0
                 Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
                 FrmLegalizacao.TabControle.SelectedIndex = 1
-                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                FrmLegalizacao.TabControl2.SelectedIndex = -1
                 Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
                 FrmLegalizacao.TabControle.SelectedIndex = 5
                 Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
 
-                FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = -1
 
                 'procurar no webviewl o texto e colocar no campo
                 WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
@@ -296,13 +296,13 @@ Public Class WebSiteGERAL
                 'ativa TabControle 0
                 Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
                 FrmLegalizacao.TabControle.SelectedIndex = 1
-                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                FrmLegalizacao.TabControl2.SelectedIndex = -1
                 Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
                 FrmLegalizacao.TabControle.SelectedIndex = 5
                 Dim CodigoSimples As String = FrmLegalizacao.CodigoSimplesTextBox.Text
 
-                FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = -1
 
                 'procurar no webviewl o texto e colocar no campo
                 WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
@@ -455,10 +455,10 @@ Public Class WebSiteGERAL
                 'ativa TabControle 0
                 Dim RazaoSocial As String = FrmLegalizacao.CNPJMaskedTextBox.Text
                 FrmLegalizacao.TabControle.SelectedIndex = 1
-                FrmLegalizacao.TabControl2.SelectedIndex = 0
+                FrmLegalizacao.TabControl2.SelectedIndex = -1
                 Dim CPF As String = FrmLegalizacao.CPFResponsavelMaskedTextBox.Text
 
-                FrmLegalizacao.TabControle.SelectedIndex = 0
+                FrmLegalizacao.TabControle.SelectedIndex = -1
 
                 'procurar no webviewl o texto e colocar no campo
                 WebView.ExecuteScriptAsync("document.getElementById('ctl00_ContentPlaceHolder_txtCNPJ').value = '" & RazaoSocial & "'")
@@ -571,7 +571,7 @@ Public Class WebSiteGERAL
     Private Sub CadastroImobiliarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroImobiliarioToolStripMenuItem.Click
         Try
             FrmAlvara.Focus()
-            FrmAlvara.TabAlvara.SelectedIndex = 0
+            FrmAlvara.TabAlvara.SelectedIndex = -1
             'TabControl2
             FrmAlvara.TabControl2.SelectedIndex = 1
             Dim CADIMOB As String = FrmAlvara.CadImobTextBox.Text

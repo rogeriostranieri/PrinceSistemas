@@ -504,7 +504,7 @@ Public Class FrmParcelamento
                             ProgressBarSalvar.Value = 50
 
                             ' Preencher os campos com os dados encontrados
-                            TabControlGeral.SelectedIndex = 0
+                            TabControlGeral.SelectedIndex = -1
                             RazaoSocialTextBox.Text = reader("RazaoSocial").ToString()
 
                             TabControlGeral.SelectedIndex = 2
@@ -512,7 +512,7 @@ Public Class FrmParcelamento
                             CPFMaskedTextBox.Text = reader("CPFResponsavel").ToString()
                             SenhaGovTextBox.Text = reader("SenhaGov").ToString()
 
-                            TabControlGeral.SelectedIndex = 0
+                            TabControlGeral.SelectedIndex = -1
 
                             ' Atualizar a ProgressBar
                             ProgressBarSalvar.Value = 100

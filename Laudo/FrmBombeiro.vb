@@ -6,7 +6,7 @@
 
         ' LaudosBindingSource.Filter = "situacao = 'Não Iniciado'  Or  situacao = 'Aguardando Pagamento'  Or  situacao = 'Em Andamento'  Or  situacao = 'Pendência' "
 
-        ComboBox1.SelectedIndex = 0
+        ComboBox1.SelectedIndex = -1
         Button2.PerformClick()
 
 
