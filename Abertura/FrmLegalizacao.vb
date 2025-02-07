@@ -1625,8 +1625,8 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             Dim CNPJ As String = CNPJMaskedTextBox.Text
             Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
-            ' Mensagem de confirmação
-            MessageBox.Show("CNPJ copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '  ' Mensagem de confirmação
+            ' MessageBox.Show("CNPJ copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ' Trata qualquer erro que possa ocorrer
             MessageBox.Show("Erro ao copiar CNPJ" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1730,7 +1730,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             Clipboard.SetText(CNPJ.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
             ' Mensagem de confirmação
-            MessageBox.Show("CPF copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("CPF copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ' Trata qualquer erro que possa ocorrer
             MessageBox.Show("Erro ao copiar CPF" + vbCrLf + ex.Message, "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -3215,7 +3215,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Clipboard.SetText(RamoDeAtividadeRichTextBox.Text)
 
             ' Exibe uma mensagem de confirmação ao usuário
-            MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ' Exibe uma mensagem de alerta caso o campo esteja vazio
             MessageBox.Show("O campo Ramo de Atividade está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -3443,18 +3443,26 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
-        ' Obter o texto do CEPMaskedTextBox
-        Dim cep As String = EndCEPMaskedTextBox.Text
+        ' Verificar se o campo EndCEPMaskedTextBox está preenchido
+        If Not String.IsNullOrWhiteSpace(EndCEPMaskedTextBox.Text) Then
+            ' Obter o texto do CEPMaskedTextBox
+            Dim cep As String = EndCEPMaskedTextBox.Text
 
-        ' Remover o hífen
-        Dim cepSemHifen As String = cep.Replace("-", "")
+            ' Remover caracteres não numéricos
+            Dim cepSemHifen As String = New String(cep.Where(Function(c) Char.IsDigit(c)).ToArray())
 
-        ' Copiar o resultado para a área de transferência
-        Clipboard.SetText(cepSemHifen)
-
-        ' Informar ao usuário que o CEP foi copiado
-        MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Verificar se ainda há conteúdo para copiar
+            If Not String.IsNullOrEmpty(cepSemHifen) Then
+                ' Copiar o resultado para a área de transferência
+                Clipboard.SetText(cepSemHifen)
+            Else
+                MessageBox.Show("O CEP informado é inválido ou está vazio.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Else
+            MessageBox.Show("Nenhum CEP foi inserido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
+
 
 
     Private Sub BtnFiliais_Click(sender As Object, e As EventArgs) Handles BtnFiliais.Click
@@ -3905,7 +3913,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Clipboard.SetText(ProtocoloJuntaComercialTextBox.Text)
 
             ' Exibe uma mensagem informando que o texto foi copiado com sucesso
-            MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Texto copiado para a área de transferência!", "Copiar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ' Exibe uma mensagem de alerta caso o campo esteja vazio
             MessageBox.Show("O campo Protocolo Junta Comercial está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -4360,7 +4368,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             Clipboard.SetText(EmpEmailTextBox.Text)
 
             ' Exibe uma mensagem informando que o email foi copiado
-            MessageBox.Show("Email copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '   MessageBox.Show("Email copiado para a área de transferência!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ' Exibe uma mensagem caso o campo esteja vazio
             MessageBox.Show("O campo de email está vazio. Não foi possível copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)

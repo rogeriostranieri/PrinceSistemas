@@ -1359,7 +1359,7 @@ Public Class FrmAlvara
             Clipboard.SetText(Processo.Replace("/", "").Replace(",", "").Replace("-", "").Replace(".", ""))
 
             ' Informar ao usuário que o processo foi copiado
-            MessageBox.Show("Número do processo copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Número do processo copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ' Tratar erros inesperados
             MessageBox.Show("Ocorreu um erro ao copiar o número do processo: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1753,17 +1753,25 @@ Public Class FrmAlvara
     End Sub
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
-        ' Obter o texto do CEPMaskedTextBox
-        Dim cep As String = EndCEPMaskedTextBox.Text
+        ' Verificar se o campo EndCEPMaskedTextBox não está vazio ou apenas espaços
+        Dim cep As String = EndCEPMaskedTextBox.Text.Trim()
 
-        ' Remover o hífen
-        Dim cepSemHifen As String = cep.Replace("-", "")
+        If String.IsNullOrWhiteSpace(cep) Then
+            MessageBox.Show("Nenhum CEP foi inserido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Remover caracteres não numéricos
+        Dim cepSemHifen As String = New String(cep.Where(Function(c) Char.IsDigit(c)).ToArray())
+
+        ' Verificar se o CEP tem um tamanho válido (8 dígitos no Brasil)
+        If cepSemHifen.Length <> 8 Then
+            MessageBox.Show("O CEP informado é inválido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
 
         ' Copiar o resultado para a área de transferência
         Clipboard.SetText(cepSemHifen)
-
-        ' Informar ao usuário que o CEP foi copiado
-        MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
 
@@ -2173,7 +2181,7 @@ Public Class FrmAlvara
             Clipboard.SetText(ramoDeAtividade)
 
             ' Informar ao usuário que o texto foi copiado
-            MessageBox.Show("Texto copiado para a área de transferência!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' MessageBox.Show("Texto copiado para a área de transferência!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ' Tratar qualquer erro inesperado
             MessageBox.Show("Ocorreu um erro ao copiar o texto: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -2258,7 +2266,7 @@ Public Class FrmAlvara
             Clipboard.SetText(enderecoCompleto)
 
             ' Informar o sucesso
-            MessageBox.Show("Endereço copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' MessageBox.Show("Endereço copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ' Tratar erros inesperados
             MessageBox.Show("Ocorreu um erro ao copiar o endereço: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)

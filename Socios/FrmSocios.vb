@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports PrinceSistemas.PrinceDBDataSetTableAdapters
 
 Public Class FrmSocios
 
@@ -71,6 +72,20 @@ Public Class FrmSocios
         ValidaIdadeMenor()
 
     End Sub
+
+    Private Sub AtualizarDataGridView()
+        ' Vincular novamente o DataGridView ao BindingSource
+        '  DataGridViewEmpresa.DataSource = SociosBindingSource
+
+        ' Atualizar a contagem de registros no DataGridView
+        If SociosBindingSource.Count > 0 Then
+            LblContaEmpresa.Text = "Total de Empresas Encontradas: " & SociosBindingSource.Count.ToString()
+        Else
+            LblContaEmpresa.Text = "Total de Empresas Encontradas: Nenhuma - clique em buscar"
+        End If
+    End Sub
+
+
 
     Private Sub BloquearEdicao()
         'bloquear ediçao GroupBoxDadosPessoais
@@ -1740,6 +1755,7 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
 
     Private Sub SociosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         ValidaIdadeMenor()
+        AtualizarDataGridView()
     End Sub
 
 
@@ -1759,7 +1775,8 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "SELECT RazaoSocial, CNPJ FROM Empresas WHERE DadosSocios LIKE @NomeSocio OR ResponsavelNome LIKE @NomeSocio OR NomeResponsavel LIKE @NomeSocio ORDER BY RazaoSocial ASC"
+                ' Alterando a consulta para incluir a coluna "Processo"
+                Dim query As String = "SELECT Processo, RazaoSocial, CNPJ, DadosSocios FROM Empresas WHERE DadosSocios LIKE @NomeSocio OR ResponsavelNome LIKE @NomeSocio OR NomeResponsavel LIKE @NomeSocio ORDER BY RazaoSocial ASC"
                 Using command As New SqlCommand(query, connection)
                     command.Parameters.AddWithValue("@NomeSocio", "%" & nomeSocio & "%")
 
@@ -1767,14 +1784,33 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
                     Dim dataTable As New DataTable()
                     adapter.Fill(dataTable)
 
-                    DataGridViewEmpresa.DataSource = dataTable
+                    ' Criar nova coluna "Status"
+                    If Not dataTable.Columns.Contains("Status") Then
+                        dataTable.Columns.Add("Status", GetType(String))
+                    End If
 
-                    ' Ajustar tamanho das colunas automaticamente
+                    ' Percorre cada linha para calcular o Status
+                    For Each row As DataRow In dataTable.Rows
+                        Dim dadosSocios As String = row("DadosSocios").ToString()
+                        row("Status") = ExtrairStatus(dadosSocios, nomeSocio)
+                    Next
+
+                    ' Exibir os dados no DataGridView
+                    DataGridViewEmpresa.DataSource = dataTable
                     DataGridViewEmpresa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-                    ' Ajustar tamanho das linhas automaticamente
                     DataGridViewEmpresa.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-                    ' Permitir ordenação nas colunas
                     DataGridViewEmpresa.Sort(DataGridViewEmpresa.Columns("RazaoSocial"), System.ComponentModel.ListSortDirection.Ascending)
+
+                    ' Esconder a coluna "DadosSocios"
+                    If DataGridViewEmpresa.Columns.Contains("DadosSocios") Then
+                        DataGridViewEmpresa.Columns("DadosSocios").Visible = False
+                    End If
+
+                    ' Esconder a coluna "Processo" se necessário, ou apenas para exibição
+                    If DataGridViewEmpresa.Columns.Contains("Processo") Then
+                        ' Opcional: Ajuste conforme necessário, se quiser esconder ou alterar algo específico
+                        DataGridViewEmpresa.Columns("Processo").Visible = True
+                    End If
 
                     ' Atualizar contagem de empresas encontradas
                     LblContaEmpresa.Text = "Total de Empresas Encontradas: " & dataTable.Rows.Count.ToString()
@@ -1790,11 +1826,55 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
         End Try
     End Sub
 
+
+    ' Função para extrair o status correto baseado no nome
+    Private Function ExtrairStatus(dados As String, nome As String) As String
+        ' Verifica se os dados não são nulos ou vazios
+        If String.IsNullOrEmpty(dados) Then Return "Desconhecido"
+
+        ' Encontrar a posição do nome dentro do texto
+        Dim posNome As Integer = dados.IndexOf(nome, StringComparison.OrdinalIgnoreCase)
+        If posNome = -1 Then Return "Desconhecido" ' Nome não encontrado
+
+        ' Declara a variável statusTexto uma única vez
+        Dim statusTexto As String
+
+        ' Verifica se o nome está no início dos dados (caso do primeiro sócio)
+        If posNome = 0 Then
+            ' Extrai o status diretamente, assumindo que o status está no início
+            statusTexto = dados.Substring(0, dados.IndexOf(": Sócio Nº")).Trim()
+            Return statusTexto
+        End If
+
+        ' Agora buscamos o texto que vem antes do nome do sócio
+        ' Vamos procurar o padrão ': Sócio Nº' que marca o início do bloco de informações do sócio
+        Dim posSocioN As Integer = dados.LastIndexOf(": Sócio Nº", posNome)
+        If posSocioN = -1 Then Return "Desconhecido" ' Não encontrou o bloco do sócio
+
+        ' Agora buscamos o marcador "/////" que indica o início da linha com a informação de status
+        Dim posBarra As Integer = dados.LastIndexOf("/////", posSocioN)
+        If posBarra = -1 Then
+            ' Se não encontrar o marcador "/////", assume que o status está no início
+            statusTexto = dados.Substring(0, posSocioN).Trim()
+            Return statusTexto
+        End If
+
+        ' Extrai o texto entre o marcador "/////" e o texto ": Sócio Nº", que é o status
+        statusTexto = dados.Substring(posBarra + 5, posSocioN - (posBarra + 5)).Trim()
+
+        ' Retorna o texto encontrado (status)
+        Return statusTexto
+    End Function
+
+
+
+
+
     Private Sub DataGridViewEmpresa_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewEmpresa.CellDoubleClick
         ' Verifica se a célula clicada é válida
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim cnpjValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(1).Value.ToString().Trim()
-            Dim razaoSocialValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(0).Value.ToString().Trim()
+            Dim cnpjValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(2).Value.ToString().Trim()
+            Dim razaoSocialValue As String = DataGridViewEmpresa.Rows(e.RowIndex).Cells(1).Value.ToString().Trim()
 
             ' Verifica se o formulário já está aberto
             If Application.OpenForms.OfType(Of FrmLegalizacao)().Count() > 0 Then

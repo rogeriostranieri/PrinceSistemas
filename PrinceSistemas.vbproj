@@ -1277,6 +1277,7 @@
     <None Include="Resources\MEImenu.png" />
     <None Include="Resources\urgente.png" />
     <None Include="Resources\fundobotaoroxo.png" />
+    <Content Include="Socios\BackupSocios.txt" />
     <Content Include="Tribal_Phoenix__6.ico" />
   </ItemGroup>
   <ItemGroup>

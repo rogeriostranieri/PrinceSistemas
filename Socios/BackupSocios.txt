@@ -1,0 +1,24 @@
+﻿    Private Function ExtrairStatus(dados As String, nome As String) As String
+        ' Verifica se os dados não são nulos ou vazios
+        If String.IsNullOrEmpty(dados) Then Return "Desconhecido"
+
+        ' Encontrar a posição do nome dentro do texto
+        Dim posNome As Integer = dados.IndexOf(nome, StringComparison.OrdinalIgnoreCase)
+        If posNome = -1 Then Return "Desconhecido" ' Nome não encontrado
+
+        ' Agora buscamos o texto que vem antes do nome do sócio
+        ' Vamos procurar o padrão ': Sócio Nº' que marca o início do bloco de informações do sócio
+        Dim posSocioN As Integer = dados.LastIndexOf(": Sócio Nº", posNome)
+        If posSocioN = -1 Then Return "Desconhecido" ' Não encontrou o bloco do sócio
+
+        ' Agora buscamos o marcador "/////" que indica o início da linha com a informação de status
+        Dim posBarra As Integer = dados.LastIndexOf("/////", posSocioN)
+        If posBarra = -1 Then Return "Desconhecido" ' Não encontrou as barras indicando o status
+
+        ' Extrai o texto entre o marcador "/////" e o texto ": Sócio Nº", que é o status
+        Dim statusTexto As String = dados.Substring(posBarra + 5, posSocioN - (posBarra + 5)).Trim()
+
+        ' Retorna o texto encontrado (status)
+        Return statusTexto
+    End Function
+
