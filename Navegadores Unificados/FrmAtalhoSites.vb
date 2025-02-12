@@ -1,10 +1,4 @@
-﻿Imports System.Text
-Imports System.Data.SqlClient
-Imports System.Drawing
-Imports System.Globalization
-Imports System.Text.RegularExpressions
-
-Public Class FrmAtalhoSites
+﻿Public Class FrmAtalhoSites
 
     Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
     ReadOnly Protocolo As String = FrmLegalizacao.ProtocoloJuntaComercialTextBox.Text

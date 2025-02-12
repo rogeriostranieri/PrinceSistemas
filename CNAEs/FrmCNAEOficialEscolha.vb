@@ -126,12 +126,12 @@ Public Class FrmCNAEOficialEscolha
 
 
                     FrmLegalizacao.CNAEPrincipalTextBox.Text = Me.CNAEPrincipalTextBox.Text
-                        FrmLegalizacao.CNAESecundarioRichTextBox.Text = Me.CNAESecundarioRichTextBox.Text
-                        FrmLegalizacao.Focus()
-                        'MessageBox.Show("Dados exportados com sucesso!", "Exportação Completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        ' Se o FrmLegalizacao não estiver aberto, exibe mensagem
-                        MessageBox.Show("O formulário FrmLegalizacao não está aberto. Abra o formulário para exportar os dados.", "FrmLegalizacao Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    FrmLegalizacao.CNAESecundarioRichTextBox.Text = Me.CNAESecundarioRichTextBox.Text
+                    FrmLegalizacao.Focus()
+                    'MessageBox.Show("Dados exportados com sucesso!", "Exportação Completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    ' Se o FrmLegalizacao não estiver aberto, exibe mensagem
+                    MessageBox.Show("O formulário FrmLegalizacao não está aberto. Abra o formulário para exportar os dados.", "FrmLegalizacao Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             End If
         Else

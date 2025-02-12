@@ -1,7 +1,5 @@
-﻿Imports System.Text
-Imports System.Data.SqlClient
-Imports System.Drawing
-Imports Microsoft.Web.WebView2
+﻿Imports System.Data.SqlClient
+Imports System.Text
 
 
 

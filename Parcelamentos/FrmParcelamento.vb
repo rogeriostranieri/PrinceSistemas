@@ -1,13 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports System.IO
-Imports System.Windows.Forms.VisualStyles
-Imports System.Windows.Forms
-Imports System.Globalization
-Imports System.Text.RegularExpressions
-Imports System.Text
-Imports System
-Imports System.Drawing
-Imports System.Linq
+﻿Imports System.Text
 
 
 

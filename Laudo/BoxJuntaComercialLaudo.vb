@@ -77,8 +77,8 @@ Public Class BoxJuntaComercialLaudo
             Copiar()
 
         Else
-                ' Se o FrmAlvara não estiver aberto, mostrar mensagem de erro
-                MessageBox.Show("O formulário FrmAlvara não está aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Se o FrmAlvara não estiver aberto, mostrar mensagem de erro
+            MessageBox.Show("O formulário FrmAlvara não está aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             ' Definir seleção padrão do ComboBox
             ComboBox1.SelectedIndex = -1
@@ -116,7 +116,7 @@ Public Class BoxJuntaComercialLaudo
             If Not String.IsNullOrEmpty(FrmAlvara.NlaudoTextBox.Text) Then
                 ' Copiar o conteúdo do NlaudoTextBox para a área de transferência
                 Clipboard.SetText(FrmAlvara.NlaudoTextBox.Text)
-                MessageBox.Show("O conteúdo foi copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ' MessageBox.Show("O conteúdo foi copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 ' Caso o NlaudoTextBox esteja vazio
                 MessageBox.Show("O campo de Laudo está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -218,23 +218,23 @@ Public Class BoxJuntaComercialLaudo
 
     ' Função para abrir o WebSiteGERAL
     Private Sub AbrirNoNavegadorInterno(url As String)
-            Try
-                ' Verificar se o WebSiteGERAL está aberto
-                If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
-                    WebSiteGERAL.Focus()
-                Else
-                    ' Abrir o WebSiteGERAL se não estiver aberto
-                    WebSiteGERAL.MdiParent = MDIPrincipal
-                    WebSiteGERAL.Show()
-                End If
-
-                ' Navegar para a URL no controle WebView do WebSiteGERAL
-                WebSiteGERAL.WebView.Source = New Uri(url)
+        Try
+            ' Verificar se o WebSiteGERAL está aberto
+            If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
                 WebSiteGERAL.Focus()
-            Catch ex As Exception
-                MessageBox.Show("Erro ao abrir o site no navegador interno. " & vbCrLf & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Sub
+            Else
+                ' Abrir o WebSiteGERAL se não estiver aberto
+                WebSiteGERAL.MdiParent = MDIPrincipal
+                WebSiteGERAL.Show()
+            End If
+
+            ' Navegar para a URL no controle WebView do WebSiteGERAL
+            WebSiteGERAL.WebView.Source = New Uri(url)
+            WebSiteGERAL.Focus()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o site no navegador interno. " & vbCrLf & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
     ' Evento do botão BtnExterno para abrir no navegador externo
     Private Sub BtnExterno_Click(sender As Object, e As EventArgs) Handles BtnExterno.Click

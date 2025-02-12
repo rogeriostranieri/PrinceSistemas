@@ -286,7 +286,7 @@ Atenciosamente,
 Rogerio"
                 End If
             Else
-                    textoCopiar = $"Olá,
+                textoCopiar = $"Olá,
 Segue o DARF mensal, referente ao parcelamento do *{abaSelecionada}* da Empresa: *{razaoSocial}*.
 
 Recibo/Prot.: {Protocol}.

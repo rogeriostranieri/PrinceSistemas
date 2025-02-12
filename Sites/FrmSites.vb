@@ -1,7 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Globalization
-Imports System.Text
-Imports System.Text.RegularExpressions
 
 Public Class FrmSites
     Private originalData As DataTable

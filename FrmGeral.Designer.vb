@@ -31,6 +31,8 @@ Partial Class FrmGeral
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.BtnAtualizar = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.LabelCarregando = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BtnAtualizar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -82,12 +84,13 @@ Partial Class FrmGeral
         'ListViewGeral
         '
         Me.ListViewGeral.HideSelection = False
-        Me.ListViewGeral.Location = New System.Drawing.Point(12, 96)
+        Me.ListViewGeral.Location = New System.Drawing.Point(12, 117)
         Me.ListViewGeral.Name = "ListViewGeral"
-        Me.ListViewGeral.Size = New System.Drawing.Size(472, 464)
+        Me.ListViewGeral.Size = New System.Drawing.Size(472, 443)
         Me.ListViewGeral.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.ListViewGeral.TabIndex = 17
         Me.ListViewGeral.UseCompatibleStateImageBehavior = False
+        Me.ListViewGeral.View = System.Windows.Forms.View.Details
         '
         'BtnAtualizar
         '
@@ -105,9 +108,28 @@ Partial Class FrmGeral
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(42, 568)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.Size = New System.Drawing.Size(86, 13)
         Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Label2"
+        Me.Label2.Text = "Carregando ......."
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 92)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(472, 23)
+        Me.ProgressBar1.TabIndex = 20
+        '
+        'LabelCarregando
+        '
+        Me.LabelCarregando.AutoSize = True
+        Me.LabelCarregando.BackColor = System.Drawing.Color.Transparent
+        Me.LabelCarregando.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.LabelCarregando.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCarregando.Location = New System.Drawing.Point(14, 98)
+        Me.LabelCarregando.Name = "LabelCarregando"
+        Me.LabelCarregando.Size = New System.Drawing.Size(69, 16)
+        Me.LabelCarregando.TabIndex = 21
+        Me.LabelCarregando.Text = "Empresas"
         '
         'FrmGeral
         '
@@ -116,6 +138,8 @@ Partial Class FrmGeral
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(499, 593)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LabelCarregando)
+        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnAtualizar)
         Me.Controls.Add(Me.ListViewGeral)
@@ -148,4 +172,6 @@ Partial Class FrmGeral
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents BtnAtualizar As PictureBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents LabelCarregando As Label
 End Class

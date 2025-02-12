@@ -27,6 +27,7 @@ Partial Class FrmEscolha
         Me.LabelCNPJ = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.BtnParcelamentos = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,7 +72,7 @@ Partial Class FrmEscolha
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.PrinceSistemas.My.Resources.Resources.fechar2
-        Me.PictureBox2.Location = New System.Drawing.Point(89, 173)
+        Me.PictureBox2.Location = New System.Drawing.Point(89, 258)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(134, 60)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -81,20 +82,33 @@ Partial Class FrmEscolha
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(9, 198)
+        Me.LinkLabel1.Location = New System.Drawing.Point(9, 283)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(67, 13)
         Me.LinkLabel1.TabIndex = 17
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Copiar CNPJ"
         '
+        'BtnParcelamentos
+        '
+        Me.BtnParcelamentos.BackColor = System.Drawing.Color.Azure
+        Me.BtnParcelamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnParcelamentos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.BtnParcelamentos.Location = New System.Drawing.Point(12, 178)
+        Me.BtnParcelamentos.Name = "BtnParcelamentos"
+        Me.BtnParcelamentos.Size = New System.Drawing.Size(211, 77)
+        Me.BtnParcelamentos.TabIndex = 18
+        Me.BtnParcelamentos.Text = "Parcelamentos"
+        Me.BtnParcelamentos.UseVisualStyleBackColor = False
+        '
         'FrmEscolha
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(239, 237)
+        Me.ClientSize = New System.Drawing.Size(239, 318)
         Me.ControlBox = False
+        Me.Controls.Add(Me.BtnParcelamentos)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.LabelCNPJ)
@@ -120,4 +134,5 @@ Partial Class FrmEscolha
     Friend WithEvents LabelCNPJ As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents BtnParcelamentos As Button
 End Class

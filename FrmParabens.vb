@@ -1,6 +1,4 @@
-﻿Imports System.Data.SqlClient
-
-Public Class FrmParabens
+﻿Public Class FrmParabens
     ' Nome do label para evitar ambiguidade
     Public Property UsuarioLogado As String
 

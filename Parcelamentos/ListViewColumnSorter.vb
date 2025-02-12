@@ -1,7 +1,4 @@
-﻿Imports System.Collections
-Imports System.Windows.Forms
-
-Public Class ListViewColumnSorter
+﻿Public Class ListViewColumnSorter
     Implements IComparer
 
     ' Propriedades para armazenar a coluna e a ordem de classificação

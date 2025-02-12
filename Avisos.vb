@@ -1,9 +1,5 @@
-﻿Imports System.Windows.Forms
-Imports System.Drawing
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Globalization
-Imports System.Text
-Imports System.Data
 
 
 Public Class Avisos

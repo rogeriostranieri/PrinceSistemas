@@ -1,6 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports PrinceSistemas.PrinceDBDataSetTableAdapters
 
 Public Class FrmSocios
 
@@ -1627,7 +1625,7 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
             Clipboard.SetText(cepSemHifen)
 
             ' Informar ao usuário que o CEP foi copiado
-            MessageBox.Show("CEP copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '  MessageBox.Show("CEP copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             ' Tratar qualquer erro inesperado
@@ -1660,7 +1658,7 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
             Clipboard.SetText(CPFLimpo)
 
             ' Informar ao usuário que o CPF foi copiado
-            MessageBox.Show("CPF copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '  MessageBox.Show("CPF copiado para a área de transferência.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             ' Tratar qualquer erro inesperado

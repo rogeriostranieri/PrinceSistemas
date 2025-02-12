@@ -1,13 +1,10 @@
-﻿Imports Microsoft.Web.WebView2.WinForms
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
+Imports System.IO
+Imports System.Net
 Imports System.Net.Http
 Imports System.Net.Http.Headers
-Imports Newtonsoft.Json.Linq
-Imports System.Net
-Imports System.Web
 Imports Newtonsoft.Json
-Imports System.IO
-Imports Microsoft.Web.WebView2.Core
+Imports Newtonsoft.Json.Linq
 
 Public Class FrmExtraiCNPJ
     ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
@@ -432,20 +429,20 @@ Public Class FrmExtraiCNPJ
 
             AguardeEsconder()
 
-        ' Verifica se os formulários FrmLegalizacao, FrmParcelamento ou FrmAlvara estão abertos
-        If Not IsSpecificFormOpen("FrmLegalizacao") AndAlso Not IsSpecificFormOpen("FrmParcelamento") AndAlso Not IsSpecificFormOpen("FrmAlvara") Then
-            MessageBox.Show("Nenhum dos formulários (Empresa, Parcelamento ou Alvará) está aberto. Por favor, digite o CNPJ e clique CONSULTAR.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            'Exit Sub
-        Else
-            ' Usar o CNPJ do formulário aberto
-            If IsSpecificFormOpen("FrmLegalizacao") Then
-                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmLegalizacao"), FrmLegalizacao).CNPJMaskedTextBox.Text
-            ElseIf IsSpecificFormOpen("FrmParcelamento") Then
-                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmParcelamento"), FrmParcelamento).CNPJMaskedTextBox.Text
-            ElseIf IsSpecificFormOpen("FrmAlvara") Then
-                CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmAlvara"), FrmAlvara).CNPJMaskedTextBox.Text
+            ' Verifica se os formulários FrmLegalizacao, FrmParcelamento ou FrmAlvara estão abertos
+            If Not IsSpecificFormOpen("FrmLegalizacao") AndAlso Not IsSpecificFormOpen("FrmParcelamento") AndAlso Not IsSpecificFormOpen("FrmAlvara") Then
+                MessageBox.Show("Nenhum dos formulários (Empresa, Parcelamento ou Alvará) está aberto. Por favor, digite o CNPJ e clique CONSULTAR.", "Formulário Fechado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                'Exit Sub
+            Else
+                ' Usar o CNPJ do formulário aberto
+                If IsSpecificFormOpen("FrmLegalizacao") Then
+                    CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmLegalizacao"), FrmLegalizacao).CNPJMaskedTextBox.Text
+                ElseIf IsSpecificFormOpen("FrmParcelamento") Then
+                    CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmParcelamento"), FrmParcelamento).CNPJMaskedTextBox.Text
+                ElseIf IsSpecificFormOpen("FrmAlvara") Then
+                    CNPJMaskedTextBox.Text = CType(Application.OpenForms("FrmAlvara"), FrmAlvara).CNPJMaskedTextBox.Text
+                End If
             End If
-        End If
 
 
 

@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Drawing
 
 Public Class FrmCNAE
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"

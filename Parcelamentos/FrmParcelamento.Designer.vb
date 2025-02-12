@@ -66,7 +66,7 @@ Partial Class FrmParcelamento
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ParcelamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
         Me.ComboBoxBuscarRazaoSocial = New System.Windows.Forms.ComboBox()
@@ -120,6 +120,7 @@ Partial Class FrmParcelamento
         Me.TabPageMei = New System.Windows.Forms.TabPage()
         Me.TabControlMei = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.AtrasoParcelaMEICheckBox = New System.Windows.Forms.CheckBox()
         Me.BtnAgoraMEI = New System.Windows.Forms.Button()
         Me.BtnRegistrarMEI = New System.Windows.Forms.Button()
@@ -138,6 +139,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSAntigo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSAntigo = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.AtrasoParcelaINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
@@ -156,6 +158,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSNovo = New System.Windows.Forms.TabPage()
         Me.TabControlINSSNovo = New System.Windows.Forms.TabControl()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.AtrasoParcelaINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcNovoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtNovoRichTextBox = New System.Windows.Forms.RichTextBox()
@@ -174,6 +177,7 @@ Partial Class FrmParcelamento
         Me.TabPageINSSProcuradoria = New System.Windows.Forms.TabPage()
         Me.TabControlINSSProcuradoria = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.AtrasoParcelaINSSProcuCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcProcTextBox = New System.Windows.Forms.TextBox()
         Me.ProtprocRichTextBox = New System.Windows.Forms.RichTextBox()
@@ -205,10 +209,6 @@ Partial Class FrmParcelamento
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         SocioLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         SenhaGovLabel = New System.Windows.Forms.Label()
@@ -644,7 +644,7 @@ Partial Class FrmParcelamento
         Me.GroupBox1.AutoSize = True
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxBuscaCNPJ)
         Me.GroupBox1.Controls.Add(Me.ComboBoxBuscarRazaoSocial)
         Me.GroupBox1.Controls.Add(Me.RazaoSocialTextBox1)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -673,17 +673,17 @@ Partial Class FrmParcelamento
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "CNPJ:"
         '
-        'ComboBox1
+        'ComboBoxBuscaCNPJ
         '
-        Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox1.DataSource = Me.ParcelamentosBindingSource
-        Me.ComboBox1.DisplayMember = "CNPJ"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(569, 30)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(178, 26)
-        Me.ComboBox1.TabIndex = 4
+        Me.ComboBoxBuscaCNPJ.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.ComboBoxBuscaCNPJ.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxBuscaCNPJ.DataSource = Me.ParcelamentosBindingSource
+        Me.ComboBoxBuscaCNPJ.DisplayMember = "CNPJ"
+        Me.ComboBoxBuscaCNPJ.FormattingEnabled = True
+        Me.ComboBoxBuscaCNPJ.Location = New System.Drawing.Point(569, 30)
+        Me.ComboBoxBuscaCNPJ.Name = "ComboBoxBuscaCNPJ"
+        Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(178, 26)
+        Me.ComboBoxBuscaCNPJ.TabIndex = 4
         '
         'ParcelamentosBindingSource
         '
@@ -738,7 +738,6 @@ Partial Class FrmParcelamento
         Me.TabControlGeral.Location = New System.Drawing.Point(3, 20)
         Me.TabControlGeral.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlGeral.Name = "TabControlGeral"
-        Me.TabControlGeral.SelectedIndex = -1
         Me.TabControlGeral.Size = New System.Drawing.Size(783, 281)
         Me.TabControlGeral.TabIndex = 4
         '
@@ -1238,7 +1237,6 @@ Partial Class FrmParcelamento
         Me.TabControlParcelamento.Location = New System.Drawing.Point(0, 17)
         Me.TabControlParcelamento.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlParcelamento.Name = "TabControlParcelamento"
-        Me.TabControlParcelamento.SelectedIndex = -1
         Me.TabControlParcelamento.ShowToolTips = True
         Me.TabControlParcelamento.Size = New System.Drawing.Size(789, 299)
         Me.TabControlParcelamento.TabIndex = 5
@@ -1282,7 +1280,6 @@ Partial Class FrmParcelamento
         Me.TabControlMei.Location = New System.Drawing.Point(3, 3)
         Me.TabControlMei.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMei.Name = "TabControlMei"
-        Me.TabControlMei.SelectedIndex = -1
         Me.TabControlMei.Size = New System.Drawing.Size(775, 259)
         Me.TabControlMei.TabIndex = 0
         '
@@ -1316,6 +1313,15 @@ Partial Class FrmParcelamento
         Me.TabPage9.TabIndex = 0
         Me.TabPage9.Text = "Parcelamento"
         Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(293, 20)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 28)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Agora"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'AtrasoParcelaMEICheckBox
         '
@@ -1482,7 +1488,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo.Location = New System.Drawing.Point(3, 3)
         Me.TabControlINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSAntigo.Name = "TabControlINSSAntigo"
-        Me.TabControlINSSAntigo.SelectedIndex = -1
         Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 259)
         Me.TabControlINSSAntigo.TabIndex = 1
         '
@@ -1516,6 +1521,15 @@ Partial Class FrmParcelamento
         Me.TabPage11.TabIndex = 0
         Me.TabPage11.Text = "Parcelamento"
         Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(281, 9)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 28)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Agora"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'AtrasoParcelaINSSAntigoCheckBox
         '
@@ -1682,7 +1696,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSNovo.Name = "TabControlINSSNovo"
-        Me.TabControlINSSNovo.SelectedIndex = -1
         Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSNovo.TabIndex = 1
         '
@@ -1716,6 +1729,15 @@ Partial Class FrmParcelamento
         Me.TabPage13.TabIndex = 0
         Me.TabPage13.Text = "Parcelamento"
         Me.TabPage13.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(281, 9)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 28)
+        Me.Button3.TabIndex = 26
+        Me.Button3.Text = "Agora"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'AtrasoParcelaINSSNovoCheckBox
         '
@@ -1882,7 +1904,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSProcuradoria.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSProcuradoria.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSProcuradoria.Name = "TabControlINSSProcuradoria"
-        Me.TabControlINSSProcuradoria.SelectedIndex = -1
         Me.TabControlINSSProcuradoria.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSProcuradoria.TabIndex = 1
         '
@@ -1916,6 +1937,15 @@ Partial Class FrmParcelamento
         Me.TabPage15.TabIndex = 0
         Me.TabPage15.Text = "Parcelamento"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(297, 8)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 28)
+        Me.Button4.TabIndex = 27
+        Me.Button4.Text = "Agora"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'AtrasoParcelaINSSProcuCheckBox
         '
@@ -2242,42 +2272,6 @@ Partial Class FrmParcelamento
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(293, 20)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 28)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Agora"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(281, 9)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 28)
-        Me.Button2.TabIndex = 26
-        Me.Button2.Text = "Agora"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(281, 9)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 28)
-        Me.Button3.TabIndex = 26
-        Me.Button3.Text = "Agora"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(297, 8)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 28)
-        Me.Button4.TabIndex = 27
-        Me.Button4.Text = "Agora"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'FrmParcelamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2435,7 +2429,7 @@ Partial Class FrmParcelamento
     Friend WithEvents InssAntigoCheckBox As CheckBox
     Friend WithEvents MEICheckBox As CheckBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
     Friend WithEvents FinalizadoEmpresaComboBox As ComboBox
     Friend WithEvents FinalizadoMEIComboBox As ComboBox
     Friend WithEvents FinalizadoINSSAntComboBox As ComboBox

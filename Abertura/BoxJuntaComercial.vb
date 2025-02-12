@@ -189,7 +189,7 @@ Public Class BoxJuntaComercial
                     ' Verificar se o protocolo não é nulo ou vazio antes de copiar
                     If Not String.IsNullOrEmpty(Protocolo) Then
                         Clipboard.SetText(Protocolo)
-                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                        ' MessageBox.Show("Protocolo copiado para a área de transferência")
                     Else
                         MessageBox.Show("O protocolo 'Empresa Fácil' está vazio.")
                     End If
@@ -198,7 +198,7 @@ Public Class BoxJuntaComercial
                     ' Verificar se o protocolo não é nulo ou vazio antes de copiar
                     If Not String.IsNullOrEmpty(ProtocoloRedesim) Then
                         Clipboard.SetText(ProtocoloRedesim)
-                        MessageBox.Show("Protocolo copiado para a área de transferência")
+                        ' MessageBox.Show("Protocolo copiado para a área de transferência")
                     Else
                         MessageBox.Show("O protocolo 'Redesim' está vazio.")
                     End If

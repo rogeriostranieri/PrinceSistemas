@@ -1,7 +1,4 @@
-﻿Imports System.Windows.Forms
-Imports System.Drawing
-
-Public Class DialogAjudaObjetoEmpresa
+﻿Public Class DialogAjudaObjetoEmpresa
 
     Private Sub DialogAjudaObjetoEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Definindo o texto com a fonte 11

@@ -1,6 +1,6 @@
-﻿Imports System.Security.Cryptography
+﻿Imports System.IO
+Imports System.Security.Cryptography
 Imports System.Text
-Imports System.IO
 
 Module ModEncryptDecrypt
     ' Chave e IV para AES (devem ser mantidos em segredo)

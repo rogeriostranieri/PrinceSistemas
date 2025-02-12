@@ -172,7 +172,7 @@
             Clipboard.SetText(CPFFormatado)
 
             ' Informar ao usuário que o CPF foi copiado
-            MessageBox.Show("CPF copiado para a área de transferência.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' MessageBox.Show("CPF copiado para a área de transferência.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             ' Exibir mensagem de erro caso algo dê errado
@@ -244,7 +244,7 @@
             Clipboard.SetText(cepSemHifen)
 
             ' Informar ao usuário que o CEP foi copiado
-            MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '  MessageBox.Show("CEP copiado para a área de transferência: " & cepSemHifen, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             ' Em caso de erro, exibe uma mensagem de erro

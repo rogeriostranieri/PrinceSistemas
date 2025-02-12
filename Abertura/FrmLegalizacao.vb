@@ -1,9 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports System.IO
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports System.Windows.Forms
 Imports System.Globalization
-Imports System.Text.RegularExpressions
+Imports System.IO
 Imports System.Text
 
 
@@ -335,6 +332,10 @@ Public Class FrmLegalizacao
 
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
         AtualizaDados2()
+    End Sub
+
+    Private Sub FrmLegalizacao_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        TipodeEmpresa()
     End Sub
 
     Private Sub AtualizaDados2()
@@ -1197,7 +1198,6 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub TipodeEmpresa()
         Dim tiposCartorio As String() = {
-        "Microempreendedor Indivual ( MEI )",
         "Igreja",
         "Comunidade e Similares",
         "Associação Privada"
@@ -1205,10 +1205,24 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
         Dim tipoSelecionado As String = TipoDeEmpresaComboBox.Text
 
-        ' Configuração geral baseada no tipo de empresa
-        If tiposCartorio.Contains(tipoSelecionado) Then
+        ' Configuração para MEI (exclusivo)
+        If tipoSelecionado = "Microempreendedor Indivual ( MEI )" Then
             Button24.Visible = True
-            Button20.Visible = False
+            Button25.Visible = False
+
+            NAlteracaoComboBox.Visible = False
+            NAlteracaoLabel.Visible = False
+            LabelConsolidar.Visible = False
+            AltConsolidadaComboBox.Visible = False
+            NovaRazaoSocialLabel.Visible = False
+            NovaRazaoSocialComboBox.Visible = False
+            BtnVerNovoNome.Visible = False
+
+            LabelTipoEmpresa.Text = "MEI"
+
+            ' Configuração para os outros tipos de cartório
+        ElseIf tiposCartorio.Contains(tipoSelecionado) Then
+            Button24.Visible = True
             Button25.Visible = True
 
             NAlteracaoComboBox.Visible = False
@@ -1220,9 +1234,13 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             BtnVerNovoNome.Visible = False
 
             NAlteracaoLabel.Text = "Cartório"
+
+            ' Define o LabelTipoEmpresa para os tipos de cartório
+            LabelTipoEmpresa.Text = tipoSelecionado
+
+            ' Configuração para os demais tipos
         Else
             Button24.Visible = False
-            Button20.Visible = True
             Button25.Visible = False
 
             NAlteracaoComboBox.Visible = True
@@ -1234,32 +1252,25 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             BtnVerNovoNome.Visible = True
 
             NAlteracaoLabel.Text = "Nº.:"
-        End If
 
-        ' Atualizar o LabelTipoEmpresa baseado no tipo de empresa
-        Select Case tipoSelecionado
-            Case "Microempreendedor Indivual ( MEI )"
-                LabelTipoEmpresa.Text = "MEI"
-            Case "Sociedade Empresária Limitada ( Ltda. )"
-                LabelTipoEmpresa.Text = "Limitada - LTDA"
-            Case "Empresa Individual de Responsabilidade Limitada ( Eireli )"
-                LabelTipoEmpresa.Text = "Eireli"
-            Case "Empresa individual(RE)"
-                LabelTipoEmpresa.Text = "Empresa individual"
-            Case "Sociedade Anônima(SA)"
-                LabelTipoEmpresa.Text = "Sociedade Anônima"
-            Case "Sociedade Simples"
-                LabelTipoEmpresa.Text = "Sociedade Simples"
-            Case "Igreja"
-                LabelTipoEmpresa.Text = "Igreja"
-            Case "Comunidade e Similares"
-                LabelTipoEmpresa.Text = "Comunidade e Similares"
-            Case "Associação Privada"
-                LabelTipoEmpresa.Text = "Associação Privada"
-            Case Else
-                LabelTipoEmpresa.Text = ""
-        End Select
+            ' Define o LabelTipoEmpresa com base nos outros tipos
+            Select Case tipoSelecionado
+                Case "Sociedade Empresária Limitada ( Ltda. )"
+                    LabelTipoEmpresa.Text = "Limitada - LTDA"
+                Case "Empresa Individual de Responsabilidade Limitada ( Eireli )"
+                    LabelTipoEmpresa.Text = "Eireli"
+                Case "Empresa individual(RE)"
+                    LabelTipoEmpresa.Text = "Empresa individual"
+                Case "Sociedade Anônima(SA)"
+                    LabelTipoEmpresa.Text = "Sociedade Anônima"
+                Case "Sociedade Simples"
+                    LabelTipoEmpresa.Text = "Sociedade Simples"
+                Case Else
+                    LabelTipoEmpresa.Text = ""
+            End Select
+        End If
     End Sub
+
 
 
 
@@ -3054,6 +3065,7 @@ Para empresas em início de atividade, o prazo para soliticação de opção é 
 
     Private Sub BtnRemovCaract_Click(sender As Object, e As EventArgs) Handles BtnRemovCaract.Click
         RamoDeAtividadeRichTextBox.Text = LimparTextoRamo(RamoDeAtividadeRichTextBox.Text)
+        ObjetoDOEstabelecimentoRichTextBox.Text = LimparTextoRamo(ObjetoDOEstabelecimentoRichTextBox.Text)
 
     End Sub
     Function LimparTextoRamo(sText As String) As String
@@ -3443,25 +3455,11 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
     Private Sub BtnCopiaCEP_Click(sender As Object, e As EventArgs) Handles BtnCopiaCEP.Click
-        ' Verificar se o campo EndCEPMaskedTextBox está preenchido
-        If Not String.IsNullOrWhiteSpace(EndCEPMaskedTextBox.Text) Then
-            ' Obter o texto do CEPMaskedTextBox
-            Dim cep As String = EndCEPMaskedTextBox.Text
-
-            ' Remover caracteres não numéricos
-            Dim cepSemHifen As String = New String(cep.Where(Function(c) Char.IsDigit(c)).ToArray())
-
-            ' Verificar se ainda há conteúdo para copiar
-            If Not String.IsNullOrEmpty(cepSemHifen) Then
-                ' Copiar o resultado para a área de transferência
-                Clipboard.SetText(cepSemHifen)
-            Else
-                MessageBox.Show("O CEP informado é inválido ou está vazio.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-        Else
-            MessageBox.Show("Nenhum CEP foi inserido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        Dim cep = New String(EndCEPMaskedTextBox.Text.Where(AddressOf Char.IsDigit).ToArray())
+        If cep <> "" Then Clipboard.SetText(cep) Else MessageBox.Show("Nenhum CEP válido foi inserido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
     End Sub
+
+
 
 
 
@@ -4458,22 +4456,17 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Dim data As DateTime
 
         If DateTime.TryParse(dataTexto, data) Then
-            ' Converte a data para o formato por extenso
-            Dim dataPorExtenso As String = $"{data.Day} de {data.ToString("MMMM")} de {data.Year}"
-
-            ' Converte o texto todo para minúsculas
-            dataPorExtenso = dataPorExtenso.ToLower()
+            ' Converte a data para o formato por extenso e transforma em minúsculas
+            Dim dataPorExtenso As String = $"{data.Day} de {data:MMMM} de {data:yyyy}".ToLower()
 
             ' Copia o texto para a área de transferência
             Clipboard.SetText(dataPorExtenso)
-
-            ' Exibe uma mensagem de confirmação
-            '      MessageBox.Show("Data copiada para a área de transferência: " & dataPorExtenso, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ' Exibe mensagem de erro caso a data seja inválida
             MessageBox.Show("Por favor, insira uma data válida no campo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
+
 
     Private Sub TipoDeEmpresaComboBox_Validated(sender As Object, e As EventArgs) Handles TipoDeEmpresaComboBox.Validated
         TipodeEmpresa()
