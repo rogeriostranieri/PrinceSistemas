@@ -382,7 +382,7 @@ Public Class FrmSocios
         FrmLegalizacao.TabControl1.SelectedIndex = 1
 
         'aativar TabControl2 0
-        FrmLegalizacao.TabControl2.SelectedIndex = -1
+        FrmLegalizacao.TabControl2.SelectedIndex = 0
 
         'pega CPFMaskedTextBox e copa para  frmLegalizacao.CPFResponsavelMaskedTextBox.text
         FrmLegalizacao.CPFResponsavelMaskedTextBox.Text = CPFMaskedTextBox.Text

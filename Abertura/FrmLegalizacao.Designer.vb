@@ -199,7 +199,7 @@ Partial Class FrmLegalizacao
         Me.BtnVerDescricaoCNAE = New System.Windows.Forms.Button()
         Me.LblLinkArrumarCNAE = New System.Windows.Forms.LinkLabel()
         Me.BtnGrauDeRisco = New System.Windows.Forms.Button()
-        Me.Button25 = New System.Windows.Forms.Button()
+        Me.BtnCNAEMEI = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.LblTotalCnae = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -1971,6 +1971,7 @@ Partial Class FrmLegalizacao
         Me.TabControle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControle.Multiline = True
         Me.TabControle.Name = "TabControle"
+        Me.TabControle.SelectedIndex = 0
         Me.TabControle.Size = New System.Drawing.Size(857, 312)
         Me.TabControle.TabIndex = 11
         '
@@ -2119,6 +2120,7 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
+        Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(849, 284)
         Me.TabControl2.TabIndex = 36
         '
@@ -2455,7 +2457,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.Controls.Add(Me.BtnVerDescricaoCNAE)
         Me.GroupBox1.Controls.Add(Me.LblLinkArrumarCNAE)
         Me.GroupBox1.Controls.Add(Me.BtnGrauDeRisco)
-        Me.GroupBox1.Controls.Add(Me.Button25)
+        Me.GroupBox1.Controls.Add(Me.BtnCNAEMEI)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.LblTotalCnae)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -2565,17 +2567,17 @@ Partial Class FrmLegalizacao
         Me.BtnGrauDeRisco.Text = "Grau de Risco"
         Me.BtnGrauDeRisco.UseVisualStyleBackColor = True
         '
-        'Button25
+        'BtnCNAEMEI
         '
-        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button25.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Button25.Location = New System.Drawing.Point(596, 20)
-        Me.Button25.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(102, 28)
-        Me.Button25.TabIndex = 34
-        Me.Button25.Text = "CNAE - MEI"
-        Me.Button25.UseVisualStyleBackColor = False
+        Me.BtnCNAEMEI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCNAEMEI.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCNAEMEI.Location = New System.Drawing.Point(596, 20)
+        Me.BtnCNAEMEI.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCNAEMEI.Name = "BtnCNAEMEI"
+        Me.BtnCNAEMEI.Size = New System.Drawing.Size(102, 28)
+        Me.BtnCNAEMEI.TabIndex = 34
+        Me.BtnCNAEMEI.Text = "CNAE - MEI"
+        Me.BtnCNAEMEI.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -3897,6 +3899,7 @@ Partial Class FrmLegalizacao
         Me.TabControl1.Location = New System.Drawing.Point(487, 16)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(341, 257)
         Me.TabControl1.TabIndex = 46
         '
@@ -6859,7 +6862,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents IEInicioAtividadeMaskedTextBox As MaskedTextBox
     Friend WithEvents IEComprovanteTextBox As TextBox
     Friend WithEvents Button23 As Button
-    Friend WithEvents Button25 As Button
+    Friend WithEvents BtnCNAEMEI As Button
     Friend WithEvents IEVencPedidoMaskedTextBox As MaskedTextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Button26 As Button

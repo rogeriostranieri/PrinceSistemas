@@ -276,82 +276,69 @@ Public Class FrmLegalizacao
 
     Public Property RazaoSocialSelecionada As String
     Private Sub FrmLegalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         Try
             ' Preenche os dados das tabelas relacionadas
-            Me.CADstatusTableAdapter.Fill(Me.PrinceDBDataSet.CADstatus)
-            Me.NaturezajuridicaTableAdapter.Fill(Me.PrinceDBDataSet.Naturezajuridica)
-            Me.EmpresasTableAdapter.Fill(Me.PrinceDBDataSet.Empresas)
+            CADstatusTableAdapter.Fill(PrinceDBDataSet.CADstatus)
+            NaturezajuridicaTableAdapter.Fill(PrinceDBDataSet.Naturezajuridica)
+            EmpresasTableAdapter.Fill(PrinceDBDataSet.Empresas)
 
-
-            With StatusComboBox
-                .DataSource = CADstatusBindingSource
-                .DisplayMember = "Descricao"
-                .ValueMember = "Descricao"
-                If .Items.Count > 0 Then
-                    .SelectedIndex = 0 ' Defina o índice apenas se houver itens
-                Else
-                    .SelectedIndex = -1 ' Caso contrário, defina como -1
-                End If
-            End With
+            ' Configuração do ComboBox Status
+            ConfigurarStatusComboBox()
 
             ' Configurações iniciais
             ModCombobox.ComboboxLegalizacaoProcesso()
             ComboBoxBuscaEmpresa.Focus()
             StatusOrdenado()
 
-            ' Permitir edições em todas as colunas da tabela Empresas
+            ' Permitir edições nas colunas da tabela Empresas
             For Each col As DataColumn In PrinceDBDataSet.Empresas.Columns
                 col.ReadOnly = False
             Next
 
-            ' Vincula o evento CurrentChanged do BindingSource
+            ' Vincular evento ao BindingSource (evita múltiplas assinaturas)
+            RemoveHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
             AddHandler EmpresasBindingSource.CurrentChanged, AddressOf EmpresasBindingSource_CurrentChanged
 
-            ' Atualização inicial de dados
-            AtualizaDados2()
-
-            ' Força a atualização do BindingSource
-            EmpresasBindingSource.ResetBindings(False)
-
-            ' Chama o ProcessoMudar após garantir que os dados estão carregados
-            If EmpresasBindingSource.Current IsNot Nothing Then
-                ProcessoMudar()
-                TipodeEmpresa()
-            End If
+            ' Atualiza dados
+            AtualizaDados()
 
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro ao carregar o formulário." & vbCrLf &
-                        ex.Message & vbCrLf & ex.StackTrace,
+            MessageBox.Show("Ocorreu um erro ao carregar o formulário." & vbCrLf & ex.Message,
                         "Prince Sistemas - Alerta",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Exclamation)
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
+    Private Sub ConfigurarStatusComboBox()
+        With StatusComboBox
+            .DataSource = CADstatusBindingSource
+            .DisplayMember = "Descricao"
+            .ValueMember = "Descricao"
+            .SelectedIndex = If(.Items.Count > 0, 0, -1)
+        End With
+    End Sub
+
     Private Sub EmpresasBindingSource_CurrentChanged(sender As Object, e As EventArgs)
-        AtualizaDados2()
+        AtualizaDados()
     End Sub
 
     Private Sub FrmLegalizacao_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         TipodeEmpresa()
     End Sub
 
-    Private Sub AtualizaDados2()
+    Private Sub AtualizaDados()
         BtnEditar.Text = "Editar"
         Editar()
         InicializarControles()
-
         VerificarFiliais()
         VerificarAvisoEmpresa()
         StatusMudar()
         MudaContratoAviso()
-        TipodeEmpresa()
 
-        ' Chama ProcessoMudar somente se houver um item selecionado
+        ' Chama ProcessoMudar apenas se houver item selecionado
         If EmpresasBindingSource.Current IsNot Nothing Then
             ProcessoMudar()
+            TipodeEmpresa()
         End If
     End Sub
 
@@ -406,250 +393,182 @@ Public Class FrmLegalizacao
 
     Private Sub ProcessoMudar()
         Try
-            If ProcessoComboBox.Text = "Abertura" Then
-                'MotivoRichTextBox.Visible = False
-                ' MotivoLabel.Visible = False
-                NAlteracaoComboBox.Visible = False
-                NAlteracaoLabel.Visible = False
-                AltConsolidadaComboBox.Visible = False
-                LabelConsolidar.Visible = False
-                GroupBox5.Visible = False
+            ' Ocultar todos os controles inicialmente
+            HideAllControls()
 
-                NovaRazaoSocialLabel.Visible = False
-                NovaRazaoSocialComboBox.Visible = False
+            ' Exibir controles específicos de acordo com o tipo de processo
+            Select Case ProcessoComboBox.Text
+                Case "Abertura"
+                    SetupAbertura()
 
-                CapitalAntigoMudouLabel.Visible = True
-                CapitalAntigoMudouComboBox.Visible = True
-                'imagem central
-                PictureBoxCentralProcesso.Visible = True
-                PictureBoxCentralProcesso.Image = My.Resources.AberturaEmpresa
-                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+                Case "Alteração"
+                    SetupAlteracao()
 
-                'bota para ver razao social e busca
-                BtnVerNovoNome.Visible = True
-                BtnVerNovoNome.Location = New Point(208, 111)
-                BtnVerNovoNome.Size = New Size(120, 24)
-                BtnVerNovoNome.Text = "Busca de Nome"
+                Case "Baixa"
+                    SetupBaixa()
 
-                LabelConsolidar.Visible = False
-                AltConsolidadaComboBox.Visible = False
-                NovaRazaoSocialLabel.Visible = False
-                NovaRazaoSocialComboBox.Visible = False
-
-
-
-            ElseIf ProcessoComboBox.Text = "Alteração" Then
-                NAlteracaoComboBox.Visible = True
-                NAlteracaoLabel.Visible = True
-                AltConsolidadaComboBox.Visible = True
-                LabelConsolidar.Visible = True
-                GroupBox5.Visible = True
-                'imagem central
-                PictureBoxCentralProcesso.Visible = True
-                PictureBoxCentralProcesso.Image = My.Resources.AlteracaoEmpresa
-                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
-
-                NovaRazaoSocialLabel.Visible = True
-                NovaRazaoSocialComboBox.Visible = True
-
-                CapitalAntigoMudouLabel.Visible = True
-                CapitalAntigoMudouComboBox.Visible = True
-                'bota para ver razao social e busca
-                BtnVerNovoNome.Visible = True
-                BtnVerNovoNome.Location = New Point(391, 143)
-                BtnVerNovoNome.Size = New Size(50, 24)
-                BtnVerNovoNome.Text = "Ver"
-
-                LabelConsolidar.Visible = True
-                AltConsolidadaComboBox.Visible = True
-                NovaRazaoSocialLabel.Visible = True
-                NovaRazaoSocialComboBox.Visible = True
-
-
-            ElseIf ProcessoComboBox.Text = "Baixa" Then
-                ' MotivoRichTextBox.Visible = False
-                ' MotivoLabel.Visible = False
-                NAlteracaoComboBox.Visible = False
-                NAlteracaoLabel.Visible = False
-                AltConsolidadaComboBox.Visible = False
-                LabelConsolidar.Visible = False
-                GroupBox5.Visible = True
-                'imagem central
-                PictureBoxCentralProcesso.Visible = True
-                PictureBoxCentralProcesso.Image = My.Resources.baixaEmpresa
-                PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
-                NovaRazaoSocialLabel.Visible = False
-                NovaRazaoSocialComboBox.Visible = False
-
-                CapitalAntigoMudouLabel.Visible = True
-                CapitalAntigoMudouComboBox.Visible = True
-                'botao busca de nome
-                BtnVerNovoNome.Visible = False
-
-                LabelConsolidar.Visible = False
-                AltConsolidadaComboBox.Visible = False
-                NovaRazaoSocialLabel.Visible = False
-                NovaRazaoSocialComboBox.Visible = False
-
-
-
-            Else
-                'MotivoRichTextBox.Visible = True
-                'MotivoLabel.Visible = True
-                NAlteracaoComboBox.Visible = True
-                NAlteracaoLabel.Visible = True
-                AltConsolidadaComboBox.Visible = True
-                LabelConsolidar.Visible = True
-
-                NovaRazaoSocialLabel.Visible = True
-                NovaRazaoSocialComboBox.Visible = True
-
-                CapitalAntigoMudouLabel.Visible = True
-                CapitalAntigoMudouComboBox.Visible = True
-
-                'imagem central
-                PictureBoxCentralProcesso.Visible = False
-
-                'bota para ver razao social e busca
-                BtnVerNovoNome.Visible = True
-                BtnVerNovoNome.Location = New Point(391, 143)
-                BtnVerNovoNome.Size = New Size(50, 24)
-                BtnVerNovoNome.Text = "Ver"
-
-
-                LabelConsolidar.Visible = True
-                AltConsolidadaComboBox.Visible = True
-                NovaRazaoSocialLabel.Visible = True
-                NovaRazaoSocialComboBox.Visible = True
-
-            End If
-
+                Case Else
+                    SetupOutro()
+            End Select
         Catch ex As Exception
             MessageBox.Show("Ocorreu um Erro ao Mudar o Processo" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-
     End Sub
+
+    Private Sub HideAllControls()
+        ' Oculta todos os controles de forma eficiente
+        NAlteracaoComboBox.Visible = False
+        NAlteracaoLabel.Visible = False
+        AltConsolidadaComboBox.Visible = False
+        LabelConsolidar.Visible = False
+        GroupBox5.Visible = False
+        NovaRazaoSocialLabel.Visible = False
+        NovaRazaoSocialComboBox.Visible = False
+        CapitalAntigoMudouLabel.Visible = False
+        CapitalAntigoMudouComboBox.Visible = False
+        PictureBoxCentralProcesso.Visible = False
+        BtnVerNovoNome.Visible = False
+    End Sub
+
+    Private Sub SetupAbertura()
+        ' Configurações para "Abertura"
+        CapitalAntigoMudouLabel.Visible = True
+        CapitalAntigoMudouComboBox.Visible = True
+        PictureBoxCentralProcesso.Visible = True
+        PictureBoxCentralProcesso.Image = My.Resources.AberturaEmpresa
+        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+        BtnVerNovoNome.Visible = True
+        BtnVerNovoNome.Location = New Point(208, 111)
+        BtnVerNovoNome.Size = New Size(120, 24)
+        BtnVerNovoNome.Text = "Busca de Nome"
+    End Sub
+
+    Private Sub SetupAlteracao()
+        ' Configurações para "Alteração"
+        NAlteracaoComboBox.Visible = True
+        NAlteracaoLabel.Visible = True
+        AltConsolidadaComboBox.Visible = True
+        LabelConsolidar.Visible = True
+        GroupBox5.Visible = True
+        PictureBoxCentralProcesso.Visible = True
+        PictureBoxCentralProcesso.Image = My.Resources.AlteracaoEmpresa
+        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+        NovaRazaoSocialLabel.Visible = True
+        NovaRazaoSocialComboBox.Visible = True
+        CapitalAntigoMudouLabel.Visible = True
+        CapitalAntigoMudouComboBox.Visible = True
+        BtnVerNovoNome.Visible = True
+        BtnVerNovoNome.Location = New Point(391, 143)
+        BtnVerNovoNome.Size = New Size(50, 24)
+        BtnVerNovoNome.Text = "Ver"
+    End Sub
+
+    Private Sub SetupBaixa()
+        ' Configurações para "Baixa"
+        CapitalAntigoMudouLabel.Visible = True
+        CapitalAntigoMudouComboBox.Visible = True
+        PictureBoxCentralProcesso.Visible = True
+        PictureBoxCentralProcesso.Image = My.Resources.baixaEmpresa
+        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+        BtnVerNovoNome.Visible = False
+    End Sub
+
+    Private Sub SetupOutro()
+        ' Configurações para outro processo
+        NAlteracaoComboBox.Visible = True
+        NAlteracaoLabel.Visible = True
+        AltConsolidadaComboBox.Visible = True
+        LabelConsolidar.Visible = True
+        NovaRazaoSocialLabel.Visible = True
+        NovaRazaoSocialComboBox.Visible = True
+        CapitalAntigoMudouLabel.Visible = True
+        CapitalAntigoMudouComboBox.Visible = True
+        BtnVerNovoNome.Visible = True
+        BtnVerNovoNome.Location = New Point(391, 143)
+        BtnVerNovoNome.Size = New Size(50, 24)
+        BtnVerNovoNome.Text = "Ver"
+        PictureBoxCentralProcesso.Visible = False
+    End Sub
+
     Private Sub StatusMudar()
         Try
+            Dim statusText As String = StatusComboBox.Text.Trim()
+            Dim processoText As String = ProcessoComboBox.Text.Trim()
+            Dim avisarDiaAtual As String = AvisarDiaMaskedTextBox.Text
+
             Select Case True
+                Case statusText.Contains("Finalizado")
+                    StatusComboBox.BackColor = Color.Green
+                    StatusComboBox.ForeColor = Color.White
+                    PictureBox1.Image = My.Resources.check
+                    PictureBox2.Image = If(processoText = "Baixa", My.Resources.fechadaempresa, My.Resources.ABERTURA_DE_EMPRESA)
+                    SituacaoCadastralComboBox.Text = If(processoText = "Baixa", "BAIXADA", SituacaoCadastralComboBox.Text)
+                    AvisarDiaMaskedTextBox.Text = ""
 
-           ' Select Case StatusComboBox.Text'.Trim()
-
-
-                Case StatusComboBox.Text.Contains("Finalizado")
-
-
-                    '  If MsgBox("Foi alterado no seu Sistema Particular?", MsgBoxStyle.YesNo, "Notificação") = MsgBoxResult.Yes Then
-                    If ProcessoComboBox.Text = "Baixa" Then
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.fechadaempresa
-                        SituacaoCadastralComboBox.Text = "BAIXADA"
-
-                    ElseIf ProcessoComboBox.Text = "Finalizado" Then
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-
-                    Else
-
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-
-                    End If
-
-
-                Case StatusComboBox.Text.Contains("Pêndencia Sistema Externo")
+                Case statusText.Contains("Pêndencia Sistema Externo")
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.Black
-                    ' AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = Nothing
-                    ' SistemaExternoComboBox.SelectedText = "Não"
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
 
-
-                Case StatusComboBox.Text.Contains("Paralisado")
+                Case statusText.Contains("Paralisado")
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.White
-                    AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources._Stop
                     PictureBox2.Image = Nothing
+                    AvisarDiaMaskedTextBox.Text = ""
 
-                Case StatusComboBox.Text.Contains("Cancelado")
+                Case statusText.Contains("Cancelado")
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.White
-                    AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.Cancel
                     PictureBox2.Image = Nothing
+                    AvisarDiaMaskedTextBox.Text = ""
 
-                Case StatusComboBox.Text.Contains("Em Andamento")
+                Case statusText.Contains("Em Andamento")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.empresa_facil
                     PictureBox1.Image = My.Resources.emandamento
+                    PictureBox2.Image = My.Resources.empresa_facil
 
-                Case StatusComboBox.Text.Contains("Taxas")
+                Case statusText.Contains("Taxas")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.pagamento
 
-
-                Case StatusComboBox.Text.Contains("Taxas")
+                Case statusText.Contains("Empresa Fácil")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.pagamento
-
-                '//////////////////////////////////////////////
-                ' Empresa Fácil
-                '//////////////////////////////////////////////
-                Case StatusComboBox.Text.Contains("Empresa Fácil")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
                     PictureBox2.Image = My.Resources.empresa_facil
-                    PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Federal")
+                Case statusText.Contains("Federal")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
+                    PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.redeSim_Divulgação
-                    PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Estadual")
+                Case statusText.Contains("Estadual")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
+                    PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.governo2019_400x173px
-                    PictureBox1.Image = My.Resources.emandamento
 
-                Case StatusComboBox.Text.Contains("Simples")
-
+                Case statusText.Contains("Simples")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
                     PictureBox1.Image = My.Resources.emandamento
+                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
 
-                Case StatusComboBox.Text.Contains("Prefeitura")
+                Case statusText.Contains("Prefeitura")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
                     PictureBox2.Image = My.Resources.alvara
-                '
-                Case StatusComboBox.Text.Contains("Cliente")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = Nothing
 
-                Case StatusComboBox.Text.Contains("Aguardando")
+                Case statusText.Contains("Cliente") OrElse statusText.Contains("Aguardando")
                     StatusComboBox.BackColor = Color.White
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
@@ -660,34 +579,25 @@ Public Class FrmLegalizacao
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = Nothing
                     PictureBox2.Image = Nothing
-                    'Protocolado Receita Estadual
-
             End Select
 
+            ' Tratamento para "Simples Nacional - Protocolado"
+            If statusText <> "Simples Nacional - Protocolado" AndAlso statusText.Contains("Protocolado") Then
+                AvisarDiaMaskedTextBox.Text = ""
+            Else
+                AvisarDiaMaskedTextBox.Text = avisarDiaAtual ' Mantém a data se for "Simples Nacional - Protocolado"
+            End If
 
-            Select Case True
-
-                Case StatusComboBox.Text = "Simples Nacional - Em Andamento"
-                    TabControle.SelectTab(5)
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
-                    PictureBox1.Image = My.Resources.emandamento
-                Case StatusComboBox.Text = "Simples Nacional - Em Andamento"
-                    TabControle.SelectTab(5)
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
-                    PictureBox1.Image = My.Resources.emandamento
-            End Select
-
-
+            ' Seleção de aba específica para Simples Nacional - Em Andamento
+            If statusText = "Simples Nacional - Em Andamento" Then
+                TabControle.SelectTab(5)
+            End If
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
     End Sub
+
 
 
 
@@ -1175,7 +1085,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         End Try
     End Sub
 
-    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles BtnCNAEMEI.Click
 
         If Application.OpenForms.OfType(Of WebSiteGERAL)().Count() > 0 Then
             WebSiteGERAL.Focus()
@@ -1208,7 +1118,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         ' Configuração para MEI (exclusivo)
         If tipoSelecionado = "Microempreendedor Indivual ( MEI )" Then
             Button24.Visible = True
-            Button25.Visible = False
+            BtnCNAEMEI.Visible = False
 
             NAlteracaoComboBox.Visible = False
             NAlteracaoLabel.Visible = False
@@ -1217,13 +1127,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             NovaRazaoSocialLabel.Visible = False
             NovaRazaoSocialComboBox.Visible = False
             BtnVerNovoNome.Visible = False
-
+            Button24.Visible = True
             LabelTipoEmpresa.Text = "MEI"
+            BtnCNAEMEI.Visible = True
 
             ' Configuração para os outros tipos de cartório
         ElseIf tiposCartorio.Contains(tipoSelecionado) Then
             Button24.Visible = True
-            Button25.Visible = True
+            BtnCNAEMEI.Visible = True
 
             NAlteracaoComboBox.Visible = False
             NAlteracaoLabel.Visible = True
@@ -1232,16 +1143,16 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             NovaRazaoSocialLabel.Visible = False
             NovaRazaoSocialComboBox.Visible = False
             BtnVerNovoNome.Visible = False
-
+            Button24.Visible = False
             NAlteracaoLabel.Text = "Cartório"
-
+            BtnCNAEMEI.Visible = False
             ' Define o LabelTipoEmpresa para os tipos de cartório
             LabelTipoEmpresa.Text = tipoSelecionado
 
             ' Configuração para os demais tipos
         Else
             Button24.Visible = False
-            Button25.Visible = False
+            BtnCNAEMEI.Visible = False
 
             NAlteracaoComboBox.Visible = True
             NAlteracaoLabel.Visible = True
@@ -1250,7 +1161,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             NovaRazaoSocialLabel.Visible = True
             NovaRazaoSocialComboBox.Visible = True
             BtnVerNovoNome.Visible = True
-
+            Button24.Visible = False
             NAlteracaoLabel.Text = "Nº.:"
 
             ' Define o LabelTipoEmpresa com base nos outros tipos
@@ -2238,15 +2149,21 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub EMAIL()
         Try
-            'If StatusComboBox.Text = "Finalizado" Then
-            'selecioanr Index 0
-            If SistemaExternoComboBox.SelectedIndex = -1 Then
+            ' Verifica se o texto do SistemaExternoComboBox contém "Não"
+            If SistemaExternoComboBox.Text.Contains("Não") Then
                 EnviarEmail()
+            Else
+                Dim resposta As DialogResult = MessageBox.Show("Foi enviado por email? deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                If resposta = DialogResult.Yes Then
+                    EnviarEmail()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
+
 
     Private Sub EnviarEmail()
         Try
@@ -2699,94 +2616,51 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
         ProcessoMudar()
         StatusMudar()
-        'MudarStatusFinalizado()
+        MudarStatusFinalizado()
         TipodeEmpresa()
     End Sub
     Private Sub MudarStatusFinalizado()
+        Dim isFinalizado As Boolean = StatusComboBox.Text.Contains("Finalizado")
+        Dim isSimplesNacional As Boolean = StatusComboBox.Text.Contains("Simples Nacional")
 
-        'statuscombobox contendo Finalizado
-        If StatusComboBox.Text.Contains("Finalizado") Then
-
-            'If StatusComboBox.Text = "Finalizado" Then
-            If SistemaExternoComboBox.SelectedIndex = 1 Then
+        If isFinalizado OrElse isSimplesNacional Then
+            If SistemaExternoComboBox.SelectedItem = "Não" Then
                 If MsgBox("Foi alterado no seu Sistema Particular?", MsgBoxStyle.YesNo, "Notificação") = MsgBoxResult.Yes Then
-                    If ProcessoComboBox.Text = "Baixa" Then
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.fechadaempresa
-                        SistemaExternoComboBox.SelectedIndex = -1
-                        EMAIL()
-
-                    ElseIf ProcessoComboBox.Text = "Abertura" Then
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-                        SistemaExternoComboBox.SelectedIndex = -1
-                        EMAIL()
-                    Else
-
-                        StatusComboBox.BackColor = Color.Green
-                        StatusComboBox.ForeColor = Color.White
-                        AvisarDiaMaskedTextBox.Text = ""
-                        PictureBox1.Image = My.Resources.check
-                        PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-                        SistemaExternoComboBox.SelectedIndex = -1
-                        EMAIL()
-                    End If
-                Else
+                    AtualizarInterface()
+                    SistemaExternoComboBox.SelectedItem = "Sim"
+                    EMAIL()
+                ElseIf isFinalizado Then ' Apenas para "Finalizado"
                     StatusComboBox.Text = "Pêndencia Sistema Externo"
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.Black
-                    ' AvisarDiaMaskedTextBox.Text = ""
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = Nothing
-                    SistemaExternoComboBox.SelectedIndex = 1
+                    SistemaExternoComboBox.SelectedItem = "Não"
                 End If
-
-            ElseIf SistemaExternoComboBox.SelectedIndex = -1 Then
-
-                If ProcessoComboBox.Text = "Baixa" Then
-                    StatusComboBox.BackColor = Color.Green
-                    StatusComboBox.ForeColor = Color.White
-
-                    PictureBox1.Image = My.Resources.check
-                    PictureBox2.Image = My.Resources.fechadaempresa
-
-
-                ElseIf ProcessoComboBox.Text = "Abertura" Then
-                    StatusComboBox.BackColor = Color.Green
-                    StatusComboBox.ForeColor = Color.White
-                    AvisarDiaMaskedTextBox.Text = ""
-                    PictureBox1.Image = My.Resources.check
-                    PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-
-
-                Else
-                    StatusComboBox.BackColor = Color.Green
-                    StatusComboBox.ForeColor = Color.White
-                    AvisarDiaMaskedTextBox.Text = ""
-                    PictureBox1.Image = My.Resources.check
-                    PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
-
-                End If
-
+            ElseIf SistemaExternoComboBox.SelectedItem = "Sim" Then
+                AtualizarInterface()
             Else
-                'Antigo codigo
                 StatusComboBox.BackColor = Color.Green
                 StatusComboBox.ForeColor = Color.White
-                AvisarDiaMaskedTextBox.Text = ""
+                '  AvisarDiaMaskedTextBox.Text = ""
                 PictureBox1.Image = My.Resources.check
             End If
-
-
         End If
-
-
     End Sub
+
+    Private Sub AtualizarInterface()
+        StatusComboBox.BackColor = Color.Green
+        StatusComboBox.ForeColor = Color.White
+        AvisarDiaMaskedTextBox.Text = ""
+        PictureBox1.Image = My.Resources.check
+
+        If ProcessoComboBox.Text = "Baixa" Then
+            PictureBox2.Image = My.Resources.fechadaempresa
+        Else
+            PictureBox2.Image = My.Resources.ABERTURA_DE_EMPRESA
+        End If
+    End Sub
+
 
 
     Private Sub BtnImportarRazaoSocial_Click(sender As Object, e As EventArgs) Handles BtnImportarRazaoSocial.Click

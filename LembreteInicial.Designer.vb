@@ -29,24 +29,34 @@ Partial Class LembreteInicial
         Me.EmpresasTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.EmpresasTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.EmpresasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
-        Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SEDE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.LaudosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LaudosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.LaudosTableAdapter()
+        Me.LaudosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Matriz = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn67 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ButtonImprimir = New System.Windows.Forms.Button()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.ButtonSalvarEmpresa = New System.Windows.Forms.Button()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.ButtonSalvarlaudo = New System.Windows.Forms.Button()
+        Me.ButtonImprimirLaudo = New System.Windows.Forms.Button()
+        Me.PrintPreviewDialogLaudo = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDocumentLaudo = New System.Drawing.Printing.PrintDocument()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,11 +81,18 @@ Partial Class LembreteInicial
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.AvisosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
         Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -87,6 +104,9 @@ Partial Class LembreteInicial
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -106,6 +126,44 @@ Partial Class LembreteInicial
         Me.EmpresasDataGridView.ReadOnly = True
         Me.EmpresasDataGridView.Size = New System.Drawing.Size(648, 163)
         Me.EmpresasDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razao Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 200
+        '
+        'SEDE
+        '
+        Me.SEDE.DataPropertyName = "SEDE"
+        Me.SEDE.HeaderText = "Matriz"
+        Me.SEDE.Name = "SEDE"
+        Me.SEDE.ReadOnly = True
+        Me.SEDE.Width = 50
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "EmpCriado"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "Criado dia"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "Status"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.DataPropertyName = "Geral"
+        Me.DataGridViewTextBoxColumn33.HeaderText = "Observação"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        Me.DataGridViewTextBoxColumn33.ReadOnly = True
+        Me.DataGridViewTextBoxColumn33.Width = 200
         '
         'Label1
         '
@@ -147,82 +205,11 @@ Partial Class LembreteInicial
         Me.LaudosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.Matriz, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn67})
         Me.LaudosDataGridView.DataSource = Me.LaudosBindingSource
-        Me.LaudosDataGridView.Location = New System.Drawing.Point(12, 277)
+        Me.LaudosDataGridView.Location = New System.Drawing.Point(12, 295)
         Me.LaudosDataGridView.Name = "LaudosDataGridView"
         Me.LaudosDataGridView.ReadOnly = True
         Me.LaudosDataGridView.Size = New System.Drawing.Size(648, 163)
         Me.LaudosDataGridView.TabIndex = 5
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft New Tai Lue", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 257)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 17)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Lembrete de Laudos"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Castellar", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Blue
-        Me.Label3.Location = New System.Drawing.Point(255, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(158, 29)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "LEMBRETES"
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Malgun Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(15, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(92, 39)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Avisos"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RazaoSocial"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razao Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 200
-        '
-        'SEDE
-        '
-        Me.SEDE.DataPropertyName = "SEDE"
-        Me.SEDE.HeaderText = "Matriz"
-        Me.SEDE.Name = "SEDE"
-        Me.SEDE.ReadOnly = True
-        Me.SEDE.Width = 50
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "EmpCriado"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "Criado dia"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "Status"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn33
-        '
-        Me.DataGridViewTextBoxColumn33.DataPropertyName = "Geral"
-        Me.DataGridViewTextBoxColumn33.HeaderText = "Observação"
-        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
-        Me.DataGridViewTextBoxColumn33.ReadOnly = True
-        Me.DataGridViewTextBoxColumn33.Width = 200
         '
         'DataGridViewTextBoxColumn3
         '
@@ -262,13 +249,117 @@ Partial Class LembreteInicial
         Me.DataGridViewTextBoxColumn67.Name = "DataGridViewTextBoxColumn67"
         Me.DataGridViewTextBoxColumn67.ReadOnly = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft New Tai Lue", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 275)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(133, 17)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Lembrete de Laudos"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Blue
+        Me.Label3.Location = New System.Drawing.Point(247, 14)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(179, 37)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "LEMBRETES"
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Malgun Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(15, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(92, 39)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Avisos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ButtonImprimir
+        '
+        Me.ButtonImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonImprimir.Location = New System.Drawing.Point(531, 251)
+        Me.ButtonImprimir.Name = "ButtonImprimir"
+        Me.ButtonImprimir.Size = New System.Drawing.Size(129, 27)
+        Me.ButtonImprimir.TabIndex = 9
+        Me.ButtonImprimir.Text = "Imprimir Empresa"
+        Me.ButtonImprimir.UseVisualStyleBackColor = True
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'ButtonSalvarEmpresa
+        '
+        Me.ButtonSalvarEmpresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonSalvarEmpresa.Location = New System.Drawing.Point(396, 251)
+        Me.ButtonSalvarEmpresa.Name = "ButtonSalvarEmpresa"
+        Me.ButtonSalvarEmpresa.Size = New System.Drawing.Size(129, 27)
+        Me.ButtonSalvarEmpresa.TabIndex = 10
+        Me.ButtonSalvarEmpresa.Text = "Salvar TXT Empresa"
+        Me.ButtonSalvarEmpresa.UseVisualStyleBackColor = True
+        '
+        'ButtonSalvarlaudo
+        '
+        Me.ButtonSalvarlaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonSalvarlaudo.Location = New System.Drawing.Point(396, 464)
+        Me.ButtonSalvarlaudo.Name = "ButtonSalvarlaudo"
+        Me.ButtonSalvarlaudo.Size = New System.Drawing.Size(129, 27)
+        Me.ButtonSalvarlaudo.TabIndex = 12
+        Me.ButtonSalvarlaudo.Text = "Salvar TXT Laudo"
+        Me.ButtonSalvarlaudo.UseVisualStyleBackColor = True
+        '
+        'ButtonImprimirLaudo
+        '
+        Me.ButtonImprimirLaudo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonImprimirLaudo.Location = New System.Drawing.Point(531, 464)
+        Me.ButtonImprimirLaudo.Name = "ButtonImprimirLaudo"
+        Me.ButtonImprimirLaudo.Size = New System.Drawing.Size(129, 27)
+        Me.ButtonImprimirLaudo.TabIndex = 11
+        Me.ButtonImprimirLaudo.Text = "Imprimir Laudo"
+        Me.ButtonImprimirLaudo.UseVisualStyleBackColor = True
+        '
+        'PrintPreviewDialogLaudo
+        '
+        Me.PrintPreviewDialogLaudo.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialogLaudo.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialogLaudo.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialogLaudo.Enabled = True
+        Me.PrintPreviewDialogLaudo.Icon = CType(resources.GetObject("PrintPreviewDialogLaudo.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialogLaudo.Name = "PrintPreviewDialogLaudo"
+        Me.PrintPreviewDialogLaudo.Visible = False
+        '
         'LembreteInicial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(672, 447)
+        Me.ClientSize = New System.Drawing.Size(672, 498)
+        Me.Controls.Add(Me.ButtonSalvarlaudo)
+        Me.Controls.Add(Me.ButtonImprimirLaudo)
+        Me.Controls.Add(Me.ButtonSalvarEmpresa)
+        Me.Controls.Add(Me.ButtonImprimir)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -317,4 +408,14 @@ Partial Class LembreteInicial
     Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn67 As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonImprimir As Button
+    Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents ButtonSalvarEmpresa As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents ButtonSalvarlaudo As Button
+    Friend WithEvents ButtonImprimirLaudo As Button
+    Friend WithEvents PrintPreviewDialogLaudo As PrintPreviewDialog
+    Friend WithEvents PrintDocumentLaudo As Printing.PrintDocument
 End Class
