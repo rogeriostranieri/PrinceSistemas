@@ -83,7 +83,9 @@ Partial Class FrmGeral
         '
         'ListViewGeral
         '
+        Me.ListViewGeral.AllowColumnReorder = True
         Me.ListViewGeral.HideSelection = False
+        Me.ListViewGeral.HoverSelection = True
         Me.ListViewGeral.Location = New System.Drawing.Point(12, 117)
         Me.ListViewGeral.Name = "ListViewGeral"
         Me.ListViewGeral.Size = New System.Drawing.Size(472, 443)

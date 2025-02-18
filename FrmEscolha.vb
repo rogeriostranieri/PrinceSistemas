@@ -2,6 +2,7 @@
 
 Public Class FrmEscolha
     Private selectedCNPJ As String
+    Private selectedRazaoSocial As String
     Private connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
 
     ' Permite que o formulário feche quando a tecla ESC é pressionada
@@ -13,16 +14,17 @@ Public Class FrmEscolha
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
 
-    ' Construtor que aceita o CNPJ como parâmetro
-    Public Sub New(cnpj As String, sourceTables As String, tipoOriginal As String)
+    ' Construtor que aceita CNPJ e Razão Social como parâmetros
+    Public Sub New(cnpj As String, razaoSocial As String, sourceTables As String, tipoOriginal As String)
         InitializeComponent()
         Me.selectedCNPJ = cnpj
+        Me.selectedRazaoSocial = razaoSocial
     End Sub
 
-    ' Carregar o formulário e verificar a existência do CNPJ
     ' Carregar o formulário e verificar a existência do CNPJ ou Razão Social
     Private Sub FrmEscolha_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LabelCNPJ.Text = selectedCNPJ
+        LabelRazaoSocial.Text = selectedRazaoSocial
 
         ' Verificar a existência do CNPJ ou Razão Social nas tabelas
         Dim existsInEmpresas As Boolean = CheckCNPJOrRazaoSocialExists("Empresas")
@@ -41,22 +43,39 @@ Public Class FrmEscolha
     End Sub
 
     ' Função que verifica a existência do CNPJ ou Razão Social na tabela informada
+    ' Função que verifica a existência do CNPJ ou Razão Social na tabela informada
     Private Function CheckCNPJOrRazaoSocialExists(tableName As String) As Boolean
         ' Colunas a serem verificadas
         Dim cnpjColumn As String = "CNPJ"
         Dim razaoSocialColumn As String = "RazaoSocial"
-        Dim query As String = $"SELECT COUNT(*) FROM {tableName} WHERE {cnpjColumn} = @CNPJ OR {razaoSocialColumn} = @RazaoSocial"
+        Dim query As String = ""
+
+        ' Condicional para verificar qual parâmetro deve ser usado na consulta
+        If Not String.IsNullOrEmpty(selectedCNPJ) Then
+            query = $"SELECT COUNT(*) FROM {tableName} WHERE {cnpjColumn} = @CNPJ"
+        ElseIf Not String.IsNullOrEmpty(selectedRazaoSocial) Then
+            query = $"SELECT COUNT(*) FROM {tableName} WHERE {razaoSocialColumn} = @RazaoSocial"
+        Else
+            query = $"SELECT COUNT(*) FROM {tableName} WHERE {cnpjColumn} = @CNPJ OR {razaoSocialColumn} = @RazaoSocial"
+        End If
 
         Using connection As New SqlConnection(connectionString)
             Dim command As New SqlCommand(query, connection)
-            command.Parameters.AddWithValue("@CNPJ", selectedCNPJ)
-            command.Parameters.AddWithValue("@RazaoSocial", selectedCNPJ) ' Usando selectedCNPJ para procurar pela Razão Social, caso necessário
+
+            If Not String.IsNullOrEmpty(selectedCNPJ) Then
+                command.Parameters.AddWithValue("@CNPJ", selectedCNPJ)
+            End If
+
+            If Not String.IsNullOrEmpty(selectedRazaoSocial) Then
+                command.Parameters.AddWithValue("@RazaoSocial", selectedRazaoSocial)
+            End If
 
             connection.Open()
             Dim count As Integer = CInt(command.ExecuteScalar())
             Return count > 0
         End Using
     End Function
+
 
     ' Função que verifica a existência do CNPJ na tabela informada
     Private Function CheckCNPJExists(tableName As String) As Boolean
@@ -78,15 +97,14 @@ Public Class FrmEscolha
     Private Sub AbrirEmpresa()
         If CheckCNPJOrRazaoSocialExists("Empresas") Then
             FrmLegalizacao.Show()
-            ' Verificar se o CNPJ existe na empresa, se sim, usa ComboBoxBuscaCNPJ, se não, usa ComboBoxBuscaRazaoSocial
-            If CheckCNPJExists("Empresas") Then
+            ' Se houver CNPJ, usa ComboBoxBuscaCNPJ; senão, usa ComboBoxBuscaRazaoSocial
+            If Not String.IsNullOrEmpty(selectedCNPJ) Then
                 FrmLegalizacao.ComboBoxBuscaCNPJ.Text = selectedCNPJ
                 FrmLegalizacao.ComboBoxBuscaCNPJ.Select()
-            Else
-                FrmLegalizacao.ComboBoxBuscaEmpresa.Text = selectedCNPJ
+            ElseIf Not String.IsNullOrEmpty(selectedRazaoSocial) Then
+                FrmLegalizacao.ComboBoxBuscaEmpresa.Text = selectedRazaoSocial
                 FrmLegalizacao.ComboBoxBuscaEmpresa.Select()
             End If
-            'Me.Close()
             FrmLegalizacao.Focus()
         Else
             MessageBox.Show("O CNPJ ou a Razão Social não foram encontrados nas Empresas.", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -97,15 +115,14 @@ Public Class FrmEscolha
     Private Sub AbrirAlvara()
         If CheckCNPJOrRazaoSocialExists("Laudos") Then
             FrmAlvara.Show()
-            ' Verificar se o CNPJ existe no Alvará, se sim, usa ComboBoxBuscaCNPJ, se não, usa ComboBoxBuscaRazaoSocial
-            If CheckCNPJExists("Laudos") Then
+            ' Se houver CNPJ, usa ComboBoxBuscaCNPJ; senão, usa ComboBoxBuscaAlvara
+            If Not String.IsNullOrEmpty(selectedCNPJ) Then
                 FrmAlvara.ComboBoxBuscaCNPJ.Text = selectedCNPJ
                 FrmAlvara.ComboBoxBuscaCNPJ.Select()
-            Else
-                FrmAlvara.ComboBoxBuscaAlvara.Text = selectedCNPJ
+            ElseIf Not String.IsNullOrEmpty(selectedRazaoSocial) Then
+                FrmAlvara.ComboBoxBuscaAlvara.Text = selectedRazaoSocial
                 FrmAlvara.ComboBoxBuscaAlvara.Select()
             End If
-            'Me.Close()
             FrmAlvara.Focus()
         Else
             MessageBox.Show("O CNPJ ou a Razão Social não foram encontrados no Alvará.", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -116,15 +133,14 @@ Public Class FrmEscolha
     Private Sub AbrirParcelamentos()
         If CheckCNPJOrRazaoSocialExists("Parcelamentos") Then
             FrmParcelamento.Show()
-            ' Verificar se o CNPJ existe nos Parcelamentos, se sim, usa ComboBoxBuscaCNPJ, se não, usa ComboBoxBuscaRazaoSocial
-            If CheckCNPJExists("Parcelamentos") Then
+            ' Se houver CNPJ, usa ComboBoxBuscaCNPJ; senão, usa ComboBoxBuscarRazaoSocial
+            If Not String.IsNullOrEmpty(selectedCNPJ) Then
                 FrmParcelamento.ComboBoxBuscaCNPJ.Text = selectedCNPJ
                 FrmParcelamento.ComboBoxBuscaCNPJ.Select()
-            Else
-                FrmParcelamento.ComboBoxBuscarRazaoSocial.Text = selectedCNPJ
+            ElseIf Not String.IsNullOrEmpty(selectedRazaoSocial) Then
+                FrmParcelamento.ComboBoxBuscarRazaoSocial.Text = selectedRazaoSocial
                 FrmParcelamento.ComboBoxBuscarRazaoSocial.Select()
             End If
-            ' Me.Close()
             FrmParcelamento.Focus()
         Else
             MessageBox.Show("O CNPJ ou a Razão Social não foram encontrados em Parcelamentos.", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)

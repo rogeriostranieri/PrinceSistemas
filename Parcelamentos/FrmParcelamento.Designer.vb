@@ -121,7 +121,6 @@ Partial Class FrmParcelamento
         Me.TabControlMei = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.AtrasoParcelaMEICheckBox = New System.Windows.Forms.CheckBox()
         Me.BtnAgoraMEI = New System.Windows.Forms.Button()
         Me.BtnRegistrarMEI = New System.Windows.Forms.Button()
         Me.LblFinalizadoDataMEI = New System.Windows.Forms.Label()
@@ -140,7 +139,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.AtrasoParcelaINSSAntigoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcAntigoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtAntigoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSAntigo = New System.Windows.Forms.Button()
@@ -159,7 +157,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo = New System.Windows.Forms.TabControl()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.AtrasoParcelaINSSNovoCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcNovoTextBox = New System.Windows.Forms.TextBox()
         Me.ProtNovoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSNovo = New System.Windows.Forms.Button()
@@ -178,7 +175,6 @@ Partial Class FrmParcelamento
         Me.TabControlINSSProcuradoria = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.AtrasoParcelaINSSProcuCheckBox = New System.Windows.Forms.CheckBox()
         Me.TotalParcProcTextBox = New System.Windows.Forms.TextBox()
         Me.ProtprocRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.BtnAgoraINSSProcuradoria = New System.Windows.Forms.Button()
@@ -738,6 +734,7 @@ Partial Class FrmParcelamento
         Me.TabControlGeral.Location = New System.Drawing.Point(3, 20)
         Me.TabControlGeral.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlGeral.Name = "TabControlGeral"
+        Me.TabControlGeral.SelectedIndex = 0
         Me.TabControlGeral.Size = New System.Drawing.Size(783, 281)
         Me.TabControlGeral.TabIndex = 4
         '
@@ -1237,6 +1234,7 @@ Partial Class FrmParcelamento
         Me.TabControlParcelamento.Location = New System.Drawing.Point(0, 17)
         Me.TabControlParcelamento.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlParcelamento.Name = "TabControlParcelamento"
+        Me.TabControlParcelamento.SelectedIndex = 0
         Me.TabControlParcelamento.ShowToolTips = True
         Me.TabControlParcelamento.Size = New System.Drawing.Size(789, 299)
         Me.TabControlParcelamento.TabIndex = 5
@@ -1280,6 +1278,7 @@ Partial Class FrmParcelamento
         Me.TabControlMei.Location = New System.Drawing.Point(3, 3)
         Me.TabControlMei.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlMei.Name = "TabControlMei"
+        Me.TabControlMei.SelectedIndex = 0
         Me.TabControlMei.Size = New System.Drawing.Size(775, 259)
         Me.TabControlMei.TabIndex = 0
         '
@@ -1287,7 +1286,6 @@ Partial Class FrmParcelamento
         '
         Me.TabPage9.AutoScroll = True
         Me.TabPage9.Controls.Add(Me.Button1)
-        Me.TabPage9.Controls.Add(Me.AtrasoParcelaMEICheckBox)
         Me.TabPage9.Controls.Add(Me.BtnAgoraMEI)
         Me.TabPage9.Controls.Add(Me.BtnRegistrarMEI)
         Me.TabPage9.Controls.Add(Me.LblFinalizadoDataMEI)
@@ -1322,16 +1320,6 @@ Partial Class FrmParcelamento
         Me.Button1.TabIndex = 22
         Me.Button1.Text = "Agora"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'AtrasoParcelaMEICheckBox
-        '
-        Me.AtrasoParcelaMEICheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaMEI", True))
-        Me.AtrasoParcelaMEICheckBox.Location = New System.Drawing.Point(137, 116)
-        Me.AtrasoParcelaMEICheckBox.Name = "AtrasoParcelaMEICheckBox"
-        Me.AtrasoParcelaMEICheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.AtrasoParcelaMEICheckBox.TabIndex = 21
-        Me.AtrasoParcelaMEICheckBox.Text = "Em Atraso"
-        Me.AtrasoParcelaMEICheckBox.UseVisualStyleBackColor = True
         '
         'BtnAgoraMEI
         '
@@ -1488,6 +1476,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSAntigo.Location = New System.Drawing.Point(3, 3)
         Me.TabControlINSSAntigo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSAntigo.Name = "TabControlINSSAntigo"
+        Me.TabControlINSSAntigo.SelectedIndex = 0
         Me.TabControlINSSAntigo.Size = New System.Drawing.Size(775, 259)
         Me.TabControlINSSAntigo.TabIndex = 1
         '
@@ -1495,7 +1484,6 @@ Partial Class FrmParcelamento
         '
         Me.TabPage11.AutoScroll = True
         Me.TabPage11.Controls.Add(Me.Button2)
-        Me.TabPage11.Controls.Add(Me.AtrasoParcelaINSSAntigoCheckBox)
         Me.TabPage11.Controls.Add(Me.TotalParcAntigoTextBox)
         Me.TabPage11.Controls.Add(Me.ProtAntigoRichTextBox)
         Me.TabPage11.Controls.Add(Me.BtnAgoraINSSAntigo)
@@ -1530,16 +1518,6 @@ Partial Class FrmParcelamento
         Me.Button2.TabIndex = 26
         Me.Button2.Text = "Agora"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'AtrasoParcelaINSSAntigoCheckBox
-        '
-        Me.AtrasoParcelaINSSAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSAntigo", True))
-        Me.AtrasoParcelaINSSAntigoCheckBox.Location = New System.Drawing.Point(148, 142)
-        Me.AtrasoParcelaINSSAntigoCheckBox.Name = "AtrasoParcelaINSSAntigoCheckBox"
-        Me.AtrasoParcelaINSSAntigoCheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.AtrasoParcelaINSSAntigoCheckBox.TabIndex = 25
-        Me.AtrasoParcelaINSSAntigoCheckBox.Text = "Em Atraso"
-        Me.AtrasoParcelaINSSAntigoCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcAntigoTextBox
         '
@@ -1696,6 +1674,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSNovo.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSNovo.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSNovo.Name = "TabControlINSSNovo"
+        Me.TabControlINSSNovo.SelectedIndex = 0
         Me.TabControlINSSNovo.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSNovo.TabIndex = 1
         '
@@ -1703,7 +1682,6 @@ Partial Class FrmParcelamento
         '
         Me.TabPage13.AutoScroll = True
         Me.TabPage13.Controls.Add(Me.Button3)
-        Me.TabPage13.Controls.Add(Me.AtrasoParcelaINSSNovoCheckBox)
         Me.TabPage13.Controls.Add(Me.TotalParcNovoTextBox)
         Me.TabPage13.Controls.Add(Me.ProtNovoRichTextBox)
         Me.TabPage13.Controls.Add(Me.BtnAgoraINSSNovo)
@@ -1738,16 +1716,6 @@ Partial Class FrmParcelamento
         Me.Button3.TabIndex = 26
         Me.Button3.Text = "Agora"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'AtrasoParcelaINSSNovoCheckBox
-        '
-        Me.AtrasoParcelaINSSNovoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSNovo", True))
-        Me.AtrasoParcelaINSSNovoCheckBox.Location = New System.Drawing.Point(148, 142)
-        Me.AtrasoParcelaINSSNovoCheckBox.Name = "AtrasoParcelaINSSNovoCheckBox"
-        Me.AtrasoParcelaINSSNovoCheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.AtrasoParcelaINSSNovoCheckBox.TabIndex = 25
-        Me.AtrasoParcelaINSSNovoCheckBox.Text = "Em Atraso"
-        Me.AtrasoParcelaINSSNovoCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcNovoTextBox
         '
@@ -1904,6 +1872,7 @@ Partial Class FrmParcelamento
         Me.TabControlINSSProcuradoria.Location = New System.Drawing.Point(0, 0)
         Me.TabControlINSSProcuradoria.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControlINSSProcuradoria.Name = "TabControlINSSProcuradoria"
+        Me.TabControlINSSProcuradoria.SelectedIndex = 0
         Me.TabControlINSSProcuradoria.Size = New System.Drawing.Size(781, 265)
         Me.TabControlINSSProcuradoria.TabIndex = 1
         '
@@ -1911,7 +1880,6 @@ Partial Class FrmParcelamento
         '
         Me.TabPage15.AutoScroll = True
         Me.TabPage15.Controls.Add(Me.Button4)
-        Me.TabPage15.Controls.Add(Me.AtrasoParcelaINSSProcuCheckBox)
         Me.TabPage15.Controls.Add(Me.TotalParcProcTextBox)
         Me.TabPage15.Controls.Add(Me.ProtprocRichTextBox)
         Me.TabPage15.Controls.Add(Me.BtnAgoraINSSProcuradoria)
@@ -1946,16 +1914,6 @@ Partial Class FrmParcelamento
         Me.Button4.TabIndex = 27
         Me.Button4.Text = "Agora"
         Me.Button4.UseVisualStyleBackColor = True
-        '
-        'AtrasoParcelaINSSProcuCheckBox
-        '
-        Me.AtrasoParcelaINSSProcuCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "AtrasoParcelaINSSProcu", True))
-        Me.AtrasoParcelaINSSProcuCheckBox.Location = New System.Drawing.Point(148, 142)
-        Me.AtrasoParcelaINSSProcuCheckBox.Name = "AtrasoParcelaINSSProcuCheckBox"
-        Me.AtrasoParcelaINSSProcuCheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.AtrasoParcelaINSSProcuCheckBox.TabIndex = 26
-        Me.AtrasoParcelaINSSProcuCheckBox.Text = "Em Atraso"
-        Me.AtrasoParcelaINSSProcuCheckBox.UseVisualStyleBackColor = True
         '
         'TotalParcProcTextBox
         '
@@ -2474,10 +2432,6 @@ Partial Class FrmParcelamento
     Friend WithEvents ParaFazerCheckBox As CheckBox
     Friend WithEvents CheckBoxFiltroEmAndamento As CheckBox
     Friend WithEvents CheckBoxNaoEnviado As CheckBox
-    Friend WithEvents AtrasoParcelaMEICheckBox As CheckBox
-    Friend WithEvents AtrasoParcelaINSSAntigoCheckBox As CheckBox
-    Friend WithEvents AtrasoParcelaINSSNovoCheckBox As CheckBox
-    Friend WithEvents AtrasoParcelaINSSProcuCheckBox As CheckBox
     Friend WithEvents LinkLabelAgoraFinal As LinkLabel
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents CheckBoxParaFazer As CheckBox

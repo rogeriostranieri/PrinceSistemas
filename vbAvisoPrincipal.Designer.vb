@@ -55,10 +55,18 @@ Partial Class VbAvisoPrincipal
         'TableAdapterManager
         '
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
+        Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.AvisosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilEstadoTableAdapter = Nothing
+        Me.TableAdapterManager.BrasilMunicipiosTableAdapter = Nothing
         Me.TableAdapterManager.CADSituacaoAlvaraTableAdapter = Nothing
         Me.TableAdapterManager.CADstatusTableAdapter = Nothing
+        Me.TableAdapterManager.CNAEprefMaringaPRTableAdapter = Nothing
+        Me.TableAdapterManager.CNAESubclasses23TableAdapter = Nothing
         Me.TableAdapterManager.CNAETableAdapter = Nothing
         Me.TableAdapterManager.ContadorTableAdapter = Nothing
         Me.TableAdapterManager.ContatosTableAdapter = Nothing
@@ -70,6 +78,9 @@ Partial Class VbAvisoPrincipal
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
+        Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -79,7 +90,7 @@ Partial Class VbAvisoPrincipal
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft New Tai Lue", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(2, 451)
+        Me.Label3.Location = New System.Drawing.Point(2, 462)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(144, 17)
         Me.Label3.TabIndex = 17
@@ -89,7 +100,7 @@ Partial Class VbAvisoPrincipal
         '
         Me.Button2.BackColor = System.Drawing.Color.White
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(491, 447)
+        Me.Button2.Location = New System.Drawing.Point(491, 458)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(58, 21)
         Me.Button2.TabIndex = 19
@@ -98,7 +109,7 @@ Partial Class VbAvisoPrincipal
         '
         'MaskedTextBox2
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(415, 448)
+        Me.MaskedTextBox2.Location = New System.Drawing.Point(415, 459)
         Me.MaskedTextBox2.Mask = "00/00/0000"
         Me.MaskedTextBox2.Name = "MaskedTextBox2"
         Me.MaskedTextBox2.Size = New System.Drawing.Size(70, 20)
@@ -116,7 +127,7 @@ Partial Class VbAvisoPrincipal
         Me.LaudosDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LaudosDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         Me.LaudosDataGridView1.DataSource = Me.LaudosBindingSource
-        Me.LaudosDataGridView1.Location = New System.Drawing.Point(5, 471)
+        Me.LaudosDataGridView1.Location = New System.Drawing.Point(5, 482)
         Me.LaudosDataGridView1.Name = "LaudosDataGridView1"
         Me.LaudosDataGridView1.ReadOnly = True
         Me.LaudosDataGridView1.Size = New System.Drawing.Size(544, 115)
@@ -142,7 +153,7 @@ Partial Class VbAvisoPrincipal
         Me.ButtonMais7.BackColor = System.Drawing.Color.White
         Me.ButtonMais7.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonMais7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonMais7.Location = New System.Drawing.Point(360, 592)
+        Me.ButtonMais7.Location = New System.Drawing.Point(360, 603)
         Me.ButtonMais7.Name = "ButtonMais7"
         Me.ButtonMais7.Size = New System.Drawing.Size(189, 23)
         Me.ButtonMais7.TabIndex = 22
@@ -154,7 +165,7 @@ Partial Class VbAvisoPrincipal
         Me.BtnControleLigacoes.BackColor = System.Drawing.Color.White
         Me.BtnControleLigacoes.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnControleLigacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnControleLigacoes.Location = New System.Drawing.Point(5, 592)
+        Me.BtnControleLigacoes.Location = New System.Drawing.Point(5, 603)
         Me.BtnControleLigacoes.Name = "BtnControleLigacoes"
         Me.BtnControleLigacoes.Size = New System.Drawing.Size(189, 23)
         Me.BtnControleLigacoes.TabIndex = 23
@@ -164,7 +175,7 @@ Partial Class VbAvisoPrincipal
         'VbAvisoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.ClientSize = New System.Drawing.Size(555, 619)
+        Me.ClientSize = New System.Drawing.Size(555, 629)
         Me.Controls.Add(Me.BtnControleLigacoes)
         Me.Controls.Add(Me.ButtonMais7)
         Me.Controls.Add(Me.MonthCalendar2)

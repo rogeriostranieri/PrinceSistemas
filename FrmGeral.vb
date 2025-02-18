@@ -1,8 +1,12 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class FrmGeral
     Private allEmpresas As DataTable
     Private toolTip As ToolTip
+
+
 
     ' Permite que o formulário feche quando a tecla ESC é pressionada
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
@@ -15,7 +19,7 @@ Public Class FrmGeral
 
     Public Sub New()
         InitializeComponent()
-        toolTip = New ToolTip()
+        ' toolTip = New ToolTip()
     End Sub
 
     Private Async Sub FrmGeral_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -98,6 +102,7 @@ Public Class FrmGeral
 
 
     Private Async Function LoadEmpresasAsync() As Task
+        ProgressBar1.Value = 20
         Dim connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False"
         Dim query As String = "
     WITH CombinedCompanies AS (
@@ -121,6 +126,7 @@ Public Class FrmGeral
         allEmpresas = New DataTable()
 
         Try
+            ProgressBar1.Value = 30
             Using connection As New SqlConnection(connectionString),
               command As New SqlCommand(query, connection),
               adapter As New SqlDataAdapter(command)
@@ -129,6 +135,7 @@ Public Class FrmGeral
                 Await Task.Run(Function() adapter.Fill(allEmpresas))
             End Using
 
+            ProgressBar1.Value = 40
             ' Atualiza a interface do usuário na thread principal
             ListViewGeral.Invoke(Sub()
                                      ListViewGeral.Items.Clear()
@@ -151,11 +158,12 @@ Public Class FrmGeral
 
                                          Dim listItem As New ListViewItem(tipo)
                                          listItem.SubItems.Add(razaoSocial)
+                                         ProgressBar1.Value = 70
                                          listItem.SubItems.Add(cnpj)
-
+                                         ProgressBar1.Value = 80
                                          ' Guardar informações adicionais no Tag usando Tuple
                                          listItem.Tag = Tuple.Create(cnpj, sourceTables, tipo)
-
+                                         ProgressBar1.Value = 90
                                          ' Adicionar o item ao ListView
                                          ListViewGeral.Items.Add(listItem)
                                      Next
@@ -326,12 +334,9 @@ Public Class FrmGeral
 
 
 
+    ' O código do evento MouseMove atualizado
+    ' Declare a variável ToolTip no início do seu formulário
     Private Sub ListViewGeral_MouseMove(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseMove
-        ' Verifica se o toolTip foi instanciado
-        If toolTip Is Nothing Then
-            toolTip = New ToolTip()
-        End If
-
         ' Obtém o item sob o cursor do mouse
         Dim item As ListViewItem = ListViewGeral.GetItemAt(e.X, e.Y)
 
@@ -339,62 +344,72 @@ Public Class FrmGeral
         If item IsNot Nothing AndAlso item.SubItems.Count > 1 Then
             ' Obtém o texto da subitem na coluna de Razão Social (índice 1)
             Dim text As String = item.SubItems(1).Text
-            ' Configura o tooltip para o texto completo
-            toolTip.SetToolTip(ListViewGeral, text)
+            ' Configura o tooltip para o texto completo usando ToolTip1
+            ToolTip1.SetToolTip(ListViewGeral, text)
         Else
             ' Remove o tooltip se não houver item válido
-            toolTip.SetToolTip(ListViewGeral, String.Empty)
+            ToolTip1.SetToolTip(ListViewGeral, String.Empty)
         End If
     End Sub
+
+
+
+
     Private Sub ListViewGeral_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListViewGeral.MouseDoubleClick
         If ListViewGeral.SelectedItems.Count > 0 Then
             Dim selectedItem As ListViewItem = ListViewGeral.SelectedItems(0)
 
+            ' Definir valores padrão como vazio
+            Dim cnpj As String = ""
+            Dim razaoSocial As String = ""
+
             ' Verificar se existem pelo menos 3 colunas
             If selectedItem.SubItems.Count > 2 Then
-                ' Acessar o valor da segunda coluna (índice 2) para o CNPJ
-                Dim cnpj As String = selectedItem.SubItems(2).Text ' Coluna CNPJ
-
-                ' Verificar se o CNPJ está vazio ou é "Sem CNPJ"
-                If String.IsNullOrEmpty(cnpj) OrElse cnpj = "Sem CNPJ" Then
-                    ' Tentar pegar o valor da coluna anterior (Razão Social) - índice 1
-                    Dim razaoSocial As String = selectedItem.SubItems(1).Text ' Coluna Razão Social
-                    If Not String.IsNullOrEmpty(razaoSocial) Then
-                        cnpj = razaoSocial ' Substitui o CNPJ pelo valor da coluna Razão Social, caso tenha texto
-                    End If
+                ' Pegar CNPJ se disponível
+                If Not String.IsNullOrEmpty(selectedItem.SubItems(2).Text) AndAlso selectedItem.SubItems(2).Text <> "Sem CNPJ" Then
+                    cnpj = selectedItem.SubItems(2).Text
                 End If
-
-                ' Acessar outras colunas apenas se elas existirem
-                Dim sourceTables As String = If(selectedItem.SubItems.Count > 1, selectedItem.SubItems(1).Text, String.Empty) ' Coluna SourceTables
-                Dim tipoOriginal As String = If(selectedItem.SubItems.Count > 3, selectedItem.SubItems(3).Text, String.Empty) ' Coluna TipoOriginal
-
-                ' Exibir os dados debug
-                ' MessageBox.Show($"CNPJ: {cnpj}, SourceTables: {sourceTables}, TipoOriginal: {tipoOriginal}")
-
-                ' Verificar se o FrmEscolha já está aberto
-                Dim existingForm As FrmEscolha = Nothing
-                For Each openForm As Form In Application.OpenForms
-                    If TypeOf openForm Is FrmEscolha Then
-                        existingForm = CType(openForm, FrmEscolha)
-                        Exit For
-                    End If
-                Next
-
-                ' Fechar o formulário existente, se encontrado
-                existingForm?.Close()
-
-                ' Criar e mostrar uma nova instância do FrmEscolha
-                Dim frmEscolha As New FrmEscolha(cnpj, sourceTables, tipoOriginal) With {
-                .MdiParent = Me.MdiParent ' Definindo o formulário MDI pai
-            }
-                frmEscolha.Show()
-            Else
-                MessageBox.Show("Não há 3 colunas no item selecionado.")
             End If
+
+            ' Pegar Razão Social se disponível
+            If selectedItem.SubItems.Count > 1 Then
+                If Not String.IsNullOrEmpty(selectedItem.SubItems(1).Text) Then
+                    razaoSocial = selectedItem.SubItems(1).Text
+                End If
+            End If
+
+            ' Se não houver CNPJ válido, usar Razão Social no lugar
+            If String.IsNullOrEmpty(cnpj) AndAlso Not String.IsNullOrEmpty(razaoSocial) Then
+                cnpj = "" ' Mantém o CNPJ vazio
+            End If
+
+            ' Capturar outras colunas se existirem
+            Dim sourceTables As String = If(selectedItem.SubItems.Count > 3, selectedItem.SubItems(3).Text, "")
+            Dim tipoOriginal As String = If(selectedItem.SubItems.Count > 4, selectedItem.SubItems(4).Text, "")
+
+            ' Fechar formulário existente se já estiver aberto
+            Dim existingForm As FrmEscolha = Nothing
+            For Each openForm As Form In Application.OpenForms
+                If TypeOf openForm Is FrmEscolha Then
+                    existingForm = CType(openForm, FrmEscolha)
+                    Exit For
+                End If
+            Next
+
+            existingForm?.Close()
+
+            ' Criar e exibir um novo FrmEscolha
+            Dim frmEscolha As New FrmEscolha(cnpj, razaoSocial, sourceTables, tipoOriginal) With {
+            .MdiParent = Me.MdiParent
+        }
+            frmEscolha.Show()
         Else
             MessageBox.Show("Nenhum item selecionado.")
         End If
     End Sub
+
+
+
 
 
 

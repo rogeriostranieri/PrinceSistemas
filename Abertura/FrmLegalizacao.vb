@@ -582,11 +582,11 @@ Public Class FrmLegalizacao
             End Select
 
             ' Tratamento para "Simples Nacional - Protocolado"
-            If statusText <> "Simples Nacional - Protocolado" AndAlso statusText.Contains("Protocolado") Then
-                AvisarDiaMaskedTextBox.Text = ""
-            Else
-                AvisarDiaMaskedTextBox.Text = avisarDiaAtual ' Mantém a data se for "Simples Nacional - Protocolado"
-            End If
+            ' If statusText <> "Simples Nacional - Protocolado" AndAlso statusText.Contains("Protocolado") Then
+            ' AvisarDiaMaskedTextBox.Text = ""
+            ' Else
+            ' AvisarDiaMaskedTextBox.Text = avisarDiaAtual ' Mantém a data se for "Simples Nacional - Protocolado"
+            'End If
 
             ' Seleção de aba específica para Simples Nacional - Em Andamento
             If statusText = "Simples Nacional - Em Andamento" Then
@@ -2149,16 +2149,20 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub EMAIL()
         Try
-            ' Verifica se o texto do SistemaExternoComboBox contém "Não"
-            If SistemaExternoComboBox.Text.Contains("Não") Then
-                EnviarEmail()
-            Else
-                Dim resposta As DialogResult = MessageBox.Show("Foi enviado por email? deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-                If resposta = DialogResult.Yes Then
-                    EnviarEmail()
-                End If
+            ' Só executa se o ComboBox estiver sendo alterado de "Não" para outro valor
+            If SistemaExternoComboBox.SelectedItem IsNot Nothing AndAlso
+           SistemaExternoComboBox.SelectedItem.ToString().Contains("Não") Then
+                Return ' Sai do método se ainda estiver como "Não"
             End If
+
+            ' Pergunta se deseja enviar o e-mail apenas se o usuário mudou de "Não" para outro valor
+            Dim resposta As DialogResult = MessageBox.Show("Foi enviado por email? deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If resposta = DialogResult.Yes Then
+                EnviarEmail()
+                ' Define o ComboBox para "Sim"
+                SistemaExternoComboBox.SelectedIndex = 1
+            End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -2221,6 +2225,7 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub SistemaExternoComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SistemaExternoComboBox.SelectionChangeCommitted
         EMAIL()
     End Sub
@@ -4368,5 +4373,91 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ProcessoMudar()
         StatusMudar()
         MudaContratoAviso()
+    End Sub
+
+    ' registrar endereço antigo /////////////////////////////////
+
+    Private Sub ButtonRegistrarEndAntigo_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarEndAntigo.Click
+        Try
+            If MessageBox.Show("Deseja registrar o antigo endereço?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                ' Verifica se os campos estão visíveis
+                If EnderecoAntigoEmpLabel.Visible AndAlso EnderecoAntigoEmpRichTextBox.Visible Then
+                    Dim enderecoParts As New List(Of String)
+                    If Not String.IsNullOrWhiteSpace(EnderecoTextBox.Text) Then enderecoParts.Add(EnderecoTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndNumeroTextBox.Text) Then enderecoParts.Add("n.º " & EndNumeroTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndComplementoTextBox.Text) Then enderecoParts.Add(EndComplementoTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndBairroTextBox.Text) Then enderecoParts.Add(EndBairroTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndCEPMaskedTextBox.Text) Then enderecoParts.Add("CEP: " & EndCEPMaskedTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndCidadeTextBox.Text) AndAlso Not String.IsNullOrWhiteSpace(EndEstadoTextBox.Text) Then enderecoParts.Add("na cidade de " & EndCidadeTextBox.Text & "-" & EndEstadoTextBox.Text)
+
+                    Dim enderecoLinha As String = String.Join(", ", enderecoParts)
+                    Dim detalhesParts As New List(Of String)
+                    If Not String.IsNullOrWhiteSpace(CadImobTextBox.Text) Then detalhesParts.Add("Cadastro Imobiliário: " & CadImobTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(PontoDeReferenciaComboBox.Text) Then detalhesParts.Add("Atividade no local: " & PontoDeReferenciaComboBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndZonaTextBox.Text) Then detalhesParts.Add("Zona: " & EndZonaTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndQuadraTextBox.Text) Then detalhesParts.Add("Quadra: " & EndQuadraTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(EndDataTextBox.Text) Then detalhesParts.Add("Data: " & EndDataTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(AreaTextBox.Text) Then detalhesParts.Add("Área do Imóvel (m²): " & AreaTextBox.Text)
+                    If Not String.IsNullOrWhiteSpace(Area2TextBox.Text) Then detalhesParts.Add("Área do Estabelecimento (m²): " & Area2TextBox.Text)
+
+                    Dim detalhesLinha As String = String.Join(" / ", detalhesParts)
+
+                    Dim novoEndereco As String = $"{DateTime.Now:dd/MM/yyyy 'às' HH:mm} - Antigo Endereço.{vbCrLf}{enderecoLinha}{vbCrLf}{vbCrLf}{detalhesLinha}{vbCrLf}"
+
+                    If Not String.IsNullOrWhiteSpace(EnderecoAntigoEmpRichTextBox.Text) Then
+                        If MessageBox.Show("Deseja limpar o antigo endereço para registrar o novo?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            EnderecoAntigoEmpRichTextBox.Text = novoEndereco
+                        ElseIf DialogResult.No Then
+                            EnderecoAntigoEmpRichTextBox.AppendText("=====================================================" & vbCrLf & novoEndereco)
+                        ElseIf DialogResult.Cancel Then
+                            Exit Sub
+                        End If
+                    Else
+                        EnderecoAntigoEmpRichTextBox.Text = novoEndereco
+                    End If
+                Else
+                    MessageBox.Show("Os campos do endereço antigo não estão visíveis.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro ao registrar o endereço: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    Private Sub TemEnderecoAntigoEmpComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TemEnderecoAntigoEmpComboBox.SelectedIndexChanged
+        Try
+            ' se tiver com "Sim" mostra o  LinkLabelVerEndAntigo e o ButtonRegistrarEndAntigo se "Não" esconde
+            If TemEnderecoAntigoEmpComboBox.Text = "Sim" Then
+                LinkLabelVerEndAntigo.Visible = True
+                ButtonRegistrarEndAntigo.Visible = True
+            Else
+                LinkLabelVerEndAntigo.Visible = False
+                ButtonRegistrarEndAntigo.Visible = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub LinkLabelVerEndAntigo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelVerEndAntigo.LinkClicked
+        'foca no EnderecoAntigoEmpRichTextBox
+        EnderecoAntigoEmpRichTextBox.Focus()
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonEndAntigoVoltar.Click
+        TemEnderecoAntigoEmpComboBox.Focus()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles ButtonLimpaEndAntigo.Click
+        Try
+            'perguntas se deja limpar tudo do EnderecoAntigoEmpRichTextBox
+            If MessageBox.Show("Deseja limpar o campo de endereço antigo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                EnderecoAntigoEmpRichTextBox.Clear()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocorreu um erro " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

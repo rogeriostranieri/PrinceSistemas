@@ -74,9 +74,11 @@
                     TextBoxNparcEnviada.Text = ""
             End Select
 
-            LabelFormaDeEnvio.Text = FormaDeEnvio
+            LabelCNPJ.Text = FrmParcelamento.CNPJMaskedTextBox.Text
+
+            TextBoxFormaDeEnvio.Text = FormaDeEnvio
             ' Verificar se o Label tem texto antes de iniciar o piscar
-            If Not String.IsNullOrEmpty(LabelFormaDeEnvio.Text) Then
+            If Not String.IsNullOrEmpty(TextBoxFormaDeEnvio.Text) Then
                 ' Se houver texto, iniciar o Timer
                 Timer1.Enabled = True
             Else
@@ -99,24 +101,7 @@
         End If
     End Sub
 
-    'PISCAR FORMA DE ENVIO ///////////
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        ' Alterne entre as cores
-        Select Case CorAtual
-            Case 0
-                LabelFormaDeEnvio.ForeColor = Color.Black
-                CorAtual = 1
-            Case 1
-                LabelFormaDeEnvio.ForeColor = Color.Yellow
-                CorAtual = 2
-            Case 2
-                LabelFormaDeEnvio.ForeColor = Color.Red
-                CorAtual = 0
-        End Select
-    End Sub
-
-    Private Sub LabelFormaDeEnvio_Click(sender As Object, e As EventArgs) Handles LabelFormaDeEnvio.Click
+    Private Sub LabelFormaDeEnvio_Click(sender As Object, e As EventArgs)
         ' Iniciar ou parar o timer ao clicar no label
         Timer1.Enabled = Not Timer1.Enabled
     End Sub
@@ -139,6 +124,31 @@
 
     Private Sub BtnRegistrar_Click(sender As Object, e As EventArgs) Handles BtnRegistrar.Click
         Try
+            'Verificar data e hora antes
+            ' Verifica se o campo está em branco
+            If String.IsNullOrWhiteSpace(MaskedTextBoxData.Text) Then
+                MessageBox.Show("Por favor, informe uma data e horário antes de registrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            ' Define os valores inválidos que devem ser tratados
+            Dim valoresInvalidos As String() = {"00/00/0000", "90:00"}
+
+            ' Obtém a data atual formatada corretamente
+            Dim dataAtual As String = DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+
+            ' Verifica se o campo contém uma data inválida
+            If valoresInvalidos.Contains(MaskedTextBoxData.Text) OrElse MaskedTextBoxData.Text <> dataAtual Then
+                Dim resposta As DialogResult = MessageBox.Show("A data/hora informada é diferente da atual. Deseja atualizar para agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                If resposta = DialogResult.Yes Then
+                    MaskedTextBoxData.Text = dataAtual
+                End If
+            End If
+
+
+
+            ' CODIGO PARA REGISTRAR O ENVIO DA PARCELA
             Dim cultura As New Globalization.CultureInfo("pt-BR")
             ' Obter valores iniciais
             Dim NParcela As String = TextBoxNparcEnviada.Text
@@ -183,7 +193,7 @@
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcMEIRichTextBox
                     HoraEnvio = ValidarHoraEnvio(MaskedTextBoxData.Text, cultura)
                     ' FrmParcelamento.ParcelEnvMEITextBox.Text = parcelaAtual
-                    If FrmParcelamento.AtrasoParcelaMEICheckBox.Checked Then
+                    If AtrasoParcelaCheckBox.Checked Then
                         Atrasado = "Parcelamento em atraso! O não pagamento pode resultar na perda."
                     End If
 
@@ -193,7 +203,7 @@
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcAntigoRichTextBox
                     HoraEnvio = ValidarHoraEnvio(MaskedTextBoxData.Text, cultura)
                     '  FrmParcelamento.ParcelEnvINSSAntTextBox.Text = parcelaAtual
-                    If FrmParcelamento.AtrasoParcelaINSSAntigoCheckBox.Checked Then
+                    If AtrasoParcelaCheckBox.Checked Then
                         Atrasado = "Parcelamento em atraso! O não pagamento pode resultar na perda."
                     End If
 
@@ -203,7 +213,7 @@
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcNovoRichTextBox
                     HoraEnvio = ValidarHoraEnvio(MaskedTextBoxData.Text, cultura)
                     'FrmParcelamento.ParcelEnvINSSNovTextBox.Text = parcelaAtual
-                    If FrmParcelamento.AtrasoParcelaINSSNovoCheckBox.Checked Then
+                    If AtrasoParcelaCheckBox.Checked Then
                         Atrasado = "Parcelamento em atraso! O não pagamento pode resultar na perda."
                     End If
 
@@ -213,7 +223,7 @@
                     richTextBoxSelecionado = FrmParcelamento.EnviaParcProcRichTextBox
                     HoraEnvio = ValidarHoraEnvio(MaskedTextBoxData.Text, cultura)
                     '  FrmParcelamento.ParcelEnvINSSProcTextBox.Text = parcelaAtual
-                    If FrmParcelamento.AtrasoParcelaINSSProcuCheckBox.Checked Then
+                    If AtrasoParcelaCheckBox.Checked Then
                         Atrasado = "Parcelamento em atraso! O não pagamento pode resultar na perda."
                     End If
                 Case Else
@@ -302,12 +312,16 @@ Rogerio"
             Clipboard.SetText(textoCopiar)
 
             '///////////////////////////
-
+            FrmParcelamento.Focus()
+            'selecionar a page1 do FrmParcelamento.TabControlGeral
+            FrmParcelamento.TabControlParcelamento.SelectedIndex = 0
 
             ' Confirmar fechamento
             'If ConfirmarFechamento() Then
             Me.Close()
-            'End' If
+
+
+            ' End If
 
         Catch ex As Exception
             ' Tratamento de erros
@@ -416,6 +430,34 @@ Rogerio"
         Else
             ' Se não houver data, coloca a data atual diretamente
             MaskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+        End If
+    End Sub
+
+    Private Sub ButtonEcac_Click(sender As Object, e As EventArgs) Handles ButtonEcac.Click
+        Try
+            Process.Start("https://cav.receita.fazenda.gov.br/")
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o site: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ButtonProc_Click(sender As Object, e As EventArgs) Handles ButtonProc.Click
+        Try
+            Process.Start("https://sisparnet.pgfn.fazenda.gov.br/sisparInternet/internet/darf/consultaParcelamentoDarfInternet.xhtml")
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o site: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub LinkLabelCopiaCNPJ_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelCopiaCNPJ.LinkClicked
+        If Not String.IsNullOrWhiteSpace(LabelCNPJ.Text) Then
+            ' Remove todos os caracteres não numéricos
+            Dim cnpjLimpo As String = New String(LabelCNPJ.Text.Where(Function(c) Char.IsDigit(c)).ToArray())
+
+            ' Copia para a área de transferência apenas se houver números
+            If Not String.IsNullOrWhiteSpace(cnpjLimpo) Then
+                Clipboard.SetText(cnpjLimpo)
+            End If
         End If
     End Sub
 

@@ -61,7 +61,7 @@ Public Class FrmParcelamento
     ' Variável para controlar o fechamento do formulário
     Private cancelarFechamento As Boolean = False
 
-    Private Sub salvar()
+    Private Sub Salvar()
         ' Finaliza a edição dos dados vinculados ao BindingSource
         Me.ParcelamentosBindingSource.EndEdit()
 
@@ -720,7 +720,7 @@ Public Class FrmParcelamento
 
         ' Abrir o formulário FrmParcEscolha
         frmEscolha.Show()
-        frmEscolha.MdiParent = MDIPrincipal
+        'frmEscolha.MdiParent = MDIPrincipal
     End Sub
 
 
@@ -937,26 +937,26 @@ Public Class FrmParcelamento
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         DataSolicMEIMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
         FinalizadoMEIComboBox.SelectedIndex = 1
-        AtrasoParcelaMEICheckBox.CheckState = CheckState.Unchecked
+        '  AtrasoParcelaMEICheckBox.CheckState = CheckState.Unchecked
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         DataSolicAntigoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
         FinalizadoINSSAntComboBox.SelectedIndex = 1
-        AtrasoParcelaINSSAntigoCheckBox.CheckState = CheckState.Unchecked
+        'AtrasoParcelaINSSAntigoCheckBox.CheckState = CheckState.Unchecked
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         DataSolicNovoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
         FinalizadoINSSNovComboBox.SelectedIndex = 1
-        AtrasoParcelaINSSNovoCheckBox.CheckState = CheckState.Unchecked
+        ' AtrasoParcelaINSSNovoCheckBox.CheckState = CheckState.Unchecked
 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         DataSolicProcMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
         FinalizadoINSSProcComboBox.SelectedIndex = 1
-        AtrasoParcelaINSSProcuCheckBox.CheckState = CheckState.Unchecked
+        ' AtrasoParcelaINSSProcuCheckBox.CheckState = CheckState.Unchecked
     End Sub
     '//////////////////////////////////////////////
     Private Function FormatarNumeroWhatsapp(numeroCompleto As String) As String
