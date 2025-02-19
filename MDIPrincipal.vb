@@ -1025,15 +1025,6 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-    Private Sub TodosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TodosToolStripMenuItem.Click
-        If Application.OpenForms.OfType(Of FrmGeralParcelamento)().Count() > 0 Then
-            FrmGeralParcelamento.Focus()
-            FrmGeralParcelamento.MdiParent = Me
-        Else
-            FrmGeralParcelamento.Show()
-            FrmGeralParcelamento.MdiParent = Me
-        End If
-    End Sub
 
     Private Sub CadastroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroToolStripMenuItem.Click
         If Application.OpenForms.OfType(Of FrmParcelamento)().Count() > 0 Then
@@ -1042,6 +1033,16 @@ Public Class MDIPrincipal
         Else
             FrmParcelamento.Show()
             FrmParcelamento.MdiParent = Me
+        End If
+    End Sub
+
+    Private Sub TodosParcelamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TodosParcelamentosToolStripMenuItem.Click
+        If Application.OpenForms.OfType(Of FrmGeralParcelamento)().Count() > 0 Then
+            FrmGeralParcelamento.Focus()
+            FrmGeralParcelamento.MdiParent = Me
+        Else
+            FrmGeralParcelamento.Show()
+            FrmGeralParcelamento.MdiParent = Me
         End If
     End Sub
 End Class

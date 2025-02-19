@@ -4,8 +4,17 @@
         Dim dataSelecionada As Date = Calendar1.SelectionStart
 
         ' Pega a hora e os minutos selecionados nos ComboBox
-        Dim hora As String = ComboBoxHora.SelectedItem.ToString()
-        Dim minuto As String = ComboBoxMinuto.SelectedItem.ToString()
+        Dim hora As String = ComboBoxHora.SelectedItem?.ToString()
+        Dim minuto As String = ComboBoxMinuto.SelectedItem?.ToString()
+
+        ' Se a hora ou minuto não forem selecionados, atribui "00" como valor padrão
+        If String.IsNullOrEmpty(hora) Then
+            hora = "00"
+        End If
+
+        If String.IsNullOrEmpty(minuto) Then
+            minuto = "00"
+        End If
 
         ' Valida a entrada de hora e minuto
         If hora.Length <> 2 Or minuto.Length <> 2 Then
@@ -31,7 +40,7 @@
             Return
         End If
 
-        ' Formata a data e a hora no formato 00/00/0000 90:00
+        ' Formata a data e a hora no formato 00/00/0000 00:00
         Dim dataHora As String = dataSelecionada.ToString("dd/MM/yyyy") & " " & hora.PadLeft(2, "0"c) & ":" & minuto.PadLeft(2, "0"c)
 
         ' Define o valor formatado no MaskedTextBox
@@ -41,6 +50,7 @@
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
+
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()

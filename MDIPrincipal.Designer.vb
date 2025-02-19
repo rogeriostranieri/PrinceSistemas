@@ -48,11 +48,12 @@ Partial Class MDIPrincipal
         Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
         Me.TodosSóciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TodasCidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TodosParcelamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
         Me.Parcelamentos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CadastroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AvisoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.TelefonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -105,7 +106,6 @@ Partial Class MDIPrincipal
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ButtonEmpresas = New System.Windows.Forms.Button()
-        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -136,8 +136,8 @@ Partial Class MDIPrincipal
         'ControleToolStripMenuItem
         '
         Me.ControleToolStripMenuItem.Name = "ControleToolStripMenuItem"
-        Me.ControleToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ControleToolStripMenuItem.Text = "Controle Geral"
+        Me.ControleToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
+        Me.ControleToolStripMenuItem.Text = "Controle do Sistema"
         '
         'UsuárioToolStripMenuItem
         '
@@ -174,7 +174,7 @@ Partial Class MDIPrincipal
         '
         'ControleGeral
         '
-        Me.ControleGeral.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpresasToolStripMenuItem2, Me.AlvaraToolStripMenuItem, Me.SóciosToolStripMenuItem, Me.SitesToolStripMenuItem, Me.CNAEsToolStripMenuItem, Me.ToolStripSeparator14, Me.TodosSóciosToolStripMenuItem, Me.TodasCidadesToolStripMenuItem, Me.ToolStripSeparator15, Me.Parcelamentos, Me.ToolStripSeparator16})
+        Me.ControleGeral.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpresasToolStripMenuItem2, Me.AlvaraToolStripMenuItem, Me.Parcelamentos, Me.SóciosToolStripMenuItem, Me.SitesToolStripMenuItem, Me.CNAEsToolStripMenuItem, Me.ToolStripSeparator14, Me.TodosSóciosToolStripMenuItem, Me.TodasCidadesToolStripMenuItem, Me.TodosParcelamentosToolStripMenuItem, Me.ToolStripSeparator15, Me.ToolStripSeparator16})
         Me.ControleGeral.Name = "ControleGeral"
         Me.ControleGeral.Size = New System.Drawing.Size(107, 21)
         Me.ControleGeral.Text = "Controle Geral"
@@ -183,26 +183,26 @@ Partial Class MDIPrincipal
         '
         Me.EmpresasToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoCadastroToolStripMenuItem, Me.ConsultarToolStripMenuItem})
         Me.EmpresasToolStripMenuItem2.Name = "EmpresasToolStripMenuItem2"
-        Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
+        Me.EmpresasToolStripMenuItem2.Size = New System.Drawing.Size(205, 22)
         Me.EmpresasToolStripMenuItem2.Text = "Empresas"
         '
         'NovoCadastroToolStripMenuItem
         '
         Me.NovoCadastroToolStripMenuItem.Name = "NovoCadastroToolStripMenuItem"
-        Me.NovoCadastroToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NovoCadastroToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.NovoCadastroToolStripMenuItem.Text = "Novo Cadastro"
         '
         'ConsultarToolStripMenuItem
         '
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.ConsultarToolStripMenuItem.Text = "Consultar"
         '
         'AlvaraToolStripMenuItem
         '
         Me.AlvaraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoCadastroToolStripMenuItem1, Me.ConsultarToolStripMenuItem1})
         Me.AlvaraToolStripMenuItem.Name = "AlvaraToolStripMenuItem"
-        Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AlvaraToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.AlvaraToolStripMenuItem.Text = "Alvara"
         '
         'NovoCadastroToolStripMenuItem1
@@ -220,20 +220,20 @@ Partial Class MDIPrincipal
         'SóciosToolStripMenuItem
         '
         Me.SóciosToolStripMenuItem.Name = "SóciosToolStripMenuItem"
-        Me.SóciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SóciosToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.SóciosToolStripMenuItem.Text = "Sócios"
         '
         'SitesToolStripMenuItem
         '
         Me.SitesToolStripMenuItem.Name = "SitesToolStripMenuItem"
-        Me.SitesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SitesToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.SitesToolStripMenuItem.Text = "Sites"
         '
         'CNAEsToolStripMenuItem
         '
         Me.CNAEsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IBGECONCLAToolStripMenuItem, Me.MaringáPRToolStripMenuItem})
         Me.CNAEsToolStripMenuItem.Name = "CNAEsToolStripMenuItem"
-        Me.CNAEsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CNAEsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.CNAEsToolStripMenuItem.Text = "CNAEs"
         '
         'IBGECONCLAToolStripMenuItem
@@ -251,37 +251,37 @@ Partial Class MDIPrincipal
         'ToolStripSeparator14
         '
         Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
-        Me.ToolStripSeparator14.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator14.Size = New System.Drawing.Size(202, 6)
         '
         'TodosSóciosToolStripMenuItem
         '
         Me.TodosSóciosToolStripMenuItem.Name = "TodosSóciosToolStripMenuItem"
-        Me.TodosSóciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TodosSóciosToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.TodosSóciosToolStripMenuItem.Text = "Todos Sócios"
         '
         'TodasCidadesToolStripMenuItem
         '
         Me.TodasCidadesToolStripMenuItem.Name = "TodasCidadesToolStripMenuItem"
-        Me.TodasCidadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TodasCidadesToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.TodasCidadesToolStripMenuItem.Text = "Todas Cidades"
+        '
+        'TodosParcelamentosToolStripMenuItem
+        '
+        Me.TodosParcelamentosToolStripMenuItem.Name = "TodosParcelamentosToolStripMenuItem"
+        Me.TodosParcelamentosToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.TodosParcelamentosToolStripMenuItem.Text = "Todos Parcelamentos"
         '
         'ToolStripSeparator15
         '
         Me.ToolStripSeparator15.Name = "ToolStripSeparator15"
-        Me.ToolStripSeparator15.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator15.Size = New System.Drawing.Size(202, 6)
         '
         'Parcelamentos
         '
-        Me.Parcelamentos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TodosToolStripMenuItem, Me.CadastroToolStripMenuItem, Me.AvisoToolStripMenuItem})
+        Me.Parcelamentos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastroToolStripMenuItem, Me.AvisoToolStripMenuItem})
         Me.Parcelamentos.Name = "Parcelamentos"
-        Me.Parcelamentos.Size = New System.Drawing.Size(180, 22)
+        Me.Parcelamentos.Size = New System.Drawing.Size(205, 22)
         Me.Parcelamentos.Text = "Parcelamentos"
-        '
-        'TodosToolStripMenuItem
-        '
-        Me.TodosToolStripMenuItem.Name = "TodosToolStripMenuItem"
-        Me.TodosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TodosToolStripMenuItem.Text = "Todos"
         '
         'CadastroToolStripMenuItem
         '
@@ -294,6 +294,11 @@ Partial Class MDIPrincipal
         Me.AvisoToolStripMenuItem.Name = "AvisoToolStripMenuItem"
         Me.AvisoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AvisoToolStripMenuItem.Text = "Aviso"
+        '
+        'ToolStripSeparator16
+        '
+        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(202, 6)
         '
         'TelefonesToolStripMenuItem
         '
@@ -670,11 +675,6 @@ Partial Class MDIPrincipal
         Me.ButtonEmpresas.Text = "Todas Empresas"
         Me.ButtonEmpresas.UseVisualStyleBackColor = True
         '
-        'ToolStripSeparator16
-        '
-        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(177, 6)
-        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -779,8 +779,8 @@ Partial Class MDIPrincipal
     Friend WithEvents ConsultarToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator15 As ToolStripSeparator
     Friend WithEvents Parcelamentos As ToolStripMenuItem
-    Friend WithEvents TodosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CadastroToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AvisoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator16 As ToolStripSeparator
+    Friend WithEvents TodosParcelamentosToolStripMenuItem As ToolStripMenuItem
 End Class

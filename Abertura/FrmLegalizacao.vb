@@ -136,7 +136,7 @@ Public Class FrmLegalizacao
                     Case DialogResult.Yes
                         ' Salvar alterações
                         Try
-                            MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
+                            '  MudarStatusFinalizado() ' Verifica o status de finalização e aplica as mudanças
 
                             Me.Validate()
                             Me.EmpresasBindingSource.EndEdit()
@@ -494,7 +494,12 @@ Public Class FrmLegalizacao
         Try
             Dim statusText As String = StatusComboBox.Text.Trim()
             Dim processoText As String = ProcessoComboBox.Text.Trim()
-            Dim avisarDiaAtual As String = AvisarDiaMaskedTextBox.Text
+
+            ' Definição padrão (evita repetições)
+            StatusComboBox.BackColor = Color.White
+            StatusComboBox.ForeColor = Color.Black
+            PictureBox1.Image = Nothing
+            PictureBox2.Image = Nothing
 
             Select Case True
                 Case statusText.Contains("Finalizado")
@@ -503,92 +508,40 @@ Public Class FrmLegalizacao
                     PictureBox1.Image = My.Resources.check
                     PictureBox2.Image = If(processoText = "Baixa", My.Resources.fechadaempresa, My.Resources.ABERTURA_DE_EMPRESA)
                     SituacaoCadastralComboBox.Text = If(processoText = "Baixa", "BAIXADA", SituacaoCadastralComboBox.Text)
-                    AvisarDiaMaskedTextBox.Text = ""
+                    AvisarDiaMaskedTextBox.Text = "" ' Só apaga quando finaliza tudo
 
                 Case statusText.Contains("Pêndencia Sistema Externo")
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.check
-                    PictureBox2.Image = Nothing
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
 
-                Case statusText.Contains("Paralisado")
+                Case statusText.Contains("Paralisado"), statusText.Contains("Cancelado")
                     StatusComboBox.BackColor = Color.Red
                     StatusComboBox.ForeColor = Color.White
-                    PictureBox1.Image = My.Resources._Stop
-                    PictureBox2.Image = Nothing
-                    AvisarDiaMaskedTextBox.Text = ""
+                    PictureBox1.Image = If(statusText.Contains("Paralisado"), My.Resources._Stop, My.Resources.Cancel)
 
-                Case statusText.Contains("Cancelado")
-                    StatusComboBox.BackColor = Color.Red
-                    StatusComboBox.ForeColor = Color.White
-                    PictureBox1.Image = My.Resources.Cancel
-                    PictureBox2.Image = Nothing
-                    AvisarDiaMaskedTextBox.Text = ""
-
-                Case statusText.Contains("Em Andamento")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
+                Case statusText.Contains("Em Andamento"), statusText.Contains("Taxas"), statusText.Contains("Empresa Fácil"), statusText.Contains("Federal"), statusText.Contains("Estadual"), statusText.Contains("Simples"), statusText.Contains("Prefeitura")
                     PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.empresa_facil
-
-                Case statusText.Contains("Taxas")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.pagamento
-
-                Case statusText.Contains("Empresa Fácil")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.empresa_facil
-
-                Case statusText.Contains("Federal")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.redeSim_Divulgação
-
-                Case statusText.Contains("Estadual")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.governo2019_400x173px
-
-                Case statusText.Contains("Simples")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
-
-                Case statusText.Contains("Prefeitura")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = My.Resources.alvara
+                    Select Case statusText
+                        Case "Taxas" : PictureBox2.Image = My.Resources.pagamento
+                        Case "Empresa Fácil" : PictureBox2.Image = My.Resources.empresa_facil
+                        Case "Federal" : PictureBox2.Image = My.Resources.redeSim_Divulgação
+                        Case "Estadual" : PictureBox2.Image = My.Resources.governo2019_400x173px
+                        Case "Simples" : PictureBox2.Image = My.Resources.logo_simples_nacional_810x455
+                        Case "Prefeitura" : PictureBox2.Image = My.Resources.alvara
+                    End Select
 
                 Case statusText.Contains("Cliente") OrElse statusText.Contains("Aguardando")
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
                     PictureBox1.Image = My.Resources.emandamento
-                    PictureBox2.Image = Nothing
-
-                Case Else
-                    StatusComboBox.BackColor = Color.White
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = Nothing
-                    PictureBox2.Image = Nothing
             End Select
 
-            ' Tratamento para "Simples Nacional - Protocolado"
-            ' If statusText <> "Simples Nacional - Protocolado" AndAlso statusText.Contains("Protocolado") Then
-            ' AvisarDiaMaskedTextBox.Text = ""
-            ' Else
-            ' AvisarDiaMaskedTextBox.Text = avisarDiaAtual ' Mantém a data se for "Simples Nacional - Protocolado"
-            'End If
+            ' Mantém a data de aviso se for "Protocolado", apaga apenas se for "Finalizado"
+            If Not statusText.Contains("Protocolado") Then
+                '  AvisarDiaMaskedTextBox.Text = ""
+            End If
 
-            ' Seleção de aba específica para Simples Nacional - Em Andamento
+            ' Abre a aba correspondente se for "Simples Nacional - Em Andamento"
             If statusText = "Simples Nacional - Em Andamento" Then
                 TabControle.SelectTab(5)
             End If
@@ -597,6 +550,7 @@ Public Class FrmLegalizacao
             MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
 
 
@@ -2149,81 +2103,61 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub EMAIL()
         Try
-            ' Só executa se o ComboBox estiver sendo alterado de "Não" para outro valor
+            ' Verifica se o item selecionado ainda é "Não"
             If SistemaExternoComboBox.SelectedItem IsNot Nothing AndAlso
-           SistemaExternoComboBox.SelectedItem.ToString().Contains("Não") Then
+           SistemaExternoComboBox.SelectedItem.ToString() = "Não" Then
                 Return ' Sai do método se ainda estiver como "Não"
             End If
 
-            ' Pergunta se deseja enviar o e-mail apenas se o usuário mudou de "Não" para outro valor
-            Dim resposta As DialogResult = MessageBox.Show("Foi enviado por email? deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            ' Pergunta se deseja enviar o e-mail
+            Dim resposta As DialogResult = MessageBox.Show("Foi enviado por email? Deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
             If resposta = DialogResult.Yes Then
                 EnviarEmail()
-                ' Define o ComboBox para "Sim"
-                SistemaExternoComboBox.SelectedIndex = 1
+                SistemaExternoComboBox.SelectedItem = "Sim" ' Define como "Sim" após o envio
             End If
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Erro ao tentar enviar o e-mail: " & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 
-
     Private Sub EnviarEmail()
         Try
-            Dim message As String
-            'message Deseja enviar por e-mail toda alteração feita?
-            message = "Deseja enviar por e-mail toda alteração feita?"
-            Dim result As Integer = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNo)
+            ' Pergunta ao usuário se deseja enviar a alteração por e-mail
+            Dim result As DialogResult = MessageBox.Show("Deseja enviar por e-mail toda alteração feita?", "Prince Alerta", MessageBoxButtons.YesNoCancel)
+
             If result = DialogResult.Cancel Then
-                'nao fazer nada
-
+                Exit Sub ' Cancela e não faz nada
             ElseIf result = DialogResult.No Then
-                'perguntar se deseja abrir o Form FrmEmail
-                Dim message2 As String
-                message2 = "Deseja abrir o e-Mail?"
-                Dim result2 As Integer = MessageBox.Show(message2, "Prince Alerta", MessageBoxButtons.YesNo)
-                If result2 = DialogResult.Yes Then
-                    If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-                        FrmMail.BringToFront()
-                        FrmMail.Focus()
-                    Else
-                        FrmMail.Show()
-                        FrmMail.BringToFront()
-                        FrmMail.Focus()
-                    End If
+                ' Pergunta se deseja abrir o formulário de e-mail manualmente
+                Dim abrirEmail As DialogResult = MessageBox.Show("Deseja abrir o e-Mail?", "Prince Alerta", MessageBoxButtons.YesNo)
+                If abrirEmail = DialogResult.Yes Then
+                    AbrirOuCriarFrmMail()
                 End If
-
             ElseIf result = DialogResult.Yes Then
-                If Application.OpenForms.OfType(Of FrmMail)().Count() > 0 Then
-                    SistemaExternoComboBox.SelectedIndex = -1
-                    Dim Sair As String
-                    Sair = MsgBox("O e-Mail ja está aberto, exportando . . .", MsgBoxStyle.Question, "Prince Sistemas Informa!")
-
-                    'SistemaExternoComboBox muda para Sim
-                    SistemaExternoComboBox.SelectedIndex = -1
-
-                    FrmMail.MdiParent = MDIPrincipal
-                    FrmMail.Show()
-                    'abrir a automação
-                    ModeMail.Enviaremaillegalizao()
-                    FrmMail.BringToFront()
-                    FrmMail.Focus()
-
-                Else
-                    'SistemaExternoComboBox muda para Sim
-                    SistemaExternoComboBox.SelectedIndex = -1
-
-                    FrmMail.MdiParent = MDIPrincipal
-                    FrmMail.Show()
-                    ModeMail.Enviaremaillegalizao()
-                    FrmMail.BringToFront()
-                    FrmMail.Focus()
-                End If
+                ' Envia e-mail automaticamente
+                SistemaExternoComboBox.SelectedItem = "Sim"
+                MsgBox("O e-Mail será enviado automaticamente...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+                AbrirOuCriarFrmMail()
+                ModeMail.Enviaremaillegalizao()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Erro ao enviar e-mail: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+    End Sub
+
+    Private Sub AbrirOuCriarFrmMail()
+        ' Função para evitar repetição de código ao abrir ou criar FrmMail
+        If Application.OpenForms.OfType(Of FrmMail)().Any() Then
+            FrmMail.BringToFront()
+            FrmMail.Focus()
+        Else
+            FrmMail.MdiParent = MDIPrincipal
+            FrmMail.Show()
+            FrmMail.BringToFront()
+            FrmMail.Focus()
+        End If
     End Sub
 
     Private Sub SistemaExternoComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SistemaExternoComboBox.SelectionChangeCommitted
@@ -2628,35 +2562,50 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
         Dim isFinalizado As Boolean = StatusComboBox.Text.Contains("Finalizado")
         Dim isSimplesNacional As Boolean = StatusComboBox.Text.Contains("Simples Nacional")
 
-        If isFinalizado OrElse isSimplesNacional Then
-            If SistemaExternoComboBox.SelectedItem = "Não" Then
-                If MsgBox("Foi alterado no seu Sistema Particular?", MsgBoxStyle.YesNo, "Notificação") = MsgBoxResult.Yes Then
-                    AtualizarInterface()
-                    SistemaExternoComboBox.SelectedItem = "Sim"
-                    EMAIL()
-                ElseIf isFinalizado Then ' Apenas para "Finalizado"
-                    StatusComboBox.Text = "Pêndencia Sistema Externo"
-                    StatusComboBox.BackColor = Color.Red
-                    StatusComboBox.ForeColor = Color.Black
-                    PictureBox1.Image = My.Resources.check
-                    PictureBox2.Image = Nothing
-                    SistemaExternoComboBox.SelectedItem = "Não"
+        ' Se o status for Finalizado ou Simples Nacional E o Sistema Externo estiver como "Não"
+        If (isFinalizado OrElse isSimplesNacional) AndAlso SistemaExternoComboBox.SelectedItem.ToString() = "Não" Then
+            ' Pergunta se foi alterado no sistema externo
+            Dim respostaSistema As DialogResult = MessageBox.Show("Foi alterado no seu Sistema Particular?", "Notificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If respostaSistema = DialogResult.Yes Then
+                ' Pergunta se deseja enviar por e-mail
+                Dim respostaEmail As DialogResult = MessageBox.Show("Foi enviado por email? Deseja enviar agora?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                If respostaEmail = DialogResult.Yes Then
+                    EnviarEmail()
                 End If
-            ElseIf SistemaExternoComboBox.SelectedItem = "Sim" Then
+
+                ' Muda o campo para "Sim" após confirmação
+                SistemaExternoComboBox.SelectedItem = "Sim"
                 AtualizarInterface()
+
             Else
-                StatusComboBox.BackColor = Color.Green
-                StatusComboBox.ForeColor = Color.White
-                '  AvisarDiaMaskedTextBox.Text = ""
+                ' Se não foi atualizado no sistema externo, marca como pendente
+                StatusComboBox.Text = "Pêndencia Sistema Externo"
+                StatusComboBox.BackColor = Color.Red
+                StatusComboBox.ForeColor = Color.Black
                 PictureBox1.Image = My.Resources.check
+                PictureBox2.Image = Nothing
+                SistemaExternoComboBox.SelectedItem = "Não"
             End If
+
+        ElseIf SistemaExternoComboBox.SelectedItem.ToString() = "Sim" Then
+            ' Se já está como "Sim", apenas atualiza a interface sem perguntar novamente
+            AtualizarInterface()
+        Else
+            ' Configuração padrão se não atender às outras condições
+            StatusComboBox.BackColor = Color.Green
+            StatusComboBox.ForeColor = Color.White
+            PictureBox1.Image = My.Resources.check
         End If
     End Sub
+
+
 
     Private Sub AtualizarInterface()
         StatusComboBox.BackColor = Color.Green
         StatusComboBox.ForeColor = Color.White
-        AvisarDiaMaskedTextBox.Text = ""
+        '  AvisarDiaMaskedTextBox.Text = ""
         PictureBox1.Image = My.Resources.check
 
         If ProcessoComboBox.Text = "Baixa" Then

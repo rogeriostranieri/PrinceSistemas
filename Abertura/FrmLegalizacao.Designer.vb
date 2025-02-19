@@ -220,6 +220,8 @@ Partial Class FrmLegalizacao
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.RamoDeAtividadeRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.ButtonLimpaEndAntigo = New System.Windows.Forms.Button()
+        Me.ButtonEndAntigoVoltar = New System.Windows.Forms.Button()
         Me.LinkLabelVerEndAntigo = New System.Windows.Forms.LinkLabel()
         Me.ButtonRegistrarEndAntigo = New System.Windows.Forms.Button()
         Me.TemEnderecoAntigoEmpComboBox = New System.Windows.Forms.ComboBox()
@@ -534,8 +536,6 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ButtonEndAntigoVoltar = New System.Windows.Forms.Button()
-        Me.ButtonLimpaEndAntigo = New System.Windows.Forms.Button()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -2879,6 +2879,30 @@ Partial Class FrmLegalizacao
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Endereço"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'ButtonLimpaEndAntigo
+        '
+        Me.ButtonLimpaEndAntigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonLimpaEndAntigo.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonLimpaEndAntigo.Location = New System.Drawing.Point(735, 312)
+        Me.ButtonLimpaEndAntigo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ButtonLimpaEndAntigo.Name = "ButtonLimpaEndAntigo"
+        Me.ButtonLimpaEndAntigo.Size = New System.Drawing.Size(72, 29)
+        Me.ButtonLimpaEndAntigo.TabIndex = 84
+        Me.ButtonLimpaEndAntigo.Text = "Limpar"
+        Me.ButtonLimpaEndAntigo.UseVisualStyleBackColor = True
+        '
+        'ButtonEndAntigoVoltar
+        '
+        Me.ButtonEndAntigoVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonEndAntigoVoltar.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonEndAntigoVoltar.Location = New System.Drawing.Point(735, 261)
+        Me.ButtonEndAntigoVoltar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ButtonEndAntigoVoltar.Name = "ButtonEndAntigoVoltar"
+        Me.ButtonEndAntigoVoltar.Size = New System.Drawing.Size(72, 45)
+        Me.ButtonEndAntigoVoltar.TabIndex = 83
+        Me.ButtonEndAntigoVoltar.Text = "Voltar p/ Cima"
+        Me.ButtonEndAntigoVoltar.UseVisualStyleBackColor = True
         '
         'LinkLabelVerEndAntigo
         '
@@ -6101,9 +6125,9 @@ Partial Class FrmLegalizacao
         Me.ButtoneMail.Location = New System.Drawing.Point(6, 106)
         Me.ButtoneMail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ButtoneMail.Name = "ButtoneMail"
-        Me.ButtoneMail.Size = New System.Drawing.Size(80, 27)
+        Me.ButtoneMail.Size = New System.Drawing.Size(80, 40)
         Me.ButtoneMail.TabIndex = 44
-        Me.ButtoneMail.Text = "e-Mail"
+        Me.ButtoneMail.Text = "Enviar e-Mail"
         Me.ButtoneMail.UseVisualStyleBackColor = True
         '
         'NAlteracaoLabel
@@ -6190,7 +6214,7 @@ Partial Class FrmLegalizacao
         Me.BtnContador.BackgroundImage = CType(resources.GetObject("BtnContador.BackgroundImage"), System.Drawing.Image)
         Me.BtnContador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnContador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnContador.Location = New System.Drawing.Point(6, 139)
+        Me.BtnContador.Location = New System.Drawing.Point(6, 152)
         Me.BtnContador.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnContador.Name = "BtnContador"
         Me.BtnContador.Size = New System.Drawing.Size(80, 27)
@@ -6685,30 +6709,6 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(156, 23)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
-        '
-        'ButtonEndAntigoVoltar
-        '
-        Me.ButtonEndAntigoVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonEndAntigoVoltar.ForeColor = System.Drawing.Color.MediumBlue
-        Me.ButtonEndAntigoVoltar.Location = New System.Drawing.Point(735, 261)
-        Me.ButtonEndAntigoVoltar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.ButtonEndAntigoVoltar.Name = "ButtonEndAntigoVoltar"
-        Me.ButtonEndAntigoVoltar.Size = New System.Drawing.Size(72, 45)
-        Me.ButtonEndAntigoVoltar.TabIndex = 83
-        Me.ButtonEndAntigoVoltar.Text = "Voltar p/ Cima"
-        Me.ButtonEndAntigoVoltar.UseVisualStyleBackColor = True
-        '
-        'ButtonLimpaEndAntigo
-        '
-        Me.ButtonLimpaEndAntigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonLimpaEndAntigo.ForeColor = System.Drawing.Color.MediumBlue
-        Me.ButtonLimpaEndAntigo.Location = New System.Drawing.Point(735, 312)
-        Me.ButtonLimpaEndAntigo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.ButtonLimpaEndAntigo.Name = "ButtonLimpaEndAntigo"
-        Me.ButtonLimpaEndAntigo.Size = New System.Drawing.Size(72, 29)
-        Me.ButtonLimpaEndAntigo.TabIndex = 84
-        Me.ButtonLimpaEndAntigo.Text = "Limpar"
-        Me.ButtonLimpaEndAntigo.UseVisualStyleBackColor = True
         '
         'FrmLegalizacao
         '

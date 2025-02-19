@@ -62,6 +62,13 @@ Public Class FrmParcelamento
     Private cancelarFechamento As Boolean = False
 
     Private Sub Salvar()
+        'FinalizadoMesGeralComboBox verificar se tiver vazio ele vai avisar e sair do sub
+        If String.IsNullOrEmpty(FinalizadoMesGeralComboBox.Text) Then
+            MessageBox.Show("Por favor, selecione um mês para finalização.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+
         ' Finaliza a edição dos dados vinculados ao BindingSource
         Me.ParcelamentosBindingSource.EndEdit()
 
