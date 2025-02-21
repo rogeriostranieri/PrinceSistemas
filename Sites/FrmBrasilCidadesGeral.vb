@@ -100,7 +100,7 @@ Public Class FrmBrasilCidadesGeral
     Private Sub PreencherListView(codigoUF As Integer, Optional filtro As String = "")
         Try
             ListView1.Items.Clear()
-            TxtEncontrato.Text = ""
+            TxtEncontrado.Text = ""
 
             Dim estadoSelecionado = Me.PrinceDBDataSet.BrasilEstado.FindBycodigo_uf(codigoUF)
 
@@ -127,7 +127,7 @@ Public Class FrmBrasilCidadesGeral
                 resultadoCount += 1
             Next
 
-            TxtEncontrato.Text = $"Encontrado {resultadoCount} resultados"
+            TxtEncontrado.Text = $"Encontrado {resultadoCount} resultados"
             AjustarTamanhoColunas()
             AjustarTamanhoFormulario()
 

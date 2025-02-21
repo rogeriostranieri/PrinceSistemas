@@ -966,6 +966,7 @@ Public Class FrmExtraiCNPJ
                             Dim razaoSocial As String = Convert.ToString(cmdRazaoSocial.ExecuteScalar())
                             MessageBox.Show("Empresa já cadastrada na tabela Empresas!" & vbCrLf & "CNPJ: " & cnpjFormatado & vbCrLf & "Razão Social: " & razaoSocial)
                         End Using
+                        Exit Sub
                     Else
                         MessageBox.Show("CNPJ não cadastrado na tabela Empresas.")
                     End If

@@ -118,52 +118,32 @@ Public Class FrmSocios
     End Sub
 
     Private Sub EstadoCivil()
-        'verificar se está preenchido ou nao
-        'If CivilTextBox.Text = "" Then
-        If GeneroComboBox.Text = "Masculino" Then
-            ListBoxEstadoCivil.Items.Clear()
-            'adicionar itens ao listbox solteiro
-            ListBoxEstadoCivil.Items.Add("solteiro")
-            ListBoxEstadoCivil.Items.Add("separado")
-            ListBoxEstadoCivil.Items.Add("divorciado")
-            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão parcial de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
-            ListBoxEstadoCivil.Items.Add("viúvo")
-            If ProfissãoTextBox.Text = "" Then
-                ProfissãoTextBox.Text = "empresário"
-            End If
+        ' Limpar ListBox antes de adicionar novos itens
+        ListBoxEstadoCivil.Items.Clear()
 
-        ElseIf GeneroComboBox.Text = "Feminino" Then
-            ListBoxEstadoCivil.Items.Clear()
-            ListBoxEstadoCivil.Items.Add("solteira")
-            ListBoxEstadoCivil.Items.Add("separada")
-            ListBoxEstadoCivil.Items.Add("divorciada")
-            ListBoxEstadoCivil.Items.Add("casada em regime de comunhão parcial de bens")
-            ListBoxEstadoCivil.Items.Add("casada em regime de comunhão universal de bens")
-            ListBoxEstadoCivil.Items.Add("casada em regime de separação obrigatória de bens")
-            ListBoxEstadoCivil.Items.Add("casada em regime de participação final nos aquestos")
-            ListBoxEstadoCivil.Items.Add("viúva")
-            If ProfissãoTextBox.Text = "" Then
-                ProfissãoTextBox.Text = "empresária"
-            End If
+        ' Definir estados civis
+        Dim estadosCivisMasculino As String() = {"solteiro", "separado", "divorciado", "casado em regime de comunhão parcial de bens", "casado em regime de comunhão universal de bens", "casado em regime de separação obrigatória de bens", "casado em regime de participação final nos aquestos", "viúvo"}
+        Dim estadosCivisFeminino As String() = {"solteira", "separada", "divorciada", "casada em regime de comunhão parcial de bens", "casada em regime de comunhão universal de bens", "casada em regime de separação obrigatória de bens", "casada em regime de participação final nos aquestos", "viúva"}
+
+        ' Determinar quais estados civis adicionar
+        If GeneroComboBox.Text = "Feminino" Then
+            ListBoxEstadoCivil.Items.AddRange(estadosCivisFeminino)
         Else
-            ListBoxEstadoCivil.Items.Clear()
-            ListBoxEstadoCivil.Items.Add("solteiro")
-            ListBoxEstadoCivil.Items.Add("separado")
-            ListBoxEstadoCivil.Items.Add("divorciado")
-            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão parcial de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de comunhão universal de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de separação obrigatória de bens")
-            ListBoxEstadoCivil.Items.Add("casado em regime de participação final nos aquestos")
-            ListBoxEstadoCivil.Items.Add("viúvo")
-            If ProfissãoTextBox.Text = "" Then
-                ProfissãoTextBox.Text = "empresário"
-            End If
+            ListBoxEstadoCivil.Items.AddRange(estadosCivisMasculino)
         End If
-        '  End If
+
+        ' Ajustar ProfissãoTextBox conforme gênero
+        If String.IsNullOrEmpty(ProfissãoTextBox.Text) Then
+            ProfissãoTextBox.Text = If(GeneroComboBox.Text = "Feminino", "empresária", "empresário")
+        ElseIf (GeneroComboBox.Text = "Feminino" AndAlso ProfissãoTextBox.Text = "empresário") Then
+            ProfissãoTextBox.Text = "empresária"
+        ElseIf (GeneroComboBox.Text <> "Feminino" AndAlso ProfissãoTextBox.Text = "empresária") Then
+            ProfissãoTextBox.Text = "empresário"
+        ElseIf Not (ProfissãoTextBox.Text = "empresário" OrElse ProfissãoTextBox.Text = "empresária") Then
+            MessageBox.Show("Verifique o campo Profissão: " & ProfissãoTextBox.Text, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
+
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         'pergunta, adiciona novo registro
         If MessageBox.Show("Deseja adicionar um novo registro?", "Novo Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
@@ -1717,23 +1697,18 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
         ' Limpar estado inicial
         LblMenorIdade.Visible = False
         MenorIdadeComboBox.Visible = False
-        If Not String.IsNullOrEmpty(MenorIdadeComboBox.Text) Then
-            MenorIdadeComboBox.Text = ""
-        End If
+        MenorIdadeComboBox.Text = ""
+
+        ' Verificar se o campo está em branco ou contém apenas espaços/máscara vazia
+        If String.IsNullOrWhiteSpace(DatadeNascMaskedTextBox.Text.Trim()) OrElse DatadeNascMaskedTextBox.Text = "  /  /" Then Exit Sub
 
         ' Verificar se a data é válida
         Dim dataNascimento As Date
         If Date.TryParse(DatadeNascMaskedTextBox.Text, dataNascimento) Then
-            ' Obter a data atual
-            Dim dataAtual As Date = Date.Now
-
             ' Calcular a idade
+            Dim dataAtual As Date = Date.Now
             Dim idade As Integer = dataAtual.Year - dataNascimento.Year
-
-            ' Verificar se o aniversário ainda não ocorreu neste ano
-            If dataAtual < dataNascimento.AddYears(idade) Then
-                idade -= 1
-            End If
+            If dataAtual < dataNascimento.AddYears(idade) Then idade -= 1
 
             ' Verificar se é menor de idade
             If idade < 18 Then
@@ -1746,6 +1721,7 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
             DatadeNascMaskedTextBox.Focus()
         End If
     End Sub
+
 
     Private Sub DatadeNascMaskedTextBox_Leave(sender As Object, e As EventArgs) Handles DatadeNascMaskedTextBox.Leave
         ValidaIdadeMenor()

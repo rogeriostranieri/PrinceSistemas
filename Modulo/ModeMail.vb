@@ -88,10 +88,18 @@ Module ModeMail
         End Try
     End Sub
 
-    Sub Enviaremaillegalizao()
+    Sub Enviaremaillegalizacao()
+        FrmAvisoEmpresa.Show()
+        FrmAvisoEmpresa.Focus()
+
         FrmLegalizacao.TabControle.SelectTab(0)
         FrmLegalizacao.TabControle.SelectTab(1)
-        FrmLegalizacao.TabControl2.SelectTab(6)
+        ' Loop para percorrer todas as abas do TabControl2
+        For i As Integer = 0 To FrmLegalizacao.TabControl2.TabPages.Count - 1
+            FrmLegalizacao.TabControl2.SelectTab(i)
+            ' Aqui você pode adicionar alguma lógica para trabalhar com cada aba, se necessário.
+        Next
+
         'retorna
         FrmLegalizacao.TabControle.SelectTab(0)
 
@@ -170,35 +178,47 @@ Module ModeMail
             'ApplicationTitle  - ProductName
             Dim NomeSistema As String = My.Application.Info.ProductName
 
-            '///////////// CODIGO DO SISTEMA EXTERMO
+
+            FrmAvisoEmpresa.Close()
+
+            '///////////// CODIGO DO SISTEMA EXTERNO
+            Dim SistemaExternoCodigo = FrmLegalizacao.CodSistemaExternoTextBox.Text.ToString()
 
             Dim CodigoSistemaExterno As String = ""
             Dim TextoSistemaExterno As String = ""
 
-            Dim resposta As DialogResult
-            resposta = MessageBox.Show("Deseja adicionar o número da empresa do sistema externo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            ' Verifica se já há algum código no CodSistemaExternoTextBox
+            If String.IsNullOrEmpty(SistemaExternoCodigo) OrElse Not IsNumeric(SistemaExternoCodigo) Then
+                ' Pergunta ao usuário se deseja adicionar o número da empresa
+                Dim resposta As DialogResult
+                resposta = MessageBox.Show("Deseja adicionar o número da empresa do sistema externo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            If resposta = DialogResult.Yes Then
-                ' Mostra um campo para o usuário digitar o número
-                Dim numeroEmpresa As String = InputBox("Digite o número da empresa:", "Número da Empresa")
+                If resposta = DialogResult.Yes Then
+                    ' Mostra o campo para o usuário digitar o número
+                    Dim numeroEmpresa As String = InputBox("Digite o número da empresa:", "Número da Empresa")
 
-                ' Verifica se o usuário clicou em "Cancelar" ou deixou o campo em branco
-                If String.IsNullOrEmpty(numeroEmpresa) Then
-                    MessageBox.Show("Nenhum número foi inserido ou operação cancelada. O processo será continuado sem o número.")
-                Else
-                    ' Aqui você pode usar o número inserido conforme necessário
-                    ' MessageBox.Show("Número da empresa inserido: " & numeroEmpresa)
-                    ' Código para utilizar o número da empresa
-                    CodigoSistemaExterno = numeroEmpresa
-                    TextoSistemaExterno = " - Código da Empresa: "
+                    ' Verifica se o usuário clicou em "Cancelar" ou deixou o campo em branco
+                    If String.IsNullOrEmpty(numeroEmpresa) Then
+                        MessageBox.Show("Nenhum número foi inserido ou operação cancelada. O processo será continuado sem o número.")
+                    Else
+                        ' Se o usuário inseriu um número, usa o código
+                        CodigoSistemaExterno = numeroEmpresa
+                        TextoSistemaExterno = " - Código da Empresa: "
+
+                        ' Preenche o campo CodSistemaExternoTextBox com o número inserido
+                        FrmLegalizacao.CodSistemaExternoTextBox.Text = CodigoSistemaExterno
+                    End If
                 End If
             Else
-                ' Continua o código normalmente
-                ' MessageBox.Show("Processo continuado sem adicionar número da empresa.")
+                ' Se já houver um código válido, apenas adiciona o número sem perguntar
+                CodigoSistemaExterno = SistemaExternoCodigo
+                TextoSistemaExterno = " - Código da Empresa: "
+                FrmLegalizacao.CodSistemaExternoTextBox.Text = CodigoSistemaExterno
             End If
 
 
-
+            FrmAvisoEmpresa.Show()
+            FrmAvisoEmpresa.Focus()
 
             '/////////////////////////// INICIO CAIXA DO EMAIL ////////////////////////////////////////////////
             'assunto
@@ -247,8 +267,12 @@ Module ModeMail
 "
 
             '/////////////////////////// FIM CAIXA DO EMAIL ////////////////////////////////////////////////
+            FrmAvisoEmpresa.Close()
+
             FrmMail.BringToFront()
             FrmMail.Focus()
+
+
         Catch ex As System.InvalidCastException
             MessageBox.Show("ERRO" & vbCrLf & ex.Message, "Prince Avisa")
 
@@ -256,6 +280,10 @@ Module ModeMail
 
 
     End Sub
+
+    '///////////////////////////////////////////////////////////////////////////
+
+
 
 
 End Module

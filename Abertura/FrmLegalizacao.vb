@@ -901,9 +901,9 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
                     PrioridadeCheckBox.CheckState = CheckState.Unchecked
 
                     ' Configurações de Cadastro
-                    TipoDeEmpresaComboBox.SelectedIndex = -1
+                    TipoDeEmpresaComboBox.SelectedIndex = 0
                     PorteDaEmpresaComboBox.SelectedIndex = -1
-                    RegimeFederalComboBox.SelectedIndex = -1
+                    RegimeFederalComboBox.SelectedIndex = 0
 
 
                     SituacaoCadastralComboBox.SelectedText = "ATIVO"
@@ -911,14 +911,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
                     ' Definir valores padrão
                     RegimeFederalComboBox.SelectedIndex = 4  ' RegimeFederal = Pendência
-                    '  StatusComboBox.SelectedText = "Não Iniciado"
-                    ' ProcessoComboBox.SelectedIndex = -1
+                    StatusComboBox.SelectedText = "Não Iniciado"
+                    ProcessoComboBox.SelectedIndex = -1
                     SistemaExternoComboBox.SelectedIndex = 1  ' SistemaExterno = Não
 
                     ' Preencher campos com a data e hora atuais
                     EmpCriadoMaskedTextBox.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
                     AvisarDiaMaskedTextBox.Text = DateTime.Now.ToString()
-                    SEDEComboBox.SelectedIndex = -1
+                    SEDEComboBox.SelectedIndex = 0
                     HabilitaEdicao()
 
 
@@ -1935,34 +1935,70 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub SistemaExternoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SistemaExternoComboBox.SelectedIndexChanged
         Try
+            ' Define a fonte do ComboBox como negrito
             SistemaExternoComboBox.Font = New Font(SistemaExternoComboBox.Font, FontStyle.Bold)
 
+            Select Case SistemaExternoComboBox.Text
+                Case "Sim"
+                    SistemaExternoComboBox.BackColor = Color.SeaGreen
+                    SistemaExternoComboBox.ForeColor = Color.White
+                    PictureBoxSistemaExterno.Image = My.Resources.check
+                    CodSistemaExternoTextBox.Focus()
 
-            If Me.SistemaExternoComboBox.Text = "Sim" Then
-                Me.SistemaExternoComboBox.BackColor = Color.SeaGreen
-                'Me.SistemaExternoComboBox.Font = Ita
-                Me.SistemaExternoComboBox.ForeColor = Color.White
-                PictureBoxSistemaExterno.Image = My.Resources.check
+                    ' Se o campo estiver vazio, inicia o Timer para piscar a fonte
+                    If String.IsNullOrWhiteSpace(CodSistemaExternoTextBox.Text) Then
+                        If Not TimerCodEmpresa.Enabled Then TimerCodEmpresa.Start()
+                    Else
+                        TimerCodEmpresa.Stop()
+                        CodSistemaExternoLabel.ForeColor = Color.Black ' Mantém preto quando preenchido
+                    End If
 
+                Case "Não"
+                    SistemaExternoComboBox.BackColor = Color.Red
+                    SistemaExternoComboBox.ForeColor = Color.White
+                    PictureBoxSistemaExterno.Image = My.Resources.Cancel
+                    TimerCodEmpresa.Stop() ' Para o piscar se mudar para "Não"
+                    CodSistemaExternoLabel.ForeColor = Color.Black ' Mantém preto
 
-
-            End If
-
-
-            If Me.SistemaExternoComboBox.Text = "Não" Then
-                Me.SistemaExternoComboBox.BackColor = Color.Red
-                ' Me.SistemaExternoComboBox.Font = Bold
-                Me.SistemaExternoComboBox.ForeColor = Color.White
-                PictureBoxSistemaExterno.Image = My.Resources.Cancel
-
-            End If
-
-
+                Case Else
+                    ' Caso inesperado, define um padrão
+                    SistemaExternoComboBox.BackColor = SystemColors.Window
+                    SistemaExternoComboBox.ForeColor = SystemColors.ControlText
+                    PictureBoxSistemaExterno.Image = Nothing
+                    TimerCodEmpresa.Stop()
+                    CodSistemaExternoLabel.ForeColor = Color.Black
+            End Select
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Erro: " & ex.Message, MsgBoxStyle.Critical, "Erro no ComboBox")
         End Try
     End Sub
+
+    Private Sub TimerCodEmpresa_Tick(sender As Object, e As EventArgs) Handles TimerCodEmpresa.Tick
+        ' Alterna apenas a cor da fonte do label entre preto, amarelo e vermelho
+        Select Case CodSistemaExternoLabel.ForeColor
+            Case Color.Black
+                CodSistemaExternoLabel.ForeColor = Color.Yellow
+            Case Color.Yellow
+                CodSistemaExternoLabel.ForeColor = Color.Red
+            Case Else
+                CodSistemaExternoLabel.ForeColor = Color.Black
+        End Select
+    End Sub
+
+    Private Sub CodSistemaExternoTextBox_TextChanged(sender As Object, e As EventArgs) Handles CodSistemaExternoTextBox.TextChanged
+        ' Para o piscar e define a cor do texto como preto quando o campo for preenchido
+        If Not String.IsNullOrWhiteSpace(CodSistemaExternoTextBox.Text) Then
+            TimerCodEmpresa.Stop()
+            CodSistemaExternoLabel.ForeColor = Color.Black ' Mantém a fonte preta
+        Else
+            TimerCodEmpresa.Start() ' Se apagar o texto, volta a piscar
+        End If
+    End Sub
+
+
+
+
 
     Private Sub RegimeFederalComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RegimeFederalComboBox.SelectedIndexChanged
         '        RegimeFederalComboBox.Font = New Font(RegimeFederalComboBox.Font, FontStyle.Bold)
@@ -2138,12 +2174,15 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
             ElseIf result = DialogResult.Yes Then
                 ' Envia e-mail automaticamente
                 SistemaExternoComboBox.SelectedItem = "Sim"
-                MsgBox("O e-Mail será enviado automaticamente...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
+
+                '  MsgBox("O e-Mail será enviado automaticamente...", MsgBoxStyle.Information, "Prince Sistemas Informa!")
                 AbrirOuCriarFrmMail()
-                ModeMail.Enviaremaillegalizao()
+                ModeMail.Enviaremaillegalizacao()
+
             End If
         Catch ex As Exception
             MsgBox("Erro ao enviar e-mail: " & ex.Message, MsgBoxStyle.Critical)
+            FrmAvisoEmpresa.Close()
         End Try
     End Sub
 
@@ -2165,7 +2204,8 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
     End Sub
 
     Private Sub ButtoneMail_Click(sender As Object, e As EventArgs) Handles ButtoneMail.Click
-        EnviarEmail()
+        'EnviarEmail()
+        EMAIL()
     End Sub
 
     Private Sub NovaRazaoSocialComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles NovaRazaoSocialComboBox.SelectedIndexChanged

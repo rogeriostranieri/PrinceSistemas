@@ -536,6 +536,9 @@ Partial Class FrmLegalizacao
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
+        Me.CodSistemaExternoTextBox = New System.Windows.Forms.TextBox()
+        Me.CodSistemaExternoLabel = New System.Windows.Forms.Label()
+        Me.TimerCodEmpresa = New System.Windows.Forms.Timer(Me.components)
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -5821,7 +5824,9 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.CodSistemaExternoLabel)
         Me.GroupBox2.Controls.Add(Me.BtnNovaRazao)
+        Me.GroupBox2.Controls.Add(Me.CodSistemaExternoTextBox)
         Me.GroupBox2.Controls.Add(Me.EndEstadoLabel2)
         Me.GroupBox2.Controls.Add(EndEstadoLabel1)
         Me.GroupBox2.Controls.Add(EndCidadeLabel1)
@@ -5997,7 +6002,7 @@ Partial Class FrmLegalizacao
         Me.SituacaoCadastralComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "SituacaoCadastral", True))
         Me.SituacaoCadastralComboBox.FormattingEnabled = True
         Me.SituacaoCadastralComboBox.Items.AddRange(New Object() {"ATIVO", "BAIXADA", "INAPTA"})
-        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(115, 5)
+        Me.SituacaoCadastralComboBox.Location = New System.Drawing.Point(115, 8)
         Me.SituacaoCadastralComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SituacaoCadastralComboBox.Name = "SituacaoCadastralComboBox"
         Me.SituacaoCadastralComboBox.Size = New System.Drawing.Size(115, 23)
@@ -6490,7 +6495,7 @@ Partial Class FrmLegalizacao
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(694, 71)
+        Me.PictureBox2.Location = New System.Drawing.Point(694, 73)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(161, 92)
@@ -6709,6 +6714,23 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ.Size = New System.Drawing.Size(156, 23)
         Me.ComboBoxBuscaCNPJ.TabIndex = 47
         Me.ComboBoxBuscaCNPJ.ValueMember = "CNPJ"
+        '
+        'CodSistemaExternoTextBox
+        '
+        Me.CodSistemaExternoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "CodSistemaExterno", True))
+        Me.CodSistemaExternoTextBox.Location = New System.Drawing.Point(390, 10)
+        Me.CodSistemaExternoTextBox.Name = "CodSistemaExternoTextBox"
+        Me.CodSistemaExternoTextBox.Size = New System.Drawing.Size(59, 21)
+        Me.CodSistemaExternoTextBox.TabIndex = 82
+        '
+        'CodSistemaExternoLabel
+        '
+        Me.CodSistemaExternoLabel.AutoSize = True
+        Me.CodSistemaExternoLabel.Location = New System.Drawing.Point(259, 13)
+        Me.CodSistemaExternoLabel.Name = "CodSistemaExternoLabel"
+        Me.CodSistemaExternoLabel.Size = New System.Drawing.Size(125, 15)
+        Me.CodSistemaExternoLabel.TabIndex = 82
+        Me.CodSistemaExternoLabel.Text = "Cod Sistema Externo:"
         '
         'FrmLegalizacao
         '
@@ -7242,4 +7264,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents LinkLabelVerEndAntigo As LinkLabel
     Friend WithEvents ButtonEndAntigoVoltar As Button
     Friend WithEvents ButtonLimpaEndAntigo As Button
+    Friend WithEvents CodSistemaExternoTextBox As TextBox
+    Friend WithEvents CodSistemaExternoLabel As Label
+    Friend WithEvents TimerCodEmpresa As Timer
 End Class
