@@ -43,6 +43,7 @@ Partial Class FrmEventos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BtnLimparEventos = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
+        Me.ButtonOk = New System.Windows.Forms.Button()
         EventosLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
         CType(Me.BtnFechar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,6 +142,7 @@ Partial Class FrmEventos
         Me.TableAdapterManager.AjudaEmpresaFacilTableAdapter = Nothing
         Me.TableAdapterManager.AlvaraSistemaTableAdapter = Nothing
         Me.TableAdapterManager.AnotacoesTableAdapter = Nothing
+        Me.TableAdapterManager.AvisosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BombeiroSituacaoTableAdapter = Nothing
         Me.TableAdapterManager.BrasilDistritosTableAdapter = Nothing
@@ -161,6 +163,8 @@ Partial Class FrmEventos
         Me.TableAdapterManager.LoginTableAdapter = Nothing
         Me.TableAdapterManager.MunicipioTableAdapter = Nothing
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
+        Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Nothing
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -268,7 +272,7 @@ Partial Class FrmEventos
         Me.BtnLimparEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnLimparEventos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnLimparEventos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnLimparEventos.Location = New System.Drawing.Point(676, 516)
+        Me.BtnLimparEventos.Location = New System.Drawing.Point(533, 515)
         Me.BtnLimparEventos.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnLimparEventos.Name = "BtnLimparEventos"
         Me.BtnLimparEventos.Size = New System.Drawing.Size(135, 32)
@@ -282,13 +286,27 @@ Partial Class FrmEventos
         Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEditar.ForeColor = System.Drawing.Color.Blue
-        Me.BtnEditar.Location = New System.Drawing.Point(533, 516)
+        Me.BtnEditar.Location = New System.Drawing.Point(390, 515)
         Me.BtnEditar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(135, 32)
         Me.BtnEditar.TabIndex = 47
         Me.BtnEditar.Text = "Editar"
         Me.BtnEditar.UseVisualStyleBackColor = False
+        '
+        'ButtonOk
+        '
+        Me.ButtonOk.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.ButtonOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonOk.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonOk.ForeColor = System.Drawing.Color.Blue
+        Me.ButtonOk.Location = New System.Drawing.Point(676, 515)
+        Me.ButtonOk.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ButtonOk.Name = "ButtonOk"
+        Me.ButtonOk.Size = New System.Drawing.Size(135, 32)
+        Me.ButtonOk.TabIndex = 48
+        Me.ButtonOk.Text = "Ok"
+        Me.ButtonOk.UseVisualStyleBackColor = False
         '
         'FrmEventos
         '
@@ -297,6 +315,7 @@ Partial Class FrmEventos
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(830, 559)
+        Me.Controls.Add(Me.ButtonOk)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnLimparEventos)
         Me.Controls.Add(Me.Label4)
@@ -347,4 +366,5 @@ Partial Class FrmEventos
     Friend WithEvents BtnEditar As Button
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents EventosDescrição As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonOk As Button
 End Class

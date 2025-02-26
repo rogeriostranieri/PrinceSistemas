@@ -73,7 +73,7 @@ Public Class BoxREDESIM
         ComboBox1.Items.Add("Consultar DBE")
         ComboBox1.Items.Add("Abrir CNPJ")
         ComboBox1.Items.Add("Meu CNPJ")
-        ComboBox1.SelectedIndex = 1
+        ComboBox1.SelectedIndex = 0
         Try
             AchaCidade()
 

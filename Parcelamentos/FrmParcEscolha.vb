@@ -368,18 +368,6 @@ Rogerio"
         End If
     End Sub
 
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        ' Verifica se a tecla pressionada é a tecla ESC
-        If e.KeyCode = Keys.Escape Then
-            ' Chama o método ConfirmarFechamento
-            If ConfirmarFechamento() Then
-                ' Fecha o formulário se confirmado
-                Me.Close()
-            End If
-        End If
-    End Sub
-
-
 
     Sub ProcessarTexto()
         Dim textoOriginal As String = "Olá," & vbCrLf &

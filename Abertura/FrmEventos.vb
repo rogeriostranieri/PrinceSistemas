@@ -417,4 +417,64 @@
         End If
         Me.Close()
     End Sub
+
+    Private Sub ButtonOk_Click(sender As Object, e As EventArgs) Handles ButtonOk.Click
+        ' Verifica se o formulário FrmLegalizacao está aberto
+        Dim frmLegalizacao As FrmLegalizacao = Application.OpenForms.OfType(Of FrmLegalizacao)().FirstOrDefault()
+        If frmLegalizacao Is Nothing Then
+            MessageBox.Show("O formulário de legalização não está aberto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Verifica se há um evento selecionado no DataGridView
+        If EventosEmpresaDataGridView.CurrentRow Is Nothing Then
+            MessageBox.Show("Nenhum evento foi selecionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Obtém o texto do evento selecionado
+        Dim textoEvento As String = EventosEmpresaDataGridView.CurrentRow.Cells(0).Value.ToString()
+
+        ' Tenta encontrar o título já presente no RichTextBox
+        Dim titulo As String = EncontrarTituloNoRichTextBox()
+
+        ' Se não encontrar o título, define-o com base no checkbox selecionado
+        If String.IsNullOrEmpty(titulo) Then
+            If EmpresaFacil.Checked Then
+                titulo = "EMPRESA FÁCIL"
+            ElseIf ReceitaFederal.Checked Then
+                titulo = "RECEITA FEDERAL"
+            ElseIf ReceitaEstadual.Checked Then
+                titulo = "RECEITA ESTADUAL"
+            ElseIf PrefeituraMunicipal.Checked Then
+                titulo = "PREFEITURA MUNICIPAL"
+            End If
+        End If
+
+        ' Caso o título ainda esteja vazio, informa ao usuário e encerra
+        If String.IsNullOrEmpty(titulo) Then
+            MessageBox.Show("Nenhum título foi selecionado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Verifica se o evento já foi adicionado ao RichTextBox
+        If VerificaEvento(titulo, textoEvento) Then
+            ' Se já existir, fecha o formulário atual
+            Me.Close()
+            Exit Sub
+        End If
+
+        ' Se não existir, pergunta se o usuário deseja adicioná-lo
+        Dim resultado As DialogResult = MessageBox.Show("Você selecionou o evento:" & vbCrLf &
+                                                         textoEvento & vbCrLf & vbCrLf &
+                                                         "Deseja adicioná-lo ao título '" & titulo & "'?",
+                                                         "Adicionar Evento", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If resultado = DialogResult.Yes Then
+            AdicionarEvento(titulo, textoEvento)
+        End If
+
+        ' Fecha o formulário
+        Me.Close()
+    End Sub
+
 End Class

@@ -301,7 +301,6 @@ Public Class FrmLegalizacao
 
             ' Atualiza dados
             AtualizaDados()
-
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro ao carregar o formulário." & vbCrLf & ex.Message,
                         "Prince Sistemas - Alerta",
@@ -393,54 +392,45 @@ Public Class FrmLegalizacao
 
     Private Sub ProcessoMudar()
         Try
-            ' Ocultar todos os controles inicialmente
+            ' Oculta todos os controles inicialmente
             HideAllControls()
 
-            ' Exibir controles específicos de acordo com o tipo de processo
-            Select Case ProcessoComboBox.Text
+            ' Exibe os controles conforme o tipo de processo selecionado
+            Select Case ProcessoComboBox.Text.Trim()
                 Case "Abertura"
                     SetupAbertura()
-
                 Case "Alteração"
                     SetupAlteracao()
-
                 Case "Baixa"
                     SetupBaixa()
-
                 Case Else
                     SetupOutro()
             End Select
         Catch ex As Exception
-            MessageBox.Show("Ocorreu um Erro ao Mudar o Processo" + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Linha em vermelho com erro", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocorreu um Erro ao Mudar o Processo" & vbCrLf & ex.Message,
+                        "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
     Private Sub HideAllControls()
-        ' Oculta todos os controles de forma eficiente
-        NAlteracaoComboBox.Visible = False
-        NAlteracaoLabel.Visible = False
-        AltConsolidadaComboBox.Visible = False
-        LabelConsolidar.Visible = False
-        GroupBox5.Visible = False
-        NovaRazaoSocialLabel.Visible = False
-        NovaRazaoSocialComboBox.Visible = False
-        CapitalAntigoMudouLabel.Visible = False
-        CapitalAntigoMudouComboBox.Visible = False
-        PictureBoxCentralProcesso.Visible = False
-        BtnVerNovoNome.Visible = False
+        ' Lista todos os controles que devem ser ocultados
+        Dim controles() As Control = {NAlteracaoComboBox, NAlteracaoLabel, AltConsolidadaComboBox,
+                                  LabelConsolidar, GroupBox5, NovaRazaoSocialLabel,
+                                  NovaRazaoSocialComboBox, CapitalAntigoMudouLabel,
+                                  CapitalAntigoMudouComboBox, PictureBoxCentralProcesso, BtnVerNovoNome}
+        For Each ctrl As Control In controles
+            ctrl.Visible = False
+        Next
     End Sub
 
     Private Sub SetupAbertura()
         ' Configurações para "Abertura"
         CapitalAntigoMudouLabel.Visible = True
         CapitalAntigoMudouComboBox.Visible = True
-        PictureBoxCentralProcesso.Visible = True
-        PictureBoxCentralProcesso.Image = My.Resources.AberturaEmpresa
-        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
-        BtnVerNovoNome.Visible = True
-        BtnVerNovoNome.Location = New Point(208, 111)
-        BtnVerNovoNome.Size = New Size(120, 24)
-        BtnVerNovoNome.Text = "Busca de Nome"
+
+        ConfigurePictureBox(My.Resources.AberturaEmpresa, True)
+
+        ConfigureButton(BtnVerNovoNome, True, "Busca de Nome", New Point(208, 111), New Size(120, 24))
     End Sub
 
     Private Sub SetupAlteracao()
@@ -450,27 +440,23 @@ Public Class FrmLegalizacao
         AltConsolidadaComboBox.Visible = True
         LabelConsolidar.Visible = True
         GroupBox5.Visible = True
-        PictureBoxCentralProcesso.Visible = True
-        PictureBoxCentralProcesso.Image = My.Resources.AlteracaoEmpresa
-        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
         NovaRazaoSocialLabel.Visible = True
         NovaRazaoSocialComboBox.Visible = True
         CapitalAntigoMudouLabel.Visible = True
         CapitalAntigoMudouComboBox.Visible = True
-        BtnVerNovoNome.Visible = True
-        BtnVerNovoNome.Location = New Point(391, 143)
-        BtnVerNovoNome.Size = New Size(50, 24)
-        BtnVerNovoNome.Text = "Ver"
+
+        ConfigurePictureBox(My.Resources.AlteracaoEmpresa, True)
+
+        ConfigureButton(BtnVerNovoNome, True, "Ver", New Point(391, 143), New Size(50, 24))
     End Sub
 
     Private Sub SetupBaixa()
         ' Configurações para "Baixa"
         CapitalAntigoMudouLabel.Visible = True
         CapitalAntigoMudouComboBox.Visible = True
-        PictureBoxCentralProcesso.Visible = True
-        PictureBoxCentralProcesso.Image = My.Resources.baixaEmpresa
-        PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
-        BtnVerNovoNome.Visible = False
+
+        ConfigurePictureBox(My.Resources.baixaEmpresa, True)
+        ' Em "Baixa", o botão não é exibido e os demais controles permanecem ocultos
     End Sub
 
     Private Sub SetupOutro()
@@ -483,12 +469,32 @@ Public Class FrmLegalizacao
         NovaRazaoSocialComboBox.Visible = True
         CapitalAntigoMudouLabel.Visible = True
         CapitalAntigoMudouComboBox.Visible = True
-        BtnVerNovoNome.Visible = True
-        BtnVerNovoNome.Location = New Point(391, 143)
-        BtnVerNovoNome.Size = New Size(50, 24)
-        BtnVerNovoNome.Text = "Ver"
+
+        ConfigureButton(BtnVerNovoNome, True, "Ver", New Point(391, 143), New Size(50, 24))
+
+        ' Neste caso, a PictureBox não será exibida
         PictureBoxCentralProcesso.Visible = False
     End Sub
+
+    ' Método auxiliar para configurar a PictureBox
+    Private Sub ConfigurePictureBox(imagem As Image, exibir As Boolean)
+        PictureBoxCentralProcesso.Visible = exibir
+        If exibir Then
+            PictureBoxCentralProcesso.Image = imagem
+            PictureBoxCentralProcesso.SizeMode = PictureBoxSizeMode.StretchImage
+        End If
+    End Sub
+
+    ' Método auxiliar para configurar o botão
+    Private Sub ConfigureButton(btn As Button, exibir As Boolean, texto As String, pos As Point, tam As Size)
+        btn.Visible = exibir
+        If exibir Then
+            btn.Text = texto
+            btn.Location = pos
+            btn.Size = tam
+        End If
+    End Sub
+
 
     Private Sub StatusMudar()
         Try
@@ -1875,6 +1881,14 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub BtnData2_Click(sender As Object, e As EventArgs) Handles BtnData2.Click
         DataProtJuntaComercialMaskedTextBox.Text = DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString()
+        'no status selecionar o texto =Empresa Fácil - Prefeitura: EM ANÁLISE
+        Try
+            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact("Empresa Fácil - Prefeitura: EM ANÁLISE")
+        Catch ex As Exception
+            MessageBox.Show("Erro ao alterar" + vbCrLf + ex.Message, "Prince Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'selecionar select all
+            '  StatusComboBox.SelectedText = "Não Iniciado"
+        End Try
     End Sub
 
     Private Sub BtnData3_Click(sender As Object, e As EventArgs) Handles BtnData3.Click
@@ -2580,10 +2594,11 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub ProcessoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ProcessoComboBox.SelectedIndexChanged
 
-        ProcessoMudar()
+        '  ProcessoMudar()
         StatusMudar()
         MudaContratoAviso()
         TipodeEmpresa()
+        ProcessoMudar()
     End Sub
 
     Private Sub MudaContratoAviso()
@@ -2593,10 +2608,11 @@ Precisa do Protocolo de Viabilidade da Empresa Fácil", "Prince Ajuda")
 
     Private Sub StatusComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StatusComboBox.SelectedIndexChanged
 
-        ProcessoMudar()
+        ' ProcessoMudar()
         StatusMudar()
         MudarStatusFinalizado()
         TipodeEmpresa()
+        ProcessoMudar()
     End Sub
     Private Sub MudarStatusFinalizado()
         Dim isFinalizado As Boolean = StatusComboBox.Text.Contains("Finalizado")
@@ -3188,29 +3204,38 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Try
             BtnBuscaCEP.Enabled = False
             BtnBuscaCEP.Text = "AGUARDE..."
+
             ' Chamar o método de busca de CEP no módulo
             Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(EndCEPMaskedTextBox.Text)
 
             If resultado IsNot Nothing Then
-
                 ' Modificar apenas a primeira letra para minúscula
                 EnderecoTextBox.Text = PrimeiraLetraMinuscula(resultado.logradouro)
-                'EndComplementoTextBox.Text = resultado.complemento
-                If EndComplementoTextBox.Text = "" Then
+
+                ' Preencher complemento caso esteja vazio
+                If String.IsNullOrWhiteSpace(EndComplementoTextBox.Text) Then
                     EndComplementoTextBox.Text = resultado.complemento
-                Else
-                    'nao faz nada
                 End If
+
                 EndCidadeTextBox.Text = resultado.localidade
                 EndBairroTextBox.Text = resultado.bairro
                 EndEstadoTextBox.Text = resultado.uf
 
-                BtnCorrigeCidade.PerformClick() ' corrigir o nome da cidade sem acentos
+                BtnCorrigeCidade.PerformClick() ' Corrigir o nome da cidade sem acentos
+
+                ' Buscar o nome correto da cidade na tabela BrasilMunicipios
+                Dim cidadeCorrigida As String = CorrigirNomeCidade(EndCidadeTextBox.Text)
+
+                ' Atualizar o campo com o nome corrigido, se encontrado
+                If Not String.IsNullOrEmpty(cidadeCorrigida) Then
+                    EndCidadeTextBox.Text = cidadeCorrigida
+                End If
 
                 BtnBuscaCEP.Text = "Preencher"
                 BtnBuscaCEP.Enabled = True
             Else
                 MessageBox.Show("CEP não encontrado.")
+                BtnBuscaCEP.Enabled = True
             End If
         Catch ex As ArgumentException
             MessageBox.Show(ex.Message)
@@ -3218,6 +3243,37 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
         End Try
     End Sub
+
+
+    Private Function CorrigirNomeCidade(nomeCidade As String) As String
+        Dim cidadeCorrigida As String = nomeCidade ' Retorna o próprio nome caso não encontre
+
+        ' Criar a conexão com o SQL Server
+        Using conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False")
+            Try
+                conexao.Open()
+
+                ' Consulta SQL usando collation acento-insensível e curingas
+                Dim sql As String = "SELECT Nome FROM BrasilMunicipios WHERE Nome COLLATE Latin1_General_CI_AI LIKE @Cidade ORDER BY LEN(Nome) ASC"
+
+                Using cmd As New SqlCommand(sql, conexao)
+                    ' Adiciona curingas para permitir a busca parcial
+                    cmd.Parameters.AddWithValue("@Cidade", "%" & nomeCidade & "%")
+
+                    Dim resultado As Object = cmd.ExecuteScalar()
+                    If resultado IsNot Nothing Then
+                        cidadeCorrigida = resultado.ToString()
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao buscar nome da cidade: " & ex.Message)
+            End Try
+        End Using
+
+        Return cidadeCorrigida
+    End Function
+
+
 
     ' Função que converte a primeira letra de um texto para minúscula
     Private Function PrimeiraLetraMinuscula(texto As String) As String
@@ -3234,26 +3290,30 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub TabControle_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControle.Selecting
         ' Verifique se o índice da aba selecionada é 3 (PAGE4 é a quarta aba, então o índice é 3)
         If e.TabPageIndex = 3 Then
-            ' Coloque aqui o código que você deseja executar quando entrar na PAGE4
-            ' Por exemplo:
+            ' Alternar para a aba correta
             TabControle.SelectTab(2)
             TabControle.SelectTab(3)
 
             ' Alterar texto do botão
             Try
-                If ProtocoloREDESIMTextBox.Text <> "" Then
+                Dim protocoloREDESIM As String = If(ProtocoloREDESIMTextBox.Text?.Trim(), "")
+                Dim protocoloJunta As String = If(ProtocoloJuntaComercialTextBox.Text?.Trim(), "")
+
+                If Not String.IsNullOrEmpty(protocoloREDESIM) Then
                     BtnConsultaRedeSim.Text = "Consultar"
-                ElseIf ProtocoloREDESIMTextBox.Text = "" Then
-                    If ProtocoloJuntaComercialTextBox.Text <> "" Then
-                        BtnConsultaRedeSim.Text = "Consultar"
-                        ProtocoloREDESIMTextBox.Text = ProtocoloJuntaComercialTextBox.Text
-                    End If
+                ElseIf Not String.IsNullOrEmpty(protocoloJunta) Then
+                    BtnConsultaRedeSim.Text = "Consultar"
+                    ProtocoloREDESIMTextBox.Text = protocoloJunta
                 Else
                     BtnConsultaRedeSim.Text = "Solicitar"
                 End If
 
-                ' Verificar se os protocolos são diferentes
-                If ProtocoloREDESIMTextBox.Text <> ProtocoloJuntaComercialTextBox.Text AndAlso Not avisoExibido Then
+                ' Verificar se os protocolos são diferentes, ignorando valores vazios
+                If Not String.IsNullOrEmpty(protocoloREDESIM) AndAlso
+               Not String.IsNullOrEmpty(protocoloJunta) AndAlso
+               protocoloREDESIM <> protocoloJunta AndAlso
+               Not avisoExibido Then
+
                     MessageBox.Show("Atenção! Os protocolos são diferentes. Verifique!", "Protocolos Diferentes", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     avisoExibido = True
                 End If
@@ -3264,6 +3324,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             avisoExibido = False
         End If
     End Sub
+
 
 
     Private Sub LinkLabeLPrazoEmpresaFacil_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabeLPrazoEmpresaFacil.LinkClicked
@@ -4114,29 +4175,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub EndCidadeTextBox_TextChanged(sender As Object, e As EventArgs) Handles EndCidadeTextBox.TextChanged
         EndCidadeTextBox.Text = StrConv(EndCidadeTextBox.Text, VbStrConv.ProperCase)
         EndCidadeTextBox.SelectionStart = EndCidadeTextBox.Text.Length
-    End Sub
 
-    Private Sub EnderecoTextBox_TextChanged(sender As Object, e As EventArgs) Handles EnderecoTextBox.TextChanged
-        Dim palavras() As String = EnderecoTextBox.Text.Split(" "c)
-
-        If palavras.Length > 1 Then
-            palavras(0) = palavras(0).ToLower
-            For i As Integer = 1 To palavras.Length - 1
-                palavras(i) = StrConv(palavras(i), VbStrConv.ProperCase)
-            Next
-            EnderecoTextBox.Text = String.Join(" ", palavras)
-        Else
-            EnderecoTextBox.Text = StrConv(EnderecoTextBox.Text, VbStrConv.ProperCase)
-        End If
-
-        EnderecoTextBox.SelectionStart = EnderecoTextBox.Text.Length
-
-        If EndCidadeTextBox.Text = "MARINGA" Then
-            EndCidadeTextBox.Text = "Maringá"
-        ElseIf EndCidadeTextBox.Text = "PAICANDU" Then
-            EndCidadeTextBox.Text = "Paiçandu"
-        ElseIf EndCidadeTextBox.Text = "NOVA ESPERANCA" Then
-            EndCidadeTextBox.Text = "Nova Esperança"
+        If EndCidadeLabel2.Text = "" Then 'EndEstadoLabel2
+            EndCidadeLabel2.Text = EndCidadeTextBox.Text
         End If
     End Sub
 
@@ -4158,6 +4199,10 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
             EndPaisTextBox.Text = "Brasil"
         Else
             EndPaisTextBox.Clear() ' Limpa o campo se o estado não for válido
+        End If
+
+        If EndEstadoLabel2.Text = "" Then 'EndEstadoLabel2
+            EndEstadoLabel2.Text = EndEstadoTextBox.Text
         End If
     End Sub
     '/////////////////////////////////
@@ -4358,10 +4403,9 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Sub
 
     Private Sub ProcessoComboBox_TextUpdate(sender As Object, e As EventArgs) Handles ProcessoComboBox.TextUpdate
-
-        ProcessoMudar()
         StatusMudar()
         MudaContratoAviso()
+        ProcessoMudar()
     End Sub
 
     ' registrar endereço antigo /////////////////////////////////
@@ -4369,6 +4413,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     Private Sub ButtonRegistrarEndAntigo_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarEndAntigo.Click
         Try
             If MessageBox.Show("Deseja registrar o antigo endereço?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                LiberaHistoricoEndereco()
+
                 ' Verifica se os campos estão visíveis
                 If EnderecoAntigoEmpLabel.Visible AndAlso EnderecoAntigoEmpRichTextBox.Visible Then
                     Dim enderecoParts As New List(Of String)
@@ -4394,16 +4440,15 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
                     Dim novoEndereco As String = $"{DateTime.Now:dd/MM/yyyy 'às' HH:mm} - Antigo Endereço.{vbCrLf}{enderecoLinha}{vbCrLf}{vbCrLf}{detalhesLinha}{vbCrLf}"
 
                     If Not String.IsNullOrWhiteSpace(EnderecoAntigoEmpRichTextBox.Text) Then
-                        If MessageBox.Show("Deseja limpar o antigo endereço para registrar o novo?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = DialogResult.Yes Then
-                            EnderecoAntigoEmpRichTextBox.Text = novoEndereco
-                        ElseIf DialogResult.No Then
-                            EnderecoAntigoEmpRichTextBox.AppendText("=====================================================" & vbCrLf & novoEndereco)
-                        ElseIf DialogResult.Cancel Then
-                            Exit Sub
-                        End If
+                        EnderecoAntigoEmpRichTextBox.AppendText(vbCrLf & "=====================================================" & vbCrLf & novoEndereco)
                     Else
                         EnderecoAntigoEmpRichTextBox.Text = novoEndereco
                     End If
+
+                    If MessageBox.Show("Deseja limpar o histórico de endereço antigo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                        LimparCamposEndereco()
+                    End If
+
                 Else
                     MessageBox.Show("Os campos do endereço antigo não estão visíveis.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
@@ -4413,22 +4458,65 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End Try
     End Sub
 
+    Private Sub LimparCamposEndereco()
+        Dim ControlesEndereco As Control() = {
+        CadImobTextBox, EndCEPMaskedTextBox, EnderecoTextBox, EndNumeroTextBox,
+        EndBairroTextBox, EndComplementoTextBox, EndCidadeTextBox, EndEstadoTextBox,
+        EndPaisTextBox, EndZonaTextBox, EndQuadraTextBox, EndDataTextBox,
+        AreaTextBox, Area2TextBox
+    }
 
-    Private Sub TemEnderecoAntigoEmpComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TemEnderecoAntigoEmpComboBox.SelectedIndexChanged
-        Try
-            ' se tiver com "Sim" mostra o  LinkLabelVerEndAntigo e o ButtonRegistrarEndAntigo se "Não" esconde
-            If TemEnderecoAntigoEmpComboBox.Text = "Sim" Then
-                LinkLabelVerEndAntigo.Visible = True
-                ButtonRegistrarEndAntigo.Visible = True
-            Else
-                LinkLabelVerEndAntigo.Visible = False
-                ButtonRegistrarEndAntigo.Visible = False
+        For Each ctrl As Control In ControlesEndereco
+            If TypeOf ctrl Is TextBox Then
+                DirectCast(ctrl, TextBox).Clear()
+            ElseIf TypeOf ctrl Is MaskedTextBox Then
+                DirectCast(ctrl, MaskedTextBox).Clear()
             End If
-        Catch ex As Exception
-            MessageBox.Show("Ocorreu um erro " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        Next
+        PontoDeReferenciaComboBox.SelectedIndex = -1
     End Sub
 
+    ' Método para bloquear os campos de endereço
+    Private Sub BloquearEndereco()
+        Dim ControlesEndereco As Control() = {
+        CadImobTextBox, EndCEPMaskedTextBox, EnderecoTextBox, EndNumeroTextBox,
+        EndBairroTextBox, EndComplementoTextBox, EndCidadeTextBox, EndEstadoTextBox,
+        EndPaisTextBox, EndZonaTextBox, EndQuadraTextBox, EndDataTextBox,
+        AreaTextBox, Area2TextBox
+    }
+
+        For Each ctrl As Control In ControlesEndereco
+            If TypeOf ctrl Is TextBox OrElse TypeOf ctrl Is MaskedTextBox Then
+                ctrl.Enabled = False
+                ctrl.BackColor = SystemColors.Control
+            End If
+        Next
+        PontoDeReferenciaComboBox.Enabled = False
+    End Sub
+
+    ' Método para desbloquear os campos de endereço
+    Private Sub DesbloquearEndereco()
+        Dim ControlesEndereco As Control() = {
+        CadImobTextBox, EndCEPMaskedTextBox, EnderecoTextBox, EndNumeroTextBox,
+        EndBairroTextBox, EndComplementoTextBox, EndCidadeTextBox, EndEstadoTextBox,
+        EndPaisTextBox, EndZonaTextBox, EndQuadraTextBox, EndDataTextBox,
+        AreaTextBox, Area2TextBox
+    }
+
+        For Each ctrl As Control In ControlesEndereco
+            If TypeOf ctrl Is TextBox OrElse TypeOf ctrl Is MaskedTextBox Then
+                ctrl.Enabled = True
+                ctrl.BackColor = SystemColors.Window
+            End If
+        Next
+        PontoDeReferenciaComboBox.Enabled = True
+    End Sub
+
+
+
+    ' Método para limpar os campos de endereço
+
+    '/////////////////////////////////////////////////////////////
     Private Sub LinkLabelVerEndAntigo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelVerEndAntigo.LinkClicked
         'foca no EnderecoAntigoEmpRichTextBox
         EnderecoAntigoEmpRichTextBox.Focus()
@@ -4448,5 +4536,38 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Catch ex As Exception
             MessageBox.Show("Ocorreu um erro " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub TemEnderecoAntigoEmpComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TemEnderecoAntigoEmpComboBox.SelectedIndexChanged
+        If TemEnderecoAntigoEmpComboBox.Text = "Sim" Then
+            ButtonRegistrarEndAntigo.Visible = True
+            LinkLabelVerEndAntigo.Visible = True
+            DesbloquearEndereco()
+            LiberaHistoricoEndereco()
+
+        ElseIf TemEnderecoAntigoEmpComboBox.Text = "Não" Then
+            ButtonRegistrarEndAntigo.Visible = False
+            LinkLabelVerEndAntigo.Visible = False
+            DesbloquearEndereco()
+            BloqueiaHistoricoEndereco()
+        Else
+            BloquearEndereco()
+            BloqueiaHistoricoEndereco()
+
+        End If
+    End Sub
+
+    Private Sub LiberaHistoricoEndereco()
+        EnderecoAntigoEmpRichTextBox.Visible = True
+        EnderecoAntigoEmpLabel.Visible = True
+        ButtonEndAntigoVoltar.Visible = True
+        ButtonLimpaEndAntigo.Visible = True
+    End Sub
+
+    Private Sub BloqueiaHistoricoEndereco()
+        EnderecoAntigoEmpRichTextBox.Visible = False
+        EnderecoAntigoEmpLabel.Visible = False
+        ButtonEndAntigoVoltar.Visible = False
+        ButtonLimpaEndAntigo.Visible = False
     End Sub
 End Class

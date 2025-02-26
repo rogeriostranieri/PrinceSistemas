@@ -680,7 +680,7 @@ Public Class FrmExtraiCNPJ
                         Dim numero As String = json_obj.Item("numero").ToString
                         Dim complemento As String = json_obj.Item("complemento").ToString
                         Dim bairro As String = json_obj.Item("bairro").ToString
-                        Dim municipio As String = json_obj.Item("municipio").ToString
+                        Dim municipio As String = json_obj.Item("municipio").ToString 'antigo
                         Dim uf As String = json_obj.Item("uf").ToString
                         Dim cep As String = json_obj.Item("cep").ToString
 
@@ -738,6 +738,9 @@ Public Class FrmExtraiCNPJ
 
                         '////// FIM DO CODIGO DO CNAE ///////
 
+
+
+
                         '//////////////////////////////////   IMPORTAÇÂO  ///////////////////////////////////////
 
                         'INICIA A LEGALIZAÇÃO
@@ -775,7 +778,12 @@ Public Class FrmExtraiCNPJ
                         frmLegalizacao.EndNumeroTextBox.Text = numero
                         frmLegalizacao.EndComplementoTextBox.Text = complemento
                         frmLegalizacao.EndBairroTextBox.Text = bairro
+                        '////////////  INICIO arruma cidade
                         frmLegalizacao.EndCidadeTextBox.Text = municipio
+                        ' Passa o valor da cidade para a função de correção
+                        frmLegalizacao.EndCidadeTextBox.Text = ObterNomeCorretoCidade(frmLegalizacao.EndCidadeTextBox.Text)
+
+                        '////////////  FIM arruma cidade
                         frmLegalizacao.EndEstadoTextBox.Text = uf
                         frmLegalizacao.EndCEPMaskedTextBox.Text = cep
 
@@ -839,8 +847,8 @@ Public Class FrmExtraiCNPJ
 
                         'FINALIZAR //////////////////////////////////////////////////
 
-                        frmLegalizacao.TabControl2.SelectedIndex = -1
-                        frmLegalizacao.TabControl1.SelectedIndex = -1
+                        frmLegalizacao.TabControl2.SelectedIndex = 1
+                        frmLegalizacao.TabControl1.SelectedIndex = 4
 
                         AguardeEsconder()
 
@@ -927,7 +935,43 @@ Public Class FrmExtraiCNPJ
         Me.Close()
     End Sub
 
+    Private Function ObterNomeCorretoCidade(ByVal nomeCidade As String) As String
+        Dim CidadeCorreta As String = nomeCidade ' Retorna o próprio nome caso não encontre
 
+        ' Criar a conexão com o SQL Server
+        Using conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False")
+            Try
+                conexao.Open()
+
+                ' Consulta SQL para buscar o nome correto da cidade na tabela BrasilMunicipios,
+                ' usando collation acento-insensível (Latin1_General_CI_AI)
+                Dim sql As String = "SELECT Nome FROM BrasilMunicipios WHERE Nome COLLATE Latin1_General_CI_AI LIKE @Cidade ORDER BY LEN(Nome) ASC"
+
+                Using cmd As New SqlCommand(sql, conexao)
+                    cmd.Parameters.AddWithValue("@Cidade", "%" & nomeCidade & "%")
+
+                    Dim resultado As Object = cmd.ExecuteScalar()
+                    If resultado IsNot Nothing Then
+                        CidadeCorreta = resultado.ToString()
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao buscar nome da cidade: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+
+        ' Exibir mensagem com a cidade encontrada
+        MessageBox.Show("A empresa é da cidade de: " & CidadeCorreta, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Return CidadeCorreta
+    End Function
+
+
+
+
+
+
+    '//////////////////////////////
     Private Sub VerificarCNPJEmpresas(cnpj As String)
         ' O CNPJ está no formato já formatado com máscara
         Dim cnpjFormatado As String = cnpj

@@ -3,7 +3,7 @@
 Module ModuloBuscaCEP
     Public Async Function BuscarCEPAsync(cep As String) As Task(Of ViaCEP)
         ' Remover qualquer caractere não numérico do CEP
-        Dim CepLimpo As String = New String(cep.Where(AddressOf Char.IsDigit).ToArray())
+        Dim CepLimpo As New String(cep.Where(AddressOf Char.IsDigit).ToArray())
 
         If CepLimpo.Length <> 8 Then
             Throw New ArgumentException("CEP inválido. Por favor, insira um CEP válido.")
@@ -27,13 +27,13 @@ Module ModuloBuscaCEP
     End Function
 
     Public Class ViaCEP
-        Public Property cep As String
-        Public Property logradouro As String
-        Public Property complemento As String
-        Public Property bairro As String
-        Public Property localidade As String
-        Public Property uf As String
-        Public Property erro As String
+        Public Property Cep As String
+        Public Property Logradouro As String
+        Public Property Complemento As String
+        Public Property Bairro As String
+        Public Property Localidade As String
+        Public Property Uf As String
+        Public Property Erro As String
     End Class
 End Module
 

@@ -215,7 +215,7 @@ Public Class BoxJuntaComercial
         ComboBoxEscolhaProtocolo.Items.Add("Redesim")
 
         ' Seleciona o primeiro item por padrão (índice 0)
-        ComboBoxEscolhaProtocolo.SelectedIndex = -1
+        ComboBoxEscolhaProtocolo.SelectedIndex = 0
         ' Ou selecione um item específico pelo valor:
         ' ComboBoxEscolhaProtocolo.SelectedItem = "Redesim"
         Try
