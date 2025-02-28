@@ -235,14 +235,13 @@ Public Class Avisos
         Dim Protocolos As FrmProtocoladosGeral = Application.OpenForms.OfType(Of FrmProtocoladosGeral)().FirstOrDefault()
 
         ' Se já existir uma instância, foca no formulário
-        If Protocolos IsNot Nothing Then
-            Protocolos.Focus()
+        If FrmProtocoladosGeral IsNot Nothing Then
+            FrmProtocoladosGeral.Focus()
         Else
-            ' Se não existir, cria uma nova instância e define o MDI parent
-            Protocolos = New FrmProtocoladosGeral With {
-                .MdiParent = MDIPrincipal
-            }
-            Protocolos.Show()
+
+            FrmProtocoladosGeral.MdiParent = MDIPrincipal
+
+            FrmProtocoladosGeral.Show()
         End If
     End Sub
 
@@ -523,4 +522,6 @@ Public Class Avisos
 
         End If
     End Sub
+
+
 End Class

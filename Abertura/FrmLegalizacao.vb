@@ -6,7 +6,7 @@ Imports System.Text
 
 
 Public Class FrmLegalizacao
-    ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+    ' ReadOnly str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
     ReadOnly connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
 
 
@@ -19,18 +19,19 @@ Public Class FrmLegalizacao
 
 
 
-    Private Sub Bloquear()
-        ' Bloqueando todos os TextBox para edição, utilizando o namespace completo
+    ' Método para bloquear ou desbloquear TextBox
+    Private Sub SetTextBoxEnabled(enabled As Boolean)
         For Each txt As System.Windows.Forms.TextBox In Me.Controls.OfType(Of System.Windows.Forms.TextBox)()
-            txt.Enabled = False
+            txt.Enabled = enabled
         Next
     End Sub
 
+    Private Sub Bloquear()
+        SetTextBoxEnabled(False)
+    End Sub
+
     Private Sub Desbloquear()
-        ' Desbloqueando todos os TextBox para edição, utilizando o namespace completo
-        For Each txt As System.Windows.Forms.TextBox In Me.Controls.OfType(Of System.Windows.Forms.TextBox)()
-            txt.Enabled = True
-        Next
+        SetTextBoxEnabled(True)
     End Sub
 
 
@@ -326,20 +327,29 @@ Public Class FrmLegalizacao
     End Sub
 
     Private Sub AtualizaDados()
-        BtnEditar.Text = "Editar"
-        Editar()
-        InicializarControles()
-        VerificarFiliais()
-        VerificarAvisoEmpresa()
-        StatusMudar()
-        MudaContratoAviso()
+        Try
+            ' Definir o texto do botão Editar
+            BtnEditar.Text = "Editar"
 
-        ' Chama ProcessoMudar apenas se houver item selecionado
-        If EmpresasBindingSource.Current IsNot Nothing Then
-            ProcessoMudar()
-            TipodeEmpresa()
-        End If
+            ' Chamar métodos auxiliares para atualizar os dados e a interface
+            Editar()
+            InicializarControles()
+            VerificarFiliais()
+            VerificarAvisoEmpresa()
+            StatusMudar()
+            MudaContratoAviso()
+
+            ' Chamar ProcessoMudar apenas se houver item selecionado
+            If EmpresasBindingSource.Current IsNot Nothing Then
+                ProcessoMudar()
+                TipodeEmpresa()
+            End If
+        Catch ex As Exception
+            ' Tratar erros e exibir mensagem ao usuário
+            MessageBox.Show("Erro ao atualizar dados: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
 
 
@@ -3165,7 +3175,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ' O CNPJ está no formato já formatado com máscara
         Dim cnpjFormatado As String = cnpj
 
-        Using connection As New SqlConnection(str)
+        Using connection As New SqlConnection(connectionString)
             Try
                 connection.Open()
 
@@ -3659,27 +3669,7 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
     End Function
 
 
-
-
-    'Private Sub BtnCopiarCapital_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapital.Click
-    '
-    ' End Sub
-
-
-    'CapitalSTextBox
-    'CapitalQuotaValorTextBox
-    'ambos textbox vai ter valor numerico em formato da moeda 
-    'a moeda vai estar antes do numeros exemplo "R$ 10.000,00" entao precisa de um private so para reconhecer todas as moedas 
-    'vai precisar escrever por exetenso o numero entre parenteses assim como a moeda, exemplo = "R$ 1.000,00 (um mil reais)"
-    ' deverar depois colocar no meu copiar o seguinte texto, EXEMPLO: "O capital social será R$ 50.000,00 (cinquenta mil reais) divididos em 50.000 (cinquenta mil) quotas de valor nominal R$1,00 (um real)" onde vai subistituir os numeros pelos que tem na textbox e tambem a moeda tambem
-    ' Dim unidades As String() = {"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
-    ' Dim dezenas As String() = {"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
-    ' Dim especiais As String() = {"dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"}
-    'CultureInfo para moedas em reais ou dolar ou outra moeda pois vai ter cifrao antes dos numeroes
-
-    '///////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////'
-    '////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////
 
 
     Private Sub BtnCopiarCapital_Click(sender As Object, e As EventArgs) Handles BtnCopiarCapital.Click
@@ -3760,61 +3750,62 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         Dim unidades As String() = {"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
         Dim dezenas As String() = {"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
         Dim especiais As String() = {"dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"}
-        Dim centenas As String() = {"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}
+        Dim centenas As String() = {"", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}
+
+        If value = 0 Then Return "zero"
 
         Dim inteiro As Long = CLng(Math.Floor(value))
-        Dim centavos As Long = CLng((value - inteiro) * 100)
-
         Dim partes As New List(Of String)
 
-        If inteiro > 0 Then
-            ' Verificar milhares
-            If inteiro >= 1000 Then
-                Dim milhar As Long = inteiro \ 1000
-                partes.Add(NumberToWords(milhar) & " mil")
-                inteiro -= milhar * 1000
-            End If
-
-            ' Verificar centenas
-            If inteiro >= 100 Then
-                Dim centena As Long = inteiro \ 100
-                If centena = 1 AndAlso inteiro Mod 100 = 0 Then
-                    partes.Add("cem") ' "Cem" é usado quando o valor é exatamente 100
-                Else
-                    partes.Add(centenas(centena))
-                End If
-                inteiro -= centena * 100
-            End If
-
-            ' Verificar dezenas
-            If inteiro >= 20 Then
-                partes.Add(dezenas(inteiro \ 10))
-                inteiro -= (inteiro \ 10) * 10
-            ElseIf inteiro >= 10 Then
-                partes.Add(especiais(inteiro - 10))
-                inteiro = 0
-            End If
-
-            ' Verificar unidades
-            If inteiro > 0 Then
-                partes.Add(unidades(inteiro))
-            End If
+        ' Processar milhões
+        If inteiro >= 1000000 Then
+            Dim milhoes As Long = inteiro \ 1000000
+            partes.Add(If(milhoes = 1, "um milhão", NumberToWords(milhoes) & " milhões"))
+            inteiro -= milhoes * 1000000
         End If
 
-        ' Construir a string final e adicionar "e" entre as partes, se necessário
+        ' Processar milhares
+        If inteiro >= 1000 Then
+            Dim milhar As Long = inteiro \ 1000
+            If milhar = 1 Then
+                partes.Add("mil")
+            Else
+                partes.Add(NumberToWords(milhar) & " mil")
+            End If
+            inteiro -= milhar * 1000
+        End If
+
+        ' Processar centenas
+        If inteiro >= 100 Then
+            Dim centena As Long = inteiro \ 100
+            If centena = 1 AndAlso inteiro Mod 100 = 0 Then
+                partes.Add("cem")
+            Else
+                partes.Add(centenas(centena))
+            End If
+            inteiro -= centena * 100
+        End If
+
+        ' Processar dezenas e unidades
+        If inteiro >= 20 Then
+            partes.Add(dezenas(inteiro \ 10))
+            inteiro -= (inteiro \ 10) * 10
+        ElseIf inteiro >= 10 Then
+            partes.Add(especiais(inteiro - 10))
+            inteiro = 0
+        End If
+
+        ' Processar unidades
+        If inteiro > 0 Then
+            partes.Add(unidades(inteiro))
+        End If
+
+        ' Construção final garantindo a separação correta com "e"
         Dim resultado As String = String.Empty
         If partes.Count = 1 Then
             resultado = partes(0)
-        ElseIf partes.Count = 2 Then
-            resultado = partes(0) & " e " & partes(1)
-        ElseIf partes.Count >= 3 Then
-            resultado = String.Join(", ", partes.Take(partes.Count - 1)) & " e " & partes.Last()
-        End If
-
-        ' Adicionar a palavra "centavos" se houver centavos
-        If centavos > 0 Then
-            Dim centavosExtenso As String = If(centavos = 1, "centavo", "centavos")
-            resultado &= $" e {NumberToWords(centavos)} {centavosExtenso}"
+        Else
+            resultado = String.Join(" e ", partes)
         End If
 
         Return resultado.Trim()
@@ -3822,6 +3813,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
 
 
 
+
+    ' //////////////////// FIM CAPITAL SOCIAL 
     Private Sub CNAESecundarioRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles CNAESecundarioRichTextBox.TextChanged
         ' Conta as linhas dividindo o texto por quebras de linha (cobrindo todos os tipos de delimitadores)
         Dim linhas As Integer = CNAESecundarioRichTextBox.Text.Split({vbCr, vbLf}, StringSplitOptions.RemoveEmptyEntries).Length

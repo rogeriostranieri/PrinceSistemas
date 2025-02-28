@@ -7,61 +7,99 @@ Public Class MDIPrincipal
     Private Sub BuscaLogin()
         Dim conexao As SqlConnection
         Dim comando As SqlCommand
-        Dim da As SqlDataAdapter
+        'Dim da As SqlDataAdapter
         Dim dr As SqlDataReader
 
-        conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
-        conexao.Open()
+        Try
+            ' Cria a conexão com o banco de dados
+            conexao = New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755")
+            conexao.Open()
 
-        ' Busca o login do usuário logado
-        comando = New SqlCommand("SELECT * FROM LOGIN WHERE USUARIO = @Usuario", conexao)
-        comando.Parameters.AddWithValue("@Usuario", Login.txtUsername.Text)
-        da = New SqlDataAdapter(comando)
-        dr = comando.ExecuteReader()
+            ' Verifica se o usuário logado existe no banco
+            comando = New SqlCommand("SELECT * FROM LOGIN WHERE USUARIO = @Usuario", conexao)
+            comando.Parameters.AddWithValue("@Usuario", Login.UsuarioLogado) ' Usa a variável global UsuarioLogado
 
-        If dr.Read() Then
-            Dim nomeCompleto As String = dr("NomeCompleto").ToString()
-            Dim dataNascimento As DateTime = Convert.ToDateTime(dr("DataNascimento"))
+            ' Executa a consulta e lê os dados
+            dr = comando.ExecuteReader()
 
-            ' Verifica se hoje é o aniversário
-            If dataNascimento.Month = DateTime.Now.Month And dataNascimento.Day = DateTime.Now.Day Then
-                ' Abre o formulário de parabéns
-                Dim frmParabens As New FrmParabens With {
+            If dr.Read() Then
+                ' Obtém os dados do usuário
+                Dim nomeCompleto As String = dr("NomeCompleto").ToString()
+                Dim dataNascimento As DateTime = Convert.ToDateTime(dr("DataNascimento"))
+
+                ' Verifica se hoje é o aniversário do usuário
+                If dataNascimento.Month = DateTime.Now.Month AndAlso dataNascimento.Day = DateTime.Now.Day Then
+                    ' Abre o formulário de parabéns
+                    Dim frmParabens As New FrmParabens With {
                     .UsuarioLogado = nomeCompleto,
                     .MdiParent = Me
                 }
-                ' Posiciona o formulário abaixo do ButtonEmpresas
-                Dim btnEmpresasPos As Point = ButtonEmpresas.PointToScreen(Point.Empty)
-                frmParabens.StartPosition = FormStartPosition.Manual
-                frmParabens.Location = New Point(btnEmpresasPos.X, btnEmpresasPos.Y + ButtonEmpresas.Height)
 
-                frmParabens.Show()
+                    ' Posiciona o formulário de parabéns abaixo do botão Empresas
+                    Dim btnEmpresasPos As Point = ButtonEmpresas.PointToScreen(Point.Empty)
+                    frmParabens.StartPosition = FormStartPosition.Manual
+                    frmParabens.Location = New Point(btnEmpresasPos.X, btnEmpresasPos.Y + ButtonEmpresas.Height)
+
+                    frmParabens.Show()
+                End If
+
+                ' Atualiza o nome completo e tema no MDI principal
+                LblNomeCompleto.Text = "Bem vindo Sr(a). " & nomeCompleto & "!"
+                LbTema.Text = dr("Tema").ToString()
+
+                ' Muda a cor dos labels
+                LblNomeCompleto.ForeColor = Color.White
+                LbTema.ForeColor = Color.Black
+
+                ' Configura o plano de fundo de acordo com o tema
+                Try
+                    Dim imagesPath As String = Path.Combine(Application.StartupPath, "Imagens\Plano de Fundo")
+
+                    If Directory.Exists(imagesPath) Then
+                        Dim tema As String = dr("Tema").ToString()
+                        Dim imageFound As Boolean = False
+
+                        ' Verifica se existe alguma imagem que corresponda ao tema
+                        For Each img As String In Directory.GetFiles(imagesPath)
+                            Dim imgName As String = Path.GetFileName(img)
+                            Debug.WriteLine("Verificando imagem: " & imgName) ' Verifique no Output se o nome da imagem está correto
+
+                            ' Verifica se o nome da imagem começa com o tema
+                            If imgName.StartsWith(tema, StringComparison.OrdinalIgnoreCase) Then
+                                BackgroundImage = Image.FromFile(img)
+                                BackgroundImageLayout = ImageLayout.Stretch
+                                imageFound = True
+                                Exit For
+                            End If
+                        Next
+
+                        If Not imageFound Then
+                            MsgBox("Imagem de fundo não encontrada para o tema: " & tema)
+                        End If
+                    Else
+                        MsgBox("Diretório de imagens não encontrado.")
+                    End If
+                Catch ex As Exception
+                    MsgBox("Erro ao carregar imagem de fundo: " & ex.Message)
+                End Try
+            Else
+                ' Caso o usuário não exista no banco
+                MsgBox("Usuário não encontrado!")
             End If
 
-            ' Atualiza o nome completo e tema no MDI principal
-            LblNomeCompleto.Text = "Bem vindo Sr(a). " & nomeCompleto & "!"
-            LbTema.Text = dr("Tema").ToString()
+        Catch ex As Exception
+            ' Exibe erro em caso de falha
+            MsgBox("Erro ao conectar com o banco de dados: " & ex.Message)
+        Finally
+            ' Certifique-se de fechar a conexão
+            If conexao.State = ConnectionState.Open Then
+                conexao.Close()
+                Login.UsuarioLogado = Nothing
 
-            ' Mudar a cor dos labels
-            LblNomeCompleto.ForeColor = Color.White
-            LbTema.ForeColor = Color.Black
-
-            ' Configurar o plano de fundo de acordo com o tema
-            Try
-                For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo")
-                    Dim imgName As String = IO.Path.GetFileName(img)
-                    If imgName.StartsWith(dr("Tema").ToString()) Then
-                        BackgroundImage = Image.FromFile(img)
-                        BackgroundImageLayout = ImageLayout.Stretch
-                    End If
-                Next
-            Catch ex As Exception
-                MsgBox("Erro ao carregar imagem de fundo")
-            End Try
-        End If
-
-        conexao.Close()
+            End If
+        End Try
     End Sub
+
 
 
     'fim do codigo do TEMA
@@ -85,6 +123,7 @@ Public Class MDIPrincipal
 
         'fundo padrao inicial
 
+        'MessageBox.Show("Bem-vindo, " & Login.UsuarioLogado, "Usuário Logado", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         BuscaLogin()
 

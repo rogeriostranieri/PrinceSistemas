@@ -2,118 +2,126 @@ Imports System.Data.SqlClient
 
 Public Class Login
 
-    ' TODO: Inserir código para realizar autenticação personalizada utilizando o nome de usuário e senha fornecidos 
-    ' (Consulte https://go.microsoft.com/fwlink/?LinkId=35339).  
-    ' A entidade de segurança personalizada pode ser anexada à entidade de segurança da thread atual da seguinte forma: 
-    '     My.User.CurrentPrincipal = CustomPrincipal
-    ' onde CustomPrincipal é a implementação de IPrincipal usada para realizar a autenticação. 
-    ' Subsequentemente, My.User irá retornar informações de identificação encapsuladas num objeto CustomPrincipal
-    ' como nome de usuário, nome de exibição etc.
-    Private Sub ConnectToSQL()
+    ' Variável pública para armazenar o nome do usuário logado
+    Public Shared UsuarioLogado As String
 
-        If txtUsername.Text.Length <= 0 Then
+    ' Connection string – para produção, armazene em um arquivo de configuração com segurança
+    Private Const connectionString As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
+
+    ''' <summary>
+    ''' Efetua a autenticação do usuário, validando as entradas e consultando o banco de dados.
+    ''' </summary>
+    Private Sub ConnectToSQL()
+        ' Valida os campos de entrada
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
             MessageBox.Show("Digite o nome de Usuário!")
-        ElseIf txtPassword.Text.Length <= 0 Then
-            MessageBox.Show("Digite sua Senha")
+            txtUsername.Focus()
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            MessageBox.Show("Digite sua Senha!")
+            txtPassword.Focus()
+            Return
         End If
 
         Try
-            Dim str As String = "Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755"
-            Dim sql As String = "select count(*) from Login where Usuario=@Usuario and Senha=@Senha"
-            Using Conn As New SqlConnection(str)
-                Using cmd As New SqlCommand(sql, Conn)
-                    Conn.Open()
-                    cmd.Parameters.AddWithValue("@Usuario", txtUsername.Text)
-                    cmd.Parameters.AddWithValue("@Senha", txtPassword.Text)
-                    Dim value = cmd.ExecuteScalar()
-                    If value > 0 Then
+            ' Consulta para autenticação com validação de usuário e senha
+            Dim sqlQuery As String = "SELECT COUNT(*) FROM Login WHERE Usuario = @Usuario AND Senha = @Senha"
+            ' Consulta para verificar se o usuário existe (usada em caso de senha incorreta)
+            Dim userExistsQuery As String = "SELECT COUNT(*) FROM Login WHERE Usuario = @Usuario"
 
-                        'MessageBox.Show("Seja Bem Vindo!")
-                        FimData1()
+            Using conn As New SqlConnection(connectionString)
+                conn.Open()
+                Using cmd As New SqlCommand(sqlQuery, conn)
+                    cmd.Parameters.AddWithValue("@Usuario", txtUsername.Text.Trim())
+                    cmd.Parameters.AddWithValue("@Senha", txtPassword.Text.Trim())
+                    Dim loginCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
 
-                        MDIPrincipal.Show()
-                        Me.Hide()
+                    If loginCount > 0 Then
+                        ' Armazena o nome do usuário logado na variável global
+                        UsuarioLogado = txtUsername.Text.Trim()
+
+                        ' Autenticação bem-sucedida: verifica a expiração da licença e abre a tela principal
+                        ModData.FimData1()  ' Verifica se há poucos dias para expiração ou se já expirou
+                        '  Dim mdiPrincipalForm As New MDIPrincipal()
+                        MDIPrincipal.Show() ' Exibe o formulário principal
+                        Me.Hide() ' Oculta o formulário de login
                     Else
-                        '  MessageBox.Show("Usuário ou Senha incorreta!")
-                        'verificar se é senha ou login incorreto
-                        Dim sql2 As String = "select count(*) from Login where Usuario=@Usuario"
-                        Using Conn2 As New SqlConnection(str)
-                            Using cmd2 As New SqlCommand(sql2, Conn2)
-                                Conn2.Open()
-                                cmd2.Parameters.AddWithValue("@Usuario", txtUsername.Text)
-                                Dim value2 = cmd2.ExecuteScalar()
-                                If value2 > 0 Then
-                                    MessageBox.Show("Senha incorreta!")
-                                Else
-                                    MessageBox.Show("Usuário não existe!")
-                                End If
-                            End Using
+                        ' Se a autenticação falhar, verifica se o usuário existe para informar corretamente o erro
+                        Using cmdUser As New SqlCommand(userExistsQuery, conn)
+                            cmdUser.Parameters.AddWithValue("@Usuario", txtUsername.Text.Trim())
+                            Dim userCount As Integer = Convert.ToInt32(cmdUser.ExecuteScalar())
+                            If userCount > 0 Then
+                                MessageBox.Show("Senha incorreta!")
+                            Else
+                                MessageBox.Show("Usuário não existe!")
+                            End If
                         End Using
                     End If
                 End Using
-
             End Using
-        Catch error_t As Exception
-            'MsgBox(error_t.ToString)
+
+        Catch ex As Exception
+            ' Em produção, registrar o erro detalhado em log para análise
             MessageBox.Show("Erro ao conectar com o Banco de Dados!")
         End Try
-
     End Sub
 
+    ' Evento do botão OK (Login)
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         ConnectToSQL()
 
     End Sub
 
+    ' Evento do botão Cancel – encerra a aplicação
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
         Application.Exit()
     End Sub
 
+    ' Evento do botão para exibir a AboutBox
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         AboutBox.ShowDialog()
     End Sub
 
+    ' Evento de carregamento do formulário de Login
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'chama validação da expiração
-        Call ModData.FimData()
-        'continua
-        'bloquear print da senha deste form
-        'MOD ProtecaoContraPrintScreen
-        ProtecaoContraPrintScreen(Me, True)
-
-
+        '  ModData.LogError("Login_Load chamado")
+        Try
+            ' ModData.FimData()
+            ' ModData.LogError("FimData executado com sucesso no Login_Load")
+            ProtecaoContraPrintScreen(Me, True)
+            '  ModData.LogError("ProtecaoContraPrintScreen executado com sucesso no Login_Load")
+        Catch ex As Exception
+            ' ModData.LogError("Erro no Login_Load: " & ex.Message)
+            MessageBox.Show("Erro ao carregar o Login: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
+    ' Evento do botão que tenta iniciar o serviço SQL se houver erro de conexão
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'perguntar antes "Está com erro de conexão no banco de dados?"
         If MessageBox.Show("Está com erro de conexão no banco de dados?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             Dim psi As New ProcessStartInfo With {
-                .Verb = "runas", ' aka run as administrator
+                .Verb = "runas", ' Executa como administrador
                 .FileName = "cmd.exe",
-                .Arguments = "/c net start ""SQL Server (PRINCE)""
-ECHO %batchName% Arguments: P1=%1 P2=%2 P3=%3 P4=%4 P5=%5 P6=%6 P7=%7 P8=%8 P9=%9
-cmd /k" ' <- pass arguments for the command you want to run
-                }
+                .Arguments = "/c net start ""SQL Server (PRINCE)"" & pause"
+            }
 
             Try
-                Process.Start(psi) ' <- run the process (user will be prompted to run with administrator access)
-            Catch error_t As Exception
-                MsgBox(error_t.ToString)
+                Process.Start(psi)
+            Catch ex As Exception
+                MessageBox.Show("Erro ao tentar iniciar o serviço SQL: " & ex.Message)
             End Try
         End If
-
-
     End Sub
 
+    ' Evento para alternar a visibilidade da senha digitada
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        'se estiver marcado mostrar a senha ou ocultar
-        If CheckBox1.Checked = True Then
-            'mostrar senha digita
-            txtPassword.PasswordChar = ""
-
+        If CheckBox1.Checked Then
+            txtPassword.PasswordChar = ControlChars.NullChar ' Exibe a senha
         Else
-            'ocultar senha novamente
-            txtPassword.PasswordChar = "*"
+            txtPassword.PasswordChar = "*"c ' Oculta a senha
         End If
     End Sub
+
 End Class

@@ -404,10 +404,9 @@ Public Class FrmExtraiCNPJ
                 FrmLegalizacao.EmpInicioAtividadeMaskedTextBox.Text = valor
                 ' Adicione mais casos conforme necessário
         End Select
+
+        FrmLegalizacao.EndCidadeTextBox.Text = ObterNomeCorretoCidade(FrmLegalizacao.EndCidadeTextBox.Text)
         'Dim CNPJ As String = FrmLegalizacao.CNPJMaskedTextBox.Text
-
-
-
 
     End Sub
 
