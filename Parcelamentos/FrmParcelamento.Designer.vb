@@ -85,7 +85,6 @@ Partial Class FrmParcelamento
         Me.BtnCopiarCNPJ = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.MEICheckBox = New System.Windows.Forms.CheckBox()
-        Me.InssAntigoCheckBox = New System.Windows.Forms.CheckBox()
         Me.InssNovoCheckBox = New System.Windows.Forms.CheckBox()
         Me.InssProcurCheckBox = New System.Windows.Forms.CheckBox()
         Me.LabelDataFinalizado = New System.Windows.Forms.Label()
@@ -205,6 +204,7 @@ Partial Class FrmParcelamento
         Me.ParcelamentosTableAdapter = New PrinceSistemas.PrinceDBDataSetTableAdapters.ParcelamentosTableAdapter()
         Me.TableAdapterManager = New PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.InssAntigoCheckBox = New System.Windows.Forms.CheckBox()
         SocioLabel = New System.Windows.Forms.Label()
         CPFLabel = New System.Windows.Forms.Label()
         SenhaGovLabel = New System.Windows.Forms.Label()
@@ -874,8 +874,8 @@ Partial Class FrmParcelamento
         'GroupBox6
         '
         Me.GroupBox6.BackColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox6.Controls.Add(Me.MEICheckBox)
         Me.GroupBox6.Controls.Add(Me.InssAntigoCheckBox)
+        Me.GroupBox6.Controls.Add(Me.MEICheckBox)
         Me.GroupBox6.Controls.Add(Me.InssNovoCheckBox)
         Me.GroupBox6.Controls.Add(Me.InssProcurCheckBox)
         Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -884,7 +884,7 @@ Partial Class FrmParcelamento
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Padding = New System.Windows.Forms.Padding(0)
-        Me.GroupBox6.Size = New System.Drawing.Size(508, 54)
+        Me.GroupBox6.Size = New System.Drawing.Size(522, 76)
         Me.GroupBox6.TabIndex = 20
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Parcelamentos Ativos"
@@ -898,16 +898,6 @@ Partial Class FrmParcelamento
         Me.MEICheckBox.TabIndex = 11
         Me.MEICheckBox.Text = "MEI"
         Me.MEICheckBox.UseVisualStyleBackColor = True
-        '
-        'InssAntigoCheckBox
-        '
-        Me.InssAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "InssAntigo", True))
-        Me.InssAntigoCheckBox.Location = New System.Drawing.Point(81, 22)
-        Me.InssAntigoCheckBox.Name = "InssAntigoCheckBox"
-        Me.InssAntigoCheckBox.Size = New System.Drawing.Size(124, 24)
-        Me.InssAntigoCheckBox.TabIndex = 13
-        Me.InssAntigoCheckBox.Text = "INSS Antigo"
-        Me.InssAntigoCheckBox.UseVisualStyleBackColor = True
         '
         'InssNovoCheckBox
         '
@@ -2230,6 +2220,16 @@ Partial Class FrmParcelamento
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrinceSistemas.PrinceDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'InssAntigoCheckBox
+        '
+        Me.InssAntigoCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ParcelamentosBindingSource, "InssAntigo", True))
+        Me.InssAntigoCheckBox.Location = New System.Drawing.Point(81, 22)
+        Me.InssAntigoCheckBox.Name = "InssAntigoCheckBox"
+        Me.InssAntigoCheckBox.Size = New System.Drawing.Size(120, 24)
+        Me.InssAntigoCheckBox.TabIndex = 18
+        Me.InssAntigoCheckBox.Text = "INSS Antigo"
+        Me.InssAntigoCheckBox.UseVisualStyleBackColor = True
+        '
         'FrmParcelamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2384,7 +2384,6 @@ Partial Class FrmParcelamento
     Friend WithEvents RazaoSocialTextBox1 As TextBox
     Friend WithEvents InssProcurCheckBox As CheckBox
     Friend WithEvents InssNovoCheckBox As CheckBox
-    Friend WithEvents InssAntigoCheckBox As CheckBox
     Friend WithEvents MEICheckBox As CheckBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBoxBuscaCNPJ As ComboBox
@@ -2439,4 +2438,5 @@ Partial Class FrmParcelamento
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents InssAntigoCheckBox As CheckBox
 End Class

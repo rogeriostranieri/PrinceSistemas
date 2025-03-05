@@ -116,45 +116,51 @@ Public Class UserAltDados
     End Sub
 
     ' Atualiza os dados na MDIPrincipal
+
     Private Sub MDIAtualiza()
         Try
-            Using conexao As New SqlConnection(connectionString)
-                conexao.Open()
+            ' Tenta encontrar o formulário MDIPrincipal ativo
+            Dim mdiPrincipal As MDIPrincipal = TryCast(Application.OpenForms("MDIPrincipal"), MDIPrincipal)
 
-                Dim sql As String = "SELECT * FROM Login WHERE Usuario=@Usuario"
-                Using comando As New SqlCommand(sql, conexao)
-                    comando.Parameters.AddWithValue("@Usuario", Login.txtUsername.Text.Trim())
+            If mdiPrincipal IsNot Nothing Then
+                ' Obtém o tema (nome da imagem) selecionado
+                Dim temaSelecionado As String = If(TemaComboBox.SelectedItem IsNot Nothing,
+                                             TemaComboBox.SelectedItem.ToString(),
+                                             String.Empty)
 
-                    Using dr As SqlDataReader = comando.ExecuteReader()
-                        If dr.Read() Then
-                            MDIPrincipal.LblNomeCompleto.Text = "Bem vindo Sr(a). " & If(IsDBNull(dr("NomeCompleto")), "Usuário", dr("NomeCompleto").ToString()) & "!"
-                            MDIPrincipal.LbTema.Text = If(IsDBNull(dr("Tema")), "Tema Padrão", dr("Tema").ToString())
-                            MDIPrincipal.LblNomeCompleto.ForeColor = Color.White
-                            MDIPrincipal.LbTema.ForeColor = Color.Black
+                ' Atualiza o fundo do MDIPrincipal
+                If String.IsNullOrEmpty(temaSelecionado) Then
+                    mdiPrincipal.BackgroundImage = Nothing
+                Else
+                    Dim imgPath As String = IO.Path.Combine(Application.StartupPath,
+                                                      "Imagens\Plano de Fundo",
+                                                      temaSelecionado)
 
-                            ' Definir a imagem de fundo
-                            Try
-                                For Each img As String In IO.Directory.GetFiles(Application.StartupPath & "\Imagens\Plano de Fundo")
-                                    Dim imgName As String = IO.Path.GetFileName(img)
-                                    If imgName.StartsWith(dr("Tema").ToString()) Then
-                                        MDIPrincipal.BackgroundImage = Image.FromFile(img)
-                                        MDIPrincipal.BackgroundImageLayout = ImageLayout.Stretch
-                                        Exit For
-                                    End If
-                                Next
-                            Catch ex As Exception
-                                MsgBox("Erro ao carregar imagem de fundo: " & ex.Message)
-                            End Try
+                    If IO.File.Exists(imgPath) Then
+                        If mdiPrincipal.BackgroundImage IsNot Nothing Then
+                            mdiPrincipal.BackgroundImage.Dispose()
                         End If
-                    End Using
-                End Using
-            End Using
-        Catch ex As SqlException
-            MsgBox("Erro ao acessar o banco de dados: " & ex.Message)
+                        mdiPrincipal.BackgroundImage = Image.FromFile(imgPath)
+                        mdiPrincipal.BackgroundImageLayout = ImageLayout.Stretch
+                    Else
+                        mdiPrincipal.BackgroundImage = Nothing
+                        MsgBox("Imagem de fundo não encontrada: " & imgPath)
+                    End If
+                End If
+                mdiPrincipal.Refresh()
+            Else
+                MsgBox("Não foi possível encontrar o formulário MDIPrincipal ativo.")
+            End If
         Catch ex As Exception
-            MsgBox("Erro: " & ex.Message)
+            MsgBox("Erro ao atualizar o fundo do MDI: " & ex.Message)
         End Try
     End Sub
+
+
+
+
+
+
 
     ' Exibir a imagem de fundo selecionada no TemaComboBox
     Private Sub TemaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TemaComboBox.SelectedIndexChanged

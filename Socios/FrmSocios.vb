@@ -309,7 +309,10 @@ Public Class FrmSocios
             Dim resultado = Await ModuloBuscaCEP.BuscarCEPAsync(CEPMaskedTextBox.Text)
 
             If resultado IsNot Nothing Then
-                RUATextBox.Text = resultado.logradouro
+                '  RUATextBox.Text = resultado.Logradouro
+                ' Modificar apenas a primeira letra para minúscula
+                RUATextBox.Text = PrimeiraLetraMinuscula(resultado.Logradouro)
+
                 If ComplementoTextBox.Text = "" Then
                     ComplementoTextBox.Text = resultado.complemento
                 Else
@@ -321,6 +324,18 @@ Public Class FrmSocios
             Else
                 MessageBox.Show("CEP não encontrado.")
             End If
+
+            BtnCorrigeCidade.PerformClick() ' Corrigir o nome da cidade sem acentos
+
+            ' Buscar o nome correto da cidade na tabela BrasilMunicipios
+            Dim cidadeCorrigida As String = CorrigirNomeCidade(CidadeTextBox.Text)
+
+            ' Atualizar o campo com o nome corrigido, se encontrado
+            If Not String.IsNullOrEmpty(cidadeCorrigida) Then
+                CidadeTextBox.Text = cidadeCorrigida
+            End If
+
+
             BtnCorreios.Text = "Preencher"
             BtnCorreios.Enabled = True
 
@@ -330,6 +345,47 @@ Public Class FrmSocios
             MessageBox.Show("Erro ao buscar informações de CEP: " & ex.Message)
         End Try
     End Sub
+
+    ' Função que converte a primeira letra de um texto para minúscula
+    Private Function PrimeiraLetraMinuscula(texto As String) As String
+        ' Verificar se o texto não está vazio
+        If String.IsNullOrEmpty(texto) Then Return texto
+
+        ' Converter a primeira letra para minúscula e manter o restante do texto inalterado
+        Return Char.ToLower(texto(0)) & texto.Substring(1)
+    End Function
+
+
+    Private Function CorrigirNomeCidade(nomeCidade As String) As String
+        Dim cidadeCorrigida As String = nomeCidade ' Retorna o próprio nome caso não encontre
+
+        ' Criar a conexão com o SQL Server
+        Using conexao As New SqlConnection("Data Source=ROGERIO\PRINCE;Initial Catalog=PrinceDB;Persist Security Info=True;User ID=sa;Password=rs755;Encrypt=False")
+            Try
+                conexao.Open()
+
+                ' Consulta SQL usando collation acento-insensível e curingas
+                Dim sql As String = "SELECT Nome FROM BrasilMunicipios WHERE Nome COLLATE Latin1_General_CI_AI LIKE @Cidade ORDER BY LEN(Nome) ASC"
+
+                Using cmd As New SqlCommand(sql, conexao)
+                    ' Adiciona curingas para permitir a busca parcial
+                    cmd.Parameters.AddWithValue("@Cidade", "%" & nomeCidade & "%")
+
+                    Dim resultado As Object = cmd.ExecuteScalar()
+                    If resultado IsNot Nothing Then
+                        cidadeCorrigida = resultado.ToString()
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Erro ao buscar nome da cidade: " & ex.Message)
+            End Try
+        End Using
+
+        Return cidadeCorrigida
+    End Function
+
+
+
 
     Private Sub GeneroComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GeneroComboBox.SelectedIndexChanged
         'ao selecionar feminino mudar o nome solteiro para solteira do  CivilComboBox 
@@ -1869,5 +1925,137 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
                 FrmLegalizacao.ComboBoxBuscaCNPJ.Focus()
             End If
         End If
+    End Sub
+
+    Private Sub BtnArrumaEnd_Click(sender As Object, e As EventArgs) Handles BtnArrumaEnd.Click
+        Try
+            ' Obter os valores dos TextBoxes
+            Dim Endereco As String = RUATextBox.Text
+            Dim Numero As String = NumTextBox.Text
+            Dim Complemento As String = ComplementoTextBox.Text
+            Dim Bairro As String = BairroTextBox.Text
+            Dim CEP As String = CEPMaskedTextBox.Text
+            Dim Cidade As String = CidadeTextBox.Text
+            Dim UF As String = EstadoTextBox.Text
+
+            ' Formatar cada parte do endereço com a primeira letra das palavras em maiúscula
+            ' Para o endereço, vamos manter a primeira letra minúscula
+            Endereco = FormatarEnderecoComPrimeiraLetraMinuscula(Endereco)
+
+            ' Formatar as outras partes normalmente
+            Bairro = FormatTexto(Bairro)
+            Cidade = FormatTexto(Cidade)
+            Complemento = FormatTexto(Complemento) ' Formatar complemento se não estiver vazio
+
+            ' Atualizar os TextBoxes com os valores formatados
+            RUATextBox.Text = Endereco
+            BairroTextBox.Text = Bairro
+            CidadeTextBox.Text = Cidade
+            CEPMaskedTextBox.Text = CEP ' O CEP não requer formatação adicional
+            EstadoTextBox.Text = UF ' O UF não requer formatação adicional
+
+            ' Formatar o complemento e o número, se existirem, e atualizar
+            If Not String.IsNullOrWhiteSpace(Numero) Then
+                NumTextBox.Text = Numero.Trim()
+            End If
+
+            If Not String.IsNullOrWhiteSpace(Complemento) Then
+                ComplementoTextBox.Text = Complemento.Trim()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Erro ao Formatar endereço!" & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    Private Function FormatarEnderecoComPrimeiraLetraMinuscula(endereco As String) As String
+        Try
+            ' Transformar todas as palavras em minúsculas
+            Dim palavras As String() = endereco.ToLower().Split(" "c)
+
+            ' Formatar cada palavra com inicial maiúscula, exceto a primeira palavra
+            For i As Integer = 1 To palavras.Length - 1
+                If palavras(i).Length > 0 Then ' Verifica se a palavra não está vazia antes de acessar o índice
+                    palavras(i) = Char.ToUpper(palavras(i)(0)) & palavras(i).Substring(1)
+                End If
+            Next
+
+            ' Reunir as palavras em uma única string com a primeira palavra em minúscula
+            Return String.Join(" ", palavras)
+        Catch ex As Exception
+            MessageBox.Show("Erro ao formatar o endereço mantendo a primeira letra minúscula e as palavras seguintes em maiúsculas: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Retornar uma string vazia ou o valor original em caso de erro
+            Return endereco ' ou Return String.Empty
+        End Try
+    End Function
+
+
+    ' Função para formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns)
+    Private Function FormatTexto(texto As String) As String
+        Try
+            ' Converter o texto para minúsculas e depois formatar as iniciais
+            Dim palavrasComuns As String() = {"de", "do", "da", "dos", "das"} ' Palavras que não devem ter a inicial maiúscula
+            Dim palavras As String() = texto.ToLower().Split(" "c) ' Dividir o texto em palavras
+            For i As Integer = 0 To palavras.Length - 1
+                If palavras(i).Length > 0 AndAlso Not palavrasComuns.Contains(palavras(i)) Then ' Verifica se a palavra não está vazia
+                    palavras(i) = Char.ToUpper(palavras(i)(0)) & palavras(i).Substring(1) ' Capitalizar a primeira letra
+                End If
+            Next
+            Return String.Join(" ", palavras) ' Reunir as palavras novamente em uma única string
+        Catch ex As Exception
+            MessageBox.Show("Erro ao formatar a primeira letra de cada palavra como maiúscula (exceto palavras comuns): " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Retornar o valor original ou uma string vazia em caso de erro
+            Return texto ' ou Return String.Empty
+        End Try
+    End Function
+
+    Private Sub BtnCorrigeCidade_Click(sender As Object, e As EventArgs) Handles BtnCorrigeCidade.Click
+        Try
+            ' Obter o nome da cidade inserida no campo
+            Dim CidadeInserida As String = CidadeTextBox.Text.Trim()
+
+            ' Verificar se o campo de cidade não está vazio
+            If String.IsNullOrWhiteSpace(CidadeInserida) Then
+                MessageBox.Show("O campo de cidade está vazio. Por favor, insira uma cidade para corrigir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Conectar ao banco de dados para buscar a cidade correta
+            Using conn As New SqlConnection(connectionString)
+                conn.Open()
+
+                ' Consulta SQL ajustada para ignorar acentos
+                Dim query As String = "
+                SELECT TOP 1 nome
+                FROM BrasilMunicipios
+                WHERE nome COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%' + @cidade + '%'
+            "
+
+                Using cmd As New SqlCommand(query, conn)
+                    ' Adicionar o parâmetro para a consulta
+                    cmd.Parameters.AddWithValue("@cidade", CidadeInserida)
+
+                    ' Executar a consulta
+                    Dim resultado As Object = cmd.ExecuteScalar()
+
+                    ' Verificar se a cidade foi encontrada
+                    If resultado IsNot Nothing Then
+                        Dim cidadeCorrigida As String = resultado.ToString()
+                        CidadeTextBox.Text = cidadeCorrigida
+                        MessageBox.Show($"Cidade corrigida para: {cidadeCorrigida}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Cidade não encontrada na tabela 'BrasilMunicipios'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao corrigir a cidade! " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub LinkLabelArrumaOrgaoRG_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelArrumaOrgaoRG.LinkClicked
+        'OrgaoRGTextBox coloca apenas primeira letra maiusculo
+        OrgaoRGTextBox.Text = StrConv(OrgaoRGTextBox.Text, VbStrConv.ProperCase)
+
     End Sub
 End Class

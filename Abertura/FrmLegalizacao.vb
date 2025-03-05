@@ -3801,7 +3801,8 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         End If
 
         ' Construção final garantindo a separação correta com "e"
-        Dim resultado As String = String.Empty
+        Dim resultado As String
+
         If partes.Count = 1 Then
             resultado = partes(0)
         Else

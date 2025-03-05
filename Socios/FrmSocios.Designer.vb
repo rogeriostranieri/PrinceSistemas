@@ -168,6 +168,9 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnArrumaEnd = New System.Windows.Forms.Button()
+        Me.BtnCorrigeCidade = New System.Windows.Forms.Button()
+        Me.LinkLabelArrumaOrgaoRG = New System.Windows.Forms.LinkLabel()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -632,7 +635,6 @@ Partial Class FrmSocios
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = -1
         Me.TabControl1.Size = New System.Drawing.Size(697, 386)
         Me.TabControl1.TabIndex = 61
         '
@@ -651,6 +653,7 @@ Partial Class FrmSocios
         'GroupBoxDadosPessoais
         '
         Me.GroupBoxDadosPessoais.AutoSize = True
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.LinkLabelArrumaOrgaoRG)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.LblMenorIdade)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.MenorIdadeComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnCopiarCPF)
@@ -1015,6 +1018,8 @@ Partial Class FrmSocios
         '
         'GroupBoxOutrosDados
         '
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCorrigeCidade)
+        Me.GroupBoxOutrosDados.Controls.Add(Me.BtnArrumaEnd)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnCopiaCEP)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtalhoConjuge2)
         Me.GroupBoxOutrosDados.Controls.Add(Me.BtnAtablhoSocio)
@@ -1890,6 +1895,41 @@ Partial Class FrmSocios
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'BtnArrumaEnd
+        '
+        Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnArrumaEnd.Location = New System.Drawing.Point(439, 57)
+        Me.BtnArrumaEnd.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
+        Me.BtnArrumaEnd.Size = New System.Drawing.Size(119, 29)
+        Me.BtnArrumaEnd.TabIndex = 77
+        Me.BtnArrumaEnd.Text = "Arrumar Endereço"
+        Me.BtnArrumaEnd.UseVisualStyleBackColor = True
+        '
+        'BtnCorrigeCidade
+        '
+        Me.BtnCorrigeCidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorrigeCidade.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCorrigeCidade.Location = New System.Drawing.Point(439, 92)
+        Me.BtnCorrigeCidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCorrigeCidade.Name = "BtnCorrigeCidade"
+        Me.BtnCorrigeCidade.Size = New System.Drawing.Size(119, 29)
+        Me.BtnCorrigeCidade.TabIndex = 78
+        Me.BtnCorrigeCidade.Text = "Arrumar Cidade"
+        Me.BtnCorrigeCidade.UseVisualStyleBackColor = True
+        '
+        'LinkLabelArrumaOrgaoRG
+        '
+        Me.LinkLabelArrumaOrgaoRG.AutoSize = True
+        Me.LinkLabelArrumaOrgaoRG.BackColor = System.Drawing.Color.Transparent
+        Me.LinkLabelArrumaOrgaoRG.Location = New System.Drawing.Point(366, 286)
+        Me.LinkLabelArrumaOrgaoRG.Name = "LinkLabelArrumaOrgaoRG"
+        Me.LinkLabelArrumaOrgaoRG.Size = New System.Drawing.Size(51, 15)
+        Me.LinkLabelArrumaOrgaoRG.TabIndex = 70
+        Me.LinkLabelArrumaOrgaoRG.TabStop = True
+        Me.LinkLabelArrumaOrgaoRG.Text = "Arrumar"
+        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -2061,4 +2101,7 @@ Partial Class FrmSocios
     Friend WithEvents DataGridViewEmpresa As DataGridView
     Friend WithEvents BtnBuscarEmpresa As Button
     Friend WithEvents LblContaEmpresa As Label
+    Friend WithEvents BtnArrumaEnd As Button
+    Friend WithEvents BtnCorrigeCidade As Button
+    Friend WithEvents LinkLabelArrumaOrgaoRG As LinkLabel
 End Class

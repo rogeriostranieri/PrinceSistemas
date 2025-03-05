@@ -16,23 +16,23 @@ Public Class FrmParcelamento
         ' Carrega os dados da tabela Parcelamentos
         Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
 
-        ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
-        PrinceDBDataSet.AcceptChanges()
+        '  ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
+        ' PrinceDBDataSet.AcceptChanges()
 
         ' Permitir edições em todas as colunas da tabela Parcelamentos
-        For Each col As DataColumn In Me.PrinceDBDataSet.Parcelamentos.Columns
-            col.ReadOnly = False
-        Next
+        ' For Each col As DataColumn In Me.PrinceDBDataSet.Parcelamentos.Columns
+        'col.ReadOnly = False
+        '  Next
 
 
         ' Se estiver em modo de edição, cancelar as alterações
-        ParcelamentosBindingSource.CancelEdit()
+        ' ParcelamentosBindingSource.CancelEdit()
         BloqueiaTudo() ' Bloqueia os campos novamente
         BtnEditar.Text = "Editar" ' Muda o texto do botão para "Editar"
 
 
         ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
-        AddHandler ParcelamentosBindingSource.CurrentChanged, AddressOf ParcelamentosBindingSource_CurrentChanged
+        ' AddHandler ParcelamentosBindingSource.CurrentChanged, AddressOf ParcelamentosBindingSource_CurrentChanged
 
     End Sub
     Private Sub ParcelamentosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
@@ -772,11 +772,11 @@ Public Class FrmParcelamento
         End If
     End Sub
 
-    Private Sub CheckBox_Validated(sender As Object, e As EventArgs) Handles MEICheckBox.Validated, InssAntigoCheckBox.Validated, InssNovoCheckBox.Validated, InssProcurCheckBox.Validated
+    Private Sub CheckBox_Validated(sender As Object, e As EventArgs) Handles MEICheckBox.Validated, InssNovoCheckBox.Validated, InssProcurCheckBox.Validated
         VerificaAbaChecked()
     End Sub
 
-    Private Sub CheckBox_Changed(sender As Object, e As EventArgs) Handles MEICheckBox.CheckedChanged, InssAntigoCheckBox.CheckedChanged, InssNovoCheckBox.CheckedChanged, InssProcurCheckBox.CheckedChanged
+    Private Sub CheckBox_Changed(sender As Object, e As EventArgs) Handles MEICheckBox.CheckedChanged, InssNovoCheckBox.CheckedChanged, InssProcurCheckBox.CheckedChanged
         VerificaAbaChecked()
     End Sub
 
