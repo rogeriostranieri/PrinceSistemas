@@ -1084,4 +1084,14 @@ Public Class MDIPrincipal
             FrmGeralParcelamento.MdiParent = Me
         End If
     End Sub
+
+    Private Sub ToolStripButtonChatBot_Click(sender As Object, e As EventArgs) Handles ToolStripButtonChatBot.Click
+        If Application.OpenForms.OfType(Of ChatBot)().Count() > 0 Then
+            ChatBot.Focus()
+            ChatBot.MdiParent = Me
+        Else
+            ChatBot.Show()
+            ChatBot.MdiParent = Me
+        End If
+    End Sub
 End Class

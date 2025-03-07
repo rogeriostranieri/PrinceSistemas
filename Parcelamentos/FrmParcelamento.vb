@@ -17,12 +17,12 @@ Public Class FrmParcelamento
         Me.ParcelamentosTableAdapter.Fill(Me.PrinceDBDataSet.Parcelamentos)
 
         '  ' Forçar a aceitação das alterações e garantir que o DataSet está atualizado
-        ' PrinceDBDataSet.AcceptChanges()
+        PrinceDBDataSet.AcceptChanges()
 
         ' Permitir edições em todas as colunas da tabela Parcelamentos
-        ' For Each col As DataColumn In Me.PrinceDBDataSet.Parcelamentos.Columns
-        'col.ReadOnly = False
-        '  Next
+        For Each col As DataColumn In Me.PrinceDBDataSet.Parcelamentos.Columns
+            col.ReadOnly = False
+        Next
 
 
         ' Se estiver em modo de edição, cancelar as alterações
@@ -32,7 +32,7 @@ Public Class FrmParcelamento
 
 
         ' Vincula o evento CurrentChanged do BindingSource para detectar mudanças na empresa
-        ' AddHandler ParcelamentosBindingSource.CurrentChanged, AddressOf ParcelamentosBindingSource_CurrentChanged
+        AddHandler ParcelamentosBindingSource.CurrentChanged, AddressOf ParcelamentosBindingSource_CurrentChanged
 
     End Sub
     Private Sub ParcelamentosBindingSource_CurrentChanged(sender As Object, e As EventArgs)
@@ -123,76 +123,6 @@ Public Class FrmParcelamento
     End Sub
 
 
-
-
-    Private Sub BackupSalvar()
-        Try
-            ' Finalizar edição e obter registros alterados
-            Me.ParcelamentosBindingSource.EndEdit()
-            Dim changedRecords As DataTable = PrinceDBDataSet.Parcelamentos.GetChanges()
-
-            ' Verificar se há alterações para salvar
-            If changedRecords IsNot Nothing AndAlso changedRecords.Rows.Count > 0 Then
-                Dim changesDescription As New StringBuilder()
-                Dim detailedChanges As New StringBuilder()
-
-                ' Iterar sobre as linhas alteradas para gerar um resumo
-                For Each row As DataRow In changedRecords.Rows
-                    Dim columnChangesCount As Integer = 0
-                    changesDescription.AppendLine($"Alterações na linha com ID: {row("ID_Parcel")}")
-
-                    For Each column As DataColumn In changedRecords.Columns
-                        ' Verificar mudanças para linhas não adicionadas
-                        If row.RowState <> DataRowState.Added Then
-                            Dim originalValue = row(column, DataRowVersion.Original)?.ToString()
-                            Dim currentValue = row(column, DataRowVersion.Current)?.ToString()
-
-                            If originalValue <> currentValue Then
-                                columnChangesCount += 1
-                                detailedChanges.AppendLine($"  - {column.ColumnName}: {originalValue} => {currentValue}")
-                            End If
-                        Else
-                            ' Para novas linhas
-                            columnChangesCount += 1
-                            detailedChanges.AppendLine($"  - {column.ColumnName}: Novo valor: {row(column, DataRowVersion.Current)?.ToString()}")
-                        End If
-                    Next
-
-                    changesDescription.AppendLine($"  ({columnChangesCount} mudanças)")
-                Next
-
-                ' Perguntar ao usuário se deseja ver detalhes
-                If MessageBox.Show("Deseja ver os detalhes das alterações?", "Prince Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                    MessageBox.Show(detailedChanges.ToString(), "Detalhes das Alterações", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
-
-                ' Exibir resumo das alterações e perguntar se deseja salvar
-                Dim message As String = $"Foram feitas {changedRecords.Rows.Count} alterações.{vbCrLf}Deseja salvar as alterações?{vbCrLf}{vbCrLf}{changesDescription}"
-                Dim result As DialogResult = MessageBox.Show(message, "Prince Alerta", MessageBoxButtons.YesNoCancel)
-
-                Select Case result
-                    Case DialogResult.Cancel
-                        ' Não faz nada, permite o retorno ao formulário
-                        Exit Sub
-
-                    Case DialogResult.No
-                        ' Rejeitar alterações e atualizar interface
-                        PrinceDBDataSet.Parcelamentos.RejectChanges()
-                        AtualizarInterfaceAposRejeitar()
-
-                    Case DialogResult.Yes
-                        ' Salvar as alterações
-                        SalvarAlteracoes(changedRecords)
-                End Select
-            Else
-                ' Não há alterações
-                MessageBox.Show("Nenhuma alteração foi detectada para salvar.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                AtualizarInterfaceAposRejeitar()
-            End If
-        Catch ex As Exception
-            MessageBox.Show($"Ocorreu um erro ao salvar:{vbCrLf}{ex.Message}", "Prince Sistemas Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
-    End Sub
 
     ' Método para salvar alterações e exibir ProgressBar
     Private Sub SalvarAlteracoes(changedRecords As DataTable)
@@ -567,13 +497,6 @@ Public Class FrmParcelamento
         DataCriacaoMaskedTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
     End Sub
 
-    Private Sub FormaDeEnvioComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FormaDeEnvioComboBox.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub FormaDeEnvioLabel_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub FinalizadoMesGeralComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FinalizadoMesGeralComboBox.SelectedIndexChanged
         MesfechamentoCOR()

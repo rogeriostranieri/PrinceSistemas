@@ -314,7 +314,7 @@ Partial Class FrmParcelamento
         FormaDeEnvioLabel.Size = New System.Drawing.Size(120, 18)
         FormaDeEnvioLabel.TabIndex = 0
         FormaDeEnvioLabel.Text = "Forma De Envio:"
-        AddHandler FormaDeEnvioLabel.Click, AddressOf Me.FormaDeEnvioLabel_Click
+        'AddHandler FormaDeEnvioLabel.Click, AddressOf Me.FormaDeEnvioLabel_Click
         '
         'ResponsavelLabel
         '

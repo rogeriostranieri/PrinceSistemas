@@ -4564,4 +4564,190 @@ A metragem deve ser preenchida com exatidão pois esta informação impacta nos 
         ButtonEndAntigoVoltar.Visible = False
         ButtonLimpaEndAntigo.Visible = False
     End Sub
+
+    Private Sub LinkLabelCopiarPastaDocEmpfacil_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelCopiarPastaDocEmpfacil.LinkClicked
+        'usar try e colocar no meu copiar o PastaDocumentosTextBox
+        Try
+            ' Verifica se o campo de pasta de documentos não está vazio
+            If Not String.IsNullOrEmpty(PastaDocumentosTextBox.Text) Then
+                ' Copia o conteúdo do TextBox para a área de transferência
+                Clipboard.SetText(PastaDocumentosTextBox.Text)
+            Else
+                ' Exibe uma mensagem caso o campo esteja vazio
+                MessageBox.Show("O campo de pasta de documentos está vazio. Não há nada para copiar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            ' Exibe uma mensagem de erro caso ocorra uma exceção
+            MessageBox.Show("Erro ao copiar a pasta de documentos: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ButtonCopiarEmpresaTexto_Click(sender As Object, e As EventArgs) Handles ButtonCopiarEmpresaTexto.Click
+        Try
+            ' Verifica se houve alteração de razão social
+            If NovaRazaoSocialComboBox.Text = "Sim" Then
+            MsgBox("Houve alteração de razão social. Por favor, realize a alteração manualmente.")
+            Exit Sub
+        End If
+
+        ' Captura os dados de razão social
+        Dim RazaoSocial As String = RazaoSocialTextBox.Text
+
+        ' Selecionar e mudar para tab dos controles
+        TabControle.SelectedTab = TabPageDadosEmpresa
+        TabControl2.SelectedTab = TabPageEndereco
+        TabControle.SelectedTab = TabPageEmpresaFacil
+
+        ' Verifica se houve alteração de endereço
+        If PontoDeReferenciaComboBox.Text = "Sim" Then
+            MsgBox("Houve alteração de endereço. Por favor, realize a alteração manualmente.")
+            Exit Sub
+        End If
+
+        ' Captura os dados do endereço
+        Dim Endereco As String = EnderecoTextBox.Text
+        Dim Numero As String = EndNumeroTextBox.Text
+        Dim Complemento As String = EndComplementoTextBox.Text
+        Dim Bairro As String = EndBairroTextBox.Text
+        Dim CEP As String = EndCEPMaskedTextBox.Text
+        Dim Cidade As String = EndCidadeTextBox.Text
+        Dim UF As String = EndEstadoTextBox.Text
+
+        ' Verifica se há complemento no endereço
+        If Complemento = "" Then
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
+        Else
+            Clipboard.SetText(Endereco & ", n.º " & Numero & ", " & Complemento & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF)
+        End If
+
+        ' Verifica o estado para incluir na Junta Comercial
+        Dim Estado As String = EndEstadoLabel2.Text
+        Dim JuntaComercial As String = "Junta Comercial do " & GetEstadoNome(Estado)
+
+        ' Captura o número de NIRE e a data
+        Dim NIRE As String = NIRETextBox.Text
+            Dim NireData As String = Format(Date.Parse(NireDataMaskedTextBox.Text), "dd \d\e MMMM \d\e yyyy")
+
+            ' Captura o CNPJ
+            Dim CNPJ As String = CNPJMaskedTextBox.Text
+
+        ' Verifica se algum campo está vazio e avisa o usuário
+        Try
+            If String.IsNullOrEmpty(RazaoSocial) Or String.IsNullOrEmpty(Endereco) Or String.IsNullOrEmpty(Numero) Or String.IsNullOrEmpty(CEP) Or String.IsNullOrEmpty(Cidade) Or String.IsNullOrEmpty(UF) Or String.IsNullOrEmpty(NIRE) Or String.IsNullOrEmpty(NireData) Or String.IsNullOrEmpty(CNPJ) Then
+                Throw New Exception("Há campos obrigatórios não preenchidos. Por favor, preencha todos os campos.")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+            ' Formata os dados para copiar no formato desejado
+            Dim TextoCopiado As String = RazaoSocial & ", com sede e foro na " & Endereco & ", nº " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF & ", com Contrato Social registrado na " & JuntaComercial & ", sob nº " & NIRE & ", por despacho em sessão de " & NireData & " e inscrita no CNPJ nº " & CNPJ
+
+            ' Copia o texto formatado para a área de transferência
+            ' Clipboard.SetText(TextoCopiado)
+
+            ' Formatar a razão social em RTF para mantê-la em negrito ao colar no Word ou Excel
+            Dim RTFTexto As String = "{\rtf1\ansi \b " & RazaoSocial & "\b0 , com sede e foro na " & Endereco & ", nº " & Numero & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & UF & ", com Contrato Social registrado na " & JuntaComercial & ", sob nº " & NIRE & ", por despacho em sessão de " & NireData & " e inscrita no CNPJ nº " & CNPJ & "}"
+
+            ' Copia o texto formatado para a área de transferência
+            Dim dataObject As New DataObject()
+            dataObject.SetData(DataFormats.Rtf, RTFTexto)
+            Clipboard.SetDataObject(dataObject, True)
+
+            ' Exibe mensagem de sucesso
+            '     MsgBox("Texto copiado para a área de transferência com sucesso.")
+        Catch ex As Exception
+            ' Exibe uma mensagem de erro caso ocorra uma exceção
+            MessageBox.Show("Erro ao copiar o texto da empresa: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    ' Função para obter o nome completo do estado a partir da sigla
+    Private Function GetEstadoNome(estadoSigla As String) As String
+        Select Case estadoSigla.ToUpper()
+            Case "AC" : Return "Acre"
+            Case "AL" : Return "Alagoas"
+            Case "AP" : Return "Amapá"
+            Case "AM" : Return "Amazonas"
+            Case "BA" : Return "Bahia"
+            Case "CE" : Return "Ceará"
+            Case "DF" : Return "Distrito Federal"
+            Case "ES" : Return "Espírito Santo"
+            Case "GO" : Return "Goiás"
+            Case "MA" : Return "Maranhão"
+            Case "MT" : Return "Mato Grosso"
+            Case "MS" : Return "Mato Grosso do Sul"
+            Case "MG" : Return "Minas Gerais"
+            Case "PA" : Return "Pará"
+            Case "PB" : Return "Paraíba"
+            Case "PR" : Return "Paraná"
+            Case "PE" : Return "Pernambuco"
+            Case "PI" : Return "Piauí"
+            Case "RJ" : Return "Rio de Janeiro"
+            Case "RN" : Return "Rio Grande do Norte"
+            Case "RS" : Return "Rio Grande do Sul"
+            Case "RO" : Return "Rondônia"
+            Case "RR" : Return "Roraima"
+            Case "SC" : Return "Santa Catarina"
+            Case "SP" : Return "São Paulo"
+            Case "SE" : Return "Sergipe"
+            Case "TO" : Return "Tocantins"
+            Case Else : Return "Estado Desconhecido"
+        End Select
+    End Function
+
+    Private Sub LinkLabelCopiarMEtxt_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelCopiarMEtxt.LinkClicked
+        Try
+            ' Verifica o porte da empresa
+            Dim PorteEmpresa As String = PorteDaEmpresaComboBox.Text
+            Dim PorteTexto As String = ""
+
+            Select Case PorteEmpresa
+                Case "Microempresa"
+                    PorteTexto = "Microempresa"
+                Case "Empresa de Pequeno Porte"
+                    PorteTexto = "Empresa de Pequeno Porte"
+                Case "Demais"
+                    MsgBox("Atenção! Para empresas classificadas como 'Demais', é necessário consultar um contador para verificar o correto enquadramento.", MsgBoxStyle.Exclamation, "Aviso")
+                    Exit Sub
+                    'Outros
+                Case "Outros"
+                    MsgBox("Atenção! Para empresas classificadas como 'Outros', é necessário consultar um contador para verificar o correto enquadramento.", MsgBoxStyle.Exclamation, "Aviso")
+                    Exit Sub
+                Case Else
+                    MsgBox("Porte da empresa não identificado. Verifique se a informação está correta.", MsgBoxStyle.Exclamation, "Aviso")
+                    Exit Sub
+            End Select
+
+            ' Pergunta se há mais de um sócio
+            Dim resposta As DialogResult = MessageBox.Show("A empresa possui mais de um sócio?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            Dim TextoCopiado As String
+
+            If resposta = DialogResult.Yes Then
+                TextoCopiado = "Os sócios declaram que a sociedade, sob as penas da Lei, se enquadra na condição de " & PorteTexto & ", nos termos da Lei Complementar nº 123, de 14/12/2006."
+            Else
+                TextoCopiado = "O sócio declara que a sociedade, sob as penas da Lei, se enquadra na condição de " & PorteTexto & ", nos termos da Lei Complementar nº 123, de 14/12/2006."
+            End If
+
+
+            ' Formatar em RTF para manter o negrito ao colar no Word ou Excel
+            Dim RTFTexto As String = "{\rtf1\ansi Os sócios declaram que a sociedade, sob as penas da Lei, se enquadra na condição de \b " & PorteTexto & "\b0 , nos termos da Lei Complementar nº 123, de 14/12/2006.}"
+
+            ' Copia o texto formatado para a área de transferência
+            Dim dataObject As New DataObject()
+            dataObject.SetData(DataFormats.Rtf, RTFTexto)
+            Clipboard.SetDataObject(dataObject, True)
+
+            ' Exibe mensagem de sucesso
+            ' MsgBox("Texto copiado para a área de transferência com sucesso!", MsgBoxStyle.Information, "Sucesso")
+
+        Catch ex As Exception
+            ' Exibe uma mensagem de erro caso ocorra uma exceção
+            MessageBox.Show("Erro ao copiar o texto: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

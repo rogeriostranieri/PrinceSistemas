@@ -153,7 +153,7 @@ Partial Class FrmLegalizacao
         Me.CADstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControle = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPageGeral = New System.Windows.Forms.TabPage()
         Me.BtnVerObsGeral = New System.Windows.Forms.Button()
         Me.BtnVerProcedimento = New System.Windows.Forms.Button()
         Me.MotivoLabel = New System.Windows.Forms.Label()
@@ -162,7 +162,7 @@ Partial Class FrmLegalizacao
         Me.MotivoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.ProcedimentoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.GeralRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.TabPageDadosEmpresa = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.ResponsavelEstadoOrgaoRGTextBox = New System.Windows.Forms.TextBox()
@@ -219,7 +219,7 @@ Partial Class FrmLegalizacao
         Me.BtnAtividadeLocal = New System.Windows.Forms.Button()
         Me.BtnRemovCaract = New System.Windows.Forms.Button()
         Me.RamoDeAtividadeRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.TabPageEndereco = New System.Windows.Forms.TabPage()
         Me.ButtonLimpaEndAntigo = New System.Windows.Forms.Button()
         Me.ButtonEndAntigoVoltar = New System.Windows.Forms.Button()
         Me.LinkLabelVerEndAntigo = New System.Windows.Forms.LinkLabel()
@@ -305,7 +305,7 @@ Partial Class FrmLegalizacao
         Me.DadosComplPavimentosTextBox = New System.Windows.Forms.TextBox()
         Me.DadosComplAtividadeComboBox = New System.Windows.Forms.ComboBox()
         Me.DadosComplEstabelecimentoComboBox = New System.Windows.Forms.ComboBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPageEmpresaFacil = New System.Windows.Forms.TabPage()
         Me.BtnCopiarPRP = New System.Windows.Forms.Button()
         Me.BtnVerEmpresaFacil = New System.Windows.Forms.Button()
         Me.LinkLabeLPrazoEmpresaFacil = New System.Windows.Forms.LinkLabel()
@@ -326,6 +326,7 @@ Partial Class FrmLegalizacao
         Me.NRegistroAltTextBox = New System.Windows.Forms.TextBox()
         Me.DataRegistroAltMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.LinkLabelCopiarPastaDocEmpfacil = New System.Windows.Forms.LinkLabel()
         Me.BtnArrumar = New System.Windows.Forms.Button()
         Me.Button41 = New System.Windows.Forms.Button()
         Me.Button40 = New System.Windows.Forms.Button()
@@ -539,6 +540,8 @@ Partial Class FrmLegalizacao
         Me.ComboBoxBuscaCNPJ = New System.Windows.Forms.ComboBox()
         Me.ToolTipDICAS = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerCodEmpresa = New System.Windows.Forms.Timer(Me.components)
+        Me.ButtonCopiarEmpresaTexto = New System.Windows.Forms.Button()
+        Me.LinkLabelCopiarMEtxt = New System.Windows.Forms.LinkLabel()
         NomeFantasiaLabel = New System.Windows.Forms.Label()
         CNPJLabel = New System.Windows.Forms.Label()
         StatusLabel = New System.Windows.Forms.Label()
@@ -658,8 +661,8 @@ Partial Class FrmLegalizacao
         CType(Me.CADstatusBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControle.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage10.SuspendLayout()
+        Me.TabPageGeral.SuspendLayout()
+        Me.TabPageDadosEmpresa.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage12.SuspendLayout()
         Me.TabPage19.SuspendLayout()
@@ -667,13 +670,13 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.SuspendLayout()
         Me.TabPage24.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
-        Me.TabPage14.SuspendLayout()
+        Me.TabPageEndereco.SuspendLayout()
         Me.TabPage15.SuspendLayout()
         Me.TabPage16.SuspendLayout()
         Me.TabPage18.SuspendLayout()
         Me.TabPage21.SuspendLayout()
         Me.TabPage22.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
+        Me.TabPageEmpresaFacil.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage9.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -1100,7 +1103,7 @@ Partial Class FrmLegalizacao
         'RegimeFederalLabel
         '
         RegimeFederalLabel.AutoSize = True
-        RegimeFederalLabel.Location = New System.Drawing.Point(325, 177)
+        RegimeFederalLabel.Location = New System.Drawing.Point(451, 176)
         RegimeFederalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RegimeFederalLabel.Name = "RegimeFederalLabel"
         RegimeFederalLabel.Size = New System.Drawing.Size(99, 15)
@@ -1978,9 +1981,9 @@ Partial Class FrmLegalizacao
         '
         'TabControle
         '
-        Me.TabControle.Controls.Add(Me.TabPage1)
-        Me.TabControle.Controls.Add(Me.TabPage10)
-        Me.TabControle.Controls.Add(Me.TabPage3)
+        Me.TabControle.Controls.Add(Me.TabPageGeral)
+        Me.TabControle.Controls.Add(Me.TabPageDadosEmpresa)
+        Me.TabControle.Controls.Add(Me.TabPageEmpresaFacil)
         Me.TabControle.Controls.Add(Me.TabPage4)
         Me.TabControle.Controls.Add(Me.TabPage5)
         Me.TabControle.Controls.Add(Me.TabPage7)
@@ -1997,26 +2000,26 @@ Partial Class FrmLegalizacao
         Me.TabControle.Size = New System.Drawing.Size(857, 312)
         Me.TabControle.TabIndex = 11
         '
-        'TabPage1
+        'TabPageGeral
         '
-        Me.TabPage1.Controls.Add(Me.BtnVerObsGeral)
-        Me.TabPage1.Controls.Add(Me.BtnVerProcedimento)
-        Me.TabPage1.Controls.Add(Me.MotivoLabel)
-        Me.TabPage1.Controls.Add(Me.Button46)
-        Me.TabPage1.Controls.Add(Me.BtnListaEventos)
-        Me.TabPage1.Controls.Add(Me.MotivoRichTextBox)
-        Me.TabPage1.Controls.Add(ProcedimentoLabel)
-        Me.TabPage1.Controls.Add(Me.ProcedimentoRichTextBox)
-        Me.TabPage1.Controls.Add(GeralLabel)
-        Me.TabPage1.Controls.Add(Me.GeralRichTextBox)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage1.Size = New System.Drawing.Size(849, 284)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Geral"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.TabPageGeral.Controls.Add(Me.BtnVerObsGeral)
+        Me.TabPageGeral.Controls.Add(Me.BtnVerProcedimento)
+        Me.TabPageGeral.Controls.Add(Me.MotivoLabel)
+        Me.TabPageGeral.Controls.Add(Me.Button46)
+        Me.TabPageGeral.Controls.Add(Me.BtnListaEventos)
+        Me.TabPageGeral.Controls.Add(Me.MotivoRichTextBox)
+        Me.TabPageGeral.Controls.Add(ProcedimentoLabel)
+        Me.TabPageGeral.Controls.Add(Me.ProcedimentoRichTextBox)
+        Me.TabPageGeral.Controls.Add(GeralLabel)
+        Me.TabPageGeral.Controls.Add(Me.GeralRichTextBox)
+        Me.TabPageGeral.Location = New System.Drawing.Point(4, 24)
+        Me.TabPageGeral.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageGeral.Name = "TabPageGeral"
+        Me.TabPageGeral.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageGeral.Size = New System.Drawing.Size(849, 284)
+        Me.TabPageGeral.TabIndex = 0
+        Me.TabPageGeral.Text = "Geral"
+        Me.TabPageGeral.UseVisualStyleBackColor = True
         '
         'BtnVerObsGeral
         '
@@ -2112,17 +2115,17 @@ Partial Class FrmLegalizacao
         Me.GeralRichTextBox.TabIndex = 1
         Me.GeralRichTextBox.Text = ""
         '
-        'TabPage10
+        'TabPageDadosEmpresa
         '
-        Me.TabPage10.AutoScroll = True
-        Me.TabPage10.Controls.Add(Me.TabControl2)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Size = New System.Drawing.Size(849, 284)
-        Me.TabPage10.TabIndex = 6
-        Me.TabPage10.Text = "Dados"
-        Me.TabPage10.UseVisualStyleBackColor = True
+        Me.TabPageDadosEmpresa.AutoScroll = True
+        Me.TabPageDadosEmpresa.Controls.Add(Me.TabControl2)
+        Me.TabPageDadosEmpresa.Location = New System.Drawing.Point(4, 24)
+        Me.TabPageDadosEmpresa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageDadosEmpresa.Name = "TabPageDadosEmpresa"
+        Me.TabPageDadosEmpresa.Size = New System.Drawing.Size(849, 284)
+        Me.TabPageDadosEmpresa.TabIndex = 6
+        Me.TabPageDadosEmpresa.Text = "Dados"
+        Me.TabPageDadosEmpresa.UseVisualStyleBackColor = True
         '
         'TabControl2
         '
@@ -2131,7 +2134,7 @@ Partial Class FrmLegalizacao
         Me.TabControl2.Controls.Add(Me.TabPage19)
         Me.TabControl2.Controls.Add(Me.TabPage13)
         Me.TabControl2.Controls.Add(Me.TabPage24)
-        Me.TabControl2.Controls.Add(Me.TabPage14)
+        Me.TabControl2.Controls.Add(Me.TabPageEndereco)
         Me.TabControl2.Controls.Add(Me.TabPage15)
         Me.TabControl2.Controls.Add(Me.TabPage16)
         Me.TabControl2.Controls.Add(Me.TabPage18)
@@ -2372,11 +2375,11 @@ Partial Class FrmLegalizacao
         Me.TabPage19.Controls.Add(Me.QuantidadeSociosTextBox)
         Me.TabPage19.Controls.Add(Me.BtnAdicionarSocio)
         Me.TabPage19.Controls.Add(Me.DadosSociosRichTextBox)
-        Me.TabPage19.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage19.Location = New System.Drawing.Point(4, 27)
         Me.TabPage19.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage19.Name = "TabPage19"
         Me.TabPage19.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage19.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage19.Size = New System.Drawing.Size(841, 253)
         Me.TabPage19.TabIndex = 6
         Me.TabPage19.Text = "Dados dos Sócios"
         Me.TabPage19.UseVisualStyleBackColor = True
@@ -2459,11 +2462,11 @@ Partial Class FrmLegalizacao
         'TabPage13
         '
         Me.TabPage13.Controls.Add(Me.GroupBox1)
-        Me.TabPage13.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage13.Location = New System.Drawing.Point(4, 27)
         Me.TabPage13.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage13.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage13.Size = New System.Drawing.Size(841, 253)
         Me.TabPage13.TabIndex = 1
         Me.TabPage13.Text = "CNAEs"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -2492,7 +2495,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(833, 221)
+        Me.GroupBox1.Size = New System.Drawing.Size(833, 247)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Atividades Economicas"
@@ -2658,9 +2661,9 @@ Partial Class FrmLegalizacao
         'TabPage24
         '
         Me.TabPage24.Controls.Add(Me.GroupBox14)
-        Me.TabPage24.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage24.Location = New System.Drawing.Point(4, 27)
         Me.TabPage24.Name = "TabPage24"
-        Me.TabPage24.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage24.Size = New System.Drawing.Size(841, 253)
         Me.TabPage24.TabIndex = 9
         Me.TabPage24.Text = "Ramo de Atividade"
         Me.TabPage24.UseVisualStyleBackColor = True
@@ -2685,7 +2688,7 @@ Partial Class FrmLegalizacao
         Me.GroupBox14.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox14.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(841, 227)
+        Me.GroupBox14.Size = New System.Drawing.Size(841, 253)
         Me.GroupBox14.TabIndex = 0
         Me.GroupBox14.TabStop = False
         '
@@ -2826,63 +2829,63 @@ Partial Class FrmLegalizacao
         Me.RamoDeAtividadeRichTextBox.TabIndex = 89
         Me.RamoDeAtividadeRichTextBox.Text = ""
         '
-        'TabPage14
+        'TabPageEndereco
         '
-        Me.TabPage14.AutoScroll = True
-        Me.TabPage14.Controls.Add(Me.ButtonLimpaEndAntigo)
-        Me.TabPage14.Controls.Add(Me.ButtonEndAntigoVoltar)
-        Me.TabPage14.Controls.Add(Me.LinkLabelVerEndAntigo)
-        Me.TabPage14.Controls.Add(Me.ButtonRegistrarEndAntigo)
-        Me.TabPage14.Controls.Add(TemEnderecoAntigoEmpLabel)
-        Me.TabPage14.Controls.Add(Me.TemEnderecoAntigoEmpComboBox)
-        Me.TabPage14.Controls.Add(Me.EnderecoAntigoEmpLabel)
-        Me.TabPage14.Controls.Add(Me.EnderecoAntigoEmpRichTextBox)
-        Me.TabPage14.Controls.Add(Me.BtnCorrigeCidade)
-        Me.TabPage14.Controls.Add(Me.BtnArrumaEnd)
-        Me.TabPage14.Controls.Add(Me.BtnCopiaCEP)
-        Me.TabPage14.Controls.Add(Me.BtnMapa)
-        Me.TabPage14.Controls.Add(Me.BtnCopiaEndereco)
-        Me.TabPage14.Controls.Add(Me.BtnAjudaAréa)
-        Me.TabPage14.Controls.Add(Me.BtnDadosComplementares)
-        Me.TabPage14.Controls.Add(PontoDeReferenciaLabel)
-        Me.TabPage14.Controls.Add(Me.PontoDeReferenciaComboBox)
-        Me.TabPage14.Controls.Add(Me.BtnCorreios)
-        Me.TabPage14.Controls.Add(Me.EndPaisTextBox)
-        Me.TabPage14.Controls.Add(Me.EndCidadeTextBox)
-        Me.TabPage14.Controls.Add(Me.EndComplementoTextBox)
-        Me.TabPage14.Controls.Add(Me.EndBairroTextBox)
-        Me.TabPage14.Controls.Add(Me.EnderecoTextBox)
-        Me.TabPage14.Controls.Add(EndDataLabel)
-        Me.TabPage14.Controls.Add(Me.EndDataTextBox)
-        Me.TabPage14.Controls.Add(EndQuadraLabel)
-        Me.TabPage14.Controls.Add(Me.EndQuadraTextBox)
-        Me.TabPage14.Controls.Add(EndZonaLabel)
-        Me.TabPage14.Controls.Add(Me.EndZonaTextBox)
-        Me.TabPage14.Controls.Add(Me.CadImobTextBox)
-        Me.TabPage14.Controls.Add(Area2Label)
-        Me.TabPage14.Controls.Add(Me.EndCEPMaskedTextBox)
-        Me.TabPage14.Controls.Add(Me.Area2TextBox)
-        Me.TabPage14.Controls.Add(EndBairroLabel)
-        Me.TabPage14.Controls.Add(AreaLabel)
-        Me.TabPage14.Controls.Add(EndNumeroLabel)
-        Me.TabPage14.Controls.Add(EndComplementoLabel)
-        Me.TabPage14.Controls.Add(Me.AreaTextBox)
-        Me.TabPage14.Controls.Add(EndCEPLabel)
-        Me.TabPage14.Controls.Add(EndPaisLabel)
-        Me.TabPage14.Controls.Add(Me.EndEstadoTextBox)
-        Me.TabPage14.Controls.Add(Me.EndNumeroTextBox)
-        Me.TabPage14.Controls.Add(Me.BtnBuscaCEP)
-        Me.TabPage14.Controls.Add(EnderecoLabel)
-        Me.TabPage14.Controls.Add(EndEstadoLabel)
-        Me.TabPage14.Controls.Add(EndCidadeLabel)
-        Me.TabPage14.Controls.Add(CadImobLabel)
-        Me.TabPage14.Location = New System.Drawing.Point(4, 53)
-        Me.TabPage14.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Size = New System.Drawing.Size(841, 227)
-        Me.TabPage14.TabIndex = 2
-        Me.TabPage14.Text = "Endereço"
-        Me.TabPage14.UseVisualStyleBackColor = True
+        Me.TabPageEndereco.AutoScroll = True
+        Me.TabPageEndereco.Controls.Add(Me.ButtonLimpaEndAntigo)
+        Me.TabPageEndereco.Controls.Add(Me.ButtonEndAntigoVoltar)
+        Me.TabPageEndereco.Controls.Add(Me.LinkLabelVerEndAntigo)
+        Me.TabPageEndereco.Controls.Add(Me.ButtonRegistrarEndAntigo)
+        Me.TabPageEndereco.Controls.Add(TemEnderecoAntigoEmpLabel)
+        Me.TabPageEndereco.Controls.Add(Me.TemEnderecoAntigoEmpComboBox)
+        Me.TabPageEndereco.Controls.Add(Me.EnderecoAntigoEmpLabel)
+        Me.TabPageEndereco.Controls.Add(Me.EnderecoAntigoEmpRichTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.BtnCorrigeCidade)
+        Me.TabPageEndereco.Controls.Add(Me.BtnArrumaEnd)
+        Me.TabPageEndereco.Controls.Add(Me.BtnCopiaCEP)
+        Me.TabPageEndereco.Controls.Add(Me.BtnMapa)
+        Me.TabPageEndereco.Controls.Add(Me.BtnCopiaEndereco)
+        Me.TabPageEndereco.Controls.Add(Me.BtnAjudaAréa)
+        Me.TabPageEndereco.Controls.Add(Me.BtnDadosComplementares)
+        Me.TabPageEndereco.Controls.Add(PontoDeReferenciaLabel)
+        Me.TabPageEndereco.Controls.Add(Me.PontoDeReferenciaComboBox)
+        Me.TabPageEndereco.Controls.Add(Me.BtnCorreios)
+        Me.TabPageEndereco.Controls.Add(Me.EndPaisTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.EndCidadeTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.EndComplementoTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.EndBairroTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.EnderecoTextBox)
+        Me.TabPageEndereco.Controls.Add(EndDataLabel)
+        Me.TabPageEndereco.Controls.Add(Me.EndDataTextBox)
+        Me.TabPageEndereco.Controls.Add(EndQuadraLabel)
+        Me.TabPageEndereco.Controls.Add(Me.EndQuadraTextBox)
+        Me.TabPageEndereco.Controls.Add(EndZonaLabel)
+        Me.TabPageEndereco.Controls.Add(Me.EndZonaTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.CadImobTextBox)
+        Me.TabPageEndereco.Controls.Add(Area2Label)
+        Me.TabPageEndereco.Controls.Add(Me.EndCEPMaskedTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.Area2TextBox)
+        Me.TabPageEndereco.Controls.Add(EndBairroLabel)
+        Me.TabPageEndereco.Controls.Add(AreaLabel)
+        Me.TabPageEndereco.Controls.Add(EndNumeroLabel)
+        Me.TabPageEndereco.Controls.Add(EndComplementoLabel)
+        Me.TabPageEndereco.Controls.Add(Me.AreaTextBox)
+        Me.TabPageEndereco.Controls.Add(EndCEPLabel)
+        Me.TabPageEndereco.Controls.Add(EndPaisLabel)
+        Me.TabPageEndereco.Controls.Add(Me.EndEstadoTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.EndNumeroTextBox)
+        Me.TabPageEndereco.Controls.Add(Me.BtnBuscaCEP)
+        Me.TabPageEndereco.Controls.Add(EnderecoLabel)
+        Me.TabPageEndereco.Controls.Add(EndEstadoLabel)
+        Me.TabPageEndereco.Controls.Add(EndCidadeLabel)
+        Me.TabPageEndereco.Controls.Add(CadImobLabel)
+        Me.TabPageEndereco.Location = New System.Drawing.Point(4, 27)
+        Me.TabPageEndereco.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageEndereco.Name = "TabPageEndereco"
+        Me.TabPageEndereco.Size = New System.Drawing.Size(841, 253)
+        Me.TabPageEndereco.TabIndex = 2
+        Me.TabPageEndereco.Text = "Endereço"
+        Me.TabPageEndereco.UseVisualStyleBackColor = True
         '
         'ButtonLimpaEndAntigo
         '
@@ -3228,10 +3231,10 @@ Partial Class FrmLegalizacao
         Me.TabPage15.Controls.Add(Me.EmpTel2TextBox)
         Me.TabPage15.Controls.Add(EmpTel2Label)
         Me.TabPage15.Controls.Add(EmpEmailLabel)
-        Me.TabPage15.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage15.Location = New System.Drawing.Point(4, 27)
         Me.TabPage15.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage15.Size = New System.Drawing.Size(841, 253)
         Me.TabPage15.TabIndex = 3
         Me.TabPage15.Text = "Telefone/Outros"
         Me.TabPage15.UseVisualStyleBackColor = True
@@ -3313,11 +3316,11 @@ Partial Class FrmLegalizacao
         Me.TabPage16.Controls.Add(Me.DataExcSocialMaskedTextBox)
         Me.TabPage16.Controls.Add(CapitalILabel)
         Me.TabPage16.Controls.Add(CapitalSLabel)
-        Me.TabPage16.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage16.Location = New System.Drawing.Point(4, 27)
         Me.TabPage16.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage16.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage16.Size = New System.Drawing.Size(841, 253)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "Capital Social"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -3511,10 +3514,10 @@ Partial Class FrmLegalizacao
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial2TextBox)
         Me.TabPage18.Controls.Add(NovaRazaoSocial1Label)
         Me.TabPage18.Controls.Add(Me.NovaRazaoSocial1TextBox)
-        Me.TabPage18.Location = New System.Drawing.Point(4, 53)
+        Me.TabPage18.Location = New System.Drawing.Point(4, 27)
         Me.TabPage18.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage18.Name = "TabPage18"
-        Me.TabPage18.Size = New System.Drawing.Size(841, 227)
+        Me.TabPage18.Size = New System.Drawing.Size(841, 253)
         Me.TabPage18.TabIndex = 5
         Me.TabPage18.Text = "Busca de Nome"
         Me.TabPage18.UseVisualStyleBackColor = True
@@ -3879,36 +3882,37 @@ Partial Class FrmLegalizacao
         Me.DadosComplEstabelecimentoComboBox.Size = New System.Drawing.Size(88, 24)
         Me.DadosComplEstabelecimentoComboBox.TabIndex = 15
         '
-        'TabPage3
+        'TabPageEmpresaFacil
         '
-        Me.TabPage3.AutoScroll = True
-        Me.TabPage3.Controls.Add(Me.BtnCopiarPRP)
-        Me.TabPage3.Controls.Add(Me.BtnVerEmpresaFacil)
-        Me.TabPage3.Controls.Add(Me.LinkLabeLPrazoEmpresaFacil)
-        Me.TabPage3.Controls.Add(Me.BtnAnotacoesLEgalizacao)
-        Me.TabPage3.Controls.Add(Me.BtnData3)
-        Me.TabPage3.Controls.Add(Me.BtnData2)
-        Me.TabPage3.Controls.Add(Me.Button48)
-        Me.TabPage3.Controls.Add(Me.TabControl1)
-        Me.TabPage3.Controls.Add(Me.Button30)
-        Me.TabPage3.Controls.Add(Me.Button12)
-        Me.TabPage3.Controls.Add(ProtJuntaFinalLabel)
-        Me.TabPage3.Controls.Add(Me.ProtJuntaFinalMaskedTextBox)
-        Me.TabPage3.Controls.Add(JuntaObsLabel)
-        Me.TabPage3.Controls.Add(Me.JuntaObsRichTextBox)
-        Me.TabPage3.Controls.Add(Me.Button6)
-        Me.TabPage3.Controls.Add(Me.DataProtJuntaComercialMaskedTextBox)
-        Me.TabPage3.Controls.Add(DataProtJuntaComercialLabel)
-        Me.TabPage3.Controls.Add(Me.BtnConsultaJunta)
-        Me.TabPage3.Controls.Add(ProtocoloJuntaComercialLabel)
-        Me.TabPage3.Controls.Add(Me.ProtocoloJuntaComercialTextBox)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(849, 284)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Empresa Fácil"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.TabPageEmpresaFacil.AutoScroll = True
+        Me.TabPageEmpresaFacil.Controls.Add(Me.ButtonCopiarEmpresaTexto)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnCopiarPRP)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnVerEmpresaFacil)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.LinkLabeLPrazoEmpresaFacil)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnAnotacoesLEgalizacao)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnData3)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnData2)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.Button48)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.TabControl1)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.Button30)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.Button12)
+        Me.TabPageEmpresaFacil.Controls.Add(ProtJuntaFinalLabel)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.ProtJuntaFinalMaskedTextBox)
+        Me.TabPageEmpresaFacil.Controls.Add(JuntaObsLabel)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.JuntaObsRichTextBox)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.Button6)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.DataProtJuntaComercialMaskedTextBox)
+        Me.TabPageEmpresaFacil.Controls.Add(DataProtJuntaComercialLabel)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.BtnConsultaJunta)
+        Me.TabPageEmpresaFacil.Controls.Add(ProtocoloJuntaComercialLabel)
+        Me.TabPageEmpresaFacil.Controls.Add(Me.ProtocoloJuntaComercialTextBox)
+        Me.TabPageEmpresaFacil.Location = New System.Drawing.Point(4, 24)
+        Me.TabPageEmpresaFacil.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TabPageEmpresaFacil.Name = "TabPageEmpresaFacil"
+        Me.TabPageEmpresaFacil.Size = New System.Drawing.Size(849, 284)
+        Me.TabPageEmpresaFacil.TabIndex = 2
+        Me.TabPageEmpresaFacil.Text = "Empresa Fácil"
+        Me.TabPageEmpresaFacil.UseVisualStyleBackColor = True
         '
         'BtnCopiarPRP
         '
@@ -4149,6 +4153,7 @@ Partial Class FrmLegalizacao
         'TabPage8
         '
         Me.TabPage8.AutoScroll = True
+        Me.TabPage8.Controls.Add(Me.LinkLabelCopiarPastaDocEmpfacil)
         Me.TabPage8.Controls.Add(Me.BtnArrumar)
         Me.TabPage8.Controls.Add(Me.Button41)
         Me.TabPage8.Controls.Add(Me.Button40)
@@ -4169,6 +4174,16 @@ Partial Class FrmLegalizacao
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "Arquivos"
         Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'LinkLabelCopiarPastaDocEmpfacil
+        '
+        Me.LinkLabelCopiarPastaDocEmpfacil.AutoSize = True
+        Me.LinkLabelCopiarPastaDocEmpfacil.Location = New System.Drawing.Point(217, 143)
+        Me.LinkLabelCopiarPastaDocEmpfacil.Name = "LinkLabelCopiarPastaDocEmpfacil"
+        Me.LinkLabelCopiarPastaDocEmpfacil.Size = New System.Drawing.Size(94, 15)
+        Me.LinkLabelCopiarPastaDocEmpfacil.TabIndex = 52
+        Me.LinkLabelCopiarPastaDocEmpfacil.TabStop = True
+        Me.LinkLabelCopiarPastaDocEmpfacil.Text = "Copiar caminho"
         '
         'BtnArrumar
         '
@@ -5826,6 +5841,7 @@ Partial Class FrmLegalizacao
         '
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.LinkLabelCopiarMEtxt)
         Me.GroupBox2.Controls.Add(Me.CodSistemaExternoLabel)
         Me.GroupBox2.Controls.Add(Me.BtnNovaRazao)
         Me.GroupBox2.Controls.Add(Me.CodSistemaExternoTextBox)
@@ -5988,7 +6004,7 @@ Partial Class FrmLegalizacao
         Me.BtnConsultaOptante.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultaOptante.FlatAppearance.BorderSize = 0
         Me.BtnConsultaOptante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnConsultaOptante.Location = New System.Drawing.Point(572, 172)
+        Me.BtnConsultaOptante.Location = New System.Drawing.Point(691, 171)
         Me.BtnConsultaOptante.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultaOptante.Name = "BtnConsultaOptante"
         Me.BtnConsultaOptante.Size = New System.Drawing.Size(31, 27)
@@ -6116,7 +6132,7 @@ Partial Class FrmLegalizacao
         Me.PorteDaEmpresaComboBox.Location = New System.Drawing.Point(115, 173)
         Me.PorteDaEmpresaComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PorteDaEmpresaComboBox.Name = "PorteDaEmpresaComboBox"
-        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(202, 23)
+        Me.PorteDaEmpresaComboBox.Size = New System.Drawing.Size(196, 23)
         Me.PorteDaEmpresaComboBox.TabIndex = 29
         '
         'RegimeFederalComboBox
@@ -6124,7 +6140,7 @@ Partial Class FrmLegalizacao
         Me.RegimeFederalComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpresasBindingSource, "RegimeFederal", True))
         Me.RegimeFederalComboBox.FormattingEnabled = True
         Me.RegimeFederalComboBox.Items.AddRange(New Object() {"Lucro Normal", "Lucro Presumido", "RET", "Simples Nacional", "Pendência"})
-        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(424, 174)
+        Me.RegimeFederalComboBox.Location = New System.Drawing.Point(550, 173)
         Me.RegimeFederalComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RegimeFederalComboBox.Name = "RegimeFederalComboBox"
         Me.RegimeFederalComboBox.Size = New System.Drawing.Size(140, 23)
@@ -6737,6 +6753,28 @@ Partial Class FrmLegalizacao
         'TimerCodEmpresa
         '
         '
+        'ButtonCopiarEmpresaTexto
+        '
+        Me.ButtonCopiarEmpresaTexto.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonCopiarEmpresaTexto.ForeColor = System.Drawing.Color.MediumBlue
+        Me.ButtonCopiarEmpresaTexto.Location = New System.Drawing.Point(354, 8)
+        Me.ButtonCopiarEmpresaTexto.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.ButtonCopiarEmpresaTexto.Name = "ButtonCopiarEmpresaTexto"
+        Me.ButtonCopiarEmpresaTexto.Size = New System.Drawing.Size(125, 28)
+        Me.ButtonCopiarEmpresaTexto.TabIndex = 82
+        Me.ButtonCopiarEmpresaTexto.Text = "Txt Copiar Empresa"
+        Me.ButtonCopiarEmpresaTexto.UseVisualStyleBackColor = True
+        '
+        'LinkLabelCopiarMEtxt
+        '
+        Me.LinkLabelCopiarMEtxt.AutoSize = True
+        Me.LinkLabelCopiarMEtxt.Location = New System.Drawing.Point(312, 177)
+        Me.LinkLabelCopiarMEtxt.Name = "LinkLabelCopiarMEtxt"
+        Me.LinkLabelCopiarMEtxt.Size = New System.Drawing.Size(58, 15)
+        Me.LinkLabelCopiarMEtxt.TabIndex = 88
+        Me.LinkLabelCopiarMEtxt.TabStop = True
+        Me.LinkLabelCopiarMEtxt.Text = "Copiar txt"
+        '
         'FrmLegalizacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -6769,9 +6807,9 @@ Partial Class FrmLegalizacao
         CType(Me.CADstatusBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrinceDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControle.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
-        Me.TabPage10.ResumeLayout(False)
+        Me.TabPageGeral.ResumeLayout(False)
+        Me.TabPageGeral.PerformLayout()
+        Me.TabPageDadosEmpresa.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage12.ResumeLayout(False)
         Me.TabPage12.PerformLayout()
@@ -6784,8 +6822,8 @@ Partial Class FrmLegalizacao
         Me.TabPage24.PerformLayout()
         Me.GroupBox14.ResumeLayout(False)
         Me.GroupBox14.PerformLayout()
-        Me.TabPage14.ResumeLayout(False)
-        Me.TabPage14.PerformLayout()
+        Me.TabPageEndereco.ResumeLayout(False)
+        Me.TabPageEndereco.PerformLayout()
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage15.PerformLayout()
         Me.TabPage16.ResumeLayout(False)
@@ -6796,8 +6834,8 @@ Partial Class FrmLegalizacao
         Me.TabPage21.PerformLayout()
         Me.TabPage22.ResumeLayout(False)
         Me.TabPage22.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
+        Me.TabPageEmpresaFacil.ResumeLayout(False)
+        Me.TabPageEmpresaFacil.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage9.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
@@ -6886,8 +6924,8 @@ Partial Class FrmLegalizacao
     Friend WithEvents RazaoSocialTextBox As TextBox
     Friend WithEvents CNPJMaskedTextBox As MaskedTextBox
     Friend WithEvents TabControle As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents TabPageGeral As TabPage
+    Friend WithEvents TabPageEmpresaFacil As TabPage
     Friend WithEvents ProtocoloJuntaComercialTextBox As TextBox
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents TabPage5 As TabPage
@@ -6921,7 +6959,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents Button7 As Button
     Friend WithEvents NireDataMaskedTextBox As MaskedTextBox
     Friend WithEvents NIRETextBox As TextBox
-    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents TabPageDadosEmpresa As TabPage
     Friend WithEvents EmpInicioAtividadeMaskedTextBox As MaskedTextBox
     Friend WithEvents Button4 As Button
     Friend WithEvents NaturezaJuridicaComboBox As ComboBox
@@ -7022,7 +7060,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents TabControl2 As TabControl
     Friend WithEvents TabPage12 As TabPage
     Friend WithEvents TabPage13 As TabPage
-    Friend WithEvents TabPage14 As TabPage
+    Friend WithEvents TabPageEndereco As TabPage
     Friend WithEvents TabPage15 As TabPage
     Friend WithEvents RespRGTextBox As TextBox
     Friend WithEvents TabPageHistorico As TabPage
@@ -7272,4 +7310,7 @@ Partial Class FrmLegalizacao
     Friend WithEvents CodSistemaExternoTextBox As TextBox
     Friend WithEvents CodSistemaExternoLabel As Label
     Friend WithEvents TimerCodEmpresa As Timer
+    Friend WithEvents LinkLabelCopiarPastaDocEmpfacil As LinkLabel
+    Friend WithEvents ButtonCopiarEmpresaTexto As Button
+    Friend WithEvents LinkLabelCopiarMEtxt As LinkLabel
 End Class

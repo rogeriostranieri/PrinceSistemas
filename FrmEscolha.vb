@@ -48,7 +48,7 @@ Public Class FrmEscolha
         ' Colunas a serem verificadas
         Dim cnpjColumn As String = "CNPJ"
         Dim razaoSocialColumn As String = "RazaoSocial"
-        Dim query As String = ""
+        Dim query As String
 
         ' Condicional para verificar qual parâmetro deve ser usado na consulta
         If Not String.IsNullOrEmpty(selectedCNPJ) Then
@@ -131,7 +131,10 @@ Public Class FrmEscolha
 
     ' Método para abrir o formulário de Parcelamentos
     Private Sub AbrirParcelamentos()
+
         If CheckCNPJOrRazaoSocialExists("Parcelamentos") Then
+            'verificar antes se FrmParcelamento esta aberto
+            FrmParcelamento.MdiParent = MDIPrincipal
             FrmParcelamento.Show()
             ' Se houver CNPJ, usa ComboBoxBuscaCNPJ; senão, usa ComboBoxBuscarRazaoSocial
             If Not String.IsNullOrEmpty(selectedCNPJ) Then
