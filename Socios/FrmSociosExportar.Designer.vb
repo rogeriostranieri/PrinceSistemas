@@ -42,7 +42,7 @@ Partial Class FrmSociosExportar
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(73, 177)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -53,7 +53,7 @@ Partial Class FrmSociosExportar
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.OK_Button.Location = New System.Drawing.Point(6, 5)
-        Me.OK_Button.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(5)
         Me.OK_Button.Name = "OK_Button"
         Me.OK_Button.Size = New System.Drawing.Size(122, 43)
         Me.OK_Button.TabIndex = 0
@@ -64,7 +64,7 @@ Partial Class FrmSociosExportar
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel_Button.Location = New System.Drawing.Point(140, 5)
-        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(5)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(122, 43)
         Me.Cancel_Button.TabIndex = 1
@@ -73,9 +73,9 @@ Partial Class FrmSociosExportar
         'ComboBoxTipoSocio
         '
         Me.ComboBoxTipoSocio.FormattingEnabled = True
-        Me.ComboBoxTipoSocio.Items.AddRange(New Object() {"Sócio-Administrador", "Sócio"})
+        Me.ComboBoxTipoSocio.Items.AddRange(New Object() {"Sócio-Administrador", "Sócio", "Administrador", "Titular"})
         Me.ComboBoxTipoSocio.Location = New System.Drawing.Point(18, 41)
-        Me.ComboBoxTipoSocio.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.ComboBoxTipoSocio.Margin = New System.Windows.Forms.Padding(5)
         Me.ComboBoxTipoSocio.Name = "ComboBoxTipoSocio"
         Me.ComboBoxTipoSocio.Size = New System.Drawing.Size(303, 32)
         Me.ComboBoxTipoSocio.TabIndex = 1
@@ -107,7 +107,7 @@ Partial Class FrmSociosExportar
         Me.ComboBoxEntrada.FormattingEnabled = True
         Me.ComboBoxEntrada.Items.AddRange(New Object() {"Entrada", "Saída", "Alteração"})
         Me.ComboBoxEntrada.Location = New System.Drawing.Point(18, 106)
-        Me.ComboBoxEntrada.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBoxEntrada.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBoxEntrada.Name = "ComboBoxEntrada"
         Me.ComboBoxEntrada.Size = New System.Drawing.Size(303, 32)
         Me.ComboBoxEntrada.TabIndex = 4
@@ -132,7 +132,7 @@ Partial Class FrmSociosExportar
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(5)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmSociosExportar"

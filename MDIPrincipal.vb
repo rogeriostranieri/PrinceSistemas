@@ -1094,4 +1094,6 @@ Public Class MDIPrincipal
             ChatBot.MdiParent = Me
         End If
     End Sub
+
+
 End Class

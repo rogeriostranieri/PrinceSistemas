@@ -16,3 +16,9 @@
 "Quantos parcelamentos foram enviados este ano?","SELECT COUNT(*) AS TotalEnviados FROM Parcelamentos WHERE YEAR(DataEnviaMEI) = YEAR(GETDATE()) OR YEAR(DataEnviaAntigo) = YEAR(GETDATE()) OR YEAR(DataEnvioNovo) = YEAR(GETDATE()) OR YEAR(DataEnviaProc) = YEAR(GETDATE());"
 "Quais parcelamentos atrasaram o MEI?","SELECT ID_Parcel, RazaoSocial, DataSolicMEI FROM Parcelamentos WHERE AtrasoParcelaMEI = 1;"
 "Quais parcelamentos possuem senha do governo?","SELECT ID_Parcel, RazaoSocial, SenhaGov FROM Parcelamentos WHERE SenhaGov IS NOT NULL;"
+
+"Buscar empresa","SELECT ID_Empresas, RazaoSocial, CNPJ FROM Empresas WHERE RazaoSocial LIKE '%@Busca%';"
+"Buscar laudo","SELECT ID_laudos, RazaoSocial, CNPJ FROM Laudos WHERE RazaoSocial LIKE '%@Busca%';"
+"Buscar Parcelamento","SELECT ID_Parcelamento, RazaoSocial, CNPJ FROM Parcelamento WHERE RazaoSocial LIKE '%@Busca%';"
+
+"Abrir a empresa","SELECT ID_Empresas, RazaoSocial, CNPJ FROM Empresas WHERE RazaoSocial LIKE '%@Busca%';"

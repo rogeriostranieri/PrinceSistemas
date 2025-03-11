@@ -102,11 +102,12 @@ Partial Class MDIPrincipal
         Me.LbTema = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButtonChatBot = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.LblNomeCompleto = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ButtonEmpresas = New System.Windows.Forms.Button()
-        Me.ToolStripButtonChatBot = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -520,7 +521,7 @@ Partial Class MDIPrincipal
         '
         Me.ToolStrip.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.ToolStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton7, Me.ToolStripSeparator13, Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3, Me.ToolStripSeparator7, Me.ToolStripButton4, Me.ToolStripSeparator5, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripButton6, Me.LbTema, Me.ToolStripLabel1, Me.ToolStripSeparator9, Me.ToolStripButtonChatBot})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton7, Me.ToolStripSeparator13, Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3, Me.ToolStripSeparator7, Me.ToolStripButton4, Me.ToolStripSeparator5, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripButton6, Me.LbTema, Me.ToolStripLabel1, Me.ToolStripSeparator9, Me.ToolStripButtonChatBot, Me.ToolStripSeparator17})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(1150, 25)
@@ -643,6 +644,15 @@ Partial Class MDIPrincipal
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
         Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
         '
+        'ToolStripButtonChatBot
+        '
+        Me.ToolStripButtonChatBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButtonChatBot.Image = CType(resources.GetObject("ToolStripButtonChatBot.Image"), System.Drawing.Image)
+        Me.ToolStripButtonChatBot.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonChatBot.Name = "ToolStripButtonChatBot"
+        Me.ToolStripButtonChatBot.Size = New System.Drawing.Size(64, 22)
+        Me.ToolStripButtonChatBot.Text = "CHATBOT"
+        '
         'StatusStrip
         '
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -676,14 +686,10 @@ Partial Class MDIPrincipal
         Me.ButtonEmpresas.Text = "Todas Empresas"
         Me.ButtonEmpresas.UseVisualStyleBackColor = True
         '
-        'ToolStripButtonChatBot
+        'ToolStripSeparator17
         '
-        Me.ToolStripButtonChatBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButtonChatBot.Image = CType(resources.GetObject("ToolStripButtonChatBot.Image"), System.Drawing.Image)
-        Me.ToolStripButtonChatBot.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonChatBot.Name = "ToolStripButtonChatBot"
-        Me.ToolStripButtonChatBot.Size = New System.Drawing.Size(64, 22)
-        Me.ToolStripButtonChatBot.Text = "CHATBOT"
+        Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
+        Me.ToolStripSeparator17.Size = New System.Drawing.Size(6, 25)
         '
         'MDIPrincipal
         '
@@ -794,4 +800,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ToolStripSeparator16 As ToolStripSeparator
     Friend WithEvents TodosParcelamentosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButtonChatBot As ToolStripButton
+    Friend WithEvents ToolStripSeparator17 As ToolStripSeparator
 End Class

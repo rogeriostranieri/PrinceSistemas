@@ -53,6 +53,10 @@ Partial Class FrmSocios
         Dim NOMEdoCONJUGELabel As System.Windows.Forms.Label
         Dim ProfissãoLabel As System.Windows.Forms.Label
         Dim OutrosDadosLabel As System.Windows.Forms.Label
+        Dim RegistroOrgaoLabel As System.Windows.Forms.Label
+        Dim RegistroEstadoLabel As System.Windows.Forms.Label
+        Dim RegistroNumeroLabel As System.Windows.Forms.Label
+        Dim RegistroDataLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSocios))
         Me.SociosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PrinceDBDataSet = New PrinceSistemas.PrinceDBDataSet()
@@ -66,6 +70,12 @@ Partial Class FrmSocios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBoxDadosPessoais = New System.Windows.Forms.GroupBox()
+        Me.RegistroDataMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.BtnConsultaRegistroEntidades = New System.Windows.Forms.Button()
+        Me.RegistroNumeroTextBox = New System.Windows.Forms.TextBox()
+        Me.RegistroEstadoComboBox = New System.Windows.Forms.ComboBox()
+        Me.RegistroOrgaoComboBox = New System.Windows.Forms.ComboBox()
+        Me.LinkLabelArrumaOrgaoRG = New System.Windows.Forms.LinkLabel()
         Me.LblMenorIdade = New System.Windows.Forms.Label()
         Me.MenorIdadeComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnCopiarCPF = New System.Windows.Forms.Button()
@@ -96,6 +106,8 @@ Partial Class FrmSocios
         Me.CPFMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBoxOutrosDados = New System.Windows.Forms.GroupBox()
+        Me.BtnCorrigeCidade = New System.Windows.Forms.Button()
+        Me.BtnArrumaEnd = New System.Windows.Forms.Button()
         Me.BtnCopiaCEP = New System.Windows.Forms.Button()
         Me.BtnAtalhoConjuge2 = New System.Windows.Forms.Button()
         Me.BtnAtablhoSocio = New System.Windows.Forms.Button()
@@ -168,9 +180,6 @@ Partial Class FrmSocios
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnArrumaEnd = New System.Windows.Forms.Button()
-        Me.BtnCorrigeCidade = New System.Windows.Forms.Button()
-        Me.LinkLabelArrumaOrgaoRG = New System.Windows.Forms.LinkLabel()
         CEPLabel = New System.Windows.Forms.Label()
         RUALabel = New System.Windows.Forms.Label()
         NumLabel = New System.Windows.Forms.Label()
@@ -201,6 +210,10 @@ Partial Class FrmSocios
         NOMEdoCONJUGELabel = New System.Windows.Forms.Label()
         ProfissãoLabel = New System.Windows.Forms.Label()
         OutrosDadosLabel = New System.Windows.Forms.Label()
+        RegistroOrgaoLabel = New System.Windows.Forms.Label()
+        RegistroEstadoLabel = New System.Windows.Forms.Label()
+        RegistroNumeroLabel = New System.Windows.Forms.Label()
+        RegistroDataLabel = New System.Windows.Forms.Label()
         CType(Me.SociosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrinceDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -338,7 +351,7 @@ Partial Class FrmSocios
         'CPFLabel
         '
         CPFLabel.AutoSize = True
-        CPFLabel.Location = New System.Drawing.Point(91, 31)
+        CPFLabel.Location = New System.Drawing.Point(99, 31)
         CPFLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CPFLabel.Name = "CPFLabel"
         CPFLabel.Size = New System.Drawing.Size(33, 15)
@@ -348,7 +361,7 @@ Partial Class FrmSocios
         'NomeCompletoLabel
         '
         NomeCompletoLabel.AutoSize = True
-        NomeCompletoLabel.Location = New System.Drawing.Point(27, 61)
+        NomeCompletoLabel.Location = New System.Drawing.Point(35, 61)
         NomeCompletoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeCompletoLabel.Name = "NomeCompletoLabel"
         NomeCompletoLabel.Size = New System.Drawing.Size(100, 15)
@@ -358,7 +371,7 @@ Partial Class FrmSocios
         'NomeMaeLabel
         '
         NomeMaeLabel.AutoSize = True
-        NomeMaeLabel.Location = New System.Drawing.Point(36, 91)
+        NomeMaeLabel.Location = New System.Drawing.Point(44, 91)
         NomeMaeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomeMaeLabel.Name = "NomeMaeLabel"
         NomeMaeLabel.Size = New System.Drawing.Size(89, 15)
@@ -368,7 +381,7 @@ Partial Class FrmSocios
         'NomePaiLabel
         '
         NomePaiLabel.AutoSize = True
-        NomePaiLabel.Location = New System.Drawing.Point(43, 121)
+        NomePaiLabel.Location = New System.Drawing.Point(51, 121)
         NomePaiLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NomePaiLabel.Name = "NomePaiLabel"
         NomePaiLabel.Size = New System.Drawing.Size(82, 15)
@@ -378,7 +391,7 @@ Partial Class FrmSocios
         'DatadeNascLabel
         '
         DatadeNascLabel.AutoSize = True
-        DatadeNascLabel.Location = New System.Drawing.Point(1, 150)
+        DatadeNascLabel.Location = New System.Drawing.Point(9, 150)
         DatadeNascLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DatadeNascLabel.Name = "DatadeNascLabel"
         DatadeNascLabel.Size = New System.Drawing.Size(122, 15)
@@ -388,7 +401,7 @@ Partial Class FrmSocios
         'RGLabel
         '
         RGLabel.AutoSize = True
-        RGLabel.Location = New System.Drawing.Point(96, 269)
+        RGLabel.Location = New System.Drawing.Point(104, 269)
         RGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RGLabel.Name = "RGLabel"
         RGLabel.Size = New System.Drawing.Size(28, 15)
@@ -398,7 +411,7 @@ Partial Class FrmSocios
         'OrgaoRGLabel
         '
         OrgaoRGLabel.AutoSize = True
-        OrgaoRGLabel.Location = New System.Drawing.Point(278, 269)
+        OrgaoRGLabel.Location = New System.Drawing.Point(286, 269)
         OrgaoRGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         OrgaoRGLabel.Name = "OrgaoRGLabel"
         OrgaoRGLabel.Size = New System.Drawing.Size(65, 15)
@@ -408,7 +421,7 @@ Partial Class FrmSocios
         'EstadoRGLabel
         '
         EstadoRGLabel.AutoSize = True
-        EstadoRGLabel.Location = New System.Drawing.Point(422, 269)
+        EstadoRGLabel.Location = New System.Drawing.Point(430, 269)
         EstadoRGLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EstadoRGLabel.Name = "EstadoRGLabel"
         EstadoRGLabel.Size = New System.Drawing.Size(69, 15)
@@ -418,7 +431,7 @@ Partial Class FrmSocios
         'TituloDeEleitorLabel
         '
         TituloDeEleitorLabel.AutoSize = True
-        TituloDeEleitorLabel.Location = New System.Drawing.Point(27, 299)
+        TituloDeEleitorLabel.Location = New System.Drawing.Point(35, 299)
         TituloDeEleitorLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TituloDeEleitorLabel.Name = "TituloDeEleitorLabel"
         TituloDeEleitorLabel.Size = New System.Drawing.Size(97, 15)
@@ -428,7 +441,7 @@ Partial Class FrmSocios
         'SenhaGOVLabel
         '
         SenhaGOVLabel.AutoSize = True
-        SenhaGOVLabel.Location = New System.Drawing.Point(48, 234)
+        SenhaGOVLabel.Location = New System.Drawing.Point(56, 234)
         SenhaGOVLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SenhaGOVLabel.Name = "SenhaGOVLabel"
         SenhaGOVLabel.Size = New System.Drawing.Size(74, 15)
@@ -438,7 +451,7 @@ Partial Class FrmSocios
         'CNHLabel
         '
         CNHLabel.AutoSize = True
-        CNHLabel.Location = New System.Drawing.Point(88, 329)
+        CNHLabel.Location = New System.Drawing.Point(96, 329)
         CNHLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHLabel.Name = "CNHLabel"
         CNHLabel.Size = New System.Drawing.Size(36, 15)
@@ -448,7 +461,7 @@ Partial Class FrmSocios
         'CNHExpedicaoLabel
         '
         CNHExpedicaoLabel.AutoSize = True
-        CNHExpedicaoLabel.Location = New System.Drawing.Point(416, 329)
+        CNHExpedicaoLabel.Location = New System.Drawing.Point(424, 329)
         CNHExpedicaoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHExpedicaoLabel.Name = "CNHExpedicaoLabel"
         CNHExpedicaoLabel.Size = New System.Drawing.Size(44, 15)
@@ -458,7 +471,7 @@ Partial Class FrmSocios
         'CNHDataExpLabel
         '
         CNHDataExpLabel.AutoSize = True
-        CNHDataExpLabel.Location = New System.Drawing.Point(271, 329)
+        CNHDataExpLabel.Location = New System.Drawing.Point(279, 329)
         CNHDataExpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CNHDataExpLabel.Name = "CNHDataExpLabel"
         CNHDataExpLabel.Size = New System.Drawing.Size(60, 15)
@@ -468,7 +481,7 @@ Partial Class FrmSocios
         'CivilLabel
         '
         CivilLabel.AutoSize = True
-        CivilLabel.Location = New System.Drawing.Point(50, 203)
+        CivilLabel.Location = New System.Drawing.Point(58, 203)
         CivilLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CivilLabel.Name = "CivilLabel"
         CivilLabel.Size = New System.Drawing.Size(73, 15)
@@ -478,7 +491,7 @@ Partial Class FrmSocios
         'GeneroLabel
         '
         GeneroLabel.AutoSize = True
-        GeneroLabel.Location = New System.Drawing.Point(366, 31)
+        GeneroLabel.Location = New System.Drawing.Point(374, 31)
         GeneroLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         GeneroLabel.Name = "GeneroLabel"
         GeneroLabel.Size = New System.Drawing.Size(51, 15)
@@ -508,7 +521,7 @@ Partial Class FrmSocios
         'ProfissãoLabel
         '
         ProfissãoLabel.AutoSize = True
-        ProfissãoLabel.Location = New System.Drawing.Point(332, 234)
+        ProfissãoLabel.Location = New System.Drawing.Point(340, 234)
         ProfissãoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProfissãoLabel.Name = "ProfissãoLabel"
         ProfissãoLabel.Size = New System.Drawing.Size(61, 15)
@@ -524,6 +537,42 @@ Partial Class FrmSocios
         OutrosDadosLabel.Size = New System.Drawing.Size(85, 15)
         OutrosDadosLabel.TabIndex = 0
         OutrosDadosLabel.Text = "Outros Dados:"
+        '
+        'RegistroOrgaoLabel
+        '
+        RegistroOrgaoLabel.AutoSize = True
+        RegistroOrgaoLabel.Location = New System.Drawing.Point(10, 357)
+        RegistroOrgaoLabel.Name = "RegistroOrgaoLabel"
+        RegistroOrgaoLabel.Size = New System.Drawing.Size(123, 15)
+        RegistroOrgaoLabel.TabIndex = 70
+        RegistroOrgaoLabel.Text = "Registro Profissional:"
+        '
+        'RegistroEstadoLabel
+        '
+        RegistroEstadoLabel.AutoSize = True
+        RegistroEstadoLabel.Location = New System.Drawing.Point(260, 355)
+        RegistroEstadoLabel.Name = "RegistroEstadoLabel"
+        RegistroEstadoLabel.Size = New System.Drawing.Size(48, 15)
+        RegistroEstadoLabel.TabIndex = 71
+        RegistroEstadoLabel.Text = "Estado:"
+        '
+        'RegistroNumeroLabel
+        '
+        RegistroNumeroLabel.AutoSize = True
+        RegistroNumeroLabel.Location = New System.Drawing.Point(382, 355)
+        RegistroNumeroLabel.Name = "RegistroNumeroLabel"
+        RegistroNumeroLabel.Size = New System.Drawing.Size(55, 15)
+        RegistroNumeroLabel.TabIndex = 72
+        RegistroNumeroLabel.Text = "Numero:"
+        '
+        'RegistroDataLabel
+        '
+        RegistroDataLabel.AutoSize = True
+        RegistroDataLabel.Location = New System.Drawing.Point(6, 384)
+        RegistroDataLabel.Name = "RegistroDataLabel"
+        RegistroDataLabel.Size = New System.Drawing.Size(134, 15)
+        RegistroDataLabel.TabIndex = 74
+        RegistroDataLabel.Text = "Data de Inscrição Reg.:"
         '
         'SociosBindingSource
         '
@@ -617,6 +666,7 @@ Partial Class FrmSocios
         Me.TableAdapterManager.NaturezajuridicaTableAdapter = Nothing
         Me.TableAdapterManager.ParcelamentosAvisoTableAdapter = Nothing
         Me.TableAdapterManager.ParcelamentosTableAdapter = Nothing
+        Me.TableAdapterManager.RegistroProfissionalTableAdapter = Nothing
         Me.TableAdapterManager.SitesTableAdapter = Nothing
         Me.TableAdapterManager.SociosTableAdapter = Me.SociosTableAdapter
         Me.TableAdapterManager.TelefonesTableAdapter = Nothing
@@ -635,17 +685,19 @@ Partial Class FrmSocios
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.Size = New System.Drawing.Size(697, 386)
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(697, 446)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage1
         '
+        Me.TabPage1.AutoScroll = True
         Me.TabPage1.Controls.Add(Me.GroupBoxDadosPessoais)
         Me.TabPage1.Location = New System.Drawing.Point(4, 27)
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage1.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage1.Size = New System.Drawing.Size(689, 415)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sócio"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -653,6 +705,15 @@ Partial Class FrmSocios
         'GroupBoxDadosPessoais
         '
         Me.GroupBoxDadosPessoais.AutoSize = True
+        Me.GroupBoxDadosPessoais.Controls.Add(RegistroDataLabel)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.RegistroDataMaskedTextBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.BtnConsultaRegistroEntidades)
+        Me.GroupBoxDadosPessoais.Controls.Add(RegistroNumeroLabel)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.RegistroNumeroTextBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(RegistroEstadoLabel)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.RegistroEstadoComboBox)
+        Me.GroupBoxDadosPessoais.Controls.Add(RegistroOrgaoLabel)
+        Me.GroupBoxDadosPessoais.Controls.Add(Me.RegistroOrgaoComboBox)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.LinkLabelArrumaOrgaoRG)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.LblMenorIdade)
         Me.GroupBoxDadosPessoais.Controls.Add(Me.MenorIdadeComboBox)
@@ -704,15 +765,78 @@ Partial Class FrmSocios
         Me.GroupBoxDadosPessoais.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxDadosPessoais.Name = "GroupBoxDadosPessoais"
         Me.GroupBoxDadosPessoais.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(681, 349)
+        Me.GroupBoxDadosPessoais.Size = New System.Drawing.Size(681, 409)
         Me.GroupBoxDadosPessoais.TabIndex = 52
         Me.GroupBoxDadosPessoais.TabStop = False
         Me.GroupBoxDadosPessoais.Text = "Dados Pessoais"
         '
+        'RegistroDataMaskedTextBox
+        '
+        Me.RegistroDataMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RegistroData", True))
+        Me.RegistroDataMaskedTextBox.Location = New System.Drawing.Point(141, 381)
+        Me.RegistroDataMaskedTextBox.Mask = "00/00/0000"
+        Me.RegistroDataMaskedTextBox.Name = "RegistroDataMaskedTextBox"
+        Me.RegistroDataMaskedTextBox.Size = New System.Drawing.Size(83, 21)
+        Me.RegistroDataMaskedTextBox.TabIndex = 75
+        Me.RegistroDataMaskedTextBox.ValidatingType = GetType(Date)
+        '
+        'BtnConsultaRegistroEntidades
+        '
+        Me.BtnConsultaRegistroEntidades.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.interrogacao
+        Me.BtnConsultaRegistroEntidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnConsultaRegistroEntidades.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnConsultaRegistroEntidades.FlatAppearance.BorderSize = 0
+        Me.BtnConsultaRegistroEntidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnConsultaRegistroEntidades.Location = New System.Drawing.Point(226, 349)
+        Me.BtnConsultaRegistroEntidades.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnConsultaRegistroEntidades.Name = "BtnConsultaRegistroEntidades"
+        Me.BtnConsultaRegistroEntidades.Size = New System.Drawing.Size(31, 27)
+        Me.BtnConsultaRegistroEntidades.TabIndex = 74
+        Me.BtnConsultaRegistroEntidades.UseVisualStyleBackColor = True
+        '
+        'RegistroNumeroTextBox
+        '
+        Me.RegistroNumeroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RegistroNumero", True))
+        Me.RegistroNumeroTextBox.Location = New System.Drawing.Point(443, 354)
+        Me.RegistroNumeroTextBox.Name = "RegistroNumeroTextBox"
+        Me.RegistroNumeroTextBox.Size = New System.Drawing.Size(111, 21)
+        Me.RegistroNumeroTextBox.TabIndex = 73
+        '
+        'RegistroEstadoComboBox
+        '
+        Me.RegistroEstadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RegistroEstado", True))
+        Me.RegistroEstadoComboBox.FormattingEnabled = True
+        Me.RegistroEstadoComboBox.Items.AddRange(New Object() {"AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"})
+        Me.RegistroEstadoComboBox.Location = New System.Drawing.Point(314, 352)
+        Me.RegistroEstadoComboBox.Name = "RegistroEstadoComboBox"
+        Me.RegistroEstadoComboBox.Size = New System.Drawing.Size(61, 23)
+        Me.RegistroEstadoComboBox.TabIndex = 72
+        '
+        'RegistroOrgaoComboBox
+        '
+        Me.RegistroOrgaoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RegistroOrgao", True))
+        Me.RegistroOrgaoComboBox.FormattingEnabled = True
+        Me.RegistroOrgaoComboBox.Items.AddRange(New Object() {"OAB", "CRA", "CFA", "CAU", "CFESS", "CRESS", "CFB", "CRB", "CFBio", "CRBio", "CFBM", "CRBM", "CFC", "CRC", "COFECI", "CRECI", "COFECON", "CORECON", "CFED", "CRED", "CONFEF", "CREF", "COFEN", "COREN", "CONFEA", "CREA", "CONFE", "CONRE", "CFF", "CRF", "COFFITO", "CREFITO", "CFFa", "CREFONO", "CFM", "CRM", "CFMV", "CRMV", "COFEM", "COREM", "OMB", "CFN", "CRN", "CFO", "CRO", "CFP", "CRP", "CFQ", "CRQ", "CONFERP", "CONRERP", "CONFERE", "CORE", "CONTER", "CRTR", "CFT", "CRT", "CFTA", "CRTA"})
+        Me.RegistroOrgaoComboBox.Location = New System.Drawing.Point(141, 352)
+        Me.RegistroOrgaoComboBox.Name = "RegistroOrgaoComboBox"
+        Me.RegistroOrgaoComboBox.Size = New System.Drawing.Size(83, 23)
+        Me.RegistroOrgaoComboBox.TabIndex = 71
+        '
+        'LinkLabelArrumaOrgaoRG
+        '
+        Me.LinkLabelArrumaOrgaoRG.AutoSize = True
+        Me.LinkLabelArrumaOrgaoRG.BackColor = System.Drawing.Color.Transparent
+        Me.LinkLabelArrumaOrgaoRG.Location = New System.Drawing.Point(374, 286)
+        Me.LinkLabelArrumaOrgaoRG.Name = "LinkLabelArrumaOrgaoRG"
+        Me.LinkLabelArrumaOrgaoRG.Size = New System.Drawing.Size(51, 15)
+        Me.LinkLabelArrumaOrgaoRG.TabIndex = 70
+        Me.LinkLabelArrumaOrgaoRG.TabStop = True
+        Me.LinkLabelArrumaOrgaoRG.Text = "Arrumar"
+        '
         'LblMenorIdade
         '
         Me.LblMenorIdade.AutoSize = True
-        Me.LblMenorIdade.Location = New System.Drawing.Point(224, 150)
+        Me.LblMenorIdade.Location = New System.Drawing.Point(232, 150)
         Me.LblMenorIdade.Name = "LblMenorIdade"
         Me.LblMenorIdade.Size = New System.Drawing.Size(97, 15)
         Me.LblMenorIdade.TabIndex = 69
@@ -723,7 +847,7 @@ Partial Class FrmSocios
         Me.MenorIdadeComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "MenorIdade", True))
         Me.MenorIdadeComboBox.FormattingEnabled = True
         Me.MenorIdadeComboBox.Items.AddRange(New Object() {"menor impúbere", "menor púbere", "menor emancipado", "menor absoluto", "incapaz"})
-        Me.MenorIdadeComboBox.Location = New System.Drawing.Point(323, 147)
+        Me.MenorIdadeComboBox.Location = New System.Drawing.Point(331, 147)
         Me.MenorIdadeComboBox.Name = "MenorIdadeComboBox"
         Me.MenorIdadeComboBox.Size = New System.Drawing.Size(155, 23)
         Me.MenorIdadeComboBox.TabIndex = 68
@@ -732,7 +856,7 @@ Partial Class FrmSocios
         '
         Me.BtnCopiarCPF.BackColor = System.Drawing.Color.Azure
         Me.BtnCopiarCPF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarCPF.Location = New System.Drawing.Point(257, 27)
+        Me.BtnCopiarCPF.Location = New System.Drawing.Point(265, 27)
         Me.BtnCopiarCPF.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarCPF.Name = "BtnCopiarCPF"
         Me.BtnCopiarCPF.Size = New System.Drawing.Size(54, 23)
@@ -772,7 +896,7 @@ Partial Class FrmSocios
         '
         Me.BtnCopiarSenhaGov.BackColor = System.Drawing.Color.Azure
         Me.BtnCopiarSenhaGov.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCopiarSenhaGov.Location = New System.Drawing.Point(272, 231)
+        Me.BtnCopiarSenhaGov.Location = New System.Drawing.Point(280, 231)
         Me.BtnCopiarSenhaGov.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnCopiarSenhaGov.Name = "BtnCopiarSenhaGov"
         Me.BtnCopiarSenhaGov.Size = New System.Drawing.Size(54, 23)
@@ -797,7 +921,7 @@ Partial Class FrmSocios
         'NomeCompletoTextBox
         '
         Me.NomeCompletoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeCompleto", True))
-        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(133, 58)
+        Me.NomeCompletoTextBox.Location = New System.Drawing.Point(141, 58)
         Me.NomeCompletoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomeCompletoTextBox.Name = "NomeCompletoTextBox"
         Me.NomeCompletoTextBox.Size = New System.Drawing.Size(414, 21)
@@ -806,7 +930,7 @@ Partial Class FrmSocios
         'CivilTextBox
         '
         Me.CivilTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Civil", True))
-        Me.CivilTextBox.Location = New System.Drawing.Point(133, 201)
+        Me.CivilTextBox.Location = New System.Drawing.Point(141, 201)
         Me.CivilTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CivilTextBox.Name = "CivilTextBox"
         Me.CivilTextBox.ReadOnly = True
@@ -817,7 +941,7 @@ Partial Class FrmSocios
         '
         Me.BtnConsultarTituloDeEleitor.BackColor = System.Drawing.Color.Azure
         Me.BtnConsultarTituloDeEleitor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnConsultarTituloDeEleitor.Location = New System.Drawing.Point(274, 295)
+        Me.BtnConsultarTituloDeEleitor.Location = New System.Drawing.Point(282, 295)
         Me.BtnConsultarTituloDeEleitor.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnConsultarTituloDeEleitor.Name = "BtnConsultarTituloDeEleitor"
         Me.BtnConsultarTituloDeEleitor.Size = New System.Drawing.Size(71, 23)
@@ -828,7 +952,7 @@ Partial Class FrmSocios
         'CNHDataExpMaskedTextBox
         '
         Me.CNHDataExpMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHDataExp", True))
-        Me.CNHDataExpMaskedTextBox.Location = New System.Drawing.Point(334, 325)
+        Me.CNHDataExpMaskedTextBox.Location = New System.Drawing.Point(342, 325)
         Me.CNHDataExpMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHDataExpMaskedTextBox.Mask = "00/00/0000"
         Me.CNHDataExpMaskedTextBox.Name = "CNHDataExpMaskedTextBox"
@@ -840,7 +964,7 @@ Partial Class FrmSocios
         '
         Me.ListBoxEstadoCivil.FormattingEnabled = True
         Me.ListBoxEstadoCivil.ItemHeight = 15
-        Me.ListBoxEstadoCivil.Location = New System.Drawing.Point(276, 201)
+        Me.ListBoxEstadoCivil.Location = New System.Drawing.Point(284, 201)
         Me.ListBoxEstadoCivil.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ListBoxEstadoCivil.Name = "ListBoxEstadoCivil"
         Me.ListBoxEstadoCivil.Size = New System.Drawing.Size(45, 19)
@@ -849,7 +973,7 @@ Partial Class FrmSocios
         'ProfissãoTextBox
         '
         Me.ProfissãoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Profissão", True))
-        Me.ProfissãoTextBox.Location = New System.Drawing.Point(398, 231)
+        Me.ProfissãoTextBox.Location = New System.Drawing.Point(406, 231)
         Me.ProfissãoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.ProfissãoTextBox.Name = "ProfissãoTextBox"
         Me.ProfissãoTextBox.Size = New System.Drawing.Size(149, 21)
@@ -871,7 +995,7 @@ Partial Class FrmSocios
         '
         'TextBoxExtensoDN
         '
-        Me.TextBoxExtensoDN.Location = New System.Drawing.Point(133, 174)
+        Me.TextBoxExtensoDN.Location = New System.Drawing.Point(141, 174)
         Me.TextBoxExtensoDN.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBoxExtensoDN.Name = "TextBoxExtensoDN"
         Me.TextBoxExtensoDN.Size = New System.Drawing.Size(248, 21)
@@ -881,7 +1005,7 @@ Partial Class FrmSocios
         '
         Me.BtnExtensoDN.BackColor = System.Drawing.Color.White
         Me.BtnExtensoDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExtensoDN.Location = New System.Drawing.Point(58, 173)
+        Me.BtnExtensoDN.Location = New System.Drawing.Point(66, 173)
         Me.BtnExtensoDN.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.BtnExtensoDN.Name = "BtnExtensoDN"
         Me.BtnExtensoDN.Size = New System.Drawing.Size(70, 24)
@@ -895,7 +1019,7 @@ Partial Class FrmSocios
         Me.GeneroComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.GeneroComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "Genero", True))
         Me.GeneroComboBox.FormattingEnabled = True
-        Me.GeneroComboBox.Location = New System.Drawing.Point(426, 28)
+        Me.GeneroComboBox.Location = New System.Drawing.Point(434, 28)
         Me.GeneroComboBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GeneroComboBox.Name = "GeneroComboBox"
         Me.GeneroComboBox.Size = New System.Drawing.Size(121, 23)
@@ -904,7 +1028,7 @@ Partial Class FrmSocios
         'CNHExpedicaoTextBox
         '
         Me.CNHExpedicaoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNHExpedicao", True))
-        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(463, 325)
+        Me.CNHExpedicaoTextBox.Location = New System.Drawing.Point(471, 325)
         Me.CNHExpedicaoTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHExpedicaoTextBox.Name = "CNHExpedicaoTextBox"
         Me.CNHExpedicaoTextBox.Size = New System.Drawing.Size(83, 21)
@@ -913,7 +1037,7 @@ Partial Class FrmSocios
         'CNHTextBox
         '
         Me.CNHTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CNH", True))
-        Me.CNHTextBox.Location = New System.Drawing.Point(133, 325)
+        Me.CNHTextBox.Location = New System.Drawing.Point(141, 325)
         Me.CNHTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CNHTextBox.Name = "CNHTextBox"
         Me.CNHTextBox.Size = New System.Drawing.Size(137, 21)
@@ -922,7 +1046,7 @@ Partial Class FrmSocios
         'SenhaGOVTextBox
         '
         Me.SenhaGOVTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "SenhaGOV", True))
-        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(133, 231)
+        Me.SenhaGOVTextBox.Location = New System.Drawing.Point(141, 231)
         Me.SenhaGOVTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SenhaGOVTextBox.Name = "SenhaGOVTextBox"
         Me.SenhaGOVTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -932,7 +1056,7 @@ Partial Class FrmSocios
         'TituloDeEleitorTextBox
         '
         Me.TituloDeEleitorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "TituloDeEleitor", True))
-        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(133, 295)
+        Me.TituloDeEleitorTextBox.Location = New System.Drawing.Point(141, 295)
         Me.TituloDeEleitorTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TituloDeEleitorTextBox.Name = "TituloDeEleitorTextBox"
         Me.TituloDeEleitorTextBox.Size = New System.Drawing.Size(137, 21)
@@ -941,7 +1065,7 @@ Partial Class FrmSocios
         'EstadoRGTextBox
         '
         Me.EstadoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "EstadoRG", True))
-        Me.EstadoRGTextBox.Location = New System.Drawing.Point(502, 265)
+        Me.EstadoRGTextBox.Location = New System.Drawing.Point(510, 265)
         Me.EstadoRGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.EstadoRGTextBox.Name = "EstadoRGTextBox"
         Me.EstadoRGTextBox.Size = New System.Drawing.Size(45, 21)
@@ -950,7 +1074,7 @@ Partial Class FrmSocios
         'OrgaoRGTextBox
         '
         Me.OrgaoRGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "OrgaoRG", True))
-        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(352, 265)
+        Me.OrgaoRGTextBox.Location = New System.Drawing.Point(360, 265)
         Me.OrgaoRGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.OrgaoRGTextBox.Name = "OrgaoRGTextBox"
         Me.OrgaoRGTextBox.Size = New System.Drawing.Size(62, 21)
@@ -959,7 +1083,7 @@ Partial Class FrmSocios
         'RGTextBox
         '
         Me.RGTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "RG", True))
-        Me.RGTextBox.Location = New System.Drawing.Point(133, 265)
+        Me.RGTextBox.Location = New System.Drawing.Point(141, 265)
         Me.RGTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.RGTextBox.Name = "RGTextBox"
         Me.RGTextBox.Size = New System.Drawing.Size(137, 21)
@@ -968,7 +1092,7 @@ Partial Class FrmSocios
         'DatadeNascMaskedTextBox
         '
         Me.DatadeNascMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "DatadeNasc", True))
-        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(133, 148)
+        Me.DatadeNascMaskedTextBox.Location = New System.Drawing.Point(141, 148)
         Me.DatadeNascMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DatadeNascMaskedTextBox.Mask = "00/00/0000"
         Me.DatadeNascMaskedTextBox.Name = "DatadeNascMaskedTextBox"
@@ -979,7 +1103,7 @@ Partial Class FrmSocios
         'NomePaiTextBox
         '
         Me.NomePaiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomePai", True))
-        Me.NomePaiTextBox.Location = New System.Drawing.Point(133, 118)
+        Me.NomePaiTextBox.Location = New System.Drawing.Point(141, 118)
         Me.NomePaiTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomePaiTextBox.Name = "NomePaiTextBox"
         Me.NomePaiTextBox.Size = New System.Drawing.Size(414, 21)
@@ -988,7 +1112,7 @@ Partial Class FrmSocios
         'NomeMaeTextBox
         '
         Me.NomeMaeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "NomeMae", True))
-        Me.NomeMaeTextBox.Location = New System.Drawing.Point(133, 88)
+        Me.NomeMaeTextBox.Location = New System.Drawing.Point(141, 88)
         Me.NomeMaeTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.NomeMaeTextBox.Name = "NomeMaeTextBox"
         Me.NomeMaeTextBox.Size = New System.Drawing.Size(414, 21)
@@ -997,7 +1121,7 @@ Partial Class FrmSocios
         'CPFMaskedTextBox
         '
         Me.CPFMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SociosBindingSource, "CPF", True))
-        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(133, 28)
+        Me.CPFMaskedTextBox.Location = New System.Drawing.Point(141, 28)
         Me.CPFMaskedTextBox.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CPFMaskedTextBox.Mask = "999,999,999-99"
         Me.CPFMaskedTextBox.Name = "CPFMaskedTextBox"
@@ -1011,7 +1135,7 @@ Partial Class FrmSocios
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage2.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage2.Size = New System.Drawing.Size(689, 415)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Endereço"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1052,10 +1176,34 @@ Partial Class FrmSocios
         Me.GroupBoxOutrosDados.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxOutrosDados.Name = "GroupBoxOutrosDados"
         Me.GroupBoxOutrosDados.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(681, 349)
+        Me.GroupBoxOutrosDados.Size = New System.Drawing.Size(681, 409)
         Me.GroupBoxOutrosDados.TabIndex = 52
         Me.GroupBoxOutrosDados.TabStop = False
         Me.GroupBoxOutrosDados.Text = "Outros Dados"
+        '
+        'BtnCorrigeCidade
+        '
+        Me.BtnCorrigeCidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCorrigeCidade.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnCorrigeCidade.Location = New System.Drawing.Point(439, 92)
+        Me.BtnCorrigeCidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnCorrigeCidade.Name = "BtnCorrigeCidade"
+        Me.BtnCorrigeCidade.Size = New System.Drawing.Size(119, 29)
+        Me.BtnCorrigeCidade.TabIndex = 78
+        Me.BtnCorrigeCidade.Text = "Arrumar Cidade"
+        Me.BtnCorrigeCidade.UseVisualStyleBackColor = True
+        '
+        'BtnArrumaEnd
+        '
+        Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
+        Me.BtnArrumaEnd.Location = New System.Drawing.Point(439, 57)
+        Me.BtnArrumaEnd.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
+        Me.BtnArrumaEnd.Size = New System.Drawing.Size(119, 29)
+        Me.BtnArrumaEnd.TabIndex = 77
+        Me.BtnArrumaEnd.Text = "Arrumar Endereço"
+        Me.BtnArrumaEnd.UseVisualStyleBackColor = True
         '
         'BtnCopiaCEP
         '
@@ -1215,7 +1363,7 @@ Partial Class FrmSocios
         Me.TabPage3.Location = New System.Drawing.Point(4, 27)
         Me.TabPage3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage3.Size = New System.Drawing.Size(689, 415)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Cônjuge"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1234,7 +1382,7 @@ Partial Class FrmSocios
         Me.GroupBoxConjuge.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxConjuge.Name = "GroupBoxConjuge"
         Me.GroupBoxConjuge.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBoxConjuge.Size = New System.Drawing.Size(689, 355)
+        Me.GroupBoxConjuge.Size = New System.Drawing.Size(689, 415)
         Me.GroupBoxConjuge.TabIndex = 4
         Me.GroupBoxConjuge.TabStop = False
         Me.GroupBoxConjuge.Text = "Dado do Cônjuge"
@@ -1293,7 +1441,7 @@ Partial Class FrmSocios
         Me.TabPage4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TabPage4.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage4.Size = New System.Drawing.Size(689, 415)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "Outros Dados"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1307,7 +1455,7 @@ Partial Class FrmSocios
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(681, 349)
+        Me.GroupBox4.Size = New System.Drawing.Size(681, 409)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
@@ -1331,7 +1479,7 @@ Partial Class FrmSocios
         Me.TabPage5.Location = New System.Drawing.Point(4, 27)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(689, 355)
+        Me.TabPage5.Size = New System.Drawing.Size(689, 415)
         Me.TabPage5.TabIndex = 5
         Me.TabPage5.Text = "Empresas"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -1376,7 +1524,7 @@ Partial Class FrmSocios
         Me.GroupBox2.Controls.Add(Me.BtnExportar)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(4, 501)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 561)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -1485,7 +1633,7 @@ Partial Class FrmSocios
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(831, 810)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(831, 842)
         Me.TableLayoutPanel1.TabIndex = 51
         '
         'BtnFechar
@@ -1520,7 +1668,7 @@ Partial Class FrmSocios
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(122, 386)
+        Me.GroupBox1.Size = New System.Drawing.Size(122, 446)
         Me.GroupBox1.TabIndex = 56
         Me.GroupBox1.TabStop = False
         '
@@ -1635,7 +1783,7 @@ Partial Class FrmSocios
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonLimpar)
         Me.GroupBoxMenuCapitalSocial.Controls.Add(Me.ButtonPorcentagem)
         Me.GroupBoxMenuCapitalSocial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(709, 585)
+        Me.GroupBoxMenuCapitalSocial.Location = New System.Drawing.Point(709, 645)
         Me.GroupBoxMenuCapitalSocial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxMenuCapitalSocial.Name = "GroupBoxMenuCapitalSocial"
         Me.GroupBoxMenuCapitalSocial.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -1700,7 +1848,7 @@ Partial Class FrmSocios
         Me.GroupBoxCapitalSocial.Controls.Add(Me.DataGridView1)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.LblCapTotal)
         Me.GroupBoxCapitalSocial.Controls.Add(Me.TextBoxCapitalSocial)
-        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(4, 585)
+        Me.GroupBoxCapitalSocial.Location = New System.Drawing.Point(4, 645)
         Me.GroupBoxCapitalSocial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBoxCapitalSocial.Name = "GroupBoxCapitalSocial"
         Me.GroupBoxCapitalSocial.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -1895,41 +2043,6 @@ Partial Class FrmSocios
         Me.Label1.Text = "CADASTRO DOS SOCIOS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BtnArrumaEnd
-        '
-        Me.BtnArrumaEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnArrumaEnd.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnArrumaEnd.Location = New System.Drawing.Point(439, 57)
-        Me.BtnArrumaEnd.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnArrumaEnd.Name = "BtnArrumaEnd"
-        Me.BtnArrumaEnd.Size = New System.Drawing.Size(119, 29)
-        Me.BtnArrumaEnd.TabIndex = 77
-        Me.BtnArrumaEnd.Text = "Arrumar Endereço"
-        Me.BtnArrumaEnd.UseVisualStyleBackColor = True
-        '
-        'BtnCorrigeCidade
-        '
-        Me.BtnCorrigeCidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCorrigeCidade.ForeColor = System.Drawing.Color.MediumBlue
-        Me.BtnCorrigeCidade.Location = New System.Drawing.Point(439, 92)
-        Me.BtnCorrigeCidade.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.BtnCorrigeCidade.Name = "BtnCorrigeCidade"
-        Me.BtnCorrigeCidade.Size = New System.Drawing.Size(119, 29)
-        Me.BtnCorrigeCidade.TabIndex = 78
-        Me.BtnCorrigeCidade.Text = "Arrumar Cidade"
-        Me.BtnCorrigeCidade.UseVisualStyleBackColor = True
-        '
-        'LinkLabelArrumaOrgaoRG
-        '
-        Me.LinkLabelArrumaOrgaoRG.AutoSize = True
-        Me.LinkLabelArrumaOrgaoRG.BackColor = System.Drawing.Color.Transparent
-        Me.LinkLabelArrumaOrgaoRG.Location = New System.Drawing.Point(366, 286)
-        Me.LinkLabelArrumaOrgaoRG.Name = "LinkLabelArrumaOrgaoRG"
-        Me.LinkLabelArrumaOrgaoRG.Size = New System.Drawing.Size(51, 15)
-        Me.LinkLabelArrumaOrgaoRG.TabIndex = 70
-        Me.LinkLabelArrumaOrgaoRG.TabStop = True
-        Me.LinkLabelArrumaOrgaoRG.Text = "Arrumar"
-        '
         'FrmSocios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1939,7 +2052,7 @@ Partial Class FrmSocios
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.PrinceSistemas.My.Resources.Resources.fundo_azul
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(831, 810)
+        Me.ClientSize = New System.Drawing.Size(831, 842)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -2104,4 +2217,9 @@ Partial Class FrmSocios
     Friend WithEvents BtnArrumaEnd As Button
     Friend WithEvents BtnCorrigeCidade As Button
     Friend WithEvents LinkLabelArrumaOrgaoRG As LinkLabel
+    Friend WithEvents RegistroNumeroTextBox As TextBox
+    Friend WithEvents RegistroEstadoComboBox As ComboBox
+    Friend WithEvents RegistroOrgaoComboBox As ComboBox
+    Friend WithEvents BtnConsultaRegistroEntidades As Button
+    Friend WithEvents RegistroDataMaskedTextBox As MaskedTextBox
 End Class

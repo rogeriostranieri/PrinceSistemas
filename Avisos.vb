@@ -169,8 +169,6 @@ Public Class Avisos
 
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
         If Application.OpenForms.OfType(Of LembreteInicial)().Count() > 0 Then
-
-            LembreteInicial.Focus()
             LembreteInicial.Close()
             LembreteInicial.MdiParent = MDIPrincipal
             LembreteInicial.Show()
@@ -186,8 +184,6 @@ Public Class Avisos
 
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
         If Application.OpenForms.OfType(Of PrioridadeAviso)().Count() > 0 Then
-
-            PrioridadeAviso.Focus()
             PrioridadeAviso.Close()
             PrioridadeAviso.MdiParent = MDIPrincipal
             PrioridadeAviso.Show()
@@ -236,11 +232,12 @@ Public Class Avisos
 
         ' Se já existir uma instância, foca no formulário
         If FrmProtocoladosGeral IsNot Nothing Then
-            FrmProtocoladosGeral.Focus()
+            FrmProtocoladosGeral.Close()
+            FrmProtocoladosGeral.MdiParent = MDIPrincipal
+            FrmProtocoladosGeral.Show()
         Else
 
             FrmProtocoladosGeral.MdiParent = MDIPrincipal
-
             FrmProtocoladosGeral.Show()
         End If
     End Sub

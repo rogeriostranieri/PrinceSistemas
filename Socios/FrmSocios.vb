@@ -541,7 +541,6 @@ Public Class FrmSocios
                 Portador = "portador"
                 Brasileiro = "brasileiro"
                 Nascido = "nascido em"
-
             ElseIf Genero = "Feminino" Then
                 domiciliado = "domiciliada"
                 Portador = "portadora"
@@ -578,6 +577,17 @@ Public Class FrmSocios
             End If
 
             '///////////////////////////////////////////////////////////////////////////////////
+            'Bloco para incluir dados de registro, se houver
+            Dim registroInfo As String = ""
+            If RegistroNumeroTextBox.Text <> "" Then
+                Dim registroData As String = RegistroDataMaskedTextBox.Text
+                If registroData <> "" Then
+                    Dim registroDataFormatada As String = Format(CDate(registroData), "dd 'de' MMMM 'de' yyyy")
+                    registroData = registroDataFormatada
+                End If
+                registroInfo = " com registro na " & RegistroOrgaoComboBox.Text & "-" & RegistroEstadoComboBox.Text & ", numero nº " & RegistroNumeroTextBox.Text & " registrado em " & registroData & ", "
+            End If
+
             'não permitir o mesmo CPF dentro do FrmLegalizacao.DadosSociosRichTextBox
             Dim QuantidadeSocios As Integer
 
@@ -605,12 +615,11 @@ Public Class FrmSocios
                         ehAdministrador = "Sócio"
                     End If
 
-                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, "
-Novos dados:
-" & saidaDeSocio & "Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
-ehAdministrador & vbCrLf & vbCrLf &
-NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
-"//////////////////////////////////////////////////////////////////////")
+                    FrmLegalizacao.DadosSociosRichTextBox.Text = FrmLegalizacao.DadosSociosRichTextBox.Text.Insert(Posição, vbCrLf & "Novos dados:" & vbCrLf &
+                saidaDeSocio & "Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+                ehAdministrador & vbCrLf & vbCrLf &
+                NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & registroInfo & "da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
+                "//////////////////////////////////////////////////////////////////////")
                 End If
 
             Else
@@ -632,10 +641,10 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
 
                 'FORMA FINAL
                 FrmLegalizacao.DadosSociosRichTextBox.SelectedText &=
-        " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
-        ehAdministrador & vbCrLf & vbCrLf &
-        NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & "" & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & " da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
-        "//////////////////////////////////////////////////////////////////////"
+            " Sócio Nº:" & QuantidadeSocios & " //////////////////////////////////////////////////////////" & vbCrLf &
+            ehAdministrador & vbCrLf & vbCrLf &
+            NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & DataDeNascimento & ", " & Empresario & ", residente e " & domiciliado & " na " & RUA1 & ", n.º " & N & Compl & ", " & Bairro & ", CEP: " & CEP & ", na cidade de " & Cidade & "-" & Estado & ", " & Portador & registroInfo & "da Cédula da Identidade Civil RG n.º " & RG & "-" & OrgaoRG & "/" & EstadoRG & " e do CPF n.º " & CPF & "." & RepresentanteLegal & vbCrLf &
+            "//////////////////////////////////////////////////////////////////////"
             End If
 
             'Focar na frente o FrmLegalizacao
@@ -650,6 +659,7 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
         End Try
 
     End Sub
+
 
     Private Sub BtnAddSocios_Click(sender As Object, e As EventArgs) Handles BtnAddSocios.Click
         Try
@@ -2057,5 +2067,27 @@ NomeCompleto & ", " & Brasileiro & ", " & EstadoCivil & ", " & Nascido & " " & D
         'OrgaoRGTextBox coloca apenas primeira letra maiusculo
         OrgaoRGTextBox.Text = StrConv(OrgaoRGTextBox.Text, VbStrConv.ProperCase)
 
+    End Sub
+
+    Private Sub BtnConsultaRegistroEntidades_Click(sender As Object, e As EventArgs) Handles BtnConsultaRegistroEntidades.Click
+        'tratamento de erro, verificar se esta aberto se sim fecha e abre novamente o FrmRegistroProfissional
+        Try
+            ' Verificar se o formulário já está aberto
+            If Application.OpenForms.OfType(Of FrmRegistroProfissional)().Count() > 0 Then
+                ' Se estiver aberto, fecha e abre novamente
+                ' Dim frmRegistroProfissional As FrmRegistroProfissional = Application.OpenForms.OfType(Of FrmRegistroProfissional)().First()
+                FrmRegistroProfissional.Close()
+            End If
+            ' Abrir o formulário FrmRegistroProfissional
+            '   Dim novoFrmRegistroProfissional As New FrmRegistroProfissional()
+            FrmRegistroProfissional.Show()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao abrir o formulário de Registro de Entidades: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ProfissãoTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProfissãoTextBox.TextChanged
+        'sempre minusculo
+        ProfissãoTextBox.Text = ProfissãoTextBox.Text.ToLower()
     End Sub
 End Class
